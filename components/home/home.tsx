@@ -6,6 +6,7 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { MenuItem } from '@/constants/menuData';
 import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useChapterStore, useNotificationStore } from '@/store';
 import { getRandomSloka } from '@/store/utils/notificationUtils';
@@ -14,16 +15,16 @@ import FontAwesome5 from '@expo/vector-icons/build/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedButton } from '../ui/ThemedButton';
 import MenuGrid from './MenuGrid';
 import { getNavigationHandler } from './navigationHandlers';
 
+
+
 const Home = () => {
   const theme = useThemeColors();
   const { width, height } = Dimensions.get('window');
-  const { t } = useTranslation()
   const {
     dailySloka,
     isNotificationVisible,
@@ -124,7 +125,7 @@ const Home = () => {
           size="title"
           fontFamily="regional_secondary"
         >
-          {t("home.headerTitle")}
+          {i18n.t("home.headerTitle")}
         </ThemedLanguageText>
 
 
