@@ -13,6 +13,7 @@ import 'dotenv/config';
 // APP_LANG=as eas build --platform android --profile as
 
 
+// Language-specific configuration
 const languageConfigs = {
   bn: {
     name: "গীতা বাংলা",
@@ -21,6 +22,9 @@ const languageConfigs = {
     androidPackage: "com.gita.bangla",
     primaryColor: "#ffffff",
     languageCode: "bn",
+    icon: "./clients/bn/assets/images/icon.png",
+    splash: "./clients/bn/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/bn/assets/images/adaptive-icon.png",
   },
   or: {
     name: "ଗୀତା ଓଡ଼ିଆ",
@@ -29,6 +33,9 @@ const languageConfigs = {
     androidPackage: "com.gita.odia",
     primaryColor: "#ffffff",
     languageCode: "or",
+    icon: "./clients/or/assets/images/icon.png",
+    splash: "./clients/or/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/or/assets/images/adaptive-icon.png",
   },
   hi: {
     name: "गीता हिंदी",
@@ -37,6 +44,9 @@ const languageConfigs = {
     androidPackage: "com.gita.hindi",
     primaryColor: "#ffffff",
     languageCode: "hi",
+    icon: "./clients/hi/assets/images/icon.png",
+    splash: "./clients/hi/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/hi/assets/images/adaptive-icon.png",
   },
   as: {
     name: "গীতা অসমীয়া",
@@ -45,10 +55,13 @@ const languageConfigs = {
     androidPackage: "com.gita.assamese",
     primaryColor: "#ffffff",
     languageCode: "as",
+    icon: "./clients/as/assets/images/icon.png",
+    splash: "./clients/as/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/as/assets/images/adaptive-icon.png",
   },
 };
 
-// ✅ Unique EAS project IDs per client
+// Unique EAS project IDs per client
 const projectIds = {
   bn: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
   or: "9fdf2660-de92-4a98-a5d6-430dd6148fd0",
@@ -67,42 +80,40 @@ export default function ({ config = {} }) {
     slug: langConf.slug,
     version: "1.0.0",
     orientation: "portrait",
-    icon: "./assets/images/icon.png",
+    icon: langConf.icon,
     scheme: "gita",
+    splash: {
+      image: langConf.splash,
+      resizeMode: "contain",
+      backgroundColor: "#ffffff",
+    },
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
-
     ios: {
       supportsTablet: true,
       bundleIdentifier: langConf.iosBundleIdentifier,
     },
-
     android: {
+      package: langConf.androidPackage,
       adaptiveIcon: {
-        foregroundImage: "./assets/images/adaptive-icon.png",
+        foregroundImage: langConf.adaptiveIcon,
         backgroundColor: "#ffffff",
       },
       edgeToEdgeEnabled: true,
-      package: langConf.androidPackage,
       permissions: [
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS",
       ],
     },
-
     extra: {
       LANGUAGE: langConf.languageCode,
       PRIMARY_COLOR: langConf.primaryColor,
-      eas: {
-        projectId, // Dynamic per language
-      },
+      eas: { projectId },
     },
-
     web: {
       output: "static",
       favicon: "./assets/images/favicon.png",
     },
-
     plugins: [
       "expo-router",
       [
@@ -110,15 +121,6 @@ export default function ({ config = {} }) {
         {
           ios: { useFrameworks: "static" },
           android: { enableMemoryPageSize16K: true },
-        },
-      ],
-      [
-        "expo-splash-screen",
-        {
-          image: "./assets/images/splash-icon.png",
-          imageWidth: 200,
-          resizeMode: "contain",
-          backgroundColor: "#ffffff",
         },
       ],
       [
@@ -136,7 +138,6 @@ export default function ({ config = {} }) {
       ],
       "expo-secure-store",
     ],
-
     experiments: {
       typedRoutes: true,
       reactCompiler: true,
