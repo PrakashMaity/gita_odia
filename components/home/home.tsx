@@ -14,16 +14,16 @@ import FontAwesome5 from '@expo/vector-icons/build/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedButton } from '../ui/ThemedButton';
 import MenuGrid from './MenuGrid';
 import { getNavigationHandler } from './navigationHandlers';
 
-
 const Home = () => {
   const theme = useThemeColors();
   const { width, height } = Dimensions.get('window');
-  
+  const { t } = useTranslation()
   const {
     dailySloka,
     isNotificationVisible,
@@ -43,7 +43,7 @@ const Home = () => {
     const initializeApp = async () => {
       // Ensure chapters are loaded first
       await loadAllChapters();
-      
+
       if (shouldShowNewNotification()) {
         const newSloka = getRandomSloka();
         setDailySloka(newSloka);
@@ -51,7 +51,7 @@ const Home = () => {
         setNotificationVisible(true);
       }
     };
-    
+
     initializeApp();
   }, [loadAllChapters, shouldShowNewNotification, setDailySloka, setNotificationVisible]);
 
@@ -59,7 +59,7 @@ const Home = () => {
     incrementAction();
     const handler = getNavigationHandler(item);
     handler();
-    
+
     // Show interstitial after navigation
     setTimeout(() => {
       showInterstitialIfReady();
@@ -72,7 +72,7 @@ const Home = () => {
 
   const handleReadMore = () => {
     setNotificationVisible(false);
-    
+
     if (dailySloka?.chapterId && dailySloka.chapterId !== 'unknown') {
       console.log('Navigating to chapter:', dailySloka.chapterId);
       console.log('Full sloka data:', dailySloka);
@@ -111,12 +111,12 @@ const Home = () => {
 
   return (
     <ThemedView variant='primary' style={styles.container}>
-      <WavePattern 
-        width={width} 
-        height={height} 
+      <WavePattern
+        width={width}
+        height={height}
       />
-      
-     
+
+
       <ThemedCard variant='transparent' style={styles.headerCard} pattern="none">
         <Image source={require('@/assets/images/Home/logo.png')} style={styles.logo} />
         <ThemedLanguageText
@@ -124,15 +124,15 @@ const Home = () => {
           size="title"
           fontFamily="regional_secondary"
         >
-        ଶ୍ରୀମଦ୍ଭଗବଦ୍ଗୀତା
+          {t("home.headerTitle")}
         </ThemedLanguageText>
-        
-       
+
+
         <ThemedView style={styles.headerActions}>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={[
-              styles.actionButton, 
-              { 
+              styles.actionButton,
+              {
                 borderColor: theme.border.primary,
                 backgroundColor: isNotificationVisible ? theme.button.primary.background : 'transparent'
               }
@@ -140,10 +140,10 @@ const Home = () => {
             onPress={handleBellPress}
             testID="bell-icon"
           >
-            <FontAwesome 
-              name={isNotificationVisible ? "bell" : "bell-o"} 
-              size={SIZES.icon.xs} 
-              color={isNotificationVisible ? theme.button.primary.text : (hasNotification() ? theme.status.warning : theme.icon.primary)} 
+            <FontAwesome
+              name={isNotificationVisible ? "bell" : "bell-o"}
+              size={SIZES.icon.xs}
+              color={isNotificationVisible ? theme.button.primary.text : (hasNotification() ? theme.status.warning : theme.icon.primary)}
             />
             {hasNotification() && !isNotificationVisible && (
               <ThemedView style={[styles.notificationDot, { backgroundColor: theme.status.error }]} />
@@ -151,66 +151,66 @@ const Home = () => {
           </TouchableOpacity>
         </ThemedView>
       </ThemedCard>
-      <ScrollView 
+      <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-      <ThemedCard variant='primary' style={styles.heroCard} pattern="sacredGeometry" patternOpacity={0.15}>
-        <ThemedView style={styles.heroContainer}>
-          <Image source={require('@/assets/images/Home/hero.png')} resizeMode='cover' style={styles.heroImage} />
-          <ThemedView style={styles.textOverlay}>
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xxl" 
-              fontFamily="regional_secondary"
-              style={styles.overlayText}
-            >
-              &ldquo;କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଲେଷୁ କଦାଚନ।
-            </ThemedLanguageText>
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xxl" 
-              fontFamily="regional_secondary"
-              style={styles.overlayText}
-            >
-              ମା କର୍ମଫଲହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥&rdquo;
-            </ThemedLanguageText>
+        <ThemedCard variant='primary' style={styles.heroCard} pattern="sacredGeometry" patternOpacity={0.15}>
+          <ThemedView style={styles.heroContainer}>
+            <Image source={require('@/assets/images/Home/hero.png')} resizeMode='cover' style={styles.heroImage} />
+            <ThemedView style={styles.textOverlay}>
+              <ThemedLanguageText
+                variant="primary"
+                size="xxl"
+                fontFamily="regional_secondary"
+                style={styles.overlayText}
+              >
+                &ldquo;କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଲେଷୁ କଦାଚନ।
+              </ThemedLanguageText>
+              <ThemedLanguageText
+                variant="primary"
+                size="xxl"
+                fontFamily="regional_secondary"
+                style={styles.overlayText}
+              >
+                ମା କର୍ମଫଲହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥&rdquo;
+              </ThemedLanguageText>
+            </ThemedView>
           </ThemedView>
-        </ThemedView>
-      </ThemedCard>
+        </ThemedCard>
 
-      <ThemedCard variant='transparent' style={styles.quickActionsCard}>
-        <ThemedButton
-          title="ଗୀତାର ସାରାଂଶ"
-          onPress={() => {
-            incrementAction();
-            getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
-            setTimeout(() => showInterstitialIfReady(), 500);
-          }}
-          variant="basic"
-          size="md"
-          fullWidth
-          icon={<FontAwesome6 name="book-bookmark" size={SIZES.icon.lg} color={theme.button.primary.text} />}
-        />
-        <ThemedButton
-          title="ଗୀତାର ମାହାତ୍ମ୍ୟ"
-          onPress={() => {
-            incrementAction();
-            getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();
-            setTimeout(() => showInterstitialIfReady(), 500);
-          }}
-          variant="basic"
-          size="md"
-          fullWidth
-          icon={<FontAwesome5 name="book" size={SIZES.icon.lg} color={theme.button.secondary.text} />}
-        />
-      </ThemedCard>
+        <ThemedCard variant='transparent' style={styles.quickActionsCard}>
+          <ThemedButton
+            title="ଗୀତାର ସାରାଂଶ"
+            onPress={() => {
+              incrementAction();
+              getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
+              setTimeout(() => showInterstitialIfReady(), 500);
+            }}
+            variant="basic"
+            size="md"
+            fullWidth
+            icon={<FontAwesome6 name="book-bookmark" size={SIZES.icon.lg} color={theme.button.primary.text} />}
+          />
+          <ThemedButton
+            title="ଗୀତାର ମାହାତ୍ମ୍ୟ"
+            onPress={() => {
+              incrementAction();
+              getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();
+              setTimeout(() => showInterstitialIfReady(), 500);
+            }}
+            variant="basic"
+            size="md"
+            fullWidth
+            icon={<FontAwesome5 name="book" size={SIZES.icon.lg} color={theme.button.secondary.text} />}
+          />
+        </ThemedCard>
 
 
         <MenuGrid onMenuItemPress={handleMenuItemPress} />
       </ScrollView>
-      
+
       <DailySlokaNotification
         visible={isNotificationVisible}
         sloka={dailySloka}
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-  
+
   },
   logo: {
     width: 64,
