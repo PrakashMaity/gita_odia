@@ -33,7 +33,7 @@ export const useInterstitialAds = () => {
       });
 
       const unsubscribeError = newInterstitial.addAdEventListener(AdEventType.ERROR, (error) => {
-        console.log('Interstitial ad error:', error);
+        
         setLoadedInterstitial(false);
         // Retry loading after error
         setTimeout(() => {
@@ -60,9 +60,7 @@ export const useInterstitialAds = () => {
           console.log('Error showing interstitial:', error);
           setLoadedInterstitial(false);
         }
-      } else {
-        console.log('Interstitial ad not loaded yet');
-      }
+      } 
     };
 
     return {

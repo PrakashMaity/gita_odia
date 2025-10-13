@@ -1,5 +1,18 @@
 import 'dotenv/config';
 
+// # Bengali
+// APP_LANG=bn eas build --platform android --profile bn
+
+// # Odia
+// APP_LANG=or eas build --platform android --profile or
+
+// # Hindi
+// APP_LANG=hi eas build --platform android --profile hi
+
+// # Assamese
+// APP_LANG=as eas build --platform android --profile as
+
+
 const languageConfigs = {
   bn: {
     name: "গীতা বাংলা",
@@ -35,10 +48,18 @@ const languageConfigs = {
   },
 };
 
-// ✅ Important: Default config param
+// ✅ Unique EAS project IDs per client
+const projectIds = {
+  bn: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+  or: "9fdf2660-de92-4a98-a5d6-430dd6148fd0",
+  hi: "c842f4d5-b216-4886-8e56-79155fa30c61",
+  as: "8e3998ea-85e5-45c5-81ac-484f0ab9daa4",
+};
+
 export default function ({ config = {} }) {
   const lang = process.env.APP_LANG || "bn";
   const langConf = languageConfigs[lang] || languageConfigs.bn;
+  const projectId = projectIds[lang];
 
   return {
     ...config,
@@ -70,9 +91,11 @@ export default function ({ config = {} }) {
     },
 
     extra: {
-      ...config.extra,
       LANGUAGE: langConf.languageCode,
       PRIMARY_COLOR: langConf.primaryColor,
+      eas: {
+        projectId, // Dynamic per language
+      },
     },
 
     web: {
@@ -108,6 +131,7 @@ export default function ({ config = {} }) {
         "react-native-google-mobile-ads",
         {
           androidAppId: "ca-app-pub-3406043589920136~9029941389",
+          iosAppId: "ca-app-pub-3406043589920136~5828287268",
         },
       ],
       "expo-secure-store",

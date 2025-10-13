@@ -1,24 +1,7 @@
 import { DailySloka } from '../notificationStore';
 
 // Import all chapter data
-import chapter1 from '../../Data/chapter1.json';
-import chapter10 from '../../Data/chapter10.json';
-import chapter11 from '../../Data/chapter11.json';
-import chapter12 from '../../Data/chapter12.json';
-import chapter13 from '../../Data/chapter13.json';
-import chapter14 from '../../Data/chapter14.json';
-import chapter15 from '../../Data/chapter15.json';
-import chapter16 from '../../Data/chapter16.json';
-import chapter17 from '../../Data/chapter17.json';
-import chapter18 from '../../Data/chapter18.json';
-import chapter2 from '../../Data/chapter2.json';
-import chapter3 from '../../Data/chapter3.json';
-import chapter4 from '../../Data/chapter4.json';
-import chapter5 from '../../Data/chapter5.json';
-import chapter6 from '../../Data/chapter6.json';
-import chapter7 from '../../Data/chapter7.json';
-import chapter8 from '../../Data/chapter8.json';
-import chapter9 from '../../Data/chapter9.json';
+import { rawChapters } from '@/Data';
 
 interface ChapterData {
   chapter: {
@@ -27,27 +10,23 @@ interface ChapterData {
     subtitle: string;
     id: string;
   };
-  verses: Array<{
+  verses: {
     verseNumber: string;
     Language: string;
     translation: string;
     speaker: string;
     id: string;
-  }>;
+  }[];
 }
 
-const allChapters: ChapterData[] = [
-  chapter1, chapter2, chapter3, chapter4, chapter5, chapter6,
-  chapter7, chapter8, chapter9, chapter10, chapter11, chapter12,
-  chapter13, chapter14, chapter15, chapter16, chapter17, chapter18
-];
+const allChapters: ChapterData[] = [...rawChapters];
 
 // All chapters loaded successfully
 
 /**
  * Get all verses from all chapters
  */
-export const getAllVerses = (): Array<{
+export const getAllVerses = (): {
   chapterId: string;
   chapterNumber: string;
   chapterTitle: string;
@@ -56,11 +35,9 @@ export const getAllVerses = (): Array<{
   translation: string;
   speaker: string;
   id: string;
-}> => {
-  console.log('getAllVerses called, total chapters:', allChapters.length);
-  console.log('First chapter data:', allChapters[0]);
+}[] => {
   
-  const allVerses: Array<{
+  const allVerses: {
     chapterId: string;
     chapterNumber: string;
     chapterTitle: string;
@@ -69,7 +46,7 @@ export const getAllVerses = (): Array<{
     translation: string;
     speaker: string;
     id: string;
-  }> = [];
+  }[] = [];
 
   allChapters.forEach((chapter, index) => {
     console.log(`Processing chapter ${index + 1}:`, chapter.chapter.number, 'ID:', chapter.chapter.id);

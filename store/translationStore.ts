@@ -1,3 +1,4 @@
+import { rawChapters } from '@/Data';
 import { create } from 'zustand';
 
 export interface TranslationData {
@@ -40,7 +41,7 @@ interface TranslationActions {
   reset: () => void;
 }
 
-interface TranslationStore extends TranslationState, TranslationActions {}
+interface TranslationStore extends TranslationState, TranslationActions { }
 
 // Normalize translation data function
 const normalizeTranslationData = (rawData: any): TranslationData => {
@@ -97,7 +98,7 @@ export const useTranslationStore = create<TranslationStore>()((set, get) => ({
   // Actions
   loadAllTranslations: async () => {
     const { isInitialized } = get();
-    
+
     // If already loaded, don't reload
     if (isInitialized) {
       return;
@@ -106,31 +107,10 @@ export const useTranslationStore = create<TranslationStore>()((set, get) => ({
     set({ isLoading: true, error: null });
 
     try {
-      const chapterPromises = [
-        import('@/Data/chapter1.json').then(module => module.default),
-        import('@/Data/chapter2.json').then(module => module.default),
-        import('@/Data/chapter3.json').then(module => module.default),
-        import('@/Data/chapter4.json').then(module => module.default),
-        import('@/Data/chapter5.json').then(module => module.default),
-        import('@/Data/chapter6.json').then(module => module.default),
-        import('@/Data/chapter7.json').then(module => module.default),
-        import('@/Data/chapter8.json').then(module => module.default),
-        import('@/Data/chapter9.json').then(module => module.default),
-        import('@/Data/chapter10.json').then(module => module.default),
-        import('@/Data/chapter11.json').then(module => module.default),
-        import('@/Data/chapter12.json').then(module => module.default),
-        import('@/Data/chapter13.json').then(module => module.default),
-        import('@/Data/chapter14.json').then(module => module.default),
-        import('@/Data/chapter15.json').then(module => module.default),
-        import('@/Data/chapter16.json').then(module => module.default),
-        import('@/Data/chapter17.json').then(module => module.default),
-        import('@/Data/chapter18.json').then(module => module.default),
-      ];
 
-      const rawChapterData = await Promise.all(chapterPromises);
-      const normalizedData = rawChapterData.map(normalizeTranslationData);
+      const normalizedData = rawChapters.map(normalizeTranslationData);
 
-      set({ 
+      set({
         translations: normalizedData,
         isLoading: false,
         isInitialized: true,
@@ -138,7 +118,7 @@ export const useTranslationStore = create<TranslationStore>()((set, get) => ({
       });
     } catch (error) {
       console.error('Error loading translations:', error);
-      set({ 
+      set({
         isLoading: false,
         error: error instanceof Error ? error.message : 'Failed to load translations'
       });

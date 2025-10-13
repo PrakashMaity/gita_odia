@@ -34,8 +34,8 @@ export const useRewardedAds = () => {
 
       const unsubscribeError = newRewarded.addAdEventListener(
         AdEventType.ERROR,
-        (error) => {
-          console.log('Rewarded ad error:', error);
+        () => {
+          
           setLoadedRewarded(false);
           // Retry loading after error
           setTimeout(() => {
@@ -60,12 +60,10 @@ export const useRewardedAds = () => {
         try {
           rewarded.show();
         } catch (error) {
-          console.log('Error showing rewarded ad:', error);
+         
           setLoadedRewarded(false);
         }
-      } else {
-        console.log('Rewarded ad not loaded yet');
-      }
+      } 
     };
 
     return {

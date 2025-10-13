@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {
-    AdEventType,
-    RewardedAdEventType,
-    RewardedInterstitialAd,
+  AdEventType,
+  RewardedAdEventType,
+  RewardedInterstitialAd,
 } from 'react-native-google-mobile-ads';
 import { REWARDED_INTERSTITIAL_AD_UNIT_ID } from '../config/config';
 
@@ -42,7 +42,7 @@ export const useRewardedInterstitialAds = () => {
     const unsubscribeError = newRewardedInterstitial.addAdEventListener(
       AdEventType.ERROR,
       (error) => {
-        console.log('Rewarded interstitial ad error:', error);
+       
         setLoadedRewardedInterstitial(false);
         // Retry loading after error
         setTimeout(() => {

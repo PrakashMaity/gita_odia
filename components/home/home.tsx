@@ -109,7 +109,6 @@ const Home = () => {
     }
   };
 
-
   return (
     <ThemedView variant='primary' style={styles.container}>
       <WavePattern
