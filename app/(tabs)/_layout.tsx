@@ -1,33 +1,102 @@
+  import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
+import { SIZES } from '@/constants/sizes';
+import { useTheme } from '@/hooks/useTheme';
+import { FONTS_LANGUAGE } from '@/interface/font.interface';
+import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: theme.icon.primary,
+        tabBarInactiveTintColor: theme.text.secondary,
+        tabBarStyle: {
+          backgroundColor: theme.background.primary,
+          borderTopColor: theme.border.primary,
+          borderTopWidth: SIZES.borderSize.md,
+          height: SIZES.header.lg,
+          paddingBottom: SIZES.spacing.sm,
+          paddingTop: SIZES.spacing.sm,
+          
+        },
+        tabBarLabelStyle: {
+          fontSize: SIZES.lg,
+          fontFamily: FONTS_LANGUAGE.regional_secondary,
+          
+        },
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'ଘର',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'home' : 'home-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="chapters"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'ଅଧ୍ୟାୟ',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'list' : 'list-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+  
+      {/* <Tabs.Screen
+        name="audio"
+        options={{
+          title: 'ଅଡ଼ିଓ',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'headset' : 'headset-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
+        }}
+      /> */}
+      <Tabs.Screen
+        name="bookmarks"
+        options={{
+          title: 'ବୁକମାର୍କ',
+          tabBarIcon: ({ color, size, focused }) => (
+            <BookmarkIcon 
+              size={size} 
+              color={color} 
+              focused={focused}
+              showBadge={true}
+              badgeSize="small"
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'ସେଟିଂସ',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? 'settings' : 'settings-outline'} 
+              size={size} 
+              color={color} 
+            />
+          ),
         }}
       />
     </Tabs>

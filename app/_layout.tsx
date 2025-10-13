@@ -1,24 +1,65 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useChapterStore } from '@/store';
+import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ThemeProvider } from '../hooks/useTheme';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const { loadAllChapters } = useChapterStore();
+  
+  const [loaded, error] = useFonts({
+    'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
+    'BenSenHandwriting': require('../assets/fonts/BenSenHandwriting.ttf'),
+    'MahinDhakaItalic': require('../assets/fonts/MahinDhakaItalic.ttf'),
+    'BegumZiaRegulaCurve': require('../assets/fonts/BegumZiaRegulaCurve.ttf'),
+    'FNMahinSameyaANSI': require('../assets/fonts/FNMahinSameyaANSI.ttf'),
+  });
 
+  // Initialize chapter data when app starts
+  useEffect(() => {
+    loadAllChapters();
+  }, [loadAllChapters]);
+
+
+  if (error) {
+    console.error('Font loading error:', error);
+  }
+
+  if (!loaded) {
+    return null;
+  }
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <ErrorBoundary>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <ThemeProvider>
+          <ThemedSafeAreaView>
+            <ThemedView variant='secondary' style={{ flex: 1 }}>
+             
+              <Stack screenOptions={{
+                headerShown: false,
+              }}>
+                <Stack.Screen name="onboarding" />
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen name="chapter/[id]" />
+                <Stack.Screen name="translation/[id]" />
+                <Stack.Screen name="search" />
+                <Stack.Screen name="favorites" />
+                <Stack.Screen name="gita-summary" />
+                <Stack.Screen name="gita-mahatmya" />
+                <Stack.Screen name="mangalacharan" />
+                <Stack.Screen name="dhyana" />
+                <Stack.Screen name="audio" />
+                <Stack.Screen name="translations" />
+              </Stack>
+            </ThemedView>
+          </ThemedSafeAreaView>
+        </ThemeProvider>
+      </GestureHandlerRootView>
+    </ErrorBoundary>
   );
 }
