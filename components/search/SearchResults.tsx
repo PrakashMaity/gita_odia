@@ -3,6 +3,7 @@ import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -45,11 +46,11 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
   const getMatchTypeText = (matchType: string) => {
     switch (matchType) {
       case 'sanskrit':
-        return 'ସଂସ୍କୃତ';
+        return i18n.t('search.sanskrit');
       case 'Language':
-        return 'ଓଡ଼ିଆ';
+        return i18n.t('search.bengali');
       case 'translation':
-        return 'ଅନୁବାଦ';
+        return i18n.t('search.translation');
       default:
         return '';
     }
@@ -107,7 +108,7 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
                   </ThemedView>
                   <ThemedView style={styles.verseInfo}>
                     <ThemedText style={{ ...styles.verseTitle, color: theme.text.primary }}>
-                      ଅଧ୍ୟାୟ {result.chapterNumber} • ଶ୍ଲୋକ {result.verseNumber}
+                      {i18n.t('chapter.chapter')} {result.chapterNumber} • {i18n.t('verse.verse')} {result.verseNumber}
                     </ThemedText>
                     <ThemedText style={{ ...styles.speaker, color: theme.text.tertiary }}>
                       - {result.speaker}

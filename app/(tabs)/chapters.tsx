@@ -8,6 +8,7 @@ import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { ChapterData, useChapterStore, useProgressStore } from '@/store';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -106,7 +107,7 @@ export default function ChaptersScreen() {
                   fontFamily="regional_secondary"
                   style={styles.verseCount}
                 >
-                  {chapterInfo.totalVerses} ଶ୍ଲୋକ
+                  {chapterInfo.totalVerses} {i18n.t('chapter.verses')}
                 </ThemedLanguageText>
 
               </ThemedView>
@@ -163,7 +164,7 @@ export default function ChaptersScreen() {
             fontFamily="regional_primary"
             style={styles.loadingText}
           >
-            ଅଧ୍ୟାୟଗୁଡ଼ିକ ଲୋଡ଼ ହେଉଛି...
+            {i18n.t('chapter.chaptersLoading')}
           </ThemedLanguageText>
         </View>
       </ThemedSafeAreaView>
@@ -185,7 +186,7 @@ export default function ChaptersScreen() {
           fontFamily="regional_secondary"
           style={styles.title}
         >
-          ଅଧ୍ୟାୟସମୂହ
+          {i18n.t('chapter.chapterTitle')}
         </ThemedLanguageText>
         <ThemedView style={styles.headerActions}>
 
@@ -217,7 +218,7 @@ export default function ChaptersScreen() {
               fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
-              ଭଗବଦ୍ଗୀତା ଅଧ୍ୟାୟସମୂହ
+              {i18n.t('chapter.chapterTitle')}
             </ThemedLanguageText>
           </ThemedView>
           <ThemedView style={styles.chaptersContainer}>

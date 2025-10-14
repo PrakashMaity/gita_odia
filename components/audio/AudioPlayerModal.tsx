@@ -1,6 +1,7 @@
 import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import React from 'react';
 import {
     Animated,
@@ -148,7 +149,7 @@ export const AudioPlayerModal: React.FC<AudioPlayerModalProps> = ({
             <SongInfo
               title={song.title}
               artist={song.artist}
-              playlist="ଗୀତା ଅଡ଼ିଓ"
+              playlist={i18n.t('audio.playlist')}
             />
 
             {/* Audio Controls */}

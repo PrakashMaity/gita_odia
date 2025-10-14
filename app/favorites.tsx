@@ -4,7 +4,9 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { FavoriteVerse, useFavoriteStore } from '@/store';
+import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -20,10 +22,10 @@ export default function FavoritesScreen() {
   const handleRemoveFavorite = async (verseId: string) => {
     try {
       await removeFavorite(verseId);
-      showAlert(createSuccessAlert('ପ୍ରିୟ ଶ୍ଲୋକ ସରାନୋ ହୋଇଛି', 'ଏହି ଶ୍ଲୋକଟି ପ୍ରିୟ ଶ୍ଲୋକରୁ ସରାନୋ ହୋଇଛି'));
+      showAlert(createSuccessAlert(i18n.t('favorite.removed'), i18n.t('favorite.removed')));
     } catch (error) {
       console.error('Error removing favorite:', error);
-      showAlert(createErrorAlert('ତ୍ରୁଟି', 'ପ୍ରିୟ ଶ୍ଲୋକ ସରାଇବାରେ ସମସ୍ୟା ହୋଇଛି'));
+      showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('favorite.error')));
     }
   };
 
@@ -41,15 +43,15 @@ export default function FavoritesScreen() {
 
   const handleRemoveAllFavorites = () => {
     showAlert(createConfirmAlert(
-      'ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସରାନ୍ତୁ',
-      'ଆପଣ କି ନିଶ୍ଚିତ ଯେ ଆପଣ ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସରାଇବାକୁ ଚାହାନ୍ତି?',
+      i18n.t('favorite.clearAll'),
+      i18n.t('favorite.clearAllConfirm'),
       async () => {
         try {
           await clearAllFavorites();
-          showAlert(createSuccessAlert('ସଫଳ', 'ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସରାନୋ ହୋଇଛି'));
+          showAlert(createSuccessAlert(i18n.t('common.success'), i18n.t('favorite.clearAllSuccess')));
         } catch (error) {
           console.error('Error clearing all favorites:', error);
-          showAlert(createErrorAlert('ତ୍ରୁଟି', 'ପ୍ରିୟ ଶ୍ଲୋକ ସରାଇବାରେ ସମସ୍ୟା ହୋଇଛି'));
+          showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('favorite.error')));
         }
       }
     ));
@@ -115,7 +117,7 @@ export default function FavoritesScreen() {
                 fontFamily="regional_secondary"
                 style={styles.speakerName}
               >
-                ଅଧ୍ୟାୟ {favorite.chapterNumber} • ଶ୍ଲୋକ {favorite.verseNumber}
+{i18n.t('chapter.chapter')} {favorite.chapterNumber} • {i18n.t('verse.verse')} {favorite.verseNumber}
               </ThemedLanguageText>
               <ThemedLanguageText 
                 variant="secondary" 
@@ -154,7 +156,7 @@ export default function FavoritesScreen() {
     return (
       <ThemedView style={styles.loadingContainer}>
         <ThemedLanguageText variant="secondary" size="medium">
-          ପ୍ରିୟ ଶ୍ଲୋକ ଲୋଡ଼ ହେଉଛି...
+          {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -171,11 +173,11 @@ export default function FavoritesScreen() {
 
         <ThemedView style={styles.headerContent}>
           <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="title" style={styles.chapterTitle}>
-            ପ୍ରିୟ ଶ୍ଲୋକ
+            {i18n.t('favorite.favorites')}
           </ThemedLanguageText>
           {sortedFavorites.length > 0 && (
             <ThemedLanguageText variant="secondary" size="large" style={styles.chapterSubtitle}>
-              ମୋଟ {sortedFavorites.length}ଟି ପ୍ରିୟ ଶ୍ଲୋକ
+              {i18n.t('favorite.totalFavorites', { count: convertToLocalizedNumber(sortedFavorites.length) })}
             </ThemedLanguageText>
           )}
         </ThemedView>

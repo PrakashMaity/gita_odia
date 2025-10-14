@@ -2,6 +2,7 @@ import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useFavoriteStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
@@ -53,15 +54,15 @@ export default function FavoriteButton({
       if (favoriteStatus) {
         // Remove favorite
         await removeFavorite(verseId);
-        onAlert?.('ପ୍ରିୟ ଶ୍ଲୋକ ସରାନୋ ହୋଇଛି', 'ଏହି ଶ୍ଲୋକଟି ପ୍ରିୟ ଶ୍ଲୋକରୁ ସରାନୋ ହୋଇଛି', 'success');
+        onAlert?.(i18n.t('favorite.removed'), i18n.t('favorite.removed'), 'success');
       } else {
         // Add favorite
         await addFavorite(verseId, chapterId, chapterNumber, verseNumber, verseText);
-        onAlert?.('ପ୍ରିୟ ଶ୍ଲୋକ ଯୋଗ କରାଯାଇଛି', 'ଏହି ଶ୍ଲୋକଟି ପ୍ରିୟ ଶ୍ଲୋକରେ ଯୋଗ କରାଯାଇଛି', 'success');
+        onAlert?.(i18n.t('favorite.added'), i18n.t('favorite.added'), 'success');
       }
     } catch (error) {
       console.error('Error toggling favorite:', error);
-      onAlert?.('ତ୍ରୁଟି', 'ପ୍ରିୟ ଶ୍ଲୋକ ପରିବର୍ତ୍ତନ କରିବାରେ ସମସ୍ୟା ହୋଇଛି', 'error');
+      onAlert?.(i18n.t('common.error'), i18n.t('favorite.error'), 'error');
     }
   };
 
@@ -69,7 +70,7 @@ export default function FavoriteButton({
     return (
       <ThemedView style={styles.container}>
         <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
-          লোড হচ্ছে...
+          {i18n.t('common.loading')}
         </ThemedText>
       </ThemedView>
     );

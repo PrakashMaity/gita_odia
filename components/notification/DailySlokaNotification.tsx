@@ -4,6 +4,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { DailySloka } from '@/store/notificationStore';
 import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
@@ -74,7 +75,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
                   size="small"
                   fontFamily="regional_secondary"
                 >
-                  {sloka.chapterNumber} ଅଧ୍ୟାୟ
+                  {sloka.chapterNumber} {i18n.t('chapter.chapter')}
                 </ThemedLanguageText>
                 <ThemedLanguageText
                   variant="secondary"

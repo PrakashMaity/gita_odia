@@ -7,8 +7,10 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { Bookmark, useBookmarkStore } from '@/store';
+import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -28,10 +30,10 @@ export default function BookmarksScreen() {
   const handleRemoveBookmark = async (verseId: string) => {
     try {
       await removeBookmark(verseId);
-      showAlert(createSuccessAlert('ବୁକମାର୍କ ସରାନୋ ହୋଇଛି', 'ଏହି ଶ୍ଲୋକଟି ବୁକମାର୍କରୁ ସରାନୋ ହୋଇଛି'));
+      showAlert(createSuccessAlert(i18n.t('bookmark.removed'), i18n.t('bookmark.removed')));
     } catch (error) {
       console.error('Error removing bookmark:', error);
-      showAlert(createErrorAlert('ତ୍ରୁଟି', 'ବୁକମାର୍କ ସରାଇବାରେ ସମସ୍ୟା ହୋଇଛି'));
+      showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('bookmark.error')));
     }
   };
 
@@ -56,15 +58,15 @@ export default function BookmarksScreen() {
 
   const handleRemoveAllBookmarks = () => {
     showAlert(createConfirmAlert(
-      'ସବୁ ବୁକମାର୍କ ସରାନ୍ତୁ',
-      'ଆପଣ କି ନିଶ୍ଚିତ ଯେ ଆପଣ ସବୁ ବୁକମାର୍କ ସରାଇବାକୁ ଚାହାନ୍ତି?',
+      i18n.t('bookmark.clearAll'),
+      i18n.t('bookmark.clearAllConfirm'),
       async () => {
         try {
           await clearAllBookmarks();
-          showAlert(createSuccessAlert('ସଫଳ', 'ସବୁ ବୁକମାର୍କ ସରାନୋ ହୋଇଛି'));
+          showAlert(createSuccessAlert(i18n.t('common.success'), i18n.t('bookmark.clearAllSuccess')));
         } catch (error) {
           console.error('Error clearing all bookmarks:', error);
-          showAlert(createErrorAlert('ତ୍ରୁଟି', 'ବୁକମାର୍କ ସରାଇବାରେ ସମସ୍ୟା ହୋଇଛି'));
+          showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('bookmark.error')));
         }
       }
     ));
@@ -121,7 +123,7 @@ export default function BookmarksScreen() {
             style={styles.bookmarkTitle}
             numberOfLines={2}
           >
-            ଅଧ୍ୟାୟ {bookmark.chapterNumber} || ଶ୍ଲୋକ {bookmark.verseNumber}
+{i18n.t('chapter.chapter')} {bookmark.chapterNumber} || {i18n.t('verse.verse')} {bookmark.verseNumber}
           </ThemedLanguageText>
 
           <ThemedView style={styles.bookmarkInfo}>
@@ -169,7 +171,7 @@ export default function BookmarksScreen() {
             fontFamily="regional_secondary"
             style={styles.loadingText}
           >
-            ବୁକମାର୍କ ଲୋଡ଼ ହେଉଛି...
+{i18n.t('common.loading')}
           </ThemedLanguageText>
         </ThemedView>
       </ThemedSafeAreaView>
@@ -192,7 +194,7 @@ export default function BookmarksScreen() {
           fontFamily="regional_secondary"
           style={styles.title}
         >
-          ବୁକମାର୍କ
+{i18n.t('bookmark.bookmarks')}
         </ThemedLanguageText>
         <ThemedView style={styles.headerActions}>
          
@@ -227,7 +229,7 @@ export default function BookmarksScreen() {
             fontFamily="regional_secondary"
             style={styles.emptyTitle}
           >
-            କୌଣସି ବୁକମାର୍କ ନାହିଁ
+{i18n.t('bookmark.noBookmarks')}
           </ThemedLanguageText>
           <ThemedLanguageText 
             variant="secondary" 
@@ -235,7 +237,7 @@ export default function BookmarksScreen() {
             fontFamily="regional_secondary"
             style={styles.emptySubtitle}
           >
-            ଅଧ୍ୟାୟ ପଢ଼ିବା ସମୟରେ ଶ୍ଲୋକ ବୁକମାର୍କ କରନ୍ତୁ
+{i18n.t('bookmark.bookmarkHint')}
           </ThemedLanguageText>
         </ThemedView>
       ) : (
@@ -253,7 +255,7 @@ export default function BookmarksScreen() {
                 fontFamily="regional_tertiary"
                 style={styles.sectionTitle}
               >
-                ସଂରକ୍ଷିତ ଶ୍ଲୋକସମୂହ
+{i18n.t('bookmark.bookmarks')}
               </ThemedLanguageText>
             </ThemedView>
             <ThemedView style={styles.bookmarksContainer}>
@@ -269,7 +271,7 @@ export default function BookmarksScreen() {
               style={styles.footerText}
               fontFamily='regional_secondary'
             >
-              ମୋଟ {sortedBookmarks.length || 0}ଟି ବୁକମାର୍କ
+{i18n.t('bookmark.totalBookmarks', { count: convertToLocalizedNumber(sortedBookmarks.length || 0) })}
             </ThemedLanguageText>
           </ThemedView>
         </ScrollView>

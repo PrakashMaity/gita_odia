@@ -1,4 +1,5 @@
 import { getNavigationHandler } from '@/components/home/navigationHandlers';
+import i18n from '@/i18n';
 import { FontAwesome6, MaterialIcons } from '@expo/vector-icons';
 
 export interface MenuItem {
@@ -18,27 +19,27 @@ export interface MenuSection {
   items: MenuItem[];
 }
 
-export const menuSections: MenuSection[] = [
+export const getMenuSections = (): MenuSection[] => [
   {
     id: 'prayers',
-    title: 'ପ୍ରାର୍ଥନା ଓ ସ୍ତୋତ୍ର',
+    title: i18n.t('menu.prayers'),
     items: [
       {
         id: 'mangalacharan',
-        title: 'ମଙ୍ଗଳାଚରଣ',
+        title: i18n.t('menu.mangalacharan'),
         icon: MaterialIcons,
         iconName: 'favorite',
         iconFamily: 'MaterialIcons',
-        description: 'ଗୀତା ପାଠର ପୂର୍ବରୁ ମଙ୍ଗଳାଚରଣ',
+        description: i18n.t('menu.mangalacharanDesc'),
         action: () => getNavigationHandler({ id: 'mangalacharan' } as MenuItem)(),
       },
       {
         id: 'dhyana',
-        title: 'ଧ୍ୟାନ',
+        title: i18n.t('menu.dhyana'),
         icon: MaterialIcons,
         iconName: 'self-improvement',
         iconFamily: 'MaterialIcons',
-        description: 'ଧ୍ୟାନ ଓ ଚିନ୍ତନ',
+        description: i18n.t('menu.dhyanaDesc'),
         action: () => getNavigationHandler({ id: 'dhyana' } as MenuItem)(),
       },
     
@@ -46,24 +47,24 @@ export const menuSections: MenuSection[] = [
   },
   {
     id: 'chapters',
-    title: 'ଅଧ୍ୟାୟସମୂହ',
+    title: i18n.t('menu.chapters'),
     items: [
       {
         id: 'all-chapters',
-        title: 'ସମସ୍ତ ଅଧ୍ୟାୟ',
+        title: i18n.t('menu.allChapters'),
         icon: FontAwesome6,
         iconName: 'book-bookmark',
         iconFamily: 'FontAwesome6',
-        description: 'ସମସ୍ତ ୧୮ଟି ଅଧ୍ୟାୟ',
+        description: i18n.t('menu.allChaptersDesc'),
         action: () => getNavigationHandler({ id: 'all-chapters' } as MenuItem)(),
       },
       {
         id: 'all-translations',
-        title: 'ଓଡ଼ିଆ ଅନୁବାଦ',
+        title: i18n.t('menu.translations'),
         icon: FontAwesome6,
         iconName: 'language',
         iconFamily: 'FontAwesome6',
-        description: 'ସମସ୍ତ ଅଧ୍ୟାୟର ଓଡ଼ିଆ ଅନୁବାଦ',
+        description: i18n.t('menu.translationsDesc'),
         action: () => getNavigationHandler({ id: 'all-translations' } as MenuItem)(),
       },
      
@@ -71,16 +72,16 @@ export const menuSections: MenuSection[] = [
   },
   {
     id: 'features',
-    title: 'ବିଶେଷ ବିଶେଷତା',
+    title: i18n.t('menu.features'),
     items: [
      
       {
         id: 'favorites',
-        title: 'ପ୍ରିୟ ଶ୍ଲୋକ',
+        title: i18n.t('menu.favorites'),
         icon: MaterialIcons,
         iconName: 'favorite',
         iconFamily: 'MaterialIcons',
-        description: 'ଆପଣଙ୍କର ପ୍ରିୟ ଶ୍ଲୋକସମୂହ',
+        description: i18n.t('menu.favoritesDesc'),
         action: () => getNavigationHandler({ id: 'favorites' } as MenuItem)(),
       },
       

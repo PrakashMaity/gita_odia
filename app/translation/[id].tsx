@@ -4,6 +4,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useTranslationStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -31,7 +32,7 @@ export default function TranslationDetailScreen() {
     return (
       <ThemedView style={styles.loadingContainer}>
         <ThemedLanguageText variant="secondary" size="medium">
-          ଅନୁବାଦ ଲୋଡ଼ ହେଉଛି...
+          {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -41,7 +42,7 @@ export default function TranslationDetailScreen() {
     return (
       <ThemedView variant="primary" style={styles.errorContainer}>
         <ThemedLanguageText variant="error" size="medium">
-          ଅନୁବାଦ ପାଇବାକୁ ମିଳିଲା ନାହିଁ
+          {i18n.t('common.error')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -92,7 +93,7 @@ export default function TranslationDetailScreen() {
                   fontFamily="regional_secondary"
                   style={styles.speakerName}
                 >
-                  {verse.speaker} || ଶ୍ଲୋକ {verse.verseNumber}
+                  {verse.speaker} || {i18n.t('verse.verse')} {verse.verseNumber}
                 </ThemedLanguageText>
              
               </ThemedView>

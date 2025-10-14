@@ -3,6 +3,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { Image, StyleSheet } from 'react-native';
 import { FavoriteButton } from '../favorite';
 
@@ -65,7 +66,7 @@ export default function VerseReader({
 
           <ThemedView style={[styles.verseNumberContainer, ]}>
             <ThemedLanguageText fontFamily='regional_secondary' size="xl">
-            ଶ୍ଲୋକ - {verse.verseNumber}
+            {i18n.t('verse.verse')} - {verse.verseNumber}
             </ThemedLanguageText>
           
           </ThemedView>
@@ -104,7 +105,7 @@ export default function VerseReader({
           <ThemedView style={styles.verseSection}>
             <ThemedView style={styles.sectionHeader}>
               <ThemedLanguageText variant="primary" size="title" fontFamily='regional_secondary' style={styles.sectionTitle}>
-                ଅନୁବାଦ
+                {i18n.t('verse.translation')}
               </ThemedLanguageText>
             </ThemedView>
             <ThemedLanguageText fontFamily='regional_tertiary' variant="primary" size="large" style={styles.translationText}>

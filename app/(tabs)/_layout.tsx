@@ -1,6 +1,7 @@
   import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { FONTS_LANGUAGE } from '@/interface/font.interface';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
@@ -33,7 +34,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'ଘର',
+          title: i18n.t('tabs.home'),
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons 
               name={focused ? 'home' : 'home-outline'} 
@@ -46,7 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="chapters"
         options={{
-          title: 'ଅଧ୍ୟାୟ',
+          title: i18n.t('tabs.chapters'),
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons 
               name={focused ? 'list' : 'list-outline'} 
@@ -60,7 +61,7 @@ export default function TabLayout() {
       {/* <Tabs.Screen
         name="audio"
         options={{
-          title: 'ଅଡ଼ିଓ',
+          title: i18n.t('tabs.audio'),
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons 
               name={focused ? 'headset' : 'headset-outline'} 
@@ -73,7 +74,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="bookmarks"
         options={{
-          title: 'ବୁକମାର୍କ',
+          title: i18n.t('tabs.bookmarks'),
           tabBarIcon: ({ color, size, focused }) => (
             <BookmarkIcon 
               size={size} 
@@ -89,7 +90,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'ସେଟିଂସ',
+          title: i18n.t('tabs.profile'),
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons 
               name={focused ? 'settings' : 'settings-outline'} 

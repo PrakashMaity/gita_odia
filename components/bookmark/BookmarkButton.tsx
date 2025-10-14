@@ -2,6 +2,7 @@ import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useBookmarkStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
@@ -58,15 +59,15 @@ export default function BookmarkButton({
       if (bookmarkStatus) {
         // Remove bookmark
         await removeBookmark(verseId);
-        onAlert?.('ବୁକମାର୍କ ସରାନୋ ହୋଇଛି', 'ଏହି ଶ୍ଲୋକଟି ବୁକମାର୍କରୁ ସରାନୋ ହୋଇଛି', 'success');
+        onAlert?.(i18n.t('bookmark.removed'), i18n.t('bookmark.removed'), 'success');
       } else {
         // Add bookmark
         await addBookmark(verseId, chapterId, chapterNumber, verseNumber, verseText);
-        onAlert?.('ବୁକମାର୍କ ଯୋଗ କରାଯାଇଛି', 'ଏହି ଶ୍ଲୋକଟି ବୁକମାର୍କରେ ଯୋଗ କରାଯାଇଛି', 'success');
+        onAlert?.(i18n.t('bookmark.added'), i18n.t('bookmark.added'), 'success');
       }
     } catch (error) {
       console.error('Error toggling bookmark:', error);
-      onAlert?.('ତ୍ରୁଟି', 'ବୁକମାର୍କ ପରିବର୍ତ୍ତନ କରିବାରେ ସମସ୍ୟା ହୋଇଛି', 'error');
+      onAlert?.(i18n.t('common.error'), i18n.t('bookmark.error'), 'error');
     }
   };
 
@@ -74,7 +75,7 @@ export default function BookmarkButton({
     return (
       <ThemedView style={styles.container}>
         <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
-          লোড হচ্ছে...
+          {i18n.t('common.loading')}
         </ThemedText>
       </ThemedView>
     );
@@ -100,7 +101,7 @@ export default function BookmarkButton({
         ...styles.bookmarkText,
         color: bookmarkStatus ? theme.button.primary.text : theme.text.primary
       }}>
-        {bookmarkStatus ? 'বুকমার্ক করা' : 'বুকমার্ক'}
+        {bookmarkStatus ? i18n.t('bookmark.remove') : i18n.t('bookmark.add')}
       </ThemedLanguageText>
     </TouchableOpacity>
   );

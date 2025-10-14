@@ -5,6 +5,7 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { TYPOGRAPHY } from '@/constants/typography';
 import { useTheme, useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useSettingsStore } from '@/store';
 import Feather from '@expo/vector-icons/Feather';
@@ -61,16 +62,16 @@ export default function SettingsScreen() {
       {/* Header Card */}
       <ThemedCard variant='transparent' style={styles.headerCard}>
         <ThemedView style={styles.headerContent}>
-          <ThemedLanguageText 
+          <ThemedLanguageText
             variant="primary" 
             size="xxl" 
             fontFamily="regional_secondary"
             style={styles.title}
           >
-            ସେଟିଂସ
+            {i18n.t('profile.settings')}
           </ThemedLanguageText>
           <ThemedLanguageText fontFamily='regional_secondary' style={styles.subtitle}>
-            ଆପଣଙ୍କର ଗୀତା ଅଭିଜ୍ଞତା କଷ୍ଟମାଇଜ କରନ୍ତୁ
+            {i18n.t('profile.customizeExperience')}
           </ThemedLanguageText>
         </ThemedView>
      
@@ -85,12 +86,12 @@ export default function SettingsScreen() {
      
 
         <SettingsSection 
-            title="ଦେଖିବାର ଧରଣ" 
-            description="ଅପ୍ର ଚେହେରା ଏବଂ ଅନୁଭୂତି କଷ୍ଟମାଇଜ କରନ୍ତୁ"
+            title={i18n.t('profile.appearance')} 
+            description={i18n.t('profile.appearanceDesc')}
           >
             <SettingsToggle
-              title="ଡାର୍କ ମୋଡ଼"
-              subtitle="ଲାଇଟ୍ ଏବଂ ଡାର୍କ ଥିମର ମଧ୍ୟରେ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
+              title={i18n.t('profile.darkMode')}
+              subtitle={i18n.t('profile.darkModeDesc')}
               icon={<Feather name="moon" size={SIZES.icon.lg} color={theme.icon.primary} />}
               value={isDark}
               onValueChange={handleThemeChange}
@@ -101,12 +102,12 @@ export default function SettingsScreen() {
 
 
           <SettingsSection 
-            title="ସମ୍ପର୍କରେ" 
-            description="ଅପ୍ର ତଥ୍ୟ ଏବଂ ସହାୟତା"
+            title={i18n.t('profile.about')} 
+            description={i18n.t('profile.aboutDesc')}
           >
             <SettingsItem
-              title="ଅପ୍ର ଭର୍ସନ"
-              subtitle="ଭଗବଦ୍ ଗୀତା ଅପ୍ର ବର୍ତ୍ତମାନ ଭର୍ସନ"
+              title={i18n.t('profile.appVersion')}
+              subtitle={i18n.t('profile.appVersionDesc')}
               icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
               value="1.0.0"
             />

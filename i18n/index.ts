@@ -1,12 +1,16 @@
 import Constants from 'expo-constants';
 import { I18n } from 'i18n-js';
 
+import as from './as.json';
 import bn from './bn.json';
+import hi from './hi.json';
 import or from './or.json';
 
 const translations = {
     bn: bn,
     or: or,
+    hi: hi,
+    as: as,
   };
   const i18n = new I18n(translations);
   

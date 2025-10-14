@@ -4,6 +4,7 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { TranslationData, useTranslationStore } from '@/store';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -69,7 +70,7 @@ export default function TranslationsScreen() {
                   fontFamily="regional_secondary"
                   style={styles.verseCount}
                 >
-                  {chapter.totalVerses} ଶ୍ଲୋକର ଅନୁବାଦ
+                  {chapter.totalVerses} {i18n.t('verse.translation')}
                 </ThemedLanguageText>
               </ThemedView>
             </ThemedView>
@@ -125,7 +126,7 @@ export default function TranslationsScreen() {
           fontFamily="regional_secondary"
           style={styles.title}
         >
-          ଓଡ଼ିଆ ଅନୁବାଦ
+{i18n.t('menu.translations')}
         </ThemedLanguageText>
         <ThemedView style={styles.headerActions}>
           <ThemedView style={[styles.actionButton, { borderColor: theme.border.primary }]}>

@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useChapterStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -146,10 +147,10 @@ export default function SearchScreen() {
           
           <ThemedView style={styles.headerContent}>
             <ThemedText style={{ ...styles.title, color: theme.text.primary }}>
-              ଅନୁସନ୍ଧାନ
+              {i18n.t('common.search')}
             </ThemedText>
             <ThemedText style={{ ...styles.subtitle, color: theme.text.secondary }}>
-              ଶ୍ଲୋକ ଅନୁସନ୍ଧାନ କରନ୍ତୁ
+              {i18n.t('search.searchTips')}
             </ThemedText>
           </ThemedView>
         </ThemedView>
@@ -158,7 +159,7 @@ export default function SearchScreen() {
         <SearchBar
           onSearch={handleSearch}
           onClear={handleClear}
-          placeholder="ଶ୍ଲୋକ, ଅନୁବାଦ ବା ସଂସ୍କୃତ ଅନୁସନ୍ଧାନ କରନ୍ତୁ..."
+          placeholder={i18n.t('search.placeholder')}
           value={searchQuery}
         />
 
@@ -182,25 +183,25 @@ export default function SearchScreen() {
         {searchQuery.length === 0 && (
           <ThemedView style={styles.tipsContainer}>
             <ThemedText style={{ ...styles.tipsTitle, color: theme.text.primary }}>
-              ଅନୁସନ୍ଧାନের টিপস
+              {i18n.t('search.searchTips')}
             </ThemedText>
             <ThemedView style={styles.tipsList}>
               <ThemedView style={styles.tipItem}>
                 <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
                 <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
-                  কমপক্ষে ২টি অক্ষর লিখুন
+                  {i18n.t('search.minCharacters')}
                 </ThemedText>
               </ThemedView>
               <ThemedView style={styles.tipItem}>
                 <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
                 <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
-                  সংস্কৃত, বাংলা বা অনুবাদে অনুসন্ধান করুন
+                  {i18n.t('search.searchIn')}
                 </ThemedText>
               </ThemedView>
               <ThemedView style={styles.tipItem}>
                 <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
                 <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
-                  ফলাফলে ট্যাপ করে সরাসরি শ্লোকে যান
+                  {i18n.t('search.tapToGo')}
                 </ThemedText>
               </ThemedView>
             </ThemedView>

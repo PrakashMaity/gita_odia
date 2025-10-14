@@ -3,6 +3,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -12,23 +13,8 @@ export default function GitaMahatmyaScreen() {
   const { theme } = useTheme();
   const { width, height } = Dimensions.get('window');
 
-  const mahatmyaText = `গীতাসুপনিষৎসু ব্রহ্মবিদ্যায়াং যোগশাস্ত্রে শ্রীকৃষ্ণার্জুনসংবাদে।
-অর্জুনবিষাদযোগো নাম প্রথমোহধ্যায়ঃ॥
-
-গীতাশাস্ত্রমিদং পুণ্যং যঃ পঠেত্তং নরোত্তমঃ।
-জ্ঞানবৈরাগ্যসিদ্ধার্থং ভক্তিং কুর্বন্ গোবিন্দে॥
-
-গীতায়াঃ শ্রবণেনৈব স্মরণেনৈব বা নরঃ।
-মুচ্যতে সর্বপাপেভ্যো বিষ্ণুলোকং স গচ্ছতি॥`;
-
-  const benefits = [
-    'ପାପମୁକ୍ତି ଓ ପୁଣ୍ୟଲାଭ',
-    'ଜ୍ଞାନ ଓ ବୁଦ୍ଧିର ଉନ୍ନତି',
-    'ମନ ଶାନ୍ତ ଓ ସ୍ଥିର ହୁଏ',
-    'ଆଧ୍ୟାତ୍ମିକ ଉନ୍ନତି ଘଟେ',
-    'ଜୀବନର ସମସ୍ତ ସମସ୍ୟାର ସମାଧାନ',
-    'ମୋକ୍ଷଲାଭର ପଥ ସୁଗମ ହୁଏ'
-  ];
+  const mahatmyaText = i18n.t('gitaMahatmya.mahatmyaText');
+  const benefits = i18n.t('gitaMahatmya.benefits');
 
   return (
     <ThemedView variant="primary" style={styles.container}>
@@ -39,7 +25,7 @@ export default function GitaMahatmyaScreen() {
           <Ionicons name="arrow-back" size={SIZES.icon.lg} color={theme.icon.primary} />
         </TouchableOpacity>
         <ThemedLanguageText variant="primary" size="title" fontFamily="regional_primary" style={styles.title}>
-          গীতা-মাহাত্ম্য
+          {i18n.t('gitaMahatmya.title')}
         </ThemedLanguageText>
         <ThemedView style={styles.placeholder} />
       </ThemedView>
@@ -48,7 +34,7 @@ export default function GitaMahatmyaScreen() {
         <ThemedCard style={styles.introCard}>
          
           <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary" style={styles.introText}>
-            গীতা হল সমস্ত বেদের সার। এটি জীবনের সকল সমস্যার সমাধান এবং আধ্যাত্মিক উন্নতির পথ প্রদর্শন করে।
+            {i18n.t('gitaMahatmya.intro')}
           </ThemedLanguageText>
         </ThemedCard>
 
@@ -56,7 +42,7 @@ export default function GitaMahatmyaScreen() {
           <ThemedView style={styles.sectionHeader}>
             <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
             <ThemedLanguageText variant="primary" size="large" fontFamily="regional_primary" style={styles.sectionTitle}>
-              গীতার মহিমা
+              {i18n.t('gitaMahatmya.mahatmyaTitle')}
             </ThemedLanguageText>
           </ThemedView>
           <ThemedLanguageText variant="primary" size="large" fontFamily="regional_secondary" style={styles.mahatmyaText}>
@@ -68,7 +54,7 @@ export default function GitaMahatmyaScreen() {
           <ThemedView style={styles.sectionHeader}>
             <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
             <ThemedLanguageText variant="primary" size="large" fontFamily="regional_primary" style={styles.sectionTitle}>
-              গীতা পাঠের উপকারিতা
+              {i18n.t('gitaMahatmya.benefitsTitle')}
             </ThemedLanguageText>
           </ThemedView>
           <ThemedView style={styles.benefitsList}>

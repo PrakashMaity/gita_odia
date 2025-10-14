@@ -4,6 +4,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useSettingsStore } from '@/store';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
@@ -21,27 +22,27 @@ interface OnboardingSlide {
   description: string;
 }
 
-const onboardingSlides: OnboardingSlide[] = [
+const getOnboardingSlides = (): OnboardingSlide[] => [
   {
     id: 1,
     image: require('@/assets/images/onboarding/onboardBanner1.png'),
-    title: 'ଶ୍ରୀମଦ୍ଭଗବଦ୍ଗୀତା',
-    subtitle: 'ଜୀବନର ପଥପ୍ରଦର୍ଶକ',
-    description: 'ପ୍ରାଚୀନ ହିନ୍ଦୁ ଧର୍ମଗ୍ରନ୍ଥମାନଙ୍କ ମଧ୍ୟରେ ଶ୍ରୀମଦ୍ଭଗବଦ୍ଗୀତା ଏକ ଅନନ୍ୟ ସ୍ଥାନ ଅଧିକାର କରିଛି। ଏହା କେବଳ ଏକ ଧର୍ମଗ୍ରନ୍ଥ ନୁହେଁ, ବରଂ ଜୀବନର ସମସ୍ତ ସମସ୍ୟାର ସମାଧାନର ପଥ ଦେଖାଏ।'
+    title: i18n.t('onboarding.slides.slide1.title'),
+    subtitle: i18n.t('onboarding.slides.slide1.subtitle'),
+    description: i18n.t('onboarding.slides.slide1.description')
   },
   {
     id: 2,
     image: require('@/assets/images/onboarding/onboardBanner2.png'),
-    title: 'ଧ୍ୟାନ ଓ ଚିନ୍ତା',
-    subtitle: 'ଆଧ୍ୟାତ୍ମିକ ଜ୍ଞାନର ଭଣ୍ଡାର',
-    description: 'ଗୀତାର ପ୍ରତ୍ୟେକ ଶ୍ଲୋକ ଜୀବନର ଗଭୀର ଅର୍ଥ ପ୍ରକାଶ କରେ। ଏଠାରେ ଆପଣ ପାଇବେ ଧ୍ୟାନ, ଚିନ୍ତା ଏବଂ ଆଧ୍ୟାତ୍ମିକ ଉନ୍ନତିର ନିମନ୍ତେ ଆବଶ୍ୟକ ସମସ୍ତ ଉପାଦାନ।'
+    title: i18n.t('onboarding.slides.slide2.title'),
+    subtitle: i18n.t('onboarding.slides.slide2.subtitle'),
+    description: i18n.t('onboarding.slides.slide2.description')
   },
   {
     id: 3,
     image: require('@/assets/images/onboarding/onboardBanner3.png'),
-    title: 'ଆରମ୍ଭ କରନ୍ତୁ',
-    subtitle: 'ଆପଣଙ୍କର ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା',
-    description: 'ବର୍ତ୍ତମାନ ଆରମ୍ଭ କରନ୍ତୁ ଆପଣଙ୍କର ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା। ଗୀତାର ଜ୍ଞାନର ଆଲୋକରେ ଆଲୋକିତ ହୁଅନ୍ତୁ ଏବଂ ଜୀବନର ପ୍ରତ୍ୟେକ ମୁହୂର୍ତ୍ତକୁ ଅର୍ଥବହ କରି ତୁଳନ୍ତୁ।'
+    title: i18n.t('onboarding.slides.slide3.title'),
+    subtitle: i18n.t('onboarding.slides.slide3.subtitle'),
+    description: i18n.t('onboarding.slides.slide3.description')
   }
 ];
 
@@ -49,6 +50,7 @@ export default function OnboardingScreen() {
   const theme = useThemeColors();
   const [currentSlide, setCurrentSlide] = useState(0);
   const { updateSetting } = useSettingsStore();
+  const onboardingSlides = getOnboardingSlides();
 
   const handleNext = () => {
     if (currentSlide < onboardingSlides.length - 1) {
@@ -90,7 +92,7 @@ export default function OnboardingScreen() {
       <ThemedView style={styles.header}>
         <TouchableOpacity onPress={handleSkip} style={styles.skipButton}>
           <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary">
-            ଛାଡି ଯାଆନ୍ତୁ
+            {i18n.t('onboarding.skip')}
           </ThemedLanguageText>
         </TouchableOpacity>
       </ThemedView>
@@ -176,7 +178,7 @@ export default function OnboardingScreen() {
         <ThemedView style={styles.navigationButtons}>
           {!isFirstSlide && (
             <ThemedButton
-              title="ପୂର୍ବବର୍ତ୍ତୀ"
+              title={i18n.t('onboarding.previous')}
               onPress={handlePrevious}
               variant="outline"
               size="md"
@@ -185,7 +187,7 @@ export default function OnboardingScreen() {
           )}
           
           <ThemedButton
-            title={isLastSlide ? "ଆରମ୍ଭ କରନ୍ତୁ" : "ପରବର୍ତ୍ତୀ"}
+            title={isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
             onPress={handleNext}
             variant="primary"
             size="md"

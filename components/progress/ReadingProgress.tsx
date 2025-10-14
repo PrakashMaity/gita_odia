@@ -3,6 +3,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useProgressStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect } from 'react';
@@ -42,10 +43,10 @@ export default function ReadingProgress({
     try {
       await resetChapterProgress(chapterId);
       onProgressUpdate?.(null);
-      onAlert?.('ପ୍ରଗତି ରିସେଟ୍', 'ଏହି ଅଧ୍ୟାୟର ପଢ଼ିବା ପ୍ରଗତି ରିସେଟ୍ କରାଯାଇଛି', 'success');
+      onAlert?.(i18n.t('progress.reset'), i18n.t('progress.resetSuccess'), 'success');
     } catch (error) {
       console.error('Error resetting progress:', error);
-      onAlert?.('ତ୍ରୁଟି', 'ପ୍ରଗତି ରିସେଟ୍ କରିବାରେ ସମସ୍ୟା ହୋଇଛି', 'error');
+      onAlert?.(i18n.t('common.error'), i18n.t('progress.resetError'), 'error');
     }
   };
 
@@ -118,7 +119,7 @@ export default function ReadingProgress({
         <ThemedView style={styles.completionBadge}>
           <Ionicons name="checkmark-circle" size={SIZES.icon.sm} color={theme.icon.success} />
           <ThemedLanguageText fontFamily='regional_secondary' variant="success" size="small" style={styles.completionText}>
-            ଅଧ୍ୟାୟ ସମ୍ପୂର୍ଣ୍ଣ
+{i18n.t('progress.chapterComplete')}
           </ThemedLanguageText>
         </ThemedView>
       )}

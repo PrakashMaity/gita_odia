@@ -166,15 +166,7 @@ const Home = () => {
                 fontFamily="regional_secondary"
                 style={styles.overlayText}
               >
-                &ldquo;କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଲେଷୁ କଦାଚନ।
-              </ThemedLanguageText>
-              <ThemedLanguageText
-                variant="primary"
-                size="xxl"
-                fontFamily="regional_secondary"
-                style={styles.overlayText}
-              >
-                ମା କର୍ମଫଲହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥&rdquo;
+                {i18n.t('home.heroQuote')}
               </ThemedLanguageText>
             </ThemedView>
           </ThemedView>
@@ -182,7 +174,7 @@ const Home = () => {
 
         <ThemedCard variant='transparent' style={styles.quickActionsCard}>
           <ThemedButton
-            title="ଗୀତାର ସାରାଂଶ"
+            title={i18n.t('gitaSummary.title')}
             onPress={() => {
               incrementAction();
               getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
@@ -194,7 +186,7 @@ const Home = () => {
             icon={<FontAwesome6 name="book-bookmark" size={SIZES.icon.lg} color={theme.button.primary.text} />}
           />
           <ThemedButton
-            title="ଗୀତାର ମାହାତ୍ମ୍ୟ"
+            title={i18n.t('gitaMahatmya.title')}
             onPress={() => {
               incrementAction();
               getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();

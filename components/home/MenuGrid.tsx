@@ -1,6 +1,6 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { MenuItem, menuSections } from '@/constants/menuData';
+import { MenuItem, getMenuSections } from '@/constants/menuData';
 import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -13,6 +13,7 @@ interface MenuGridProps {
 
 const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
   const theme = useThemeColors();
+  const menuSections = getMenuSections();
 
   const renderIcon = (item: MenuItem) => {
     const iconProps = {

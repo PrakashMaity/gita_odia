@@ -7,6 +7,7 @@ import { VerseReader } from '@/components/verseReader';
 import { SIZES } from '@/constants/sizes';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { useChapterStore, useProgressStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -117,7 +118,7 @@ export default function ChapterDetailScreen() {
     return (
       <ThemedView style={styles.loadingContainer}>
         <ThemedLanguageText variant="secondary" size="medium">
-          ଅଧ୍ୟାୟ ଲୋଡ଼ ହେଉଛି...
+          {i18n.t('chapter.loading')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -127,7 +128,7 @@ export default function ChapterDetailScreen() {
     return (
       <ThemedView variant="primary" style={styles.errorContainer}>
         <ThemedLanguageText variant="error" size="medium">
-          ଅଧ୍ୟାୟ ପାଇବାକୁ ମିଳିଲା ନାହିଁ
+          {i18n.t('chapter.notFound')}
         </ThemedLanguageText>
       </ThemedView>
     );
