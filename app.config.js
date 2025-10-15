@@ -122,12 +122,6 @@ export default function ({ config = {} }) {
         },
       ],
       [
-        "expo-audio",
-        {
-          microphonePermission: "Allow $(PRODUCT_NAME) to access your microphone.",
-        },
-      ],
-      [
         "react-native-google-mobile-ads",
         {
           androidAppId: "ca-app-pub-3406043589920136~9029941389",

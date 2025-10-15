@@ -56,7 +56,7 @@ const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
         style={[styles.menuItem, { 
           // borderColor: theme.border.primary,
         }]}
-        pattern={"dot"}
+        pattern={"mandala"}
         patternOpacity={0.08}
       >
         <ThemedView style={[styles.iconContainer, { 

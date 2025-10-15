@@ -202,7 +202,6 @@
     "profile": "প্রোফাইল",
     "bookmarks": "বুকমার্ক",
     "favorites": "প্রিয়",
-    "audio": "অডিও",
     "play": "চালান",
     "pause": "বিরতি",
     "stop": "থামান",
@@ -220,17 +219,6 @@
     "retry": "পুনরায় চেষ্টা করুন",
     "noResults": "কোনো ফলাফল পাওয়া যায়নি",
     "noData": "কোনো ডেটা নেই"
-  },
-  "audio": {
-    "playlist": "গীতা অডিও",
-    "nowPlaying": "এখন বাজছে",
-    "play": "চালান",
-    "pause": "বিরতি",
-    "stop": "বন্ধ",
-    "next": "পরবর্তী",
-    "previous": "পূর্ববর্তী",
-    "repeat": "পুনরাবৃত্তি",
-    "shuffle": "এলোমেলো"
   },
   "bookmark": {
     "add": "বুকমার্ক",
@@ -324,8 +312,28 @@
   "tabs": {
     "home": "ঘর",
     "chapters": "অধ্যায়",
-    "audio": "অডিও",
     "bookmarks": "বুকমার্ক",
     "profile": "সেটিংস"
-  }
+  },
+  "translations": {
+    "loading": "অনুবাদ লোড হচ্ছে...",
+    "sectionTitle": "ভগবদগীতা অনুবাদসমূহ"
+  },
+  "searchResults": {
+    "foundResults": "%{count}টি ফলাফল পাওয়া গেছে"
+  },
+  "speakers": {
+    "dhritarystra": "ধৃতরাষ্ট্র",
+    "sanjay": "সঞ্জয়",
+    "arjuna": "অর্জুন",
+    "parameshwar": "পরমেশ্বর",
+    "shreebhagwan": "শ্রীভগবান",
+    "duryadhona": "দুর্যোধন",
+    "shreekrishna": "শ্রীকৃষ্ণ"
+  },
+  "theme": {
+    "theme": "থিম",
+    "dark": "ডার্ক",
+    "light": "লাইট"
+  },
 }

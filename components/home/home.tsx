@@ -5,7 +5,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { MenuItem } from '@/constants/menuData';
 import { SIZES } from '@/constants/sizes';
-import { useThemeColors } from '@/hooks/useTheme';
+import { useThemeColors, useThemeMode } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useChapterStore, useNotificationStore } from '@/store';
@@ -16,7 +16,7 @@ import FontAwesome5 from '@expo/vector-icons/build/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedButton } from '../ui/ThemedButton';
 import MenuGrid from './MenuGrid';
 import { getNavigationHandler } from './navigationHandlers';
@@ -34,7 +34,7 @@ const Home = () => {
     setDailySloka,
     setNotificationVisible,
   } = useNotificationStore();
-
+  const { isDark } = useThemeMode();
   const { loadAllChapters } = useChapterStore();
   const { incrementAction, showInterstitialIfReady } = useAdFrequency({
     interstitialInterval: 2, // Show interstitial every 2 actions on home
@@ -119,7 +119,11 @@ const Home = () => {
 
 
       <ThemedCard variant='transparent' style={styles.headerCard} pattern="none">
+        <ThemedView >
+
         <Image source={HomeImages.logo} style={styles.logo} />
+        
+        </ThemedView>
         <ThemedLanguageText
           variant="primary"
           size="title"
@@ -160,6 +164,10 @@ const Home = () => {
         <ThemedCard variant='primary' style={styles.heroCard} pattern="sacredGeometry" patternOpacity={0.15}>
           <ThemedView style={styles.heroContainer}>
             <Image source={HomeImages.hero} resizeMode='cover' style={styles.heroImage} />
+            {
+              isDark &&
+              <View style={{ ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0, 0, 255, 0.4)' }} />
+            }
             <ThemedView style={styles.textOverlay}>
               <ThemedLanguageText
                 variant="primary"
@@ -267,7 +275,9 @@ const styles = StyleSheet.create({
   heroImage: {
     width: '100%',
     height: 180,
+
   },
+
   textOverlay: {
     position: 'absolute',
     top: 0,

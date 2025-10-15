@@ -202,7 +202,6 @@
     "profile": "ପ୍ରୋଫାଇଲ",
     "bookmarks": "ବୁକମାର୍କ",
     "favorites": "ପ୍ରିୟ",
-    "audio": "ଅଡିଓ",
     "play": "ଚଲାନ୍ତୁ",
     "pause": "ବିରତି",
     "stop": "ଥାମାନ୍ତୁ",
@@ -220,17 +219,6 @@
     "retry": "ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ",
     "noResults": "କୌଣସି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଲା ନାହିଁ",
     "noData": "କୌଣସି ଡେଟା ନାହିଁ"
-  },
-  "audio": {
-    "playlist": "ଗୀତା ଅଡ଼ିଓ",
-    "nowPlaying": "ବର୍ତ୍ତମାନ ବଜୁଛି",
-    "play": "ଚଲାନ୍ତୁ",
-    "pause": "ବିରତି",
-    "stop": "ବନ୍ଦ",
-    "next": "ପରବର୍ତ୍ତୀ",
-    "previous": "ପୂର୍ବବର୍ତ୍ତୀ",
-    "repeat": "ପୁନରାବୃତ୍ତି",
-    "shuffle": "ଏଲୋମେଲୋ"
   },
   "bookmark": {
     "add": "ବୁକମାର୍କ",
@@ -324,8 +312,28 @@
   "tabs": {
     "home": "ଘର",
     "chapters": "ଅଧ୍ୟାୟ",
-    "audio": "ଅଡ଼ିଓ",
     "bookmarks": "ବୁକମାର୍କ",
     "profile": "ସେଟିଂସ"
-  }
+  },
+  "translations": {
+    "loading": "ଅନୁବାଦ ଲୋଡ଼ ହେଉଛି...",
+    "sectionTitle": "ଭଗବଦ୍ଗୀତା ଅନୁବାଦସମୂହ"
+  },
+  "searchResults": {
+    "foundResults": "%{count}ଟି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଛି"
+  },
+  "speakers": {
+    "dhritarystra": "ଧୃତରାଷ୍ଟ୍ର",
+    "sanjay": "ସଞ୍ଜୟ",
+    "arjuna": "ଅର୍ଜୁନ",
+    "parameshwar": "ପରମେଶ୍ୱର",
+    "shreebhagwan": "ଶ୍ରୀଭଗବାନ",
+    "duryadhona": "ଦୁର୍ଯ୍ୟୋଧନ",
+    "shreekrishna": "ଶ୍ରୀକୃଷ୍ଣ"
+  },
+  "theme": {
+    "theme": "ଥିମ୍",
+    "dark": "ଡାର୍କ",
+    "light": "ଲାଇଟ୍"
+  },
 }

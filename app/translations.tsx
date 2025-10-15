@@ -34,7 +34,7 @@ export default function TranslationsScreen() {
         onPress={() => handleTranslationPress(chapter.id)}
         style={styles.translationCardContainer}
       >
-        <ThemedCard style={[styles.translationCard]} pattern='hexagon' patternOpacity={0.05}>
+        <ThemedCard style={[styles.translationCard]} pattern='mandala' patternOpacity={0.05}>
           <ThemedView style={{flexDirection: 'row'}} >
             <ThemedView style={[styles.iconContainer, {
               backgroundColor: theme.background.tertiary,
@@ -100,7 +100,7 @@ export default function TranslationsScreen() {
             fontFamily="regional_primary"
             style={styles.loadingText}
           >
-            ଅନୁବାଦ ଲୋଡ଼ ହେଉଛି...
+            {i18n.t('translations.loading')}
           </ThemedLanguageText>
         </View>
       </ThemedSafeAreaView>
@@ -154,7 +154,7 @@ export default function TranslationsScreen() {
               fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
-              ଭଗବଦ୍ଗୀତା ଅନୁବାଦସମୂହ
+              {i18n.t('translations.sectionTitle')}
             </ThemedLanguageText>
           </ThemedView>
           <ThemedView style={styles.translationsContainer}>

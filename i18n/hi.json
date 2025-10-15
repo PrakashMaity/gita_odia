@@ -202,7 +202,6 @@
     "profile": "प्रोफ़ाइल",
     "bookmarks": "बुकमार्क",
     "favorites": "प्रिय",
-    "audio": "ऑडियो",
     "play": "चलाएँ",
     "pause": "रोकें",
     "stop": "बंद करें",
@@ -220,17 +219,6 @@
     "retry": "पुनः प्रयास करें",
     "noResults": "कोई परिणाम नहीं मिला",
     "noData": "कोई डेटा नहीं"
-  },
-  "audio": {
-    "playlist": "गीता ऑडियो",
-    "nowPlaying": "अभी बज रहा है",
-    "play": "चलाएँ",
-    "pause": "रोकें",
-    "stop": "बंद",
-    "next": "अगला",
-    "previous": "पिछला",
-    "repeat": "दोहराएँ",
-    "shuffle": "अव्यवस्थित"
   },
   "bookmark": {
     "add": "बुकमार्क",
@@ -324,8 +312,28 @@
   "tabs": {
     "home": "घर",
     "chapters": "अध्याय",
-    "audio": "ऑडियो",
     "bookmarks": "बुकमार्क",
     "profile": "सेटिंग्स"
-  }
+  },
+  "translations": {
+    "loading": "अनुवाद लोड हो रहा है...",
+    "sectionTitle": "भगवद्गीता अनुवाद"
+  },
+  "searchResults": {
+    "foundResults": "%{count} परिणाम मिले"
+  },
+  "speakers": {
+    "dhritarystra": "धृतराष्ट्र",
+    "sanjay": "संजय",
+    "arjuna": "अर्जुन",
+    "parameshwar": "परमेश्वर",
+    "shreebhagwan": "श्रीभगवान",
+    "duryadhona": "दुर्योधन",
+    "shreekrishna": "श्रीकृष्ण"
+  },
+  "theme": {
+    "theme": "थीम",
+    "dark": "डार्क",
+    "light": "लाइट"
+  },
 }

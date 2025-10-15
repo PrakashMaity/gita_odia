@@ -53,21 +53,18 @@ export default function TranslationDetailScreen() {
 
   // Get speaker avatar based on speaker name
   const getSpeakerAvatar = (speaker: string) => {
-    // You can add more speaker avatars here
-    switch (speaker) {
-      case 'ଶ୍ରୀକୃଷ୍ଣ':
-        return SpeakerImages.shreekrishna;
-      case 'ଅର୍ଜୁନ':
-        return SpeakerImages.arjuna;
-      case 'ଧୃତରାଷ୍ଟ୍ର':
-        return SpeakerImages.dhritarystra;
-      case 'ସଞ୍ଜୟ':
-        return SpeakerImages.sanjay;
-      case 'ଦୁର୍ଯ୍ୟୋଧନ':
-        return SpeakerImages.duryadhona;
-      default:
-        return SpeakerImages.shreekrishna;
-    }
+    // Map localized speaker names to images
+    const localizedSpeakers = {
+      [i18n.t('speakers.shreekrishna')]: SpeakerImages.shreekrishna,
+      [i18n.t('speakers.arjuna')]: SpeakerImages.arjuna,
+      [i18n.t('speakers.dhritarystra')]: SpeakerImages.dhritarystra,
+      [i18n.t('speakers.sanjay')]: SpeakerImages.sanjay,
+      [i18n.t('speakers.duryadhona')]: SpeakerImages.duryadhona,
+      [i18n.t('speakers.parameshwar')]: SpeakerImages.shreekrishna,
+      [i18n.t('speakers.shreebhagwan')]: SpeakerImages.shreekrishna,
+    };
+    
+    return localizedSpeakers[speaker] || SpeakerImages.shreekrishna;
   };
 
   const renderChatMessage = (verse: TranslationVerse, index: number) => {

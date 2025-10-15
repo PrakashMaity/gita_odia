@@ -211,7 +211,7 @@ export default function ChapterDetailScreen() {
         >
           <Ionicons name="chevron-back" size={SIZES.icon.md} color={theme.icon.primary} />
           <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium">
-            ପୂର୍ବବର୍ତ୍ତୀ
+            {i18n.t('common.previous')}
           </ThemedLanguageText>
         </TouchableOpacity>
         <BookmarkButton
@@ -233,7 +233,7 @@ export default function ChapterDetailScreen() {
           ]}
         >
           <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium">
-            ପରବର୍ତ୍ତୀ
+            {i18n.t('common.next')}
           </ThemedLanguageText>
           <Ionicons name="chevron-forward" size={SIZES.icon.md} color={theme.icon.primary} />
         </TouchableOpacity>

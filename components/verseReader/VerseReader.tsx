@@ -39,14 +39,18 @@ export default function VerseReader({
 }: VerseReaderProps) {
   const { theme } = useTheme();
   const speakerImageMapper = (speaker: string) => {
-    switch (speaker) {
-      case 'ଧୃତରାଷ୍ଟ୍ର': return SpeakerImages.dhritarystra;
-      case 'ସଞ୍ଜୟ': return SpeakerImages.sanjay;
-      case 'ଅର୍ଜୁନ': return SpeakerImages.arjuna;
-      case 'ପରମେଶ୍ୱର':
-      case 'ଶ୍ରୀଭଗବାନ': return SpeakerImages.shreekrishna;
-      case 'ଦୁର୍ଯ୍ୟୋଧନ': return SpeakerImages.duryadhona;
-    }
+    // Map localized speaker names to images
+    const localizedSpeakers = {
+      [i18n.t('speakers.dhritarystra')]: SpeakerImages.dhritarystra,
+      [i18n.t('speakers.sanjay')]: SpeakerImages.sanjay,
+      [i18n.t('speakers.arjuna')]: SpeakerImages.arjuna,
+      [i18n.t('speakers.parameshwar')]: SpeakerImages.shreekrishna,
+      [i18n.t('speakers.shreebhagwan')]: SpeakerImages.shreekrishna,
+      [i18n.t('speakers.duryadhona')]: SpeakerImages.duryadhona,
+      [i18n.t('speakers.shreekrishna')]: SpeakerImages.shreekrishna,
+    };
+    
+    return localizedSpeakers[speaker] || SpeakerImages.shreekrishna;
   }
 
   return (
@@ -97,7 +101,6 @@ export default function VerseReader({
              
             </ThemedView>
 
-            {/* Audio Button */}
 
           </ThemedView>
         )}
@@ -185,13 +188,5 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     marginTop: SIZES.spacing.sm,
   },
-  audioButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.md,
-    alignSelf: 'flex-start',
-  },
+  
 });

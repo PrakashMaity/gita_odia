@@ -48,7 +48,6 @@ export default function RootLayout() {
                 <Stack.Screen name="gita-mahatmya" />
                 <Stack.Screen name="mangalacharan" />
                 <Stack.Screen name="dhyana" />
-                <Stack.Screen name="audio" />
                 <Stack.Screen name="translations" />
               </Stack>
             </ThemedView>

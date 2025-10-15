@@ -69,9 +69,6 @@ export const navigationHandlers = {
     // Add navigation logic here
   },
   
-  audioSettings: () => {
-    // Add navigation logic here
-  },
   
   help: () => {
     // Add navigation logic here
@@ -109,7 +106,6 @@ export const getNavigationHandler = (item: MenuItem) => {
     'progress': navigationHandlers.progress,
     'quiz': navigationHandlers.quiz,
     'font-settings': navigationHandlers.fontSettings,
-    'audio-settings': navigationHandlers.audioSettings,
     'help': navigationHandlers.help,
     'about': navigationHandlers.about,
     'gita-summary': navigationHandlers.gitaSummary,

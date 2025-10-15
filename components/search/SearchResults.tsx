@@ -87,7 +87,7 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ThemedView style={styles.resultsHeader}>
         <ThemedText style={{ ...styles.resultsCount, color: theme.text.secondary }}>
-          {results.length}ଟି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଛି
+          {i18n.t('searchResults.foundResults', { count: results.length })}
         </ThemedText>
       </ThemedView>
 

@@ -55,7 +55,7 @@ export default function ChaptersScreen() {
     let progressPercentage = 0;
     if (chapterProgress && chapter.verses) {
       const lastReadVerseIndex = chapter.verses.findIndex(
-        verse => verse.id === chapterProgress.lastReadVerseId
+        (verse: any) => verse.id === chapterProgress.lastReadVerseId
       );
       if (lastReadVerseIndex !== -1) {
         progressPercentage = getProgressPercentage(chapterId, lastReadVerseIndex, chapter.verses.length);
@@ -69,7 +69,7 @@ export default function ChaptersScreen() {
         style={styles.chapterCardContainer}
 
       >
-        <ThemedCard style={[styles.chapterCard]} pattern='blob' patternOpacity={0.05}>
+        <ThemedCard style={[styles.chapterCard]} pattern='mandala' patternOpacity={0.05}>
           <ThemedView style={{ flexDirection: 'row' }} >
             <ThemedView style={[styles.iconContainer, {
               backgroundColor: theme.background.tertiary,

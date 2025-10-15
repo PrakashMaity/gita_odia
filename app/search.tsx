@@ -168,7 +168,7 @@ export default function SearchScreen() {
         {isSearching ? (
           <ThemedView style={styles.loadingContainer}>
             <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
-              ଅନୁସନ୍ଧାନ করা হচ্ছে...
+              {i18n.t('search.searching')}
             </ThemedText>
           </ThemedView>
         ) : (

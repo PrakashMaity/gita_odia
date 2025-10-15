@@ -216,7 +216,7 @@ export default function FavoritesScreen() {
             fontFamily="regional_secondary"
             style={styles.emptyTitle}
           >
-            কোন প্রিয় শ্লোক নেই
+            {i18n.t('favorite.noFavorites')}
           </ThemedLanguageText>
           <ThemedLanguageText 
             variant="secondary" 
@@ -224,7 +224,7 @@ export default function FavoritesScreen() {
             fontFamily="regional_secondary"
             style={styles.emptySubtitle}
           >
-            অধ্যায় পড়ার সময় শ্লোক প্রিয় করুন
+            {i18n.t('favorite.favoriteHint')}
           </ThemedLanguageText>
         </ThemedView>
       ) : (

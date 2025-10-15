@@ -58,19 +58,6 @@ export default function TabLayout() {
         }}
       />
   
-      {/* <Tabs.Screen
-        name="audio"
-        options={{
-          title: i18n.t('tabs.audio'),
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons 
-              name={focused ? 'headset' : 'headset-outline'} 
-              size={size} 
-              color={color} 
-            />
-          ),
-        }}
-      /> */}
       <Tabs.Screen
         name="bookmarks"
         options={{

@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedText } from '../ThemedText/ThemedText';
@@ -14,7 +15,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ style }) => {
   return (
     <ThemedView style={[styles.container, style]}>
       <ThemedText style={[styles.label, { color: theme.text.primary }]}>
-        ଥିମ୍ (Theme)
+        {i18n.t('theme.theme')} (Theme)
       </ThemedText>
       <TouchableOpacity
         style={[
@@ -32,7 +33,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ style }) => {
             {isDark ? '🌙' : '☀️'}
           </ThemedText>
           <ThemedText style={[styles.modeLabel, { color: theme.text.secondary }]}>
-            {isDark ? 'ଡାର୍କ' : 'ଲାଇଟ୍'}
+            {isDark ? i18n.t('theme.dark') : i18n.t('theme.light')}
           </ThemedText>
         </View>
       </TouchableOpacity>

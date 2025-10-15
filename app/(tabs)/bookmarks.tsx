@@ -12,8 +12,10 @@ import { WavePattern } from '@/illustration/cardBackground';
 import { Bookmark, useBookmarkStore } from '@/store';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function BookmarksScreen() {
@@ -25,6 +27,9 @@ export default function BookmarksScreen() {
     interstitialInterval: 2, // Show interstitial every 2 bookmark actions
   });
   
+  // State to force re-render when bookmarks change
+  const [refreshKey, setRefreshKey] = useState(0);
+  
   // Get current language
   const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
   
@@ -35,6 +40,15 @@ export default function BookmarksScreen() {
     hi: 'hi-IN',
     as: 'as-IN',
   };
+  
+  // Use focus effect to refresh bookmarks when tab is focused
+  useFocusEffect(
+    useCallback(() => {
+      // Force re-render by updating refresh key
+      // This ensures the component re-renders with the latest bookmark data
+      setRefreshKey(prev => prev + 1);
+    }, [])
+  );
   
   // Get bookmarks sorted by date (newest first)
   const sortedBookmarks = getBookmarksSortedByDate();
@@ -192,7 +206,7 @@ export default function BookmarksScreen() {
   }
 
   return (
-    <ThemedView variant="primary" style={styles.container}>
+    <ThemedView key={refreshKey} variant="primary" style={styles.container}>
       {AlertComponent}
       <WavePattern 
         width={width} 
@@ -284,7 +298,7 @@ export default function BookmarksScreen() {
               style={styles.footerText}
               fontFamily='regional_secondary'
             >
-{i18n.t('bookmark.totalBookmarks', { count: convertToLocalizedNumber(sortedBookmarks.length || 0) })}
+{convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
             </ThemedLanguageText>
           </ThemedView>
         </ScrollView>
