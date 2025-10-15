@@ -12,14 +12,14 @@ import { ScrollView, StyleSheet } from 'react-native';
 const mockSongs = [
   {
     id: '1',
-    title: 'ଗୀତା ଦର୍ଶନ',
-    artist: 'ଶ୍ରୀ କୃଷ୍ଣ',
+    title: 'গীতা দর্শন',
+    artist: 'শ্রী কৃষ্ণ',
     imageUrl: undefined,
   },
   {
     id: '2',
-    title: 'କର୍ମଯୋଗ',
-    artist: 'ଶ୍ରୀ କୃଷ୍ଣ',
+    title: 'কর্মযোগ',
+    artist: 'শ্রী কৃষ্ণ',
     imageUrl: undefined,
   },
   {

@@ -12,6 +12,7 @@ import { WavePattern } from '@/illustration/cardBackground';
 import { Bookmark, useBookmarkStore } from '@/store';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
+import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -23,6 +24,17 @@ export default function BookmarksScreen() {
   const { incrementAction, showInterstitialIfReady } = useAdFrequency({
     interstitialInterval: 2, // Show interstitial every 2 bookmark actions
   });
+  
+  // Get current language
+  const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
+  
+  // Locale mapping for date formatting
+  const localeMap: Record<string, string> = {
+    bn: 'bn-BD',
+    or: 'or-IN',
+    hi: 'hi-IN',
+    as: 'as-IN',
+  };
   
   // Get bookmarks sorted by date (newest first)
   const sortedBookmarks = getBookmarksSortedByDate();
@@ -74,7 +86,8 @@ export default function BookmarksScreen() {
 
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
-    return date.toLocaleDateString('or-IN', {
+    const locale = localeMap[currentLang] || 'bn-BD';
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',

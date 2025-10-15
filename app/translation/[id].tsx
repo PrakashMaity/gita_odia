@@ -6,6 +6,7 @@ import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useTranslationStore } from '@/store';
+import { SpeakerImages } from '@/utils/assets';
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -55,17 +56,17 @@ export default function TranslationDetailScreen() {
     // You can add more speaker avatars here
     switch (speaker) {
       case 'ଶ୍ରୀକୃଷ୍ଣ':
-        return require('@/assets/images/speaker/shreekrishna.png');
+        return SpeakerImages.shreekrishna;
       case 'ଅର୍ଜୁନ':
-        return require('@/assets/images/speaker/arjuna.png');
+        return SpeakerImages.arjuna;
       case 'ଧୃତରାଷ୍ଟ୍ର':
-        return require('@/assets/images/speaker/dhritarystra.png');
+        return SpeakerImages.dhritarystra;
       case 'ସଞ୍ଜୟ':
-        return require('@/assets/images/speaker/sanjay.png');
+        return SpeakerImages.sanjay;
       case 'ଦୁର୍ଯ୍ୟୋଧନ':
-        return require('@/assets/images/speaker/duryadhona.png');
+        return SpeakerImages.duryadhona;
       default:
-        return require('@/assets/images/speaker/shreekrishna.png');
+        return SpeakerImages.shreekrishna;
     }
   };
 

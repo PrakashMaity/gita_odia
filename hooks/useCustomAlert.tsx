@@ -1,4 +1,5 @@
 import { AlertButton, CustomAlert } from '@/components/ui/CustomAlert';
+import i18n from '@/i18n';
 import React, { useCallback, useState } from 'react';
 
 export interface UseCustomAlertReturn {
@@ -54,7 +55,7 @@ export const createSuccessAlert = (title: string, message: string, onOk?: () => 
   type: 'success' as const,
   buttons: [
     {
-      text: 'ଠିକ୍ ଅଛି',
+      text: i18n.t('common.ok'),
       onPress: onOk,
       style: 'default' as const,
     },
@@ -67,7 +68,7 @@ export const createErrorAlert = (title: string, message: string, onOk?: () => vo
   type: 'error' as const,
   buttons: [
     {
-      text: 'ଠିକ୍ ଅଛି',
+      text: i18n.t('common.ok'),
       onPress: onOk,
       style: 'default' as const,
     },
@@ -80,7 +81,7 @@ export const createWarningAlert = (title: string, message: string, onOk?: () => 
   type: 'warning' as const,
   buttons: [
     {
-      text: 'ଠିକ୍ ଅଛି',
+      text: i18n.t('common.ok'),
       onPress: onOk,
       style: 'default' as const,
     },
@@ -98,12 +99,12 @@ export const createConfirmAlert = (
   type: 'warning' as const,
   buttons: [
     {
-      text: 'ବାତିଲ',
+      text: i18n.t('common.cancel'),
       onPress: onCancel,
       style: 'cancel' as const,
     },
     {
-      text: 'ନିଶ୍ଚିତ',
+      text: i18n.t('common.yes'),
       onPress: onConfirm,
       style: 'destructive' as const,
     },
@@ -116,7 +117,7 @@ export const createInfoAlert = (title: string, message: string, onOk?: () => voi
   type: 'info' as const,
   buttons: [
     {
-      text: 'ଠିକ୍ ଅଛି',
+      text: i18n.t('common.ok'),
       onPress: onOk,
       style: 'default' as const,
     },

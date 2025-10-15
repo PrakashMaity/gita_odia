@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 // # Bengali
 // APP_LANG=bn eas build --platform android --profile bn
 
@@ -112,7 +110,7 @@ export default function ({ config = {} }) {
     },
     web: {
       output: "static",
-      favicon: "./assets/images/favicon.png",
+      favicon: `./clients/${lang}/assets/images/favicon.png`,
     },
     plugins: [
       "expo-router",

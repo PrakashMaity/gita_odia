@@ -6,6 +6,7 @@ import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useSettingsStore } from '@/store';
+import { OnboardingImages } from '@/utils/assets';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -25,21 +26,21 @@ interface OnboardingSlide {
 const getOnboardingSlides = (): OnboardingSlide[] => [
   {
     id: 1,
-    image: require('@/assets/images/onboarding/onboardBanner1.png'),
+    image: OnboardingImages.banner1,
     title: i18n.t('onboarding.slides.slide1.title'),
     subtitle: i18n.t('onboarding.slides.slide1.subtitle'),
     description: i18n.t('onboarding.slides.slide1.description')
   },
   {
     id: 2,
-    image: require('@/assets/images/onboarding/onboardBanner2.png'),
+    image: OnboardingImages.banner2,
     title: i18n.t('onboarding.slides.slide2.title'),
     subtitle: i18n.t('onboarding.slides.slide2.subtitle'),
     description: i18n.t('onboarding.slides.slide2.description')
   },
   {
     id: 3,
-    image: require('@/assets/images/onboarding/onboardBanner3.png'),
+    image: OnboardingImages.banner3,
     title: i18n.t('onboarding.slides.slide3.title'),
     subtitle: i18n.t('onboarding.slides.slide3.subtitle'),
     description: i18n.t('onboarding.slides.slide3.description')

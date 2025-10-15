@@ -74,10 +74,10 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
       <ThemedView style={styles.emptyContainer}>
         <Ionicons name="search-outline" size={64} color={theme.icon.tertiary} />
         <ThemedText style={{ ...styles.emptyTitle, color: theme.text.primary }}>
-          କୌଣସି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଲା ନାହିଁ
+          {i18n.t('search.noResults')}
         </ThemedText>
         <ThemedText style={{ ...styles.emptySubtitle, color: theme.text.secondary }}>
-          &ldquo;{query}&rdquo; ର ନିମନ୍ତେ କୌଣସି ଶ୍ଲୋକ ପାଇବାକୁ ମିଳିଲା ନାହିଁ
+          {i18n.t('search.noResultsFor', { query })}
         </ThemedText>
       </ThemedView>
     );

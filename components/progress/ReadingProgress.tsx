@@ -6,6 +6,7 @@ import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useProgressStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
+import Constants from 'expo-constants';
 import React, { useEffect } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -54,12 +55,20 @@ export default function ReadingProgress({
     return getProgressPercentage(chapterId, currentVerseIndex, totalVerses);
   };
 
-
+  // Get current language and locale mapping
+  const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
+  const localeMap: Record<string, string> = {
+    bn: 'bn-BD',
+    or: 'or-IN',
+    hi: 'hi-IN',
+    as: 'as-IN',
+  };
 
   const formatLastReadDate = () => {
     if (!chapterProgress) return '';
     const date = new Date(chapterProgress.lastReadDate);
-    return date.toLocaleDateString('bn-BD', {
+    const locale = localeMap[currentLang] || 'bn-BD';
+    return date.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -70,7 +79,7 @@ export default function ReadingProgress({
     return (
       <ThemedView style={styles.container}>
         <ThemedLanguageText variant="secondary" size="small">
-          ଲୋଡ଼ ହେଉଛି...
+          {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -80,7 +89,7 @@ export default function ReadingProgress({
     return (
       <ThemedView style={styles.container}>
         <ThemedLanguageText fontFamily='regional_secondary' variant="tertiary" size="small">
-          ବର୍ତ୍ତମାନ ପଢ଼ିବା ଆରମ୍ଭ ହୋଇନାହିଁ
+          {i18n.t('progress.notStarted')}
         </ThemedLanguageText>
       </ThemedView>
     );
@@ -90,7 +99,7 @@ export default function ReadingProgress({
     <ThemedCard variant="primary" style={styles.container}>
       <ThemedView style={styles.progressHeader}>
         <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="xl" style={styles.progressTitle}>
-          ପଢ଼ିବା ପ୍ରଗତି
+          {i18n.t('progress.readingProgress')}
         </ThemedLanguageText>
         <TouchableOpacity onPress={resetProgress} style={styles.resetButton}>
           <Ionicons name="refresh-outline" size={SIZES.icon.md} color={theme.icon.primary} />
@@ -98,7 +107,7 @@ export default function ReadingProgress({
       </ThemedView>
 
       <ThemedLanguageText variant="secondary" fontFamily='regional_secondary' size="medium" style={styles.progressSubtitle}>
-        ଶେଷ ପଢ଼ିଥିବା: {formatLastReadDate()}
+        {i18n.t('progress.lastRead', { date: formatLastReadDate() })}
       </ThemedLanguageText>
 
       <ThemedView style={styles.progressBarContainer}>

@@ -240,8 +240,9 @@
     "error": "বুকমাৰ্ক সলনি কৰাত সমস্যা",
     "clearAll": "সকলো বুকমাৰ্ক আঁতৰাওক",
     "clearAllConfirm": "আপুনি নিশ্চিতনে যে আপুনি সকলো বুকমাৰ্ক আঁতৰাব বিচাৰে?",
+    "clearAllSuccess": "সকলো বুকমাৰ্ক সফলভাৱে আঁতৰোৱা হৈছে",
     "bookmarks": "বুকমাৰ্ক",
-    "totalBookmarks": "মুঠ {count}টা বুকমাৰ্ক",
+    "totalBookmarks": "মুঠ %{count}টা বুকমাৰ্ক",
     "noBookmarks": "কোনো বুকমাৰ্ক নাই",
     "bookmarkHint": "অধ্যায় পঢ়াৰ সময়ত শ্লোক বুকমাৰ্ক কৰক"
   },
@@ -253,8 +254,9 @@
     "error": "প্ৰিয় শ্লোক সলনি কৰাত সমস্যা",
     "clearAll": "সকলো প্ৰিয় শ্লোক আঁতৰাওক",
     "clearAllConfirm": "আপুনি নিশ্চিতনে যে আপুনি সকলো প্ৰিয় শ্লোক আঁতৰাব বিচাৰে?",
+    "clearAllSuccess": "সকলো প্ৰিয় শ্লোক সফলভাৱে আঁতৰোৱা হৈছে",
     "favorites": "প্ৰিয় শ্লোক",
-    "totalFavorites": "মুঠ {count}টা প্ৰিয় শ্লোক",
+    "totalFavorites": "মুঠ %{count}টা প্ৰিয় শ্লোক",
     "noFavorites": "কোনো প্ৰিয় শ্লোক নাই",
     "favoriteHint": "অধ্যায় পঢ়াৰ সময়ত শ্লোক প্ৰিয় কৰক"
   },
@@ -269,8 +271,8 @@
     "assamese": "অসমীয়া",
     "translation": "অনুবাদ",
     "noResults": "কোনো ফলাফল পোৱা নগ'ল",
-    "noResultsFor": "\"{query}\"ৰ বাবে কোনো শ্লোক পোৱা নগ'ল",
-    "foundResults": "{count}টা ফলাফল পোৱা গৈছে"
+    "noResultsFor": "\"%{query}\"ৰ বাবে কোনো শ্লোক পোৱা নগ'ল",
+    "foundResults": "%{count}টা ফলাফল পোৱা গৈছে"
   },
   "chapter": {
     "loading": "অধ্যায় লোড হৈ আছে...",
@@ -278,13 +280,14 @@
     "verses": "শ্লোক",
     "chapters": "অধ্যায়সমূহ",
     "chaptersLoading": "অধ্যায়বোৰ লোড হৈ আছে...",
-    "chapterTitle": "ভগৱদ্গীতা অধ্যায়সমূহ"
+    "chapterTitle": "ভগৱদ্গীতা অধ্যায়সমূহ",
+    "chapter": "অধ্যায়"
   },
   "verse": {
     "verse": "শ্লোক",
     "translation": "অনুবাদ",
     "chapter": "অধ্যায়",
-    "verseNumber": "শ্লোক {number}"
+    "verseNumber": "শ্লোক %{number}"
   },
   "progress": {
     "reset": "অগ্ৰগতি ৰিচেট",
@@ -293,7 +296,7 @@
     "loading": "লোড হৈ আছে...",
     "notStarted": "এতিয়ালৈকে পঢ়া আৰম্ভ হোৱা নাই",
     "readingProgress": "পঢ়াৰ অগ্ৰগতি",
-    "lastRead": "শেষ পঢ়া: {date}",
+    "lastRead": "শেষ পঢ়া: %{date}",
     "chapterComplete": "অধ্যায় সম্পূৰ্ণ"
   },
   "notification": {

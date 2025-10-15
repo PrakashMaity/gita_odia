@@ -2,6 +2,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useChapterStore } from '@/store';
+import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
@@ -12,13 +13,7 @@ import { ThemeProvider } from '../hooks/useTheme';
 export default function RootLayout() {
   const { loadAllChapters } = useChapterStore();
   
-  const [loaded, error] = useFonts({
-    'SpaceMono-Regular': require('../assets/fonts/SpaceMono-Regular.ttf'),
-    'BenSenHandwriting': require('../assets/fonts/BenSenHandwriting.ttf'),
-    'MahinDhakaItalic': require('../assets/fonts/MahinDhakaItalic.ttf'),
-    'BegumZiaRegulaCurve': require('../assets/fonts/BegumZiaRegulaCurve.ttf'),
-    'FNMahinSameyaANSI': require('../assets/fonts/FNMahinSameyaANSI.ttf'),
-  });
+  const [loaded, error] = useFonts(ClientFonts);
 
   // Initialize chapter data when app starts
   useEffect(() => {

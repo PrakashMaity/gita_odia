@@ -10,6 +10,7 @@ import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useChapterStore, useNotificationStore } from '@/store';
 import { getRandomSloka } from '@/store/utils/notificationUtils';
+import { HomeImages } from '@/utils/assets';
 import { FontAwesome } from '@expo/vector-icons';
 import FontAwesome5 from '@expo/vector-icons/build/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
@@ -118,7 +119,7 @@ const Home = () => {
 
 
       <ThemedCard variant='transparent' style={styles.headerCard} pattern="none">
-        <Image source={require('@/assets/images/Home/logo.png')} style={styles.logo} />
+        <Image source={HomeImages.logo} style={styles.logo} />
         <ThemedLanguageText
           variant="primary"
           size="title"
@@ -158,7 +159,7 @@ const Home = () => {
       >
         <ThemedCard variant='primary' style={styles.heroCard} pattern="sacredGeometry" patternOpacity={0.15}>
           <ThemedView style={styles.heroContainer}>
-            <Image source={require('@/assets/images/Home/hero.png')} resizeMode='cover' style={styles.heroImage} />
+            <Image source={HomeImages.hero} resizeMode='cover' style={styles.heroImage} />
             <ThemedView style={styles.textOverlay}>
               <ThemedLanguageText
                 variant="primary"

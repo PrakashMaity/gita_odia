@@ -57,7 +57,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
                 fontFamily="regional_secondary"
                 style={styles.title}
               >
-                ଆଜିକାର ଶ୍ଲୋକ
+                {i18n.t('notification.dailySloka')}
               </ThemedLanguageText>
               <TouchableOpacity onPress={onClose} style={styles.closeButton}>
                 <FontAwesome5 
@@ -82,7 +82,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
                   size="small"
                   fontFamily="regional_secondary"
                 >
-                  ଶ୍ଲୋକ {sloka.verseNumber}
+                  {i18n.t('verse.verse')} {sloka.verseNumber}
                 </ThemedLanguageText>
               </ThemedView>
 
@@ -124,7 +124,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
 
             <ThemedView style={styles.actions}>
               <ThemedButton
-                title="ଆହୁରି ପଢ଼ନ୍ତୁ"
+                title={i18n.t('notification.readMore')}
                 onPress={onReadMore}
                 variant="primary"
                 size="md"
@@ -132,7 +132,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
                 icon={<FontAwesome5 name="book-open" size={SIZES.icon.sm} color={theme.button.primary.text} />}
               />
               <ThemedButton
-                title="ବନ୍ଦ କରନ୍ତୁ"
+                title={i18n.t('notification.close')}
                 onPress={onClose}
                 variant="secondary"
                 size="md"

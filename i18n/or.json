@@ -240,8 +240,9 @@
     "error": "ବୁକମାର୍କ ପରିବର୍ତ୍ତନ କରିବାରେ ସମସ୍ୟା",
     "clearAll": "ସବୁ ବୁକମାର୍କ ସରାନ୍ତୁ",
     "clearAllConfirm": "ଆପଣ କି ନିଶ୍ଚିତ ଯେ ଆପଣ ସବୁ ବୁକମାର୍କ ସରାଇବାକୁ ଚାହାନ୍ତି?",
+    "clearAllSuccess": "ସବୁ ବୁକମାର୍କ ସଫଳତାର ସହିତ ସରାନୋ ହୋଇଛି",
     "bookmarks": "ବୁକମାର୍କ",
-    "totalBookmarks": "ମୋଟ {count}ଟି ବୁକମାର୍କ",
+    "totalBookmarks": "ମୋଟ %{count}ଟି ବୁକମାର୍କ",
     "noBookmarks": "କୌଣସି ବୁକମାର୍କ ନାହିଁ",
     "bookmarkHint": "ଅଧ୍ୟାୟ ପଢ଼ିବା ସମୟରେ ଶ୍ଲୋକ ବୁକମାର୍କ କରନ୍ତୁ"
   },
@@ -253,8 +254,9 @@
     "error": "ପ୍ରିୟ ଶ୍ଲୋକ ପରିବର୍ତ୍ତନ କରିବାରେ ସମସ୍ୟା",
     "clearAll": "ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସରାନ୍ତୁ",
     "clearAllConfirm": "ଆପଣ କି ନିଶ୍ଚିତ ଯେ ଆପଣ ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସରାଇବାକୁ ଚାହାନ୍ତି?",
+    "clearAllSuccess": "ସବୁ ପ୍ରିୟ ଶ୍ଲୋକ ସଫଳତାର ସହିତ ସରାନୋ ହୋଇଛି",
     "favorites": "ପ୍ରିୟ ଶ୍ଲୋକ",
-    "totalFavorites": "ମୋଟ {count}ଟି ପ୍ରିୟ ଶ୍ଲୋକ",
+    "totalFavorites": "ମୋଟ %{count}ଟି ପ୍ରିୟ ଶ୍ଲୋକ",
     "noFavorites": "କୌଣସି ପ୍ରିୟ ଶ୍ଲୋକ ନାହିଁ",
     "favoriteHint": "ଅଧ୍ୟାୟ ପଢ଼ିବା ସମୟରେ ଶ୍ଲୋକ ପ୍ରିୟ କରନ୍ତୁ"
   },
@@ -269,8 +271,8 @@
     "odia": "ଓଡ଼ିଆ",
     "translation": "ଅନୁବାଦ",
     "noResults": "କୌଣସି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଲା ନାହିଁ",
-    "noResultsFor": "\"{query}\" ର ନିମନ୍ତେ କୌଣସି ଶ୍ଲୋକ ପାଇବାକୁ ମିଳିଲା ନାହିଁ",
-    "foundResults": "{count}ଟି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଛି"
+    "noResultsFor": "\"%{query}\" ର ନିମନ୍ତେ କୌଣସି ଶ୍ଲୋକ ପାଇବାକୁ ମିଳିଲା ନାହିଁ",
+    "foundResults": "%{count}ଟି ଫଳାଫଳ ପାଇବାକୁ ମିଳିଛି"
   },
   "chapter": {
     "loading": "ଅଧ୍ୟାୟ ଲୋଡ଼ ହେଉଛି...",
@@ -278,13 +280,14 @@
     "verses": "ଶ୍ଲୋକ",
     "chapters": "ଅଧ୍ୟାୟସମୂହ",
     "chaptersLoading": "ଅଧ୍ୟାୟଗୁଡ଼ିକ ଲୋଡ଼ ହେଉଛି...",
-    "chapterTitle": "ଭଗବଦ୍ଗୀତା ଅଧ୍ୟାୟସମୂହ"
+    "chapterTitle": "ଭଗବଦ୍ଗୀତା ଅଧ୍ୟାୟସମୂହ",
+    "chapter": "ଅଧ୍ୟାୟ"
   },
   "verse": {
     "verse": "ଶ୍ଲୋକ",
     "translation": "ଅନୁବାଦ",
     "chapter": "ଅଧ୍ୟାୟ",
-    "verseNumber": "ଶ୍ଲୋକ {number}"
+    "verseNumber": "ଶ୍ଲୋକ %{number}"
   },
   "progress": {
     "reset": "ପ୍ରଗତି ରିସେଟ୍",
@@ -293,7 +296,7 @@
     "loading": "ଲୋଡ଼ ହେଉଛି...",
     "notStarted": "ବର୍ତ୍ତମାନ ପଢ଼ିବା ଆରମ୍ଭ ହୋଇନାହିଁ",
     "readingProgress": "ପଢ଼ିବା ପ୍ରଗତି",
-    "lastRead": "ଶେଷ ପଢ଼ିଥିବା: {date}",
+    "lastRead": "ଶେଷ ପଢ଼ିଥିବା: %{date}",
     "chapterComplete": "ଅଧ୍ୟାୟ ସମ୍ପୂର୍ଣ୍ଣ"
   },
   "notification": {

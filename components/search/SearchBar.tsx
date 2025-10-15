@@ -1,6 +1,7 @@
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
@@ -15,7 +16,7 @@ interface SearchBarProps {
 export default function SearchBar({ 
   onSearch, 
   onClear, 
-  placeholder = "ଅନୁସନ୍ଧାନ କରନ୍ତୁ...", 
+  placeholder = i18n.t('search.placeholder'), 
   value = "" 
 }: SearchBarProps) {
   const { theme } = useTheme();

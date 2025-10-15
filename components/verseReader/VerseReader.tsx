@@ -4,6 +4,7 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SpeakerImages } from '@/utils/assets';
 import { Image, StyleSheet } from 'react-native';
 import { FavoriteButton } from '../favorite';
 
@@ -39,12 +40,12 @@ export default function VerseReader({
   const { theme } = useTheme();
   const speakerImageMapper = (speaker: string) => {
     switch (speaker) {
-      case 'ଧୃତରାଷ୍ଟ୍ର': return require('@/assets/images/speaker/dhritarystra.png');
-      case 'ସଞ୍ଜୟ': return require('@/assets/images/speaker/sanjay.png');
-      case 'ଅର୍ଜୁନ': return require('@/assets/images/speaker/arjuna.png');
+      case 'ଧୃତରାଷ୍ଟ୍ର': return SpeakerImages.dhritarystra;
+      case 'ସଞ୍ଜୟ': return SpeakerImages.sanjay;
+      case 'ଅର୍ଜୁନ': return SpeakerImages.arjuna;
       case 'ପରମେଶ୍ୱର':
-      case 'ଶ୍ରୀଭଗବାନ': return require('@/assets/images/speaker/shreekrishna.png');
-      case 'ଦୁର୍ଯ୍ୟୋଧନ': return require('@/assets/images/speaker/duryadhona.png');
+      case 'ଶ୍ରୀଭଗବାନ': return SpeakerImages.shreekrishna;
+      case 'ଦୁର୍ଯ୍ୟୋଧନ': return SpeakerImages.duryadhona;
     }
   }
 

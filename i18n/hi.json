@@ -240,8 +240,9 @@
     "error": "बुकमार्क बदलने में समस्या",
     "clearAll": "सभी बुकमार्क हटाएँ",
     "clearAllConfirm": "क्या आप निश्चित हैं कि आप सभी बुकमार्क हटाना चाहते हैं?",
+    "clearAllSuccess": "सभी बुकमार्क सफलतापूर्वक हटाए गए",
     "bookmarks": "बुकमार्क",
-    "totalBookmarks": "कुल {count} बुकमार्क",
+    "totalBookmarks": "कुल %{count} बुकमार्क",
     "noBookmarks": "कोई बुकमार्क नहीं",
     "bookmarkHint": "अध्याय पढ़ते समय श्लोक बुकमार्क करें"
   },
@@ -253,8 +254,9 @@
     "error": "प्रिय श्लोक बदलने में समस्या",
     "clearAll": "सभी प्रिय श्लोक हटाएँ",
     "clearAllConfirm": "क्या आप निश्चित हैं कि आप सभी प्रिय श्लोक हटाना चाहते हैं?",
+    "clearAllSuccess": "सभी प्रिय श्लोक सफलतापूर्वक हटाए गए",
     "favorites": "प्रिय श्लोक",
-    "totalFavorites": "कुल {count} प्रिय श्लोक",
+    "totalFavorites": "कुल %{count} प्रिय श्लोक",
     "noFavorites": "कोई प्रिय श्लोक नहीं",
     "favoriteHint": "अध्याय पढ़ते समय श्लोक प्रिय करें"
   },
@@ -269,8 +271,8 @@
     "hindi": "हिंदी",
     "translation": "अनुवाद",
     "noResults": "कोई परिणाम नहीं मिला",
-    "noResultsFor": "\"{query}\" के लिए कोई श्लोक नहीं मिला",
-    "foundResults": "{count} परिणाम मिले"
+    "noResultsFor": "\"%{query}\" के लिए कोई श्लोक नहीं मिला",
+    "foundResults": "%{count} परिणाम मिले"
   },
   "chapter": {
     "loading": "अध्याय लोड हो रहा है...",
@@ -278,13 +280,14 @@
     "verses": "श्लोक",
     "chapters": "अध्याय",
     "chaptersLoading": "अध्याय लोड हो रहे हैं...",
-    "chapterTitle": "भगवद्गीता अध्याय"
+    "chapterTitle": "भगवद्गीता अध्याय",
+    "chapter": "अध्याय"
   },
   "verse": {
     "verse": "श्लोक",
     "translation": "अनुवाद",
     "chapter": "अध्याय",
-    "verseNumber": "श्लोक {number}"
+    "verseNumber": "श्लोक %{number}"
   },
   "progress": {
     "reset": "प्रगति रीसेट",
@@ -293,7 +296,7 @@
     "loading": "लोड हो रहा है...",
     "notStarted": "अभी तक पढ़ना शुरू नहीं हुआ",
     "readingProgress": "पढ़ने की प्रगति",
-    "lastRead": "अंतिम पढ़ा: {date}",
+    "lastRead": "अंतिम पढ़ा: %{date}",
     "chapterComplete": "अध्याय पूर्ण"
   },
   "notification": {
