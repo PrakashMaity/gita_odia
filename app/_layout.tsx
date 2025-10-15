@@ -5,6 +5,7 @@ import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '../hooks/useTheme';
@@ -34,7 +35,8 @@ export default function RootLayout() {
         <ThemeProvider>
           <ThemedSafeAreaView>
             <ThemedView variant='secondary' style={{ flex: 1 }}>
-             
+           
+            <StatusBar style={"auto"} />
               <Stack screenOptions={{
                 headerShown: false,
               }}>

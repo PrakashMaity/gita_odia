@@ -3,7 +3,7 @@ import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
-import { useThemeColors } from '@/hooks/useTheme';
+import { useTheme, useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useSettingsStore } from '@/store';
 import { OnboardingImages } from '@/utils/assets';
@@ -49,6 +49,8 @@ const getOnboardingSlides = (): OnboardingSlide[] => [
 
 export default function OnboardingScreen() {
   const theme = useThemeColors();
+  const {isDark} = useTheme();
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const { updateSetting } = useSettingsStore();
   const onboardingSlides = getOnboardingSlides();
@@ -87,7 +89,7 @@ export default function OnboardingScreen() {
 
   return (
     <ThemedView style={[styles.container, { backgroundColor: theme.background.primary }]}>
-      <StatusBar style="light" />
+      <StatusBar style={isDark ? 'light' : 'dark'} />
       
       {/* Header with Skip button */}
       <ThemedView style={styles.header}>

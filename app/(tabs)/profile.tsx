@@ -9,14 +9,13 @@ import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useSettingsStore } from '@/store';
 import Feather from '@expo/vector-icons/Feather';
-import { router } from 'expo-router';
+import constants from 'expo-constants';
 import { Dimensions, ScrollView, StyleSheet } from 'react-native';
 
 export default function SettingsScreen() {
   const theme = useThemeColors();
   const { isDark } = useTheme();
   const { 
-    settings, 
     updateSetting 
   } = useSettingsStore();
   const { width, height } = Dimensions.get('window');
@@ -26,29 +25,6 @@ export default function SettingsScreen() {
     updateSetting('themeMode', newMode);
   };
 
-
-
-  const handleFontSizeChange = () => {
-    const sizes = ['small', 'medium', 'large'] as const;
-    const currentIndex = sizes.indexOf(settings.fontSize);
-    const nextIndex = (currentIndex + 1) % sizes.length;
-    updateSetting('fontSize', sizes[nextIndex]);
-  };
-
-
-  const getSizeLabel = (size: string) => {
-    switch (size) {
-      case 'small': return 'Small';
-      case 'medium': return 'Medium';
-      case 'large': return 'Large';
-      default: return 'Medium';
-    }
-  };
-
-  const handleResetOnboarding = () => {
-    updateSetting('onboardingCompleted', false);
-    router.replace('onboarding' as any);
-  };
 
 
 
@@ -114,7 +90,7 @@ export default function SettingsScreen() {
               title={i18n.t('profile.appVersion')}
               subtitle={i18n.t('profile.appVersionDesc')}
               icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
-              value="1.0.0"
+              value={constants.expoConfig?.version}
             />
           </SettingsSection>
 

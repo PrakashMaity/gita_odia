@@ -30,7 +30,7 @@ export default function ChapterDetailScreen() {
   const [showLanguage, setShowLanguage] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
   const { incrementAction, showInterstitialIfReady, showRewardedIfReady } = useAdFrequency({
-    interstitialInterval: 2, // Show interstitial every 2-3 slokas
+    interstitialInterval: 3, // Show interstitial every 2-3 slokas
     rewardedCooldown: 3, // 3 minutes cooldown for rewarded ads
   });
   
@@ -151,7 +151,10 @@ export default function ChapterDetailScreen() {
       {AlertComponent}
       {/* Header */}
       <ThemedView style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+        <TouchableOpacity onPress={() => {
+          router.back()
+          showRewardedIfReady()
+          }} style={styles.backButton}>
           <Ionicons name="arrow-back" size={SIZES.icon.xl} color={theme.icon.primary} />
         </TouchableOpacity>
 

@@ -9,7 +9,7 @@ interface AdFrequencyConfig {
 }
 
 const defaultConfig: AdFrequencyConfig = {
-  interstitialInterval: 2, // Show interstitial every 2-3 slokas
+  interstitialInterval: 3, // Show interstitial every 2-3 slokas
   rewardedCooldown: 5, // 5 minutes cooldown for rewarded ads
   maxAdsPerSession: 15, // Max 15 ads per session (increased for more slokas)
 };
@@ -85,7 +85,7 @@ export const useAdFrequency = (config: Partial<AdFrequencyConfig> = {}) => {
     setActionCount(0);
     setSessionAdCount(0);
   }, []);
-
+ console.log('actionCount', actionCount);
   return {
     incrementAction,
     showInterstitialIfReady,

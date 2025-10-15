@@ -1,4 +1,3 @@
-import { useAdFrequency } from '@/components/ads/hooks/useAdFrequency';
 import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
@@ -28,22 +27,14 @@ export default function ChaptersScreen() {
     loadProgress,
     getProgressPercentage
   } = useProgressStore();
-  const { incrementAction, showInterstitialIfReady } = useAdFrequency({
-    interstitialInterval: 2, // Show interstitial every 2-3 chapter views
-  });
+  
 
   useEffect(() => {
     loadProgress();
   }, [loadProgress]);
 
   const handleChapterPress = (chapterId: string) => {
-    incrementAction();
     router.push(`/chapter/${chapterId}`);
-    
-    // Show interstitial after navigation
-    setTimeout(() => {
-      showInterstitialIfReady();
-    }, 500);
   };
 
   const renderChapterCard = (chapter: ChapterData) => {
