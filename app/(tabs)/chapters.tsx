@@ -133,11 +133,12 @@ export default function ChaptersScreen() {
                   variant="primary"
                   showPercentage={false}
                 >
-                  <ThemedLanguageText
-                    variant="tertiary"
-                    size="xs"
-                    style={styles.progressText}
-                  >
+                <ThemedLanguageText
+                  variant="tertiary"
+                  size="xs"
+                  fontFamily="regional_secondary"
+                  style={styles.progressText}
+                >
                     {progressPercentage}%
                   </ThemedLanguageText>
                 </ThemedLinearProgress>
@@ -161,7 +162,7 @@ export default function ChaptersScreen() {
           <ThemedLanguageText
             variant="secondary"
             size="large"
-            fontFamily="regional_primary"
+            fontFamily="regional_secondary"
             style={styles.loadingText}
           >
             {i18n.t('chapter.chaptersLoading')}

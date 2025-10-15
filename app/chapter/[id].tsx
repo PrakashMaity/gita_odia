@@ -117,7 +117,11 @@ export default function ChapterDetailScreen() {
   if (isLoading || !isInitialized) {
     return (
       <ThemedView style={styles.loadingContainer}>
-        <ThemedLanguageText variant="secondary" size="medium">
+        <ThemedLanguageText 
+          variant="secondary" 
+          size="medium"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('chapter.loading')}
         </ThemedLanguageText>
       </ThemedView>
@@ -127,7 +131,11 @@ export default function ChapterDetailScreen() {
   if (!chapterData) {
     return (
       <ThemedView variant="primary" style={styles.errorContainer}>
-        <ThemedLanguageText variant="error" size="medium">
+        <ThemedLanguageText 
+          variant="error" 
+          size="medium"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('chapter.notFound')}
         </ThemedLanguageText>
       </ThemedView>

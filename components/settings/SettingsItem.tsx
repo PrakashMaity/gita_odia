@@ -41,11 +41,21 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
           </View>
         )}
         <View style={styles.textContent}>
-          <ThemedLanguageText size='large' fontFamily='regional_secondary' style={[styles.title, { color: theme.text.primary }]}>
+          <ThemedLanguageText 
+            variant='primary'
+            size='large' 
+            fontFamily='regional_secondary' 
+            style={[styles.title, { color: theme.text.primary }]}
+          >
             {title}
           </ThemedLanguageText>
           {subtitle && (
-            <ThemedLanguageText fontFamily='regional_secondary' style={[styles.subtitle, { color: theme.text.secondary }]}>
+            <ThemedLanguageText 
+              variant='secondary'
+              size='medium'
+              fontFamily='regional_secondary' 
+              style={[styles.subtitle, { color: theme.text.secondary }]}
+            >
               {subtitle}
             </ThemedLanguageText>
           )}
@@ -54,13 +64,23 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
       
       <View style={styles.rightContent}>
         {value && (
-          <ThemedLanguageText style={[styles.value, { color: theme.text.secondary }]}>
+          <ThemedLanguageText 
+            variant='secondary'
+            size='small'
+            fontFamily='regional_secondary'
+            style={[styles.value, { color: theme.text.secondary }]}
+          >
             {value}
           </ThemedLanguageText>
         )}
         {rightElement}
         {onPress && (
-          <ThemedLanguageText style={[styles.chevron, { color: theme.text.secondary }]}>
+          <ThemedLanguageText 
+            variant='secondary'
+            size='large'
+            fontFamily='regional_secondary'
+            style={[styles.chevron, { color: theme.text.secondary }]}
+          >
             ›
           </ThemedLanguageText>
         )}

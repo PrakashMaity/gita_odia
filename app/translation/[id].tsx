@@ -32,7 +32,11 @@ export default function TranslationDetailScreen() {
   if (isLoading) {
     return (
       <ThemedView style={styles.loadingContainer}>
-        <ThemedLanguageText variant="secondary" size="medium">
+        <ThemedLanguageText 
+          variant="secondary" 
+          size="medium"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>
@@ -42,7 +46,11 @@ export default function TranslationDetailScreen() {
   if (!translationData) {
     return (
       <ThemedView variant="primary" style={styles.errorContainer}>
-        <ThemedLanguageText variant="error" size="medium">
+        <ThemedLanguageText 
+          variant="error" 
+          size="medium"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('common.error')}
         </ThemedLanguageText>
       </ThemedView>

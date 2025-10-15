@@ -97,7 +97,7 @@ export default function TranslationsScreen() {
           <ThemedLanguageText
             variant="secondary"
             size="large"
-            fontFamily="regional_primary"
+            fontFamily="regional_secondary"
             style={styles.loadingText}
           >
             {i18n.t('translations.loading')}

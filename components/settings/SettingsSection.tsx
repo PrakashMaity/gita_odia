@@ -20,11 +20,21 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
   return (
     <ThemedCard  style={styles.container} pattern='mandala' patternOpacity={0.05}>
       <View style={[styles.header, { borderBottomColor: theme.border.tertiary }]}>
-        <ThemedLanguageText size='large' fontFamily='regional_secondary' style={{...styles.title, color: theme.text.primary }}>
+        <ThemedLanguageText 
+          variant='primary'
+          size='large' 
+          fontFamily='regional_secondary' 
+          style={{...styles.title, color: theme.text.primary }}
+        >
           {title}
         </ThemedLanguageText>
         {description && (
-          <ThemedLanguageText fontFamily='regional_secondary' style={{...styles.description, color: theme.text.secondary }}>
+          <ThemedLanguageText 
+            variant='secondary'
+            size='medium'
+            fontFamily='regional_secondary' 
+            style={{...styles.description, color: theme.text.secondary }}
+          >
             {description}
           </ThemedLanguageText>
         )}

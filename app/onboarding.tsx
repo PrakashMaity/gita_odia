@@ -126,7 +126,7 @@ export default function OnboardingScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="title" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.title}
             >
               {currentSlideData.title}

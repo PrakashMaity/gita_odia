@@ -66,6 +66,7 @@ const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
         </ThemedView>
         <ThemedView style={styles.textContainer}>
           <ThemedLanguageText 
+            variant='primary'
             fontFamily='regional_secondary'
             size='large'
           >
@@ -73,8 +74,9 @@ const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
           </ThemedLanguageText>
           {item.description && (
             <ThemedLanguageText 
+              variant='secondary'
+              size='medium'
               fontFamily='regional_secondary'
-             
             >
               {item.description}
             </ThemedLanguageText>
@@ -96,6 +98,8 @@ const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
       <ThemedView style={styles.sectionHeader}>
         <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
         <ThemedLanguageText 
+          variant='primary'
+          size='xl'
           fontFamily='regional_secondary'
         >
           {section.title}

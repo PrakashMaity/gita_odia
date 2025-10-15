@@ -39,7 +39,7 @@ export default function GitaSummaryScreen() {
         <ThemedLanguageText 
           variant="primary" 
           size="title" 
-          fontFamily="regional_primary"
+          fontFamily="regional_secondary"
           style={styles.title}
         >
           {i18n.t('gitaSummary.title')}
@@ -83,7 +83,7 @@ export default function GitaSummaryScreen() {
               <ThemedLanguageText 
                 variant="primary" 
                 size="large" 
-                fontFamily="regional_primary"
+                fontFamily="regional_secondary"
                 style={styles.chapterTitle}
               >
                 {item.title}
@@ -108,7 +108,7 @@ export default function GitaSummaryScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="xl" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('gitaSummary.teachingsTitle')}

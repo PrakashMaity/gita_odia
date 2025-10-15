@@ -94,7 +94,12 @@ export default function VerseReader({
         {showLanguage && (
           <ThemedView style={styles.verseSection}>
             <ThemedView style={styles.LanguageContainer}>
-              <ThemedLanguageText fontFamily='regional_tertiary' variant="primary" size="xxl" style={styles.LanguageText}>
+              <ThemedLanguageText 
+              fontFamily='regional_secondary' 
+              variant="primary" 
+              size="xxl" 
+              style={styles.LanguageText}
+            >
                 {verse.Language}
               </ThemedLanguageText>
 
@@ -112,7 +117,12 @@ export default function VerseReader({
                 {i18n.t('verse.translation')}
               </ThemedLanguageText>
             </ThemedView>
-            <ThemedLanguageText fontFamily='regional_tertiary' variant="primary" size="large" style={styles.translationText}>
+            <ThemedLanguageText 
+              fontFamily='regional_secondary' 
+              variant="primary" 
+              size="large" 
+              style={styles.translationText}
+            >
               {verse.translation}
             </ThemedLanguageText>
           </ThemedView>

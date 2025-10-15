@@ -40,11 +40,21 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
           </View>
         )}
         <View style={styles.textContent}>
-          <ThemedLanguageText size='large' fontFamily='regional_secondary' style={[styles.title, { color: theme.text.primary }]}>
+          <ThemedLanguageText 
+            variant='primary'
+            size='large' 
+            fontFamily='regional_secondary' 
+            style={[styles.title, { color: theme.text.primary }]}
+          >
             {title}
           </ThemedLanguageText>
           {subtitle && (
-            <ThemedLanguageText variant='secondary' fontFamily='regional_secondary' style={[styles.subtitle, { color: theme.text.secondary }]}>
+            <ThemedLanguageText 
+              variant='secondary'
+              size='medium'
+              fontFamily='regional_secondary' 
+              style={[styles.subtitle, { color: theme.text.secondary }]}
+            >
               {subtitle}
             </ThemedLanguageText>
           )}

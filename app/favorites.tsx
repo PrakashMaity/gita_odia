@@ -169,7 +169,11 @@ export default function FavoritesScreen() {
   if (isLoading) {
     return (
       <ThemedView style={styles.loadingContainer}>
-        <ThemedLanguageText variant="secondary" size="medium">
+        <ThemedLanguageText 
+          variant="secondary" 
+          size="medium"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>
@@ -190,7 +194,12 @@ export default function FavoritesScreen() {
             {i18n.t('favorite.favorites')}
           </ThemedLanguageText>
           {sortedFavorites.length > 0 && (
-            <ThemedLanguageText variant="secondary" size="large" style={styles.chapterSubtitle}>
+            <ThemedLanguageText 
+              variant="secondary" 
+              size="large" 
+              fontFamily="regional_secondary"
+              style={styles.chapterSubtitle}
+            >
               {i18n.t('favorite.totalFavorites', { count: convertToLocalizedNumber(sortedFavorites.length) })}
             </ThemedLanguageText>
           )}

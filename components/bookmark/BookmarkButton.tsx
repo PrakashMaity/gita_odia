@@ -97,7 +97,11 @@ export default function BookmarkButton({
         size={20} 
         color={bookmarkStatus ? "#4CAF50" : theme.icon.secondary} 
       />
-      <ThemedLanguageText fontFamily='regional_tertiary' style={{
+      <ThemedLanguageText 
+        fontFamily='regional_secondary'
+        variant='primary'
+        size='small'
+        style={{
         ...styles.bookmarkText,
         color: bookmarkStatus ? theme.button.primary.text : theme.text.primary
       }}>

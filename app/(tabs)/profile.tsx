@@ -70,7 +70,12 @@ export default function SettingsScreen() {
           >
             {i18n.t('profile.settings')}
           </ThemedLanguageText>
-          <ThemedLanguageText fontFamily='regional_secondary' style={styles.subtitle}>
+          <ThemedLanguageText 
+            variant="secondary"
+            size="medium"
+            fontFamily="regional_secondary" 
+            style={styles.subtitle}
+          >
             {i18n.t('profile.customizeExperience')}
           </ThemedLanguageText>
         </ThemedView>

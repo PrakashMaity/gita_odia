@@ -78,7 +78,11 @@ export default function ReadingProgress({
   if (isLoading) {
     return (
       <ThemedView style={styles.container}>
-        <ThemedLanguageText variant="secondary" size="small">
+        <ThemedLanguageText 
+          variant="secondary" 
+          size="small"
+          fontFamily="regional_secondary"
+        >
           {i18n.t('common.loading')}
         </ThemedLanguageText>
       </ThemedView>

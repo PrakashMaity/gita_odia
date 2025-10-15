@@ -3,12 +3,12 @@ import { SIZES } from '@/constants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import React, { useEffect, useRef } from 'react';
 import {
-  Animated,
-  Modal,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
+    Animated,
+    Modal,
+    StyleSheet,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
 } from 'react-native';
 import { ThemedButton } from '../ThemedButton/ThemedButton';
 import { ThemedCard } from '../ThemedCard/ThemedCard';
@@ -192,6 +192,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                     {getIcon() && (
                       <ThemedLanguageText
                         fontFamily="regional_secondary"
+                        variant="primary"
+                        size="large"
                         style={[
                           styles.icon,
                           { color: typeStyles.iconColor },
@@ -208,6 +210,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                     >
                       <ThemedLanguageText
                         fontFamily="regional_secondary"
+                        variant="secondary"
+                        size="medium"
                         style={[styles.closeButtonText, { color: theme.text.secondary }]}
                       >
                         ✕
@@ -220,6 +224,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                 {title && (
                   <ThemedLanguageText
                     fontFamily="regional_secondary"
+                    variant="primary"
+                    size="title"
                     style={[
                       styles.title,
                       { color: theme.text.primary },
@@ -233,6 +239,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                 {message && (
                   <ThemedLanguageText
                     fontFamily="regional_secondary"
+                    variant="secondary"
+                    size="large"
                     style={[
                       styles.message,
                       { color: theme.text.secondary },

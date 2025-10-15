@@ -31,7 +31,7 @@ export default function MangalacharanScreen() {
         <ThemedLanguageText 
           variant="primary" 
           size="title" 
-          fontFamily="regional_primary"
+          fontFamily="regional_secondary"
           style={styles.title}
         >
           {i18n.t('mangalacharan.title')}
@@ -64,7 +64,7 @@ export default function MangalacharanScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="large" 
-              fontFamily="regional_primary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('mangalacharan.mantraTitle')}
@@ -88,7 +88,7 @@ export default function MangalacharanScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="large" 
-              fontFamily="regional_primary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('mangalacharan.meaningTitle')}
@@ -112,7 +112,7 @@ export default function MangalacharanScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="large" 
-              fontFamily="regional_primary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('mangalacharan.instructionsTitle')}

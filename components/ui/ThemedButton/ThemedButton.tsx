@@ -119,7 +119,12 @@ export const ThemedButton: React.FC<ThemedButtonProps> = ({
       activeOpacity={0.7}
     >
       {icon}
-      <ThemedLanguageText fontFamily='regional_secondary' style={{...getTextStyle(), ...textStyle}}>
+      <ThemedLanguageText 
+        fontFamily='regional_secondary'
+        variant='primary'
+        size='medium'
+        style={{...getTextStyle(), ...textStyle}}
+      >
         {title}
       </ThemedLanguageText>
     </TouchableOpacity>

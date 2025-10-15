@@ -24,7 +24,7 @@ export default function GitaMahatmyaScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Ionicons name="arrow-back" size={SIZES.icon.lg} color={theme.icon.primary} />
         </TouchableOpacity>
-        <ThemedLanguageText variant="primary" size="title" fontFamily="regional_primary" style={styles.title}>
+        <ThemedLanguageText variant="primary" size="title" fontFamily="regional_secondary" style={styles.title}>
           {i18n.t('gitaMahatmya.title')}
         </ThemedLanguageText>
         <ThemedView style={styles.placeholder} />
@@ -41,7 +41,7 @@ export default function GitaMahatmyaScreen() {
         <ThemedCard style={styles.mahatmyaCard}>
           <ThemedView style={styles.sectionHeader}>
             <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText variant="primary" size="large" fontFamily="regional_primary" style={styles.sectionTitle}>
+            <ThemedLanguageText variant="primary" size="large" fontFamily="regional_secondary" style={styles.sectionTitle}>
               {i18n.t('gitaMahatmya.mahatmyaTitle')}
             </ThemedLanguageText>
           </ThemedView>
@@ -53,7 +53,7 @@ export default function GitaMahatmyaScreen() {
         <ThemedCard style={styles.benefitsCard}>
           <ThemedView style={styles.sectionHeader}>
             <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText variant="primary" size="large" fontFamily="regional_primary" style={styles.sectionTitle}>
+            <ThemedLanguageText variant="primary" size="large" fontFamily="regional_secondary" style={styles.sectionTitle}>
               {i18n.t('gitaMahatmya.benefitsTitle')}
             </ThemedLanguageText>
           </ThemedView>

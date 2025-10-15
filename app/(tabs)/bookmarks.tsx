@@ -279,7 +279,7 @@ export default function BookmarksScreen() {
               <ThemedLanguageText 
                 variant="primary" 
                 size="large" 
-                fontFamily="regional_tertiary"
+                fontFamily="regional_secondary"
                 style={styles.sectionTitle}
               >
 {i18n.t('bookmark.bookmarks')}
@@ -295,8 +295,8 @@ export default function BookmarksScreen() {
             <ThemedLanguageText 
               variant="tertiary" 
               size="small" 
+              fontFamily="regional_secondary"
               style={styles.footerText}
-              fontFamily='regional_secondary'
             >
 {convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
             </ThemedLanguageText>

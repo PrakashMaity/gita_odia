@@ -33,7 +33,7 @@ export default function DhyanaScreen() {
         <ThemedLanguageText 
           variant="primary" 
           size="title" 
-          fontFamily="regional_primary"
+          fontFamily="regional_secondary"
           style={styles.title}
         >
           {i18n.t('dhyana.title')}
@@ -51,7 +51,7 @@ export default function DhyanaScreen() {
           <ThemedLanguageText 
             variant="primary" 
             size="large" 
-            fontFamily="regional_primary"
+            fontFamily="regional_secondary"
             style={styles.introTitle}
           >
             {i18n.t('dhyana.introTitle')}
@@ -73,7 +73,7 @@ export default function DhyanaScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="xl" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('dhyana.slokaTitle')}
@@ -83,7 +83,7 @@ export default function DhyanaScreen() {
           <ThemedLanguageText 
             variant="primary"
             size="large"
-            fontFamily="regional_tertiary"
+            fontFamily="regional_secondary"
             style={styles.dhyanaText}
           >
             {dhyanaText}
@@ -97,7 +97,7 @@ export default function DhyanaScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="xl" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('dhyana.meaningTitle')}
@@ -121,7 +121,7 @@ export default function DhyanaScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="xl" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('dhyana.benefitsTitle')}
@@ -152,7 +152,7 @@ export default function DhyanaScreen() {
             <ThemedLanguageText 
               variant="primary" 
               size="xl" 
-              fontFamily="regional_tertiary"
+              fontFamily="regional_secondary"
               style={styles.sectionTitle}
             >
               {i18n.t('dhyana.stepsTitle')}
@@ -166,7 +166,7 @@ export default function DhyanaScreen() {
                   <ThemedLanguageText 
                     variant="primary"
                     size="small"
-                    fontFamily="regional_primary"
+                    fontFamily="regional_secondary"
                     style={styles.stepNumberText}
                   >
                     {index + 1}
