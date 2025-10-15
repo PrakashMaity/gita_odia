@@ -18,12 +18,20 @@ export default function RootLayout() {
 
   // Initialize chapter data when app starts
   useEffect(() => {
-    loadAllChapters();
+    const initializeApp = async () => {
+      try {
+        await loadAllChapters();
+      } catch (error) {
+        console.error('Error loading chapters:', error);
+      }
+    };
+    
+    initializeApp();
   }, [loadAllChapters]);
-
 
   if (error) {
     console.error('Font loading error:', error);
+    // Continue with app even if fonts fail to load
   }
 
   if (!loaded) {

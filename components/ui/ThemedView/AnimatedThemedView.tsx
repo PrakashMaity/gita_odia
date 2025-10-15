@@ -31,11 +31,20 @@ export const AnimatedThemedView: React.FC<AnimatedThemedViewProps> = ({
       secondary: {
         backgroundColor: theme.background.secondary,
       },
+      tertiary: {
+        backgroundColor: theme.background.tertiary,
+      },
+      quaternary: {
+        backgroundColor: theme.background.quaternary,
+      },
       card: {
         backgroundColor: theme.background.card,
         borderRadius: SIZES.radius.md,
         padding: SIZES.spacing.md,
         margin: SIZES.spacing.md,
+      },
+      transparent: {
+        backgroundColor: 'transparent',
       },
     };
 

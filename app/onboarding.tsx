@@ -68,13 +68,20 @@ export default function OnboardingScreen() {
   };
 
   const handleComplete = async () => {
-    // Mark onboarding as complete
-    updateSetting('onboardingCompleted', true);
-    
-    // Wait a moment for the state to persist
-    await new Promise(resolve => setTimeout(resolve, 100));
-    
-    router.replace('/(tabs)');
+    try {
+      // Mark onboarding as complete
+      updateSetting('onboardingCompleted', true);
+      
+      // Wait for the state to persist properly
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Navigate to tabs
+      router.replace('/(tabs)');
+    } catch (error) {
+      console.error('Error completing onboarding:', error);
+      // Fallback navigation
+      router.replace('/(tabs)');
+    }
   };
 
   const handlePrevious = () => {

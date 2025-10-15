@@ -7,7 +7,6 @@ import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { FavoriteVerse, useFavoriteStore } from '@/store';
 import { SpeakerImages } from '@/utils/assets';
-import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
@@ -200,7 +199,7 @@ export default function FavoritesScreen() {
               fontFamily="regional_secondary"
               style={styles.chapterSubtitle}
             >
-              {i18n.t('favorite.totalFavorites', { count: convertToLocalizedNumber(sortedFavorites.length) })}
+              {i18n.t('favorite.totalFavorites', { count: sortedFavorites.length })}
             </ThemedLanguageText>
           )}
         </ThemedView>

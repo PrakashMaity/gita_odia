@@ -1,8 +1,9 @@
-  import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
+  import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { FONTS_LANGUAGE } from '@/interface/font.interface';
+import { getLanguageFonts } from '@/interface/font.interface';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 
@@ -10,27 +11,28 @@ export default function TabLayout() {
   const { theme } = useTheme();
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: theme.icon.primary,
-        tabBarInactiveTintColor: theme.text.secondary,
-        tabBarStyle: {
-          backgroundColor: theme.background.primary,
-          borderTopColor: theme.border.primary,
-          borderTopWidth: SIZES.borderSize.md,
-          height: SIZES.header.lg,
-          paddingBottom: SIZES.spacing.sm,
-          paddingTop: SIZES.spacing.sm,
-          
-        },
-        tabBarLabelStyle: {
-          fontSize: SIZES.lg,
-          fontFamily: FONTS_LANGUAGE.regional_secondary,
-          
-        },
-        headerShown: false,
-      }}
-    >
+    <ErrorBoundary>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: theme.icon.primary,
+          tabBarInactiveTintColor: theme.text.secondary,
+          tabBarStyle: {
+            backgroundColor: theme.background.primary,
+            borderTopColor: theme.border.primary,
+            borderTopWidth: SIZES.borderSize.md,
+            height: SIZES.header.lg,
+            paddingBottom: SIZES.spacing.sm,
+            paddingTop: SIZES.spacing.sm,
+            
+          },
+          tabBarLabelStyle: {
+            fontSize: SIZES.lg,
+            fontFamily: getLanguageFonts().regional_secondary,
+            
+          },
+          headerShown: false,
+        }}
+      >
       <Tabs.Screen
         name="index"
         options={{
@@ -88,5 +90,6 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    </ErrorBoundary>
   );
 }

@@ -15,9 +15,9 @@
 const languageConfigs = {
   bn: {
     name: "গীতা বাংলা",
-    slug: "gita-bangla",
-    iosBundleIdentifier: "com.gita.bangla",
-    androidPackage: "com.gita.bangla",
+    slug: "bhagavad_gita",
+    iosBundleIdentifier: "com.proninja.bhagavad-gita",
+    androidPackage: "com.proninja.bhagavad_gita",
     primaryColor: "#ffffff",
     languageCode: "bn",
     icon: "./clients/bn/assets/images/icon.png",
@@ -76,7 +76,7 @@ export default function ({ config = {} }) {
     ...config,
     name: langConf.name,
     slug: langConf.slug,
-    version: "1.0.0",
+    version: "1.0.1",
     orientation: "portrait",
     icon: langConf.icon,
     scheme: "gita",

@@ -1,6 +1,6 @@
 import { useThemeColors } from '@/hooks/useTheme';
 import React from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 
 export interface ThemedCircularProgressProps {
@@ -107,9 +107,9 @@ export const ThemedCircularProgress: React.FC<ThemedCircularProgressProps> = ({
       
       {showPercentage && (
         <View style={styles.percentageContainer}>
-          <View style={styles.percentageText}>
+          <Text style={styles.percentageText}>
             {Math.round(clampedProgress * 100)}%
-          </View>
+          </Text>
         </View>
       )}
       

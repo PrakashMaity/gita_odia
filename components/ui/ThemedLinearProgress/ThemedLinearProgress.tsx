@@ -1,6 +1,6 @@
 import { useThemeColors } from '@/hooks/useTheme';
 import React from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 export interface ThemedLinearProgressProps {
@@ -68,7 +68,7 @@ export const ThemedLinearProgress: React.FC<ThemedLinearProgressProps> = ({
   const colors = getVariantColors();
 
   return (
-    <View style={[styles.container, { width }, style]}>
+    <View style={[styles.container, { width: width as any }, style]}>
       <Svg height={height} width={progressWidth} style={styles.svg}>
         <Defs>
           <LinearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -102,9 +102,9 @@ export const ThemedLinearProgress: React.FC<ThemedLinearProgressProps> = ({
       
       {showPercentage && (
         <View style={styles.percentageContainer}>
-          <View style={styles.percentageText}>
+          <Text style={styles.percentageText}>
             {Math.round(clampedProgress * 100)}%
-          </View>
+          </Text>
         </View>
       )}
       

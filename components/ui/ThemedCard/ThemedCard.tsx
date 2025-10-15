@@ -108,12 +108,13 @@ export const ThemedCard: React.FC<ThemedCardProps> = ({
   };
 
   if (onPress) {
+    const { onBlur, onFocus, ...touchableProps } = props;
     return (
       <TouchableOpacity 
         onPress={onPress}
         activeOpacity={activeOpacity}
         style={[cardStyle, { position: 'relative' }]}
-        {...props}
+        {...touchableProps}
       >
         {renderPattern()}
         {children}
@@ -122,7 +123,7 @@ export const ThemedCard: React.FC<ThemedCardProps> = ({
   }
 
   return (
-    <ThemedView variant='primary' style={[cardStyle, { position: 'relative' }]} {...props}>
+    <ThemedView variant='primary' style={Array.isArray(cardStyle) ? [...cardStyle, { position: 'relative' }] : [cardStyle, { position: 'relative' }]} {...props}>
       {renderPattern()}
       {children}
     </ThemedView>

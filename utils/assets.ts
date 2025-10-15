@@ -43,10 +43,10 @@ const orAssets = {
   duryadhona: require('../clients/or/assets/images/speaker/duryadhona.png'),
   fonts: {
     'SpaceMono-Regular': require('../clients/or/assets/fonts/SpaceMono-Regular.ttf'),
-    'BenSenHandwriting': require('../clients/or/assets/fonts/BenSenHandwriting.ttf'),
-    'MahinDhakaItalic': require('../clients/or/assets/fonts/MahinDhakaItalic.ttf'),
-    'BegumZiaRegulaCurve': require('../clients/or/assets/fonts/BegumZiaRegulaCurve.ttf'),
-    'FNMahinSameyaANSI': require('../clients/or/assets/fonts/FNMahinSameyaANSI.ttf'),
+    'AnekOdia': require('../clients/or/assets/fonts/AnekOdia.ttf'),
+    'BalooBhaina2': require('../clients/or/assets/fonts/BalooBhaina2.ttf'),
+    'NotoSansOriya': require('../clients/or/assets/fonts/NotoSansOriya.ttf'),
+    'NotoSerifOriya2': require('../clients/or/assets/fonts/NotoSerifOriya2.ttf'),
   },
 };
 

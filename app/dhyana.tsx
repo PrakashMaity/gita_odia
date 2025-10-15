@@ -15,8 +15,8 @@ export default function DhyanaScreen() {
 
   const dhyanaText = i18n.t('dhyana.slokaText');
   const meaningText = i18n.t('dhyana.meaningText');
-  const benefits = i18n.t('dhyana.benefits');
-  const steps = i18n.t('dhyana.steps');
+  const benefits = i18n.t('dhyana.benefits') as string[];
+  const steps = i18n.t('dhyana.steps') as string[];
 
   return (
     <ThemedView variant="primary" style={styles.container}>
@@ -129,7 +129,7 @@ export default function DhyanaScreen() {
           </ThemedView>
           
           <ThemedView style={styles.benefitsList}>
-            {benefits.map((benefit, index) => (
+            {benefits.map((benefit: string, index: number) => (
               <ThemedView key={index} style={styles.benefitItem}>
                 <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
                 <ThemedLanguageText 
@@ -160,7 +160,7 @@ export default function DhyanaScreen() {
           </ThemedView>
           
           <ThemedView style={styles.stepsList}>
-            {steps.map((step, index) => (
+            {steps.map((step: string, index: number) => (
               <ThemedView key={index} style={styles.stepItem}>
                 <ThemedView style={[styles.stepNumber, { backgroundColor: theme.background.quaternary }]}>
                   <ThemedLanguageText 

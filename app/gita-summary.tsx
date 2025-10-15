@@ -14,7 +14,7 @@ export default function GitaSummaryScreen() {
   const { width, height } = Dimensions.get('window');
 
   const getSummaryData = () => {
-    const chapters = i18n.t('gitaSummary.chapters');
+    const chapters = i18n.t('gitaSummary.chapters') as Record<string, { title: string; summary: string }>;
     return Object.keys(chapters).map((key, index) => ({
       chapter: `${index + 1}${i18n.t('verse.chapter')}`,
       title: chapters[key].title,
@@ -116,7 +116,7 @@ export default function GitaSummaryScreen() {
           </ThemedView>
           
           <ThemedView style={styles.teachingsList}>
-            {i18n.t('gitaSummary.teachings').map((teaching: string, index: number) => (
+            {(i18n.t('gitaSummary.teachings') as string[]).map((teaching: string, index: number) => (
               <ThemedView key={index} style={styles.teachingItem}>
                 <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
                 <ThemedLanguageText 

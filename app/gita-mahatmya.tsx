@@ -14,7 +14,7 @@ export default function GitaMahatmyaScreen() {
   const { width, height } = Dimensions.get('window');
 
   const mahatmyaText = i18n.t('gitaMahatmya.mahatmyaText');
-  const benefits = i18n.t('gitaMahatmya.benefits');
+  const benefits = i18n.t('gitaMahatmya.benefits') as string[];
 
   return (
     <ThemedView variant="primary" style={styles.container}>
@@ -58,7 +58,7 @@ export default function GitaMahatmyaScreen() {
             </ThemedLanguageText>
           </ThemedView>
           <ThemedView style={styles.benefitsList}>
-            {benefits.map((benefit, index) => (
+            {benefits.map((benefit: string, index: number) => (
               <ThemedView key={index} style={styles.benefitItem}>
                 <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
                 <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary" style={styles.benefitText}>

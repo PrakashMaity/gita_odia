@@ -14,7 +14,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ style }) => {
 
   return (
     <ThemedView style={[styles.container, style]}>
-      <ThemedText style={[styles.label, { color: theme.text.primary }]}>
+      <ThemedText style={[styles.label, { color: theme.text.primary }] as any}>
         {i18n.t('theme.theme')} (Theme)
       </ThemedText>
       <TouchableOpacity
@@ -29,10 +29,10 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ style }) => {
         activeOpacity={0.7}
       >
         <View style={styles.toggleContent}>
-          <ThemedText style={[styles.modeText, { color: theme.text.primary }]}>
+          <ThemedText style={[styles.modeText, { color: theme.text.primary }] as any}>
             {isDark ? '🌙' : '☀️'}
           </ThemedText>
-          <ThemedText style={[styles.modeLabel, { color: theme.text.secondary }]}>
+          <ThemedText style={[styles.modeLabel, { color: theme.text.secondary }] as any}>
             {isDark ? i18n.t('theme.dark') : i18n.t('theme.light')}
           </ThemedText>
         </View>

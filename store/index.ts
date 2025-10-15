@@ -1,7 +1,7 @@
+export type { ChapterData } from '@/interface/chapter.interface';
 export { useBookmarkStore } from './bookmarkStore';
 export type { Bookmark } from './bookmarkStore';
 export { useChapterStore } from './chapterStore';
-export type { ChapterData } from './chapterStore';
 export { useFavoriteStore } from './favoriteStore';
 export type { FavoriteVerse } from './favoriteStore';
 export { useNotificationStore } from './notificationStore';

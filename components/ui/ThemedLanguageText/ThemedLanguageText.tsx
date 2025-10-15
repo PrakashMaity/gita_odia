@@ -1,4 +1,4 @@
-import { FONTS_LANGUAGE } from '@/interface/font.interface';
+import { getLanguageFonts } from '@/interface/font.interface';
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
 import { useThemeColors } from '../../../hooks/useTheme';
@@ -98,21 +98,22 @@ export const ThemedLanguageText: React.FC<ThemedLanguageTextProps> = ({
     };
 
     // Font family styles
+    const languageFonts = getLanguageFonts();
     const fontFamilyStyles: Record<LanguageFontFamily, TextStyle> = {
       regional_primary: {
-        fontFamily: FONTS_LANGUAGE.regional_primary,
+        fontFamily: languageFonts.regional_primary,
       },
       regional_secondary: {
-        fontFamily: FONTS_LANGUAGE.regional_secondary,
+        fontFamily: languageFonts.regional_secondary,
       },
       regional_tertiary: {
-        fontFamily: FONTS_LANGUAGE.regional_tertiary,
+        fontFamily: languageFonts.regional_tertiary,
       },
       regional_quaternary: {
-          fontFamily: FONTS_LANGUAGE.regional_secondary,
+          fontFamily: languageFonts.regional_quaternary,
       },
       primary_english: {
-        fontFamily: FONTS_LANGUAGE.regional_quaternary,
+        fontFamily: languageFonts.primary_english,
       },
       none: {
         fontFamily: 'none',

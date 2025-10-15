@@ -120,7 +120,7 @@ export default function MangalacharanScreen() {
           </ThemedView>
           
           <ThemedView style={styles.instructionList}>
-            {i18n.t('mangalacharan.instructions').map((instruction: string, index: number) => (
+            {(i18n.t('mangalacharan.instructions') as string[]).map((instruction: string, index: number) => (
               <ThemedView key={index} style={styles.instructionItem}>
                 <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
                 <ThemedLanguageText 

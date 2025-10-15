@@ -34,13 +34,18 @@ export const useSettingsStore = create<SettingsStore>()(
     (set, get) => ({
       settings: defaultSettings,
       
-      updateSetting: (key, value) =>
-        set((state) => ({
-          settings: {
-            ...state.settings,
-            [key]: value,
-          },
-        })),
+      updateSetting: (key, value) => {
+        try {
+          set((state) => ({
+            settings: {
+              ...state.settings,
+              [key]: value,
+            },
+          }));
+        } catch (error) {
+          console.error('Error updating setting:', error);
+        }
+      },
       
       resetSettings: () =>
         set(() => ({
