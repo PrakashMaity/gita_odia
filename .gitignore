@@ -39,5 +39,6 @@ yarn-error.*
 app-example
 
 # generated native folders
+# NOTE: Keeping android/ tracked to persist critical ProGuard rules and build config
+# /android
 /ios
-/android
