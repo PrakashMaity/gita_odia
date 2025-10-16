@@ -76,7 +76,7 @@ export default function ({ config = {} }) {
     ...config,
     name: langConf.name,
     slug: langConf.slug,
-    version: "1.0.1",
+    version: "1.0.2",
     orientation: "portrait",
     icon: langConf.icon,
     scheme: "gita",

@@ -13,6 +13,8 @@ export interface Settings {
 
 interface SettingsStore {
   settings: Settings;
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
   updateSetting: <K extends keyof Settings>(key: K, value: Settings[K]) => void;
   resetSettings: () => void;
   resetOnboarding: () => void;
@@ -33,6 +35,11 @@ export const useSettingsStore = create<SettingsStore>()(
   persist(
     (set, get) => ({
       settings: defaultSettings,
+      _hasHydrated: false,
+      
+      setHasHydrated: (state: boolean) => {
+        set({ _hasHydrated: state });
+      },
       
       updateSetting: (key, value) => {
         try {
@@ -79,6 +86,9 @@ export const useSettingsStore = create<SettingsStore>()(
     {
       name: 'settings-storage',
       storage: createJSONStorage(() => AsyncStorage),
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );

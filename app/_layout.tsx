@@ -5,41 +5,55 @@ import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider } from '../hooks/useTheme';
 
+// Prevent splash screen from auto-hiding
+SplashScreen.preventAutoHideAsync().catch(() => {
+  /* Splash screen may have already hidden */
+});
 
 export default function RootLayout() {
   const { loadAllChapters } = useChapterStore();
+  const [appIsReady, setAppIsReady] = useState(false);
   
   const [loaded, error] = useFonts(ClientFonts);
 
-  // Initialize chapter data when app starts
+  // Initialize app resources
   useEffect(() => {
     const initializeApp = async () => {
       try {
         await loadAllChapters();
       } catch (error) {
         console.error('Error loading chapters:', error);
+      } finally {
+        // Mark app as ready once everything is loaded
+        setAppIsReady(true);
       }
     };
     
-    initializeApp();
-  }, [loadAllChapters]);
+    if (loaded || error) {
+      initializeApp();
+    }
+  }, [loaded, error, loadAllChapters]);
 
-  if (error) {
-    console.error('Font loading error:', error);
-    // Continue with app even if fonts fail to load
-  }
+  // Hide splash screen when app is ready
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
 
-  if (!loaded) {
+  // Don't render app until ready
+  if (!appIsReady) {
     return null;
   }
   return (
     <ErrorBoundary>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <ThemeProvider>
           <ThemedSafeAreaView>
             <ThemedView variant='secondary' style={{ flex: 1 }}>

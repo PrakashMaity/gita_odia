@@ -1,6 +1,27 @@
-# Welcome to your Expo app 👋
+# Gita Odia (ଗୀତା ଓଡ଼ିଆ) 📱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A multilingual Bhagavad Gita app built with React Native and Expo, supporting Odia, Bengali, Hindi, and Assamese.
+
+## 🔴 Critical Fix - Version 1.0.2 (October 2025)
+
+**Issue**: App was crashing on splash screen after downloading from Play Store  
+**Status**: ✅ **FIXED**
+
+### What was fixed:
+- ✅ Splash screen lifecycle management
+- ✅ AsyncStorage hydration race condition
+- ✅ Font loading coordination
+- ✅ ProGuard rules for production builds
+- ✅ Error handling improvements
+
+### For detailed information:
+- **Fix Documentation**: See [SPLASH_CRASH_FIX.md](./SPLASH_CRASH_FIX.md)
+- **Quick Commands**: See [QUICK_COMMANDS.md](./QUICK_COMMANDS.md)
+- **Changes Summary**: See [CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)
+
+---
+
+This is an [Expo](https://expo.dev) project with multi-language support.
 
 ## Get started
 
@@ -10,10 +31,30 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Start the app for specific language
 
    ```bash
-   npx expo start
+   # For Odia (default)
+   npm run start:or
+   
+   # For Bengali
+   npm run start:bn
+   
+   # For Hindi
+   npm run start:hi
+   
+   # For Assamese
+   npm run start:as
+   ```
+
+3. Build for production
+
+   ```bash
+   # Using build script (recommended)
+   ./build-production.sh or
+   
+   # Or using EAS directly
+   APP_LANG=or eas build --platform android --profile or
    ```
 
 In the output, you'll find options to open the app in a
@@ -24,6 +65,21 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Multi-Language Support
+
+The app supports 4 languages, each with its own assets and data:
+
+- **bn**: Bengali (বাংলা) - `clients/bn/`
+- **or**: Odia (ଓଡ଼ିଆ) - `clients/or/`
+- **hi**: Hindi (हिंदी) - `clients/hi/`
+- **as**: Assamese (অসমীয়া) - `clients/as/`
+
+Each language has its own:
+- Fonts (`assets/fonts/`)
+- Images (`assets/images/`)
+- Chapter data (`data/`)
+- Theme configuration (`theme/`)
 
 ## Get a fresh project
 

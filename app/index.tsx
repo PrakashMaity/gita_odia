@@ -1,15 +1,21 @@
 import { useSettingsStore } from '@/store';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
+import { ActivityIndicator, View } from 'react-native';
 
 export default function IndexScreen() {
-  const { settings } = useSettingsStore();
+  const { settings, _hasHydrated } = useSettingsStore();
 
   useEffect(() => {
+    // Wait for hydration before navigating
+    if (!_hasHydrated) {
+      return;
+    }
+
     const handleNavigation = async () => {
       try {
-        // Add a small delay to ensure stores are properly initialized
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Small delay to ensure navigation is ready
+        await new Promise(resolve => setTimeout(resolve, 50));
         
         // Redirect based on onboarding status
         if (settings.onboardingCompleted) {
@@ -25,7 +31,16 @@ export default function IndexScreen() {
     };
 
     handleNavigation();
-  }, [settings.onboardingCompleted]);
+  }, [_hasHydrated, settings.onboardingCompleted]);
 
-  return null; // This screen doesn't render anything
+  // Show loading indicator while waiting for hydration
+  if (!_hasHydrated) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff' }}>
+        <ActivityIndicator size="large" color="#FF6B35" />
+      </View>
+    );
+  }
+
+  return null;
 }

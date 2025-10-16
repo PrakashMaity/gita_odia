@@ -1,5 +1,14 @@
 import Constants from 'expo-constants';
-const LANG = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
+
+// Get language with fallback
+const LANG = (() => {
+  try {
+    return Constants.expoConfig?.extra?.LANGUAGE || 'bn';
+  } catch (error) {
+    console.error('Error reading language config:', error);
+    return 'bn'; // Fallback to Bengali
+  }
+})();
 
 // Asset maps for each language
 const bnAssets = {
@@ -54,12 +63,20 @@ const orAssets = {
 const hiAssets = bnAssets;
 const asAssets = bnAssets;
 
-// Select assets based on language
-const assets = LANG === 'bn' ? bnAssets : 
-               LANG === 'or' ? orAssets : 
-               LANG === 'hi' ? hiAssets : 
-               LANG === 'as' ? asAssets : 
-               bnAssets; // fallback to bn
+// Select assets based on language with error handling
+const getAssets = () => {
+  try {
+    if (LANG === 'or') return orAssets;
+    if (LANG === 'hi') return hiAssets;
+    if (LANG === 'as') return asAssets;
+    return bnAssets; // Default to bn
+  } catch (error) {
+    console.error('Error loading assets for language:', LANG, error);
+    return bnAssets; // Fallback to bn assets
+  }
+};
+
+const assets = getAssets();
 
 // Client-specific Images
 export const ClientsImages = {
