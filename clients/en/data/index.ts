@@ -1,0 +1,21 @@
+export const enChapters = [
+    require('./chapter1.json'),
+    require('./chapter2.json'),
+    require('./chapter3.json'),
+    require('./chapter4.json'),
+    require('./chapter5.json'),
+    require('./chapter6.json'),
+    require('./chapter7.json'),
+    require('./chapter8.json'),
+    require('./chapter9.json'),
+    require('./chapter10.json'),
+    require('./chapter11.json'),
+    require('./chapter12.json'),
+    require('./chapter13.json'),
+    require('./chapter14.json'),
+    require('./chapter15.json'),
+    require('./chapter16.json'),
+    require('./chapter17.json'),
+    require('./chapter18.json'),
+]
+

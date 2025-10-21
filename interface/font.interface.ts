@@ -33,6 +33,8 @@ export const getLanguageFonts = () => {
   const LANG = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
   
   switch (LANG) {
+    case 'en':
+      return FONTS_ENGLISH;
     case 'or':
       return FONTS_ODIA;
     case 'hi':

@@ -3,12 +3,14 @@ import { I18n } from 'i18n-js';
 
 import as from './as.json';
 import bn from './bn.json';
+import en from './en.json';
 import hi from './hi.json';
 import or from './or.json';
 
 const translations = {
     bn: bn,
     or: or,
+    en: en,
     hi: hi,
     as: as,
   };

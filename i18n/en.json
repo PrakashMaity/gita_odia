@@ -1,0 +1,335 @@
+{
+  "home": {
+    "headerTitle": "Bhagavad Gita",
+    "heroQuote": "Karmanye Vadhikaraste Ma Phaleshu Kadachana.\nMa Karma Phala Hetur Bhurma Te Sangostva Akarmani॥",
+    "quickActions": "Quick Actions",
+    "menu": "Menu"
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "previous": "Previous",
+    "next": "Next",
+    "start": "Get Started",
+    "slides": {
+      "slide1": {
+        "title": "Bhagavad Gita",
+        "subtitle": "Guide to Life",
+        "description": "Among ancient Hindu scriptures, the Bhagavad Gita holds a unique place. It is not just a religious text, but a guide to solving all problems of life."
+      },
+      "slide2": {
+        "title": "Meditation & Contemplation",
+        "subtitle": "Treasure of Spiritual Knowledge",
+        "description": "Each verse of the Gita reveals the deeper meaning of life. Here you will find all the essentials for meditation, contemplation, and spiritual growth."
+      },
+      "slide3": {
+        "title": "Begin Your Journey",
+        "subtitle": "Your Spiritual Path",
+        "description": "Start your spiritual journey today. Be enlightened by the wisdom of the Gita and make every moment of your life meaningful."
+      }
+    }
+  },
+  "mangalacharan": {
+    "title": "Mangalacharan",
+    "intro": "Mangalacharan is the sacred hymn recited before reading the Gita. It calms our mind and prepares us for knowledge.",
+    "mantraTitle": "Mangalacharan Mantra",
+    "mantraText": "Om Purnamadah Purnamidam Purnat Purnamudachyate.\nPurnasya Purnamadaya Purnameva Vashishyate॥\n\nOm Shantih Shantih Shantih॥\n\nOm Narayanam Namaskrutya Naram Chaiva Narottamam.\nDevim Sarasvatim Vyasam Tato Jayamudirayet॥\n\nOm Bhadram Karnebhih Shrunuyama Devah.\nBhadram Pashyemakshabhiryajatraah.\nSthirairangaistushtuvamsastanubhih.\nVyashema Devahitam Yadayuh॥\n\nOm Shantih Shantih Shantih॥",
+    "meaningTitle": "Meaning",
+    "meaningText": "In this Mangalacharan, we pray to God that our knowledge, wisdom, and strength increase, and we can walk the path of truth.",
+    "instructionsTitle": "Reading Instructions",
+    "instructions": [
+      "Sit in a peaceful environment and recite the Mangalacharan",
+      "Pronounce each mantra with attention",
+      "Begin reading the Gita after Mangalacharan"
+    ]
+  },
+  "dhyana": {
+    "title": "Meditation",
+    "introTitle": "Meditation & Contemplation",
+    "introText": "Meditation is an important means of spiritual development. It calms our mind and helps us connect with the soul.",
+    "slokaTitle": "Verses on Meditation",
+    "slokaText": "Dhyanam Paramam Brahmani Saccidanandarupini.\nTasmin Dhatrudhyeyabhavena Bhedo Nasti Kadachana॥\n\nDhyanam Manasi Samsthapya Paramatmani Chetasa.\nSarvabhuteshu Chaitanyam Samam Pashyati Yogi॥\n\nDhyanayogena Manasi Pashyanti Te Yuganuyugam.\nTasmin Dhatrudhyeyabhavena Bhedo Nasti Kadachana॥",
+    "meaningTitle": "Meaning of Meditation",
+    "meaningText": "Meditation is the concentration of mind on the Supreme Soul. When we meditate, our mind becomes calm and we experience oneness with God.",
+    "benefitsTitle": "Benefits of Meditation",
+    "benefits": [
+      "Mind becomes calm and stable",
+      "Thoughts slow down",
+      "Self-confidence increases",
+      "Stress and anxiety reduce",
+      "Creativity increases",
+      "Spiritual growth occurs"
+    ],
+    "stepsTitle": "Method of Meditation",
+    "steps": [
+      "Select a quiet and secluded place",
+      "Sit comfortably (Padmasana or Sukhasana)",
+      "Close your eyes and take deep breaths",
+      "Focus your mind on breathing",
+      "When mind wanders, return to breathing",
+      "Meditate for 10-15 minutes daily"
+    ]
+  },
+  "gitaMahatmya": {
+    "title": "Gita Mahatmya",
+    "intro": "The Gita is the essence of all Vedas. It provides solutions to all problems of life and shows the path to spiritual development.",
+    "mahatmyaTitle": "Glory of Gita",
+    "mahatmyaText": "Gitasupanishatsu Brahmavidyayam Yogashastre Shrikrishnarjunasamvade.\nArjunavishayogo Nama Prathmohadhyayah॥\n\nGitashastramida Punyam Yah Pathetam Narottamah.\nJnanavairagyasiddhartham Bhaktim Kurvan Govinde॥\n\nGitayah Shravanenaiva Smaranenaiva Va Narah.\nMuchyate Sarvapapebhyo Vishnulokam Sa Gachhati॥",
+    "benefitsTitle": "Benefits of Reading Gita",
+    "benefits": [
+      "Freedom from sins and attainment of virtue",
+      "Improvement of knowledge and wisdom",
+      "Mind becomes calm and stable",
+      "Spiritual growth occurs",
+      "Solutions to all life problems",
+      "Path to liberation becomes easy"
+    ]
+  },
+  "gitaSummary": {
+    "title": "Summary of Gita",
+    "intro": "The Gita is a sacred text divided into 18 chapters. Each chapter contains profound teachings about different aspects of life. Here is a brief description of the main content of each chapter.",
+    "chapters": {
+      "1": {
+        "title": "Arjuna Vishada Yoga",
+        "summary": "Arjuna's grief on the eve of the Kurukshetra war and the beginning of Krishna's counsel."
+      },
+      "2": {
+        "title": "Sankhya Yoga",
+        "summary": "Fundamental teachings on Karma Yoga, Jnana Yoga, and the immortality of the soul."
+      },
+      "3": {
+        "title": "Karma Yoga",
+        "summary": "The path to spiritual development through selfless action."
+      },
+      "4": {
+        "title": "Jnana Karma Sannyasa Yoga",
+        "summary": "The combination of knowledge and action, and various methods of yoga."
+      },
+      "5": {
+        "title": "Karma Sannyasa Yoga",
+        "summary": "The difference and coordination between renunciation of action and Karma Yoga."
+      },
+      "6": {
+        "title": "Dhyana Yoga",
+        "summary": "The teaching of self-control through meditation and yoga."
+      },
+      "7": {
+        "title": "Jnana Vijnana Yoga",
+        "summary": "The nature of God and the path to attaining God through devotion."
+      },
+      "8": {
+        "title": "Akshara Brahma Yoga",
+        "summary": "Meditation on the Supreme Soul and remembrance of God at the time of death."
+      },
+      "9": {
+        "title": "Raja Vidya Raja Guhya Yoga",
+        "summary": "The omnipresence of God and the glory of devotion."
+      },
+      "10": {
+        "title": "Vibhuti Yoga",
+        "summary": "Description of the glory and majesty of God."
+      },
+      "11": {
+        "title": "Vishvarupa Darshana Yoga",
+        "summary": "The vision of Krishna's universal form and Arjuna's fear."
+      },
+      "12": {
+        "title": "Bhakti Yoga",
+        "summary": "The supremacy of Bhakti Yoga and the qualities of a devotee."
+      },
+      "13": {
+        "title": "Kshetra Kshetrajna Vibhaga Yoga",
+        "summary": "The difference between Kshetra and Kshetrajna and the qualities of nature."
+      },
+      "14": {
+        "title": "Gunatraya Vibhaga Yoga",
+        "summary": "Description of Sattva, Rajas, and Tamas qualities and the path to liberation."
+      },
+      "15": {
+        "title": "Purushottama Yoga",
+        "summary": "The metaphor of the Ashvattha tree and the nature of the Supreme Soul."
+      },
+      "16": {
+        "title": "Daivasura Sampada Vibhaga Yoga",
+        "summary": "The difference between divine and demonic nature."
+      },
+      "17": {
+        "title": "Shraddhatraya Vibhaga Yoga",
+        "summary": "Description of three types of faith and penance."
+      },
+      "18": {
+        "title": "Moksha Sannyasa Yoga",
+        "summary": "The essence of the Gita and the means to attain liberation."
+      }
+    },
+    "teachingsTitle": "Main Teachings of Gita",
+    "teachings": [
+      "Spiritual development through selfless action",
+      "Attaining God through Bhakti Yoga",
+      "The immortality of the soul and the omnipresence of God",
+      "Observance of Dharma in all situations of life"
+    ]
+  },
+  "menu": {
+    "prayers": "Prayers & Hymns",
+    "chapters": "Chapters",
+    "features": "Special Features",
+    "mangalacharan": "Mangalacharan",
+    "mangalacharanDesc": "Mangalacharan before reading Gita",
+    "dhyana": "Meditation",
+    "dhyanaDesc": "Meditation & Contemplation",
+    "allChapters": "All Chapters",
+    "allChaptersDesc": "All 18 Chapters",
+    "translations": "English Translation",
+    "translationsDesc": "English translation of all chapters",
+    "favorites": "Favorite Verses",
+    "favoritesDesc": "Your favorite verses"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "skip": "Skip",
+    "start": "Start",
+    "continue": "Continue",
+    "finish": "Finish",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "share": "Share",
+    "search": "Search",
+    "settings": "Settings",
+    "profile": "Profile",
+    "bookmarks": "Bookmarks",
+    "favorites": "Favorites",
+    "play": "Play",
+    "pause": "Pause",
+    "stop": "Stop",
+    "volume": "Volume",
+    "progress": "Progress",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "retry": "Retry",
+    "noResults": "No results found",
+    "noData": "No data available"
+  },
+  "bookmark": {
+    "add": "Bookmark",
+    "remove": "Remove Bookmark",
+    "added": "Bookmark added",
+    "removed": "Bookmark removed",
+    "error": "Error updating bookmark",
+    "clearAll": "Clear all bookmarks",
+    "clearAllConfirm": "Are you sure you want to clear all bookmarks?",
+    "clearAllSuccess": "All bookmarks cleared successfully",
+    "bookmarks": "Bookmarks",
+    "totalBookmarks": "Total %{count} bookmarks",
+    "noBookmarks": "No bookmarks yet",
+    "bookmarkHint": "Bookmark verses while reading chapters"
+  },
+  "favorite": {
+    "add": "Favorite",
+    "remove": "Remove Favorite",
+    "added": "Added to favorites",
+    "removed": "Removed from favorites",
+    "error": "Error updating favorite",
+    "clearAll": "Clear all favorites",
+    "clearAllConfirm": "Are you sure you want to clear all favorites?",
+    "clearAllSuccess": "All favorites cleared successfully",
+    "favorites": "Favorite Verses",
+    "totalFavorites": "Total %{count} favorites",
+    "noFavorites": "No favorites yet",
+    "favoriteHint": "Mark verses as favorite while reading chapters"
+  },
+  "search": {
+    "placeholder": "Search...",
+    "searching": "Searching...",
+    "searchTips": "Search Tips",
+    "minCharacters": "Type at least 2 characters",
+    "searchIn": "Search in Sanskrit, English or translation",
+    "tapToGo": "Tap on result to go directly to verse",
+    "sanskrit": "Sanskrit",
+    "bengali": "English",
+    "translation": "Translation",
+    "noResults": "No results found",
+    "noResultsFor": "No verses found for \"%{query}\"",
+    "foundResults": "Found %{count} results"
+  },
+  "chapter": {
+    "loading": "Loading chapter...",
+    "notFound": "Chapter not found",
+    "verses": "Verses",
+    "chapters": "Chapters",
+    "chaptersLoading": "Loading chapters...",
+    "chapterTitle": "Bhagavad Gita Chapters",
+    "chapter": "Chapter"
+  },
+  "verse": {
+    "verse": "Verse",
+    "translation": "Translation",
+    "chapter": "Chapter",
+    "verseNumber": "Verse %{number}"
+  },
+  "progress": {
+    "reset": "Reset Progress",
+    "resetSuccess": "Reading progress for this chapter has been reset",
+    "resetError": "Error resetting progress",
+    "loading": "Loading...",
+    "notStarted": "Reading not started yet",
+    "readingProgress": "Reading Progress",
+    "lastRead": "Last read: %{date}",
+    "chapterComplete": "Chapter complete"
+  },
+  "notification": {
+    "dailySloka": "Today's Verse",
+    "readMore": "Read More",
+    "close": "Close"
+  },
+  "theme": {
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "profile": {
+    "settings": "Settings",
+    "customizeExperience": "Customize your Gita experience",
+    "appearance": "Appearance",
+    "appearanceDesc": "Customize the look and feel of the app",
+    "darkMode": "Dark Mode",
+    "darkModeDesc": "Switch between light and dark themes",
+    "about": "About",
+    "aboutDesc": "App information and support",
+    "appVersion": "App Version",
+    "appVersionDesc": "Current version of Bhagavad Gita app"
+  },
+  "tabs": {
+    "home": "Home",
+    "chapters": "Chapters",
+    "bookmarks": "Bookmarks",
+    "profile": "Settings"
+  },
+  "translations": {
+    "loading": "Loading translations...",
+    "sectionTitle": "Bhagavad Gita Translations"
+  },
+  "searchResults": {
+    "foundResults": "Found %{count} results"
+  },
+  "speakers": {
+    "dhritarystra": "Dhritarashtra",
+    "sanjay": "Sanjay",
+    "arjuna": "Arjuna",
+    "parameshwar": "Supreme Lord",
+    "shreebhagwan": "Shree Bhagwan",
+    "duryadhona": "Duryodhana",
+    "shreekrishna": "Shree Krishna"
+  }
+}
+

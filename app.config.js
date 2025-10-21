@@ -4,6 +4,9 @@
 // # Odia
 // APP_LANG=or eas build --platform android --profile or
 
+// # English
+// APP_LANG=en eas build --platform android --profile en
+
 // # Hindi
 // APP_LANG=hi eas build --platform android --profile hi
 
@@ -35,6 +38,17 @@ const languageConfigs = {
     splash: "./clients/or/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/or/assets/images/adaptive-icon.png",
   },
+  en: {
+    name: "Bhagavad Gita",
+    slug: "bhagavad-gita-en",
+    iosBundleIdentifier: "com.gita.english",
+    androidPackage: "com.gita.english",
+    primaryColor: "#ffffff",
+    languageCode: "en",
+    icon: "./clients/en/assets/images/icon.png",
+    splash: "./clients/en/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/en/assets/images/adaptive-icon.png",
+  },
   hi: {
     name: "गीता हिंदी",
     slug: "gita-hindi",
@@ -65,8 +79,9 @@ export default function ({ config = {} }) {
   
   // Get configuration from environment variables
   const projectId = process.env.PROJECT_ID;
-  const androidAppId = process.env.ANDROID_APP_ID;
-  const iosAppId = process.env.IOS_APP_ID;
+  // Use Google's test IDs as fallback if not provided
+  const androidAppId = process.env.ANDROID_APP_ID || "ca-app-pub-3940256099942544~3347511713";
+  const iosAppId = process.env.IOS_APP_ID || "ca-app-pub-3940256099942544~1458002511";
 
   return {
     ...config,

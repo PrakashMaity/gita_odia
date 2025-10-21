@@ -87,9 +87,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.proninja.bhagavad_gita'
+    namespace 'com.gita.english'
     defaultConfig {
-        applicationId 'com.proninja.bhagavad_gita'
+        applicationId 'com.gita.english'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

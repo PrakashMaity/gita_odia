@@ -59,6 +59,26 @@ const orAssets = {
   },
 };
 
+const enAssets = {
+  icon: require('../clients/en/assets/images/icon.png'),
+  splash: require('../clients/en/assets/images/splash-icon.png'),
+  adaptiveIcon: require('../clients/en/assets/images/adaptive-icon.png'),
+  favicon: require('../clients/en/assets/images/favicon.png'),
+  logo: require('../clients/en/assets/images/Home/logo.png'),
+  hero: require('../clients/en/assets/images/Home/hero.png'),
+  banner1: require('../clients/en/assets/images/onboarding/onboardBanner1.png'),
+  banner2: require('../clients/en/assets/images/onboarding/onboardBanner2.png'),
+  banner3: require('../clients/en/assets/images/onboarding/onboardBanner3.png'),
+  dhritarystra: require('../clients/en/assets/images/speaker/dhritarystra.png'),
+  sanjay: require('../clients/en/assets/images/speaker/sanjay.png'),
+  arjuna: require('../clients/en/assets/images/speaker/arjuna.png'),
+  shreekrishna: require('../clients/en/assets/images/speaker/shreekrishna.png'),
+  duryadhona: require('../clients/en/assets/images/speaker/duryadhona.png'),
+  fonts: {
+    'SpaceMono-Regular': require('../clients/en/assets/fonts/SpaceMono-Regular.ttf'),
+  },
+};
+
 // For hi and as, use bn assets as fallback until they have their own assets
 const hiAssets = bnAssets;
 const asAssets = bnAssets;
@@ -66,6 +86,7 @@ const asAssets = bnAssets;
 // Select assets based on language with error handling
 const getAssets = () => {
   try {
+    if (LANG === 'en') return enAssets;
     if (LANG === 'or') return orAssets;
     if (LANG === 'hi') return hiAssets;
     if (LANG === 'as') return asAssets;
