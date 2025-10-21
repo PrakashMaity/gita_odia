@@ -59,18 +59,14 @@ const languageConfigs = {
   },
 };
 
-// Unique EAS project IDs per client
-const projectIds = {
-  bn: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
-  or: "9fdf2660-de92-4a98-a5d6-430dd6148fd0",
-  hi: "c842f4d5-b216-4886-8e56-79155fa30c61",
-  as: "8e3998ea-85e5-45c5-81ac-484f0ab9daa4",
-};
-
 export default function ({ config = {} }) {
   const lang = process.env.APP_LANG || "bn";
   const langConf = languageConfigs[lang] || languageConfigs.bn;
-  const projectId = projectIds[lang];
+  
+  // Get configuration from environment variables
+  const projectId = process.env.PROJECT_ID;
+  const androidAppId = process.env.ANDROID_APP_ID;
+  const iosAppId = process.env.IOS_APP_ID;
 
   return {
     ...config,
@@ -124,8 +120,8 @@ export default function ({ config = {} }) {
       [
         "react-native-google-mobile-ads",
         {
-          androidAppId: "ca-app-pub-3406043589920136~9029941389",
-          iosAppId: "ca-app-pub-3406043589920136~5828287268",
+          androidAppId: androidAppId,
+          iosAppId: iosAppId,
         },
       ],
       "expo-secure-store",

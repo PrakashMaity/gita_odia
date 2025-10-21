@@ -1,5 +1,5 @@
-# Bengali Client Configuration
-APP_LANG=bn
-PROJECT_ID=4276c4fa-4062-4c56-9fb4-26fabacd8a23
+# Assamese Client Configuration
+APP_LANG=as
+PROJECT_ID=8e3998ea-85e5-45c5-81ac-484f0ab9daa4
 ANDROID_APP_ID=ca-app-pub-3406043589920136~9029941389
 IOS_APP_ID=ca-app-pub-3406043589920136~5828287268
