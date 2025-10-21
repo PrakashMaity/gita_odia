@@ -1,10 +1,33 @@
-import Constants from 'expo-constants';
+import { TYPOGRAPHY } from '../constants/typography';
 
+// Font configuration type
+export interface LanguageFonts {
+  primary_english: string;
+  regional_primary: string;
+  regional_secondary: string;
+  regional_tertiary: string;
+  regional_quaternary: string;
+}
+
+// Get language-specific fonts from the typography configuration
+export const getLanguageFonts = (): LanguageFonts => {
+  return {
+    primary_english: TYPOGRAPHY.fontFamily.english,
+    regional_primary: TYPOGRAPHY.fontFamily.primary,
+    regional_secondary: TYPOGRAPHY.fontFamily.secondary,
+    regional_tertiary: TYPOGRAPHY.fontFamily.tertiary,
+    regional_quaternary: TYPOGRAPHY.fontFamily.quaternary,
+  };
+};
+
+// Export for backward compatibility
+export const FONTS_LANGUAGE = getLanguageFonts();
+
+// Legacy font constants (kept for backward compatibility)
 export const FONTS_ENGLISH = {
   en_primary: 'SpaceMono-Regular',
 };
 
-// Bengali fonts
 export const FONTS_BENGALI = {
   primary_english: 'SpaceMono-Regular',
   regional_primary: 'BegumZiaRegulaCurve',
@@ -13,7 +36,6 @@ export const FONTS_BENGALI = {
   regional_quaternary: 'BenSenHandwriting',
 };
 
-// Odia fonts
 export const FONTS_ODIA = {
   primary_english: 'SpaceMono-Regular',
   regional_primary: 'NotoSansOriya',
@@ -22,30 +44,5 @@ export const FONTS_ODIA = {
   regional_quaternary: 'BalooBhaina2',
 };
 
-// Hindi fonts (using Bengali fonts as fallback for now)
 export const FONTS_HINDI = FONTS_BENGALI;
-
-// Assamese fonts (using Bengali fonts as fallback for now)
 export const FONTS_ASSAMESE = FONTS_BENGALI;
-
-// Function to get language-specific fonts
-export const getLanguageFonts = () => {
-  const LANG = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
-  
-  switch (LANG) {
-    case 'en':
-      return FONTS_ENGLISH;
-    case 'or':
-      return FONTS_ODIA;
-    case 'hi':
-      return FONTS_HINDI;
-    case 'as':
-      return FONTS_ASSAMESE;
-    case 'bn':
-    default:
-      return FONTS_BENGALI;
-  }
-};
-
-// Default to Bengali for backward compatibility
-export const FONTS_LANGUAGE = getLanguageFonts();

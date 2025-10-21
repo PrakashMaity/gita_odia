@@ -73,10 +73,9 @@ export const ThemedCard: React.FC<ThemedCardProps> = ({
 
   // Get pattern colors based on theme
   const getPatternColors = () => {
-    const isDark = theme.background.primary === '#0A0E1A';
     return {
-      color1: isDark ? theme.icon.primary : theme.icon.primary,
-      color2: isDark ? theme.icon.secondary : theme.icon.secondary,
+      color1: theme.icon.primary,
+      color2: theme.icon.secondary,
     };
   };
 

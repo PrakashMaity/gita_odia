@@ -8,177 +8,178 @@ export const generateTheme = (mode: ThemeMode): Theme => {
   if (mode === 'light') {
     return {
       background: {
-        primary: '#FFF8E1',             // Saffron cream (main content area)
-        secondary: '#FFE0B2',           // Light saffron (secondary background)
-        card: '#FFCC80',                // Golden saffron (card backgrounds)
-        tertiary: '#FFAB40',            // Bright orange (accent areas)
-        quaternary: '#FF8A65',          // Light orange (highlights and CTAs)
+        primary: colors.primary600,        // Light saffron cream
+        secondary: colors.primary500,      // Light saffron
+        card: colors.primary400,           // Golden saffron
+        tertiary: colors.primary300,       // Bright orange
+        quaternary: colors.primary200,     // Light orange
       },
       text: {
-        primary: '#1A0E0A',             // Very dark brown (main text - high contrast)
-        secondary: '#2E1B16',           // Dark brown (secondary text - better contrast)
-        disabled: '#8D6E63',            // Medium brown (disabled text - more visible)
-        error: '#B71C1C',               // Very deep red (error text - high contrast)
-        success: '#1B5E20',             // Very dark green (success text - high contrast)
-        warning: '#E65100',             // Dark orange (warning text - high contrast)
-        tertiary: '#BF360C',            // Very deep orange-red (tertiary text - high contrast)
-        quaternary: '#D84315',          // Deep orange-red (quaternary text - high contrast)
+        primary: colors.secondary50,       // Very dark brown (high contrast)
+        secondary: colors.secondary100,    // Dark brown (better contrast)
+        disabled: colors.secondary300,     // Medium brown (more visible)
+        error: colors.tertiary50,          // Very deep red (high contrast)
+        success: colors.quaternary50,      // Very dark green (high contrast)
+        warning: colors.accent50,          // Dark orange (high contrast)
+        tertiary: colors.tertiary100,      // Deep red (tertiary text)
+        quaternary: colors.tertiary200,    // Medium red (quaternary text)
       },
       icon: {
-        primary: '#E65100',             // Dark orange (primary icons - high contrast)
-        secondary: '#BF360C',           // Very deep orange-red (secondary icons - high contrast)
-        tertiary: '#B71C1C',            // Very deep red (tertiary icons - high contrast)
-        quaternary: '#1B5E20',          // Very dark green (quaternary icons - high contrast)
-        disabled: '#FFAB40',            // Bright orange (disabled icons - more visible)
-        error: '#B71C1C',               // Very deep red (error icons - high contrast)
-        success: '#1B5E20',             // Very dark green (success icons - high contrast)
-        warning: '#E65100',             // Dark orange (warning icons - high contrast)
+        primary: colors.accent50,          // Dark orange (high contrast)
+        secondary: colors.accent100,       // Deep orange (high contrast)
+        tertiary: colors.tertiary50,       // Very deep red (high contrast)
+        quaternary: colors.quaternary50,   // Very dark green (high contrast)
+        disabled: colors.primary300,       // Bright orange (more visible)
+        error: colors.tertiary50,          // Very deep red (high contrast)
+        success: colors.quaternary50,      // Very dark green (high contrast)
+        warning: colors.accent50,          // Dark orange (high contrast)
       },
       border: {
-        primary: '#E65100',             // Dark orange (primary borders - high contrast)
-        secondary: '#BF360C',           // Very deep orange-red (secondary borders - high contrast)
-        error: '#B71C1C',               // Very deep red (error borders - high contrast)
-        tertiary: '#5D4037',            // Dark brown (tertiary borders - better contrast)
-        quaternary: '#E65100',          // Dark orange (quaternary borders - high contrast)
+        primary: colors.accent50,          // Dark orange (high contrast)
+        secondary: colors.accent100,       // Deep orange (high contrast)
+        error: colors.tertiary50,          // Very deep red (high contrast)
+        tertiary: colors.secondary200,     // Medium brown (better contrast)
+        quaternary: colors.accent50,       // Dark orange (high contrast)
       },
       button: {
         primary: {
-          background: '#FF6F00',        // Deep orange (main action buttons)
-          text: colors.white,           // White text
+          background: colors.accent100,    // Deep orange
+          text: colors.white,              // White text
         },
         secondary: {
-          background: '#BF360C',        // Very deep orange-red (secondary buttons)
-          text: colors.white,           // White text
+          background: colors.accent50,     // Dark orange
+          text: colors.white,              // White text
         },
         tertiary: {
-          background: '#8D6E63',        // Rich brown (tertiary buttons)
-          text: colors.white,           // White text
+          background: colors.secondary200, // Rich brown
+          text: colors.white,              // White text
         },
         quaternary: {
-          background: '#D84315',        // Deep orange-red (quaternary buttons)
-          text: colors.white,           // White text
+          background: colors.tertiary100,  // Deep red
+          text: colors.white,              // White text
         },
         disabled: {
-          background: '#BCAAA4',        // Light brown (disabled)
-          text: '#A1887F',              // Medium brown text
+          background: colors.secondary400, // Light brown
+          text: colors.secondary300,       // Medium brown text
         },
       },
       status: {
-        success: '#1B5E20',             // Very dark green (success status - high contrast)
-        error: '#B71C1C',               // Very deep red (error status - high contrast)
-        warning: '#E65100',             // Dark orange (warning status - high contrast)
-        info: '#D84315',                // Deep orange-red (info status - high contrast)
+        success: colors.quaternary50,      // Very dark green (high contrast)
+        error: colors.tertiary50,          // Very deep red (high contrast)
+        warning: colors.accent50,          // Dark orange (high contrast)
+        info: colors.tertiary100,          // Deep red (info status)
       },
       data: {
         // Primary data colors (8 colors - perfect for most visualizations)
         primary: [
-          '#E65100',  // Dark orange (high contrast)
-          '#BF360C',  // Very deep orange-red (high contrast)
-          '#B71C1C',  // Very deep red (high contrast)
-          '#1B5E20',  // Very dark green (high contrast)
-          '#FFAB40',  // Bright orange (high contrast)
-          '#D84315',  // Deep orange-red (high contrast)
-          '#FF6F00',  // Deep orange (high contrast)
-          '#FF8A65',  // Light orange (high contrast)
+          colors.dataLight.blue,
+          colors.dataLight.green,
+          colors.dataLight.orange,
+          colors.dataLight.red,
+          colors.dataLight.purple,
+          colors.dataLight.teal,
+          colors.dataLight.yellow,
+          colors.dataLight.pink,
         ],
         // Extended data colors (16 colors - for complex visualizations)
         extended: [
-          '#E65100',  // Dark orange (high contrast)
-          '#BF360C',  // Very deep orange-red (high contrast)
-          '#B71C1C',  // Very deep red (high contrast)
-          '#1B5E20',  // Very dark green (high contrast)
-          '#FFAB40',  // Bright orange (high contrast)
-          '#D84315',  // Deep orange-red (high contrast)
-          '#FF6F00',  // Deep orange (high contrast)
-          '#FF8A65',  // Light orange (high contrast)
-          '#FFF8E1',  // Saffron cream (background)
-          '#FFE0B2',  // Light saffron (background)
-          '#FFCC80',  // Golden saffron (background)
-          '#FFAB40',  // Bright orange (accent)
-          '#1A0E0A',  // Very dark brown (text only)
-          '#2E1B16',  // Dark brown (text only)
-          '#FF7043',  // Medium orange (high contrast)
-          '#FFB74D',  // Light orange (high contrast)
+          colors.dataLight.blue,
+          colors.dataLight.green,
+          colors.dataLight.orange,
+          colors.dataLight.red,
+          colors.dataLight.purple,
+          colors.dataLight.teal,
+          colors.dataLight.yellow,
+          colors.dataLight.pink,
+          colors.dataLight.indigo,
+          colors.dataLight.emerald,
+          colors.dataLight.amber,
+          colors.dataLight.rose,
+          colors.dataLight.cyan,
+          colors.dataLight.lime,
+          colors.dataLight.violet,
+          colors.dataLight.fuchsia,
         ],
         // Semantic data colors
         semantic: {
-          positive: '#1B5E20',          // Very dark green (high contrast)
-          negative: '#B71C1C',          // Very deep red (high contrast)
-          neutral: '#FFAB40',           // Bright orange (high contrast)
-          highlight: '#E65100',         // Dark orange (high contrast)
+          positive: colors.dataLight.green,
+          negative: colors.dataLight.red,
+          neutral: colors.dataLight.gray,
+          highlight: colors.dataLight.blue,
         },
         // Data visualization background colors
         background: {
-          primary: '#FFF8E1',           // Saffron cream (matches main theme)
-          secondary: '#FFE0B2',         // Light saffron
-          grid: '#FFCC80',              // Golden saffron grid lines
-          axis: '#8D6E63',              // Rich brown axis lines
+          primary: colors.primary600,      // Light saffron cream
+          secondary: colors.primary500,    // Light saffron
+          grid: colors.primary400,         // Golden saffron grid lines
+          axis: colors.secondary300,       // Rich brown axis lines
         },
       },
     };
   } else {
+    // Dark mode theme
     return {
       background: {
-        primary: '#0A0E1A',             // Deep navy blue (main background)
-        secondary: '#1A2332',           // Rich dark blue (secondary background)
-        card: '#2A3441',                // Medium dark blue (card backgrounds)
-        tertiary: '#1E3A5F',            // Deep blue (tertiary)
-        quaternary: '#2563EB',          // Bright blue (quaternary)
+        primary: colors.black900,          // Deep navy blue
+        secondary: colors.black800,        // Rich dark blue
+        card: colors.black700,             // Medium dark blue
+        tertiary: colors.secondary50,      // Deep secondary color
+        quaternary: colors.primary200,     // Bright primary color
       },
       text: {
-        primary: colors.white,           // White (main text)
-        secondary: '#E0E7FF',           // Light blue-white (secondary text)
-        disabled: '#94A3B8',            // Medium blue-gray (disabled)
-        error: '#F87171',               // Light red (error text)
-        success: '#34D399',             // Light green (success text)
-        warning: '#FBBF24',             // Light amber (warning text)
-        tertiary: colors.white,          // White (tertiary text)
-        quaternary: colors.white,        // White (quaternary text)
+        primary: colors.white,             // White (main text)
+        secondary: colors.primary700,      // Light color (secondary text)
+        disabled: colors.secondary400,     // Medium color (disabled)
+        error: colors.tertiary300,         // Light red (error text)
+        success: colors.quaternary300,     // Light green (success text)
+        warning: colors.accent300,         // Light amber (warning text)
+        tertiary: colors.white,            // White (tertiary text)
+        quaternary: colors.white,          // White (quaternary text)
       },
       icon: {
-        primary: '#60A5FA',             // Light blue (primary icons)
-        secondary: '#34D399',           // Light green (secondary icons)
-        tertiary: '#A78BFA',            // Light purple (tertiary icons)
-        quaternary: colors.white,        // White (quaternary icons)
-        disabled: '#94A3B8',            // Medium blue-gray (disabled)
-        error: '#F87171',               // Light red (error icons)
-        success: '#34D399',             // Light green (success icons)
-        warning: '#FBBF24',             // Light amber (warning icons)
+        primary: colors.primary300,        // Light primary (primary icons)
+        secondary: colors.quaternary300,   // Light green (secondary icons)
+        tertiary: colors.tertiary300,      // Light purple (tertiary icons)
+        quaternary: colors.white,          // White (quaternary icons)
+        disabled: colors.secondary400,     // Medium color (disabled)
+        error: colors.tertiary300,         // Light red (error icons)
+        success: colors.quaternary300,     // Light green (success icons)
+        warning: colors.accent300,         // Light amber (warning icons)
       },
       border: {
-        primary: '#60A5FA',             // Light blue (primary borders)
-        secondary: '#34D399',           // Light green (secondary borders)
-        error: '#F87171',               // Light red (error borders)
-        tertiary: '#94A3B8',            // Medium blue-gray (tertiary borders)
-        quaternary: '#60A5FA',          // Light blue (quaternary borders)
+        primary: colors.primary300,        // Light primary (primary borders)
+        secondary: colors.quaternary300,   // Light green (secondary borders)
+        error: colors.tertiary300,         // Light red (error borders)
+        tertiary: colors.secondary400,     // Medium color (tertiary borders)
+        quaternary: colors.primary300,     // Light primary (quaternary borders)
       },
       button: {
         primary: {
-          background: '#2563EB',         // Bright blue (primary buttons)
-          text: colors.white,            // White text
+          background: colors.primary200,   // Bright primary
+          text: colors.white,              // White text
         },
         secondary: {
-          background: '#059669',         // Dark green (secondary buttons)
-          text: colors.white,            // White text
+          background: colors.quaternary100, // Dark green
+          text: colors.white,              // White text
         },
         tertiary: {
-          background: '#7C3AED',         // Dark purple (tertiary buttons)
-          text: colors.white,            // White text
+          background: colors.tertiary100,  // Dark purple
+          text: colors.white,              // White text
         },
         quaternary: {
-          background: '#DC2626',         // Dark red (quaternary buttons)
-          text: colors.white,            // White text
+          background: colors.accent100,    // Dark amber
+          text: colors.white,              // White text
         },
         disabled: {
-          background: '#374151',         // Dark gray (disabled)
-          text: '#94A3B8',               // Medium blue-gray text
+          background: colors.black700,     // Dark gray
+          text: colors.secondary400,       // Medium color text
         },
       },
       status: {
-        success: colors.secondary200,    // Medium teal (success status)
-        error: colors.maroon200,         // Medium warm red (error status)
-        warning: colors.accent200,       // Medium gold (warning status)
-        info: colors.quaternary200,      // Medium orange (info status)
+        success: colors.quaternary200,     // Medium green (success status)
+        error: colors.tertiary200,         // Medium red (error status)
+        warning: colors.accent200,         // Medium amber (warning status)
+        info: colors.primary200,           // Medium primary (info status)
       },
       data: {
         // Primary data colors (8 colors - perfect for most visualizations)
@@ -220,10 +221,10 @@ export const generateTheme = (mode: ThemeMode): Theme => {
         },
         // Data visualization background colors
         background: {
-          primary: '#0A0E1A',           // Deep navy blue (matches main theme)
-          secondary: '#1A2332',         // Rich dark blue
-          grid: '#374151',              // Dark gray grid lines
-          axis: '#6B7280',              // Medium gray axis lines
+          primary: colors.black900,        // Deep navy blue
+          secondary: colors.black800,      // Rich dark blue
+          grid: colors.black700,           // Dark gray grid lines
+          axis: colors.black600,           // Medium gray axis lines
         },
       },
     };

@@ -1,85 +1,167 @@
+import Constants from 'expo-constants';
+import { assameseColors } from '../clients/as/theme';
+import { bengaliColors } from '../clients/bn/theme';
+import { englishColors } from '../clients/en/theme';
+import { hindiColors } from '../clients/hi/theme';
+import { odiaColors } from '../clients/or/theme';
+
+// Type for client color configuration
+export interface ClientColors {
+  primary50: string;
+  primary100: string;
+  primary200: string;
+  primary300: string;
+  primary400: string;
+  primary500: string;
+  primary600: string;
+  primary700: string;
+  primary800: string;
+  primary900: string;
+  
+  secondary50: string;
+  secondary100: string;
+  secondary200: string;
+  secondary300: string;
+  secondary400: string;
+  secondary500: string;
+  secondary600: string;
+  secondary700: string;
+  secondary800: string;
+  secondary900: string;
+  
+  tertiary50: string;
+  tertiary100: string;
+  tertiary200: string;
+  tertiary300: string;
+  tertiary400: string;
+  tertiary500: string;
+  tertiary600: string;
+  tertiary700: string;
+  tertiary800: string;
+  tertiary900: string;
+  
+  quaternary50: string;
+  quaternary100: string;
+  quaternary200: string;
+  quaternary300: string;
+  quaternary400: string;
+  quaternary500: string;
+  quaternary600: string;
+  quaternary700: string;
+  quaternary800: string;
+  quaternary900: string;
+  
+  accent50: string;
+  accent100: string;
+  accent200: string;
+  accent300: string;
+  accent400: string;
+  accent500: string;
+  accent600: string;
+  accent700: string;
+  accent800: string;
+  accent900: string;
+}
+
+// Get client-specific colors based on APP_LANG environment variable
+const getClientColors = (): ClientColors => {
+  const language = Constants.expoConfig?.extra?.LANGUAGE || 'or';
+  
+  switch (language) {
+    case 'bn':
+      return bengaliColors;
+    case 'en':
+      return englishColors;
+    case 'hi':
+      return hindiColors;
+    case 'as':
+      return assameseColors;
+    case 'or':
+    default:
+      return odiaColors;
+  }
+};
+
+// Get client colors
+const clientColors = getClientColors();
+
+// Export colors with client-specific values
 export const colors = {
-  // White scale
+  // White scale (common across all clients)
   white: '#FFFFFF',
   white100: '#FEFEFE',
   white200: '#F8F8F8',
   white300: '#F0F0F0',
   
-  // Primary Colors (Warm Earth Tones - Harmonious browns and golds)
-  primary50: '#3C2415',    // Deep chocolate brown
-  primary100: '#5D4037',   // Rich brown
-  primary200: '#8D6E63',   // Medium brown
-  primary300: '#A1887F',   // Light brown
-  primary400: '#BCAAA4',   // Pale brown
-  primary500: '#D7CCC8',   // Very light brown
-  primary600: '#EFEBE9',   // Cream
-  primary700: '#F5F5F5',   // Off white
-  primary800: '#FAFAFA',   // Light cream
-  primary900: '#FFFFFF',   // Pure white
+  // Black scale (common across all clients)
+  black: '#000000',
+  black900: '#0A0A0A',
+  black800: '#1A1A1A',
+  black700: '#2A2A2A',
+  black600: '#3A3A3A',
   
-  // Secondary Colors (Complementary Teal - Harmonious with warm tones)
-  secondary50: '#1B4D3E',  // Deep teal
-  secondary100: '#2E7D5A', // Rich teal
-  secondary200: '#4A9B73', // Medium teal
-  secondary300: '#66B88C', // Light teal
-  secondary400: '#82D5A5', // Pale teal
-  secondary500: '#9EE2BE', // Very light teal
-  secondary600: '#BAEFD7', // Cream teal
-  secondary700: '#D6FCF0', // Off white teal
-  secondary800: '#F0FDF4', // Light cream teal
-  secondary900: '#FFFFFF', // Pure white
+  // Client-specific Primary Colors
+  primary50: clientColors.primary50,
+  primary100: clientColors.primary100,
+  primary200: clientColors.primary200,
+  primary300: clientColors.primary300,
+  primary400: clientColors.primary400,
+  primary500: clientColors.primary500,
+  primary600: clientColors.primary600,
+  primary700: clientColors.primary700,
+  primary800: clientColors.primary800,
+  primary900: clientColors.primary900,
   
-  // Tertiary Colors (Warm Purple - Harmonious with earth tones)
-  tertiary50: '#4A1A4A',   // Deep purple
-  tertiary100: '#6B2C6B',  // Rich purple
-  tertiary200: '#8C3E8C',  // Medium purple
-  tertiary300: '#AD50AD',  // Light purple
-  tertiary400: '#CE62CE',  // Pale purple
-  tertiary500: '#E174E1',  // Very light purple
-  tertiary600: '#F286F2',  // Cream purple
-  tertiary700: '#F8A8F8',  // Off white purple
-  tertiary800: '#FECAFE',  // Light cream purple
-  tertiary900: '#FFFFFF',  // Pure white
+  // Client-specific Secondary Colors
+  secondary50: clientColors.secondary50,
+  secondary100: clientColors.secondary100,
+  secondary200: clientColors.secondary200,
+  secondary300: clientColors.secondary300,
+  secondary400: clientColors.secondary400,
+  secondary500: clientColors.secondary500,
+  secondary600: clientColors.secondary600,
+  secondary700: clientColors.secondary700,
+  secondary800: clientColors.secondary800,
+  secondary900: clientColors.secondary900,
   
-  // Quaternary Colors (Warm Orange - Harmonious with earth tones)
-  quaternary50: '#8B4513', // Deep orange
-  quaternary100: '#CD853F', // Rich orange
-  quaternary200: '#DE9A5A', // Medium orange
-  quaternary300: '#EFAF75', // Light orange
-  quaternary400: '#F0C490', // Pale orange
-  quaternary500: '#F1D9AB', // Very light orange
-  quaternary600: '#F2EEC6', // Cream orange
-  quaternary700: '#F3F3E1', // Off white orange
-  quaternary800: '#F8F8F0', // Light cream orange
-  quaternary900: '#FFFFFF', // Pure white
+  // Client-specific Tertiary Colors
+  tertiary50: clientColors.tertiary50,
+  tertiary100: clientColors.tertiary100,
+  tertiary200: clientColors.tertiary200,
+  tertiary300: clientColors.tertiary300,
+  tertiary400: clientColors.tertiary400,
+  tertiary500: clientColors.tertiary500,
+  tertiary600: clientColors.tertiary600,
+  tertiary700: clientColors.tertiary700,
+  tertiary800: clientColors.tertiary800,
+  tertiary900: clientColors.tertiary900,
   
-  // Accent Colors (Warm Gold - Harmonious with earth tones)
-  accent50: '#B8860B',     // Dark goldenrod
-  accent100: '#DAA520',    // Goldenrod
-  accent200: '#F4D03F',    // Medium gold
-  accent300: '#F7DC6F',    // Light gold
-  accent400: '#FAE8A0',    // Pale gold
-  accent500: '#FDF4D1',    // Very light gold
-  accent600: '#FEF9E7',    // Cream gold
-  accent700: '#FEFCF3',    // Off white gold
-  accent800: '#FFFEF9',    // Light cream gold
-  accent900: '#FFFFFF',    // Pure white
+  // Client-specific Quaternary Colors
+  quaternary50: clientColors.quaternary50,
+  quaternary100: clientColors.quaternary100,
+  quaternary200: clientColors.quaternary200,
+  quaternary300: clientColors.quaternary300,
+  quaternary400: clientColors.quaternary400,
+  quaternary500: clientColors.quaternary500,
+  quaternary600: clientColors.quaternary600,
+  quaternary700: clientColors.quaternary700,
+  quaternary800: clientColors.quaternary800,
+  quaternary900: clientColors.quaternary900,
   
-  // Maroon scale (Warm Red - Harmonious with earth tones)
-  maroon50: '#5D1A1A',     // Deep warm red
-  maroon100: '#8B2635',    // Rich warm red
-  maroon200: '#B8324A',    // Medium warm red
-  maroon300: '#D54B5F',    // Light warm red
-  maroon400: '#E56474',    // Pale warm red
-  maroon500: '#F57D89',    // Very light warm red
-  maroon600: '#F8969E',    // Cream warm red
-  maroon700: '#FBAFB3',    // Off white warm red
-  maroon800: '#FEC8C8',    // Light cream warm red
-  maroon900: '#FFFFFF',    // Pure white
+  // Client-specific Accent Colors
+  accent50: clientColors.accent50,
+  accent100: clientColors.accent100,
+  accent200: clientColors.accent200,
+  accent300: clientColors.accent300,
+  accent400: clientColors.accent400,
+  accent500: clientColors.accent500,
+  accent600: clientColors.accent600,
+  accent700: clientColors.accent700,
+  accent800: clientColors.accent800,
+  accent900: clientColors.accent900,
   
-  // Data Visualization Colors - Light Theme (High contrast, distinct)
+  // Data Visualization Colors - Light Theme (common across all clients)
   dataLight: {
-    // Primary data colors
     blue: '#2563EB',
     green: '#059669',
     orange: '#EA580C',
@@ -88,8 +170,6 @@ export const colors = {
     teal: '#0D9488',
     yellow: '#D97706',
     pink: '#EC4899',
-    
-    // Secondary data colors
     indigo: '#4F46E5',
     emerald: '#10B981',
     amber: '#F59E0B',
@@ -98,8 +178,6 @@ export const colors = {
     lime: '#84CC16',
     violet: '#8B5CF6',
     fuchsia: '#D946EF',
-    
-    // Tertiary data colors
     sky: '#0EA5E9',
     stone: '#78716C',
     neutral: '#525252',
@@ -110,9 +188,8 @@ export const colors = {
     warmGray: '#78716C',
   },
   
-  // Data Visualization Colors - Dark Theme (Optimized for dark backgrounds)
+  // Data Visualization Colors - Dark Theme (common across all clients)
   dataDark: {
-    // Primary data colors
     blue: '#60A5FA',
     green: '#34D399',
     orange: '#FB923C',
@@ -121,8 +198,6 @@ export const colors = {
     teal: '#5EEAD4',
     yellow: '#FCD34D',
     pink: '#F472B6',
-    
-    // Secondary data colors
     indigo: '#818CF8',
     emerald: '#6EE7B7',
     amber: '#FBBF24',
@@ -131,8 +206,6 @@ export const colors = {
     lime: '#A3E635',
     violet: '#C4B5FD',
     fuchsia: '#E879F9',
-    
-    // Tertiary data colors
     sky: '#7DD3FC',
     stone: '#A8A29E',
     neutral: '#A3A3A3',
@@ -142,54 +215,9 @@ export const colors = {
     coolGray: '#9CA3AF',
     warmGray: '#A8A29E',
   },
-  
-  // Warm neutrals for light theme
-  warmGray50: '#FAFAF9',
-  warmGray100: '#F5F5F4',
-  warmGray200: '#E7E5E4',
-  warmGray300: '#D6D3D1',
-  warmGray400: '#A8A29E',
-  warmGray500: '#78716C',
-  warmGray600: '#57534E',
-  warmGray700: '#44403C',
-  warmGray800: '#292524',
-  warmGray900: '#1C1917',
-  
-  // Cool neutrals for dark theme
-  coolGray50: '#F9FAFB',
-  coolGray100: '#F3F4F6',
-  coolGray200: '#E5E7EB',
-  coolGray300: '#D1D5DB',
-  coolGray400: '#9CA3AF',
-  coolGray500: '#6B7280',
-  coolGray600: '#4B5563',
-  coolGray700: '#374151',
-  coolGray800: '#1F2937',
-  coolGray900: '#111827',
-  
-  // Black scale
-  black: '#000000',
-  black900: '#0A0A0A',
-  black800: '#1A1A1A',
-  black700: '#2A2A2A',
-  black600: '#3A3A3A',
-  
-  // Gray scale (legacy support)
-  gray100: '#A8A8A8',
-  gray200: '#888888',
-  gray300: '#777777',
-  gray400: '#666666',
-  gray500: '#545454',
-  
-  // Accent colors (enhanced for better contrast)
-  blue: '#2563EB',
-  green: '#059669',
-  red: '#DC2626',
-  yellow: '#D97706',
-  
-  // Additional accent colors for variety
-  teal: '#0D9488',
-  indigo: '#4F46E5',
-  purple: '#7C3AED',
-  pink: '#EC4899',
+};
+
+// Helper function to get client language
+export const getClientLanguage = (): string => {
+  return Constants.expoConfig?.extra?.LANGUAGE || 'or';
 };

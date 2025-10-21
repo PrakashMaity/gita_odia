@@ -95,7 +95,7 @@ export default function BookmarkButton({
       <Ionicons 
         name={bookmarkStatus ? "checkmark" : "bookmark-outline"} 
         size={20} 
-        color={bookmarkStatus ? "#4CAF50" : theme.icon.secondary} 
+        color={bookmarkStatus ? theme.icon.success : theme.icon.secondary} 
       />
       <ThemedLanguageText 
         fontFamily='regional_secondary'

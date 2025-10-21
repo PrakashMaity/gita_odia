@@ -34,7 +34,7 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
     return parts.map((part, index) => {
       if (regex.test(part)) {
         return (
-          <ThemedText key={index} style={{ backgroundColor: '#FFE4B5', color: theme.text.primary }}>
+          <ThemedText key={index} style={{ backgroundColor: theme.status.warning, color: theme.text.primary }}>
             {part}
           </ThemedText>
         );
@@ -59,11 +59,11 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
   const getMatchTypeColor = (matchType: string) => {
     switch (matchType) {
       case 'sanskrit':
-        return '#FF6B35';
+        return theme.button.primary.background;
       case 'Language':
-        return '#4CAF50';
+        return theme.status.success;
       case 'translation':
-        return '#2196F3';
+        return theme.status.info;
       default:
         return theme.icon.secondary;
     }
@@ -101,8 +101,8 @@ export default function SearchResults({ results, query, onResultPress }: SearchR
             <ThemedCard style={styles.resultCard}>
               <ThemedView style={styles.resultHeader}>
                 <ThemedView style={styles.chapterInfo}>
-                  <ThemedView style={styles.chapterNumberContainer}>
-                    <ThemedText style={{ ...styles.chapterNumber, color: theme.text.quaternary }}>
+                  <ThemedView style={[styles.chapterNumberContainer, { backgroundColor: theme.button.primary.background }]}>
+                    <ThemedText style={{ ...styles.chapterNumber, color: theme.button.primary.text }}>
                       {result.chapterNumber}
                     </ThemedText>
                   </ThemedView>
@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#FF6B35',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: SIZES.spacing.md,

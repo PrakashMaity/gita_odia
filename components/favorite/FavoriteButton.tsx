@@ -84,7 +84,7 @@ export default function FavoriteButton({
       <Ionicons 
         name={favoriteStatus ? "heart" : "heart-outline"} 
         size={SIZES.icon.xxl} 
-        color={favoriteStatus ? "#FF6B6B" : theme.icon.secondary} 
+        color={favoriteStatus ? theme.status.error : theme.icon.secondary} 
       />
    
     </TouchableOpacity>
