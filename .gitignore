@@ -39,6 +39,6 @@ yarn-error.*
 app-example
 
 # generated native folders
-# NOTE: Keeping android/ tracked to persist critical ProGuard rules and build config
-# /android
+# These should be regenerated using 'expo prebuild' for each language variant
+/android
 /ios

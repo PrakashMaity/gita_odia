@@ -5,6 +5,8 @@ import Constants from 'expo-constants';
 const chapterImports: Record<string, any[]> = {
     bn: [...bnChapters],
     or: [...orChapters],
+    hi: [...bnChapters], // TODO: Add Hindi translations - using Bengali as temporary fallback
+    as: [...bnChapters], // TODO: Add Assamese translations - using Bengali as temporary fallback
   };
 
 // Get language with error handling
