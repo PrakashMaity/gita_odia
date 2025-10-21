@@ -79,9 +79,53 @@ const enAssets = {
   },
 };
 
-// For hi and as, use bn assets as fallback until they have their own assets
-const hiAssets = bnAssets;
-const asAssets = bnAssets;
+const hiAssets = {
+  icon: require('../clients/hi/assets/images/icon.png'),
+  splash: require('../clients/hi/assets/images/splash-icon.png'),
+  adaptiveIcon: require('../clients/hi/assets/images/adaptive-icon.png'),
+  favicon: require('../clients/hi/assets/images/favicon.png'),
+  logo: require('../clients/hi/assets/images/Home/logo.png'),
+  hero: require('../clients/hi/assets/images/Home/hero.png'),
+  banner1: require('../clients/hi/assets/images/onboarding/onboardBanner1.png'),
+  banner2: require('../clients/hi/assets/images/onboarding/onboardBanner2.png'),
+  banner3: require('../clients/hi/assets/images/onboarding/onboardBanner3.png'),
+  dhritarystra: require('../clients/hi/assets/images/speaker/dhritarystra.png'),
+  sanjay: require('../clients/hi/assets/images/speaker/sanjay.png'),
+  arjuna: require('../clients/hi/assets/images/speaker/arjuna.png'),
+  shreekrishna: require('../clients/hi/assets/images/speaker/shreekrishna.png'),
+  duryadhona: require('../clients/hi/assets/images/speaker/duryadhona.png'),
+  fonts: {
+    'SpaceMono-Regular': require('../clients/hi/assets/fonts/SpaceMono-Regular.ttf'),
+    'BenSenHandwriting': require('../clients/hi/assets/fonts/BenSenHandwriting.ttf'),
+    'MahinDhakaItalic': require('../clients/hi/assets/fonts/MahinDhakaItalic.ttf'),
+    'BegumZiaRegulaCurve': require('../clients/hi/assets/fonts/BegumZiaRegulaCurve.ttf'),
+    'FNMahinSameyaANSI': require('../clients/hi/assets/fonts/FNMahinSameyaANSI.ttf'),
+  },
+};
+
+const asAssets = {
+  icon: require('../clients/as/assets/images/icon.png'),
+  splash: require('../clients/as/assets/images/splash-icon.png'),
+  adaptiveIcon: require('../clients/as/assets/images/adaptive-icon.png'),
+  favicon: require('../clients/as/assets/images/favicon.png'),
+  logo: require('../clients/as/assets/images/Home/logo.png'),
+  hero: require('../clients/as/assets/images/Home/hero.png'),
+  banner1: require('../clients/as/assets/images/onboarding/onboardBanner1.png'),
+  banner2: require('../clients/as/assets/images/onboarding/onboardBanner2.png'),
+  banner3: require('../clients/as/assets/images/onboarding/onboardBanner3.png'),
+  dhritarystra: require('../clients/as/assets/images/speaker/dhritarystra.png'),
+  sanjay: require('../clients/as/assets/images/speaker/sanjay.png'),
+  arjuna: require('../clients/as/assets/images/speaker/arjuna.png'),
+  shreekrishna: require('../clients/as/assets/images/speaker/shreekrishna.png'),
+  duryadhona: require('../clients/as/assets/images/speaker/duryadhona.png'),
+  fonts: {
+    'SpaceMono-Regular': require('../clients/as/assets/fonts/SpaceMono-Regular.ttf'),
+    'BenSenHandwriting': require('../clients/as/assets/fonts/BenSenHandwriting.ttf'),
+    'MahinDhakaItalic': require('../clients/as/assets/fonts/MahinDhakaItalic.ttf'),
+    'BegumZiaRegulaCurve': require('../clients/as/assets/fonts/BegumZiaRegulaCurve.ttf'),
+    'FNMahinSameyaANSI': require('../clients/as/assets/fonts/FNMahinSameyaANSI.ttf'),
+  },
+};
 
 // Select assets based on language with error handling
 const getAssets = () => {

@@ -1,5 +1,7 @@
+import { asChapters } from "@/clients/as/data";
 import { bnChapters } from "@/clients/bn/data";
 import { enChapters } from "@/clients/en/data";
+import { hiChapters } from "@/clients/hi/data";
 import { orChapters } from "@/clients/or/data";
 import Constants from 'expo-constants';
 
@@ -7,8 +9,8 @@ const chapterImports: Record<string, any[]> = {
     bn: [...bnChapters],
     or: [...orChapters],
     en: [...enChapters],
-    hi: [...bnChapters], // TODO: Add Hindi translations - using Bengali as temporary fallback
-    as: [...bnChapters], // TODO: Add Assamese translations - using Bengali as temporary fallback
+    hi: [...hiChapters],
+    as: [...asChapters],
   };
 
 // Get language with error handling
