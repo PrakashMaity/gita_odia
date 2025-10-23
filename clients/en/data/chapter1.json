@@ -1,358 +1,404 @@
 {
-    "chapter": {
-        "number": "1",
-        "title": "Chapter One",
-        "subtitle": "Arjuna Vishad-yoga",
-        "englishTitle": "Arjuna Vishada Yoga",
-        "totalVerses": "47",
-        "description": "The first chapter of Srimad Bhagavad Gita is appropriately known as Arjuna Vishad Yoga.",
-        "id": "sb7f0K9D"
+  "chapter": {
+    "number": "1",
+    "title": "Chapter One",
+    "subtitle": "Arjuna Vishad-yoga",
+    "englishTitle": "Arjuna Vishada Yoga",
+    "totalVerses": "47",
+    "description": "The first chapter of Srimad Bhagavad Gita is appropriately known as Arjuna Vishad Yoga.",
+    "id": "sb7f0K9D"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Dhritarashtra Ubach\nSamveta Yuyutsavah in Kurukshetra in Dharmakshetra.\nMamka: Pandavaschaiva Kimkurbat Sanjay..1..",
+      "translation": "Dhritarashtra asked - O Sanjay! What then did my sons and Pandu's sons do when they gathered to fight in Dharmakshetra?",
+      "speaker": "Dhritarashtra",
+      "id": "BjPtMVmx",
+      "speaker_english": "Dhritarashtra"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Sanjay Ubach\nDrishtva Tu Pandavanikang Vydhang Duryodhanastada.\nAcharya Mupasangamya Raja Bachanambravait..2..",
+      "translation": "Sanjay said - O Rajan! King Duryodhana went to Dronacharya after seeing the armor of the Pandavas and said",
+      "speaker": "Sanjay",
+      "id": "16pOZc9B",
+      "speaker_english": "Sanjay"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Dhritarashtra Ubach\nSamveta Yuyutsavah in Kurukshetra in Dharmakshetra.\nMamka: Pandavaschaiva Kimkurbat Sanjay..1..",
-            "translation": "Dhritarashtra asked - O Sanjay! What then did my sons and Pandu's sons do when they gathered to fight in Dharmakshetra?",
-            "speaker": "Dhritarashtra",
-            "id": "BjPtMVmx"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Sanjay Ubach\nDrishtva Tu Pandavanikang Vydhang Duryodhanastada.\nAcharya Mupasangamya Raja Bachanambravait..2..",
-            "translation": "Sanjay said - O Rajan! King Duryodhana went to Dronacharya after seeing the armor of the Pandavas and said",
-            "speaker": "Sanjay",
-            "id": "16pOZc9B"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Pashyatang Panduputranamacharya Mahating Chamum.\nVyudhang Drupadaputren but disciple Dhimta.. 3..",
-            "translation": "O Acharya! Behold the great army of the Pandavas, composed with great skill in the form of Buhyas by the son of your most intelligent disciple Drupada.",
-            "speaker": "Duryodhana",
-            "id": "e2PGrcWS"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Atra Shura Maheshbasa Bhimarjunsama Yudhi.\nYuyudhano Viratshch Drupadshch Maharatha.. 4..",
-            "translation": "Among those armies are many heroic archers like Bhima and Arjuna and great warriors like Yuyudhana and Drupa.",
-            "speaker": "Duryodhana",
-            "id": "fFIip9Mg"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Dhrishta Ketuschekitan: Kashirajshcha Viryavan.\n5.",
-            "translation": "There are also very powerful warriors like Dhrishketu, Chekitan, Kashiraj, Purujit, Kuntivoja and Shaivya.",
-            "speaker": "Duryodhana",
-            "id": "NIl1DGEi"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Yudhamanyuscha Vikrant Uttamaujascha Viryavan.\nSouvhadro Draupadeyascha Sarva eb Maharatha.. 6..",
-            "translation": "There are the mighty Yudhamanyu, the mighty Uttamauja, the sons of Subhadra and the sons of Draupadi. All these warriors are Maharadhis.",
-            "speaker": "Duryodhana",
-            "id": "fJ7vuEEl"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Asmakong tu vishita that Tannibodha dvijottam.\n7.",
-            "translation": "O Dwijottam! I mention for your information all the eminent commanders who are on our side for the management of military power.",
-            "speaker": "Duryodhana",
-            "id": "id0fQzp3"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Bhavan Bhishmascha Karnascha Kripascha Samitanjaya:\nAswaththama Vikarnascha Somdattasthaiva f..8..",
-            "translation": "There are personalities like you—Bhishma, Karna, Kripa, Asvatthama, Vikarna and Bhurisrava, the son of Somadatta, who are always victorious in struggle.",
-            "speaker": "Duryodhana",
-            "id": "EYXzbihA"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "On the other hand, the shura madarthe tykatjivitah.\nMulti-armed patrol: Sarbe war expert:..9..",
-            "translation": "Besides, there are many other generals who are ready to lay down their lives for me. All of them are armed with various types of weapons and they are all experts in military science.",
-            "speaker": "Duryodhana",
-            "id": "HgOKsjD6"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Aparaptang tadsmakong balang bhishmavirakshitam.\n10.",
-            "translation": "Our forces are immense and we are fully protected by Grandfather Bhishma, but the strength of the Pandavas, carefully protected by Bhishma, is limited.",
-            "speaker": "Duryodhana",
-            "id": "F4Jg4Z0x"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Ayaneyu f Sarveshu Yavabhagamvasthita:\n11.",
-            "translation": "Now all of you at the entrance of the army place at your respective important places and offer all help to grandfather Bhishma.",
-            "speaker": "Duryodhana",
-            "id": "40NmZEWW"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Tasya Sanjanayan Harshang Kuruvriddha: Grandfather:\nSinghanadang Bindyocchai: Sankhang Dadhmau Pratapban..12..",
-            "translation": "Then Bhishma, the old grandfather of the Kuru clan, blew his conch in a loud voice like a lion's roar to produce Duryodhana's Harsha.",
-            "speaker": "Sanjay",
-            "id": "7UAzFplK"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Tatah Sankhascha Bheryascha Panabankagomukha:\n13.",
-            "translation": "Then the Sankha, Bheri, Panava, Anak, Dhak and Gomukh horns suddenly sounded together and created a tremendous sound.",
-            "speaker": "Sanjay",
-            "id": "Fnc3f1r9"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "That's when the whiteness of the greatness rests.\n14.",
-            "translation": "On the other hand, both Krishna and Arjuna seated in a divine chariot with a white horse blow their divine conch.",
-            "speaker": "Sanjay",
-            "id": "iorHnTj0"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Panchajanyang Hrishikesho Devadattang Dhananjaya:\nPaundrang Dadhmau Mahashankhang Bhimkarma Vrishakdhar: 15.",
-            "translation": "Then, Krishna played his conch called Panchajanya, Arjuna played his conch called Devadatta and Vipul Bhojanpriya and Bhimakrama Bhimsena played his terrible conch called Paundra.",
-            "speaker": "Sanjay",
-            "id": "KzQEFL6E"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Anantavijayang King Kuntiputra Yudhishthira:\nNakula: Sahadevasch Sughoshmanipushpakou.\nKashyasch Parameshthi Shikhandi c Maharatha..16..",
-            "translation": "Kuntiputra Maharaja Yudhishthira played the conch shell called Anantavijaya and Nakula and Sahadeva played the conch shell called Sughosa and Manipushpa.",
-            "speaker": "Sanjay",
-            "id": "0xT9Qvwi"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Dhrishtadyumno Viratashch Satyakishaparajit:\n17.",
-            "translation": "Hemharaja! Then the great archer Kasiraja, the mighty warrior Sikhandi, Dhrishtadyumna, Virat, the undefeated Satyaki, Drupada, the sons of Draupadi, the mighty son of Subhadra and all others blew their separate conches.",
-            "speaker": "Sanjay",
-            "id": "QWjc2BdD"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Souvhadrasch Mahabahu: Shankhan Dadhmu: separate separate..18..",
-            "translation": "Mahabahu gently sounded the individual conch shells.",
-            "speaker": "Sanjay",
-            "id": "p8Y1PFfS"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Sa Ghoso Dhartarashtranan Hrydayani Vydarayat.\nNavashch prithiyang chaiva tumulo byanunadayan..19..",
-            "translation": "The loud sound of the conch shell echoed in the sky and the earth, and the hearts of Dhritarashtra's sons began to burst.",
-            "speaker": "Sanjay",
-            "id": "zrcTUyci"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "अत्थ वियास्थान द्रिष्ट दर्टराष्ट्रान कापिध्वाज:\nPandavas armed with archer weapons.\nHrishikeshang tada vakamidmah mohipate..20..",
-            "translation": "At that time, Pandu's son Arjuna sat in a chariot decorated with flags marked by Hanuman. He took his bow and prepared to shoot. O King! Seeing the sons of Dhritarashtra arrayed in finery, Arjuna then spoke these words to Lord Krishna-",
-            "speaker": "Sanjay",
-            "id": "CtjX4vbz"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Rathamupasthapay may be among Senyoruvyo.\nJabadetan nirikshehong jodhukamanvasthitan..21..",
-            "translation": "Arjuna said - O Achyuta! Place my chariot between the armies of both sides, so that I may see who has come here eager to fight",
-            "speaker": "Arjuna",
-            "id": "ODlYCZrh"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "22",
-            "translation": "Whom shall I fight in this great struggle?",
-            "speaker": "Arjuna",
-            "id": "Unn0xaoS"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Yatsaman mam viryena samagata: Partha.\n23.",
-            "translation": "I want to see those who have come here to fight, desiring to please the foolish son of Dhritarashtra.",
-            "speaker": "Sanjay",
-            "id": "64wFIf21"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Evamukto Hrishikesho Gurakeshen India.\n24.",
-            "translation": "Sanjaya said-O Bharata-vandal!Thus commanded by Arjuna, Lord Krishna drove that excellent chariot and placed it between the soldiers on both sides.",
-            "speaker": "Sanjay",
-            "id": "C7QT1pdG"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Bhishmadronapramukhata: Sarveshang c Mahikshitam.\nUbach partha pashyatan sambetan kuruniti..25..",
-            "translation": "Lord Hrishikesh said in front of all other gods like Bhishma, Drona, O Partha! Look at all the Kauravas gathered here.",
-            "speaker": "Sanjay",
-            "id": "FFfdUy5D"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Tatrapasya Sthitan Partha: Pitrinatha Pitamahan.\nAcharya Matulan Vratrin Putran Putran Sakhinstatha.\nShashuran Sahdeschaiva Senyoruvyormukh..26..",
-            "translation": "Then Arjuna saw fathers, grandfathers, acharyas, mothers, brothers, sons, grandsons, father-in-law, allies and well-wishers present in the armies of both sides.",
-            "speaker": "Sanjay",
-            "id": "yLBojUjk"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Tan Samikshya Sa Kaunteya: Sarvan Bandhanavasthitan.\n27.",
-            "translation": "When Arjuna, the son of Kunti, saw all kinds of friends and relatives situated on the battlefield, he became very sad and sad.",
-            "speaker": "Sanjay",
-            "id": "v05teV3L"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Drishtaimang Swajanang Krishna Yuyutsung Samupasthitam.\nSiddanti Mom Gatrani Mukhchan Parishushyati..28..",
-            "translation": "Arjuna said - O beloved Krishna! Seeing all my friends and relatives standing before me in such a belligerent manner makes my limbs go numb and my mouth dry.",
-            "speaker": "Arjuna",
-            "id": "mNrQ35zZ"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Bepthushch may romharshchch jayate in the body.\nGandibong samsarte hastat tukchaiva paridahy.. 29..",
-            "translation": "My whole body trembles and thrills, the gandiva falls from my hands and the skin burns.",
-            "speaker": "Arjuna",
-            "id": "04xzIMUh"
-        },
-        {
-            "verseNumber": "30",
-            "Language": "No Cha Shaknomyavasthatung Bhramatib Cha Me Manah.\nNimittani Ch Pashyami Vrtani Keshav..30..",
-            "translation": "Hey Keshav! I can't stand still anymore. I forget myself and my mind wanders. O Keshi Danabhanta Sri Krishna! I am only seeing inauspicious signs.",
-            "speaker": "Arjuna",
-            "id": "287mDNUY"
-        },
-        {
-            "verseNumber": "31",
-            "Language": "No f shreyonyapsyami hatva svajanamahbe.\nNa Kankshe Vijayang Krishna Na Ch Rajyang Sukhani Ch..31..",
-            "translation": "O Krishna! Killing relatives in war is not worth it. I do not desire victory in war, nor do I desire kingdoms and pleasures.",
-            "speaker": "Arjuna",
-            "id": "25nSkdEu"
-        },
-        {
-            "verseNumber": "32",
-            "Language": "What state did Govinda King live in?\nYasyamrathe kankshitang no rajyang bhoga: sukhani f.\nImehvasthita died in battle.\nAcharya: Pitr: Putrastthaiva f Pitamaha: ..32..",
-            "translation": "O Govinda! What do we need for kingdom, enjoyment or living? All those for whom I desire kingdom, enjoyment and happiness, have sacrificed life and wealth in this war. Acharya, father, son, grandfather.",
-            "speaker": "Arjuna",
-            "id": "GHLVKx3c"
-        },
-        {
-            "verseNumber": "33",
-            "Language": "Mother-in-law: grandson: sister-in-law: relative.\nSo many Hantumichchami Ghantopy Madhusudan.\nApi Trailokyarajyasya Heto: King Nu Mahikrte..33..",
-            "translation": "Mother, father-in-law, grandson, brother-in-law and relatives. O Madhusudan! I don't want to kill them, not for the Trilokyarya, not for Mahikrita.",
-            "speaker": "Arjuna",
-            "id": "6eyFRn39"
-        },
-        {
-            "verseNumber": "34",
-            "Language": "அத்துது தார்தராத்தார்ந்துக்குக்குக்குக்குக்குக்குக்க்குக்கு\n34.",
-            "translation": "O Janardan! What will we love by killing Dharathashtra? By killing the assailants only sin will shelter us.",
-            "speaker": "Arjuna",
-            "id": "k9zy8g91"
-        },
-        {
-            "verseNumber": "35",
-            "Language": "Tasmannarha Boyong Hantung is a friend of Dhartarashtra.\nSwajanang hi kathong hatta sukhin: Sam Madhav..35..",
-            "translation": "So O Madhav! We should not kill friendly states. How to be happy by killing relatives?",
-            "speaker": "Arjuna",
-            "id": "4GMrGcWO"
-        },
-        {
-            "verseNumber": "36",
-            "Language": "Papamebasrayedsman hattaitanatayin:\nTasmannarha Boyong Hantung is a friend of Dhartarashtra.\nSwajanang hi kathong hatta sukhin: Sam Madhav..36..",
-            "translation": "Slaying such assailants will engulf us in great sin. So we must not kill the sons of Dhritarashtra with friends. O Madhava, Lakshmipati Sri Krishna! What will we gain by killing our relatives? And how can we be happy?",
-            "speaker": "Arjuna",
-            "id": "GBwhRsX0"
-        },
-        {
-            "verseNumber": "37",
-            "Language": "However, it is not Western folk tradition.\nKulakshaykritang doshang mitradrohe ch patkam..37..",
-            "translation": "O Janardan! Although they are obsessed with the greed of kingdom and do not notice the sin of treason due to culpability.",
-            "speaker": "Arjuna",
-            "id": "7T5f0ZID"
-        },
-        {
-            "verseNumber": "38",
-            "Language": "Kathang na jneyamsmavi: papadasmannivartitum.\nKulakshayakritang Doshang Prapashyadvirjanardana..38..",
-            "translation": "But why should we become aware of this sin even if we notice the fault of Kulakshaya?",
-            "speaker": "Arjuna",
-            "id": "Pk5FUjhS"
-        },
-        {
-            "verseNumber": "39",
-            "Language": "Kulaksaye Pranasyanti Kuladharma: Sanatna:.\n39.",
-            "translation": "Even if the clan is destroyed, the traditional clan dharma is destroyed and then the whole family is exposed to adharma.",
-            "speaker": "Arjuna",
-            "id": "Kh11nfBk"
-        },
-        {
-            "verseNumber": "40",
-            "Language": "Adharmabhivavat Krishna Pradushyanti Kulastriya:\n40.",
-            "translation": "O Krishna! When the clan is afflicted with unrighteousness, the wives of the clan become adulterous and O Barshneya! If the Kulastris are of unscrupulous character, undesirable species are produced.",
-            "speaker": "Arjuna",
-            "id": "bKq6BRwY"
-        },
-        {
-            "verseNumber": "41",
-            "Language": "Sankaro Narakayiva Kulghnanang Kulasya f.\n41.",
-            "translation": "If the production of varnasankara increases, the kula and kulaghatakas go to hell. Due to loss of pindana and tarpanakriya in seikula, their ancestors also degenerate into hell.",
-            "speaker": "Arjuna",
-            "id": "mcqLkYwQ"
-        },
-        {
-            "verseNumber": "42",
-            "Language": "Doshairetai kulghnanang varnasankarakarakai.\n42.",
-            "translation": "All kinds of national development schemes and clan welfare-religions are born out of their malevolent guilt, which destroys clan heritage and produces illegitimate children.",
-            "speaker": "Arjuna",
-            "id": "a3DwxKSQ"
-        },
-        {
-            "verseNumber": "43",
-            "Language": "Uthannakuldharmananang Manushyanang Janardan.\nNarake niytang baso bhavatityanushushrum..43..",
-            "translation": "O Janardana! I have heard from generations that those whose clans are destroyed are destined to live in hell.",
-            "speaker": "Arjuna",
-            "id": "Pg81Zs9h"
-        },
-        {
-            "verseNumber": "44",
-            "Language": "Aho wat mahat papong kartung vyabasita bayam.\n44.",
-            "translation": "Alas! What a wonder that we are determined to commit the great sin of murdering our relatives for the sake of Rajyasukh.",
-            "speaker": "Arjuna",
-            "id": "vj7JSaEv"
-        },
-        {
-            "verseNumber": "45",
-            "Language": "If mampratikaramshastrang shastrapanaya:\nDhartarashtra rane hanyasustanme kshemtarang bhavet..45..",
-            "translation": "It would be better for me if I were killed in battle by the armed sons of Dhritarashtra, defenseless and unarmed.",
-            "speaker": "Arjuna",
-            "id": "RbxolbeJ"
-        },
-        {
-            "verseNumber": "46",
-            "Language": "Abmuktbarjuna: Sankye Rathopastha Upavishat.\nVisrijya Sasarang Chapang Shokasamvignamanas:..46..",
-            "translation": "Sanjay said - Saying this on the battlefield, Arjuna left his bow and sat on the chariot with a heart heavy with grief.",
-            "speaker": "Sanjay",
-            "id": "7L248HCg"
-        }
-    ],
-    "summary": {
-        "title": "First Chapter - Arjuna Vishad-yoga",
-        "description": "This chapter describes the armies of both sides at the Kurukshetra battlefield and Arjuna's grief. Dhritarashtra asks Sanjay about the state of war. Sanjay narrates how Arjuna becomes reluctant to kill his relatives after seeing the armies on both sides.",
-        "keyThemes": [
-            "Description of the battlefield",
-            "Identification of troops on both sides",
-            "Arjuna's sadness",
-            "Discussion of religion and non-religion",
-            "Importance of caste"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Pashyatang Panduputranamacharya Mahating Chamum.\nVyudhang Drupadaputren but disciple Dhimta.. 3..",
+      "translation": "O Acharya! Behold the great army of the Pandavas, composed with great skill in the form of Buhyas by the son of your most intelligent disciple Drupada.",
+      "speaker": "Duryodhana",
+      "id": "e2PGrcWS",
+      "speaker_english": "Duryodhana"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/02/bangla-gita-capter-1.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 2000+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Atra Shura Maheshbasa Bhimarjunsama Yudhi.\nYuyudhano Viratshch Drupadshch Maharatha.. 4..",
+      "translation": "Among those armies are many heroic archers like Bhima and Arjuna and great warriors like Yuyudhana and Drupa.",
+      "speaker": "Duryodhana",
+      "id": "fFIip9Mg",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Dhrishta Ketuschekitan: Kashirajshcha Viryavan.\n5.",
+      "translation": "There are also very powerful warriors like Dhrishketu, Chekitan, Kashiraj, Purujit, Kuntivoja and Shaivya.",
+      "speaker": "Duryodhana",
+      "id": "NIl1DGEi",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Yudhamanyuscha Vikrant Uttamaujascha Viryavan.\nSouvhadro Draupadeyascha Sarva eb Maharatha.. 6..",
+      "translation": "There are the mighty Yudhamanyu, the mighty Uttamauja, the sons of Subhadra and the sons of Draupadi. All these warriors are Maharadhis.",
+      "speaker": "Duryodhana",
+      "id": "fJ7vuEEl",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Asmakong tu vishita that Tannibodha dvijottam.\n7.",
+      "translation": "O Dwijottam! I mention for your information all the eminent commanders who are on our side for the management of military power.",
+      "speaker": "Duryodhana",
+      "id": "id0fQzp3",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Bhavan Bhishmascha Karnascha Kripascha Samitanjaya:\nAswaththama Vikarnascha Somdattasthaiva f..8..",
+      "translation": "There are personalities like you—Bhishma, Karna, Kripa, Asvatthama, Vikarna and Bhurisrava, the son of Somadatta, who are always victorious in struggle.",
+      "speaker": "Duryodhana",
+      "id": "EYXzbihA",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "On the other hand, the shura madarthe tykatjivitah.\nMulti-armed patrol: Sarbe war expert:..9..",
+      "translation": "Besides, there are many other generals who are ready to lay down their lives for me. All of them are armed with various types of weapons and they are all experts in military science.",
+      "speaker": "Duryodhana",
+      "id": "HgOKsjD6",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Aparaptang tadsmakong balang bhishmavirakshitam.\n10.",
+      "translation": "Our forces are immense and we are fully protected by Grandfather Bhishma, but the strength of the Pandavas, carefully protected by Bhishma, is limited.",
+      "speaker": "Duryodhana",
+      "id": "F4Jg4Z0x",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Ayaneyu f Sarveshu Yavabhagamvasthita:\n11.",
+      "translation": "Now all of you at the entrance of the army place at your respective important places and offer all help to grandfather Bhishma.",
+      "speaker": "Duryodhana",
+      "id": "40NmZEWW",
+      "speaker_english": "Duryodhana"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Tasya Sanjanayan Harshang Kuruvriddha: Grandfather:\nSinghanadang Bindyocchai: Sankhang Dadhmau Pratapban..12..",
+      "translation": "Then Bhishma, the old grandfather of the Kuru clan, blew his conch in a loud voice like a lion's roar to produce Duryodhana's Harsha.",
+      "speaker": "Sanjay",
+      "id": "7UAzFplK",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Tatah Sankhascha Bheryascha Panabankagomukha:\n13.",
+      "translation": "Then the Sankha, Bheri, Panava, Anak, Dhak and Gomukh horns suddenly sounded together and created a tremendous sound.",
+      "speaker": "Sanjay",
+      "id": "Fnc3f1r9",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "That's when the whiteness of the greatness rests.\n14.",
+      "translation": "On the other hand, both Krishna and Arjuna seated in a divine chariot with a white horse blow their divine conch.",
+      "speaker": "Sanjay",
+      "id": "iorHnTj0",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Panchajanyang Hrishikesho Devadattang Dhananjaya:\nPaundrang Dadhmau Mahashankhang Bhimkarma Vrishakdhar: 15.",
+      "translation": "Then, Krishna played his conch called Panchajanya, Arjuna played his conch called Devadatta and Vipul Bhojanpriya and Bhimakrama Bhimsena played his terrible conch called Paundra.",
+      "speaker": "Sanjay",
+      "id": "KzQEFL6E",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Anantavijayang King Kuntiputra Yudhishthira:\nNakula: Sahadevasch Sughoshmanipushpakou.\nKashyasch Parameshthi Shikhandi c Maharatha..16..",
+      "translation": "Kuntiputra Maharaja Yudhishthira played the conch shell called Anantavijaya and Nakula and Sahadeva played the conch shell called Sughosa and Manipushpa.",
+      "speaker": "Sanjay",
+      "id": "0xT9Qvwi",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Dhrishtadyumno Viratashch Satyakishaparajit:\n17.",
+      "translation": "Hemharaja! Then the great archer Kasiraja, the mighty warrior Sikhandi, Dhrishtadyumna, Virat, the undefeated Satyaki, Drupada, the sons of Draupadi, the mighty son of Subhadra and all others blew their separate conches.",
+      "speaker": "Sanjay",
+      "id": "QWjc2BdD",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Souvhadrasch Mahabahu: Shankhan Dadhmu: separate separate..18..",
+      "translation": "Mahabahu gently sounded the individual conch shells.",
+      "speaker": "Sanjay",
+      "id": "p8Y1PFfS",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Sa Ghoso Dhartarashtranan Hrydayani Vydarayat.\nNavashch prithiyang chaiva tumulo byanunadayan..19..",
+      "translation": "The loud sound of the conch shell echoed in the sky and the earth, and the hearts of Dhritarashtra's sons began to burst.",
+      "speaker": "Sanjay",
+      "id": "zrcTUyci",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "अत्थ वियास्थान द्रिष्ट दर्टराष्ट्रान कापिध्वाज:\nPandavas armed with archer weapons.\nHrishikeshang tada vakamidmah mohipate..20..",
+      "translation": "At that time, Pandu's son Arjuna sat in a chariot decorated with flags marked by Hanuman. He took his bow and prepared to shoot. O King! Seeing the sons of Dhritarashtra arrayed in finery, Arjuna then spoke these words to Lord Krishna-",
+      "speaker": "Sanjay",
+      "id": "CtjX4vbz",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Rathamupasthapay may be among Senyoruvyo.\nJabadetan nirikshehong jodhukamanvasthitan..21..",
+      "translation": "Arjuna said - O Achyuta! Place my chariot between the armies of both sides, so that I may see who has come here eager to fight",
+      "speaker": "Arjuna",
+      "id": "ODlYCZrh",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "22",
+      "translation": "Whom shall I fight in this great struggle?",
+      "speaker": "Arjuna",
+      "id": "Unn0xaoS",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Yatsaman mam viryena samagata: Partha.\n23.",
+      "translation": "I want to see those who have come here to fight, desiring to please the foolish son of Dhritarashtra.",
+      "speaker": "Sanjay",
+      "id": "64wFIf21",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Evamukto Hrishikesho Gurakeshen India.\n24.",
+      "translation": "Sanjaya said-O Bharata-vandal!Thus commanded by Arjuna, Lord Krishna drove that excellent chariot and placed it between the soldiers on both sides.",
+      "speaker": "Sanjay",
+      "id": "C7QT1pdG",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Bhishmadronapramukhata: Sarveshang c Mahikshitam.\nUbach partha pashyatan sambetan kuruniti..25..",
+      "translation": "Lord Hrishikesh said in front of all other gods like Bhishma, Drona, O Partha! Look at all the Kauravas gathered here.",
+      "speaker": "Sanjay",
+      "id": "FFfdUy5D",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Tatrapasya Sthitan Partha: Pitrinatha Pitamahan.\nAcharya Matulan Vratrin Putran Putran Sakhinstatha.\nShashuran Sahdeschaiva Senyoruvyormukh..26..",
+      "translation": "Then Arjuna saw fathers, grandfathers, acharyas, mothers, brothers, sons, grandsons, father-in-law, allies and well-wishers present in the armies of both sides.",
+      "speaker": "Sanjay",
+      "id": "yLBojUjk",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Tan Samikshya Sa Kaunteya: Sarvan Bandhanavasthitan.\n27.",
+      "translation": "When Arjuna, the son of Kunti, saw all kinds of friends and relatives situated on the battlefield, he became very sad and sad.",
+      "speaker": "Sanjay",
+      "id": "v05teV3L",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Drishtaimang Swajanang Krishna Yuyutsung Samupasthitam.\nSiddanti Mom Gatrani Mukhchan Parishushyati..28..",
+      "translation": "Arjuna said - O beloved Krishna! Seeing all my friends and relatives standing before me in such a belligerent manner makes my limbs go numb and my mouth dry.",
+      "speaker": "Arjuna",
+      "id": "mNrQ35zZ",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Bepthushch may romharshchch jayate in the body.\nGandibong samsarte hastat tukchaiva paridahy.. 29..",
+      "translation": "My whole body trembles and thrills, the gandiva falls from my hands and the skin burns.",
+      "speaker": "Arjuna",
+      "id": "04xzIMUh",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "No Cha Shaknomyavasthatung Bhramatib Cha Me Manah.\nNimittani Ch Pashyami Vrtani Keshav..30..",
+      "translation": "Hey Keshav! I can't stand still anymore. I forget myself and my mind wanders. O Keshi Danabhanta Sri Krishna! I am only seeing inauspicious signs.",
+      "speaker": "Arjuna",
+      "id": "287mDNUY",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "No f shreyonyapsyami hatva svajanamahbe.\nNa Kankshe Vijayang Krishna Na Ch Rajyang Sukhani Ch..31..",
+      "translation": "O Krishna! Killing relatives in war is not worth it. I do not desire victory in war, nor do I desire kingdoms and pleasures.",
+      "speaker": "Arjuna",
+      "id": "25nSkdEu",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "What state did Govinda King live in?\nYasyamrathe kankshitang no rajyang bhoga: sukhani f.\nImehvasthita died in battle.\nAcharya: Pitr: Putrastthaiva f Pitamaha: ..32..",
+      "translation": "O Govinda! What do we need for kingdom, enjoyment or living? All those for whom I desire kingdom, enjoyment and happiness, have sacrificed life and wealth in this war. Acharya, father, son, grandfather.",
+      "speaker": "Arjuna",
+      "id": "GHLVKx3c",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Mother-in-law: grandson: sister-in-law: relative.\nSo many Hantumichchami Ghantopy Madhusudan.\nApi Trailokyarajyasya Heto: King Nu Mahikrte..33..",
+      "translation": "Mother, father-in-law, grandson, brother-in-law and relatives. O Madhusudan! I don't want to kill them, not for the Trilokyarya, not for Mahikrita.",
+      "speaker": "Arjuna",
+      "id": "6eyFRn39",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "அத்துது தார்தராத்தார்ந்துக்குக்குக்குக்குக்குக்குக்க்குக்கு\n34.",
+      "translation": "O Janardan! What will we love by killing Dharathashtra? By killing the assailants only sin will shelter us.",
+      "speaker": "Arjuna",
+      "id": "k9zy8g91",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Tasmannarha Boyong Hantung is a friend of Dhartarashtra.\nSwajanang hi kathong hatta sukhin: Sam Madhav..35..",
+      "translation": "So O Madhav! We should not kill friendly states. How to be happy by killing relatives?",
+      "speaker": "Arjuna",
+      "id": "4GMrGcWO",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Papamebasrayedsman hattaitanatayin:\nTasmannarha Boyong Hantung is a friend of Dhartarashtra.\nSwajanang hi kathong hatta sukhin: Sam Madhav..36..",
+      "translation": "Slaying such assailants will engulf us in great sin. So we must not kill the sons of Dhritarashtra with friends. O Madhava, Lakshmipati Sri Krishna! What will we gain by killing our relatives? And how can we be happy?",
+      "speaker": "Arjuna",
+      "id": "GBwhRsX0",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "However, it is not Western folk tradition.\nKulakshaykritang doshang mitradrohe ch patkam..37..",
+      "translation": "O Janardan! Although they are obsessed with the greed of kingdom and do not notice the sin of treason due to culpability.",
+      "speaker": "Arjuna",
+      "id": "7T5f0ZID",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Kathang na jneyamsmavi: papadasmannivartitum.\nKulakshayakritang Doshang Prapashyadvirjanardana..38..",
+      "translation": "But why should we become aware of this sin even if we notice the fault of Kulakshaya?",
+      "speaker": "Arjuna",
+      "id": "Pk5FUjhS",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Kulaksaye Pranasyanti Kuladharma: Sanatna:.\n39.",
+      "translation": "Even if the clan is destroyed, the traditional clan dharma is destroyed and then the whole family is exposed to adharma.",
+      "speaker": "Arjuna",
+      "id": "Kh11nfBk",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Adharmabhivavat Krishna Pradushyanti Kulastriya:\n40.",
+      "translation": "O Krishna! When the clan is afflicted with unrighteousness, the wives of the clan become adulterous and O Barshneya! If the Kulastris are of unscrupulous character, undesirable species are produced.",
+      "speaker": "Arjuna",
+      "id": "bKq6BRwY",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Sankaro Narakayiva Kulghnanang Kulasya f.\n41.",
+      "translation": "If the production of varnasankara increases, the kula and kulaghatakas go to hell. Due to loss of pindana and tarpanakriya in seikula, their ancestors also degenerate into hell.",
+      "speaker": "Arjuna",
+      "id": "mcqLkYwQ",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Doshairetai kulghnanang varnasankarakarakai.\n42.",
+      "translation": "All kinds of national development schemes and clan welfare-religions are born out of their malevolent guilt, which destroys clan heritage and produces illegitimate children.",
+      "speaker": "Arjuna",
+      "id": "a3DwxKSQ",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "Uthannakuldharmananang Manushyanang Janardan.\nNarake niytang baso bhavatityanushushrum..43..",
+      "translation": "O Janardana! I have heard from generations that those whose clans are destroyed are destined to live in hell.",
+      "speaker": "Arjuna",
+      "id": "Pg81Zs9h",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "44",
+      "Language": "Aho wat mahat papong kartung vyabasita bayam.\n44.",
+      "translation": "Alas! What a wonder that we are determined to commit the great sin of murdering our relatives for the sake of Rajyasukh.",
+      "speaker": "Arjuna",
+      "id": "vj7JSaEv",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "45",
+      "Language": "If mampratikaramshastrang shastrapanaya:\nDhartarashtra rane hanyasustanme kshemtarang bhavet..45..",
+      "translation": "It would be better for me if I were killed in battle by the armed sons of Dhritarashtra, defenseless and unarmed.",
+      "speaker": "Arjuna",
+      "id": "RbxolbeJ",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "46",
+      "Language": "Abmuktbarjuna: Sankye Rathopastha Upavishat.\nVisrijya Sasarang Chapang Shokasamvignamanas:..46..",
+      "translation": "Sanjay said - Saying this on the battlefield, Arjuna left his bow and sat on the chariot with a heart heavy with grief.",
+      "speaker": "Sanjay",
+      "id": "7L248HCg",
+      "speaker_english": "Sanjay"
     }
+  ],
+  "summary": {
+    "title": "First Chapter - Arjuna Vishad-yoga",
+    "description": "This chapter describes the armies of both sides at the Kurukshetra battlefield and Arjuna's grief. Dhritarashtra asks Sanjay about the state of war. Sanjay narrates how Arjuna becomes reluctant to kill his relatives after seeing the armies on both sides.",
+    "keyThemes": [
+      "Description of the battlefield",
+      "Identification of troops on both sides",
+      "Arjuna's sadness",
+      "Discussion of religion and non-religion",
+      "Importance of caste"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/02/bangla-gita-capter-1.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 2000+ words",
+    "lastUpdated": "2024"
+  }
 }

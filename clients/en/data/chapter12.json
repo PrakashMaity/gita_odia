@@ -1,176 +1,196 @@
 {
-    "chapter": {
-        "number": "12",
-        "title": "Chapter XII",
-        "subtitle": "bhakti-yoga",
-        "englishTitle": "Bhakti Yoga",
-        "totalVerses": "20",
-        "description": "Bhakti-yoga is taught in the twelfth chapter. In this chapter Lord Krishna describes the various levels of devotion and the characteristics of devotees.",
-        "id": "BhaktiYoga12"
+  "chapter": {
+    "number": "12",
+    "title": "Chapter XII",
+    "subtitle": "bhakti-yoga",
+    "englishTitle": "Bhakti Yoga",
+    "totalVerses": "20",
+    "description": "Bhakti-yoga is taught in the twelfth chapter. In this chapter Lord Krishna describes the various levels of devotion and the characteristics of devotees.",
+    "id": "BhaktiYoga12"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "And satatyukta that bhaktastvang paryupaste.\nThat Chapyaksharamvyaktang Teshang Ke Yogavittama..1..",
+      "translation": "Arjuna asked - Who is the best yogi among all the devotees who properly worship you with constant devotion and who worship the immanent Brahman?",
+      "speaker": "Arjuna",
+      "id": "v1Bhakti12",
+      "speaker_english": "Arjuna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Mayabeshya mano that mang nityayukta upasate.\n2.",
+      "translation": "Sri Bhagavan said - Those who fix their mind on My special form and worship Me constantly with unnatural reverence, in my opinion are the greatest Yogis.",
+      "speaker": "the supreme",
+      "id": "v2Bhakti12",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "And satatyukta that bhaktastvang paryupaste.\nThat Chapyaksharamvyaktang Teshang Ke Yogavittama..1..",
-            "translation": "Arjuna asked - Who is the best yogi among all the devotees who properly worship you with constant devotion and who worship the immanent Brahman?",
-            "speaker": "Arjuna",
-            "id": "v1Bhakti12"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Mayabeshya mano that mang nityayukta upasate.\n2.",
-            "translation": "Sri Bhagavan said - Those who fix their mind on My special form and worship Me constantly with unnatural reverence, in my opinion are the greatest Yogis.",
-            "speaker": "the supreme",
-            "id": "v2Bhakti12"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "That taksharampadhyamvyaktang paryupaste.\n3.",
-            "translation": "Those who, restraining all the senses, being equal to all and benevolent to all beings, worship My characterless, indeterminable, inexpressible, omnipresent, unthinking, unchanging, immovable, constant and undifferentiated form, attain Me at last.",
-            "speaker": "the supreme",
-            "id": "v3Bhakti12"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Sannyamyendriyagramang Sambuddhaya everywhere.\n4.",
-            "translation": "Those who, restraining all the senses, being equal to all and benevolent to all beings, worship My characterless, indeterminable, inexpressible, omnipresent, unthinking, unchanging, immovable, constant and undifferentiated form, attain Me at last.",
-            "speaker": "the supreme",
-            "id": "v4Bhakti12"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Kleshohadhiktarestheshampersonsakthachetsam.\nAvyakta hi gati: Dukhang dehvadvirabapyate..5..",
-            "translation": "Those whose minds are attached to the unmanifest form of God, their misery is greater. Because worshiping the unmanifest brings only misery to the living beings with bodies.",
-            "speaker": "the supreme",
-            "id": "v5Bhakti12"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Je tu sarvani karmani moi sannyasya matparah.\n6.",
-            "translation": "Those who surrender all actions to Me, meditate and worship Me with devotion and devotion, O Partha! I soon rescue all those devotees who are obsessed with Me from the world-ocean of death.",
-            "speaker": "the supreme",
-            "id": "v6Bhakti12"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Teshamhong Samuddharta Mrutya Samsarsagarat.\nBhabami na chirat partha mayabeshitachetsam..7..",
-            "translation": "Those who surrender all actions to Me, meditate and worship Me with devotion and devotion, O Partha! I soon rescue all those devotees who are obsessed with Me from the world-ocean of death.",
-            "speaker": "the supreme",
-            "id": "v7Bhakti12"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Mayyeva man adhatswa mzy buddhing niveshay.\n8.",
-            "translation": "Therefore in me you bury your mind and in me you entrust your intellect. As a result you will always live near me, no doubt about that.",
-            "speaker": "the supreme",
-            "id": "v8Bhakti12"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Or chittang samadhatung na shaknoshi mzhi stitam.\nअभियोगेजेगेन तथो मामिचापटुग द्णानजयो ..9..",
-            "translation": "O Dhananjay! If you are not able to fix your mind in Me, then desire to receive Me by practice.",
-            "speaker": "the supreme",
-            "id": "v9Bhakti12"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Habyayehepyasamarthohasi matkarmaparamo bhava.\nMadarthampi Karmani Kurban Siddhimbapsiasi..10..",
-            "translation": "If you are unable even to practice, then be obedient to me. Even by working for me you will attain siddhi.",
-            "speaker": "the supreme",
-            "id": "v10Bhakti12"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Athaitdapyashaktohsi kartung madyogamashritah.\n11.",
-            "translation": "And if you are unable to do that, surrender all actions to Me and give up the results of actions with restraint.",
-            "speaker": "the supreme",
-            "id": "v11Bhakti12"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Shreyo hi Gnanamavyasajjnaadhyanang speciality.\n12.",
-            "translation": "If you are not able to practice this, then practice knowledge. Meditation is better than knowledge and giving up karma is better than meditation, because this kind of giving up karma brings peace.",
-            "speaker": "the supreme",
-            "id": "v12Bhakti12"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Advesta sarvabhutanaang Maitra: Karuna and f.\n13.",
-            "translation": "He who is free from enmity towards all living beings, friendly, gracious, devoid of compassion, unassuming, equal in happiness and sorrow, forgiving, always contented, always attached to devotion, restrained in nature, firm in resolve and whose mind and intellect are always devoted to Me, is my beloved devotee.",
-            "speaker": "the supreme",
-            "id": "v13Bhakti12"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Satisfied: Sattang Yogi Jatatma is determined.\n14.",
-            "translation": "He who is contented, steadfast Yogi, Jatatma, determined and who surrenders his mind and intellect in Me is my devotee, he is my beloved.",
-            "speaker": "the supreme",
-            "id": "v14Bhakti12"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Jasmannodwijte loko lokannodwijte f Jah.\n15.",
-            "translation": "He who is not disturbed by anyone, who is not disturbed by anyone and who is free from anger, anger, fear and anxiety, is dear to me.",
-            "speaker": "the supreme",
-            "id": "v15Bhakti12"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Anapeksha: Chichirdaksha Udasino Gatvyath:\n16.",
-            "translation": "He who is unbiased, pure, skilful, dispassionate, unconcerned and renouncing the fruits of all actions, is my beloved devotee.",
-            "speaker": "the supreme",
-            "id": "v16Bhakti12"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "No jealousy, no desire, no pity, no desire.\n17.",
-            "translation": "He who does not ache at the attainment of dear things and does not resent the attainment of unloved things, who does not mourn the loss of dear things, does not desire unobtained good things and has renounced all good and bad deeds and he who is devoted, is my beloved devotee.",
-            "speaker": "the supreme",
-            "id": "v17Bhakti12"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Samah Shatrau Ch Mitre Ch Tatha Manapamanyo:\n18.",
-            "translation": "One who is equal to friend and foe, equal in honor and dishonour, cold and hot, happy and sad and censured and praised, one free from malice, temperate in speech, contented with the slightest gain, free from homelessness, and one who is steady-minded and attached to My loving service, such a person is dear to Me.",
-            "speaker": "the supreme",
-            "id": "v18Bhakti12"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Tulyindastutirmauni is satisfied as if kenchit.\n19",
-            "translation": "He who is equal to reproach and praise, Mouni, as if ever satisfied, Aniket, steadfast and devoted, is my beloved Nara.",
-            "speaker": "the supreme",
-            "id": "v19Bhakti12"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Je tu dharmamritamidang yathoktang paryupasate.\nShraddhana matparama bhaktastehatib me priya:..20..",
-            "translation": "All those reverent and sincere devotees who worship this martyr mentioned by me are very dear to me.",
-            "speaker": "the supreme",
-            "id": "v20Bhakti12"
-        }
-    ],
-    "summary": {
-        "title": "Chapter XII - Bhakti-yoga",
-        "description": "Bhakti-yoga is taught in this chapter. Lord Krishna has described various levels of bhakti and characteristics of devotees. He explained that it is through Bhakti Yoga that one can attain nearness to God.",
-        "keyThemes": [
-            "Excellence of Bhakti Yoga",
-            "Characteristics of devotees",
-            "Different levels of devotion",
-            "Beloved devotee of God",
-            "Fruit of Bhakti Yoga"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "That taksharampadhyamvyaktang paryupaste.\n3.",
+      "translation": "Those who, restraining all the senses, being equal to all and benevolent to all beings, worship My characterless, indeterminable, inexpressible, omnipresent, unthinking, unchanging, immovable, constant and undifferentiated form, attain Me at last.",
+      "speaker": "the supreme",
+      "id": "v3Bhakti12",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1500+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Sannyamyendriyagramang Sambuddhaya everywhere.\n4.",
+      "translation": "Those who, restraining all the senses, being equal to all and benevolent to all beings, worship My characterless, indeterminable, inexpressible, omnipresent, unthinking, unchanging, immovable, constant and undifferentiated form, attain Me at last.",
+      "speaker": "the supreme",
+      "id": "v4Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Kleshohadhiktarestheshampersonsakthachetsam.\nAvyakta hi gati: Dukhang dehvadvirabapyate..5..",
+      "translation": "Those whose minds are attached to the unmanifest form of God, their misery is greater. Because worshiping the unmanifest brings only misery to the living beings with bodies.",
+      "speaker": "the supreme",
+      "id": "v5Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Je tu sarvani karmani moi sannyasya matparah.\n6.",
+      "translation": "Those who surrender all actions to Me, meditate and worship Me with devotion and devotion, O Partha! I soon rescue all those devotees who are obsessed with Me from the world-ocean of death.",
+      "speaker": "the supreme",
+      "id": "v6Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Teshamhong Samuddharta Mrutya Samsarsagarat.\nBhabami na chirat partha mayabeshitachetsam..7..",
+      "translation": "Those who surrender all actions to Me, meditate and worship Me with devotion and devotion, O Partha! I soon rescue all those devotees who are obsessed with Me from the world-ocean of death.",
+      "speaker": "the supreme",
+      "id": "v7Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Mayyeva man adhatswa mzy buddhing niveshay.\n8.",
+      "translation": "Therefore in me you bury your mind and in me you entrust your intellect. As a result you will always live near me, no doubt about that.",
+      "speaker": "the supreme",
+      "id": "v8Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Or chittang samadhatung na shaknoshi mzhi stitam.\nअभियोगेजेगेन तथो मामिचापटुग द्णानजयो ..9..",
+      "translation": "O Dhananjay! If you are not able to fix your mind in Me, then desire to receive Me by practice.",
+      "speaker": "the supreme",
+      "id": "v9Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Habyayehepyasamarthohasi matkarmaparamo bhava.\nMadarthampi Karmani Kurban Siddhimbapsiasi..10..",
+      "translation": "If you are unable even to practice, then be obedient to me. Even by working for me you will attain siddhi.",
+      "speaker": "the supreme",
+      "id": "v10Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Athaitdapyashaktohsi kartung madyogamashritah.\n11.",
+      "translation": "And if you are unable to do that, surrender all actions to Me and give up the results of actions with restraint.",
+      "speaker": "the supreme",
+      "id": "v11Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Shreyo hi Gnanamavyasajjnaadhyanang speciality.\n12.",
+      "translation": "If you are not able to practice this, then practice knowledge. Meditation is better than knowledge and giving up karma is better than meditation, because this kind of giving up karma brings peace.",
+      "speaker": "the supreme",
+      "id": "v12Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Advesta sarvabhutanaang Maitra: Karuna and f.\n13.",
+      "translation": "He who is free from enmity towards all living beings, friendly, gracious, devoid of compassion, unassuming, equal in happiness and sorrow, forgiving, always contented, always attached to devotion, restrained in nature, firm in resolve and whose mind and intellect are always devoted to Me, is my beloved devotee.",
+      "speaker": "the supreme",
+      "id": "v13Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Satisfied: Sattang Yogi Jatatma is determined.\n14.",
+      "translation": "He who is contented, steadfast Yogi, Jatatma, determined and who surrenders his mind and intellect in Me is my devotee, he is my beloved.",
+      "speaker": "the supreme",
+      "id": "v14Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Jasmannodwijte loko lokannodwijte f Jah.\n15.",
+      "translation": "He who is not disturbed by anyone, who is not disturbed by anyone and who is free from anger, anger, fear and anxiety, is dear to me.",
+      "speaker": "the supreme",
+      "id": "v15Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Anapeksha: Chichirdaksha Udasino Gatvyath:\n16.",
+      "translation": "He who is unbiased, pure, skilful, dispassionate, unconcerned and renouncing the fruits of all actions, is my beloved devotee.",
+      "speaker": "the supreme",
+      "id": "v16Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "No jealousy, no desire, no pity, no desire.\n17.",
+      "translation": "He who does not ache at the attainment of dear things and does not resent the attainment of unloved things, who does not mourn the loss of dear things, does not desire unobtained good things and has renounced all good and bad deeds and he who is devoted, is my beloved devotee.",
+      "speaker": "the supreme",
+      "id": "v17Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Samah Shatrau Ch Mitre Ch Tatha Manapamanyo:\n18.",
+      "translation": "One who is equal to friend and foe, equal in honor and dishonour, cold and hot, happy and sad and censured and praised, one free from malice, temperate in speech, contented with the slightest gain, free from homelessness, and one who is steady-minded and attached to My loving service, such a person is dear to Me.",
+      "speaker": "the supreme",
+      "id": "v18Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tulyindastutirmauni is satisfied as if kenchit.\n19",
+      "translation": "He who is equal to reproach and praise, Mouni, as if ever satisfied, Aniket, steadfast and devoted, is my beloved Nara.",
+      "speaker": "the supreme",
+      "id": "v19Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Je tu dharmamritamidang yathoktang paryupasate.\nShraddhana matparama bhaktastehatib me priya:..20..",
+      "translation": "All those reverent and sincere devotees who worship this martyr mentioned by me are very dear to me.",
+      "speaker": "the supreme",
+      "id": "v20Bhakti12",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter XII - Bhakti-yoga",
+    "description": "Bhakti-yoga is taught in this chapter. Lord Krishna has described various levels of bhakti and characteristics of devotees. He explained that it is through Bhakti Yoga that one can attain nearness to God.",
+    "keyThemes": [
+      "Excellence of Bhakti Yoga",
+      "Characteristics of devotees",
+      "Different levels of devotion",
+      "Beloved devotee of God",
+      "Fruit of Bhakti Yoga"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1500+ words",
+    "lastUpdated": "2024"
+  }
 }

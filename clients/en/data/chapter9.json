@@ -1,282 +1,317 @@
 {
-    "chapter": {
-        "number": "9",
-        "title": "Chapter Nine",
-        "subtitle": "Rajguhya Yoga",
-        "englishTitle": "Raja Guhya Yoga",
-        "totalVerses": "34",
-        "description": "Rajaguhya Yoga is taught in the ninth chapter. In this chapter Lord Krishna tells Arjuna the esoteric principles of bhakti yoga and advises him to approach God through bhakti.",
-        "id": "vyC0zjx3",
-        "openingLine": "Shri Bhagwanubach"
+  "chapter": {
+    "number": "9",
+    "title": "Chapter Nine",
+    "subtitle": "Rajguhya Yoga",
+    "englishTitle": "Raja Guhya Yoga",
+    "totalVerses": "34",
+    "description": "Rajaguhya Yoga is taught in the ninth chapter. In this chapter Lord Krishna tells Arjuna the esoteric principles of bhakti yoga and advises him to approach God through bhakti.",
+    "id": "vyC0zjx3",
+    "openingLine": "Shri Bhagwanubach"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Idang tu te guhyatamang prabakshyamyansuyabe.\nGnanang Vigyansahitang Yajjnatva Mokhyasehshubhat..1..",
+      "translation": "The Supreme Lord said - O Arjuna! Since you are innocent, I advise you the most secret knowledge containing supreme science. By attaining that knowledge, you are freed from the bonds of a miserable world.",
+      "speaker": "the supreme",
+      "id": "IT4ecevb",
+      "speaker_english": "Shree Krishna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Rajvidya Rajguhyang Pavitrimidmuttamam.\nPratyasavagamang dharmyang susukhang kartumvyam",
+      "translation": "This knowledge is the king of all knowledge, more profound than all mysticism, most pure and gives self-realization by direct feeling, so it is true religion. This knowledge is eternal and blissful.",
+      "speaker": "the supreme",
+      "id": "1TRldbDZ",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Idang tu te guhyatamang prabakshyamyansuyabe.\nGnanang Vigyansahitang Yajjnatva Mokhyasehshubhat..1..",
-            "translation": "The Supreme Lord said - O Arjuna! Since you are innocent, I advise you the most secret knowledge containing supreme science. By attaining that knowledge, you are freed from the bonds of a miserable world.",
-            "speaker": "the supreme",
-            "id": "IT4ecevb"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Rajvidya Rajguhyang Pavitrimidmuttamam.\nPratyasavagamang dharmyang susukhang kartumvyam",
-            "translation": "This knowledge is the king of all knowledge, more profound than all mysticism, most pure and gives self-realization by direct feeling, so it is true religion. This knowledge is eternal and blissful.",
-            "speaker": "the supreme",
-            "id": "1TRldbDZ"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Ashraddhaana: Purusha Dharmasyasya Parantapa.\n3.",
-            "translation": "Oh Parantap! Those who have not arisen in this devotion to God, cannot gain Me. Hence, they return to the path of birth and death in this material world.",
-            "speaker": "the supreme",
-            "id": "7eHmpuRM"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Maya Tatamidang Sarbang Jagadvyaktamurthina.\n4.",
-            "translation": "Inexplicably I pervade all the worlds. All beings are situated in Me, but I am not situated in them.",
-            "speaker": "the supreme",
-            "id": "Irvn10Pq"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "No Ch Matsthani Bhutani Pashya May Yogamaeswaram.\nBhootbhrinna f Bhutastho Mamatma Bhootbhavana:..5..",
-            "translation": "Although all things are created by Me, yet they are not located in Me. Visit my Yogayaswarya! Although I am the holder of all living beings and although I am all-pervading, yet I do not belong to this material creation, for I myself am the source of all creation.",
-            "speaker": "the supreme",
-            "id": "LjvSEsyU"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Yayakashasthito nityang vayu: all-pervasive.\nThat's why everyone is Bhutanese. 6.",
-            "translation": "Know that, as the great air, though wandering everywhere, is always fixed in the sky, so all created beings are fixed in Me.",
-            "speaker": "the supreme",
-            "id": "tGk4ZOxd"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Sarvabhutani Kaunteya Pratharing Jaanti Mamikam.\nKalpakhaye punastani kalpadau visrijamyaham..7..",
-            "translation": "O Kaunteya! In Kalpana all material creations enter into My nature and again I create them by Kalpana Prakriti.",
-            "speaker": "the supreme",
-            "id": "DRPFFGys"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Phraturing svamvashtabhya bisrijami re re re.\n8.",
-            "translation": "This world is under my nature. It succumbs to nature and is created again and again by my will and finally destroyed by my will.",
-            "speaker": "the supreme",
-            "id": "o1kSIIIA"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Na ch mang tani karmani nivdhnanti dhananjay.\nUdasinavadasinmasaktang teshu karmasu..9..",
-            "translation": "O Dhananjay! All those actions cannot bind me. I remain unattached and indifferent to all those actions.",
-            "speaker": "the supreme",
-            "id": "vm0KLkjy"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Mayadhyakshena Prakriti: Suate Sacharacharam.\nHetunanen Kaunteya Jagadviparivarta.",
-            "translation": "O Kaunteya! Nature infused by my presiding creates this customary world. This world is created and destroyed again and again according to the laws of nature.",
-            "speaker": "the supreme",
-            "id": "n9vJLXcY"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Abjananti mang mudra manuing tanumashritam.\nParang bhavamjananto mam bhutamheswaram..11..",
-            "translation": "When I take human form, fools despise me. They are not aware of My Supreme Personality and they do not know Me as Mahesvara of all universes.",
-            "speaker": "the supreme",
-            "id": "F9PrCiN2"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Moghasha moghakarmano moghajna vichetsah.\nRakshasimasuring Chaiva Pratharing Mohining Srita.",
-            "translation": "Thus, those who are disillusioned, are attracted to demons and demons. In that enraptured state, their hopes for liberation, their sakama actions and attempts at knowledge all fail.",
-            "speaker": "the supreme",
-            "id": "demKvpJu"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Mahatmano tu mang partha daiving Prakruti mashrita.\nBhajantyagnanen Purakriten.",
-            "translation": "O Parth! The disillusioned Mahatmas take refuge in My divine nature. They know Me as the origin and origin of all beings and worship Me with a unique heart.",
-            "speaker": "the supreme",
-            "id": "yuAXy3DR"
-        },
-        {
-            "verseNumber": "13.1",
-            "Language": "Also read: All the pastimes of Lord Krishna - Srimad Bhagavatam",
-            "translation": "Additional reading: All the pastimes of Lord Sri Krishna - Srimad Bhagavatam",
-            "speaker": "Selected Readings",
-            "id": "additional_reading_1"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Satatang kirtayanto mang jatantascha tsagabrata:\nNamasyantascha mang bhaktya nityyukta upasate.",
-            "translation": "Steadfast and careful, always chanting My glories and offering obeisances to Me, all these Mahatmas worship Me with constant attachment.",
-            "speaker": "the supreme",
-            "id": "wbUGrdV0"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Jnanayajnen chapyanyajayanto mamavasthita:\nEkten Prithagaktben Bahudha Biswato Mukham.",
-            "translation": "Others worship with undifferentiated contemplation by Jnana Yajna, some with multi-manifested bhed contemplation and still others worship my universal form.",
-            "speaker": "the supreme",
-            "id": "57XJ83Fb"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Ahang kraturhang yajna: svadhamahmaushadham.\nMantraohmahmahmebajyong mmehagni:",
-            "translation": "I am Agnisthoma Adi Shrauta Yajna, I am Vaishvadeva Adi Smarta Yajna, I am Sraddha Karma to the ancestors, I am disease-preventing herb, I am mantra, I am home ghrit, I am fire and I am homakriya.",
-            "speaker": "the supreme",
-            "id": "peORL6oU"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Pitahamsya Jagato Mata Dhata Pitamah:\nBedyang Pavitramomkar Riksam Yajureb f.",
-            "translation": "I am the father, mother god and grandfather of this world. I am the object of knowledge, the purifier and the onkar. I am Rik, Sama and Yajurveda.",
-            "speaker": "the supreme",
-            "id": "uQHgxUcX"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Gatirbharta Prabhu: Sakshi Nivas: Sharanang Suhrita.\nPrabhava: Pralayah: Sthang Nidhanang Bijamavyam.",
-            "translation": "I am the motion, the source, the lord, the witness, the abode, the shelter and the friend of all. I am the origin, destruction, status, refuge and prepositional seed.",
-            "speaker": "the supreme",
-            "id": "Ofln2sCn"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Tapamyahamhang varshang nigrihnamyutsrijami f.\nAmritang Chaiva Mrutyasch Sadaschahmarjuna.",
-            "translation": "O Arjuna! I give heat and I bring and attract rain. I am nectar and I am death. Both inanimate and conscious matter are within me.",
-            "speaker": "the supreme",
-            "id": "rjD5KXQg"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Trividya Mang Sompa: Putpapa Yajnairishtva Swargating Prathayante.\nte punyamasadya surendralokamshananti divyan surdevbhogan.",
-            "translation": "The Trivedyas worship me by performing sacrifices, drink the sacrificial somaras and become free from sin and pray for heaven. As a result of meritorious deeds, they attain Indraloka and enjoy divine heavenly bliss.",
-            "speaker": "the supreme",
-            "id": "MyvtjGke"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Te Tang Bhukta Swargalokang Vishalang Khine Punye Martyalokong Vishanti.\nAnd Triidharmamanuprapanna Gatagtang Kamkama Lavante.",
-            "translation": "They enjoyed the immense happiness of heaven and returned to the mortal world when their virtues were lost. In this way, the people who are desirous of sensual pleasures by performing the Trivetokta Dharma only get birth and death many times in the world.",
-            "speaker": "the supreme",
-            "id": "qoUph1xq"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Ananyaschintayanto mang that Jana: Parthanityasha.\nTeshamhang Samudbharta Bhutibhute: Samahita:",
-            "translation": "I bear all the unattainable objects of those who always worship Me with perfect devotion, engrossed in My thoughts with undivided mind, and preserve their attainable objects.",
-            "speaker": "the supreme",
-            "id": "bhMKdyjs"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Jehapyasya Devata: Pujang Yajante Shraddhayanvita:\nTehpi Mameb Kaunteya Yajantyaviddhipurvakam.",
-            "translation": "O Kaunteya! Those who worship other deities with devotion and reverence, in fact worship Me unlawfully.",
-            "speaker": "the supreme",
-            "id": "dTt0va7z"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Ahang hi sarvajjnanang bhokta f prabhureva f.\nNa tu mamvijananti tattvenatschyabanti te.",
-            "translation": "I am the consumer and lord of all sacrifices. But those who do not know my divine nature, they again fall into the sea of ​​samsara.",
-            "speaker": "the supreme",
-            "id": "r6uwRs5D"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Janti Devabrata Devan Pitrin Janti Pitrabrata:\nBhutani janti bhootezya janti madyajinopi mam.",
-            "translation": "The worshipers of the gods will attain divine light; The worshipers of the patriarchs attain patriarchs; Bhut- The worshipers of pret Adi attain Bhutloka; And My worshipers gain Me.",
-            "speaker": "the supreme",
-            "id": "LvL01IPS"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Patrang pushpong phalang toong yo me bhaktya prayachti.\nTadhang bhaktyupahritmashnami prayatatmanah.",
-            "translation": "A pure-hearted devotee who offers me leaves, flowers, fruits and water with devotion, I accept his devotional gifts with love.",
-            "speaker": "the supreme",
-            "id": "49tpm3nh"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Jat Karoshi Yadashnasi Yajjuhoshi Dadasi Jat.\nYattapasyasi kaunteya tat kurusva madarpanam.",
-            "translation": "O Kaunteya! Whatever you perform, whatever you eat, whatever you perform, whatever you donate and whatever you do penance, surrender to me.",
-            "speaker": "the supreme",
-            "id": "njCuFI2p"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Karmabandnai in good luck and salvation.\nSannyasyogayuktma Vimukto Mamupaisyasi.",
-            "translation": "Thus by offering all karmas to Me one will be freed from the bonds of good and bad fruitive actions. In this way you will be freed and attain Me by joining Sanyas Yoga.",
-            "speaker": "the supreme",
-            "id": "gw9PN7n2"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Samohang sarvabhuteshu na me devesyohasti na priya:\nThat bhajanti tu mang bhaktya moi te teshu chapyaham.",
-            "translation": "I am equal to all. No one hates me nor loves me. But those who worship Me with devotion abide in Me and I abide in them.",
-            "speaker": "the supreme",
-            "id": "PJJDANmt"
-        },
-        {
-            "verseNumber": "30",
-            "Language": "Opi Chetsuduracharo bhajate mamannyabhak.\nSadhureb Sa Comment: Samyag Vyabasito Hi Saha.",
-            "translation": "Even the most wicked person, if he worships Me with unique devotion, will consider him a saint, because by his determination he is on the right path.",
-            "speaker": "the supreme",
-            "id": "jwyKgW0z"
-        },
-        {
-            "verseNumber": "31",
-            "Language": "Kshiprang Bhavati Dharmatma Saswachchanting Nigchchati.\nKaunteya pratijanihi na me bhakta: Pranasyati.",
-            "translation": "He soon became a Dharmatma and attained eternal peace. O Kaunteya! You proclaim with a loud voice that my devotee never perishes.",
-            "speaker": "the supreme",
-            "id": "rtjRFMIn"
-        },
-        {
-            "verseNumber": "32",
-            "Language": "Mang hi partha vyapasritya jehpi sue: papayonay:.\nWoman vaishyastatha shudrastehpii janti parang gatim.",
-            "translation": "O Parth! Those who take special refuge in Me, even if they belong to the lower castes of women, Vaishyas, Shudras, are immediately blessed.",
-            "speaker": "the supreme",
-            "id": "iuGBY8rX"
-        },
-        {
-            "verseNumber": "33",
-            "Language": "King Punarabrahmana: Punya Bhakta Rajarashayastha.\nAnityamsukhang lokmimang prapya bhajaswa mam.",
-            "translation": "What about the virtuous Brahmins, devotees and kings? If they take refuge in me, they will surely get success. Therefore, you attain this eternally miserable mortal and worship me.",
-            "speaker": "the supreme",
-            "id": "Aa0BF2lU"
-        },
-        {
-            "verseNumber": "34",
-            "Language": "Manmana bhava madbhakto madyaji mang namaskuru.\nMamevaishyasi satyang te pratijane priyohsi me.",
-            "translation": "Engage your mind in thinking of Me, become My devotee, bow down to Me and worship Me. Being thus devoted and completely absorbed in Me, you will undoubtedly gain Me.",
-            "speaker": "the supreme",
-            "id": "BGIi1Wcm"
-        }
-    ],
-    "summary": {
-        "title": "Chapter IX - Rajguhya Yoga",
-        "description": "Rajaguhya Yoga is taught in the ninth chapter. In this chapter Lord Krishna tells Arjuna the esoteric principles of bhakti yoga and advises him to approach God through bhakti.",
-        "keyThemes": [
-            "Esoteric Theory of Bhakti Yoga",
-            "Importance of Bhakti",
-            "Approaching God",
-            "Esoteric knowledge",
-            "Education of Raja Yoga"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Ashraddhaana: Purusha Dharmasyasya Parantapa.\n3.",
+      "translation": "Oh Parantap! Those who have not arisen in this devotion to God, cannot gain Me. Hence, they return to the path of birth and death in this material world.",
+      "speaker": "the supreme",
+      "id": "7eHmpuRM",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_20.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1700+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Maya Tatamidang Sarbang Jagadvyaktamurthina.\n4.",
+      "translation": "Inexplicably I pervade all the worlds. All beings are situated in Me, but I am not situated in them.",
+      "speaker": "the supreme",
+      "id": "Irvn10Pq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "No Ch Matsthani Bhutani Pashya May Yogamaeswaram.\nBhootbhrinna f Bhutastho Mamatma Bhootbhavana:..5..",
+      "translation": "Although all things are created by Me, yet they are not located in Me. Visit my Yogayaswarya! Although I am the holder of all living beings and although I am all-pervading, yet I do not belong to this material creation, for I myself am the source of all creation.",
+      "speaker": "the supreme",
+      "id": "LjvSEsyU",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Yayakashasthito nityang vayu: all-pervasive.\nThat's why everyone is Bhutanese. 6.",
+      "translation": "Know that, as the great air, though wandering everywhere, is always fixed in the sky, so all created beings are fixed in Me.",
+      "speaker": "the supreme",
+      "id": "tGk4ZOxd",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Sarvabhutani Kaunteya Pratharing Jaanti Mamikam.\nKalpakhaye punastani kalpadau visrijamyaham..7..",
+      "translation": "O Kaunteya! In Kalpana all material creations enter into My nature and again I create them by Kalpana Prakriti.",
+      "speaker": "the supreme",
+      "id": "DRPFFGys",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Phraturing svamvashtabhya bisrijami re re re.\n8.",
+      "translation": "This world is under my nature. It succumbs to nature and is created again and again by my will and finally destroyed by my will.",
+      "speaker": "the supreme",
+      "id": "o1kSIIIA",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Na ch mang tani karmani nivdhnanti dhananjay.\nUdasinavadasinmasaktang teshu karmasu..9..",
+      "translation": "O Dhananjay! All those actions cannot bind me. I remain unattached and indifferent to all those actions.",
+      "speaker": "the supreme",
+      "id": "vm0KLkjy",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Mayadhyakshena Prakriti: Suate Sacharacharam.\nHetunanen Kaunteya Jagadviparivarta.",
+      "translation": "O Kaunteya! Nature infused by my presiding creates this customary world. This world is created and destroyed again and again according to the laws of nature.",
+      "speaker": "the supreme",
+      "id": "n9vJLXcY",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Abjananti mang mudra manuing tanumashritam.\nParang bhavamjananto mam bhutamheswaram..11..",
+      "translation": "When I take human form, fools despise me. They are not aware of My Supreme Personality and they do not know Me as Mahesvara of all universes.",
+      "speaker": "the supreme",
+      "id": "F9PrCiN2",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Moghasha moghakarmano moghajna vichetsah.\nRakshasimasuring Chaiva Pratharing Mohining Srita.",
+      "translation": "Thus, those who are disillusioned, are attracted to demons and demons. In that enraptured state, their hopes for liberation, their sakama actions and attempts at knowledge all fail.",
+      "speaker": "the supreme",
+      "id": "demKvpJu",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Mahatmano tu mang partha daiving Prakruti mashrita.\nBhajantyagnanen Purakriten.",
+      "translation": "O Parth! The disillusioned Mahatmas take refuge in My divine nature. They know Me as the origin and origin of all beings and worship Me with a unique heart.",
+      "speaker": "the supreme",
+      "id": "yuAXy3DR",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13.1",
+      "Language": "Also read: All the pastimes of Lord Krishna - Srimad Bhagavatam",
+      "translation": "Additional reading: All the pastimes of Lord Sri Krishna - Srimad Bhagavatam",
+      "speaker": "Selected Readings",
+      "id": "additional_reading_1",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Satatang kirtayanto mang jatantascha tsagabrata:\nNamasyantascha mang bhaktya nityyukta upasate.",
+      "translation": "Steadfast and careful, always chanting My glories and offering obeisances to Me, all these Mahatmas worship Me with constant attachment.",
+      "speaker": "the supreme",
+      "id": "wbUGrdV0",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Jnanayajnen chapyanyajayanto mamavasthita:\nEkten Prithagaktben Bahudha Biswato Mukham.",
+      "translation": "Others worship with undifferentiated contemplation by Jnana Yajna, some with multi-manifested bhed contemplation and still others worship my universal form.",
+      "speaker": "the supreme",
+      "id": "57XJ83Fb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Ahang kraturhang yajna: svadhamahmaushadham.\nMantraohmahmahmebajyong mmehagni:",
+      "translation": "I am Agnisthoma Adi Shrauta Yajna, I am Vaishvadeva Adi Smarta Yajna, I am Sraddha Karma to the ancestors, I am disease-preventing herb, I am mantra, I am home ghrit, I am fire and I am homakriya.",
+      "speaker": "the supreme",
+      "id": "peORL6oU",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Pitahamsya Jagato Mata Dhata Pitamah:\nBedyang Pavitramomkar Riksam Yajureb f.",
+      "translation": "I am the father, mother god and grandfather of this world. I am the object of knowledge, the purifier and the onkar. I am Rik, Sama and Yajurveda.",
+      "speaker": "the supreme",
+      "id": "uQHgxUcX",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Gatirbharta Prabhu: Sakshi Nivas: Sharanang Suhrita.\nPrabhava: Pralayah: Sthang Nidhanang Bijamavyam.",
+      "translation": "I am the motion, the source, the lord, the witness, the abode, the shelter and the friend of all. I am the origin, destruction, status, refuge and prepositional seed.",
+      "speaker": "the supreme",
+      "id": "Ofln2sCn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tapamyahamhang varshang nigrihnamyutsrijami f.\nAmritang Chaiva Mrutyasch Sadaschahmarjuna.",
+      "translation": "O Arjuna! I give heat and I bring and attract rain. I am nectar and I am death. Both inanimate and conscious matter are within me.",
+      "speaker": "the supreme",
+      "id": "rjD5KXQg",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Trividya Mang Sompa: Putpapa Yajnairishtva Swargating Prathayante.\nte punyamasadya surendralokamshananti divyan surdevbhogan.",
+      "translation": "The Trivedyas worship me by performing sacrifices, drink the sacrificial somaras and become free from sin and pray for heaven. As a result of meritorious deeds, they attain Indraloka and enjoy divine heavenly bliss.",
+      "speaker": "the supreme",
+      "id": "MyvtjGke",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Te Tang Bhukta Swargalokang Vishalang Khine Punye Martyalokong Vishanti.\nAnd Triidharmamanuprapanna Gatagtang Kamkama Lavante.",
+      "translation": "They enjoyed the immense happiness of heaven and returned to the mortal world when their virtues were lost. In this way, the people who are desirous of sensual pleasures by performing the Trivetokta Dharma only get birth and death many times in the world.",
+      "speaker": "the supreme",
+      "id": "qoUph1xq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Ananyaschintayanto mang that Jana: Parthanityasha.\nTeshamhang Samudbharta Bhutibhute: Samahita:",
+      "translation": "I bear all the unattainable objects of those who always worship Me with perfect devotion, engrossed in My thoughts with undivided mind, and preserve their attainable objects.",
+      "speaker": "the supreme",
+      "id": "bhMKdyjs",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Jehapyasya Devata: Pujang Yajante Shraddhayanvita:\nTehpi Mameb Kaunteya Yajantyaviddhipurvakam.",
+      "translation": "O Kaunteya! Those who worship other deities with devotion and reverence, in fact worship Me unlawfully.",
+      "speaker": "the supreme",
+      "id": "dTt0va7z",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Ahang hi sarvajjnanang bhokta f prabhureva f.\nNa tu mamvijananti tattvenatschyabanti te.",
+      "translation": "I am the consumer and lord of all sacrifices. But those who do not know my divine nature, they again fall into the sea of ​​samsara.",
+      "speaker": "the supreme",
+      "id": "r6uwRs5D",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Janti Devabrata Devan Pitrin Janti Pitrabrata:\nBhutani janti bhootezya janti madyajinopi mam.",
+      "translation": "The worshipers of the gods will attain divine light; The worshipers of the patriarchs attain patriarchs; Bhut- The worshipers of pret Adi attain Bhutloka; And My worshipers gain Me.",
+      "speaker": "the supreme",
+      "id": "LvL01IPS",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Patrang pushpong phalang toong yo me bhaktya prayachti.\nTadhang bhaktyupahritmashnami prayatatmanah.",
+      "translation": "A pure-hearted devotee who offers me leaves, flowers, fruits and water with devotion, I accept his devotional gifts with love.",
+      "speaker": "the supreme",
+      "id": "49tpm3nh",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Jat Karoshi Yadashnasi Yajjuhoshi Dadasi Jat.\nYattapasyasi kaunteya tat kurusva madarpanam.",
+      "translation": "O Kaunteya! Whatever you perform, whatever you eat, whatever you perform, whatever you donate and whatever you do penance, surrender to me.",
+      "speaker": "the supreme",
+      "id": "njCuFI2p",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Karmabandnai in good luck and salvation.\nSannyasyogayuktma Vimukto Mamupaisyasi.",
+      "translation": "Thus by offering all karmas to Me one will be freed from the bonds of good and bad fruitive actions. In this way you will be freed and attain Me by joining Sanyas Yoga.",
+      "speaker": "the supreme",
+      "id": "gw9PN7n2",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Samohang sarvabhuteshu na me devesyohasti na priya:\nThat bhajanti tu mang bhaktya moi te teshu chapyaham.",
+      "translation": "I am equal to all. No one hates me nor loves me. But those who worship Me with devotion abide in Me and I abide in them.",
+      "speaker": "the supreme",
+      "id": "PJJDANmt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Opi Chetsuduracharo bhajate mamannyabhak.\nSadhureb Sa Comment: Samyag Vyabasito Hi Saha.",
+      "translation": "Even the most wicked person, if he worships Me with unique devotion, will consider him a saint, because by his determination he is on the right path.",
+      "speaker": "the supreme",
+      "id": "jwyKgW0z",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Kshiprang Bhavati Dharmatma Saswachchanting Nigchchati.\nKaunteya pratijanihi na me bhakta: Pranasyati.",
+      "translation": "He soon became a Dharmatma and attained eternal peace. O Kaunteya! You proclaim with a loud voice that my devotee never perishes.",
+      "speaker": "the supreme",
+      "id": "rtjRFMIn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Mang hi partha vyapasritya jehpi sue: papayonay:.\nWoman vaishyastatha shudrastehpii janti parang gatim.",
+      "translation": "O Parth! Those who take special refuge in Me, even if they belong to the lower castes of women, Vaishyas, Shudras, are immediately blessed.",
+      "speaker": "the supreme",
+      "id": "iuGBY8rX",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "King Punarabrahmana: Punya Bhakta Rajarashayastha.\nAnityamsukhang lokmimang prapya bhajaswa mam.",
+      "translation": "What about the virtuous Brahmins, devotees and kings? If they take refuge in me, they will surely get success. Therefore, you attain this eternally miserable mortal and worship me.",
+      "speaker": "the supreme",
+      "id": "Aa0BF2lU",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Manmana bhava madbhakto madyaji mang namaskuru.\nMamevaishyasi satyang te pratijane priyohsi me.",
+      "translation": "Engage your mind in thinking of Me, become My devotee, bow down to Me and worship Me. Being thus devoted and completely absorbed in Me, you will undoubtedly gain Me.",
+      "speaker": "the supreme",
+      "id": "BGIi1Wcm",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter IX - Rajguhya Yoga",
+    "description": "Rajaguhya Yoga is taught in the ninth chapter. In this chapter Lord Krishna tells Arjuna the esoteric principles of bhakti yoga and advises him to approach God through bhakti.",
+    "keyThemes": [
+      "Esoteric Theory of Bhakti Yoga",
+      "Importance of Bhakti",
+      "Approaching God",
+      "Esoteric knowledge",
+      "Education of Raja Yoga"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_20.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1700+ words",
+    "lastUpdated": "2024"
+  }
 }

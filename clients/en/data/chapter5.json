@@ -1,239 +1,268 @@
 {
-    "chapter": {
-        "number": "5",
-        "title": "Chapter Five",
-        "subtitle": "Karmasannya-yoga",
-        "englishTitle": "Karma Sannyasa Yoga",
-        "totalVerses": "29",
-        "description": "In the fifth chapter Karmasannya Yoga is taught. In this chapter, Lord Krishna explains to Arjuna the difference between renunciation and karma yoga and shows the path to liberation through the combination of both.",
-        "id": "iMRUJjoy"
+  "chapter": {
+    "number": "5",
+    "title": "Chapter Five",
+    "subtitle": "Karmasannya-yoga",
+    "englishTitle": "Karma Sannyasa Yoga",
+    "totalVerses": "29",
+    "description": "In the fifth chapter Karmasannya Yoga is taught. In this chapter, Lord Krishna explains to Arjuna the difference between renunciation and karma yoga and shows the path to liberation through the combination of both.",
+    "id": "iMRUJjoy"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Sannyasong Karmanang Krishna Punyarong f Sansasi.\nYachchreya etayorekong tanme bruhi sunishchitam..1..",
+      "translation": "Arjuna said - O Lord Krishna! First you asked me to give up karma and then to perform karma yoga. Tell me with certainty which of these two is more beneficent.",
+      "speaker": "Arjuna",
+      "id": "QcfgFPfr",
+      "speaker_english": "Arjuna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Sannyasa: Karma yogach Nishreyaskarabubhou.\n2.",
+      "translation": "The Supreme Lord said - Renunciation of Karma and Karma Yoga are both liberating. But, of these two, Karma Yoga is better than Karma Sannyasa.",
+      "speaker": "the supreme",
+      "id": "CmT8pWXe",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Sannyasong Karmanang Krishna Punyarong f Sansasi.\nYachchreya etayorekong tanme bruhi sunishchitam..1..",
-            "translation": "Arjuna said - O Lord Krishna! First you asked me to give up karma and then to perform karma yoga. Tell me with certainty which of these two is more beneficent.",
-            "speaker": "Arjuna",
-            "id": "QcfgFPfr"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Sannyasa: Karma yogach Nishreyaskarabubhou.\n2.",
-            "translation": "The Supreme Lord said - Renunciation of Karma and Karma Yoga are both liberating. But, of these two, Karma Yoga is better than Karma Sannyasa.",
-            "speaker": "the supreme",
-            "id": "CmT8pWXe"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Gneya: Sa nityasannyasi yo na dveshti na kankshati.\n3.",
-            "translation": "O Mahabaho! One who does not hate or desire the result of his karma, he will be known as a perpetual monk. Such a person is free from conflict and is freed from the bonds of karma with absolute happiness.",
-            "speaker": "the supreme",
-            "id": "WY6pzAqi"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Sankhya Yoga Prithag Bala: Pravadanti Na Pandita:\nEkamapyasthita: Samyaguvyorvindate Falam..4..",
-            "translation": "Scholars only express Sankhyayoga and Karmayoga as separate systems, Pandits do not. Treating either of the two fairly results in both.",
-            "speaker": "the supreme",
-            "id": "AePSFY4l"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Yat Sankhyai: Prapyate Sthang Tad Yogairpi Gamyate.\nEkang Sankhyank f Yogang f Yah Pasyati sa Pasyati..5..",
-            "translation": "He who knows that the speed obtained by Sankhya-yoga can also be obtained by Karma-yoga, and he who knows that Sankhya-yoga and Karma-yoga are one, is the right seer.",
-            "speaker": "the supreme",
-            "id": "j7UcjGr7"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Ascetic Mahabaho Dukhamaptumyogata:\n6.",
-            "translation": "O Mahabaho! Asceticism as mere renunciation of karma without Karma Yoga is sad. But the yogic muni soon attains Brahman.",
-            "speaker": "the supreme",
-            "id": "9ykXhhG7"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Yogedo Visudhatma Vijitatma Jitendriya:\n7.",
-            "translation": "A yogic jnani is pure intelligence, pure mind and jitendriya and he does not indulge in all actions, being the affection of all living beings.",
-            "speaker": "the supreme",
-            "id": "aDGAW2FH"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Naive kinchit karomiti yukto mnyet tattavit.\nPasyan srinvan sprishan jighrannashnan gachhan swapan swasan..8..",
-            "translation": "A person in Chinmaya consciousness always knows that he is actually doing nothing, even though he is doing the primary actions of seeing, hearing, touching, smelling, eating, moving, sleeping and breathing. Because in delirium, renunciation, absorption, eye opening and closing, he always knows that the material senses are only engaged in sense matters, he himself is doing nothing.",
-            "speaker": "the supreme",
-            "id": "9WRLbp4D"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Pralapana Bisrijan Grihnannunmishannimishannapi.\nIndriyaanindriyartheshu Varanta Iti Dharayan.",
-            "translation": "In delirium, renunciation, absorption, eye opening and closing, he always knows that the material senses are only engaged in sense matters, that he himself is doing nothing.",
-            "speaker": "the supreme",
-            "id": "G6RYugoe"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Brahmanyadhaya Karmani Sangang Tyaktba Karoti Yah.\nLipyate na sa papen padmapatramimabambhasa..10..",
-            "translation": "One who works non-attachedly offering the fruits of all actions to the Supreme Lord, no sin can ever touch him, just as water cannot touch a lotus leaf.",
-            "speaker": "the supreme",
-            "id": "zGuK3Nhk"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Kayen Mansa Buddhya Kebelairindriyairapi.\nYogin: Karma Kurbanti Sangang Tyaktatmashudhaye..11..",
-            "translation": "For self-purification, yogis work with the body, mind, intellect, and even the senses, giving up attachment to karma.",
-            "speaker": "the supreme",
-            "id": "exrTOV6M"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Added: Karmaphalang Tyaktba Shantimapnoti Naishthikim.\nIn addition: Kamkaren results in strict restraint. 12.",
-            "translation": "The yogi attains moral peace by abandoning karma; But the sakam worker becomes attached to karma by acting addicted to karma.",
-            "speaker": "the supreme",
-            "id": "Ppv0faap"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Sarvakarmani Manasa Sannyasyaste Sukhang Bashi.\nNavadwarre pure dehi naiva kurbanna karayan..13..",
-            "translation": "By performing all external actions, abandoning all actions through the mind, the jiva continues to live in supreme bliss in the navadvara-bodily house; He does nothing himself and does nothing through anyone.",
-            "speaker": "the supreme",
-            "id": "oDXfvJDG"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Na Kartratwang Na Karmani Loksya Srijati Prabhu:\n14.",
-            "translation": "The Lord of Deharupa Nagari Jiva does not create karma, he does not cause anyone to do anything, and he does not create the results of karma. All this is due to the effect of the quality of material nature.",
-            "speaker": "the supreme",
-            "id": "MlvXOW08"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Nadatte kasyachit papang na chaiva sukritang vibhu.\nAjnanenabritang gnanang ten muhyanti jantavah..15..",
-            "translation": "The Supreme Lord does not accept any sin or merit of living beings. Because real knowledge is covered by ignorance, living beings become disillusioned.",
-            "speaker": "the supreme",
-            "id": "OQgfI0fI"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Jnanen tu tadjnanang jesang nashitmatmanah.\n16.",
-            "translation": "To those whose ignorance is destroyed by knowledge, that knowledge reveals the supernatural, just as everything is revealed in the rising of the sun at dawn.",
-            "speaker": "the supreme",
-            "id": "d0hlYb3r"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Tadduddhayastdatmanastnnishthastattparayana:\n17.",
-            "translation": "One whose intellect is fixed on the Lord, whose mind is fixed on the thought of the Lord, whose devotion to the Lord is firm and who takes the Lord as his sole refuge, all his impurities are completely destroyed by knowledge and he is freed from the bonds of birth and death.",
-            "speaker": "the supreme",
-            "id": "3e9pJcDA"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Gobi Hastini is an educated Brahmin.\nShuni Chaiva Swapake Ch Pandita: Samdarshin:..18..",
-            "translation": "The learned Pandits were sympathetic to learned Brahmins, cows, elephants, dogs and Chandals.",
-            "speaker": "the supreme",
-            "id": "Lfwyskxe"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Ehaib Tairjit: Sargo Jeshang Samye Stitang Manah:\nNirdoshang hi samang braj tasmad brahmin te sthita:..19..",
-            "translation": "Those whose minds are settled in equanimity have conquered the world of birth and death. They are innocent like Brahman, so they are situated in Brahman.",
-            "speaker": "the supreme",
-            "id": "l4vxDOFv"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Na prahrishyet priyang prapya nodvijet prapya chapriyam.\n20.",
-            "translation": "One who is not excited by the attainment of dear things and is not dismayed by the attainment of unloved things, who is equanimous, disillusioned and God-conscious, is situated in Brahman.",
-            "speaker": "the supreme",
-            "id": "RTCMkxLX"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Vahyaspareshvasaktma vindtyatmani jat sukham.\ns brahmayogyukatma sukhmakshayamshnu..21..",
-            "translation": "Such a Brahmavit Purusha is not attracted to any material sensual pleasures, he attains emotional happiness. Being united with Brahman, he enjoys eternal happiness.",
-            "speaker": "the supreme",
-            "id": "af9LbIFk"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Those who come in contact with him are miserable.\nAdyantavant: Kaunteya na Teshu Ramte Budh:..22..",
-            "translation": "A wise man is not addicted to sensual pleasures which cause sorrow. O Kaunteya! Such enjoyment is primordial and intrinsic. Therefore, wise people do not take pleasure in it.",
-            "speaker": "the supreme",
-            "id": "xbpFYUNJ"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Shaknotihaiva Yah Sodhung prak shirinvimokshanat.\nKamakrodhodbhabang begong sa yudaka: sa sukhi nar:..23..",
-            "translation": "He who is able to withstand the impulses arising from lust, anger, before leaving this body, is a Yogi and is happy in this world.",
-            "speaker": "the supreme",
-            "id": "cVXrrz43"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Yohant: Sukhohantraramasthathantarjyotireb Jah.\nSa Yogi Brahmanirbanang Brahmabhutohdhigachti..24..",
-            "translation": "He who feels happiness in the soul, he who sports in the soul and whose goal is the soul, is the Yogi. He attains Brahmanirvana by residing in Brahman.",
-            "speaker": "the supreme",
-            "id": "xAFcR5D4"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Lavante Brahmanirvanam Rishaya: Kshinakalamsha:\nChhinnadvaidha Jatatman: Sarvabhutahite Rata: ..25..",
-            "translation": "Sanyatatcitta, devoted to the welfare of all living beings and innocent sages free from doubt attain Brahmanirvana.",
-            "speaker": "the supreme",
-            "id": "i4ANcbh0"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Kamakrodhabimuktanang jatinang jatchetsam.\nAbhito Brahmanirbanang varte Viditatmanam.",
-            "translation": "Sannyasins who are free from lust, calm minded, self-conscious all attain Brahmanirvana very soon.",
-            "speaker": "the supreme",
-            "id": "kewR7g4i"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Touching the outside of the body will be frowned upon.\nPranapanau Samau Kirtba Nasavyantarcharinau..27..",
-            "translation": "By withdrawing from the mind the matter of the external senses, fixing the gaze between the eyebrows, restraining the rising and falling of the wandering prana and apan air in the nostrils, restraining the senses, mind and intellect, and void of desire, fear and anger, the Muni who always abides is surely free.",
-            "speaker": "the supreme",
-            "id": "8WLNRY4t"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Jatendriyamanobudirmunirmokshaparayana:\n28.",
-            "translation": "By withdrawing from the mind the matter of the external senses, fixing the gaze between the eyebrows, restraining the rising and falling of the wandering prana and apan air in the nostrils, restraining the senses, mind and intellect, and void of desire, fear and anger, the Muni who always abides is surely free.",
-            "speaker": "the supreme",
-            "id": "0GB59YM3"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Bhoktarang Yajnatapasang Sarvalokamaheswaram.\n29",
-            "translation": "By knowing Me as the supreme consumer of all sacrifices and austerities, the Lord of all worlds and the benefactor of all living beings, yogis are freed from the miseries of the material world and attain peace.",
-            "speaker": "the supreme",
-            "id": "mWROWklR"
-        }
-    ],
-    "summary": {
-        "title": "Fifth Chapter - Karmasannya-yoga",
-        "description": "In the fifth chapter Karmasannya Yoga is taught. In this chapter, Lord Krishna explains to Arjuna the difference between renunciation and karma yoga and shows the path to liberation through the combination of both.",
-        "keyThemes": [
-            "Retirement and retirement",
-            "Liberation through knowledge",
-            "useless work",
-            "knowledge of Brahman",
-            "Combination of yoga"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Gneya: Sa nityasannyasi yo na dveshti na kankshati.\n3.",
+      "translation": "O Mahabaho! One who does not hate or desire the result of his karma, he will be known as a perpetual monk. Such a person is free from conflict and is freed from the bonds of karma with absolute happiness.",
+      "speaker": "the supreme",
+      "id": "WY6pzAqi",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/02/srimad-bhagavad-gita-in-Language-chapter.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1450+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Sankhya Yoga Prithag Bala: Pravadanti Na Pandita:\nEkamapyasthita: Samyaguvyorvindate Falam..4..",
+      "translation": "Scholars only express Sankhyayoga and Karmayoga as separate systems, Pandits do not. Treating either of the two fairly results in both.",
+      "speaker": "the supreme",
+      "id": "AePSFY4l",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Yat Sankhyai: Prapyate Sthang Tad Yogairpi Gamyate.\nEkang Sankhyank f Yogang f Yah Pasyati sa Pasyati..5..",
+      "translation": "He who knows that the speed obtained by Sankhya-yoga can also be obtained by Karma-yoga, and he who knows that Sankhya-yoga and Karma-yoga are one, is the right seer.",
+      "speaker": "the supreme",
+      "id": "j7UcjGr7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Ascetic Mahabaho Dukhamaptumyogata:\n6.",
+      "translation": "O Mahabaho! Asceticism as mere renunciation of karma without Karma Yoga is sad. But the yogic muni soon attains Brahman.",
+      "speaker": "the supreme",
+      "id": "9ykXhhG7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Yogedo Visudhatma Vijitatma Jitendriya:\n7.",
+      "translation": "A yogic jnani is pure intelligence, pure mind and jitendriya and he does not indulge in all actions, being the affection of all living beings.",
+      "speaker": "the supreme",
+      "id": "aDGAW2FH",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Naive kinchit karomiti yukto mnyet tattavit.\nPasyan srinvan sprishan jighrannashnan gachhan swapan swasan..8..",
+      "translation": "A person in Chinmaya consciousness always knows that he is actually doing nothing, even though he is doing the primary actions of seeing, hearing, touching, smelling, eating, moving, sleeping and breathing. Because in delirium, renunciation, absorption, eye opening and closing, he always knows that the material senses are only engaged in sense matters, he himself is doing nothing.",
+      "speaker": "the supreme",
+      "id": "9WRLbp4D",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Pralapana Bisrijan Grihnannunmishannimishannapi.\nIndriyaanindriyartheshu Varanta Iti Dharayan.",
+      "translation": "In delirium, renunciation, absorption, eye opening and closing, he always knows that the material senses are only engaged in sense matters, that he himself is doing nothing.",
+      "speaker": "the supreme",
+      "id": "G6RYugoe",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Brahmanyadhaya Karmani Sangang Tyaktba Karoti Yah.\nLipyate na sa papen padmapatramimabambhasa..10..",
+      "translation": "One who works non-attachedly offering the fruits of all actions to the Supreme Lord, no sin can ever touch him, just as water cannot touch a lotus leaf.",
+      "speaker": "the supreme",
+      "id": "zGuK3Nhk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Kayen Mansa Buddhya Kebelairindriyairapi.\nYogin: Karma Kurbanti Sangang Tyaktatmashudhaye..11..",
+      "translation": "For self-purification, yogis work with the body, mind, intellect, and even the senses, giving up attachment to karma.",
+      "speaker": "the supreme",
+      "id": "exrTOV6M",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Added: Karmaphalang Tyaktba Shantimapnoti Naishthikim.\nIn addition: Kamkaren results in strict restraint. 12.",
+      "translation": "The yogi attains moral peace by abandoning karma; But the sakam worker becomes attached to karma by acting addicted to karma.",
+      "speaker": "the supreme",
+      "id": "Ppv0faap",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Sarvakarmani Manasa Sannyasyaste Sukhang Bashi.\nNavadwarre pure dehi naiva kurbanna karayan..13..",
+      "translation": "By performing all external actions, abandoning all actions through the mind, the jiva continues to live in supreme bliss in the navadvara-bodily house; He does nothing himself and does nothing through anyone.",
+      "speaker": "the supreme",
+      "id": "oDXfvJDG",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Na Kartratwang Na Karmani Loksya Srijati Prabhu:\n14.",
+      "translation": "The Lord of Deharupa Nagari Jiva does not create karma, he does not cause anyone to do anything, and he does not create the results of karma. All this is due to the effect of the quality of material nature.",
+      "speaker": "the supreme",
+      "id": "MlvXOW08",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Nadatte kasyachit papang na chaiva sukritang vibhu.\nAjnanenabritang gnanang ten muhyanti jantavah..15..",
+      "translation": "The Supreme Lord does not accept any sin or merit of living beings. Because real knowledge is covered by ignorance, living beings become disillusioned.",
+      "speaker": "the supreme",
+      "id": "OQgfI0fI",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Jnanen tu tadjnanang jesang nashitmatmanah.\n16.",
+      "translation": "To those whose ignorance is destroyed by knowledge, that knowledge reveals the supernatural, just as everything is revealed in the rising of the sun at dawn.",
+      "speaker": "the supreme",
+      "id": "d0hlYb3r",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Tadduddhayastdatmanastnnishthastattparayana:\n17.",
+      "translation": "One whose intellect is fixed on the Lord, whose mind is fixed on the thought of the Lord, whose devotion to the Lord is firm and who takes the Lord as his sole refuge, all his impurities are completely destroyed by knowledge and he is freed from the bonds of birth and death.",
+      "speaker": "the supreme",
+      "id": "3e9pJcDA",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Gobi Hastini is an educated Brahmin.\nShuni Chaiva Swapake Ch Pandita: Samdarshin:..18..",
+      "translation": "The learned Pandits were sympathetic to learned Brahmins, cows, elephants, dogs and Chandals.",
+      "speaker": "the supreme",
+      "id": "Lfwyskxe",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Ehaib Tairjit: Sargo Jeshang Samye Stitang Manah:\nNirdoshang hi samang braj tasmad brahmin te sthita:..19..",
+      "translation": "Those whose minds are settled in equanimity have conquered the world of birth and death. They are innocent like Brahman, so they are situated in Brahman.",
+      "speaker": "the supreme",
+      "id": "l4vxDOFv",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Na prahrishyet priyang prapya nodvijet prapya chapriyam.\n20.",
+      "translation": "One who is not excited by the attainment of dear things and is not dismayed by the attainment of unloved things, who is equanimous, disillusioned and God-conscious, is situated in Brahman.",
+      "speaker": "the supreme",
+      "id": "RTCMkxLX",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Vahyaspareshvasaktma vindtyatmani jat sukham.\ns brahmayogyukatma sukhmakshayamshnu..21..",
+      "translation": "Such a Brahmavit Purusha is not attracted to any material sensual pleasures, he attains emotional happiness. Being united with Brahman, he enjoys eternal happiness.",
+      "speaker": "the supreme",
+      "id": "af9LbIFk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Those who come in contact with him are miserable.\nAdyantavant: Kaunteya na Teshu Ramte Budh:..22..",
+      "translation": "A wise man is not addicted to sensual pleasures which cause sorrow. O Kaunteya! Such enjoyment is primordial and intrinsic. Therefore, wise people do not take pleasure in it.",
+      "speaker": "the supreme",
+      "id": "xbpFYUNJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Shaknotihaiva Yah Sodhung prak shirinvimokshanat.\nKamakrodhodbhabang begong sa yudaka: sa sukhi nar:..23..",
+      "translation": "He who is able to withstand the impulses arising from lust, anger, before leaving this body, is a Yogi and is happy in this world.",
+      "speaker": "the supreme",
+      "id": "cVXrrz43",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Yohant: Sukhohantraramasthathantarjyotireb Jah.\nSa Yogi Brahmanirbanang Brahmabhutohdhigachti..24..",
+      "translation": "He who feels happiness in the soul, he who sports in the soul and whose goal is the soul, is the Yogi. He attains Brahmanirvana by residing in Brahman.",
+      "speaker": "the supreme",
+      "id": "xAFcR5D4",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Lavante Brahmanirvanam Rishaya: Kshinakalamsha:\nChhinnadvaidha Jatatman: Sarvabhutahite Rata: ..25..",
+      "translation": "Sanyatatcitta, devoted to the welfare of all living beings and innocent sages free from doubt attain Brahmanirvana.",
+      "speaker": "the supreme",
+      "id": "i4ANcbh0",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Kamakrodhabimuktanang jatinang jatchetsam.\nAbhito Brahmanirbanang varte Viditatmanam.",
+      "translation": "Sannyasins who are free from lust, calm minded, self-conscious all attain Brahmanirvana very soon.",
+      "speaker": "the supreme",
+      "id": "kewR7g4i",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Touching the outside of the body will be frowned upon.\nPranapanau Samau Kirtba Nasavyantarcharinau..27..",
+      "translation": "By withdrawing from the mind the matter of the external senses, fixing the gaze between the eyebrows, restraining the rising and falling of the wandering prana and apan air in the nostrils, restraining the senses, mind and intellect, and void of desire, fear and anger, the Muni who always abides is surely free.",
+      "speaker": "the supreme",
+      "id": "8WLNRY4t",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Jatendriyamanobudirmunirmokshaparayana:\n28.",
+      "translation": "By withdrawing from the mind the matter of the external senses, fixing the gaze between the eyebrows, restraining the rising and falling of the wandering prana and apan air in the nostrils, restraining the senses, mind and intellect, and void of desire, fear and anger, the Muni who always abides is surely free.",
+      "speaker": "the supreme",
+      "id": "0GB59YM3",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Bhoktarang Yajnatapasang Sarvalokamaheswaram.\n29",
+      "translation": "By knowing Me as the supreme consumer of all sacrifices and austerities, the Lord of all worlds and the benefactor of all living beings, yogis are freed from the miseries of the material world and attain peace.",
+      "speaker": "the supreme",
+      "id": "mWROWklR",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Fifth Chapter - Karmasannya-yoga",
+    "description": "In the fifth chapter Karmasannya Yoga is taught. In this chapter, Lord Krishna explains to Arjuna the difference between renunciation and karma yoga and shows the path to liberation through the combination of both.",
+    "keyThemes": [
+      "Retirement and retirement",
+      "Liberation through knowledge",
+      "useless work",
+      "knowledge of Brahman",
+      "Combination of yoga"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/02/srimad-bhagavad-gita-in-Language-chapter.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1450+ words",
+    "lastUpdated": "2024"
+  }
 }

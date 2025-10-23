@@ -12,53 +12,53 @@ export const odiaColors = {
     primary800: '#E3F2FD',   // Very light blue
     primary900: '#FFFFFF',   // Pure white
     
-    // Secondary Colors - Teal/Cyan tones
-    secondary50: '#00695C',  // Deep teal
-    secondary100: '#00796B', // Dark teal
-    secondary200: '#00897B', // Medium teal
-    secondary300: '#26A69A', // Light teal
-    secondary400: '#4DB6AC', // Bright teal
-    secondary500: '#80CBC4', // Pale teal
-    secondary600: '#B2DFDB', // Very light teal
-    secondary700: '#E0F2F1', // Cream teal
-    secondary800: '#F0F9F8', // Off white teal
-    secondary900: '#FFFFFF', // Pure white
+    // Secondary Colors - Dark Brown/Charcoal tones for better text contrast
+    secondary50: '#1A1A1A',  // Very dark charcoal (high contrast for text)
+    secondary100: '#2D2D2D', // Dark charcoal (better contrast for text)
+    secondary200: '#404040', // Medium charcoal (good contrast for text)
+    secondary300: '#5A5A5A', // Light charcoal (readable text)
+    secondary400: '#6B6B6B', // Medium gray (secondary text)
+    secondary500: '#8A8A8A', // Light gray (tertiary text)
+    secondary600: '#B2DFDB', // Very light teal (background)
+    secondary700: '#E0F2F1', // Cream teal (background)
+    secondary800: '#F0F9F8', // Off white teal (background)
+    secondary900: '#FFFFFF', // Pure white (background)
     
-    // Tertiary Colors - Purple tones
-    tertiary50: '#4A148C',   // Deep purple
-    tertiary100: '#6A1B9A',  // Dark purple
-    tertiary200: '#7B1FA2',  // Medium purple
-    tertiary300: '#8E24AA',  // Light purple
-    tertiary400: '#AB47BC',  // Bright purple
-    tertiary500: '#BA68C8',  // Pale purple
-    tertiary600: '#CE93D8',  // Very light purple
-    tertiary700: '#E1BEE7',  // Cream purple
-    tertiary800: '#F3E5F5',  // Off white purple
-    tertiary900: '#FFFFFF',  // Pure white
+    // Tertiary Colors - Dark Red tones for better error text contrast
+    tertiary50: '#B71C1C',   // Very dark red (high contrast for error text)
+    tertiary100: '#D32F2F',  // Dark red (better contrast for error text)
+    tertiary200: '#E53935',  // Medium red (good contrast for error text)
+    tertiary300: '#F44336',  // Light red (readable error text)
+    tertiary400: '#EF5350',  // Bright red (warning text)
+    tertiary500: '#E57373',  // Pale red (background)
+    tertiary600: '#CE93D8',  // Very light purple (background)
+    tertiary700: '#E1BEE7',  // Cream purple (background)
+    tertiary800: '#F3E5F5',  // Off white purple (background)
+    tertiary900: '#FFFFFF',  // Pure white (background)
     
-    // Quaternary Colors - Orange/Amber accent
-    quaternary50: '#E65100', // Deep orange
-    quaternary100: '#EF6C00', // Dark orange
-    quaternary200: '#F57C00', // Medium orange
-    quaternary300: '#FB8C00', // Light orange
-    quaternary400: '#FF9800', // Bright orange
-    quaternary500: '#FFA726', // Pale orange
-    quaternary600: '#FFB74D', // Very light orange
-    quaternary700: '#FFCC80', // Cream orange
-    quaternary800: '#FFE0B2', // Off white orange
-    quaternary900: '#FFFFFF', // Pure white
+    // Quaternary Colors - Dark Green tones for better success text contrast
+    quaternary50: '#1B5E20', // Very dark green (high contrast for success text)
+    quaternary100: '#2E7D32', // Dark green (better contrast for success text)
+    quaternary200: '#388E3C', // Medium green (good contrast for success text)
+    quaternary300: '#43A047', // Light green (readable success text)
+    quaternary400: '#4CAF50', // Bright green (success indicators)
+    quaternary500: '#66BB6A', // Pale green (background)
+    quaternary600: '#81C784', // Very light green (background)
+    quaternary700: '#A5D6A7', // Cream green (background)
+    quaternary800: '#C8E6C9', // Off white green (background)
+    quaternary900: '#FFFFFF', // Pure white (background)
     
-    // Accent Colors - Gold tones
-    accent50: '#F57F17',     // Dark gold
-    accent100: '#F9A825',    // Medium gold
-    accent200: '#FBC02D',    // Light gold
-    accent300: '#FDD835',    // Bright gold
-    accent400: '#FFEB3B',    // Yellow gold
-    accent500: '#FFEE58',    // Light yellow
-    accent600: '#FFF176',    // Pale yellow
-    accent700: '#FFF59D',    // Very light yellow
-    accent800: '#FFF9C4',    // Cream yellow
-    accent900: '#FFFDE7',    // Almost white
+    // Accent Colors - Dark Orange/Amber tones for better warning text contrast
+    accent50: '#E65100',     // Very dark orange (high contrast for warning text)
+    accent100: '#F57C00',    // Dark orange (better contrast for warning text)
+    accent200: '#FF9800',    // Medium orange (good contrast for warning text)
+    accent300: '#FFB74D',    // Light orange (readable warning text)
+    accent400: '#FFC107',    // Bright amber (warning indicators)
+    accent500: '#FFD54F',    // Pale amber (background)
+    accent600: '#FFECB3',    // Very light amber (background)
+    accent700: '#FFF8E1',    // Cream amber (background)
+    accent800: '#FFF9C4',    // Off white amber (background)
+    accent900: '#FFFDE7',    // Almost white (background)
   
 };
 

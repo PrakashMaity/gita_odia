@@ -1,330 +1,372 @@
 {
-    "chapter": {
-        "number": "4",
-        "title": "Chapter IV",
-        "subtitle": "knowledge",
-        "englishTitle": "Jnana Yoga",
-        "totalVerses": "42",
-        "description": "In the fourth chapter the teaching of Jnana Yoga is given. In this chapter Lord Krishna explains the importance of knowledge to Arjuna and advises him to gain knowledge through action.",
-        "id": "FZhzKF2r"
+  "chapter": {
+    "number": "4",
+    "title": "Chapter IV",
+    "subtitle": "knowledge",
+    "englishTitle": "Jnana Yoga",
+    "totalVerses": "42",
+    "description": "In the fourth chapter the teaching of Jnana Yoga is given. In this chapter Lord Krishna explains the importance of knowledge to Arjuna and advises him to gain knowledge through action.",
+    "id": "FZhzKF2r"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Imong Bivasvete Yogang Proktabanhamvyam.\nVivasvanmbe Prah Manurikshvakabehbravit..1..",
+      "translation": "Supreme Lord Shri Krishna said - I used to tell Surya Deva Vivasvan this prepositional Nishkam Karmasaddhi Jnanyoga. Surya told it to Manu, the father of mankind, and Manu told it to Ikshvaku.",
+      "speaker": "the supreme",
+      "id": "rpirdpXW",
+      "speaker_english": "Shree Krishna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "And Paramprapanthamimong Rajarsyo Vidhu.\nSa Kaleneh Mahta Yogo Nastya: Parantap..2..",
+      "translation": "This is how the Rajarishis obtained this supreme science obtained through the traditional means. But the tradition was broken by the influence of time and hence the Yoga is about to perish.",
+      "speaker": "the supreme",
+      "id": "UMBq9ux8",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Imong Bivasvete Yogang Proktabanhamvyam.\nVivasvanmbe Prah Manurikshvakabehbravit..1..",
-            "translation": "Supreme Lord Shri Krishna said - I used to tell Surya Deva Vivasvan this prepositional Nishkam Karmasaddhi Jnanyoga. Surya told it to Manu, the father of mankind, and Manu told it to Ikshvaku.",
-            "speaker": "the supreme",
-            "id": "rpirdpXW"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "And Paramprapanthamimong Rajarsyo Vidhu.\nSa Kaleneh Mahta Yogo Nastya: Parantap..2..",
-            "translation": "This is how the Rajarishis obtained this supreme science obtained through the traditional means. But the tradition was broken by the influence of time and hence the Yoga is about to perish.",
-            "speaker": "the supreme",
-            "id": "UMBq9ux8"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Sa ebayang maya tehadya yoga: Prokta: Puru:.\nBhaktohsi me sakha cheti rahasang hyetduttamm..3..",
-            "translation": "I have told you that Sanatan Yoga today, because you are my devotee and friend and therefore you can grasp the most profound secrets of this science.",
-            "speaker": "the supreme",
-            "id": "IDK8sAa3"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Aparang bhavato janma parang janma vivasvatah.\n4.",
-            "translation": "Arjuna said - Suryadev Vivaswaman was born long before you. How can I understand that you advised him this wisdom in the old days?",
-            "speaker": "Arjuna",
-            "id": "Zfa5NUe1"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Bahuni May Vahdani Janmani But Charge.\nTanyahong ved sarvani na thang beth parantap..5..",
-            "translation": "The Supreme Lord said - O Parantapa Arjuna! You and I have many births past. I can remember all those births, but you cannot.",
-            "speaker": "the supreme",
-            "id": "4KCuUVyF"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Ajehpi Sannavyatma Bhutanimimbarohpi San.\n6.",
-            "translation": "Although I am birthless and my physical body is eternal and although I am the Lord of all beings, yet sheltering my inner energy I incarnate from time to time in my original physical form.",
-            "speaker": "the supreme",
-            "id": "Jig15Lqb"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Jada Jada Hi Dharmasya Glanirbhati Bharat.\nAbhyutthanamadharmasya tadatmanang srijamahyam..7..",
-            "translation": "O India! Whenever religion declines and adharma rises, I manifest myself and descend.",
-            "speaker": "the supreme",
-            "id": "UDfjijRO"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Salvation Sadhunang Binashaya Cha Duskritam.\n8.",
-            "translation": "I descend from age to age to save the saints and to destroy the evildoers and to establish the Dharma.",
-            "speaker": "the supreme",
-            "id": "DO82vtbk"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Janma Karma Ch May Divyamebong Yo Betti Tatvatah.\nTyaktba Dehang Reincarnation Naiti Mameti Soharjun..9..",
-            "translation": "O Arjuna! He who properly knows this kind of divine birth and action of mine, does not have to be born again after leaving the body, he attains my eternal abode.",
-            "speaker": "the supreme",
-            "id": "eIMEy0j1"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Vitragabhaikorodha Manmaya Mamupasrita:\nBahubo jnanatapasa puta madbhavamagata:",
-            "translation": "Freed from attachment, fear and anger, completely absorbed in Me, taking complete refuge in Me, many a person has previously attained My knowledge and become pure—and thus all have attained My unnatural love.",
-            "speaker": "the supreme",
-            "id": "7jpm60o8"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "That is mang prapadyante tangsthaiva bhajamyaham.\n11.",
-            "translation": "I reward those who surrender to Me in the same way. O Parth! Everyone follows my path completely.",
-            "speaker": "the supreme",
-            "id": "eVolh7ct"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Kankshant: karmanang siddhing yajant ih devatah:\n12.",
-            "translation": "In this world people seek fulfillment of sakam karma and hence they worship various gods and goddesses. The results of Sakam Karma are definitely reaped very quickly.",
-            "speaker": "the supreme",
-            "id": "txwU2gWQ"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Chaturvarnyang maya svartang gunakramavibhagash.\n13.",
-            "translation": "I have created four castes in human society according to the three qualities and actions of nature. Although I am the originator of this practice, I will be known as Akarta and Abayaya.",
-            "speaker": "the supreme",
-            "id": "mUSYsnI8"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Na mang karmani limpanti na me karmafle spriha.\n14.",
-            "translation": "No karma can affect me and I do not desire any karma. He who knows this theory of mine, is also never bound by sakam karma.",
-            "speaker": "the supreme",
-            "id": "Mh9wYpn7"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "And jnatva kritang karma purvairapi mumuksuvih.\n15.",
-            "translation": "In ancient times all free men acted aware of my unnatural theory. So follow the footsteps of those ancient moneylenders and do your duty.",
-            "speaker": "the supreme",
-            "id": "tAM5H8Pq"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "King Karma Kimkarmeti Kavyohapyatra Mohita:\nTatte Karma Prabakshyami Yajjnatva Mokshyasehshuvat..16..",
-            "translation": "Discerning people are also fascinated to decide what is action and what is action. I will advise you on that action. By knowing this you will be freed from all evil conditions.",
-            "speaker": "the supreme",
-            "id": "XujlegkK"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Karmano Happy Boddhabyang Boddhabyang Ch Vikarman:.\nAkarmanasch Bodhbyang Gahna Karmano Gati:..17..",
-            "translation": "The subtle theory of action is very difficult to grasp. Therefore it is a duty to know properly about Karma, Vikarma and Akarma.",
-            "speaker": "the supreme",
-            "id": "SQDkhdxG"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Karmanyakarma Yah Pashyedkarmani f Karma Yah.\n18.",
-            "translation": "He who sees akarma in action and action in akarma is the wisest of people. Even though he is engaged in all kinds of activities, he occupies the Chinmaya level.",
-            "speaker": "the supreme",
-            "id": "SBNcEy9Y"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Yasya Sarve Samarambha: Kamasankalpavarjita:\n19.",
-            "translation": "He who is devoid of all action and determination is possessed of full knowledge. The sages say that the reaction of all his actions is burnt by the fire of pure knowledge.",
-            "speaker": "the supreme",
-            "id": "IJH9xSWR"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Tyaktba karmaphalasangang nityatrapto nirasrayah:\n20",
-            "translation": "He who has completely given up attachment to karma is always satisfied and does not wait for any refuge, he does nothing in the hope of karma despite being involved in all kinds of actions.",
-            "speaker": "the supreme",
-            "id": "fEWkciwE"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Nirasiryatcittatma Tyaktasarvaparigraha:\nSarirang Kelang Karma Kurbannapnoti Kilbisham..21..",
-            "translation": "Such a wise person acts with complete control over his mind and intellect. He renounces the instinct of mastery and works only to live. By acting in this way no sin can touch him.",
-            "speaker": "the supreme",
-            "id": "vhdsO3AN"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Yadricchalavsantushto dandbatito bimsara:\nSamah Siddhavasiddhau c Kritvapi na nividhyate..22..",
-            "translation": "He who is satisfied with what he gains easily, who is not subject to the primal conflicts of happiness and sorrow, anger and hatred, and who is unenthusiastic and steadfast in the success and failure of action, is never bound by the result of action even when he performs it.",
-            "speaker": "the supreme",
-            "id": "Wa7vKils"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Gatasangasya muktasya jnanavasthitachetasah.\nYajnayacharat: Karma sambrang Prabiliyate..23..",
-            "translation": "Freed from the influence of the qualities of material nature, all actions performed by the enlightened person for the purpose of yajna are fully attained.",
-            "speaker": "the supreme",
-            "id": "6SZ68JOA"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Brahmarpanang Brahma Habibrrahmagnau Brahmana Hutam.\n24.",
-            "translation": "One who is completely absorbed in Krsna consciousness must rise to the material world, because all his activities are pure. The purpose of his actions is true and what he sacrifices for that purpose is also true.",
-            "speaker": "the supreme",
-            "id": "KyqBySnW"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Daivamebapare Yajnang Yogin: Paryupaste.\nAfter brahmagnavapare yajnang yajnenaibopjuhvati..25..",
-            "translation": "Some yogis worship the deities by performing yajnas, while others perform yajnas by offering everything to the Brahman form of fire.",
-            "speaker": "the supreme",
-            "id": "IzXBWrxr"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Shrotradinindrianyanye Sanyamagnishu Juhuti.\nShabadin Abhyayananya Indriyagnishu Juhuti..26..",
-            "translation": "Some (pure celibates) sacrifice the senses of hearing to the fire of mental restraint, while others (regular householders) sacrifice the objects of the verbal senses to the fire of the senses.",
-            "speaker": "the supreme",
-            "id": "VGAbi7gs"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Sarvanindriyakarmani pranakarmani chapare.\n27.",
-            "translation": "Those who seek self-knowledge through mind and sense-restraint offer sacrifices to the fire of self-restraint illuminated by all their sense activities and pranavayu knowledge.",
-            "speaker": "the supreme",
-            "id": "AWMBEfvS"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "After the sacrifice of goods.\n28.",
-            "translation": "Some take a strict vow and offer sacrifices. Some perform yajnas as penance, some perform yajnas as Ashtanga-yoga and many others perform yajnas as study of the Vedas to gain transcendental knowledge.",
-            "speaker": "the supreme",
-            "id": "sm1chtgn"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Apane Juhudi Pranang Pranehpanang Tathapara.\nPranapanagati ruddha pranayamaparayana:\nOn the other hand: Pranan Praneshu Juhuti..29..",
-            "translation": "And those who are interested in practicing pranayama, offer apana vayu to pranavayu and pranavayu to apana vayu and finally stop the movement of prana and apana vayu and end up in Samadhi. One again sacrifices Pranavayu to Pranavayu by moderating food.",
-            "speaker": "the supreme",
-            "id": "tDTUdYFn"
-        },
-        {
-            "verseNumber": "30",
-            "Language": "Sarvehepyete Yajnabido Yajnakspitakalmasa: \nYajnashitamritbhujo janti brahma sanatnam..30..",
-            "translation": "All of them are Yajna-attvavit and freed from sin by the effect of Yajna, they taste the sacrificial nectar, and after that return to Sanatana Prakriti.",
-            "speaker": "the supreme",
-            "id": "k16qckux"
-        },
-        {
-            "verseNumber": "31",
-            "Language": "Nayang lokohastyayajnasya kutohanya: Kurusattam..31..",
-            "translation": "Oh the best! No one can be happy in this world without performing Yagya, so how is it possible to get happiness in the next world?",
-            "speaker": "the supreme",
-            "id": "b1OvT85B"
-        },
-        {
-            "verseNumber": "32",
-            "Language": "And Bahuvidha Yajna Vibhata Brahman mouth. \n32.",
-            "translation": "All these sacrifices are sanctioned in the Vedic scriptures and all these liberations are various forms of karma. By knowing them properly you can attain liberation.",
-            "speaker": "the supreme",
-            "id": "NwmCcMPk"
-        },
-        {
-            "verseNumber": "33",
-            "Language": "Shreyan dravyamayad yajnajajnayajna: Parantap. \n33.",
-            "translation": "Oh Parantap! A sacrifice of knowledge is better than a sacrifice of material things. O Parth! All actions culminate in full knowledge.",
-            "speaker": "the supreme",
-            "id": "zya1lvFl"
-        },
-        {
-            "verseNumber": "34",
-            "Language": "Tad Viddhi Pranipaten Pariprasnen Sevaya. \n34.",
-            "translation": "Take refuge in Sadguru and try to gain knowledge. Ask questions with a humble heart and please Him with genuine service. Then those wise men will give you wisdom and advice.",
-            "speaker": "the supreme",
-            "id": "Tf8FdxK8"
-        },
-        {
-            "verseNumber": "35",
-            "Language": "Yajjnatva na Punarmohamebang Yasyasi Pandava. \nAs if Bhutanyaseshani Drakshyasatmanyatho Moi..35..",
-            "translation": "O Pandavas! Having thus acquired the Tattvajnana you will no longer be disillusioned, for by this knowledge you will see that all living beings are parts of Me, i.e. they are all Mine and they reside in Me.",
-            "speaker": "the supreme",
-            "id": "T0cfBOuq"
-        },
-        {
-            "verseNumber": "36",
-            "Language": "Api Chedsi papevya: sarvevya: papakrittam:\n36.",
-            "translation": "Even if you are considered to be the worst of all sinners, you can cross the sea of ​​sorrows by climbing this knowledge-shaped tarani.",
-            "speaker": "the supreme",
-            "id": "rjk6Ja8x"
-        },
-        {
-            "verseNumber": "37",
-            "Language": "Yathaidhangsi Samidvohagnirbhasmat Kuruteharjuna. \nJnanagni: Sarvakarmani Bhasmasat Kurute that..37..",
-            "translation": "Like a raging fire that consumes wood, O Arjuna! Similarly Jnanagni burns away all actions.",
-            "speaker": "the supreme",
-            "id": "yT2OCI6R"
-        },
-        {
-            "verseNumber": "38",
-            "Language": "He is not like Gnanen in holy science. \nThat Self Yogasamsiddha: Kalenatmani Vindati..38..",
-            "translation": "There is nothing in this world as sacred as the knowledge of Chinmay. This knowledge is the mature fruit of all yoga. One who acquires that knowledge through the practice of Bhagavadvhakti, attains eternal peace in the soul.",
-            "speaker": "the supreme",
-            "id": "zcLCt0Nn"
-        },
-        {
-            "verseNumber": "39",
-            "Language": "Shraddhavan lavte jnanam tatparah samyatendriyah. \nGnanang Labdha Parang Shantimchirenadhigachti..39..",
-            "translation": "A person who is proficient in Chinmaya Tattvajnana gets this knowledge by being careful and active. By attaining that divine knowledge, he soon attained peace.",
-            "speaker": "the supreme",
-            "id": "h7SPeRkK"
-        },
-        {
-            "verseNumber": "40",
-            "Language": "Ajnashashraddhanshcha Samshyatma Binshyati. \nNayang lokohanti na paro na sukhang samsyatman:..40..",
-            "translation": "A person who is ignorant and has no respect for the scriptures can never attain Bhagavad Bhakti. A person of doubtful mind cannot enjoy happiness in this world and cannot enjoy happiness in the Hereafter.",
-            "speaker": "the supreme",
-            "id": "ehiYHsp4"
-        },
-        {
-            "verseNumber": "41",
-            "Language": "Yogasannyasthakarmanang jnanaschinnasansayam. \nAtmavantabong na karmani nivdhnanti dhananjay..41..",
-            "translation": "Therefore, O Dhananjaya! No karma can bind him who renounces karma through pure karma yoga, destroys doubt through wisdom and realizes the true nature of the soul.",
-            "speaker": "the supreme",
-            "id": "749SAAxg"
-        },
-        {
-            "verseNumber": "42",
-            "Language": "Tasmadjnanasambhatang hritstang jnanasinatmanah. \nChitvainong Sanshayong Yogamatisthottishtha Bharat..42..",
-            "translation": "Therefore, O India! Cut through the sword of knowledge the unconscious doubt that has arisen in your heart. Stand up to fight with Yogashara.",
-            "speaker": "the supreme",
-            "id": "T3ZHvxiv"
-        }
-    ],
-    "summary": {
-        "title": "Chapter IV - Jnanyoga",
-        "description": "In the fourth chapter the teachings of Jnana Yoga are given. In this chapter Lord Krishna explains the importance of knowledge to Arjuna and advises him to gain knowledge through action.",
-        "keyThemes": [
-            "Importance of knowledge",
-            "Knowledge through action",
-            "Avatar theory",
-            "Master-disciple relationship",
-            "Combination of knowledge and action"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Sa ebayang maya tehadya yoga: Prokta: Puru:.\nBhaktohsi me sakha cheti rahasang hyetduttamm..3..",
+      "translation": "I have told you that Sanatan Yoga today, because you are my devotee and friend and therefore you can grasp the most profound secrets of this science.",
+      "speaker": "the supreme",
+      "id": "IDK8sAa3",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/02/gita-chapter-4.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 2100+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Aparang bhavato janma parang janma vivasvatah.\n4.",
+      "translation": "Arjuna said - Suryadev Vivaswaman was born long before you. How can I understand that you advised him this wisdom in the old days?",
+      "speaker": "Arjuna",
+      "id": "Zfa5NUe1",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Bahuni May Vahdani Janmani But Charge.\nTanyahong ved sarvani na thang beth parantap..5..",
+      "translation": "The Supreme Lord said - O Parantapa Arjuna! You and I have many births past. I can remember all those births, but you cannot.",
+      "speaker": "the supreme",
+      "id": "4KCuUVyF",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Ajehpi Sannavyatma Bhutanimimbarohpi San.\n6.",
+      "translation": "Although I am birthless and my physical body is eternal and although I am the Lord of all beings, yet sheltering my inner energy I incarnate from time to time in my original physical form.",
+      "speaker": "the supreme",
+      "id": "Jig15Lqb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Jada Jada Hi Dharmasya Glanirbhati Bharat.\nAbhyutthanamadharmasya tadatmanang srijamahyam..7..",
+      "translation": "O India! Whenever religion declines and adharma rises, I manifest myself and descend.",
+      "speaker": "the supreme",
+      "id": "UDfjijRO",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Salvation Sadhunang Binashaya Cha Duskritam.\n8.",
+      "translation": "I descend from age to age to save the saints and to destroy the evildoers and to establish the Dharma.",
+      "speaker": "the supreme",
+      "id": "DO82vtbk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Janma Karma Ch May Divyamebong Yo Betti Tatvatah.\nTyaktba Dehang Reincarnation Naiti Mameti Soharjun..9..",
+      "translation": "O Arjuna! He who properly knows this kind of divine birth and action of mine, does not have to be born again after leaving the body, he attains my eternal abode.",
+      "speaker": "the supreme",
+      "id": "eIMEy0j1",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Vitragabhaikorodha Manmaya Mamupasrita:\nBahubo jnanatapasa puta madbhavamagata:",
+      "translation": "Freed from attachment, fear and anger, completely absorbed in Me, taking complete refuge in Me, many a person has previously attained My knowledge and become pure—and thus all have attained My unnatural love.",
+      "speaker": "the supreme",
+      "id": "7jpm60o8",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "That is mang prapadyante tangsthaiva bhajamyaham.\n11.",
+      "translation": "I reward those who surrender to Me in the same way. O Parth! Everyone follows my path completely.",
+      "speaker": "the supreme",
+      "id": "eVolh7ct",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Kankshant: karmanang siddhing yajant ih devatah:\n12.",
+      "translation": "In this world people seek fulfillment of sakam karma and hence they worship various gods and goddesses. The results of Sakam Karma are definitely reaped very quickly.",
+      "speaker": "the supreme",
+      "id": "txwU2gWQ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Chaturvarnyang maya svartang gunakramavibhagash.\n13.",
+      "translation": "I have created four castes in human society according to the three qualities and actions of nature. Although I am the originator of this practice, I will be known as Akarta and Abayaya.",
+      "speaker": "the supreme",
+      "id": "mUSYsnI8",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Na mang karmani limpanti na me karmafle spriha.\n14.",
+      "translation": "No karma can affect me and I do not desire any karma. He who knows this theory of mine, is also never bound by sakam karma.",
+      "speaker": "the supreme",
+      "id": "Mh9wYpn7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "And jnatva kritang karma purvairapi mumuksuvih.\n15.",
+      "translation": "In ancient times all free men acted aware of my unnatural theory. So follow the footsteps of those ancient moneylenders and do your duty.",
+      "speaker": "the supreme",
+      "id": "tAM5H8Pq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "King Karma Kimkarmeti Kavyohapyatra Mohita:\nTatte Karma Prabakshyami Yajjnatva Mokshyasehshuvat..16..",
+      "translation": "Discerning people are also fascinated to decide what is action and what is action. I will advise you on that action. By knowing this you will be freed from all evil conditions.",
+      "speaker": "the supreme",
+      "id": "XujlegkK",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Karmano Happy Boddhabyang Boddhabyang Ch Vikarman:.\nAkarmanasch Bodhbyang Gahna Karmano Gati:..17..",
+      "translation": "The subtle theory of action is very difficult to grasp. Therefore it is a duty to know properly about Karma, Vikarma and Akarma.",
+      "speaker": "the supreme",
+      "id": "SQDkhdxG",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Karmanyakarma Yah Pashyedkarmani f Karma Yah.\n18.",
+      "translation": "He who sees akarma in action and action in akarma is the wisest of people. Even though he is engaged in all kinds of activities, he occupies the Chinmaya level.",
+      "speaker": "the supreme",
+      "id": "SBNcEy9Y",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Yasya Sarve Samarambha: Kamasankalpavarjita:\n19.",
+      "translation": "He who is devoid of all action and determination is possessed of full knowledge. The sages say that the reaction of all his actions is burnt by the fire of pure knowledge.",
+      "speaker": "the supreme",
+      "id": "IJH9xSWR",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Tyaktba karmaphalasangang nityatrapto nirasrayah:\n20",
+      "translation": "He who has completely given up attachment to karma is always satisfied and does not wait for any refuge, he does nothing in the hope of karma despite being involved in all kinds of actions.",
+      "speaker": "the supreme",
+      "id": "fEWkciwE",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Nirasiryatcittatma Tyaktasarvaparigraha:\nSarirang Kelang Karma Kurbannapnoti Kilbisham..21..",
+      "translation": "Such a wise person acts with complete control over his mind and intellect. He renounces the instinct of mastery and works only to live. By acting in this way no sin can touch him.",
+      "speaker": "the supreme",
+      "id": "vhdsO3AN",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Yadricchalavsantushto dandbatito bimsara:\nSamah Siddhavasiddhau c Kritvapi na nividhyate..22..",
+      "translation": "He who is satisfied with what he gains easily, who is not subject to the primal conflicts of happiness and sorrow, anger and hatred, and who is unenthusiastic and steadfast in the success and failure of action, is never bound by the result of action even when he performs it.",
+      "speaker": "the supreme",
+      "id": "Wa7vKils",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Gatasangasya muktasya jnanavasthitachetasah.\nYajnayacharat: Karma sambrang Prabiliyate..23..",
+      "translation": "Freed from the influence of the qualities of material nature, all actions performed by the enlightened person for the purpose of yajna are fully attained.",
+      "speaker": "the supreme",
+      "id": "6SZ68JOA",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Brahmarpanang Brahma Habibrrahmagnau Brahmana Hutam.\n24.",
+      "translation": "One who is completely absorbed in Krsna consciousness must rise to the material world, because all his activities are pure. The purpose of his actions is true and what he sacrifices for that purpose is also true.",
+      "speaker": "the supreme",
+      "id": "KyqBySnW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Daivamebapare Yajnang Yogin: Paryupaste.\nAfter brahmagnavapare yajnang yajnenaibopjuhvati..25..",
+      "translation": "Some yogis worship the deities by performing yajnas, while others perform yajnas by offering everything to the Brahman form of fire.",
+      "speaker": "the supreme",
+      "id": "IzXBWrxr",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Shrotradinindrianyanye Sanyamagnishu Juhuti.\nShabadin Abhyayananya Indriyagnishu Juhuti..26..",
+      "translation": "Some (pure celibates) sacrifice the senses of hearing to the fire of mental restraint, while others (regular householders) sacrifice the objects of the verbal senses to the fire of the senses.",
+      "speaker": "the supreme",
+      "id": "VGAbi7gs",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Sarvanindriyakarmani pranakarmani chapare.\n27.",
+      "translation": "Those who seek self-knowledge through mind and sense-restraint offer sacrifices to the fire of self-restraint illuminated by all their sense activities and pranavayu knowledge.",
+      "speaker": "the supreme",
+      "id": "AWMBEfvS",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "After the sacrifice of goods.\n28.",
+      "translation": "Some take a strict vow and offer sacrifices. Some perform yajnas as penance, some perform yajnas as Ashtanga-yoga and many others perform yajnas as study of the Vedas to gain transcendental knowledge.",
+      "speaker": "the supreme",
+      "id": "sm1chtgn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Apane Juhudi Pranang Pranehpanang Tathapara.\nPranapanagati ruddha pranayamaparayana:\nOn the other hand: Pranan Praneshu Juhuti..29..",
+      "translation": "And those who are interested in practicing pranayama, offer apana vayu to pranavayu and pranavayu to apana vayu and finally stop the movement of prana and apana vayu and end up in Samadhi. One again sacrifices Pranavayu to Pranavayu by moderating food.",
+      "speaker": "the supreme",
+      "id": "tDTUdYFn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Sarvehepyete Yajnabido Yajnakspitakalmasa: \nYajnashitamritbhujo janti brahma sanatnam..30..",
+      "translation": "All of them are Yajna-attvavit and freed from sin by the effect of Yajna, they taste the sacrificial nectar, and after that return to Sanatana Prakriti.",
+      "speaker": "the supreme",
+      "id": "k16qckux",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Nayang lokohastyayajnasya kutohanya: Kurusattam..31..",
+      "translation": "Oh the best! No one can be happy in this world without performing Yagya, so how is it possible to get happiness in the next world?",
+      "speaker": "the supreme",
+      "id": "b1OvT85B",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "And Bahuvidha Yajna Vibhata Brahman mouth. \n32.",
+      "translation": "All these sacrifices are sanctioned in the Vedic scriptures and all these liberations are various forms of karma. By knowing them properly you can attain liberation.",
+      "speaker": "the supreme",
+      "id": "NwmCcMPk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Shreyan dravyamayad yajnajajnayajna: Parantap. \n33.",
+      "translation": "Oh Parantap! A sacrifice of knowledge is better than a sacrifice of material things. O Parth! All actions culminate in full knowledge.",
+      "speaker": "the supreme",
+      "id": "zya1lvFl",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Tad Viddhi Pranipaten Pariprasnen Sevaya. \n34.",
+      "translation": "Take refuge in Sadguru and try to gain knowledge. Ask questions with a humble heart and please Him with genuine service. Then those wise men will give you wisdom and advice.",
+      "speaker": "the supreme",
+      "id": "Tf8FdxK8",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Yajjnatva na Punarmohamebang Yasyasi Pandava. \nAs if Bhutanyaseshani Drakshyasatmanyatho Moi..35..",
+      "translation": "O Pandavas! Having thus acquired the Tattvajnana you will no longer be disillusioned, for by this knowledge you will see that all living beings are parts of Me, i.e. they are all Mine and they reside in Me.",
+      "speaker": "the supreme",
+      "id": "T0cfBOuq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Api Chedsi papevya: sarvevya: papakrittam:\n36.",
+      "translation": "Even if you are considered to be the worst of all sinners, you can cross the sea of ​​sorrows by climbing this knowledge-shaped tarani.",
+      "speaker": "the supreme",
+      "id": "rjk6Ja8x",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Yathaidhangsi Samidvohagnirbhasmat Kuruteharjuna. \nJnanagni: Sarvakarmani Bhasmasat Kurute that..37..",
+      "translation": "Like a raging fire that consumes wood, O Arjuna! Similarly Jnanagni burns away all actions.",
+      "speaker": "the supreme",
+      "id": "yT2OCI6R",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "He is not like Gnanen in holy science. \nThat Self Yogasamsiddha: Kalenatmani Vindati..38..",
+      "translation": "There is nothing in this world as sacred as the knowledge of Chinmay. This knowledge is the mature fruit of all yoga. One who acquires that knowledge through the practice of Bhagavadvhakti, attains eternal peace in the soul.",
+      "speaker": "the supreme",
+      "id": "zcLCt0Nn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Shraddhavan lavte jnanam tatparah samyatendriyah. \nGnanang Labdha Parang Shantimchirenadhigachti..39..",
+      "translation": "A person who is proficient in Chinmaya Tattvajnana gets this knowledge by being careful and active. By attaining that divine knowledge, he soon attained peace.",
+      "speaker": "the supreme",
+      "id": "h7SPeRkK",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Ajnashashraddhanshcha Samshyatma Binshyati. \nNayang lokohanti na paro na sukhang samsyatman:..40..",
+      "translation": "A person who is ignorant and has no respect for the scriptures can never attain Bhagavad Bhakti. A person of doubtful mind cannot enjoy happiness in this world and cannot enjoy happiness in the Hereafter.",
+      "speaker": "the supreme",
+      "id": "ehiYHsp4",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Yogasannyasthakarmanang jnanaschinnasansayam. \nAtmavantabong na karmani nivdhnanti dhananjay..41..",
+      "translation": "Therefore, O Dhananjaya! No karma can bind him who renounces karma through pure karma yoga, destroys doubt through wisdom and realizes the true nature of the soul.",
+      "speaker": "the supreme",
+      "id": "749SAAxg",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Tasmadjnanasambhatang hritstang jnanasinatmanah. \nChitvainong Sanshayong Yogamatisthottishtha Bharat..42..",
+      "translation": "Therefore, O India! Cut through the sword of knowledge the unconscious doubt that has arisen in your heart. Stand up to fight with Yogashara.",
+      "speaker": "the supreme",
+      "id": "T3ZHvxiv",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter IV - Jnanyoga",
+    "description": "In the fourth chapter the teachings of Jnana Yoga are given. In this chapter Lord Krishna explains the importance of knowledge to Arjuna and advises him to gain knowledge through action.",
+    "keyThemes": [
+      "Importance of knowledge",
+      "Knowledge through action",
+      "Avatar theory",
+      "Master-disciple relationship",
+      "Combination of knowledge and action"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/02/gita-chapter-4.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 2100+ words",
+    "lastUpdated": "2024"
+  }
 }

@@ -1,232 +1,260 @@
 {
-    "chapter": {
-        "number": "17",
-        "title": "Chapter Seventeen",
-        "subtitle": "Shraddhatraya-Vijagayoga",
-        "englishTitle": "Shraddhatraya Vibhaga Yoga",
-        "totalVerses": "27",
-        "description": "In the seventeenth chapter the teaching of Shraddhatraya-Vibhagayoga is given. In this chapter Lord Krishna describes the characteristics of sattvic, rajasic and tamasic reverence.",
-        "id": "Shraddhatraya17"
+  "chapter": {
+    "number": "17",
+    "title": "Chapter Seventeen",
+    "subtitle": "Shraddhatraya-Vijagayoga",
+    "englishTitle": "Shraddhatraya Vibhaga Yoga",
+    "totalVerses": "27",
+    "description": "In the seventeenth chapter the teaching of Shraddhatraya-Vibhagayoga is given. In this chapter Lord Krishna describes the characteristics of sattvic, rajasic and tamasic reverence.",
+    "id": "Shraddhatraya17"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Arjun Ubach\nThat Shastravidhimutsrijya Yajante Shraddhayanvitah.\nTeshang Nishtha Tu Ka Krishna Sattmaho Rajastam..1..",
+      "translation": "Arjuna asked - O Krishna! Those who abandon the scriptures and worship the gods and goddesses with respect, is their devotion sattvic, rajasic or tamasic?",
+      "speaker": "Arjuna",
+      "id": "v1Shraddhatraya17",
+      "speaker_english": "Arjuna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Shri Bhagwanubach\nTrividha bhavati shraddha dehinang sa svabhavaja.\nSatviki Rajasi Chaiva Tamsi Cheti Tang Srinu..2..",
+      "translation": "Sri Bhagavan said - Respect due to the nature of the body is of three types - sattviki, rajasi and tamasi. Now hear about that.",
+      "speaker": "the supreme",
+      "id": "v2Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Arjun Ubach\nThat Shastravidhimutsrijya Yajante Shraddhayanvitah.\nTeshang Nishtha Tu Ka Krishna Sattmaho Rajastam..1..",
-            "translation": "Arjuna asked - O Krishna! Those who abandon the scriptures and worship the gods and goddesses with respect, is their devotion sattvic, rajasic or tamasic?",
-            "speaker": "Arjuna",
-            "id": "v1Shraddhatraya17"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Shri Bhagwanubach\nTrividha bhavati shraddha dehinang sa svabhavaja.\nSatviki Rajasi Chaiva Tamsi Cheti Tang Srinu..2..",
-            "translation": "Sri Bhagavan said - Respect due to the nature of the body is of three types - sattviki, rajasi and tamasi. Now hear about that.",
-            "speaker": "the supreme",
-            "id": "v2Shraddhatraya17"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Sattnurupa Sarvasya Shraddha Bhabati Bharat.\nShraddhamayoyang purusho yo yachchraddha sa and sa..3..",
-            "translation": "O India! Everyone's respect is similar to one's own heart. He who has respect for such qualities, is such respect.",
-            "speaker": "the supreme",
-            "id": "v3Shraddhatraya17"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Yajante satvika devan yaksharakshansi rajasah.\n4.",
-            "translation": "Sattvic people worship gods, Rajasic people worship Yakshas and Rakshasas and Tamasic people worship ghosts and ghosts.",
-            "speaker": "the supreme",
-            "id": "v4Shraddhatraya17"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Ashastravihitang ghorang tapyante that tapo janaah.\n5.",
-            "translation": "Arrogant and haughty and driven by lust and attachment, those unscrupulous persons who perform gross unscriptural austerities by inflicting afflictions on the demons in their bodies and on the indwelling Supreme Soul, will surely be known as Asurics.",
-            "speaker": "the supreme",
-            "id": "v5Shraddhatraya17"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Karshayanta: கெரைத்துக்குத்துக்க்குத்துக்குத்து\n6",
-            "translation": "Arrogant and haughty and driven by lust and attachment, those unscrupulous persons who perform gross unscriptural austerities by inflicting afflictions on the demons in their bodies and on the indwelling Supreme Soul, will surely be known as Asurics.",
-            "speaker": "the supreme",
-            "id": "v6Shraddhatraya17"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Aharstupi sarvasya trividho bhavati priya:\nYajnastapastha danang tesang vedmimang srinu..7..",
-            "translation": "The food of all people also has three types of pleasantness. Similarly yajna, penance and charity are also threefold. Now listen to their differences.",
-            "speaker": "the supreme",
-            "id": "v7Shraddhatraya17"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Ayushattvabalarogyasukhpreetivivardhana:\nRasya: Snigdha: Satya Hridya Ahara: Sattvikpriya: 8.",
-            "translation": "Those foods which promote life, sattva, strength, health, happiness and love and are juicy, sweet, lasting and pleasant are loved by sattvic people.",
-            "speaker": "the supreme",
-            "id": "v8Shraddhatraya17"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Kattamlalabanatyushnatikshmarukshabidahin:\nAhara rajasestha dukhashokamayapradah..9..",
-            "translation": "Foods that are too bitter, too sour, too salty, too hot, too pungent, too dry, too inflammatory and cause sorrow, grief and disease are loved by Rajasikas.",
-            "speaker": "the supreme",
-            "id": "v9Shraddhatraya17"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Yatjamang Gatarsong Puti Parishitong Ch Yat.\nUchishtampi chamedhyong bhojanang tamaspriyam..10..",
-            "translation": "Food cooked more than an hour before meals, which is bland, foul-smelling, wastes and impurities of residents and others, are loved by those tamasic people.",
-            "speaker": "the supreme",
-            "id": "v10Shraddhatraya17"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Oflakankshiviryajno vidhidrishto ya ijyate.\nYashtavyameveti Mind: Samadhaya Sa Sattvikah..11..",
-            "translation": "According to the rules of the scriptures, performed by persons devoid of desire for fruit, the yajna performed by concentrating the mind in this way is a sattvik yajna.",
-            "speaker": "the supreme",
-            "id": "v11Shraddhatraya17"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Abhisandhay Tu Phalong Dambarthampi Chaiva Yat.\nIjyate Bharatshreshtha Tang Yajnang Viddhi Rajasam..12..",
-            "translation": "O Bharatashreshta! But the Yajna which is performed in order to show off the results, will be known as Rajasik Yajna.",
-            "speaker": "the supreme",
-            "id": "v12Shraddhatraya17"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Vidhihinmasrasthannang mantrahinmadakshinam.\n13.",
-            "translation": "Yajna devoid of scriptures, without distribution of offerings, without mantras, without Dakshina and without reverence is called Tamasik Yajna.",
-            "speaker": "the supreme",
-            "id": "v13Shraddhatraya17"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Devavijaguruprajnapunang shouchmarjavam.\n14.",
-            "translation": "Worship of the Supreme Lord, Brakshana, Gurus and Prajnas, and abstinence, simplicity, celibacy and non-violence - these are called Kaika Tapasya.",
-            "speaker": "the supreme",
-            "id": "v14Shraddhatraya17"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Worrying words are true.\n15.",
-            "translation": "Recitation of touching, true, dear yet beneficent words and Vedic scriptures is called Bachika Tapasya.",
-            "speaker": "the supreme",
-            "id": "v15Shraddhatraya17"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Manah Prasad: Soumyatwang Maunmatmbinigraha:\n16.",
-            "translation": "Contentment of mind, simplicity, silence, self-denial and simplicity in use - these are called mental austerities.",
-            "speaker": "the supreme",
-            "id": "v16Shraddhatraya17"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Shraddhaya paraya taptang tapastat trividhang naraih.\n17.",
-            "translation": "The threefold austerity performed with great reverence by a person devoid of desire for fruit is called sattvik austerity.",
-            "speaker": "the supreme",
-            "id": "v17Shraddhatraya17"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Satkarmanpujarthang Tapo Dambhen Chaiva Yat.\nKriyate tadih proktang rajasong chalamdhrubam..18..",
-            "translation": "The austerities which are performed with arrogance in the hope of gaining respect, honor and worship are called impermanent and uncertain rajasic austerities in this world.",
-            "speaker": "the supreme",
-            "id": "v18Shraddhatraya17"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Mudhragrahenatmano yat piraya kriyate tapah.\nParasyotsadnarthang or tattamsmudahritam. 19.",
-            "translation": "The austerities performed by tormenting oneself or destroying others out of foolish interest are called tamasic austerities.",
-            "speaker": "the supreme",
-            "id": "v19Shraddhatraya17"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Philanthropy is due to charity.\nIn the country, there is black cha potre cha taddanang satvikang smritam..20..",
-            "translation": "Donation which is given at the right place, at the right time and in the right container without expecting anything in return is called sattvik donation.",
-            "speaker": "the supreme",
-            "id": "v20Shraddhatraya17"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Jattu pratyupkarathong phalamuddishya or re.\nDiyate Ch Pariklishtang Taddanang Rajsang Smritam..21..",
-            "translation": "A donation which is done with the expectation of reciprocation or with the intention of getting results and with penitence is called rajasik.",
-            "speaker": "the supreme",
-            "id": "v21Shraddhatraya17"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Adeshkale Yaddanampatrevyashch Diyate.\n22",
-            "translation": "Donation given in an impure place, at an inauspicious time, in an unworthy vessel, with disrespect and contempt is called Tamasik donation.",
-            "speaker": "the supreme",
-            "id": "v22Shraddhatraya17"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "That's what Brahmanstrividha Smrita says.\nBrahmanasten Vedashch Yajnashch Vihita: Pura..23..",
-            "translation": "Om Tat Sat - These three types of Brahma-pointing names are mentioned in the Shastra. Brahmins, Vedas and sacrifices have been prescribed by that name in ancient times.",
-            "speaker": "the supreme",
-            "id": "v23Shraddhatraya17"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Tasmad and ityudahritya Yajnadatapakriya:\nIntroduction: Sattang Brakshabadinam. 24.",
-            "translation": "That is why the sacrifices, donations, penances and actions of the Brahmins are always performed according to the rules of the scriptures by uttering this word.",
-            "speaker": "the supreme",
-            "id": "v24Shraddhatraya17"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Tadityanavisandhay follows Yajnatapakriya.\n25.",
-            "translation": "Emancipators perform various types of yajna, penance, charity by uttering the word 'Tat' without desiring the fruit.",
-            "speaker": "the supreme",
-            "id": "v25Shraddhatraya17"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Sambwe sadhuve f sadityetat pryujyate.\nPrashante Karmani ie Sachchabda: Partha Yujyate..26..",
-            "translation": "O Parth! The word 'honest' is used honestly and sincerely. In such auspicious actions the word 'sat' is used.",
-            "speaker": "the supreme",
-            "id": "v26Shraddhatraya17"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Yajna Tapasi Dane Cha Sthiti: Saditi Chochyate.\n27.",
-            "translation": "The word 'Sat' is uttered in yajna, penance and charity. Because all those actions are called 'Sat' only if they are self-directed.",
-            "speaker": "the supreme",
-            "id": "v27Shraddhatraya17"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Ashradhaya Hutang Dattang Tapastaptang Kritang Cha Yat.\n28.",
-            "translation": "O Parth! Whatever is performed with irreverence in homa, charity or penance, is called 'asat'. All those actions are not fruitful in this world and hereafter.",
-            "speaker": "the supreme",
-            "id": "v28Shraddhatraya17"
-        }
-    ],
-    "summary": {
-        "title": "Seventeenth Chapter - Shraddhatraya-Vibhagayoga",
-        "description": "In this chapter the teaching of Shraddhatraya-Vibhagayoga is given. Lord Krishna describes the characteristics of sattvic, rajasic and tamasic reverence. He explained that according to respect human behavior and results are determined.",
-        "keyThemes": [
-            "triple respect",
-            "Sattvic, Rajasic and Tamasic respect",
-            "The trinity of food",
-            "Classification of sacrifices, penances and donations",
-            "The importance of respect"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Sattnurupa Sarvasya Shraddha Bhabati Bharat.\nShraddhamayoyang purusho yo yachchraddha sa and sa..3..",
+      "translation": "O India! Everyone's respect is similar to one's own heart. He who has respect for such qualities, is such respect.",
+      "speaker": "the supreme",
+      "id": "v3Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_30.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 2200+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Yajante satvika devan yaksharakshansi rajasah.\n4.",
+      "translation": "Sattvic people worship gods, Rajasic people worship Yakshas and Rakshasas and Tamasic people worship ghosts and ghosts.",
+      "speaker": "the supreme",
+      "id": "v4Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Ashastravihitang ghorang tapyante that tapo janaah.\n5.",
+      "translation": "Arrogant and haughty and driven by lust and attachment, those unscrupulous persons who perform gross unscriptural austerities by inflicting afflictions on the demons in their bodies and on the indwelling Supreme Soul, will surely be known as Asurics.",
+      "speaker": "the supreme",
+      "id": "v5Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Karshayanta: கெரைத்துக்குத்துக்க்குத்துக்குத்து\n6",
+      "translation": "Arrogant and haughty and driven by lust and attachment, those unscrupulous persons who perform gross unscriptural austerities by inflicting afflictions on the demons in their bodies and on the indwelling Supreme Soul, will surely be known as Asurics.",
+      "speaker": "the supreme",
+      "id": "v6Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Aharstupi sarvasya trividho bhavati priya:\nYajnastapastha danang tesang vedmimang srinu..7..",
+      "translation": "The food of all people also has three types of pleasantness. Similarly yajna, penance and charity are also threefold. Now listen to their differences.",
+      "speaker": "the supreme",
+      "id": "v7Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Ayushattvabalarogyasukhpreetivivardhana:\nRasya: Snigdha: Satya Hridya Ahara: Sattvikpriya: 8.",
+      "translation": "Those foods which promote life, sattva, strength, health, happiness and love and are juicy, sweet, lasting and pleasant are loved by sattvic people.",
+      "speaker": "the supreme",
+      "id": "v8Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Kattamlalabanatyushnatikshmarukshabidahin:\nAhara rajasestha dukhashokamayapradah..9..",
+      "translation": "Foods that are too bitter, too sour, too salty, too hot, too pungent, too dry, too inflammatory and cause sorrow, grief and disease are loved by Rajasikas.",
+      "speaker": "the supreme",
+      "id": "v9Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Yatjamang Gatarsong Puti Parishitong Ch Yat.\nUchishtampi chamedhyong bhojanang tamaspriyam..10..",
+      "translation": "Food cooked more than an hour before meals, which is bland, foul-smelling, wastes and impurities of residents and others, are loved by those tamasic people.",
+      "speaker": "the supreme",
+      "id": "v10Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Oflakankshiviryajno vidhidrishto ya ijyate.\nYashtavyameveti Mind: Samadhaya Sa Sattvikah..11..",
+      "translation": "According to the rules of the scriptures, performed by persons devoid of desire for fruit, the yajna performed by concentrating the mind in this way is a sattvik yajna.",
+      "speaker": "the supreme",
+      "id": "v11Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Abhisandhay Tu Phalong Dambarthampi Chaiva Yat.\nIjyate Bharatshreshtha Tang Yajnang Viddhi Rajasam..12..",
+      "translation": "O Bharatashreshta! But the Yajna which is performed in order to show off the results, will be known as Rajasik Yajna.",
+      "speaker": "the supreme",
+      "id": "v12Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Vidhihinmasrasthannang mantrahinmadakshinam.\n13.",
+      "translation": "Yajna devoid of scriptures, without distribution of offerings, without mantras, without Dakshina and without reverence is called Tamasik Yajna.",
+      "speaker": "the supreme",
+      "id": "v13Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Devavijaguruprajnapunang shouchmarjavam.\n14.",
+      "translation": "Worship of the Supreme Lord, Brakshana, Gurus and Prajnas, and abstinence, simplicity, celibacy and non-violence - these are called Kaika Tapasya.",
+      "speaker": "the supreme",
+      "id": "v14Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Worrying words are true.\n15.",
+      "translation": "Recitation of touching, true, dear yet beneficent words and Vedic scriptures is called Bachika Tapasya.",
+      "speaker": "the supreme",
+      "id": "v15Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Manah Prasad: Soumyatwang Maunmatmbinigraha:\n16.",
+      "translation": "Contentment of mind, simplicity, silence, self-denial and simplicity in use - these are called mental austerities.",
+      "speaker": "the supreme",
+      "id": "v16Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Shraddhaya paraya taptang tapastat trividhang naraih.\n17.",
+      "translation": "The threefold austerity performed with great reverence by a person devoid of desire for fruit is called sattvik austerity.",
+      "speaker": "the supreme",
+      "id": "v17Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Satkarmanpujarthang Tapo Dambhen Chaiva Yat.\nKriyate tadih proktang rajasong chalamdhrubam..18..",
+      "translation": "The austerities which are performed with arrogance in the hope of gaining respect, honor and worship are called impermanent and uncertain rajasic austerities in this world.",
+      "speaker": "the supreme",
+      "id": "v18Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Mudhragrahenatmano yat piraya kriyate tapah.\nParasyotsadnarthang or tattamsmudahritam. 19.",
+      "translation": "The austerities performed by tormenting oneself or destroying others out of foolish interest are called tamasic austerities.",
+      "speaker": "the supreme",
+      "id": "v19Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Philanthropy is due to charity.\nIn the country, there is black cha potre cha taddanang satvikang smritam..20..",
+      "translation": "Donation which is given at the right place, at the right time and in the right container without expecting anything in return is called sattvik donation.",
+      "speaker": "the supreme",
+      "id": "v20Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Jattu pratyupkarathong phalamuddishya or re.\nDiyate Ch Pariklishtang Taddanang Rajsang Smritam..21..",
+      "translation": "A donation which is done with the expectation of reciprocation or with the intention of getting results and with penitence is called rajasik.",
+      "speaker": "the supreme",
+      "id": "v21Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Adeshkale Yaddanampatrevyashch Diyate.\n22",
+      "translation": "Donation given in an impure place, at an inauspicious time, in an unworthy vessel, with disrespect and contempt is called Tamasik donation.",
+      "speaker": "the supreme",
+      "id": "v22Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "That's what Brahmanstrividha Smrita says.\nBrahmanasten Vedashch Yajnashch Vihita: Pura..23..",
+      "translation": "Om Tat Sat - These three types of Brahma-pointing names are mentioned in the Shastra. Brahmins, Vedas and sacrifices have been prescribed by that name in ancient times.",
+      "speaker": "the supreme",
+      "id": "v23Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Tasmad and ityudahritya Yajnadatapakriya:\nIntroduction: Sattang Brakshabadinam. 24.",
+      "translation": "That is why the sacrifices, donations, penances and actions of the Brahmins are always performed according to the rules of the scriptures by uttering this word.",
+      "speaker": "the supreme",
+      "id": "v24Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Tadityanavisandhay follows Yajnatapakriya.\n25.",
+      "translation": "Emancipators perform various types of yajna, penance, charity by uttering the word 'Tat' without desiring the fruit.",
+      "speaker": "the supreme",
+      "id": "v25Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Sambwe sadhuve f sadityetat pryujyate.\nPrashante Karmani ie Sachchabda: Partha Yujyate..26..",
+      "translation": "O Parth! The word 'honest' is used honestly and sincerely. In such auspicious actions the word 'sat' is used.",
+      "speaker": "the supreme",
+      "id": "v26Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Yajna Tapasi Dane Cha Sthiti: Saditi Chochyate.\n27.",
+      "translation": "The word 'Sat' is uttered in yajna, penance and charity. Because all those actions are called 'Sat' only if they are self-directed.",
+      "speaker": "the supreme",
+      "id": "v27Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Ashradhaya Hutang Dattang Tapastaptang Kritang Cha Yat.\n28.",
+      "translation": "O Parth! Whatever is performed with irreverence in homa, charity or penance, is called 'asat'. All those actions are not fruitful in this world and hereafter.",
+      "speaker": "the supreme",
+      "id": "v28Shraddhatraya17",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Seventeenth Chapter - Shraddhatraya-Vibhagayoga",
+    "description": "In this chapter the teaching of Shraddhatraya-Vibhagayoga is given. Lord Krishna describes the characteristics of sattvic, rajasic and tamasic reverence. He explained that according to respect human behavior and results are determined.",
+    "keyThemes": [
+      "triple respect",
+      "Sattvic, Rajasic and Tamasic respect",
+      "The trinity of food",
+      "Classification of sacrifices, penances and donations",
+      "The importance of respect"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_30.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 2200+ words",
+    "lastUpdated": "2024"
+  }
 }

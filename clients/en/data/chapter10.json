@@ -1,330 +1,372 @@
 {
-    "chapter": {
-        "number": "10",
-        "title": "Chapter Ten",
-        "subtitle": "Vibhuti-yoga",
-        "englishTitle": "Vibhuti Yoga",
-        "totalVerses": "42",
-        "description": "In the tenth chapter, Vibhutiyoga is taught. In this chapter, Lord Krishna tells Arjuna about His various manifestations and glories and shows the manifestation of His form in all things of the world.",
-        "id": "u6f4oOoR"
+  "chapter": {
+    "number": "10",
+    "title": "Chapter Ten",
+    "subtitle": "Vibhuti-yoga",
+    "englishTitle": "Vibhuti Yoga",
+    "totalVerses": "42",
+    "description": "In the tenth chapter, Vibhutiyoga is taught. In this chapter, Lord Krishna tells Arjuna about His various manifestations and glories and shows the manifestation of His form in all things of the world.",
+    "id": "u6f4oOoR"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Bhui eb Mahabaho srinu me paramang bachah.\nJattehhong priyamanaya bakshyami hitakamya..1..",
+      "translation": "The Supreme Lord said - O Mahabaho! listen again Since you are my beloved vessel, in your favor I speak a better theory than what I have spoken before.",
+      "speaker": "the supreme",
+      "id": "ud5B10Z6",
+      "speaker_english": "Shree Krishna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Na May Viduh Surganah Prabhang Na Maharshayah.\nAhmadirhi Devanang Maharshinang f Sarbash..2..",
+      "translation": "Neither gods nor Maharishis can know my origin, why not, I am the original cause of all the gods and Maharishis.",
+      "speaker": "the supreme",
+      "id": "C6hvMfi3",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Bhui eb Mahabaho srinu me paramang bachah.\nJattehhong priyamanaya bakshyami hitakamya..1..",
-            "translation": "The Supreme Lord said - O Mahabaho! listen again Since you are my beloved vessel, in your favor I speak a better theory than what I have spoken before.",
-            "speaker": "the supreme",
-            "id": "ud5B10Z6"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Na May Viduh Surganah Prabhang Na Maharshayah.\nAhmadirhi Devanang Maharshinang f Sarbash..2..",
-            "translation": "Neither gods nor Maharishis can know my origin, why not, I am the original cause of all the gods and Maharishis.",
-            "speaker": "the supreme",
-            "id": "C6hvMfi3"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Yo mamjamnading cha betti lokamaheshwaram.\n3.",
-            "translation": "He who knows me as the birthless, eternal and supreme lord of all the planets, he alone becomes disillusioned among men and freed from all sins.",
-            "speaker": "the supreme",
-            "id": "0osyWwbD"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Buddhirjnanamsammoha: Kshama Satyang Dum: Sham:\nSukhang dukhang bhabohbhabo vohng chabhoyemeb f..4..",
-            "translation": "Intelligence, knowledge, freedom from doubt and delusion, forgiveness, truthfulness, sense-control, mind-control, happiness, sorrow, birth, death, fear, fear, non-violence, equanimity, contentment, austerity, charity, yasha and ayasha - all these various forms of beings arise from me.",
-            "speaker": "the supreme",
-            "id": "n7e0zS0k"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Ahimsa Samata Tushistapo Danang Yasohyasah.\nBhavanti Bhava Bhutanang Matta and Prithagavidha: 5.",
-            "translation": "Intelligence, knowledge, freedom from doubt and delusion, forgiveness, truthfulness, sense-control, mind-control, happiness, sorrow, birth, death, fear, fear, non-violence, equanimity, contentment, austerity, charity, yasha and ayasha - all these various forms of beings arise from me.",
-            "speaker": "the supreme",
-            "id": "oDB0R7ZM"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Maharshaya: Fourteen mind states before Sapta.\n6.",
-            "translation": "The seven Maharishis, their progenitors Sankadi Char Kumar and the fourteenth Manu, all sprang from my mind and were born from me, and they created all the original subjects of this world, movable and immovable.",
-            "speaker": "the supreme",
-            "id": "jnvZZLiW"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Etang bibhuting yogang cha mum yo betti tattvatah.\nSohvikalpen Yogen Yujyate Natra Samshay:",
-            "translation": "He who properly knows this vibhuti and yoga of mine, he steadily engages in bhakti yoga. There is no doubt about that.",
-            "speaker": "the supreme",
-            "id": "9tHGTrtY"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Ahang sarvasya prabho matthah sarbang pravarte.\nIti matva bhajante mang budha bhavasamnavita:..8..",
-            "translation": "I am the source of everything in the material and conscious world. Everything originates from me. Realizing that, the Pandits worship Me with pure devotion.",
-            "speaker": "the supreme",
-            "id": "V2HKBLIy"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Macchitta madagatprana bodhyanta: sarakam.\nKathyanthach mang nityang tushyanti ch ramanti ch..9..",
-            "translation": "Those whose mind and soul are completely surrendered to Me, always discuss My words among themselves and understand each other about Me and get supreme satisfaction and supernatural joy.",
-            "speaker": "the supreme",
-            "id": "wE36Q9ZK"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Teshang satatyuktanang bhajtang preetipurvakam.\n10.",
-            "translation": "I bestow the intellect of pure knowledge on those who regularly serve Me lovingly through devotion, by which they may return to Me.",
-            "speaker": "the supreme",
-            "id": "UoDaG7k4"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Teshamebanukamparthamahjnjanjung tamah.\nNashyamyatmabhavastho jnandeepen bhasvata..11..",
-            "translation": "In order to grace them, I reside in their hearts, destroying the darkness of ignorance with the bright lamp of knowledge.",
-            "speaker": "the supreme",
-            "id": "Udx5FjFH"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Arjun Ubach.\nParang Brahma Parang Dham Pavitrang Paramang Bhavan.\n12.",
-            "translation": "Arjuna said - You are the Supreme Brahman, the Supreme Dham, the Supreme Purity and the Supreme Purusha. You are Nitya, Divya, Adi Dev, Aja and Vibhu.",
-            "speaker": "Arjuna",
-            "id": "0URmfTZC"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Ahustvamrishay: Sarve Devarshirnaradastatha.\nAsito Devalo Vyas: Self Chaiva Bravishi May..13..",
-            "translation": "Devarshi Narada, Asit, Deval, Vyasa, the original sages have described you as such and you yourself are saying so in me now.",
-            "speaker": "Arjuna",
-            "id": "n430brC6"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "All the best\n14.",
-            "translation": "Hey Keshav! I believe what you told me to be true. Oh God! Neither gods nor demons are properly aware of your theory.",
-            "speaker": "Arjuna",
-            "id": "J6Ml6NMS"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Swayamebatmanatmanang beth thong purushottam.\n15.",
-            "translation": "O Purushottama! O ghost! O Bhutesh! O gods! O world! You yourself are aware of your personality through your mind.",
-            "speaker": "Arjuna",
-            "id": "yearhAnR"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Baktummarhasyasena divya hatmavibhutaya:\n16.",
-            "translation": "You alone are able to describe in detail all of Your Divine Vibhuti with which You pervade these people.",
-            "speaker": "Arjuna",
-            "id": "WdgYtqTh"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Kathang Vidyamhang Yogaingstwang Sada Parichintayan.\nKeshu Keshu Ch Bhaveshu Chintyohasi Bhagavanmaya..17..",
-            "translation": "O Yogeshwar! How can I know you if I always think of you? Oh God! Through what various shapes shall I think of thee?",
-            "speaker": "Arjuna",
-            "id": "V62TGHek"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Vistarenatmano Yogang Vibhuting Ch Janardana.\nBhuy: Kathay trtiptirhi srinvato nasti mehmritam..18..",
-            "translation": "O Janardan! Tell me again your Yoga and Vibhuti in detail. Because I am not satisfied with hearing your advice; I want to hear more.",
-            "speaker": "Arjuna",
-            "id": "KXMB7jY2"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Shri Bhagwanubach.\nHant te kathayishyami divya hatmavibhutaya:\nPrimarily Kurushreshta Nastyasto Vistarya May..19..",
-            "translation": "The Supreme Lord said - O Arjuna, I will tell you my divine main main vibhutis, but there is no end to my vibhutis.",
-            "speaker": "the supreme",
-            "id": "2yF6pmjE"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Ahmatma Gurakesh is all-pervading.\nAhmadishch Madhyamcha Bhutanamant and f..20..",
-            "translation": "O Gurakesh! I am the Supreme Soul residing in the hearts of all living beings. I am the beginning, middle and end of everything.",
-            "speaker": "the supreme",
-            "id": "KtBqXzeJ"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Adityanamhong Vishnurjyotishang Rabirangshuman.\nMarichirmarutamsmi Nakshatranamahang Sashi..21..",
-            "translation": "Among the Adityas I am Vishnu, among the Astrologers I am the radiant Sun, among the Maruts I am the Ray and among the stars I am the Moon.",
-            "speaker": "the supreme",
-            "id": "OGL5Ljbb"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Vedanang sambetohsmi devanamsmi basabh.\nIndrianang Manshasmi Bhutanamsmi Consciousness..22..",
-            "translation": "Among all Vedas I am Samveda, among all gods I am Indra, among all senses I am Mind and among all beings I am consciousness.",
-            "speaker": "the supreme",
-            "id": "OhiJ92Tn"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Rudranang Shankarashasmi Vittesho Yaksharaksam.\nBasunang Pabkashasmi Meru: Shikharinamaham..23..",
-            "translation": "Among the Rudras I am Shiva, among the Yakshas and Rakshasas I am Kubera, among the Vasus I am Agni and among the mountains I am Sumeru.",
-            "speaker": "the supreme",
-            "id": "v23_001"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Purodhasang Ch Mukhyong Mang Viddhi Partha Brihaspatim.\nSenaninamhong Skanda: Sarasamsmi Sagar: ..24..",
-            "translation": "O Parth! Among the priests I am the chief Jupiter, among the generals I am Kartika and among the reservoirs I am the ocean.",
-            "speaker": "the supreme",
-            "id": "v24_001"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Maharshinang Bhrigurhang Giramsmyekamaksharam.\nYajnanang Japyajnohasmi Sthavaranang Himalaya: ..25..",
-            "translation": "Among sages I am Bhrigu, among words I am Onkar. Among the sacrifices I am Japayajna and among immovable objects I am the Himalayas.",
-            "speaker": "the supreme",
-            "id": "v25_001"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Ashwattha Sarvavrikshanang Devshinang Ch Naradah.\nGandharbanang Chitrarath: Siddhanang Kapilo Muni:..26..",
-            "translation": "Among all trees I am Asvattha, among Devarshis I am Narada. Among the Gandharvas I am Chitraratha and among the Siddhas I am Kapil Muni.",
-            "speaker": "the supreme",
-            "id": "v26_001"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "अक्षैश्रबसम्श्वनांग विद्धी ममम्रितोद्वावम\nAiravatang Gezendrananang Naranang Ch Naradhipam..27..",
-            "translation": "Amongst the horses I will be known as the sea-churning utchashrava. Among the best elephants I am the Airavat and among the Mununyas I am the emperor.",
-            "speaker": "the supreme",
-            "id": "v27_001"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Ayudhanamhang vajrang dhenunasammi kamdhuk.\nPrajanshasmi Kandarpa: Sarpanamasmi Vasuki: 28.",
-            "translation": "Among all weapons I am Vajra, among cows I am Kamadhenu. I am Kamdev and among the serpents I am Vasuki, the cause of procreation.",
-            "speaker": "the supreme",
-            "id": "v28_001"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Anantashasmi naganang varuno yadasamham.\nPitrinamaryama Chasmi Yama: Sanyamtamham..29..",
-            "translation": "Among all Nagas I am Ananta and among water bodies I am Varuna. Among fathers I am Aryama and among punishers I am Yama.",
-            "speaker": "the supreme",
-            "id": "v29_001"
-        },
-        {
-            "verseNumber": "30",
-            "Language": "Prahladaschasmi daityanang kala: kalaytamham.\nMriganang Ch Mrgendraohhang Vainteyascha Pakhinam..30..",
-            "translation": "Among the giants I am Prahlad, among the submissives I am Kala, among the animals I am the lion and among the birds I am Garuda.",
-            "speaker": "the supreme",
-            "id": "v30_001"
-        },
-        {
-            "verseNumber": "31",
-            "Language": "Pavan: Pavatamsmi Ram: Sastrabhritamaham.\nRishanang Makarshasmi Srotsamsmi Janhvi..31..",
-            "translation": "Among the sanctifying objects I am Vayu, among the armed I am Parashurama, among the fish I am Makara and among the rivers I am Ganga.",
-            "speaker": "the supreme",
-            "id": "v31_001"
-        },
-        {
-            "verseNumber": "32",
-            "Language": "Sarganamadirantashcha mid Chaibamarjuna.\n32.",
-            "translation": "O Arjuna! Among all created things I am the beginning, the end and the middle, among all the sciences I am metaphysics, and among the logicians I am Determinism, among speculations and speculations.",
-            "speaker": "the supreme",
-            "id": "v32_001"
-        },
-        {
-            "verseNumber": "33",
-            "Language": "Aksharanamkarehsmi conflict: Samasiksya f.\nAhmebakshay: black metal, Vishwatomukha: 33.",
-            "translation": "Among all letters I am Akara, among Samas I am Dundal-Samas, among destroyers I am Mahakala Rudra and among creators I am Brahma.",
-            "speaker": "the supreme",
-            "id": "v33_001"
-        },
-        {
-            "verseNumber": "34",
-            "Language": "Death: Sarvaharshachamudbhavasha future.\nKirti: Srirbak cha narinang smritarmedha dhriti: forgiveness..34..",
-            "translation": "Of all usurpers I am the all-consuming death, among the things of the future I arise. Among women I am Kirti, Shri, Vani, Smriti, Medha, Dhrithi and Kshama.",
-            "speaker": "the supreme",
-            "id": "v34_001"
-        },
-        {
-            "verseNumber": "35",
-            "Language": "Brihatsam and Samnang Gayatri Chandasamham.\n35.",
-            "translation": "Among the Samvedas I am Brihatsam and among Chandas I am Gayatri. Among the months I am precession and among the seasons I am spring.",
-            "speaker": "the supreme",
-            "id": "v35_001"
-        },
-        {
-            "verseNumber": "36",
-            "Language": "दुटंग चलायतामस्मी टेजस्टेजविनामहाम.\nJayohsmi Vajsyaohsmi Sattwang Sattvatamham..36..",
-            "translation": "Among all the detractors I am the lightning and among the bright I am the brightness. I am Victory, I am Udyam and among the mighty I am Ball.",
-            "speaker": "the supreme",
-            "id": "v36_001"
-        },
-        {
-            "verseNumber": "37",
-            "Language": "Vrishninang Vasudebohsmi Pandabanang Dhananjaya:\nMuninampyahang Vyasa: Kabinamushana: Kavi:..37..",
-            "translation": "I am Vasudeva among Vrishnis and Arjuna among Pandavas. Among sages I am Vyasa and among poets I am Shukracharya.",
-            "speaker": "the supreme",
-            "id": "v37_001"
-        },
-        {
-            "verseNumber": "38",
-            "Language": "Dando Damayatamsmi Nitirasmi Jigishtam.\nMounang Chaivasmi Guhanang Gnanang Gnanavatamham..38..",
-            "translation": "Among the oppressors I am the punishment and among the conquerors I am the policy. Among mystics I am silence and among the wise I am knowledge.",
-            "speaker": "the supreme",
-            "id": "v38_001"
-        },
-        {
-            "verseNumber": "39",
-            "Language": "Yachchapi sarvabhuthanang bijang tadahmarjun.\nNa Tadasti Bina Yat Sanmaya Bhutang Characharam..39..",
-            "translation": "O Arjuna! I am also the seed of all beings, since without Me nothing immovable or movable can exist.",
-            "speaker": "the supreme",
-            "id": "v39_001"
-        },
-        {
-            "verseNumber": "40",
-            "Language": "Nastohasti mam divyanang vibhutinang parantap.\nEsh tuddeshtah prokto bibhutervistaro maya..40..",
-            "translation": "Oh Parantap! There is no end to my divine visions. I have summarized the spread of all these vibhuti.",
-            "speaker": "the supreme",
-            "id": "v40_001"
-        },
-        {
-            "verseNumber": "41",
-            "Language": "Yadavibhutimat Satwang Srimadurjitmeva or\nTattadevabgachcha tng mam tejohansasambhavam..41..",
-            "translation": "Everything that is opulent, Sri-fulfilled and abundant in power will be known as My Tejamshasambhuta.",
-            "speaker": "the supreme",
-            "id": "v41_001"
-        },
-        {
-            "verseNumber": "42",
-            "Language": "Or Bahunaiten King knew Tabarjuna.\nBishtavhyamidang kritsnamekanshen sthito jagat..42..",
-            "translation": "O Arjuna! Or do you need such a lot of knowledge? I am pervaded by a part of me in the whole world.",
-            "speaker": "the supreme",
-            "id": "v42_001"
-        }
-    ],
-    "summary": {
-        "title": "Chapter Ten - Vibhuti-yoga",
-        "description": "In the tenth chapter, Vibhutiyoga is taught. In this chapter, Lord Krishna tells Arjuna about His various manifestations and glories and shows the manifestation of His form in all things of the world.",
-        "keyThemes": [
-            "Vibhuti of God",
-            "God in the world",
-            "manifestation of majesty",
-            "Description of Vibhuti",
-            "Omnipresence of God"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Yo mamjamnading cha betti lokamaheshwaram.\n3.",
+      "translation": "He who knows me as the birthless, eternal and supreme lord of all the planets, he alone becomes disillusioned among men and freed from all sins.",
+      "speaker": "the supreme",
+      "id": "0osyWwbD",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/Bangla-Gita-chapter-10.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1100+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Buddhirjnanamsammoha: Kshama Satyang Dum: Sham:\nSukhang dukhang bhabohbhabo vohng chabhoyemeb f..4..",
+      "translation": "Intelligence, knowledge, freedom from doubt and delusion, forgiveness, truthfulness, sense-control, mind-control, happiness, sorrow, birth, death, fear, fear, non-violence, equanimity, contentment, austerity, charity, yasha and ayasha - all these various forms of beings arise from me.",
+      "speaker": "the supreme",
+      "id": "n7e0zS0k",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Ahimsa Samata Tushistapo Danang Yasohyasah.\nBhavanti Bhava Bhutanang Matta and Prithagavidha: 5.",
+      "translation": "Intelligence, knowledge, freedom from doubt and delusion, forgiveness, truthfulness, sense-control, mind-control, happiness, sorrow, birth, death, fear, fear, non-violence, equanimity, contentment, austerity, charity, yasha and ayasha - all these various forms of beings arise from me.",
+      "speaker": "the supreme",
+      "id": "oDB0R7ZM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Maharshaya: Fourteen mind states before Sapta.\n6.",
+      "translation": "The seven Maharishis, their progenitors Sankadi Char Kumar and the fourteenth Manu, all sprang from my mind and were born from me, and they created all the original subjects of this world, movable and immovable.",
+      "speaker": "the supreme",
+      "id": "jnvZZLiW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Etang bibhuting yogang cha mum yo betti tattvatah.\nSohvikalpen Yogen Yujyate Natra Samshay:",
+      "translation": "He who properly knows this vibhuti and yoga of mine, he steadily engages in bhakti yoga. There is no doubt about that.",
+      "speaker": "the supreme",
+      "id": "9tHGTrtY",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Ahang sarvasya prabho matthah sarbang pravarte.\nIti matva bhajante mang budha bhavasamnavita:..8..",
+      "translation": "I am the source of everything in the material and conscious world. Everything originates from me. Realizing that, the Pandits worship Me with pure devotion.",
+      "speaker": "the supreme",
+      "id": "V2HKBLIy",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Macchitta madagatprana bodhyanta: sarakam.\nKathyanthach mang nityang tushyanti ch ramanti ch..9..",
+      "translation": "Those whose mind and soul are completely surrendered to Me, always discuss My words among themselves and understand each other about Me and get supreme satisfaction and supernatural joy.",
+      "speaker": "the supreme",
+      "id": "wE36Q9ZK",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Teshang satatyuktanang bhajtang preetipurvakam.\n10.",
+      "translation": "I bestow the intellect of pure knowledge on those who regularly serve Me lovingly through devotion, by which they may return to Me.",
+      "speaker": "the supreme",
+      "id": "UoDaG7k4",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Teshamebanukamparthamahjnjanjung tamah.\nNashyamyatmabhavastho jnandeepen bhasvata..11..",
+      "translation": "In order to grace them, I reside in their hearts, destroying the darkness of ignorance with the bright lamp of knowledge.",
+      "speaker": "the supreme",
+      "id": "Udx5FjFH",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Arjun Ubach.\nParang Brahma Parang Dham Pavitrang Paramang Bhavan.\n12.",
+      "translation": "Arjuna said - You are the Supreme Brahman, the Supreme Dham, the Supreme Purity and the Supreme Purusha. You are Nitya, Divya, Adi Dev, Aja and Vibhu.",
+      "speaker": "Arjuna",
+      "id": "0URmfTZC",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Ahustvamrishay: Sarve Devarshirnaradastatha.\nAsito Devalo Vyas: Self Chaiva Bravishi May..13..",
+      "translation": "Devarshi Narada, Asit, Deval, Vyasa, the original sages have described you as such and you yourself are saying so in me now.",
+      "speaker": "Arjuna",
+      "id": "n430brC6",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "All the best\n14.",
+      "translation": "Hey Keshav! I believe what you told me to be true. Oh God! Neither gods nor demons are properly aware of your theory.",
+      "speaker": "Arjuna",
+      "id": "J6Ml6NMS",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Swayamebatmanatmanang beth thong purushottam.\n15.",
+      "translation": "O Purushottama! O ghost! O Bhutesh! O gods! O world! You yourself are aware of your personality through your mind.",
+      "speaker": "Arjuna",
+      "id": "yearhAnR",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Baktummarhasyasena divya hatmavibhutaya:\n16.",
+      "translation": "You alone are able to describe in detail all of Your Divine Vibhuti with which You pervade these people.",
+      "speaker": "Arjuna",
+      "id": "WdgYtqTh",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Kathang Vidyamhang Yogaingstwang Sada Parichintayan.\nKeshu Keshu Ch Bhaveshu Chintyohasi Bhagavanmaya..17..",
+      "translation": "O Yogeshwar! How can I know you if I always think of you? Oh God! Through what various shapes shall I think of thee?",
+      "speaker": "Arjuna",
+      "id": "V62TGHek",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Vistarenatmano Yogang Vibhuting Ch Janardana.\nBhuy: Kathay trtiptirhi srinvato nasti mehmritam..18..",
+      "translation": "O Janardan! Tell me again your Yoga and Vibhuti in detail. Because I am not satisfied with hearing your advice; I want to hear more.",
+      "speaker": "Arjuna",
+      "id": "KXMB7jY2",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Shri Bhagwanubach.\nHant te kathayishyami divya hatmavibhutaya:\nPrimarily Kurushreshta Nastyasto Vistarya May..19..",
+      "translation": "The Supreme Lord said - O Arjuna, I will tell you my divine main main vibhutis, but there is no end to my vibhutis.",
+      "speaker": "the supreme",
+      "id": "2yF6pmjE",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Ahmatma Gurakesh is all-pervading.\nAhmadishch Madhyamcha Bhutanamant and f..20..",
+      "translation": "O Gurakesh! I am the Supreme Soul residing in the hearts of all living beings. I am the beginning, middle and end of everything.",
+      "speaker": "the supreme",
+      "id": "KtBqXzeJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Adityanamhong Vishnurjyotishang Rabirangshuman.\nMarichirmarutamsmi Nakshatranamahang Sashi..21..",
+      "translation": "Among the Adityas I am Vishnu, among the Astrologers I am the radiant Sun, among the Maruts I am the Ray and among the stars I am the Moon.",
+      "speaker": "the supreme",
+      "id": "OGL5Ljbb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Vedanang sambetohsmi devanamsmi basabh.\nIndrianang Manshasmi Bhutanamsmi Consciousness..22..",
+      "translation": "Among all Vedas I am Samveda, among all gods I am Indra, among all senses I am Mind and among all beings I am consciousness.",
+      "speaker": "the supreme",
+      "id": "OhiJ92Tn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Rudranang Shankarashasmi Vittesho Yaksharaksam.\nBasunang Pabkashasmi Meru: Shikharinamaham..23..",
+      "translation": "Among the Rudras I am Shiva, among the Yakshas and Rakshasas I am Kubera, among the Vasus I am Agni and among the mountains I am Sumeru.",
+      "speaker": "the supreme",
+      "id": "v23_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Purodhasang Ch Mukhyong Mang Viddhi Partha Brihaspatim.\nSenaninamhong Skanda: Sarasamsmi Sagar: ..24..",
+      "translation": "O Parth! Among the priests I am the chief Jupiter, among the generals I am Kartika and among the reservoirs I am the ocean.",
+      "speaker": "the supreme",
+      "id": "v24_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Maharshinang Bhrigurhang Giramsmyekamaksharam.\nYajnanang Japyajnohasmi Sthavaranang Himalaya: ..25..",
+      "translation": "Among sages I am Bhrigu, among words I am Onkar. Among the sacrifices I am Japayajna and among immovable objects I am the Himalayas.",
+      "speaker": "the supreme",
+      "id": "v25_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Ashwattha Sarvavrikshanang Devshinang Ch Naradah.\nGandharbanang Chitrarath: Siddhanang Kapilo Muni:..26..",
+      "translation": "Among all trees I am Asvattha, among Devarshis I am Narada. Among the Gandharvas I am Chitraratha and among the Siddhas I am Kapil Muni.",
+      "speaker": "the supreme",
+      "id": "v26_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "अक्षैश्रबसम्श्वनांग विद्धी ममम्रितोद्वावम\nAiravatang Gezendrananang Naranang Ch Naradhipam..27..",
+      "translation": "Amongst the horses I will be known as the sea-churning utchashrava. Among the best elephants I am the Airavat and among the Mununyas I am the emperor.",
+      "speaker": "the supreme",
+      "id": "v27_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Ayudhanamhang vajrang dhenunasammi kamdhuk.\nPrajanshasmi Kandarpa: Sarpanamasmi Vasuki: 28.",
+      "translation": "Among all weapons I am Vajra, among cows I am Kamadhenu. I am Kamdev and among the serpents I am Vasuki, the cause of procreation.",
+      "speaker": "the supreme",
+      "id": "v28_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Anantashasmi naganang varuno yadasamham.\nPitrinamaryama Chasmi Yama: Sanyamtamham..29..",
+      "translation": "Among all Nagas I am Ananta and among water bodies I am Varuna. Among fathers I am Aryama and among punishers I am Yama.",
+      "speaker": "the supreme",
+      "id": "v29_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Prahladaschasmi daityanang kala: kalaytamham.\nMriganang Ch Mrgendraohhang Vainteyascha Pakhinam..30..",
+      "translation": "Among the giants I am Prahlad, among the submissives I am Kala, among the animals I am the lion and among the birds I am Garuda.",
+      "speaker": "the supreme",
+      "id": "v30_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Pavan: Pavatamsmi Ram: Sastrabhritamaham.\nRishanang Makarshasmi Srotsamsmi Janhvi..31..",
+      "translation": "Among the sanctifying objects I am Vayu, among the armed I am Parashurama, among the fish I am Makara and among the rivers I am Ganga.",
+      "speaker": "the supreme",
+      "id": "v31_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Sarganamadirantashcha mid Chaibamarjuna.\n32.",
+      "translation": "O Arjuna! Among all created things I am the beginning, the end and the middle, among all the sciences I am metaphysics, and among the logicians I am Determinism, among speculations and speculations.",
+      "speaker": "the supreme",
+      "id": "v32_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Aksharanamkarehsmi conflict: Samasiksya f.\nAhmebakshay: black metal, Vishwatomukha: 33.",
+      "translation": "Among all letters I am Akara, among Samas I am Dundal-Samas, among destroyers I am Mahakala Rudra and among creators I am Brahma.",
+      "speaker": "the supreme",
+      "id": "v33_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Death: Sarvaharshachamudbhavasha future.\nKirti: Srirbak cha narinang smritarmedha dhriti: forgiveness..34..",
+      "translation": "Of all usurpers I am the all-consuming death, among the things of the future I arise. Among women I am Kirti, Shri, Vani, Smriti, Medha, Dhrithi and Kshama.",
+      "speaker": "the supreme",
+      "id": "v34_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Brihatsam and Samnang Gayatri Chandasamham.\n35.",
+      "translation": "Among the Samvedas I am Brihatsam and among Chandas I am Gayatri. Among the months I am precession and among the seasons I am spring.",
+      "speaker": "the supreme",
+      "id": "v35_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "दुटंग चलायतामस्मी टेजस्टेजविनामहाम.\nJayohsmi Vajsyaohsmi Sattwang Sattvatamham..36..",
+      "translation": "Among all the detractors I am the lightning and among the bright I am the brightness. I am Victory, I am Udyam and among the mighty I am Ball.",
+      "speaker": "the supreme",
+      "id": "v36_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Vrishninang Vasudebohsmi Pandabanang Dhananjaya:\nMuninampyahang Vyasa: Kabinamushana: Kavi:..37..",
+      "translation": "I am Vasudeva among Vrishnis and Arjuna among Pandavas. Among sages I am Vyasa and among poets I am Shukracharya.",
+      "speaker": "the supreme",
+      "id": "v37_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Dando Damayatamsmi Nitirasmi Jigishtam.\nMounang Chaivasmi Guhanang Gnanang Gnanavatamham..38..",
+      "translation": "Among the oppressors I am the punishment and among the conquerors I am the policy. Among mystics I am silence and among the wise I am knowledge.",
+      "speaker": "the supreme",
+      "id": "v38_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Yachchapi sarvabhuthanang bijang tadahmarjun.\nNa Tadasti Bina Yat Sanmaya Bhutang Characharam..39..",
+      "translation": "O Arjuna! I am also the seed of all beings, since without Me nothing immovable or movable can exist.",
+      "speaker": "the supreme",
+      "id": "v39_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Nastohasti mam divyanang vibhutinang parantap.\nEsh tuddeshtah prokto bibhutervistaro maya..40..",
+      "translation": "Oh Parantap! There is no end to my divine visions. I have summarized the spread of all these vibhuti.",
+      "speaker": "the supreme",
+      "id": "v40_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Yadavibhutimat Satwang Srimadurjitmeva or\nTattadevabgachcha tng mam tejohansasambhavam..41..",
+      "translation": "Everything that is opulent, Sri-fulfilled and abundant in power will be known as My Tejamshasambhuta.",
+      "speaker": "the supreme",
+      "id": "v41_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Or Bahunaiten King knew Tabarjuna.\nBishtavhyamidang kritsnamekanshen sthito jagat..42..",
+      "translation": "O Arjuna! Or do you need such a lot of knowledge? I am pervaded by a part of me in the whole world.",
+      "speaker": "the supreme",
+      "id": "v42_001",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter Ten - Vibhuti-yoga",
+    "description": "In the tenth chapter, Vibhutiyoga is taught. In this chapter, Lord Krishna tells Arjuna about His various manifestations and glories and shows the manifestation of His form in all things of the world.",
+    "keyThemes": [
+      "Vibhuti of God",
+      "God in the world",
+      "manifestation of majesty",
+      "Description of Vibhuti",
+      "Omnipresence of God"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/Bangla-Gita-chapter-10.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1100+ words",
+    "lastUpdated": "2024"
+  }
 }

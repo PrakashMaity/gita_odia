@@ -1,246 +1,276 @@
 {
-    "chapter": {
-        "number": "7",
-        "title": "Chapter Seven",
-        "subtitle": "science-yoga",
-        "englishTitle": "Vijnana Yoga",
-        "totalVerses": "30",
-        "description": "In the seventh chapter the teachings of Vigyan Yoga are given. In this chapter, Lord Krishna explains to Arjuna the nature and nature of the Supreme Soul and advises him to know the Supreme Soul through devotion.",
-        "id": "7TBDS2pV"
+  "chapter": {
+    "number": "7",
+    "title": "Chapter Seven",
+    "subtitle": "science-yoga",
+    "englishTitle": "Vijnana Yoga",
+    "totalVerses": "30",
+    "description": "In the seventh chapter the teachings of Vigyan Yoga are given. In this chapter, Lord Krishna explains to Arjuna the nature and nature of the Supreme Soul and advises him to know the Supreme Soul through devotion.",
+    "id": "7TBDS2pV"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Mayyaskatmana: Partha Yogan Junjanmadashraya:\nUndoubtedly, the whole thing is known. 1.",
+      "translation": "Lord said - O Partha! Hear how, by becoming attached to Me, practicing yoga with concentration on Me, you can know Me free from all doubts.",
+      "speaker": "the supreme",
+      "id": "lh0aoH3S",
+      "speaker_english": "Shree Krishna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Gyanang tehang sagyanamidang bakshyamyasheshatah.\n2.",
+      "translation": "I will now tell you fully about this knowledge consisting of science, which, if known, leaves nothing else to be known in this world.",
+      "speaker": "the supreme",
+      "id": "v75sXAt0",
+      "speaker_english": "Shree Krishna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "Mayyaskatmana: Partha Yogan Junjanmadashraya:\nUndoubtedly, the whole thing is known. 1.",
-            "translation": "Lord said - O Partha! Hear how, by becoming attached to Me, practicing yoga with concentration on Me, you can know Me free from all doubts.",
-            "speaker": "the supreme",
-            "id": "lh0aoH3S"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Gyanang tehang sagyanamidang bakshyamyasheshatah.\n2.",
-            "translation": "I will now tell you fully about this knowledge consisting of science, which, if known, leaves nothing else to be known in this world.",
-            "speaker": "the supreme",
-            "id": "v75sXAt0"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Manushyanang Sahasreshu Kaschid Jati Siddhaye.\nMattampi Siddhanang Kaschinmang Betti Tattvat: 3.",
-            "translation": "Out of thousands of people, seldom one cares to attain Siddhi, and among such caring Siddhas seldom does one realize Me, that is, My Bhagavat-Svarupa.",
-            "speaker": "the supreme",
-            "id": "PQllsNNC"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Bhumirapohanlo Vayu: Khang Mano Buddhireb Ch.\nAhankar etiyat may different Prakritishthadha..4..",
-            "translation": "Earth, water, air, fire, sky, mind, intellect and ego are the eight types of my different material nature.",
-            "speaker": "the supreme",
-            "id": "Bj30M9iZ"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Apareyamitstvanyang prakraturing vidhime param.\nJivabhutang Mahabaho Yayedang Dharyate Jagat..5..",
-            "translation": "O Mahabaho! Apart from this inferior nature I have another excellent nature. That nature is Chaitanya-svarupa and Jivabhuta; From that energy all living beings are released and hold this world.",
-            "speaker": "the supreme",
-            "id": "QLp1nLc7"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "So far Bhutan is omnipresent.\nEgo Kritsnasya Jagat: Effect: Pralayasthatha..6..",
-            "translation": "From these two natures of mine everything inanimate and conscious has arisen. Therefore know for certain that I am the main cause of the origin and destruction of all the worlds.",
-            "speaker": "the supreme",
-            "id": "GoRk26z0"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Matt: Partarang Nanyat Kinchidasti Dhananjay.\nMoi Sarbamidang Protong Sutra Manigana Ib..7..",
-            "translation": "O Dhananjay! There is no one better than me. As gems are set in sutras, so all the worlds are rooted in me.",
-            "speaker": "the supreme",
-            "id": "qrHRMNfa"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Rasohampsu kaunteya prabhasmi sasisuryo:\nPranava: Sarvavedeshu word: Khe Purushang Nrishu..8..",
-            "translation": "O Kaunteya! I am the juice of the waters, the light of the moon and the sun, the grace of all the Vedas, the sound of the sky and the manhood of men.",
-            "speaker": "the supreme",
-            "id": "2Up2jNNq"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Punyo Gandha: Prithibhang Ch Tejashasmi Vivahsau.\nJibanang Sarvabhuteshu Tapaschasmi Tapasvishu..9..",
-            "translation": "I am the holy fragrance of the earth, the radiance of fire, the life of all beings and the penance of ascetics.",
-            "speaker": "the supreme",
-            "id": "u0r0p0kr"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "Bijang mang sarvabhutanaang vidhi partha sanatanam.\n10.",
-            "translation": "O Partha, know me as the eternal cause of all beings. I am the wisdom of the intelligent and the brilliance of the brilliant.",
-            "speaker": "the supreme",
-            "id": "I9f6K6Rh"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Balang balbatang chahang kamaragbivarjitam.\nDharmaviruddho bhuteshu kamohasmi bharatarshav..11..",
-            "translation": "O Bharatarshava! I am the force devoid of lust and anger of the strong and I exist among the living beings as the non-religionous Kama.",
-            "speaker": "the supreme",
-            "id": "nepJV3aQ"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "That Chaiva Satvika Bhava Rajasastamsaschcha that.\nMatt abeti tan vidhi na thang teshu te moi..12..",
-            "translation": "Know that all sattvic, rajasic and tamasic feelings originate from me. I am not subject to all of them, but they are subject to my power.",
-            "speaker": "the supreme",
-            "id": "aUSoVPD5"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Trivirgunamayirbhavairevi: Sarvamidang Jagat.\nMohitang Navijanati Mamevya: Paramvyam.",
-            "translation": "(Sattva, Raja, and Tama) Being captivated by the three gunas, the whole world cannot know Me past and present of all these gunas.",
-            "speaker": "the supreme",
-            "id": "sjMs9SJe"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Divine majesty mam maya duratya.\n14.",
-            "translation": "This Divine Maya of mine is Trigunatmika and it is Duritikaramanya. But those who take refuge in Me can transcend this illusion.",
-            "speaker": "the supreme",
-            "id": "p7zB8Nbf"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Na mang duskritino mudha: prapadyante naradhamah:\n15.",
-            "translation": "Fools, naradhams, those whose knowledge has been hijacked by maya and those with demonic nature, those miscreants never take refuge in me.",
-            "speaker": "the supreme",
-            "id": "93NsTbIN"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Chaturvidha Bhajante Mang Jana: Srikritinoharjuna.\n16.",
-            "translation": "O Bharatashrestha Arjuna! I am worshiped by these four types of pious people: Arta, Artharthi, Inquisitive and Wise.",
-            "speaker": "the supreme",
-            "id": "UwBB7RMY"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Tesang Jnani is in daily devotional practice.\nPriya hi Gnaninoঽtyarthamahang sa ch mam Priya..17..",
-            "translation": "Among these four types of devotees, the eternal, devoted theoretician is the best. Because I am very dear to him and he is very dear to me.",
-            "speaker": "the supreme",
-            "id": "WqFN46to"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Udara: Sarva ebaite jnani tatmaiva me matam.\n18.",
-            "translation": "All these devotees are no doubt Mahatma, but the Jnani who is possessed of my Tattvajnana is, according to me, my Self. By engaging in my unnatural service he gained me as the best motion.",
-            "speaker": "the supreme",
-            "id": "bfZJSTwS"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Bahunang Janmanamante Gnanbanmang Prapadya.\nVasudeva: Sarvamiti Sa Mahatma Suduralvah..19..",
-            "translation": "After many births the learned person takes refuge in Me knowing Me as the Supreme Cause of all causes. Such Mahatma is very rare.",
-            "speaker": "the supreme",
-            "id": "peC3QbIW"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Kamaisthaistairhritajnana: Prapadyantehnyadevata:\nTang Tang Niyamastaya Prakrtya Niyata: Swaya..20..",
-            "translation": "Those whose knowledge has been hijacked by material desires, take shelter of other gods and goddesses and worship the gods by observing special rules according to their own nature.",
-            "speaker": "the supreme",
-            "id": "NAH4w6H8"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Yo Yo Jang Tanung Bhakta: Respect\nTasya Tasyachlang Shraddang Tameb Viddhamyham..21..",
-            "translation": "As Supreme I am present in everyone's heart. Whenever one wishes to worship the gods, I offer unwavering respect to that devotee.",
-            "speaker": "the supreme",
-            "id": "KmEikKiZ"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Sa taya shraddhaya yukstassyaradhanmihete.\nLavte cha tatah kamanmayiva vihitan hi tan..22..",
-            "translation": "That person reverently worships that deity and surely obtains from that deity the desirable objects prescribed by Me.",
-            "speaker": "the supreme",
-            "id": "bMCBFNTp"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "অন্তবত্তু ফলং তেষাং তদ্ভবত্যল্পমেধসাম্।\nদেবান্ দেবযজো যান্তি মদ্ভক্তা যান্তি মামপি।।২৩।।",
-            "translation": "The result of the adoration of the less intelligent is temporary. Devotees attain Devaloka, but My devotees attain My supreme abode.",
-            "speaker": "the supreme",
-            "id": "dIxpypEM"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Abyaktang விற்றும்புப்புந்து மென்தை மும்ப்ப்பு஡்தாயாயாயாயம்:\nParang bhavamjananto mamavyayamanuttamam..24..",
-            "translation": "Unintelligent people, who do not know me, think that I, formerly an inexpressible individual, have now acquired personality. As a result of their ignorance they are not aware of My prepositions and supreme absolutes.",
-            "speaker": "the supreme",
-            "id": "v24new001"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Otherwise Prakash: Sarvasya Yogamayasamavrit:\nMudhohayong navijanati loko mamjambayam..25..",
-            "translation": "I never appear to foolish and unintelligent persons. To them I am enveloped by my intimate Shakti Yogamaya. Therefore, they cannot know my Aj and Abaya forms.",
-            "speaker": "the supreme",
-            "id": "v25new002"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Bedahang samatitani samandani charge.\nBhavishyani cha Bhutani mang tu ved na kaschan..26..",
-            "translation": "O Arjuna! As the Supreme Lord I am fully aware of past, present and future. I know all living beings, but no one knows me.",
-            "speaker": "the supreme",
-            "id": "v26new003"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "India is enmeshed in conflict from hatred.\nSarvabhutani sammohang sarge janti parantap.",
-            "translation": "O India! Oh Parantap! All beings are born deluded, deluded by the dandas arising from desire and hatred.",
-            "speaker": "the supreme",
-            "id": "v27new004"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Jesang tvantagatang papang jananang punyakarnamam.\n28.",
-            "translation": "All virtuous persons whose sins are completely removed and who are freed from the lust of conflict, worship Me with firm devotion.",
-            "speaker": "the supreme",
-            "id": "v28new005"
-        },
-        {
-            "verseNumber": "29",
-            "Language": "Mamashritya Jatanti that\nte braksha tad viduh kritsnamadhyatnong karma chakhilam..29..",
-            "translation": "Those intelligent persons who take refuge in me for liberation from rust and death are indeed Brakshabhutas, because they are fully aware of all metaphysics and karma.",
-            "speaker": "the supreme",
-            "id": "v29new006"
-        },
-        {
-            "verseNumber": "30",
-            "Language": "Sadhibhutadhidaibong mang sadhiyajnang f that Vidhu.\n30.",
-            "translation": "Those who know Me as the Supreme Lord with Abhidhuta-tattva, Adhidaiva-tattva and Adhyajna-tattva, can know Me even at the time of death with a mind attached to Me.",
-            "speaker": "the supreme",
-            "id": "v30new007"
-        }
-    ],
-    "summary": {
-        "title": "Chapter Seven - Science-Yoga",
-        "description": "In the seventh chapter the teachings of Vigyan Yoga are given. In this chapter, Lord Krishna explains to Arjuna the nature and nature of the Supreme Soul and advises him to know the Supreme Soul through devotion.",
-        "keyThemes": [
-            "The form of God",
-            "theory of nature",
-            "Importance of Bhakti",
-            "Superiority of knowledge",
-            "Beyond Maya"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Manushyanang Sahasreshu Kaschid Jati Siddhaye.\nMattampi Siddhanang Kaschinmang Betti Tattvat: 3.",
+      "translation": "Out of thousands of people, seldom one cares to attain Siddhi, and among such caring Siddhas seldom does one realize Me, that is, My Bhagavat-Svarupa.",
+      "speaker": "the supreme",
+      "id": "PQllsNNC",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_15.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1150+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Bhumirapohanlo Vayu: Khang Mano Buddhireb Ch.\nAhankar etiyat may different Prakritishthadha..4..",
+      "translation": "Earth, water, air, fire, sky, mind, intellect and ego are the eight types of my different material nature.",
+      "speaker": "the supreme",
+      "id": "Bj30M9iZ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Apareyamitstvanyang prakraturing vidhime param.\nJivabhutang Mahabaho Yayedang Dharyate Jagat..5..",
+      "translation": "O Mahabaho! Apart from this inferior nature I have another excellent nature. That nature is Chaitanya-svarupa and Jivabhuta; From that energy all living beings are released and hold this world.",
+      "speaker": "the supreme",
+      "id": "QLp1nLc7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "So far Bhutan is omnipresent.\nEgo Kritsnasya Jagat: Effect: Pralayasthatha..6..",
+      "translation": "From these two natures of mine everything inanimate and conscious has arisen. Therefore know for certain that I am the main cause of the origin and destruction of all the worlds.",
+      "speaker": "the supreme",
+      "id": "GoRk26z0",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Matt: Partarang Nanyat Kinchidasti Dhananjay.\nMoi Sarbamidang Protong Sutra Manigana Ib..7..",
+      "translation": "O Dhananjay! There is no one better than me. As gems are set in sutras, so all the worlds are rooted in me.",
+      "speaker": "the supreme",
+      "id": "qrHRMNfa",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Rasohampsu kaunteya prabhasmi sasisuryo:\nPranava: Sarvavedeshu word: Khe Purushang Nrishu..8..",
+      "translation": "O Kaunteya! I am the juice of the waters, the light of the moon and the sun, the grace of all the Vedas, the sound of the sky and the manhood of men.",
+      "speaker": "the supreme",
+      "id": "2Up2jNNq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Punyo Gandha: Prithibhang Ch Tejashasmi Vivahsau.\nJibanang Sarvabhuteshu Tapaschasmi Tapasvishu..9..",
+      "translation": "I am the holy fragrance of the earth, the radiance of fire, the life of all beings and the penance of ascetics.",
+      "speaker": "the supreme",
+      "id": "u0r0p0kr",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Bijang mang sarvabhutanaang vidhi partha sanatanam.\n10.",
+      "translation": "O Partha, know me as the eternal cause of all beings. I am the wisdom of the intelligent and the brilliance of the brilliant.",
+      "speaker": "the supreme",
+      "id": "I9f6K6Rh",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Balang balbatang chahang kamaragbivarjitam.\nDharmaviruddho bhuteshu kamohasmi bharatarshav..11..",
+      "translation": "O Bharatarshava! I am the force devoid of lust and anger of the strong and I exist among the living beings as the non-religionous Kama.",
+      "speaker": "the supreme",
+      "id": "nepJV3aQ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "That Chaiva Satvika Bhava Rajasastamsaschcha that.\nMatt abeti tan vidhi na thang teshu te moi..12..",
+      "translation": "Know that all sattvic, rajasic and tamasic feelings originate from me. I am not subject to all of them, but they are subject to my power.",
+      "speaker": "the supreme",
+      "id": "aUSoVPD5",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Trivirgunamayirbhavairevi: Sarvamidang Jagat.\nMohitang Navijanati Mamevya: Paramvyam.",
+      "translation": "(Sattva, Raja, and Tama) Being captivated by the three gunas, the whole world cannot know Me past and present of all these gunas.",
+      "speaker": "the supreme",
+      "id": "sjMs9SJe",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Divine majesty mam maya duratya.\n14.",
+      "translation": "This Divine Maya of mine is Trigunatmika and it is Duritikaramanya. But those who take refuge in Me can transcend this illusion.",
+      "speaker": "the supreme",
+      "id": "p7zB8Nbf",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Na mang duskritino mudha: prapadyante naradhamah:\n15.",
+      "translation": "Fools, naradhams, those whose knowledge has been hijacked by maya and those with demonic nature, those miscreants never take refuge in me.",
+      "speaker": "the supreme",
+      "id": "93NsTbIN",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Chaturvidha Bhajante Mang Jana: Srikritinoharjuna.\n16.",
+      "translation": "O Bharatashrestha Arjuna! I am worshiped by these four types of pious people: Arta, Artharthi, Inquisitive and Wise.",
+      "speaker": "the supreme",
+      "id": "UwBB7RMY",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Tesang Jnani is in daily devotional practice.\nPriya hi Gnaninoঽtyarthamahang sa ch mam Priya..17..",
+      "translation": "Among these four types of devotees, the eternal, devoted theoretician is the best. Because I am very dear to him and he is very dear to me.",
+      "speaker": "the supreme",
+      "id": "WqFN46to",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Udara: Sarva ebaite jnani tatmaiva me matam.\n18.",
+      "translation": "All these devotees are no doubt Mahatma, but the Jnani who is possessed of my Tattvajnana is, according to me, my Self. By engaging in my unnatural service he gained me as the best motion.",
+      "speaker": "the supreme",
+      "id": "bfZJSTwS",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Bahunang Janmanamante Gnanbanmang Prapadya.\nVasudeva: Sarvamiti Sa Mahatma Suduralvah..19..",
+      "translation": "After many births the learned person takes refuge in Me knowing Me as the Supreme Cause of all causes. Such Mahatma is very rare.",
+      "speaker": "the supreme",
+      "id": "peC3QbIW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Kamaisthaistairhritajnana: Prapadyantehnyadevata:\nTang Tang Niyamastaya Prakrtya Niyata: Swaya..20..",
+      "translation": "Those whose knowledge has been hijacked by material desires, take shelter of other gods and goddesses and worship the gods by observing special rules according to their own nature.",
+      "speaker": "the supreme",
+      "id": "NAH4w6H8",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Yo Yo Jang Tanung Bhakta: Respect\nTasya Tasyachlang Shraddang Tameb Viddhamyham..21..",
+      "translation": "As Supreme I am present in everyone's heart. Whenever one wishes to worship the gods, I offer unwavering respect to that devotee.",
+      "speaker": "the supreme",
+      "id": "KmEikKiZ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Sa taya shraddhaya yukstassyaradhanmihete.\nLavte cha tatah kamanmayiva vihitan hi tan..22..",
+      "translation": "That person reverently worships that deity and surely obtains from that deity the desirable objects prescribed by Me.",
+      "speaker": "the supreme",
+      "id": "bMCBFNTp",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "অন্তবত্তু ফলং তেষাং তদ্ভবত্যল্পমেধসাম্।\nদেবান্ দেবযজো যান্তি মদ্ভক্তা যান্তি মামপি।।২৩।।",
+      "translation": "The result of the adoration of the less intelligent is temporary. Devotees attain Devaloka, but My devotees attain My supreme abode.",
+      "speaker": "the supreme",
+      "id": "dIxpypEM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Abyaktang விற்றும்புப்புந்து மென்தை மும்ப்ப்பு஡்தாயாயாயாயம்:\nParang bhavamjananto mamavyayamanuttamam..24..",
+      "translation": "Unintelligent people, who do not know me, think that I, formerly an inexpressible individual, have now acquired personality. As a result of their ignorance they are not aware of My prepositions and supreme absolutes.",
+      "speaker": "the supreme",
+      "id": "v24new001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Otherwise Prakash: Sarvasya Yogamayasamavrit:\nMudhohayong navijanati loko mamjambayam..25..",
+      "translation": "I never appear to foolish and unintelligent persons. To them I am enveloped by my intimate Shakti Yogamaya. Therefore, they cannot know my Aj and Abaya forms.",
+      "speaker": "the supreme",
+      "id": "v25new002",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Bedahang samatitani samandani charge.\nBhavishyani cha Bhutani mang tu ved na kaschan..26..",
+      "translation": "O Arjuna! As the Supreme Lord I am fully aware of past, present and future. I know all living beings, but no one knows me.",
+      "speaker": "the supreme",
+      "id": "v26new003",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "India is enmeshed in conflict from hatred.\nSarvabhutani sammohang sarge janti parantap.",
+      "translation": "O India! Oh Parantap! All beings are born deluded, deluded by the dandas arising from desire and hatred.",
+      "speaker": "the supreme",
+      "id": "v27new004",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Jesang tvantagatang papang jananang punyakarnamam.\n28.",
+      "translation": "All virtuous persons whose sins are completely removed and who are freed from the lust of conflict, worship Me with firm devotion.",
+      "speaker": "the supreme",
+      "id": "v28new005",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Mamashritya Jatanti that\nte braksha tad viduh kritsnamadhyatnong karma chakhilam..29..",
+      "translation": "Those intelligent persons who take refuge in me for liberation from rust and death are indeed Brakshabhutas, because they are fully aware of all metaphysics and karma.",
+      "speaker": "the supreme",
+      "id": "v29new006",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Sadhibhutadhidaibong mang sadhiyajnang f that Vidhu.\n30.",
+      "translation": "Those who know Me as the Supreme Lord with Abhidhuta-tattva, Adhidaiva-tattva and Adhyajna-tattva, can know Me even at the time of death with a mind attached to Me.",
+      "speaker": "the supreme",
+      "id": "v30new007",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter Seven - Science-Yoga",
+    "description": "In the seventh chapter the teachings of Vigyan Yoga are given. In this chapter, Lord Krishna explains to Arjuna the nature and nature of the Supreme Soul and advises him to know the Supreme Soul through devotion.",
+    "keyThemes": [
+      "The form of God",
+      "theory of nature",
+      "Importance of Bhakti",
+      "Superiority of knowledge",
+      "Beyond Maya"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_15.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1150+ words",
+    "lastUpdated": "2024"
+  }
 }

@@ -1,232 +1,260 @@
 {
-    "chapter": {
-        "number": "8",
-        "title": "Chapter VIII",
-        "subtitle": "Akshara Brahma Yoga",
-        "englishTitle": "Akshara Brahma Yoga",
-        "totalVerses": "28",
-        "description": "Akshara Brahma Yoga is taught in the eighth chapter. In this chapter, Lord Krishna explains to Arjuna the importance of knowledge of Brahman and remembrance of God at the time of death and shows the path of liberation through various yogas.",
-        "id": "DOpqjvYE"
+  "chapter": {
+    "number": "8",
+    "title": "Chapter VIII",
+    "subtitle": "Akshara Brahma Yoga",
+    "englishTitle": "Akshara Brahma Yoga",
+    "totalVerses": "28",
+    "description": "Akshara Brahma Yoga is taught in the eighth chapter. In this chapter, Lord Krishna explains to Arjuna the importance of knowledge of Brahman and remembrance of God at the time of death and shows the path of liberation through various yogas.",
+    "id": "DOpqjvYE"
+  },
+  "dedication": {
+    "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "King Tad Brahma Kimdhyatmang King Karma Purushottam.\nAdhibhutang Ch King Proktamdhidaibong Kimuchyate..1..",
+      "translation": "Arjuna asked - O Purushottam! What is Brahman? What is spirit? What is action? Adhibhuta and Adhidaivai or who is called? Please clarify me.",
+      "speaker": "Arjuna",
+      "id": "VYMPrMWv",
+      "speaker_english": "Arjuna"
     },
-    "dedication": {
-        "Language": "Abhaycharanarabinda Bhaktividananda Sevami",
-        "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+    {
+      "verseNumber": "2",
+      "Language": "Adhyajna: Kathang Kohtra Dehehsminmadhusudan.\nPrayankale cha kathang jneyohasi niyatatmavih..2..",
+      "translation": "O Madhusudan! Who is Adhyajna in this body, and how is he located in this body? How can the Jitendriya people know you at the time of death?",
+      "speaker": "Arjuna",
+      "id": "vOMXQoxg",
+      "speaker_english": "Arjuna"
     },
-    "verses": [
-        {
-            "verseNumber": "1",
-            "Language": "King Tad Brahma Kimdhyatmang King Karma Purushottam.\nAdhibhutang Ch King Proktamdhidaibong Kimuchyate..1..",
-            "translation": "Arjuna asked - O Purushottam! What is Brahman? What is spirit? What is action? Adhibhuta and Adhidaivai or who is called? Please clarify me.",
-            "speaker": "Arjuna",
-            "id": "VYMPrMWv"
-        },
-        {
-            "verseNumber": "2",
-            "Language": "Adhyajna: Kathang Kohtra Dehehsminmadhusudan.\nPrayankale cha kathang jneyohasi niyatatmavih..2..",
-            "translation": "O Madhusudan! Who is Adhyajna in this body, and how is he located in this body? How can the Jitendriya people know you at the time of death?",
-            "speaker": "Arjuna",
-            "id": "vOMXQoxg"
-        },
-        {
-            "verseNumber": "3",
-            "Language": "Aksharang Brahma Paramang Svabhabodhyatmamuchya.\n3.",
-            "translation": "The Supreme Lord said - The imperishable being is called Brahman and its eternal nature is called Adhyatma. Karma is the origin and growth of demons.",
-            "speaker": "the supreme",
-            "id": "WdOoLis1"
-        },
-        {
-            "verseNumber": "4",
-            "Language": "Adhibhutang ksaro bhava: Purushchadhidaivatam.\nAdhyajnohahmevatra dehe dehbhritang bar..4..",
-            "translation": "Oh the best of body! Possessed of mortal incorporeal nature. The great man who is the sum total of all the sun, moon and primordial gods is called Adhidaiva. And I am the adhyajna in the form of the inner body of the body.",
-            "speaker": "the supreme",
-            "id": "9fmMLob5"
-        },
-        {
-            "verseNumber": "5",
-            "Language": "Antakale Cha Mameva Smaranmukta Kalevaram.\nYah prayati sa madbhabang jati nastyatra samshayah..5..",
-            "translation": "At the time of death he who leaves the body remembering me immediately attains my consciousness. There is no doubt about this.",
-            "speaker": "the supreme",
-            "id": "tECHn9Am"
-        },
-        {
-            "verseNumber": "6",
-            "Language": "Jang Jang Bapi Smaran Bhavang Tyajatyante Kalevaram.\nTang tameveiti kaunteya sada tadbhavabhavit:..6..",
-            "translation": "At the last moment, he who remembers the thought and leaves the body, attains the thought of that thought.",
-            "speaker": "the supreme",
-            "id": "isQlmdiJ"
-        },
-        {
-            "verseNumber": "7",
-            "Language": "Tasmat Sarveshu Kaleshu Mamanushmar Yudhya f.\n7.",
-            "translation": "Therefore, O Arjuna! Always remember Me and fight with your nature, then your mind and intellect will be entrusted to Me and you will surely gain Me.",
-            "speaker": "the supreme",
-            "id": "cfJBRE7d"
-        },
-        {
-            "verseNumber": "8",
-            "Language": "Chetsa Nanyagamina is habitual.\n8.",
-            "translation": "O Parth! One who thinks of the Supreme Personality of Godhead with a single-minded mind engaged in Abhyasa Yoga, will surely attain Him.",
-            "speaker": "the supreme",
-            "id": "dQNySeFy"
-        },
-        {
-            "verseNumber": "9",
-            "Language": "Kabing Puranamanushasitarmanoraniyangsamanusmared Jah.\nSarvasya dhataramachintyarupamadityavaranga tamasah parastat..9..",
-            "translation": "One should meditate on the Supreme Lord as Omniscient, Sanatana, Niyanta, subtler than subtle, Lord of all, beyond the material intellect, achinta and Purusha. He is as celestial as the sun and is beyond this material nature.",
-            "speaker": "the supreme",
-            "id": "cOn0ltHd"
-        },
-        {
-            "verseNumber": "10",
-            "Language": "At the time of his death, Chaiva added that he was devoted to devotion.\n10.",
-            "translation": "One who at the time of death remembers the Supreme Lord with an unwavering mind, with devotion, with full yogic energy placing the prana-vayu in the bhryugal, he surely attains the divine Supreme Purusha.",
-            "speaker": "the supreme",
-            "id": "WcyFp0T3"
-        },
-        {
-            "verseNumber": "11",
-            "Language": "Yadaksharang vedavido vdanti vishanti yad jatayo vitragah.\n11.",
-            "translation": "I will briefly tell you about what the Vedic pundits call 'Akshara', into which monks without attachment enter, celibate celibates for the sake of gain.",
-            "speaker": "the supreme",
-            "id": "4296RwFu"
-        },
-        {
-            "verseNumber": "12",
-            "Language": "Sarvadvarani Sanyamya Mano Hridi Nirudhya f.\nMurdhanyadhayatman: pranamasthito yogadharanam..12..",
-            "translation": "One has to settle in yoga by restraining all the gates of the senses, restraining the mind in the heart and placing the prana in the brow.",
-            "speaker": "the supreme",
-            "id": "JeWNdqSV"
-        },
-        {
-            "verseNumber": "13",
-            "Language": "Om ityekaksharang brahma vyaharan mamanusmaran.\n13.",
-            "translation": "If one abandons the body remembering the Supreme Lord while chanting the holy Onkas engaged in yoga practice, he will surely attain supreme speed.",
-            "speaker": "the supreme",
-            "id": "buw82wY2"
-        },
-        {
-            "verseNumber": "14",
-            "Language": "Ananyacheta: satatang yo mang smrati nityashah.\nTasyahang Sulva: Partha Nityayuksya Yogin: 14.",
-            "translation": "O Parth! I am accessible to the constant bhakta-yogi who single-mindedly remembers only Me.",
-            "speaker": "the supreme",
-            "id": "BVKdFRo1"
-        },
-        {
-            "verseNumber": "15",
-            "Language": "Mamupetya reincarnation Dukhalayamshasvatam.\nNapnubanti Mahatmano Sansiddhing Parmang Gata:",
-            "translation": "Mahatma, devotional yogis attain Me and are not reborn in this miserable mortal world, because they have attained the Supreme Siddhi.",
-            "speaker": "the supreme",
-            "id": "mgHNOaTb"
-        },
-        {
-            "verseNumber": "16",
-            "Language": "Abrahambhuvanalloka: Punaravartinoharjuna.\nMamupetya tu kaunteya reincarnation na vidyate..16..",
-            "translation": "O Arjuna! All people from this world to Brahmaloka are re-born. But O Kaunteya! There is no rebirth when I am attained.",
-            "speaker": "the supreme",
-            "id": "yE4XUBvg"
-        },
-        {
-            "verseNumber": "17",
-            "Language": "Mahrad Brahmin scholars up to the millennium.\nRatring Yuga Sahasrantang Tehoratrabido Jana: 17.",
-            "translation": "Brahma has one day in a thousand and four yugas of human quality and one night in a thousand and four yugas. Those who know like this, are day and night guardians.",
-            "speaker": "the supreme",
-            "id": "2lq7kooG"
-        },
-        {
-            "verseNumber": "18",
-            "Language": "Abyaktad Vyaktaya: Sarva: Prabhavantyahragame.\n18.",
-            "translation": "At the gathering of the day of Brahma all living beings are manifested from the unmanifest and at the coming of the night of Brahma it again attains the form of the unmanifest.",
-            "speaker": "the supreme",
-            "id": "mjd38BzN"
-        },
-        {
-            "verseNumber": "19",
-            "Language": "Bhutgram: Sa ebayang Bhutva Bhutva Praliyate.\n19",
-            "translation": "O Parth! Those ghosts are born again and again in Brahma's nocturnal assembly and again appear on their own at the coming of day.",
-            "speaker": "the supreme",
-            "id": "fNtrDNLu"
-        },
-        {
-            "verseNumber": "20",
-            "Language": "Paras tasmat tu bhabohanyaঽvyaktoঽvykat Sanatan:.\nYah sa sarveshu bhuteshu nasyatsu na bansyati..20..",
-            "translation": "But there is another unmanifest nature, which is eternal and beyond manifest and unmanifest objects. Even if all ghosts are destroyed, they are not destroyed.",
-            "speaker": "the supreme",
-            "id": "q1Hibu3X"
-        },
-        {
-            "verseNumber": "21",
-            "Language": "Abyaktokshar ityastu tamahu: paramang gatim.\nJang prapya na nivrante taddham paramang mam..21..",
-            "translation": "That inexpressible is called Akshara, hence the ultimate motion of all beings. When one goes there, he does not have to come back to this world. That is my absolute abode.",
-            "speaker": "the supreme",
-            "id": "h4FXrVdt"
-        },
-        {
-            "verseNumber": "22",
-            "Language": "Purusha: Sa Para: Partha Bhaktya Lavyastvananya.\nYasyantathasthani Bhutani as if Sarvamidang tatam.. 22..",
-            "translation": "O Parth! The Supreme Lord can be attained only through Ananya Bhakti. He, though eternally present in His abode, is all-pervading and everything resides in Him.",
-            "speaker": "the supreme",
-            "id": "5JX9le65"
-        },
-        {
-            "verseNumber": "23",
-            "Language": "Chaiva Yogin:\nPrayata Janti Tang Kalang Bakshyami Bharatarshabha..23..",
-            "translation": "O Bharat Shrestha! I will tell you about the time when the Yogis return to this world or do not return after death.",
-            "speaker": "the supreme",
-            "id": "dgvyf45S"
-        },
-        {
-            "verseNumber": "24",
-            "Language": "Agnirjyotirah: Shukla: Shanmasa Uttarayanam.\nTatra Prayata Gachchanti Brahma Brahmabido Janah..24..",
-            "translation": "Brahmavit men attain Brahman by relinquishing their bodies during Agni, Jyoti, Shubhdin, Shuklapaksha and six months of Uttarayana.",
-            "speaker": "the supreme",
-            "id": "eVeyxjtD"
-        },
-        {
-            "verseNumber": "25",
-            "Language": "Dhumo Ratristatha Krishna: Shanmasa Dakshinayanam.\nTatra Chandramsong Jyotigargamyat Repeat: 25.",
-            "translation": "After leaving the body during the six months of Dhum, Ratri, Krishna Paksha or Dakshinayana, the yogi returns to the mortal world after traveling to Chandraloka and enjoying the pleasures.",
-            "speaker": "the supreme",
-            "id": "GAgGVnTi"
-        },
-        {
-            "verseNumber": "26",
-            "Language": "Sukrakrishna Gati Hyete Jagat: According to the Eternal.\n26.",
-            "translation": "According to Vedic there are two ways of leaving this world - one is Shula and the other is Krishna. If he leaves his body on Shuklamarga he does not have to come back, but if he leaves his body on Krishnamarga he has to return.",
-            "speaker": "the supreme",
-            "id": "5MorM7Fz"
-        },
-        {
-            "verseNumber": "27",
-            "Language": "Naite Sriti Partha Janan Yogi Muhyati Kaschan.\n27.",
-            "translation": "O Parth! Devotees aware of these two paths never become disillusioned. So O Arjuna! You practice Bhakti Yoga.",
-            "speaker": "the supreme",
-            "id": "a8agqPDf"
-        },
-        {
-            "verseNumber": "28",
-            "Language": "Bedushu Yajneshu Tapashu Chaiva Daneshu Yat Punyaphalang Pradistam.\nAtyeti tat sarvamidang viditva yogi parang sthanamupaiti chadyam..28..",
-            "translation": "If you practice Bhakti Yoga you will not be deprived of any result. Veda readings, sacrifices, penances, donations, all kinds of knowledge and actions, the fruits of that community, you get the original and supreme abode through devotional yoga.",
-            "speaker": "the supreme",
-            "id": "hTVSDWls"
-        }
-    ],
-    "summary": {
-        "title": "Chapter VIII - Akshara Brahma Yoga",
-        "description": "Akshara Brahma Yoga is taught in the eighth chapter. In this chapter, Lord Krishna explains to Arjuna the importance of knowledge of Brahman and remembrance of God at the time of death and shows the path of liberation through various yogas.",
-        "keyThemes": [
-            "knowledge of Brahman",
-            "Remembrance in death",
-            "Importance of yoga",
-            "the way to liberation",
-            "The form of God"
-        ]
+    {
+      "verseNumber": "3",
+      "Language": "Aksharang Brahma Paramang Svabhabodhyatmamuchya.\n3.",
+      "translation": "The Supreme Lord said - The imperishable being is called Brahman and its eternal nature is called Adhyatma. Karma is the origin and growth of demons.",
+      "speaker": "the supreme",
+      "id": "WdOoLis1",
+      "speaker_english": "Shree Krishna"
     },
-    "metadata": {
-        "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_18.html",
-        "language": "Bangla",
-        "scripture": "Srimad Bhagavad Gita",
-        "chapterType": "added",
-        "totalWords": "About 1400+ words",
-        "lastUpdated": "2024"
+    {
+      "verseNumber": "4",
+      "Language": "Adhibhutang ksaro bhava: Purushchadhidaivatam.\nAdhyajnohahmevatra dehe dehbhritang bar..4..",
+      "translation": "Oh the best of body! Possessed of mortal incorporeal nature. The great man who is the sum total of all the sun, moon and primordial gods is called Adhidaiva. And I am the adhyajna in the form of the inner body of the body.",
+      "speaker": "the supreme",
+      "id": "9fmMLob5",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Antakale Cha Mameva Smaranmukta Kalevaram.\nYah prayati sa madbhabang jati nastyatra samshayah..5..",
+      "translation": "At the time of death he who leaves the body remembering me immediately attains my consciousness. There is no doubt about this.",
+      "speaker": "the supreme",
+      "id": "tECHn9Am",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Jang Jang Bapi Smaran Bhavang Tyajatyante Kalevaram.\nTang tameveiti kaunteya sada tadbhavabhavit:..6..",
+      "translation": "At the last moment, he who remembers the thought and leaves the body, attains the thought of that thought.",
+      "speaker": "the supreme",
+      "id": "isQlmdiJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Tasmat Sarveshu Kaleshu Mamanushmar Yudhya f.\n7.",
+      "translation": "Therefore, O Arjuna! Always remember Me and fight with your nature, then your mind and intellect will be entrusted to Me and you will surely gain Me.",
+      "speaker": "the supreme",
+      "id": "cfJBRE7d",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Chetsa Nanyagamina is habitual.\n8.",
+      "translation": "O Parth! One who thinks of the Supreme Personality of Godhead with a single-minded mind engaged in Abhyasa Yoga, will surely attain Him.",
+      "speaker": "the supreme",
+      "id": "dQNySeFy",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Kabing Puranamanushasitarmanoraniyangsamanusmared Jah.\nSarvasya dhataramachintyarupamadityavaranga tamasah parastat..9..",
+      "translation": "One should meditate on the Supreme Lord as Omniscient, Sanatana, Niyanta, subtler than subtle, Lord of all, beyond the material intellect, achinta and Purusha. He is as celestial as the sun and is beyond this material nature.",
+      "speaker": "the supreme",
+      "id": "cOn0ltHd",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "At the time of his death, Chaiva added that he was devoted to devotion.\n10.",
+      "translation": "One who at the time of death remembers the Supreme Lord with an unwavering mind, with devotion, with full yogic energy placing the prana-vayu in the bhryugal, he surely attains the divine Supreme Purusha.",
+      "speaker": "the supreme",
+      "id": "WcyFp0T3",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Yadaksharang vedavido vdanti vishanti yad jatayo vitragah.\n11.",
+      "translation": "I will briefly tell you about what the Vedic pundits call 'Akshara', into which monks without attachment enter, celibate celibates for the sake of gain.",
+      "speaker": "the supreme",
+      "id": "4296RwFu",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Sarvadvarani Sanyamya Mano Hridi Nirudhya f.\nMurdhanyadhayatman: pranamasthito yogadharanam..12..",
+      "translation": "One has to settle in yoga by restraining all the gates of the senses, restraining the mind in the heart and placing the prana in the brow.",
+      "speaker": "the supreme",
+      "id": "JeWNdqSV",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Om ityekaksharang brahma vyaharan mamanusmaran.\n13.",
+      "translation": "If one abandons the body remembering the Supreme Lord while chanting the holy Onkas engaged in yoga practice, he will surely attain supreme speed.",
+      "speaker": "the supreme",
+      "id": "buw82wY2",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Ananyacheta: satatang yo mang smrati nityashah.\nTasyahang Sulva: Partha Nityayuksya Yogin: 14.",
+      "translation": "O Parth! I am accessible to the constant bhakta-yogi who single-mindedly remembers only Me.",
+      "speaker": "the supreme",
+      "id": "BVKdFRo1",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Mamupetya reincarnation Dukhalayamshasvatam.\nNapnubanti Mahatmano Sansiddhing Parmang Gata:",
+      "translation": "Mahatma, devotional yogis attain Me and are not reborn in this miserable mortal world, because they have attained the Supreme Siddhi.",
+      "speaker": "the supreme",
+      "id": "mgHNOaTb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Abrahambhuvanalloka: Punaravartinoharjuna.\nMamupetya tu kaunteya reincarnation na vidyate..16..",
+      "translation": "O Arjuna! All people from this world to Brahmaloka are re-born. But O Kaunteya! There is no rebirth when I am attained.",
+      "speaker": "the supreme",
+      "id": "yE4XUBvg",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Mahrad Brahmin scholars up to the millennium.\nRatring Yuga Sahasrantang Tehoratrabido Jana: 17.",
+      "translation": "Brahma has one day in a thousand and four yugas of human quality and one night in a thousand and four yugas. Those who know like this, are day and night guardians.",
+      "speaker": "the supreme",
+      "id": "2lq7kooG",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Abyaktad Vyaktaya: Sarva: Prabhavantyahragame.\n18.",
+      "translation": "At the gathering of the day of Brahma all living beings are manifested from the unmanifest and at the coming of the night of Brahma it again attains the form of the unmanifest.",
+      "speaker": "the supreme",
+      "id": "mjd38BzN",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Bhutgram: Sa ebayang Bhutva Bhutva Praliyate.\n19",
+      "translation": "O Parth! Those ghosts are born again and again in Brahma's nocturnal assembly and again appear on their own at the coming of day.",
+      "speaker": "the supreme",
+      "id": "fNtrDNLu",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Paras tasmat tu bhabohanyaঽvyaktoঽvykat Sanatan:.\nYah sa sarveshu bhuteshu nasyatsu na bansyati..20..",
+      "translation": "But there is another unmanifest nature, which is eternal and beyond manifest and unmanifest objects. Even if all ghosts are destroyed, they are not destroyed.",
+      "speaker": "the supreme",
+      "id": "q1Hibu3X",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Abyaktokshar ityastu tamahu: paramang gatim.\nJang prapya na nivrante taddham paramang mam..21..",
+      "translation": "That inexpressible is called Akshara, hence the ultimate motion of all beings. When one goes there, he does not have to come back to this world. That is my absolute abode.",
+      "speaker": "the supreme",
+      "id": "h4FXrVdt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Purusha: Sa Para: Partha Bhaktya Lavyastvananya.\nYasyantathasthani Bhutani as if Sarvamidang tatam.. 22..",
+      "translation": "O Parth! The Supreme Lord can be attained only through Ananya Bhakti. He, though eternally present in His abode, is all-pervading and everything resides in Him.",
+      "speaker": "the supreme",
+      "id": "5JX9le65",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Chaiva Yogin:\nPrayata Janti Tang Kalang Bakshyami Bharatarshabha..23..",
+      "translation": "O Bharat Shrestha! I will tell you about the time when the Yogis return to this world or do not return after death.",
+      "speaker": "the supreme",
+      "id": "dgvyf45S",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Agnirjyotirah: Shukla: Shanmasa Uttarayanam.\nTatra Prayata Gachchanti Brahma Brahmabido Janah..24..",
+      "translation": "Brahmavit men attain Brahman by relinquishing their bodies during Agni, Jyoti, Shubhdin, Shuklapaksha and six months of Uttarayana.",
+      "speaker": "the supreme",
+      "id": "eVeyxjtD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Dhumo Ratristatha Krishna: Shanmasa Dakshinayanam.\nTatra Chandramsong Jyotigargamyat Repeat: 25.",
+      "translation": "After leaving the body during the six months of Dhum, Ratri, Krishna Paksha or Dakshinayana, the yogi returns to the mortal world after traveling to Chandraloka and enjoying the pleasures.",
+      "speaker": "the supreme",
+      "id": "GAgGVnTi",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Sukrakrishna Gati Hyete Jagat: According to the Eternal.\n26.",
+      "translation": "According to Vedic there are two ways of leaving this world - one is Shula and the other is Krishna. If he leaves his body on Shuklamarga he does not have to come back, but if he leaves his body on Krishnamarga he has to return.",
+      "speaker": "the supreme",
+      "id": "5MorM7Fz",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Naite Sriti Partha Janan Yogi Muhyati Kaschan.\n27.",
+      "translation": "O Parth! Devotees aware of these two paths never become disillusioned. So O Arjuna! You practice Bhakti Yoga.",
+      "speaker": "the supreme",
+      "id": "a8agqPDf",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Bedushu Yajneshu Tapashu Chaiva Daneshu Yat Punyaphalang Pradistam.\nAtyeti tat sarvamidang viditva yogi parang sthanamupaiti chadyam..28..",
+      "translation": "If you practice Bhakti Yoga you will not be deprived of any result. Veda readings, sacrifices, penances, donations, all kinds of knowledge and actions, the fruits of that community, you get the original and supreme abode through devotional yoga.",
+      "speaker": "the supreme",
+      "id": "hTVSDWls",
+      "speaker_english": "Shree Krishna"
     }
+  ],
+  "summary": {
+    "title": "Chapter VIII - Akshara Brahma Yoga",
+    "description": "Akshara Brahma Yoga is taught in the eighth chapter. In this chapter, Lord Krishna explains to Arjuna the importance of knowledge of Brahman and remembrance of God at the time of death and shows the path of liberation through various yogas.",
+    "keyThemes": [
+      "knowledge of Brahman",
+      "Remembrance in death",
+      "Importance of yoga",
+      "the way to liberation",
+      "The form of God"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter_18.html",
+    "language": "Bangla",
+    "scripture": "Srimad Bhagavad Gita",
+    "chapterType": "added",
+    "totalWords": "About 1400+ words",
+    "lastUpdated": "2024"
+  }
 }
