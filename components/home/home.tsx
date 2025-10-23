@@ -16,7 +16,7 @@ import FontAwesome5 from '@expo/vector-icons/build/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/build/FontAwesome6';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedButton } from '../ui/ThemedButton';
 import MenuGrid from './MenuGrid';
 import { getNavigationHandler } from './navigationHandlers';
@@ -163,11 +163,7 @@ const Home = () => {
       >
         <ThemedCard variant='primary' style={styles.heroCard} pattern="sacredGeometry" patternOpacity={0.15}>
           <ThemedView style={styles.heroContainer}>
-            <Image source={HomeImages.hero} resizeMode='cover' style={styles.heroImage} />
-            {
-              isDark &&
-              <View style={{ ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0, 0, 255, 0.4)' }} />
-            }
+            <Image source={isDark ?HomeImages.heroDark:HomeImages.hero} resizeMode='cover' style={styles.heroImage} />
             <ThemedView style={styles.textOverlay}>
               <ThemedLanguageText
                 variant="primary"

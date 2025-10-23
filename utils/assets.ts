@@ -26,12 +26,13 @@ const bnAssets = {
   arjuna: require('../clients/bn/assets/images/speaker/arjuna.png'),
   shreekrishna: require('../clients/bn/assets/images/speaker/shreekrishna.png'),
   duryadhona: require('../clients/bn/assets/images/speaker/duryadhona.png'),
+  heroDark: require('../clients/bn/assets/images/Home/hero-dark.png'),
   fonts: {
     'SpaceMono-Regular': require('../clients/bn/assets/fonts/SpaceMono-Regular.ttf'),
     'BenSenHandwriting': require('../clients/bn/assets/fonts/BenSenHandwriting.ttf'),
     'MahinDhakaItalic': require('../clients/bn/assets/fonts/MahinDhakaItalic.ttf'),
     'BegumZiaRegulaCurve': require('../clients/bn/assets/fonts/BegumZiaRegulaCurve.ttf'),
-    'FNMahinSameyaANSI': require('../clients/bn/assets/fonts/FNMahinSameyaANSI.ttf'),
+    'FNMahinSameyaANSI': require('../clients/bn/assets/fonts/FNMahinSameyaANSI.ttf'), 
   },
 };
 
@@ -42,6 +43,7 @@ const orAssets = {
   favicon: require('../clients/or/assets/images/favicon.png'),
   logo: require('../clients/or/assets/images/Home/logo.png'),
   hero: require('../clients/or/assets/images/Home/hero.png'),
+  heroDark: require('../clients/or/assets/images/Home/hero-dark.png'),
   banner1: require('../clients/or/assets/images/onboarding/onboardBanner1.png'),
   banner2: require('../clients/or/assets/images/onboarding/onboardBanner2.png'),
   banner3: require('../clients/or/assets/images/onboarding/onboardBanner3.png'),
@@ -66,6 +68,7 @@ const enAssets = {
   favicon: require('../clients/en/assets/images/favicon.png'),
   logo: require('../clients/en/assets/images/Home/logo.png'),
   hero: require('../clients/en/assets/images/Home/hero.png'),
+  heroDark: require('../clients/en/assets/images/Home/hero-dark.png'),
   banner1: require('../clients/en/assets/images/onboarding/onboardBanner1.png'),
   banner2: require('../clients/en/assets/images/onboarding/onboardBanner2.png'),
   banner3: require('../clients/en/assets/images/onboarding/onboardBanner3.png'),
@@ -86,6 +89,7 @@ const hiAssets = {
   favicon: require('../clients/hi/assets/images/favicon.png'),
   logo: require('../clients/hi/assets/images/Home/logo.png'),
   hero: require('../clients/hi/assets/images/Home/hero.png'),
+  heroDark: require('../clients/hi/assets/images/Home/hero-dark.png'),
   banner1: require('../clients/hi/assets/images/onboarding/onboardBanner1.png'),
   banner2: require('../clients/hi/assets/images/onboarding/onboardBanner2.png'),
   banner3: require('../clients/hi/assets/images/onboarding/onboardBanner3.png'),
@@ -110,6 +114,7 @@ const asAssets = {
   favicon: require('../clients/as/assets/images/favicon.png'),
   logo: require('../clients/as/assets/images/Home/logo.png'),
   hero: require('../clients/as/assets/images/Home/hero.png'),
+  heroDark: require('../clients/as/assets/images/Home/hero-dark.png'),
   banner1: require('../clients/as/assets/images/onboarding/onboardBanner1.png'),
   banner2: require('../clients/as/assets/images/onboarding/onboardBanner2.png'),
   banner3: require('../clients/as/assets/images/onboarding/onboardBanner3.png'),
@@ -155,6 +160,7 @@ export const ClientsImages = {
 export const HomeImages = {
   logo: assets.logo,
   hero: assets.hero,
+  heroDark: assets.heroDark,
 };
 
 // Onboarding Images
