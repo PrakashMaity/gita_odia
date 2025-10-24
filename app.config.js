@@ -93,6 +93,12 @@ export default function ({ config = {} }) {
   
   // Get version from environment variable (from .env files)
   const appVersion = process.env.APP_VERSION || "1.0.0";
+  
+  // Get ad unit IDs from environment variables
+  const bannerAdUnitId = process.env.BANNER_AD_UNIT_ID;
+  const interstitialAdUnitId = process.env.INTERSTITIAL_AD_UNIT_ID;
+  const rewardedAdUnitId = process.env.REWARDED_AD_UNIT_ID;
+  const rewardedInterstitialAdUnitId = process.env.REWARDED_INTERSTITIAL_AD_UNIT_ID;
 
   return {
     ...config,
@@ -129,6 +135,11 @@ export default function ({ config = {} }) {
       LANGUAGE: langConf.languageCode,
       PRIMARY_COLOR: langConf.primaryColor,
       eas: { projectId },
+      // Ad unit IDs from environment variables
+      BANNER_AD_UNIT_ID: bannerAdUnitId,
+      INTERSTITIAL_AD_UNIT_ID: interstitialAdUnitId,
+      REWARDED_AD_UNIT_ID: rewardedAdUnitId,
+      REWARDED_INTERSTITIAL_AD_UNIT_ID: rewardedInterstitialAdUnitId,
     },
     web: {
       output: "static",

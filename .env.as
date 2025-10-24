@@ -1,5 +1,11 @@
-# Assamese Environment Configuration
-APP_LANG=as
+# Assamese Environment Variables
+# Ad Unit IDs for Assamese version (to be filled)
+BANNER_AD_UNIT_ID=
+INTERSTITIAL_AD_UNIT_ID=
+REWARDED_AD_UNIT_ID=
+REWARDED_INTERSTITIAL_AD_UNIT_ID=
+
+# App Configuration
 APP_VERSION=1.0.0
 PROJECT_ID=
 ANDROID_APP_ID=
