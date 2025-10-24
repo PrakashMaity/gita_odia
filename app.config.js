@@ -1,3 +1,10 @@
+// Load environment variables
+import { config } from 'dotenv';
+
+// Load environment variables based on APP_LANG
+const lang = process.env.APP_LANG || 'bn';
+config({ path: `.env.${lang}` });
+
 // # Bengali
 // APP_LANG=bn eas build --platform android --profile bn
 
@@ -74,6 +81,7 @@ const languageConfigs = {
 };
 
 export default function ({ config = {} }) {
+  // Re-get lang after loading environment variables
   const lang = process.env.APP_LANG || "bn";
   const langConf = languageConfigs[lang] || languageConfigs.bn;
   
@@ -82,12 +90,15 @@ export default function ({ config = {} }) {
   // Use Google's test IDs as fallback if not provided
   const androidAppId = process.env.ANDROID_APP_ID || "ca-app-pub-3940256099942544~3347511713";
   const iosAppId = process.env.IOS_APP_ID || "ca-app-pub-3940256099942544~1458002511";
+  
+  // Get version from environment variable (from .env files)
+  const appVersion = process.env.APP_VERSION || "1.0.0";
 
   return {
     ...config,
     name: langConf.name,
     slug: langConf.slug,
-    version: "1.0.2",
+    version: appVersion,
     orientation: "portrait",
     icon: langConf.icon,
     scheme: "gita",
