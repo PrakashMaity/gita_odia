@@ -5,18 +5,13 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { useTranslationStore } from '@/store';
-import { SpeakerImages } from '@/utils/assets';
+import { TranslationData, useTranslationStore } from '@/store';
+import { getSpeakerImage } from '@/utils/speakerUtils';
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
-interface TranslationVerse {
-  verseNumber: string;
-  translation: string;
-  speaker: string;
-  id: string;
-}
+type TranslationVerse = NonNullable<TranslationData['verses']>[0];
 
 export default function TranslationDetailScreen() {
   const { theme } = useTheme();
@@ -59,22 +54,6 @@ export default function TranslationDetailScreen() {
 
   const { chapter, verses } = translationData;
 
-  // Get speaker avatar based on speaker name
-  const getSpeakerAvatar = (speaker: string) => {
-    // Map localized speaker names to images
-    const localizedSpeakers = {
-      [i18n.t('speakers.shreekrishna')]: SpeakerImages.shreekrishna,
-      [i18n.t('speakers.arjuna')]: SpeakerImages.arjuna,
-      [i18n.t('speakers.dhritarystra')]: SpeakerImages.dhritarystra,
-      [i18n.t('speakers.sanjay')]: SpeakerImages.sanjay,
-      [i18n.t('speakers.duryadhona')]: SpeakerImages.duryadhona,
-      [i18n.t('speakers.parameshwar')]: SpeakerImages.shreekrishna,
-      [i18n.t('speakers.shreebhagwan')]: SpeakerImages.shreekrishna,
-    };
-    
-    return localizedSpeakers[speaker] || SpeakerImages.shreekrishna;
-  };
-
   const renderChatMessage = (verse: TranslationVerse, index: number) => {
     const shouldShowBanner = (index + 1) % 4 === 0; // Show banner after every 4 slokas
     
@@ -88,7 +67,7 @@ export default function TranslationDetailScreen() {
           <ThemedView style={styles.messageHeader}>
             <ThemedView style={styles.speakerInfo}>
               <Image 
-                source={getSpeakerAvatar(verse.speaker)} 
+                source={getSpeakerImage(verse.speaker_english)} 
                 style={styles.speakerAvatar}
                 resizeMode="cover"
               />

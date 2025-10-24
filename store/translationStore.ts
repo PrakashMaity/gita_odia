@@ -15,6 +15,7 @@ export interface TranslationData {
     verseNumber: string;
     translation: string;
     speaker: string;
+    speaker_english: string;
     id: string;
   }[];
   summary?: {
@@ -51,6 +52,7 @@ const normalizeTranslationData = (rawData: any): TranslationData => {
       verseNumber: verse.verseNumber,
       translation: verse.translation,
       speaker: verse.speaker,
+      speaker_english: verse.speaker_english,
       id: verse.id,
     })) || [];
 

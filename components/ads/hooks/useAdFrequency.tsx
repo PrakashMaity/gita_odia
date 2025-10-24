@@ -48,28 +48,23 @@ export const useAdFrequency = (config: Partial<AdFrequencyConfig> = {}) => {
   }, [loadedRewarded, lastRewardedTime, finalConfig.rewardedCooldown, sessionAdCount, finalConfig.maxAdsPerSession]);
 
   const showInterstitialIfReady = useCallback(() => {
-    console.log('showInterstitialIfReady called:', {
-      shouldShow: shouldShowInterstitial(),
-      loaded: loadedInterstitial,
-      actionCount,
-      sessionAdCount
-    });
+   
     
     if (shouldShowInterstitial()) {
-      console.log('Showing interstitial - frequency check passed');
+    
       showInterstitial();
       setSessionAdCount(prev => prev + 1);
       return true;
     } else if (loadedInterstitial) {
-      console.log('Showing interstitial - ad loaded but frequency check failed');
+     
       showInterstitial();
       setSessionAdCount(prev => prev + 1);
       return true;
     } else {
-      console.log('Not showing interstitial - ad not loaded');
+    
     }
     return false;
-  }, [shouldShowInterstitial, showInterstitial, loadedInterstitial, actionCount, sessionAdCount]);
+  }, [shouldShowInterstitial, showInterstitial, loadedInterstitial,]);
 
   const showRewardedIfReady = useCallback(() => {
     if (shouldShowRewarded()) {
@@ -85,7 +80,6 @@ export const useAdFrequency = (config: Partial<AdFrequencyConfig> = {}) => {
     setActionCount(0);
     setSessionAdCount(0);
   }, []);
- console.log('actionCount', actionCount);
   return {
     incrementAction,
     showInterstitialIfReady,

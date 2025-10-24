@@ -4,7 +4,7 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { SpeakerImages } from '@/utils/assets';
+import { getSpeakerImage } from '@/utils/speakerUtils';
 import { Image, StyleSheet } from 'react-native';
 import { FavoriteButton } from '../favorite';
 
@@ -13,6 +13,7 @@ interface Verse {
   Language: string;
   translation: string;
   speaker: string;
+  speaker_english: string;
   id: string;
 }
 
@@ -38,20 +39,6 @@ export default function VerseReader({
   onAlert,
 }: VerseReaderProps) {
   const { theme } = useTheme();
-  const speakerImageMapper = (speaker: string) => {
-    // Map localized speaker names to images
-    const localizedSpeakers = {
-      [i18n.t('speakers.dhritarystra')]: SpeakerImages.dhritarystra,
-      [i18n.t('speakers.sanjay')]: SpeakerImages.sanjay,
-      [i18n.t('speakers.arjuna')]: SpeakerImages.arjuna,
-      [i18n.t('speakers.parameshwar')]: SpeakerImages.shreekrishna,
-      [i18n.t('speakers.shreebhagwan')]: SpeakerImages.shreekrishna,
-      [i18n.t('speakers.duryadhona')]: SpeakerImages.duryadhona,
-      [i18n.t('speakers.shreekrishna')]: SpeakerImages.shreekrishna,
-    };
-    
-    return localizedSpeakers[speaker] || SpeakerImages.shreekrishna;
-  }
 
   return (
     <ThemedView style={styles.container}>
@@ -62,7 +49,7 @@ export default function VerseReader({
 
           <ThemedView style={styles.speakerContainer}>
             <ThemedView style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Image source={speakerImageMapper(verse.speaker)} style={{width: 80, height: 80, borderRadius: 40,borderWidth: 3,borderColor: theme.border.primary}} />
+            <Image source={getSpeakerImage(verse.speaker_english)} style={{width: 80, height: 80, borderRadius: 40,borderWidth: 3,borderColor: theme.border.primary}} />
             </ThemedView>
             <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium" style={styles.speaker}>
               {verse.speaker}
