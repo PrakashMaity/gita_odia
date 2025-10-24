@@ -1,4 +1,3 @@
-import { useAdFrequency } from '@/components/ads/hooks/useAdFrequency';
 import { DailySlokaNotification } from '@/components/notification';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
@@ -36,9 +35,7 @@ const Home = () => {
   } = useNotificationStore();
   const { isDark } = useThemeMode();
   const { loadAllChapters } = useChapterStore();
-  const { incrementAction, showInterstitialIfReady } = useAdFrequency({
-    interstitialInterval: 2, // Show interstitial every 2 actions on home
-  });
+  
 
   // Load chapters and check for daily sloka on component mount
   useEffect(() => {
@@ -58,14 +55,9 @@ const Home = () => {
   }, [loadAllChapters, shouldShowNewNotification, setDailySloka, setNotificationVisible]);
 
   const handleMenuItemPress = (item: MenuItem) => {
-    incrementAction();
+    
     const handler = getNavigationHandler(item);
     handler();
-
-    // Show interstitial after navigation
-    setTimeout(() => {
-      showInterstitialIfReady();
-    }, 500);
   };
 
   const handleNotificationClose = () => {
@@ -181,9 +173,8 @@ const Home = () => {
           <ThemedButton
             title={i18n.t('gitaSummary.title')}
             onPress={() => {
-              incrementAction();
-              getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
-              setTimeout(() => showInterstitialIfReady(), 500);
+              
+              getNavigationHandler({ id: 'gita-summary' } as MenuItem)();  
             }}
             variant="basic"
             size="md"
@@ -193,9 +184,8 @@ const Home = () => {
           <ThemedButton
             title={i18n.t('gitaMahatmya.title')}
             onPress={() => {
-              incrementAction();
+              
               getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();
-              setTimeout(() => showInterstitialIfReady(), 500);
             }}
             variant="basic"
             size="md"
