@@ -5,20 +5,6 @@ import { config } from 'dotenv';
 const lang = process.env.APP_LANG || 'bn';
 config({ path: `.env.${lang}` });
 
-// # Bengali
-// APP_LANG=bn eas build --platform android --profile bn
-
-// # Odia
-// APP_LANG=or eas build --platform android --profile or
-
-// # English
-// APP_LANG=en eas build --platform android --profile en
-
-// # Hindi
-// APP_LANG=hi eas build --platform android --profile hi
-
-// # Assamese
-// APP_LANG=as eas build --platform android --profile as
 
 
 // Language-specific configuration
@@ -33,6 +19,14 @@ const languageConfigs = {
     icon: "./clients/bn/assets/images/icon.png",
     splash: "./clients/bn/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/bn/assets/images/adaptive-icon.png",
+    projectId: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+    androidAppId: "ca-app-pub-3940256099942544~3347511713",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.3",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
   },
   or: {
     name: "ଗୀତା ଓଡ଼ିଆ",
@@ -44,6 +38,14 @@ const languageConfigs = {
     icon: "./clients/or/assets/images/icon.png",
     splash: "./clients/or/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/or/assets/images/adaptive-icon.png",
+    projectId: "9fdf2660-de92-4a98-a5d6-430dd6148fd0",
+    androidAppId: "ca-app-pub-3406043589920136~2020163874",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.0",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/6223132767",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/5184000379",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/2722871459",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3596969423"
   },
   en: {
     name: "Bhagavad Gita",
@@ -55,6 +57,14 @@ const languageConfigs = {
     icon: "./clients/en/assets/images/icon.png",
     splash: "./clients/en/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/en/assets/images/adaptive-icon.png",
+    projectId: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+    androidAppId: "ca-app-pub-3940256099942544~3347511713",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.0",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
   },
   hi: {
     name: "गीता हिंदी",
@@ -66,6 +76,14 @@ const languageConfigs = {
     icon: "./clients/hi/assets/images/icon.png",
     splash: "./clients/hi/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/hi/assets/images/adaptive-icon.png",
+    projectId: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+    androidAppId: "ca-app-pub-3940256099942544~3347511713",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.0",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
   },
   as: {
     name: "গীতা অসমীয়া",
@@ -77,6 +95,14 @@ const languageConfigs = {
     icon: "./clients/as/assets/images/icon.png",
     splash: "./clients/as/assets/images/splash-icon.png",
     adaptiveIcon: "./clients/as/assets/images/adaptive-icon.png",
+    projectId: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+    androidAppId: "ca-app-pub-3940256099942544~3347511713",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.0",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
   },
 };
 
@@ -85,16 +111,11 @@ export default function ({ config = {} }) {
   const lang = process.env.APP_LANG || "bn";
   const langConf = languageConfigs[lang] || languageConfigs.bn;
   
-  // Get configuration from environment variables
-  const projectId = process.env.PROJECT_ID||"4276c4fa-4062-4c56-9fb4-26fabacd8a23"
-  // Use Google's test IDs as fallback if not provided
-  const androidAppId = process.env.ANDROID_APP_ID || "ca-app-pub-3940256099942544~3347511713";
-  const iosAppId = process.env.IOS_APP_ID || "ca-app-pub-3940256099942544~1458002511";
-  
-  // Get version from environment variable (from .env files)
-  const appVersion = process.env.APP_VERSION || "1.0.0";
-  
-  // Get ad unit IDs from environment variables
+  // Get configuration from languageConfigs
+  const projectId = langConf.projectId;
+  const androidAppId = langConf.androidAppId;
+  const iosAppId = langConf.iosAppId;
+  const appVersion = langConf.appVersion;
   
 
   return {
@@ -132,11 +153,10 @@ export default function ({ config = {} }) {
       LANGUAGE: langConf.languageCode,
       PRIMARY_COLOR: langConf.primaryColor,
       eas: { projectId },
-      // Ad unit IDs from environment variables
-      BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
-      INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
-      REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
-      REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
+      BANNER_AD_UNIT_ID: langConf.BANNER_AD_UNIT_ID,
+      INTERSTITIAL_AD_UNIT_ID: langConf.INTERSTITIAL_AD_UNIT_ID,
+      REWARDED_AD_UNIT_ID: langConf.REWARDED_AD_UNIT_ID,
+      REWARDED_INTERSTITIAL_AD_UNIT_ID: langConf.REWARDED_INTERSTITIAL_AD_UNIT_ID
     },
     web: {
       output: "static",
