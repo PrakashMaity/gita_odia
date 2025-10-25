@@ -40,5 +40,12 @@ app-example
 
 # generated native folders
 # These should be regenerated using 'expo prebuild' for each language variant
-/android
-/ios
+# /android  # Commented out to allow android folder for EAS builds
+# /ios      # Commented out to allow ios folder for EAS builds
+
+# Ignore build outputs instead
+android/app/build/
+android/app/.cxx/
+android/build/
+android/.gradle/
+ios/build/

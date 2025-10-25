@@ -1,0 +1,34 @@
+# EAS Build ignore file
+# Add patterns for files/directories that should NOT be uploaded to EAS
+
+# Build outputs
+**/build/
+**/dist/
+**/.expo/
+**/.git/
+**/node_modules/
+
+# OS files
+.DS_Store
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Testing
+coverage/
+**/__tests__/
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Documentation
+README.md
+*.md
+
+# Don't ignore android/gradlew - it's needed for building!
+!android/gradlew
+!android/gradlew.bat

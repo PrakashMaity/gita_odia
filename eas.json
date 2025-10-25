@@ -6,41 +6,62 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "android": {
+        "gradleCommand": ":app:bundleRelease"
+      }
     },
     "bn": {
       "extends": "production",
       "env": {
         "APP_LANG": "bn"
       },
-      "channel": "bn"
+      "channel": "bn",
+      "android": {
+        "buildType": "apk"
+      }
     },
     "or": {
       "extends": "production",
       "env": {
         "APP_LANG": "or"
       },
-      "channel": "or"
+      "channel": "or",
+      "android": {
+        "buildType": "apk"
+      }
     },
     "hi": {
       "extends": "production",
       "env": {
         "APP_LANG": "hi"
       },
-      "channel": "hi"
+      "channel": "hi",
+      "android": {
+        "buildType": "apk"
+      }
     },
     "as": {
       "extends": "production",
       "env": {
         "APP_LANG": "as"
       },
-      "channel": "as"
+      "channel": "as",
+      "android": {
+        "buildType": "apk"
+      }
     }
   },
   "submit": {

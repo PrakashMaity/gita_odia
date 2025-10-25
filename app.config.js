@@ -86,7 +86,7 @@ export default function ({ config = {} }) {
   const langConf = languageConfigs[lang] || languageConfigs.bn;
   
   // Get configuration from environment variables
-  const projectId = process.env.PROJECT_ID;
+  const projectId = process.env.PROJECT_ID||"4276c4fa-4062-4c56-9fb4-26fabacd8a23"
   // Use Google's test IDs as fallback if not provided
   const androidAppId = process.env.ANDROID_APP_ID || "ca-app-pub-3940256099942544~3347511713";
   const iosAppId = process.env.IOS_APP_ID || "ca-app-pub-3940256099942544~1458002511";
@@ -95,10 +95,7 @@ export default function ({ config = {} }) {
   const appVersion = process.env.APP_VERSION || "1.0.0";
   
   // Get ad unit IDs from environment variables
-  const bannerAdUnitId = process.env.BANNER_AD_UNIT_ID;
-  const interstitialAdUnitId = process.env.INTERSTITIAL_AD_UNIT_ID;
-  const rewardedAdUnitId = process.env.REWARDED_AD_UNIT_ID;
-  const rewardedInterstitialAdUnitId = process.env.REWARDED_INTERSTITIAL_AD_UNIT_ID;
+  
 
   return {
     ...config,
@@ -136,10 +133,10 @@ export default function ({ config = {} }) {
       PRIMARY_COLOR: langConf.primaryColor,
       eas: { projectId },
       // Ad unit IDs from environment variables
-      BANNER_AD_UNIT_ID: bannerAdUnitId,
-      INTERSTITIAL_AD_UNIT_ID: interstitialAdUnitId,
-      REWARDED_AD_UNIT_ID: rewardedAdUnitId,
-      REWARDED_INTERSTITIAL_AD_UNIT_ID: rewardedInterstitialAdUnitId,
+      BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+      INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+      REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+      REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
     },
     web: {
       output: "static",
