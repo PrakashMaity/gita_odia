@@ -5,8 +5,8 @@ import { SIZES } from '@/constants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useProgressStore } from '@/store';
+import { formatLastReadDate } from '@/utils/dateUtils';
 import { Ionicons } from '@expo/vector-icons';
-import Constants from 'expo-constants';
 import React, { useEffect } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -55,26 +55,6 @@ export default function ReadingProgress({
     return getProgressPercentage(chapterId, currentVerseIndex, totalVerses);
   };
 
-  // Get current language and locale mapping
-  const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
-  const localeMap: Record<string, string> = {
-    bn: 'bn-BD',
-    or: 'or-IN',
-    hi: 'hi-IN',
-    as: 'as-IN',
-  };
-
-  const formatLastReadDate = () => {
-    if (!chapterProgress) return '';
-    const date = new Date(chapterProgress.lastReadDate);
-    const locale = localeMap[currentLang] || 'bn-BD';
-    return date.toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
-
   if (isLoading) {
     return (
       <ThemedView style={styles.container}>
@@ -111,7 +91,7 @@ export default function ReadingProgress({
       </ThemedView>
 
       <ThemedLanguageText variant="secondary" fontFamily='regional_secondary' size="medium" style={styles.progressSubtitle}>
-        {i18n.t('progress.lastRead', { date: formatLastReadDate() })}
+        {i18n.t('progress.lastRead', { date: chapterProgress ? formatLastReadDate(chapterProgress.lastReadDate) : '' })}
       </ThemedLanguageText>
 
       <ThemedView style={styles.progressBarContainer}>

@@ -6,9 +6,9 @@ import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAler
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { FavoriteVerse, useFavoriteStore } from '@/store';
-import { SpeakerImages } from '@/utils/assets';
+import { formatFullDate } from '@/utils/dateUtils';
+import { getSpeakerAvatar } from '@/utils/speakerUtils';
 import { Ionicons } from '@expo/vector-icons';
-import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -16,17 +16,6 @@ export default function FavoritesScreen() {
   const { theme } = useTheme();
   const { removeFavorite, clearAllFavorites, isLoading, getFavoritesSortedByDate } = useFavoriteStore();
   const { showAlert, AlertComponent } = useCustomAlert();
-  
-  // Get current language
-  const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
-  
-  // Locale mapping for date formatting
-  const localeMap: Record<string, string> = {
-    bn: 'bn-BD',
-    or: 'or-IN',
-    hi: 'hi-IN',
-    as: 'as-IN',
-  };
   
   // Get favorites sorted by date (newest first)
   const sortedFavorites = getFavoritesSortedByDate();
@@ -69,44 +58,6 @@ export default function FavoritesScreen() {
     ));
   };
 
-  const formatDate = (timestamp: number) => {
-    const date = new Date(timestamp);
-    const locale = localeMap[currentLang] || 'bn-BD';
-    return date.toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
-  // Get speaker avatar based on chapter number
-  const getSpeakerAvatar = (chapterNumber: string) => {
-    // You can add more speaker avatars here based on chapter
-    switch (chapterNumber) {
-      case '১':
-        return SpeakerImages.dhritarystra;
-      case '২':
-      case '৩':
-      case '৪':
-      case '৫':
-      case '৬':
-      case '৭':
-      case '৮':
-      case '৯':
-      case '১০':
-      case '১১':
-      case '১২':
-      case '১৩':
-      case '১৪':
-      case '১৫':
-      case '১৬':
-      case '১৭':
-      case '১৮':
-        return SpeakerImages.shreekrishna;
-      default:
-        return SpeakerImages.shreekrishna;
-    }
-  };
 
   const renderFavorite = (favorite: FavoriteVerse, index: number) => (
     <TouchableOpacity
@@ -138,7 +89,7 @@ export default function FavoritesScreen() {
                 fontFamily="regional_secondary"
                 style={styles.favoriteDate}
               >
-                {formatDate(favorite.timestamp)}
+                {formatFullDate(favorite.timestamp)}
               </ThemedLanguageText>
             </ThemedView>
           </ThemedView>

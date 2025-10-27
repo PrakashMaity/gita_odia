@@ -10,10 +10,10 @@ import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
 import { Bookmark, useBookmarkStore } from '@/store';
+import { formatFullDate } from '@/utils/dateUtils';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
-import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -29,17 +29,6 @@ export default function BookmarksScreen() {
   
   // State to force re-render when bookmarks change
   const [refreshKey, setRefreshKey] = useState(0);
-  
-  // Get current language
-  const currentLang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
-  
-  // Locale mapping for date formatting
-  const localeMap: Record<string, string> = {
-    bn: 'bn-BD',
-    or: 'or-IN',
-    hi: 'hi-IN',
-    as: 'as-IN',
-  };
   
   // Use focus effect to refresh bookmarks when tab is focused
   useFocusEffect(
@@ -98,16 +87,6 @@ export default function BookmarksScreen() {
     ));
   };
 
-  const formatDate = (timestamp: number) => {
-    const date = new Date(timestamp);
-    const locale = localeMap[currentLang] || 'bn-BD';
-    return date.toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   const renderBookmark = (bookmark: Bookmark, index: number) => (
     <TouchableOpacity
       key={`${bookmark.verseId}-${index}`}
@@ -160,7 +139,7 @@ export default function BookmarksScreen() {
               fontFamily="regional_secondary"
               style={styles.bookmarkDate}
             >
-              ({formatDate(bookmark.timestamp)})
+              ({formatFullDate(bookmark.timestamp)})
             </ThemedLanguageText>
           </ThemedView>
 
