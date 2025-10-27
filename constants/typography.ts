@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import { assameseTypography } from '../clients/as/theme';
 import { bengaliTypography } from '../clients/bn/theme';
 import { englishTypography } from '../clients/en/theme';
+import { gujaratiTypography } from '../clients/gu/theme';
 import { hindiTypography } from '../clients/hi/theme';
 import { nepaliTypography } from '../clients/ne/theme';
 import { odiaTypography } from '../clients/or/theme';
@@ -74,6 +75,8 @@ const getClientTypography = (): ClientTypography => {
       return assameseTypography;
     case 'ne':
       return nepaliTypography;
+    case 'gu':
+      return gujaratiTypography;
     case 'or':
     default:
       return odiaTypography;

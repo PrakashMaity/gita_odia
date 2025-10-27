@@ -1,6 +1,7 @@
 import { asChapters } from "@/clients/as/data";
 import { bnChapters } from "@/clients/bn/data";
 import { enChapters } from "@/clients/en/data";
+import { guChapters } from "@/clients/gu/data";
 import { hiChapters } from "@/clients/hi/data";
 import { neChapters } from "@/clients/ne/data";
 import { orChapters } from "@/clients/or/data";
@@ -10,6 +11,7 @@ const chapterImports: Record<string, any[]> = {
     bn: [...bnChapters],
     or: [...orChapters],
     en: [...enChapters],
+    gu: [...guChapters],
     hi: [...hiChapters],
     as: [...asChapters],
     ne: [...neChapters],

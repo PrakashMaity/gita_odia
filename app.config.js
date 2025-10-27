@@ -123,6 +123,25 @@ const languageConfigs = {
     REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
     REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
   },
+  gu: {
+    name: "શ્રીમદ્ ભગવદ્ ગીતા",
+    slug: "gita-gujarati",
+    iosBundleIdentifier: "com.gita.gujarati",
+    androidPackage: "com.gita.gujarati",
+    primaryColor: "#ffffff",
+    languageCode: "gu",
+    icon: "./clients/gu/assets/images/icon.png",
+    splash: "./clients/gu/assets/images/splash-icon.png",
+    adaptiveIcon: "./clients/gu/assets/images/adaptive-icon.png",
+    projectId: "4276c4fa-4062-4c56-9fb4-26fabacd8a23",
+    androidAppId: "ca-app-pub-3940256099942544~3347511713",
+    iosAppId: "ca-app-pub-3940256099942544~1458002511",
+    appVersion: "1.0.0",
+    BANNER_AD_UNIT_ID: "ca-app-pub-3406043589920136/4136707352",
+    INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/2823625684",
+    REWARDED_AD_UNIT_ID: "ca-app-pub-3406043589920136/5062776214",
+    REWARDED_INTERSTITIAL_AD_UNIT_ID: "ca-app-pub-3406043589920136/3167278602"
+  },
 };
 
 export default function ({ config = {} }) {

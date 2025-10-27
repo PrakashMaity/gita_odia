@@ -2,6 +2,7 @@ import Constants from 'expo-constants';
 import { assameseColors } from '../clients/as/theme';
 import { bengaliColors } from '../clients/bn/theme';
 import { englishColors } from '../clients/en/theme';
+import { gujaratiColors } from '../clients/gu/theme';
 import { hindiColors } from '../clients/hi/theme';
 import { nepaliColors } from '../clients/ne/theme';
 import { odiaColors } from '../clients/or/theme';
@@ -79,6 +80,8 @@ const getClientColors = (): ClientColors => {
       return assameseColors;
     case 'ne':
       return nepaliColors;
+    case 'gu':
+      return gujaratiColors;
     case 'or':
     default:
       return odiaColors;

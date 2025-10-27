@@ -31,7 +31,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
 }
 expoAutolinking.useExpoModules()
 
-rootProject.name = 'भगवद्गीता नेपाली'
+rootProject.name = 'શ્રીમદ્ ભગવદ્ ગીતા'
 
 expoAutolinking.useExpoVersionCatalog()
 

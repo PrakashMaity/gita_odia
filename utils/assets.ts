@@ -157,6 +157,31 @@ const neAssets = {
   },
 };
 
+const guAssets = {
+  icon: require('../clients/gu/assets/images/icon.png'),
+  splash: require('../clients/gu/assets/images/splash-icon.png'),
+  adaptiveIcon: require('../clients/gu/assets/images/adaptive-icon.png'),
+  favicon: require('../clients/gu/assets/images/favicon.png'),
+  logo: require('../clients/gu/assets/images/Home/logo.png'),
+  hero: require('../clients/gu/assets/images/Home/hero.png'),
+  heroDark: require('../clients/gu/assets/images/Home/hero-dark.png'),
+  banner1: require('../clients/gu/assets/images/onboarding/onboardBanner1.png'),
+  banner2: require('../clients/gu/assets/images/onboarding/onboardBanner2.png'),
+  banner3: require('../clients/gu/assets/images/onboarding/onboardBanner3.png'),
+  dhritarystra: require('../clients/gu/assets/images/speaker/dhritarystra.png'),
+  sanjay: require('../clients/gu/assets/images/speaker/sanjay.png'),
+  arjuna: require('../clients/gu/assets/images/speaker/arjuna.png'),
+  shreekrishna: require('../clients/gu/assets/images/speaker/shreekrishna.png'),
+  duryadhona: require('../clients/gu/assets/images/speaker/duryadhona.png'),
+  fonts: {
+    'SpaceMono-Regular': require('../clients/gu/assets/fonts/SpaceMono-Regular.ttf'),
+    'BenSenHandwriting': require('../clients/gu/assets/fonts/BenSenHandwriting.ttf'),
+    'MahinDhakaItalic': require('../clients/gu/assets/fonts/MahinDhakaItalic.ttf'),
+    'BegumZiaRegulaCurve': require('../clients/gu/assets/fonts/BegumZiaRegulaCurve.ttf'),
+    'FNMahinSameyaANSI': require('../clients/gu/assets/fonts/FNMahinSameyaANSI.ttf'),
+  },
+};
+
 // Select assets based on language with error handling
 const getAssets = () => {
   try {
@@ -165,6 +190,7 @@ const getAssets = () => {
     if (LANG === 'hi') return hiAssets;
     if (LANG === 'as') return asAssets;
     if (LANG === 'ne') return neAssets;
+    if (LANG === 'gu') return guAssets;
     return bnAssets; // Default to bn
   } catch (error) {
     console.error('Error loading assets for language:', LANG, error);
