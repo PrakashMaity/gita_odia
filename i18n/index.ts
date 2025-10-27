@@ -5,6 +5,7 @@ import as from './as.json';
 import bn from './bn.json';
 import en from './en.json';
 import hi from './hi.json';
+import ne from './ne.json';
 import or from './or.json';
 
 const translations = {
@@ -13,6 +14,7 @@ const translations = {
     en: en,
     hi: hi,
     as: as,
+    ne: ne,
   };
   const i18n = new I18n(translations);
   

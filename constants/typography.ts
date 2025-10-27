@@ -3,6 +3,7 @@ import { assameseTypography } from '../clients/as/theme';
 import { bengaliTypography } from '../clients/bn/theme';
 import { englishTypography } from '../clients/en/theme';
 import { hindiTypography } from '../clients/hi/theme';
+import { nepaliTypography } from '../clients/ne/theme';
 import { odiaTypography } from '../clients/or/theme';
 
 // Type for client typography configuration
@@ -71,6 +72,8 @@ const getClientTypography = (): ClientTypography => {
       return hindiTypography;
     case 'as':
       return assameseTypography;
+    case 'ne':
+      return nepaliTypography;
     case 'or':
     default:
       return odiaTypography;

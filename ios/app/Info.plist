@@ -7,7 +7,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
-    <string>ଗୀତା ଓଡ଼ିଆ</string>
+    <string>भगवद्गीता नेपाली</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>gita</string>
-          <string>com.gita.odia</string>
+          <string>com.gita.nepali</string>
         </array>
       </dict>
     </array>

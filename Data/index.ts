@@ -2,6 +2,7 @@ import { asChapters } from "@/clients/as/data";
 import { bnChapters } from "@/clients/bn/data";
 import { enChapters } from "@/clients/en/data";
 import { hiChapters } from "@/clients/hi/data";
+import { neChapters } from "@/clients/ne/data";
 import { orChapters } from "@/clients/or/data";
 import Constants from 'expo-constants';
 
@@ -11,6 +12,7 @@ const chapterImports: Record<string, any[]> = {
     en: [...enChapters],
     hi: [...hiChapters],
     as: [...asChapters],
+    ne: [...neChapters],
   };
 
 // Get language with error handling
