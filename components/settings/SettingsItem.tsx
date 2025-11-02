@@ -1,5 +1,5 @@
 import { SIZES } from '@/constants/sizes';
-import { TYPOGRAPHY } from '@/constants/typography';
+import { typography as TYPOGRAPHY } from '@/constants/typography';
 import { useTheme } from '@/hooks/useTheme';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';

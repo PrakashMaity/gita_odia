@@ -1,4 +1,4 @@
-import { TYPOGRAPHY } from '@/constants/typography';
+import { typography as TYPOGRAPHY } from '@/constants/typography';
 import React from 'react';
 import { Animated, TextProps, TextStyle } from 'react-native';
 import { useThemeColors } from '../../../hooks/useTheme';

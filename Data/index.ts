@@ -1,32 +1,23 @@
-import { asChapters } from "@/clients/as/data";
-import { bnChapters } from "@/clients/bn/data";
-import { enChapters } from "@/clients/en/data";
-import { guChapters } from "@/clients/gu/data";
-import { hiChapters } from "@/clients/hi/data";
-import { neChapters } from "@/clients/ne/data";
-import { orChapters } from "@/clients/or/data";
-import Constants from 'expo-constants';
+export const bnChapters = [
+    require('./chapter1.json'),
+    require('./chapter2.json'),
+    require('./chapter3.json'),
+    require('./chapter4.json'),
+    require('./chapter5.json'),
+    require('./chapter6.json'),
+    require('./chapter7.json'),
+    require('./chapter8.json'),
+    require('./chapter9.json'),
+    require('./chapter10.json'),
+    require('./chapter11.json'),
+    require('./chapter12.json'),
+    require('./chapter13.json'),
+    require('./chapter14.json'),
+    require('./chapter15.json'),
+    require('./chapter16.json'),
+    require('./chapter17.json'),
+    require('./chapter18.json'),
+]
 
-const chapterImports: Record<string, any[]> = {
-    bn: [...bnChapters],
-    or: [...orChapters],
-    en: [...enChapters],
-    gu: [...guChapters],
-    hi: [...hiChapters],
-    as: [...asChapters],
-    ne: [...neChapters],
-  };
-
-// Get language with error handling
-const getLang = () => {
-  try {
-    return Constants.expoConfig?.extra?.LANGUAGE || 'bn';
-  } catch (error) {
-    console.error('Error reading language from Constants:', error);
-    return 'bn'; // Fallback to Bengali
-  }
-};
-
-const lang = getLang();
-export const rawChapters = chapterImports[lang] || chapterImports['bn'];
-  
+// Export as rawChapters for backward compatibility
+export const rawChapters = bnChapters;

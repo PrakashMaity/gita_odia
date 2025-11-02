@@ -1,11 +1,5 @@
 import Constants from 'expo-constants';
-import { assameseColors } from '../clients/as/theme';
-import { bengaliColors } from '../clients/bn/theme';
-import { englishColors } from '../clients/en/theme';
-import { gujaratiColors } from '../clients/gu/theme';
-import { hindiColors } from '../clients/hi/theme';
-import { nepaliColors } from '../clients/ne/theme';
-import { odiaColors } from '../clients/or/theme';
+import { bengaliColors } from './colors';
 
 // Type for client color configuration
 export interface ClientColors {
@@ -65,31 +59,8 @@ export interface ClientColors {
   accent900: string;
 }
 
-// Get client-specific colors based on APP_LANG environment variable
-const getClientColors = (): ClientColors => {
-  const language = Constants.expoConfig?.extra?.LANGUAGE || 'or';
-  
-  switch (language) {
-    case 'bn':
-      return bengaliColors;
-    case 'en':
-      return englishColors;
-    case 'hi':
-      return hindiColors;
-    case 'as':
-      return assameseColors;
-    case 'ne':
-      return nepaliColors;
-    case 'gu':
-      return gujaratiColors;
-    case 'or':
-    default:
-      return odiaColors;
-  }
-};
-
-// Get client colors
-const clientColors = getClientColors();
+// Use Bengali colors as default
+const clientColors = bengaliColors;
 
 // Export colors with client-specific values
 export const colors = {

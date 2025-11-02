@@ -1,6 +1,4 @@
-
-export * from './colorUtils';
-export * from './parameter';
-export * from './theme';
-export * from './tint';
+export { bengaliColors as colors } from './colors';
+export { PARAMETERS } from './parameter';
+export { typography } from './typography';
 

@@ -1,4 +1,4 @@
-import { TYPOGRAPHY } from '../constants/typography';
+import { typography as TYPOGRAPHY } from '../constants/typography';
 
 // Font configuration type
 export interface LanguageFonts {

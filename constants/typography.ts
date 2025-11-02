@@ -1,157 +1,64 @@
-import Constants from 'expo-constants';
-import { assameseTypography } from '../clients/as/theme';
-import { bengaliTypography } from '../clients/bn/theme';
-import { englishTypography } from '../clients/en/theme';
-import { gujaratiTypography } from '../clients/gu/theme';
-import { hindiTypography } from '../clients/hi/theme';
-import { nepaliTypography } from '../clients/ne/theme';
-import { odiaTypography } from '../clients/or/theme';
+import { SIZES } from './sizes';
 
-// Type for client typography configuration
-export interface ClientTypography {
+// Bengali Typography Configuration
+export const typography = {
+  // Font Families
   fontFamily: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-    quaternary: string;
-    english: string;
-  };
+    primary: 'BegumZiaRegulaCurve',     // Elegant curved Bengali font for body
+    secondary: 'MahinDhakaItalic',      // Italic style for emphasis
+    tertiary: 'FNMahinSameyaANSI',      // Traditional Bengali for headings
+    quaternary: 'BenSenHandwriting',    // Handwritten style for special text
+    english: 'SpaceMono-Regular',       // English fallback
+  },
+  
+  // Font Sizes (Bengali script needs good readability)
   fontSize: {
-    xs: number;
-    sm: number;
-    md: number;
-    lg: number;
-    xl: number;
-    xxl: number;
-    xxxl: number;
-    title: number;
-    largeTitle: number;
-    huge: number;
-    extraLargeTitle: number;
-  };
+    xs: SIZES.xs,                       // 12
+    sm: SIZES.sm,                       // 14
+    md: SIZES.md + 1,                   // 17
+    lg: SIZES.lg + 1,                   // 19
+    xl: SIZES.xl + 1,                   // 21
+    xxl: SIZES.xxl + 1,                 // 25
+    xxxl: SIZES.xxxl + 1,               // 31
+    title: SIZES.title + 2,             // 36
+    largeTitle: SIZES.largeTitle + 2,   // 42
+    huge: SIZES.huge + 2,               // 50
+    extraLargeTitle: SIZES.extraLargeTitle + 2, // 58
+  },
+  
+  // Line Heights (Bengali has vowel marks above/below, needs extra space)
   lineHeight: {
-    xs: number;
-    sm: number;
-    md: number;
-    lg: number;
-    xl: number;
-    xxl: number;
-    xxxl: number;
-    title: number;
-    largeTitle: number;
-    huge: number;
-  };
+    xs: 16,
+    sm: 19,
+    md: 24,
+    lg: 28,
+    xl: 30,
+    xxl: 33,
+    xxxl: 38,
+    title: 42,
+    largeTitle: 48,
+    huge: 56,
+  },
+  
+  // Font Weights
   fontWeight: {
-    thin: string;
-    light: string;
-    normal: string;
-    medium: string;
-    semiBold: string;
-    bold: string;
-    extraBold: string;
-    black: string;
-  };
+    thin: '100',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semiBold: '600',
+    bold: '700',
+    extraBold: '800',
+    black: '900',
+  },
+  
+  // Letter Spacing (Bengali benefits from normal to slightly wider spacing)
   letterSpacing: {
-    tight: number;
-    normal: number;
-    wide: number;
-    wider: number;
-    widest: number;
-  };
-}
-
-// Get client-specific typography based on APP_LANG environment variable
-const getClientTypography = (): ClientTypography => {
-  const language = Constants.expoConfig?.extra?.LANGUAGE || 'or';
-  
-  switch (language) {
-    case 'bn':
-      return bengaliTypography;
-    case 'en':
-      return englishTypography;
-    case 'hi':
-      return hindiTypography;
-    case 'as':
-      return assameseTypography;
-    case 'ne':
-      return nepaliTypography;
-    case 'gu':
-      return gujaratiTypography;
-    case 'or':
-    default:
-      return odiaTypography;
-  }
-};
-
-// Get client typography
-const clientTypography = getClientTypography();
-
-// Export typography with client-specific values
-export const TYPOGRAPHY = {
-  // Font Families (client-specific)
-  fontFamily: {
-    primary: clientTypography.fontFamily.primary,
-    secondary: clientTypography.fontFamily.secondary,
-    tertiary: clientTypography.fontFamily.tertiary,
-    quaternary: clientTypography.fontFamily.quaternary,
-    english: clientTypography.fontFamily.english,
-  },
-  
-  // Font Sizes (client-specific, adjusted per language needs)
-  fontSize: {
-    xs: clientTypography.fontSize.xs,
-    sm: clientTypography.fontSize.sm,
-    md: clientTypography.fontSize.md,
-    lg: clientTypography.fontSize.lg,
-    xl: clientTypography.fontSize.xl,
-    xxl: clientTypography.fontSize.xxl,
-    xxxl: clientTypography.fontSize.xxxl,
-    title: clientTypography.fontSize.title,
-    largeTitle: clientTypography.fontSize.largeTitle,
-    huge: clientTypography.fontSize.huge,
-    extraLargeTitle: clientTypography.fontSize.extraLargeTitle,
-  },
-  
-  // Line Heights (client-specific, adjusted for script requirements)
-  lineHeight: {
-    xs: clientTypography.lineHeight.xs,
-    sm: clientTypography.lineHeight.sm,
-    md: clientTypography.lineHeight.md,
-    lg: clientTypography.lineHeight.lg,
-    xl: clientTypography.lineHeight.xl,
-    xxl: clientTypography.lineHeight.xxl,
-    xxxl: clientTypography.lineHeight.xxxl,
-    title: clientTypography.lineHeight.title,
-    largeTitle: clientTypography.lineHeight.largeTitle,
-    huge: clientTypography.lineHeight.huge,
-  },
-  
-  // Font Weights (common across all clients)
-  fontWeight: {
-    thin: clientTypography.fontWeight.thin,
-    light: clientTypography.fontWeight.light,
-    normal: clientTypography.fontWeight.normal,
-    medium: clientTypography.fontWeight.medium,
-    semiBold: clientTypography.fontWeight.semiBold,
-    bold: clientTypography.fontWeight.bold,
-    extraBold: clientTypography.fontWeight.extraBold,
-    black: clientTypography.fontWeight.black,
-  },
-  
-  // Letter Spacing (client-specific, adjusted per script needs)
-  letterSpacing: {
-    tight: clientTypography.letterSpacing.tight,
-    normal: clientTypography.letterSpacing.normal,
-    wide: clientTypography.letterSpacing.wide,
-    wider: clientTypography.letterSpacing.wider,
-    widest: clientTypography.letterSpacing.widest,
+    tight: -0.3,
+    normal: 0.2,
+    wide: 0.7,
+    wider: 1.1,
+    widest: 2,
   },
 } as const;
 
-// Helper function to get client language
-export const getClientLanguage = (): string => {
-  return Constants.expoConfig?.extra?.LANGUAGE || 'or';
-};
-
-// Export type for external use
-export type Typography = typeof TYPOGRAPHY;
