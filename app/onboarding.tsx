@@ -2,7 +2,7 @@ import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/constants/sizes';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTheme, useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useSettingsStore } from '@/store';

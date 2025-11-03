@@ -1,6 +1,6 @@
   import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
-import { SIZES } from '@/constants/sizes';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { getLanguageFonts } from '@/interface/font.interface';

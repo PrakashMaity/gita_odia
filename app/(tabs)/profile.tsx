@@ -2,8 +2,8 @@ import { SettingsItem, SettingsSection, SettingsToggle } from '@/components/sett
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/constants/sizes';
-import { typography as TYPOGRAPHY } from '@/constants/typography';
+import { SIZES } from '@/rootconstants/sizes';
+import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import { useTheme, useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';

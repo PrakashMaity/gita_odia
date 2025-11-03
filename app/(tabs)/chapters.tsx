@@ -5,7 +5,7 @@ import { ThemedLinearProgress } from '@/components/ui/ThemedLinearProgress';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/constants/sizes';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';

@@ -1,6 +1,7 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { ThemeProvider } from '@/hooks/useTheme';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
@@ -9,7 +10,6 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ThemeProvider } from '../hooks/useTheme';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {

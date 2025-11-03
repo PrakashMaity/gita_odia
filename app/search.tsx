@@ -3,7 +3,7 @@ import { SearchBar, SearchResults } from '@/components/search';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/constants/sizes';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useChapterStore } from '@/store';
