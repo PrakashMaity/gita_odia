@@ -1,0 +1,2 @@
+export { GitaMahatmyaScreen } from './GitaMahatmyaScreen';
+

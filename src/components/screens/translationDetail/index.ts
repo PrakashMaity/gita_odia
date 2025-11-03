@@ -1,0 +1,2 @@
+export { TranslationDetailScreen } from './TranslationDetailScreen';
+

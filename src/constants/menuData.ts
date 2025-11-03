@@ -1,4 +1,4 @@
-import { getNavigationHandler } from '@/components/home/navigationHandlers';
+import { getNavigationHandler } from '@/components/screens/home/navigationHandlers';
 import i18n from '@/i18n';
 import { FontAwesome6, MaterialIcons } from '@expo/vector-icons';
 

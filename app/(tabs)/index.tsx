@@ -1,9 +1,5 @@
-import Home from '@/components/home/home';
+import { HomeScreen } from '@/components/screens';
 
-const HomeScreen = () => {
-  return (
-    <Home />
-  );
-};
-
-export default HomeScreen;
+export default function HomePage() {
+  return <HomeScreen />;
+}

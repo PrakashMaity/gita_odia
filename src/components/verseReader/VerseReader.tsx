@@ -6,7 +6,7 @@ import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { getSpeakerImage } from '@/utils/speakerUtils';
 import { Image, StyleSheet } from 'react-native';
-import { FavoriteButton } from '../favorite';
+import { FavoriteButton } from '@/components/screens/favorites/components';
 
 interface Verse {
   verseNumber: string;

@@ -1,0 +1,2 @@
+export { GitaSummaryScreen } from './GitaSummaryScreen';
+

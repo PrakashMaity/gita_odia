@@ -1,0 +1,2 @@
+export { MangalacharanScreen } from './MangalacharanScreen';
+
