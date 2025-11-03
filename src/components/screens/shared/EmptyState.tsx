@@ -1,15 +1,8 @@
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
-import { ReactNode } from 'react';
-import { StyleSheet } from 'react-native';
-
-interface EmptyStateProps {
-  icon?: ReactNode;
-  title: string;
-  subtitle?: string;
-}
+import { EmptyStateProps } from '@/interface/screen.interface';
+import { styles } from './EmptyState.styles';
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   icon,
@@ -42,22 +35,3 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: SIZES.spacing.xl,
-  },
-  title: {
-    marginTop: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.sm,
-    textAlign: 'center',
-  },
-  subtitle: {
-    textAlign: 'center',
-    lineHeight: SIZES.spacing.xl,
-  },
-});
-

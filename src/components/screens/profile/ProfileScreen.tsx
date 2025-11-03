@@ -10,7 +10,8 @@ import { WavePattern } from '@/illustration/cardBackground';
 import { useSettingsStore } from '@/store';
 import Feather from '@expo/vector-icons/Feather';
 import constants from 'expo-constants';
-import { Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
+import { styles } from './ProfileScreen.styles';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
@@ -84,34 +85,3 @@ export const ProfileScreen: React.FC = () => {
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-  },
-  headerCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    margin: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.sm,
-  },
-  headerContent: {
-    flex: 1,
-  },
-  title: {},
-  subtitle: {
-    fontSize: TYPOGRAPHY.fontSize.md,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingBottom: SIZES.spacing.xl,
-  },
-  bottomSpacing: {
-    height: SIZES.spacing.huge,
-  },
-});
-

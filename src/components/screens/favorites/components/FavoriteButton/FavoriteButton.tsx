@@ -6,7 +6,8 @@ import i18n from '@/i18n';
 import { useFavoriteStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import { styles } from './FavoriteButton.styles';
 
 interface FavoriteButtonProps {
   verseId: string;
@@ -84,13 +85,3 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: SIZES.spacing.sm,
-  },
-  loadingText: {
-    fontSize: 12,
-  },
-});
-

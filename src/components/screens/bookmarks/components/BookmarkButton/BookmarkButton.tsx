@@ -7,7 +7,8 @@ import i18n from '@/i18n';
 import { useBookmarkStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import { styles } from './BookmarkButton.styles';
 
 interface BookmarkButtonProps {
   verseId: string;
@@ -103,26 +104,3 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: SIZES.spacing.sm,
-  },
-  loadingText: {
-    fontSize: 12,
-  },
-  bookmarkButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: SIZES.spacing.md,
-    paddingVertical: SIZES.spacing.sm,
-    borderRadius: SIZES.borderRadius.md,
-    borderWidth: 1,
-  },
-  bookmarkText: {
-    fontSize: 14,
-    fontWeight: '500',
-    marginLeft: SIZES.spacing.xs,
-  },
-});
-

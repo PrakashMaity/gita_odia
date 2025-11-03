@@ -6,7 +6,7 @@ import i18n from '@/i18n';
 import { MenuItem } from '@/constants/menuData';
 import { getNavigationHandler } from '../../navigationHandlers';
 import { FontAwesome5, FontAwesome6 } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
+import { styles } from './QuickActions.styles';
 
 export const QuickActions: React.FC = () => {
   const theme = useThemeColors();
@@ -36,15 +36,3 @@ export const QuickActions: React.FC = () => {
     </ThemedCard>
   );
 };
-
-const styles = StyleSheet.create({
-  quickActionsCard: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.md,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    margin: SIZES.spacing.lg,
-    marginTop: SIZES.spacing.sm,
-    marginBottom: SIZES.spacing.sm,
-  },
-});

@@ -6,10 +6,11 @@ import { useChapterStore, useNotificationStore } from '@/store';
 import { getRandomSloka } from '@/store/utils/notificationUtils';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
 import MenuGrid from './MenuGrid';
 import { getNavigationHandler } from './navigationHandlers';
 import { HeroSection, HomeHeader, QuickActions } from './components';
+import { styles } from './HomeScreen.styles';
 
 export const HomeScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');
@@ -106,17 +107,4 @@ export const HomeScreen: React.FC = () => {
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingBottom: 32,
-  },
-});
 

@@ -1,11 +1,8 @@
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { WavePattern } from '@/illustration/cardBackground';
-import { StyleSheet, View } from 'react-native';
-
-interface LoadingStateProps {
-  message?: string;
-}
+import { LoadingStateProps } from '@/interface/screen.interface';
+import { styles } from './LoadingState.styles';
 
 export const LoadingState: React.FC<LoadingStateProps> = ({ message }) => {
   return (
@@ -24,15 +21,3 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ message }) => {
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    marginTop: 24,
-  },
-});
-

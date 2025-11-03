@@ -5,8 +5,9 @@ import { WavePattern } from '@/illustration/cardBackground';
 import { commonStyles } from '@/constants';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, ScrollView } from 'react-native';
 import { PageHeader } from '../shared/PageHeader';
+import { styles } from './GitaMahatmyaScreen.styles';
 
 export const GitaMahatmyaScreen: React.FC = () => {
   const { theme } = useTheme();
@@ -66,10 +67,3 @@ export const GitaMahatmyaScreen: React.FC = () => {
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  mahatmyaText: { 
-    textAlign: 'center' 
-  },
-});
-

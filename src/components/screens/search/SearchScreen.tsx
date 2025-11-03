@@ -3,24 +3,16 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { SearchBar, SearchResults } from './components';
 import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SearchResult } from '@/interface/screen.interface';
 import { useChapterStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { PageHeader } from '../shared/PageHeader';
-
-interface SearchResult {
-  chapterNumber: number;
-  verseNumber: number;
-  verseText: string;
-  translation: string;
-  speaker: string;
-  matchType: 'sanskrit' | 'Language' | 'translation';
-}
+import { styles } from './SearchScreen.styles';
 
 export const SearchScreen: React.FC = () => {
   const { theme } = useTheme();
@@ -191,37 +183,4 @@ export const SearchScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loadingText: {
-    fontSize: 16,
-  },
-  tipsContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingVertical: SIZES.spacing.lg,
-  },
-  tipsTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: SIZES.spacing.md,
-  },
-  tipsList: {
-    gap: SIZES.spacing.sm,
-  },
-  tipItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  tipText: {
-    fontSize: 14,
-    marginLeft: SIZES.spacing.sm,
-  },
-});
 

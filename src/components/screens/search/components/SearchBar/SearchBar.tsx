@@ -4,7 +4,8 @@ import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { TextInput, TouchableOpacity } from 'react-native';
+import { styles } from './SearchBar.styles';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -78,31 +79,4 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingVertical: SIZES.spacing.md,
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: SIZES.borderRadius.lg,
-    borderWidth: 1,
-    paddingHorizontal: SIZES.spacing.md,
-    paddingVertical: SIZES.spacing.sm,
-  },
-  searchIcon: {
-    marginRight: SIZES.spacing.sm,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: SIZES.md,
-    paddingVertical: SIZES.spacing.xs,
-  },
-  clearButton: {
-    marginLeft: SIZES.spacing.sm,
-    padding: SIZES.spacing.xs,
-  },
-});
 

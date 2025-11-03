@@ -6,7 +6,8 @@ import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { HomeImages } from '@/utils/assets';
 import { FontAwesome } from '@expo/vector-icons';
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
+import { styles } from './HomeHeader.styles';
 
 interface HomeHeaderProps {
   isNotificationVisible: boolean;
@@ -60,37 +61,3 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
     </ThemedCard>
   );
 };
-
-const styles = StyleSheet.create({
-  headerCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  logo: {
-    width: 64,
-    height: 64,
-  },
-  headerActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 10,
-  },
-  actionButton: {
-    borderWidth: 1,
-    padding: SIZES.spacing.md,
-    borderRadius: SIZES.radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-  },
-  notificationDot: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-  },
-});
