@@ -3,11 +3,11 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { WavePattern } from '@/illustration/cardBackground';
 import { useNotificationStore } from '@/store';
 import { Dimensions, ScrollView } from 'react-native';
-import { HeroSection, HomeHeader, QuickActions, MenuGrid } from './components';
+import { HeroSection, HomeHeader, MenuGrid, QuickActions } from './components';
+import { styles } from './HomeScreen.styles';
 import { useHomeInitialization } from './hooks/useHomeInitialization';
 import { useHomeNavigation } from './hooks/useHomeNavigation';
 import { useHomeNotification } from './hooks/useHomeNotification';
-import { styles } from './HomeScreen.styles';
 
 export const HomeScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');

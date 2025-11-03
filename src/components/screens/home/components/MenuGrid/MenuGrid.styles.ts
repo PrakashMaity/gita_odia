@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -22,10 +22,10 @@ export const styles = StyleSheet.create({
     marginRight: SIZES.spacing.md,
   },
   menuContainer: {
-    gap: SIZES.spacing.sm,
+    
   },
   menuItemContainer: {
-    marginBottom: SIZES.spacing.sm,
+   
   },
   menuItem: {
     flexDirection: 'row',
@@ -35,8 +35,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
   },
   iconContainer: {
-    width: 50,
-    height: 50,
+    width: 48,
+    height: 48,
     borderRadius: SIZES.radius.xl,
     alignItems: 'center',
     justifyContent: 'center',

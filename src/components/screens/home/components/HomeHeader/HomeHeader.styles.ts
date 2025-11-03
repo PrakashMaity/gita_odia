@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   headerCard: {
@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   logo: {
-    width: 64,
-    height: 64,
+    width: 50,
+    height: 50,
   },
   headerActions: {
     flexDirection: 'row',
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   actionButton: {
     borderWidth: 1,
-    padding: SIZES.spacing.md,
+    padding: SIZES.spacing.xs,
     borderRadius: SIZES.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
   },
   notificationDot: {
     position: 'absolute',
-    top: 8,
-    right: 8,
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    top: 4,
+    right: 4,
+    width: 4,
+    height: 4,
+    borderRadius: 2,
   },
 });
 

@@ -2,9 +2,9 @@ import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { DailySloka } from '@/store/notificationStore';
 import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
@@ -43,7 +43,7 @@ export const DailySlokaNotification: React.FC<DailySlokaNotificationProps> = ({
       >
         <TouchableOpacity activeOpacity={1} onPress={(e) => e.stopPropagation()}>
           <ThemedCard variant="primary" style={styles.modalCard}>
-            <ThemedView style={styles.header}>
+            <ThemedView variant='primary' style={styles.header}>
               <ThemedView style={styles.iconContainer}>
                 <FontAwesome5 
                   name="om" 
@@ -165,6 +165,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: SIZES.spacing.lg,
+    padding: SIZES.spacing.md,
+    borderRadius: SIZES.radius.md,
   },
   iconContainer: {
     padding: SIZES.spacing.sm,
@@ -214,7 +216,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   speakerText: {
-    fontStyle: 'italic',
   },
   actions: {
     flexDirection: 'row',

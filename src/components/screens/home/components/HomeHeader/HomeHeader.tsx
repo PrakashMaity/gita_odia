@@ -1,9 +1,9 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { HomeImages } from '@/utils/assets';
 import { FontAwesome } from '@expo/vector-icons';
 import { Image, TouchableOpacity } from 'react-native';
