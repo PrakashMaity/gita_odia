@@ -4,11 +4,11 @@ import { SIZES } from './sizes';
 export const typography = {
   // Font Families
   fontFamily: {
-    primary: 'BegumZiaRegulaCurve',     // Elegant curved Bengali font for body
-    secondary: 'MahinDhakaItalic',      // Italic style for emphasis
-    tertiary: 'FNMahinSameyaANSI',      // Traditional Bengali for headings
-    quaternary: 'BenSenHandwriting',    // Handwritten style for special text
-    english: 'SpaceMono-Regular',       // English fallback
+    primary: 'primary',     // Elegant curved Bengali font for body
+    secondary: 'secondary',      // Italic style for emphasis
+    tertiary: 'tertiary',      // Traditional Bengali for headings
+    quaternary: 'quaternary',    // Handwritten style for special text
+    english: 'english',       // English fallback
   },
   
   // Font Sizes (Bengali script needs good readability)

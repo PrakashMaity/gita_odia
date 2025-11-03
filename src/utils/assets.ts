@@ -16,20 +16,12 @@ const assets = {
   duryadhona: require('../../assets/images/speaker/duryadhona.png'),
   heroDark: require('../../assets/images/Home/hero-dark.png'),
   fonts: {
-    'SpaceMono-Regular': require('../../assets/fonts/SpaceMono-Regular.ttf'),
-    'BenSenHandwriting': require('../../assets/fonts/BenSenHandwriting.ttf'),
-    'MahinDhakaItalic': require('../../assets/fonts/MahinDhakaItalic.ttf'),
-    'BegumZiaRegulaCurve': require('../../assets/fonts/BegumZiaRegulaCurve.ttf'),
-    'FNMahinSameyaANSI': require('../../assets/fonts/FNMahinSameyaANSI.ttf'), 
+    'english': require('../../assets/fonts/english.ttf'),
+    'primary': require('../../assets/fonts/primary.ttf'),
+    'secondary': require('../../assets/fonts/secondary.ttf'),
+    'tertiary': require('../../assets/fonts/tertiary.ttf'),
+    'quaternary': require('../../assets/fonts/quaternary.ttf'),
   },
-};
-
-// Client-specific Images
-export const ClientsImages = {
-  icon: assets.icon,
-  splash: assets.splash,
-  adaptiveIcon: assets.adaptiveIcon,
-  favicon: assets.favicon,
 };
 
 // Home Images
@@ -55,5 +47,5 @@ export const SpeakerImages = {
   duryadhona: assets.duryadhona,
 };
 
-// Client-specific Fonts
+// Client-specific Fonts (used in app/_layout.tsx)
 export const ClientFonts = assets.fonts;
