@@ -1,4 +1,84 @@
+import { existsSync } from 'fs';
+import { join } from 'path';
+
 export default function ({ config = {} }) {
+  // Check if Firebase config files exist (using process.cwd() for Expo config files)
+  const projectRoot = process.cwd();
+  const googleServicesJsonExists = existsSync(join(projectRoot, 'google-services.json'));
+  const googleServicesPlistExists = existsSync(join(projectRoot, 'GoogleService-Info.plist'));
+
+  // Build plugins array
+  const plugins = [
+    "expo-router",
+    [
+      "expo-build-properties",
+      {
+        ios: { useFrameworks: "static" },
+        android: { enableMemoryPageSize16K: true },
+      },
+    ],
+    [
+      "react-native-google-mobile-ads",
+      {
+        androidAppId: "ca-app-pub-3406043589920136~3347511713",
+        iosAppId: "ca-app-pub-3940256099942544~1458002511",
+      },
+    ],
+  ];
+
+  // Only add Firebase plugin if config files exist
+  if (googleServicesJsonExists || googleServicesPlistExists) {
+    plugins.push([
+      "@react-native-firebase/app",
+      {
+        android: googleServicesJsonExists ? {
+          googleServicesFile: "./google-services.json",
+        } : undefined,
+        ios: googleServicesPlistExists ? {
+          googleServicesFile: "./GoogleService-Info.plist",
+        } : undefined,
+      },
+    ]);
+  }
+
+  plugins.push(
+    [
+      "expo-notifications",
+      {
+        icon: "./assets/images/icon.png",
+        color: "#ffffff",
+        sounds: [],
+      },
+    ],
+    "expo-secure-store"
+  );
+
+  const androidConfig = {
+    package: "com.proninja.bhagavad_gita",
+    adaptiveIcon: {
+      foregroundImage: "./assets/images/adaptive-icon.png",
+      backgroundColor: "#ffffff",
+    },
+    edgeToEdgeEnabled: true,
+    permissions: [
+      "android.permission.RECORD_AUDIO",
+      "android.permission.MODIFY_AUDIO_SETTINGS",
+    ],
+  };
+
+  const iosConfig = {
+    supportsTablet: true,
+    bundleIdentifier: "com.proninja.bhagavad-gita",
+  };
+
+  // Only add googleServicesFile if the file exists
+  if (googleServicesJsonExists) {
+    androidConfig.googleServicesFile = "./google-services.json";
+  }
+  if (googleServicesPlistExists) {
+    iosConfig.googleServicesFile = "./GoogleService-Info.plist";
+  }
+
   return {
     ...config,
     name: "গীতা বাংলা",
@@ -14,22 +94,8 @@ export default function ({ config = {} }) {
     },
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
-    ios: {
-      supportsTablet: true,
-      bundleIdentifier: "com.proninja.bhagavad-gita",
-    },
-    android: {
-      package: "com.proninja.bhagavad_gita",
-      adaptiveIcon: {
-        foregroundImage: "./assets/images/adaptive-icon.png",
-        backgroundColor: "#ffffff",
-      },
-      edgeToEdgeEnabled: true,
-      permissions: [
-        "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS",
-      ],
-    },
+    ios: iosConfig,
+    android: androidConfig,
     extra: {
       LANGUAGE: "bn",
       PRIMARY_COLOR: "#ffffff",
@@ -43,24 +109,7 @@ export default function ({ config = {} }) {
       output: "static",
       favicon: "./assets/images/favicon.png",
     },
-    plugins: [
-      "expo-router",
-      [
-        "expo-build-properties",
-        {
-          ios: { useFrameworks: "static" },
-          android: { enableMemoryPageSize16K: true },
-        },
-      ],
-      [
-        "react-native-google-mobile-ads",
-        {
-          androidAppId: "ca-app-pub-3406043589920136~3347511713",
-          iosAppId: "ca-app-pub-3940256099942544~1458002511",
-        },
-      ],
-      "expo-secure-store",
-    ],
+    plugins,
     experiments: {
       typedRoutes: true,
       reactCompiler: true,

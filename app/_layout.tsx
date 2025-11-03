@@ -10,6 +10,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { initializeFirebase } from '@/services/firebase/initializeFirebase';
+import { useFirebaseNotifications } from '@/hooks/useFirebaseNotifications';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -36,6 +38,14 @@ export default function RootLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
   
   const [loaded, error] = useFonts(ClientFonts);
+
+  // Initialize Firebase
+  useEffect(() => {
+    initializeFirebase();
+  }, []);
+
+  // Initialize Firebase notifications
+  useFirebaseNotifications();
 
   // Initialize app resources
   useEffect(() => {
