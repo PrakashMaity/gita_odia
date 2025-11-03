@@ -1,133 +1,23 @@
-import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { LoadingState } from '@/components/shared';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedLinearProgress } from '@/components/ui/ThemedLinearProgress';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { WavePattern } from '@/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { ChapterData, useChapterStore, useProgressStore } from '@/store';
-import { MaterialIcons } from '@expo/vector-icons';
-import { router } from 'expo-router';
-import React, { useEffect } from 'react';
-import { Dimensions, ScrollView, TouchableOpacity } from 'react-native';
-import { LoadingState } from '../shared/LoadingState';
+import { WavePattern } from '@/illustration/cardBackground';
+import { useChapterStore } from '@/store';
+import { Dimensions, ScrollView } from 'react-native';
 import { styles } from './ChaptersScreen.styles';
+import { ChapterCard } from './components/ChapterCard';
+import { ChaptersHeader } from './components/ChaptersHeader';
+import { useChapterProgress } from './hooks/useChapterProgress';
+import { useChaptersOperations } from './hooks/useChaptersOperations';
 
 export const ChaptersScreen: React.FC = () => {
   const { theme } = useTheme();
   const { width, height } = Dimensions.get('window');
   const { chapters, isLoading } = useChapterStore();
-  const {
-    progress,
-    isLoading: progressLoading,
-    loadProgress,
-    getProgressPercentage
-  } = useProgressStore();
-
-  useEffect(() => {
-    loadProgress();
-  }, [loadProgress]);
-
-  const handleChapterPress = (chapterId: string) => {
-    router.push(`/chapter/${chapterId}`);
-  };
-
-  const renderChapterCard = (chapter: ChapterData) => {
-    const { chapter: chapterInfo } = chapter;
-    const chapterId = chapterInfo.id;
-    const chapterProgress = progress[chapterId];
-
-    let progressPercentage = 0;
-    if (chapterProgress && chapter.verses) {
-      const lastReadVerseIndex = chapter.verses.findIndex(
-        (verse: any) => verse.id === chapterProgress.lastReadVerseId
-      );
-      if (lastReadVerseIndex !== -1) {
-        progressPercentage = getProgressPercentage(chapterId, lastReadVerseIndex, chapter.verses.length);
-      }
-    }
-
-    return (
-      <TouchableOpacity
-        key={chapterInfo.id}
-        onPress={() => handleChapterPress(chapterInfo.id)}
-      >
-        <ThemedCard style={[styles.chapterCard]} pattern='mandala' patternOpacity={0.05}>
-          <ThemedView style={{ flexDirection: 'row' }}>
-            <ThemedView style={[styles.iconContainer, {
-              backgroundColor: theme.background.tertiary,
-            }]}>
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-              >
-                {chapterInfo.number}
-              </ThemedLanguageText>
-            </ThemedView>
-
-            <ThemedView style={styles.textContainer}>
-              {chapterInfo.subtitle && chapterInfo.subtitle !== chapterInfo.title && (
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.chapterSubtitle}
-                  numberOfLines={1}
-                >
-                  {chapterInfo.subtitle}
-                </ThemedLanguageText>
-              )}
-
-              <ThemedView style={styles.chapterInfo}>
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="small"
-                  fontFamily="regional_secondary"
-                  style={styles.verseCount}
-                >
-                  {chapterInfo.totalVerses} {i18n.t('chapter.verses')}
-                </ThemedLanguageText>
-              </ThemedView>
-            </ThemedView>
-
-            <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
-              <MaterialIcons
-                name="arrow-forward-ios"
-                size={SIZES.icon.xs}
-                color={theme.icon.quaternary}
-              />
-            </ThemedView>
-          </ThemedView>
-
-          {chapterProgress && progressPercentage > 0 && (
-            <>
-              <ThemedView style={{ marginTop: SIZES.spacing.md }} />
-              <ThemedView>
-                <ThemedLinearProgress
-                  progress={progressPercentage / 100}
-                  height={20}
-                  variant="primary"
-                  showPercentage={false}
-                >
-                  <ThemedLanguageText
-                    variant="tertiary"
-                    size="xs"
-                    fontFamily="regional_secondary"
-                    style={styles.progressText}
-                  >
-                    {progressPercentage}%
-                  </ThemedLanguageText>
-                </ThemedLinearProgress>
-              </ThemedView>
-            </>
-          )}
-        </ThemedCard>
-      </TouchableOpacity>
-    );
-  };
+  const { progressLoading, getChapterProgressPercentage } = useChapterProgress();
+  const { handleChapterPress } = useChaptersOperations();
 
   if (isLoading || progressLoading) {
     return <LoadingState message={i18n.t('chapter.chaptersLoading')} />;
@@ -137,27 +27,7 @@ export const ChaptersScreen: React.FC = () => {
     <ThemedView variant="primary" style={styles.container}>
       <WavePattern width={width} height={height} />
 
-      <ThemedCard variant='transparent' style={styles.headerCard}>
-        <ThemedLanguageText
-          variant="primary"
-          size="title"
-          fontFamily="regional_secondary"
-          style={styles.title}
-        >
-          {i18n.t('chapter.chapterTitle')}
-        </ThemedLanguageText>
-        <ThemedView style={styles.headerActions}>
-          <ThemedView style={[styles.actionButton, { borderColor: theme.border.primary }]}>
-            <BookmarkIcon
-              size={SIZES.icon.xl}
-              color={theme.icon.primary}
-              focused={true}
-              showBadge={true}
-              badgeSize="medium"
-            />
-          </ThemedView>
-        </ThemedView>
-      </ThemedCard>
+      <ChaptersHeader />
 
       <ScrollView
         style={styles.scrollView}
@@ -177,7 +47,14 @@ export const ChaptersScreen: React.FC = () => {
             </ThemedLanguageText>
           </ThemedView>
           <ThemedView style={styles.chaptersContainer}>
-            {chapters.map(renderChapterCard)}
+            {chapters.map((chapter) => (
+              <ChapterCard
+                key={chapter.chapter.id}
+                chapter={chapter}
+                progressPercentage={getChapterProgressPercentage(chapter)}
+                onPress={handleChapterPress}
+              />
+            ))}
           </ThemedView>
         </ThemedView>
       </ScrollView>

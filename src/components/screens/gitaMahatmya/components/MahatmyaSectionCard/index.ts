@@ -1,0 +1,2 @@
+export { MahatmyaSectionCard } from './MahatmyaSectionCard';
+

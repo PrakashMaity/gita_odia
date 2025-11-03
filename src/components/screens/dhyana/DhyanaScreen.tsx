@@ -1,18 +1,13 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { WavePattern } from '@/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { Dimensions, ScrollView } from 'react-native';
-import { PageHeader } from '../shared/PageHeader';
+import { PageHeader } from '@/components/shared';
+import { DhyanaSectionCard } from './components/DhyanaSectionCard';
 import { styles } from './DhyanaScreen.styles';
 
 export const DhyanaScreen: React.FC = () => {
-  const { theme } = useTheme();
   const { width, height } = Dimensions.get('window');
-
   const dhyanaText = i18n.t('dhyana.slokaText');
   const meaningText = i18n.t('dhyana.meaningText');
   const benefits = i18n.t('dhyana.benefits') as string[];
@@ -29,139 +24,35 @@ export const DhyanaScreen: React.FC = () => {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <ThemedCard style={styles.introCard}>
-          <ThemedLanguageText 
-            variant="primary" 
-            size="large" 
-            fontFamily="regional_secondary"
-            style={styles.introTitle}
-          >
-            {i18n.t('dhyana.introTitle')}
-          </ThemedLanguageText>
-          <ThemedLanguageText 
-            variant="secondary" 
-            size="medium" 
-            fontFamily="regional_secondary"
-            style={styles.introText}
-          >
-            {i18n.t('dhyana.introText')}
-          </ThemedLanguageText>
-        </ThemedCard>
+        <DhyanaSectionCard
+          titleKey="dhyana.introTitle"
+          content={i18n.t('dhyana.introText')}
+          variant="intro"
+        />
 
-        <ThemedCard style={styles.dhyanaCard}>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xl" 
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('dhyana.slokaTitle')}
-            </ThemedLanguageText>
-          </ThemedView>
-          
-          <ThemedLanguageText 
-            variant="primary"
-            size="large"
-            fontFamily="regional_secondary"
-            style={styles.dhyanaText}
-          >
-            {dhyanaText}
-          </ThemedLanguageText>
-        </ThemedCard>
+        <DhyanaSectionCard
+          titleKey="dhyana.slokaTitle"
+          content={dhyanaText}
+        />
 
-        <ThemedCard style={styles.meaningCard}>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xl" 
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('dhyana.meaningTitle')}
-            </ThemedLanguageText>
-          </ThemedView>
-          
-          <ThemedLanguageText 
-            variant="secondary"
-            size="medium"
-            fontFamily="regional_secondary"
-            style={styles.meaningText}
-          >
-            {meaningText}
-          </ThemedLanguageText>
-        </ThemedCard>
+        <DhyanaSectionCard
+          titleKey="dhyana.meaningTitle"
+          content={meaningText}
+        />
 
-        <ThemedCard style={styles.benefitsCard}>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xl" 
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('dhyana.benefitsTitle')}
-            </ThemedLanguageText>
-          </ThemedView>
-          
-          <ThemedView style={styles.benefitsList}>
-            {benefits.map((benefit: string, index: number) => (
-              <ThemedView key={index} style={styles.benefitItem}>
-                <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
-                <ThemedLanguageText 
-                  variant="secondary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.benefitText}
-                >
-                  {benefit}
-                </ThemedLanguageText>
-              </ThemedView>
-            ))}
-          </ThemedView>
-        </ThemedCard>
+        <DhyanaSectionCard
+          titleKey="dhyana.benefitsTitle"
+          content={benefits}
+          isList
+          listType="bullet"
+        />
 
-        <ThemedCard style={styles.stepsCard}>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xl" 
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('dhyana.stepsTitle')}
-            </ThemedLanguageText>
-          </ThemedView>
-          
-          <ThemedView style={styles.stepsList}>
-            {steps.map((step: string, index: number) => (
-              <ThemedView key={index} style={styles.stepItem}>
-                <ThemedView style={[styles.stepNumber, { backgroundColor: theme.background.quaternary }]}>
-                  <ThemedLanguageText 
-                    variant="primary"
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.stepNumberText}
-                  >
-                    {index + 1}
-                  </ThemedLanguageText>
-                </ThemedView>
-                <ThemedLanguageText 
-                  variant="secondary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.stepText}
-                >
-                  {step}
-                </ThemedLanguageText>
-              </ThemedView>
-            ))}
-          </ThemedView>
-        </ThemedCard>
+        <DhyanaSectionCard
+          titleKey="dhyana.stepsTitle"
+          content={steps}
+          isList
+          listType="numbered"
+        />
       </ScrollView>
     </ThemedView>
   );

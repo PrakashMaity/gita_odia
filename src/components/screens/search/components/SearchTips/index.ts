@@ -1,0 +1,2 @@
+export { SearchTips } from './SearchTips';
+

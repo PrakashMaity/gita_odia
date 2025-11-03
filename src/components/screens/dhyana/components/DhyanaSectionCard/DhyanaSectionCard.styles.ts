@@ -1,0 +1,70 @@
+import { StyleSheet } from 'react-native';
+import { SIZES } from '@/rootconstants/sizes';
+
+export const styles = StyleSheet.create({
+  card: {
+    marginBottom: SIZES.spacing.lg,
+    padding: SIZES.spacing.xl,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.lg,
+  },
+  sectionIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xxxl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.md,
+  },
+  sectionTitle: {
+    flex: 1,
+  },
+  introTitle: {
+    textAlign: 'center',
+    marginBottom: SIZES.spacing.md,
+  },
+  introText: {
+    textAlign: 'center',
+    lineHeight: SIZES.spacing.xl,
+  },
+  text: {
+    textAlign: 'center',
+    lineHeight: SIZES.spacing.xl,
+    fontStyle: 'italic',
+  },
+  list: {
+    gap: SIZES.spacing.md,
+  },
+  listItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: SIZES.spacing.md,
+  },
+  bulletPoint: {
+    width: 8,
+    height: 8,
+    borderRadius: SIZES.radius.round,
+    marginTop: SIZES.spacing.sm,
+  },
+  bulletText: {
+    flex: 1,
+    lineHeight: SIZES.spacing.lg,
+  },
+  stepNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: SIZES.radius.round,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: SIZES.spacing.xs,
+  },
+  stepNumberText: {
+    color: '#FFFFFF',
+  },
+  stepText: {
+    flex: 1,
+    lineHeight: SIZES.spacing.lg,
+  },
+});
+

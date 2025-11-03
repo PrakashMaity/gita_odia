@@ -1,53 +1,26 @@
 import { SettingsItem, SettingsSection, SettingsToggle } from '@/components/settings';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
-import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
-import { useTheme, useThemeColors } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
-import { useSettingsStore } from '@/store';
 import Feather from '@expo/vector-icons/Feather';
 import constants from 'expo-constants';
 import { Dimensions, ScrollView } from 'react-native';
+import { ProfileHeader } from './components/ProfileHeader';
+import { useProfileOperations } from './hooks/useProfileOperations';
 import { styles } from './ProfileScreen.styles';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
-  const { isDark } = useTheme();
-  const { updateSetting } = useSettingsStore();
   const { width, height } = Dimensions.get('window');
-
-  const handleThemeChange = () => {
-    const newMode = isDark ? 'light' : 'dark';
-    updateSetting('themeMode', newMode);
-  };
+  const { handleThemeChange, isDark } = useProfileOperations();
 
   return (
     <ThemedView variant='primary' style={styles.container}>
       <WavePattern width={width} height={height} />
       
-      <ThemedCard variant='transparent' style={styles.headerCard}>
-        <ThemedView style={styles.headerContent}>
-          <ThemedLanguageText
-            variant="primary" 
-            size="xxl" 
-            fontFamily="regional_secondary"
-            style={styles.title}
-          >
-            {i18n.t('profile.settings')}
-          </ThemedLanguageText>
-          <ThemedLanguageText 
-            variant="secondary"
-            size="medium"
-            fontFamily="regional_secondary" 
-            style={styles.subtitle}
-          >
-            {i18n.t('profile.customizeExperience')}
-          </ThemedLanguageText>
-        </ThemedView>
-      </ThemedCard>
+      <ProfileHeader />
 
       <ScrollView 
         style={styles.scrollView}

@@ -1,0 +1,2 @@
+export { BookmarkCard } from './BookmarkCard';
+

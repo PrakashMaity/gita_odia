@@ -1,0 +1,2 @@
+export { TranslationCard } from './TranslationCard';
+

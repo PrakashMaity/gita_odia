@@ -1,0 +1,2 @@
+export { MangalacharanSectionCard } from './MangalacharanSectionCard';
+

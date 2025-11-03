@@ -1,0 +1,119 @@
+import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { MenuItem, getMenuSections } from '@/constants/menuData';
+import { SIZES } from '@/rootconstants/sizes';
+import { useThemeColors } from '@/hooks/useTheme';
+import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import { styles } from './MenuGrid.styles';
+
+interface MenuGridProps {
+  onMenuItemPress?: (item: MenuItem) => void;
+}
+
+export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
+  const theme = useThemeColors();
+  const menuSections = getMenuSections();
+
+  const renderIcon = (item: MenuItem) => {
+    const iconProps = {
+      name: item.iconName as any,
+      size: SIZES.icon.xl,
+      color: theme.icon.primary,
+    };
+
+    switch (item.iconFamily) {
+      case 'FontAwesome5':
+        return <FontAwesome5 {...iconProps} />;
+      case 'FontAwesome6':
+        return <FontAwesome6 {...iconProps} />;
+      case 'MaterialIcons':
+        return <MaterialIcons {...iconProps} />;
+      case 'Ionicons':
+        return <Ionicons {...iconProps} />;
+      default:
+        return <MaterialIcons {...iconProps} />;
+    }
+  };
+
+  const handleItemPress = (item: MenuItem) => {
+    if (onMenuItemPress) {
+      onMenuItemPress(item);
+    } else if (item.action) {
+      item.action();
+    }
+  };
+
+  const renderMenuItem = (item: MenuItem) => (
+    <TouchableOpacity
+      key={item.id}
+      onPress={() => handleItemPress(item)}
+      style={styles.menuItemContainer}
+    >
+      <ThemedCard 
+        style={styles.menuItem}
+        pattern={"mandala"}
+        patternOpacity={0.08}
+      >
+        <ThemedView style={[styles.iconContainer, { 
+          backgroundColor: theme.background.tertiary,
+        }]}>
+          {renderIcon(item)}
+        </ThemedView>
+        <ThemedView style={styles.textContainer}>
+          <ThemedLanguageText 
+            variant='primary'
+            fontFamily='regional_secondary'
+            size='large'
+          >
+            {item.title}
+          </ThemedLanguageText>
+          {item.description && (
+            <ThemedLanguageText 
+              variant='secondary'
+              size='medium'
+              fontFamily='regional_secondary'
+            >
+              {item.description}
+            </ThemedLanguageText>
+          )}
+        </ThemedView>
+        <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.tertiary }]}>
+          <MaterialIcons 
+            name="arrow-forward-ios" 
+            size={SIZES.icon.xs} 
+            color={theme.icon.secondary} 
+          />
+        </ThemedView>
+      </ThemedCard>
+    </TouchableOpacity>
+  );
+
+  const renderSection = (section: typeof menuSections[0]) => (
+    <ThemedView key={section.id} style={styles.section}>
+      <ThemedView style={styles.sectionHeader}>
+        <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
+        <ThemedLanguageText 
+          variant='primary'
+          size='xl'
+          fontFamily='regional_secondary'
+          style={{ fontSize: SIZES.xxl, fontFamily: 'regional_secondaryItalic', flex: 1 }}
+        >
+          {section.title}
+        </ThemedLanguageText>
+      </ThemedView>
+      <ThemedView style={styles.menuContainer}>
+        {section.items.map(renderMenuItem)}
+      </ThemedView>
+    </ThemedView>
+  );
+
+  return (
+    <ThemedView style={styles.container}>
+      {menuSections.map(renderSection)}
+    </ThemedView>
+  );
+};
+

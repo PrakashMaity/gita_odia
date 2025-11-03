@@ -1,0 +1,2 @@
+export { TranslationsHeader } from './TranslationsHeader';
+

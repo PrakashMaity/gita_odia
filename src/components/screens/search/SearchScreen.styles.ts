@@ -13,25 +13,5 @@ export const styles = StyleSheet.create({
   loadingText: {
     fontSize: 16,
   },
-  tipsContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingVertical: SIZES.spacing.lg,
-  },
-  tipsTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: SIZES.spacing.md,
-  },
-  tipsList: {
-    gap: SIZES.spacing.sm,
-  },
-  tipItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  tipText: {
-    fontSize: 14,
-    marginLeft: SIZES.spacing.sm,
-  },
 });
 
