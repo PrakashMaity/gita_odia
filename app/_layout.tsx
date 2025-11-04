@@ -18,20 +18,8 @@ SplashScreen.preventAutoHideAsync().catch(() => {
   /* Splash screen may have already hidden */
 });
 
-// Suppress keep-awake initialization errors (non-critical)
-if (typeof global !== 'undefined') {
-  const originalConsoleError = console.error;
-  console.error = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Unable to activate keep awake')
-    ) {
-      // Suppress this specific error - it's non-critical
-      return;
-    }
-    originalConsoleError.apply(console, args);
-  };
-}
+// Note: expo-keep-awake error suppression is handled in index.js
+// (It must be set up before any modules are imported)
 
 export default function RootLayout() {
   const { loadAllChapters } = useChapterStore();

@@ -1,46 +1,43 @@
+import { getApp } from '@react-native-firebase/app';
+import { getMessaging } from '@react-native-firebase/messaging';
+
+/**
+ * Firebase App instance type
+ */
+type FirebaseApp = ReturnType<typeof getApp>;
+
+interface FirebaseStatus {
+  app: boolean;
+  messaging: boolean;
+}
+
 /**
  * Initialize Firebase app and check all services status
  * React Native Firebase auto-initializes from google-services.json (Android) 
  * and GoogleService-Info.plist (iOS) files.
+ * 
+ * This function performs a health check and logs the status of all Firebase services.
  */
 export const initializeFirebase = (): void => {
+  if (!__DEV__) {
+    // Skip initialization checks in production
+    return;
+  }
+
   console.log('==========================================');
   console.log('🔥 FIREBASE SETUP STATUS CHECK 🔥');
   console.log('==========================================');
   
-  let firebaseStatus = {
+  const firebaseStatus: FirebaseStatus = {
     app: false,
     messaging: false,
-    firestore: false,
-    configFiles: false,
   };
 
-  // Check if config files exist
-  try {
-    const { existsSync } = require('fs');
-    const { join } = require('path');
-    const projectRoot = require('process').cwd();
-    const googleServicesJsonExists = existsSync(join(projectRoot, 'google-services.json'));
-    const googleServicesPlistExists = existsSync(join(projectRoot, 'GoogleService-Info.plist'));
-    firebaseStatus.configFiles = googleServicesJsonExists || googleServicesPlistExists;
-    
-    if (firebaseStatus.configFiles) {
-      console.log('✅ Config files found:', {
-        android: googleServicesJsonExists ? 'google-services.json ✓' : 'MISSING',
-        ios: googleServicesPlistExists ? 'GoogleService-Info.plist ✓' : 'MISSING',
-      });
-    } else {
-      console.log('❌ Config files missing - Firebase will not work');
-      console.log('   Need: google-services.json (Android) and/or GoogleService-Info.plist (iOS)');
-    }
-  } catch (e) {
-    console.log('⚠️  Could not check config files');
-  }
-
   // Check Firebase App
+  // Note: React Native Firebase auto-initializes from google-services.json (Android)
+  // and GoogleService-Info.plist (iOS) files. If initialization fails, config files may be missing.
   try {
-    const { getApp } = require('@react-native-firebase/app');
-    const app = getApp();
+    const app: FirebaseApp = getApp();
     firebaseStatus.app = true;
     console.log('✅ Firebase App: INITIALIZED');
     console.log('   App Name:', app.name);
@@ -48,63 +45,44 @@ export const initializeFirebase = (): void => {
       projectId: app.options?.projectId || 'N/A',
       storageBucket: app.options?.storageBucket || 'N/A',
     });
-  } catch (error: any) {
+  } catch (error) {
     console.log('❌ Firebase App: NOT INITIALIZED');
-    console.log('   Error:', error?.message || 'Unknown error');
+    console.log('   Error:', error instanceof Error ? error.message : 'Unknown error');
     console.log('   → Make sure config files are in place and rebuild app');
   }
 
-  // Check Firebase Messaging
+  // Check Firebase Messaging (using modular API)
   try {
-    const messaging = require('@react-native-firebase/messaging').default;
-    if (messaging) {
-      try {
-        const messagingInstance = messaging();
-        if (messagingInstance) {
-          firebaseStatus.messaging = true;
-          console.log('✅ Firebase Cloud Messaging: AVAILABLE');
-        } else {
-          console.log('⚠️  Firebase Cloud Messaging: Module loaded but instance unavailable');
-        }
-      } catch (e) {
-        console.log('⚠️  Firebase Cloud Messaging: Module available but not initialized');
-        console.log('   (This is OK if config files are missing)');
-      }
+    const app = getApp();
+    const messagingInstance = getMessaging(app);
+    if (messagingInstance) {
+      firebaseStatus.messaging = true;
+      console.log('✅ Firebase Cloud Messaging: AVAILABLE');
+    } else {
+      console.log('⚠️  Firebase Cloud Messaging: Module loaded but instance unavailable');
     }
-  } catch (error: any) {
-    console.log('❌ Firebase Cloud Messaging: NOT AVAILABLE');
-    console.log('   Error:', error?.message || 'Module not found');
-  }
-
-  // Check Firebase Firestore (Cloudstore)
-  try {
-    const firestore = require('@react-native-firebase/firestore');
-    if (firestore) {
-      try {
-        const firestoreInstance = firestore.default();
-        if (firestoreInstance) {
-          firebaseStatus.firestore = true;
-          console.log('✅ Firebase Cloud Firestore: AVAILABLE');
-          console.log('   Ready to read/write data from Firestore');
-        }
-      } catch (e) {
-        console.log('⚠️  Firebase Cloud Firestore: Module available but not initialized');
-      }
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('FirebaseApp')) {
+      console.log('⚠️  Firebase Cloud Messaging: Module available but Firebase App not initialized');
+      console.log('   (This is OK if config files are missing)');
+    } else {
+      console.log('❌ Firebase Cloud Messaging: NOT AVAILABLE');
+      console.log('   Error:', error instanceof Error ? error.message : 'Module not found');
     }
-  } catch (error: any) {
-    console.log('⚠️  Firebase Cloud Firestore: NOT INSTALLED');
-    console.log('   Install with: npm install @react-native-firebase/firestore');
-    console.log('   (Optional - only needed if you want to use Firestore database)');
   }
 
   // Summary
   console.log('==========================================');
   console.log('📊 FIREBASE STATUS SUMMARY');
   console.log('==========================================');
-  console.log('Config Files:', firebaseStatus.configFiles ? '✅ OK' : '❌ MISSING');
   console.log('Firebase App:', firebaseStatus.app ? '✅ OK' : '❌ NOT INITIALIZED');
   console.log('Cloud Messaging:', firebaseStatus.messaging ? '✅ OK' : '⚠️  NOT READY');
-  console.log('Cloud Firestore:', firebaseStatus.firestore ? '✅ OK' : '⚠️  NOT INSTALLED');
+  
+  if (!firebaseStatus.app) {
+    console.log('');
+    console.log('💡 Note: Firebase config files (google-services.json / GoogleService-Info.plist)');
+    console.log('   are required for Firebase to work. Make sure they are in place and rebuild.');
+  }
   
   if (firebaseStatus.app && firebaseStatus.messaging) {
     console.log('==========================================');
@@ -119,13 +97,15 @@ export const initializeFirebase = (): void => {
 
 /**
  * Get the initialized Firebase app instance
+ * Returns null if Firebase is not initialized
  */
-export const getFirebaseApp = () => {
+export const getFirebaseApp = (): FirebaseApp | null => {
   try {
-    const { getApp } = require('@react-native-firebase/app');
     return getApp();
   } catch (error) {
-    console.error('Error getting Firebase app:', error);
+    if (__DEV__) {
+      console.error('[Firebase] Error getting Firebase app:', error);
+    }
     return null;
   }
 };
