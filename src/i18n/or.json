@@ -287,11 +287,6 @@
     "lastRead": "ଶେଷ ପଢ଼ିଥିବା: %{date}",
     "chapterComplete": "ଅଧ୍ୟାୟ ସମ୍ପୂର୍ଣ୍ଣ"
   },
-  "notification": {
-    "dailySloka": "ଆଜିକାର ଶ୍ଲୋକ",
-    "readMore": "ଆହୁରି ପଢ଼ନ୍ତୁ",
-    "close": "ବନ୍ଦ କରନ୍ତୁ"
-  },
   "theme": {
     "theme": "ଥିମ୍",
     "dark": "ଡାର୍କ",

@@ -11,7 +11,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
-import { useFirebaseNotifications } from '@/hooks/useFirebaseNotifications';
+import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -32,8 +32,24 @@ export default function RootLayout() {
     initializeFirebase();
   }, []);
 
-  // Initialize Firebase notifications
-  useFirebaseNotifications();
+  // Initialize device registration
+  useEffect(() => {
+    initializeDeviceRegistration();
+  }, []);
+
+  // Sync device data periodically and when app comes to foreground
+  useEffect(() => {
+    // Initial sync attempt
+    const syncInterval = setInterval(() => {
+      syncDeviceDataWhenOnline();
+    }, 60000); // Sync every minute
+
+    // Also sync when app comes to foreground (handled by syncDeviceDataWhenOnline internally)
+    
+    return () => {
+      clearInterval(syncInterval);
+    };
+  }, []);
 
   // Initialize app resources
   useEffect(() => {

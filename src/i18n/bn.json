@@ -287,11 +287,6 @@
     "lastRead": "শেষ পড়া: %{date}",
     "chapterComplete": "অধ্যায় সম্পূর্ণ"
   },
-  "notification": {
-    "dailySloka": "আজকের শ্লোক",
-    "readMore": "আরও পড়ুন",
-    "close": "বন্ধ করুন"
-  },
   "theme": {
     "theme": "থিম",
     "dark": "ডার্ক",

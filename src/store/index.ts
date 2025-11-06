@@ -4,8 +4,6 @@ export type { Bookmark } from './bookmarkStore';
 export { useChapterStore } from './chapterStore';
 export { useFavoriteStore } from './favoriteStore';
 export type { FavoriteVerse } from './favoriteStore';
-export { useNotificationStore } from './notificationStore';
-export type { DailySloka } from './notificationStore';
 export { useProgressStore } from './progressStore';
 export type { ReadingProgress } from './progressStore';
 export { useSettingsStore } from './settingsStore';

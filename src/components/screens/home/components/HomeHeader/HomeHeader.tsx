@@ -1,27 +1,12 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { HomeImages } from '@/utils/assets';
-import { FontAwesome } from '@expo/vector-icons';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
 import { styles } from './HomeHeader.styles';
 
-interface HomeHeaderProps {
-  isNotificationVisible: boolean;
-  hasNotification: boolean;
-  onBellPress: () => void;
-}
-
-export const HomeHeader: React.FC<HomeHeaderProps> = ({
-  isNotificationVisible,
-  hasNotification,
-  onBellPress,
-}) => {
-  const theme = useThemeColors();
-
+export const HomeHeader: React.FC = () => {
   return (
     <ThemedCard variant='transparent' style={styles.headerCard} pattern="none">
       <ThemedView>
@@ -35,29 +20,6 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
       >
         {i18n.t("home.headerTitle")}
       </ThemedLanguageText>
-
-      <ThemedView style={styles.headerActions}>
-        <TouchableOpacity
-          style={[
-            styles.actionButton,
-            {
-              borderColor: theme.border.primary,
-              backgroundColor: isNotificationVisible ? theme.button.primary.background : 'transparent'
-            }
-          ]}
-          onPress={onBellPress}
-          testID="bell-icon"
-        >
-          <FontAwesome
-            name={isNotificationVisible ? "bell" : "bell-o"}
-            size={SIZES.icon.xs}
-            color={isNotificationVisible ? theme.button.primary.text : (hasNotification ? theme.status.warning : theme.icon.primary)}
-          />
-          {hasNotification && !isNotificationVisible && (
-            <ThemedView style={[styles.notificationDot, { backgroundColor: theme.status.error }]} />
-          )}
-        </TouchableOpacity>
-      </ThemedView>
     </ThemedCard>
   );
 };

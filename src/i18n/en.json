@@ -287,11 +287,6 @@
     "lastRead": "Last read: %{date}",
     "chapterComplete": "Chapter complete"
   },
-  "notification": {
-    "dailySloka": "Today's Verse",
-    "readMore": "Read More",
-    "close": "Close"
-  },
   "theme": {
     "theme": "Theme",
     "dark": "Dark",

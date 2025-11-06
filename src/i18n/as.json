@@ -287,11 +287,6 @@
     "lastRead": "শেষ পঢ়া: %{date}",
     "chapterComplete": "অধ্যায় সম্পূৰ্ণ"
   },
-  "notification": {
-    "dailySloka": "আজিৰ শ্লোক",
-    "readMore": "আৰু পঢ়ক",
-    "close": "বন্ধ কৰক"
-  },
   "theme": {
     "theme": "থিম",
     "dark": "ডাৰ্ক",

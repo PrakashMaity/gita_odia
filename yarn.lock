@@ -2514,6 +2514,13 @@
   dependencies:
     firebase "12.4.0"
 
+"@react-native-firebase/firestore@^23.5.0":
+  version "23.5.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-23.5.0.tgz"
+  integrity sha512-eazEyJAd1BD47NXeOWU+YUilzHN4zY7YrE0pzevBIBCH4DaLqhH678TZpulMAh0SENkZA8MKBfxkkvqGyAGCsQ==
+  dependencies:
+    react-native-url-polyfill "2.0.0"
+
 "@react-native-firebase/messaging@^23.5.0":
   version "23.5.0"
   resolved "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-23.5.0.tgz"
@@ -7034,6 +7041,13 @@ react-native-svg@15.12.1:
     css-select "^5.1.0"
     css-tree "^1.1.3"
     warn-once "0.1.1"
+
+react-native-url-polyfill@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/react-native-url-polyfill/-/react-native-url-polyfill-2.0.0.tgz"
+  integrity sha512-My330Do7/DvKnEvwQc0WdcBnFPploYKp9CYlefDXzIdEaA+PAhDYllkvGeEroEzvc4Kzzj2O4yVdz8v6fjRvhA==
+  dependencies:
+    whatwg-url-without-unicode "8.0.0-3"
 
 react-native-web@~0.21.0:
   version "0.21.1"

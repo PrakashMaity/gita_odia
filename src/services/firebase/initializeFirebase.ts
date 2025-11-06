@@ -1,5 +1,4 @@
 import { getApp } from '@react-native-firebase/app';
-import { getMessaging } from '@react-native-firebase/messaging';
 
 /**
  * Firebase App instance type
@@ -8,7 +7,6 @@ type FirebaseApp = ReturnType<typeof getApp>;
 
 interface FirebaseStatus {
   app: boolean;
-  messaging: boolean;
 }
 
 /**
@@ -30,7 +28,6 @@ export const initializeFirebase = (): void => {
   
   const firebaseStatus: FirebaseStatus = {
     app: false,
-    messaging: false,
   };
 
   // Check Firebase App
@@ -51,32 +48,11 @@ export const initializeFirebase = (): void => {
     console.log('   → Make sure config files are in place and rebuild app');
   }
 
-  // Check Firebase Messaging (using modular API)
-  try {
-    const app = getApp();
-    const messagingInstance = getMessaging(app);
-    if (messagingInstance) {
-      firebaseStatus.messaging = true;
-      console.log('✅ Firebase Cloud Messaging: AVAILABLE');
-    } else {
-      console.log('⚠️  Firebase Cloud Messaging: Module loaded but instance unavailable');
-    }
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('FirebaseApp')) {
-      console.log('⚠️  Firebase Cloud Messaging: Module available but Firebase App not initialized');
-      console.log('   (This is OK if config files are missing)');
-    } else {
-      console.log('❌ Firebase Cloud Messaging: NOT AVAILABLE');
-      console.log('   Error:', error instanceof Error ? error.message : 'Module not found');
-    }
-  }
-
   // Summary
   console.log('==========================================');
   console.log('📊 FIREBASE STATUS SUMMARY');
   console.log('==========================================');
   console.log('Firebase App:', firebaseStatus.app ? '✅ OK' : '❌ NOT INITIALIZED');
-  console.log('Cloud Messaging:', firebaseStatus.messaging ? '✅ OK' : '⚠️  NOT READY');
   
   if (!firebaseStatus.app) {
     console.log('');
@@ -84,9 +60,9 @@ export const initializeFirebase = (): void => {
     console.log('   are required for Firebase to work. Make sure they are in place and rebuild.');
   }
   
-  if (firebaseStatus.app && firebaseStatus.messaging) {
+  if (firebaseStatus.app) {
     console.log('==========================================');
-    console.log('🎉 Firebase is ready for notifications!');
+    console.log('🎉 Firebase is ready!');
     console.log('==========================================');
   } else {
     console.log('==========================================');

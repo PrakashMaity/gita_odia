@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow device registration without authentication
+    match /UserClients/{deviceId} {
+      allow create, update: if true; // Allow device registration
+      allow read: if request.auth != null; // Only admins can read
+    }
+    
+    // Allow read/write access to all other documents (for development)
+    // TODO: Add proper security rules for production
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+

@@ -287,11 +287,6 @@
     "lastRead": "अंतिम पढ़ा: %{date}",
     "chapterComplete": "अध्याय पूर्ण"
   },
-  "notification": {
-    "dailySloka": "आज का श्लोक",
-    "readMore": "और पढ़ें",
-    "close": "बंद करें"
-  },
   "theme": {
     "theme": "थीम",
     "dark": "डार्क",
