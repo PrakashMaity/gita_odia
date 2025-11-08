@@ -1,13 +1,25 @@
-import { useEffect, useState } from 'react';
-import { Platform, StatusBar } from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { NativeModules, Platform, StatusBar } from 'react-native';
 import { AdEventType, InterstitialAd } from 'react-native-google-mobile-ads';
 import { INTERSTITIAL_AD_UNIT_ID } from '../config/config';
 
 export const useInterstitialAds = () => {
     const [loadedInterstitial, setLoadedInterstitial] = useState(false);
     const [interstitial, setInterstitial] = useState<InterstitialAd | null>(null);
+    const adsSupported = useMemo(() => {
+      if (Platform.OS === 'web') {
+        return false;
+      }
+      return Boolean((NativeModules as Record<string, unknown>).RNGoogleMobileAdsModule);
+    }, []);
 
     useEffect(() => {
+      if (!adsSupported) {
+        setLoadedInterstitial(false);
+        setInterstitial(null);
+        return;
+      }
+
       // Create new interstitial ad instance
       const newInterstitial = InterstitialAd.createForAdRequest(INTERSTITIAL_AD_UNIT_ID, {
         keywords: ['spiritual', 'religion', 'hinduism', 'bhagavad-gita'],
@@ -53,6 +65,10 @@ export const useInterstitialAds = () => {
     }, []);
 
     const showInterstitial = () => {
+      if (!adsSupported) {
+        return;
+      }
+
       if (loadedInterstitial && interstitial) {
         try {
           interstitial.show();

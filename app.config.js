@@ -64,6 +64,7 @@ export default function ({ config = {} }) {
       "android.permission.RECORD_AUDIO",
       "android.permission.MODIFY_AUDIO_SETTINGS",
     ],
+    "googleServicesFile": "./path/to/google-services.json"
   };
 
   const iosConfig = {
