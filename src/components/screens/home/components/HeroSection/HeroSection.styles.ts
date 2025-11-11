@@ -26,11 +26,7 @@ export const styles = StyleSheet.create({
   },
   overlayText: {
     textAlign: 'center',
-    marginBottom: 12,
-    color: 'white',
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 4,
+  
   },
 });
 

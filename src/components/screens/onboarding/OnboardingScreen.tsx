@@ -1,6 +1,6 @@
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme, useThemeColors } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -13,7 +13,6 @@ import { styles } from './OnboardingScreen.styles';
 
 export const OnboardingScreen: React.FC = () => {
   const theme = useThemeColors();
-  const { isDark } = useTheme();
   const { slides } = useOnboardingData();
   const {
     currentSlide,
@@ -28,7 +27,7 @@ export const OnboardingScreen: React.FC = () => {
 
   return (
     <ThemedView style={[styles.container, { backgroundColor: theme.background.primary }]}>
-      <StatusBar style={isDark ? 'light' : 'dark'} />
+      <StatusBar style="dark" />
       
       <ThemedView style={styles.header}>
         <TouchableOpacity onPress={handleSkip} style={styles.skipButton}>

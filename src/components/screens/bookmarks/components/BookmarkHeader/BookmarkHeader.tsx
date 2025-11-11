@@ -35,7 +35,6 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
         <ThemedView style={[styles.actionButton, { borderColor: theme.border.primary }]}>
           <BookmarkIcon 
             size={SIZES.icon.md} 
-            color={theme.icon.primary} 
             focused={true}
             showBadge={true}
             badgeSize="medium"

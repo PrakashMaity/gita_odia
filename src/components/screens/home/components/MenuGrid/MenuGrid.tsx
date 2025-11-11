@@ -6,7 +6,7 @@ import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
 import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import { styles } from './MenuGrid.styles';
 
 interface MenuGridProps {
@@ -18,6 +18,14 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
   const menuSections = getMenuSections();
 
   const renderIcon = (item: MenuItem) => {
+    if (item.image) {
+      return <Image source={item.image} style={styles.menuImage} resizeMode="cover" />;
+    }
+
+    if (!item.iconName || !item.iconFamily) {
+      return null;
+    }
+
     const iconProps = {
       name: item.iconName as any,
       size: SIZES.icon.xl,

@@ -41,6 +41,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: SIZES.spacing.lg,
+    overflow: 'hidden',
+  },
+  menuImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: SIZES.radius.xl,
   },
   textContainer: {
     flex: 1,

@@ -1,7 +1,9 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemeProvider } from '@/hooks/useTheme';
+import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
+import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
+import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
@@ -10,13 +12,21 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { initializeFirebase } from '@/services/firebase/initializeFirebase';
-import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {
   /* Splash screen may have already hidden */
 });
+
+const ThemedStatusBar = () => {
+  const theme = useThemeColors();
+  return (
+    <StatusBar
+      style="dark"
+      backgroundColor={theme.background.secondary}
+    />
+  );
+};
 
 // Note: expo-keep-awake error suppression is handled in index.js
 // (It must be set up before any modules are imported)
@@ -86,8 +96,7 @@ export default function RootLayout() {
         <ThemeProvider>
           <ThemedSafeAreaView>
             <ThemedView variant='secondary' style={{ flex: 1 }}>
-           
-            <StatusBar style={"auto"} />
+              <ThemedStatusBar />
               <Stack screenOptions={{
                 headerShown: false,
               }}>

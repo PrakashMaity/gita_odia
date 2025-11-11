@@ -3,7 +3,6 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 export interface Settings {
-  themeMode: 'light' | 'dark' | 'system';
   notificationsEnabled: boolean;
   autoPlayNext: boolean;
   fontSize: 'small' | 'medium' | 'large';
@@ -23,7 +22,6 @@ interface SettingsStore {
 }
 
 const defaultSettings: Settings = {
-  themeMode: 'system',
   notificationsEnabled: true,
   autoPlayNext: false,
   fontSize: 'medium',

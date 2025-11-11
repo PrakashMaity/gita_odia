@@ -1,13 +1,18 @@
 import { getNavigationHandler } from '@/components/screens/home/navigationHandlers';
 import i18n from '@/i18n';
 import { FontAwesome6, MaterialIcons } from '@expo/vector-icons';
+import type { ImageSourcePropType } from 'react-native';
+
+import dhyaanImage from '@/assets/images/Home/menu/dhyaan.png';
+import mangalacharanImage from '@/assets/images/Home/menu/mongalacharan.png';
 
 export interface MenuItem {
   id: string;
   title: string;
-  icon: React.ComponentType<any>;
-  iconName: string;
-  iconFamily: 'FontAwesome5' | 'FontAwesome6' | 'MaterialIcons' | 'Ionicons';
+  icon?: React.ComponentType<any>;
+  iconName?: string;
+  iconFamily?: 'FontAwesome5' | 'FontAwesome6' | 'MaterialIcons' | 'Ionicons';
+  image?: ImageSourcePropType;
   description?: string;
   route?: string;
   action?: () => void;
@@ -27,18 +32,14 @@ export const getMenuSections = (): MenuSection[] => [
       {
         id: 'mangalacharan',
         title: i18n.t('menu.mangalacharan'),
-        icon: MaterialIcons,
-        iconName: 'favorite',
-        iconFamily: 'MaterialIcons',
+        image: mangalacharanImage,
         description: i18n.t('menu.mangalacharanDesc'),
         action: () => getNavigationHandler({ id: 'mangalacharan' } as MenuItem)(),
       },
       {
         id: 'dhyana',
         title: i18n.t('menu.dhyana'),
-        icon: MaterialIcons,
-        iconName: 'self-improvement',
-        iconFamily: 'MaterialIcons',
+        image: dhyaanImage,
         description: i18n.t('menu.dhyanaDesc'),
         action: () => getNavigationHandler({ id: 'dhyana' } as MenuItem)(),
       },

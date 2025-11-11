@@ -11,5 +11,19 @@ export const styles = StyleSheet.create({
     marginTop: SIZES.spacing.sm,
     marginBottom: SIZES.spacing.sm,
   },
+  actionBackground: {
+    flex: 1,
+    borderRadius: SIZES.radius.lg,
+    overflow: 'hidden',
+  },
+  actionBackgroundImage: {
+    borderRadius: SIZES.radius.lg,
+  },
+  actionButton: {
+    backgroundColor: 'transparent',
+  },
+  actionText: {
+    textTransform: 'uppercase',
+  },
 });
 

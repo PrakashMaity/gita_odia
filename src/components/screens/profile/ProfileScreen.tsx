@@ -1,4 +1,4 @@
-import { SettingsItem, SettingsSection, SettingsToggle } from '@/components/settings';
+import { SettingsItem, SettingsSection } from '@/components/settings';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
@@ -8,13 +8,11 @@ import Feather from '@expo/vector-icons/Feather';
 import constants from 'expo-constants';
 import { Dimensions, ScrollView } from 'react-native';
 import { ProfileHeader } from './components/ProfileHeader';
-import { useProfileOperations } from './hooks/useProfileOperations';
 import { styles } from './ProfileScreen.styles';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
   const { width, height } = Dimensions.get('window');
-  const { handleThemeChange, isDark } = useProfileOperations();
 
   return (
     <ThemedView variant='primary' style={styles.container}>
@@ -27,20 +25,6 @@ export const ProfileScreen: React.FC = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        <SettingsSection 
-          title={i18n.t('profile.appearance')} 
-          description={i18n.t('profile.appearanceDesc')}
-        >
-          <SettingsToggle
-            title={i18n.t('profile.darkMode')}
-            subtitle={i18n.t('profile.darkModeDesc')}
-            icon={<Feather name="moon" size={SIZES.icon.lg} color={theme.icon.primary} />}
-            value={isDark}
-            onValueChange={handleThemeChange}
-            showDivider={true}
-          />
-        </SettingsSection>
-
         <SettingsSection 
           title={i18n.t('profile.about')} 
           description={i18n.t('profile.aboutDesc')}

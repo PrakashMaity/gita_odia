@@ -25,7 +25,6 @@ export const ChaptersHeader: React.FC = () => {
         <ThemedView style={[styles.actionButton, { borderColor: theme.border.primary }]}>
           <BookmarkIcon
             size={SIZES.icon.xl}
-            color={theme.icon.primary}
             focused={true}
             showBadge={true}
             badgeSize="medium"

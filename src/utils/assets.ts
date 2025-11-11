@@ -5,7 +5,14 @@ const assets = {
   adaptiveIcon: require('../../assets/images/adaptive-icon.png'),
   favicon: require('../../assets/images/favicon.png'),
   logo: require('../../assets/images/Home/logo.png'),
+  header: require('../../assets/images/Home/header.png'),
   hero: require('../../assets/images/Home/hero.png'),
+  headerIcons: {
+    mic: require('../../assets/images/Home/icon/music.png'),
+    notification: require('../../assets/images/Home/icon/nitification.png'),
+  },
+  buttonBackground: require('../../assets/images/Home/btnBackground.png'),
+  background: require('../../assets/images/Home/background.png'),
   banner1: require('../../assets/images/onboarding/onboardBanner1.png'),
   banner2: require('../../assets/images/onboarding/onboardBanner2.png'),
   banner3: require('../../assets/images/onboarding/onboardBanner3.png'),
@@ -14,7 +21,6 @@ const assets = {
   arjuna: require('../../assets/images/speaker/arjuna.png'),
   shreekrishna: require('../../assets/images/speaker/shreekrishna.png'),
   duryadhona: require('../../assets/images/speaker/duryadhona.png'),
-  heroDark: require('../../assets/images/Home/hero-dark.png'),
   fonts: {
     'english': require('../../assets/fonts/english.ttf'),
     'primary': require('../../assets/fonts/primary.ttf'),
@@ -28,7 +34,10 @@ const assets = {
 export const HomeImages = {
   logo: assets.logo,
   hero: assets.hero,
-  heroDark: assets.heroDark,
+  header: assets.header,
+  headerIcons: assets.headerIcons,
+  background: assets.background,
+  buttonBackground: assets.buttonBackground,
 };
 
 // Onboarding Images

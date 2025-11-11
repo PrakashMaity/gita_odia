@@ -1,2 +1,0 @@
-export { useProfileOperations } from './useProfileOperations';
-

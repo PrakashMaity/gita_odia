@@ -1,12 +1,9 @@
-import { useTheme } from '@/hooks/useTheme';
 import { useBookmarkStore } from '@/store';
-import { Ionicons } from '@expo/vector-icons';
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Badge } from '../Badge';
 
 interface BookmarkIconProps {
   size?: number;
-  color?: string;
   focused?: boolean;
   showBadge?: boolean;
   badgeSize?: 'small' | 'medium' | 'large';
@@ -14,27 +11,29 @@ interface BookmarkIconProps {
 
 export const BookmarkIcon: React.FC<BookmarkIconProps> = ({
   size = 24,
-  color,
   focused = false,
   showBadge = true,
   badgeSize = 'small',
 }) => {
-  const { theme } = useTheme();
   const { getBookmarkCount } = useBookmarkStore();
-  
+
   const bookmarkCount = getBookmarkCount();
-  const iconColor = color || (focused ? theme.icon.primary : theme.icon.secondary);
+  const iconSource = require('@/assets/images/menu/bookmark-active.png');
 
   return (
     <View style={{ position: 'relative' }}>
-      <Ionicons 
-        name={focused ? 'bookmark' : 'bookmark-outline'} 
-        size={size} 
-        color={iconColor} 
+      <Image
+        source={iconSource}
+        style={{
+          width: size,
+          height: size,
+          opacity: focused ? 1 : 0.75,
+        }}
+        resizeMode="contain"
       />
       {showBadge && bookmarkCount > 0 && (
-        <Badge 
-          count={bookmarkCount} 
+        <Badge
+          count={bookmarkCount}
           size={badgeSize}
           position="top-right"
         />
