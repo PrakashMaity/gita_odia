@@ -28,6 +28,16 @@ const assets = {
     'tertiary': require('../../assets/fonts/tertiary.ttf'),
     'quaternary': require('../../assets/fonts/quaternary.ttf'),
   },
+  layoutBackground1: require('../../assets/images/layoutBackground1.png'),
+  chapters: [
+    require('../../assets/images/chapter/c1.png'),
+    require('../../assets/images/chapter/c2.png'),
+    require('../../assets/images/chapter/c3.png'),
+    require('../../assets/images/chapter/c4.png'),
+    require('../../assets/images/chapter/c5.png'),
+    require('../../assets/images/chapter/c6.png'),
+    require('../../assets/images/chapter/c7.png'),
+  ],
 };
 
 // Home Images
@@ -58,3 +68,9 @@ export const SpeakerImages = {
 
 // Client-specific Fonts (used in app/_layout.tsx)
 export const ClientFonts = assets.fonts;
+
+export const LayoutImages = {
+  background1: assets.layoutBackground1,
+};
+
+export const ChapterImages = assets.chapters;

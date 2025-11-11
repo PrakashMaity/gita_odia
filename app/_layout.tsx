@@ -9,8 +9,9 @@ import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
+import { Platform, StatusBar as RNStatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // Prevent splash screen from auto-hiding
@@ -20,11 +21,18 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 
 const ThemedStatusBar = () => {
   const theme = useThemeColors();
+  const backgroundColor = theme.background.tertiary;
+
+  useEffect(() => {
+    RNStatusBar.setBarStyle('light-content', true);
+    if (Platform.OS === 'android') {
+      RNStatusBar.setBackgroundColor(backgroundColor, true);
+      RNStatusBar.setTranslucent(false);
+    }
+  }, [backgroundColor]);
+
   return (
-    <StatusBar
-      style="dark"
-      backgroundColor={theme.background.secondary}
-    />
+    <ExpoStatusBar style="light" backgroundColor={backgroundColor} translucent={false} />
   );
 };
 
@@ -94,7 +102,7 @@ export default function RootLayout() {
     <ErrorBoundary>
       <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <ThemeProvider>
-          <ThemedSafeAreaView>
+          <ThemedSafeAreaView variant='tertiary'>
             <ThemedView variant='secondary' style={{ flex: 1 }}>
               <ThemedStatusBar />
               <Stack screenOptions={{

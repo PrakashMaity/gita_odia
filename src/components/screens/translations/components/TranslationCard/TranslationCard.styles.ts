@@ -2,35 +2,33 @@ import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
 
 export const styles = StyleSheet.create({
-  container: {
-    marginBottom: SIZES.spacing.md,
-  },
   card: {
+    alignItems: 'center',
     padding: SIZES.spacing.xl,
     borderRadius: SIZES.radius.xl,
     borderWidth: SIZES.borderSize.sm,
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  iconContainer: {
-    width: SIZES.avatar.md,
-    height: SIZES.avatar.md,
-    borderRadius: SIZES.radius.full,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: SIZES.spacing.lg,
     shadowOffset: {
       width: 0,
       height: SIZES.shadow.md,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: SIZES.shadow.md,
-    elevation: 3,
+    shadowOpacity: 0.15,
+    shadowRadius: SIZES.shadow.lg,
+    elevation: 4,
   },
-  chapterNumber: {
-    fontWeight: '600',
+  content: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+  },
+  coverWrapper: {
+    width: 72,
+    height: 72,
+    marginRight: SIZES.spacing.lg,
+    overflow: 'hidden',
+  },
+  coverImage: {
+    width: '100%',
+    height: '100%',
   },
   textContainer: {
     flex: 1,
@@ -41,12 +39,7 @@ export const styles = StyleSheet.create({
     lineHeight: 20,
     opacity: 0.85,
   },
-  info: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.md,
-  },
-  verseCount: {
+  translationInfo: {
     opacity: 0.9,
   },
   arrowContainer: {
@@ -56,6 +49,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: SIZES.spacing.sm,
+    marginRight: SIZES.spacing.sm,
   },
 });
 

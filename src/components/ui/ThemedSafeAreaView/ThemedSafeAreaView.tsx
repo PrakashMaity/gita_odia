@@ -1,14 +1,24 @@
-import { useThemeColors } from '@/hooks/useTheme'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Theme } from '@/constants/theme';
+import { useThemeColors } from '@/hooks/useTheme';
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-function ThemedSafeAreaView({children}: {children: React.ReactNode}) {
-    const theme = useThemeColors()
-  return (
-    <SafeAreaView style={{ flex: 1, backgroundColor:theme.background.primary  }}>
-            {children}
-    </SafeAreaView>
-  )
+type BackgroundVariant = keyof Theme['background'];
+
+interface ThemedSafeAreaViewProps {
+  children: React.ReactNode;
+  variant?: BackgroundVariant;
 }
 
-export default ThemedSafeAreaView
+function ThemedSafeAreaView({ children, variant = 'primary' }: ThemedSafeAreaViewProps) {
+  const theme = useThemeColors();
+  const backgroundColor = theme.background[variant];
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor }}>
+      {children}
+    </SafeAreaView>
+  );
+}
+
+export default ThemedSafeAreaView;

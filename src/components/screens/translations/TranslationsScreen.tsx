@@ -1,20 +1,16 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
-import i18n from '@/i18n';
-import { WavePattern } from '@/illustration/cardBackground';
-import { useTranslationStore } from '@/store';
-import { useEffect } from 'react';
-import { Dimensions, ScrollView } from 'react-native';
 import { LoadingState } from '@/components/shared';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import i18n from '@/i18n';
+import { useTranslationStore } from '@/store';
+import { LayoutImages } from '@/utils/assets';
+import { useEffect } from 'react';
+import { ImageBackground, ScrollView } from 'react-native';
 import { TranslationCard } from './components/TranslationCard';
 import { TranslationsHeader } from './components/TranslationsHeader';
 import { useTranslationsOperations } from './hooks/useTranslationsOperations';
 import { styles } from './TranslationsScreen.styles';
 
 export const TranslationsScreen: React.FC = () => {
-  const { theme } = useTheme();
-  const { width, height } = Dimensions.get('window');
   const { translations, isLoading, loadAllTranslations } = useTranslationStore();
   const { handleTranslationPress } = useTranslationsOperations();
 
@@ -27,28 +23,20 @@ export const TranslationsScreen: React.FC = () => {
   }
 
   return (
-    <ThemedView variant="primary" style={styles.container}>
-      <WavePattern width={width} height={height} />
+    <ImageBackground
+      source={LayoutImages.background1}
+      style={styles.backgroundImage}
+      resizeMode="cover"
+      blurRadius={2.5}
+    >
+      <ThemedView variant="transparent" style={styles.container}>
+        <TranslationsHeader />
 
-      <TranslationsHeader />
-
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        <ThemedView style={styles.section}>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText
-              variant="primary"
-              size="xxl"
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('translations.sectionTitle')}
-            </ThemedLanguageText>
-          </ThemedView>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           <ThemedView style={styles.translationsContainer}>
             {translations.map((translation) => (
               <TranslationCard
@@ -58,8 +46,8 @@ export const TranslationsScreen: React.FC = () => {
               />
             ))}
           </ThemedView>
-        </ThemedView>
-      </ScrollView>
-    </ThemedView>
+        </ScrollView>
+      </ThemedView>
+    </ImageBackground>
   );
 };

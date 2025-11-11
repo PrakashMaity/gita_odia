@@ -16,7 +16,7 @@ export const QuickActions: React.FC = () => {
   const quickActionIconColor = theme.icon.primary;
 
   return (
-    <ThemedCard variant='transparent' style={styles.quickActionsCard}>
+    <ThemedCard variant='primary' pattern='sacredGeometry' style={styles.quickActionsCard}>
       <ImageBackground
         source={HomeImages.buttonBackground}
         style={styles.actionBackground}

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   card: {
@@ -18,21 +18,17 @@ export const styles = StyleSheet.create({
   content: {
     flexDirection: 'row',
     width: '100%',
-  },
-  iconContainer: {
-    width: SIZES.avatar.md,
-    height: SIZES.avatar.md,
-    borderRadius: SIZES.radius.full,
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  coverWrapper: {
+    width: 72,
+    height: 72,
     marginRight: SIZES.spacing.lg,
-    shadowOffset: {
-      width: 0,
-      height: SIZES.shadow.md,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: SIZES.shadow.md,
-    elevation: 3,
+    overflow: 'hidden',
+  },
+  coverImage: {
+    width: '100%',
+    height: '100%',
   },
   textContainer: {
     flex: 1,
@@ -58,14 +54,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: SIZES.spacing.sm,
+    marginRight: SIZES.spacing.sm,
   },
   progressSpacer: {
     marginTop: SIZES.spacing.md,
-  },
-  progressText: {
-    opacity: 0.9,
-    fontWeight: '600',
-    textAlign: 'center',
   },
 });
 

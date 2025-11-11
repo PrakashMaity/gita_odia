@@ -1,8 +1,8 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -11,32 +11,44 @@ import { TouchableOpacity } from 'react-native';
 import { styles } from './TranslationsHeader.styles';
 
 export const TranslationsHeader: React.FC = () => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   return (
-    <ThemedCard variant='transparent' style={styles.headerCard}>
-      <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-        <Ionicons name="arrow-back" size={SIZES.icon.xl} color={theme.icon.primary} />
-      </TouchableOpacity>
+    <ScreenHeader
+      containerStyle={{ backgroundColor: theme.background.secondary }}
+      leftContent={
+        <ThemedView style={styles.leftContent}>
+          <TouchableOpacity
+            onPress={() => router.back()}
+            style={[styles.backButton, { backgroundColor: theme.background.secondary }]}
+          >
+            <Ionicons name="arrow-back" size={SIZES.icon.md} color={theme.icon.primary} />
+          </TouchableOpacity>
 
-      <ThemedLanguageText
-        variant="primary"
-        size="title"
-        fontFamily="regional_secondary"
-        style={styles.title}
-      >
-        {i18n.t('menu.translations')}
-      </ThemedLanguageText>
-      <ThemedView style={styles.headerActions}>
-        <ThemedView style={[styles.actionButton, { borderColor: theme.border.primary }]}>
-          <MaterialIcons
-            name="translate"
-            size={SIZES.icon.md}
-            color={theme.icon.primary}
-          />
+          <ThemedLanguageText
+            variant="primary"
+            size="title"
+            fontFamily="regional_secondary"
+            style={styles.title}
+          >
+            {i18n.t('menu.translations')}
+          </ThemedLanguageText>
         </ThemedView>
-      </ThemedView>
-    </ThemedCard>
+      }
+      rightContent={
+        <ThemedView
+          style={[
+            styles.actionButton,
+            {
+              backgroundColor: theme.background.secondary,
+              borderColor: theme.border.primary,
+            },
+          ]}
+        >
+          <MaterialIcons name="translate" size={SIZES.icon.md} color={theme.icon.primary} />
+        </ThemedView>
+      }
+    />
   );
 };
 

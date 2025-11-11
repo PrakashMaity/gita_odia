@@ -25,10 +25,43 @@ export const ThemedLinearProgress: React.FC<ThemedLinearProgressProps> = ({
   children,
 }) => {
   const theme = useThemeColors();
-  
+  const [measuredWidth, setMeasuredWidth] = React.useState(0);
+
   const clampedProgress = Math.max(0, Math.min(1, progress));
-  const progressWidth = typeof width === 'number' ? width : 300; // Default width for SVG
-  const progressBarWidth = progressWidth * clampedProgress;
+  const resolvedWidth = React.useMemo(() => {
+    if (typeof width === 'number') {
+      return width;
+    }
+
+    if (typeof width === 'string') {
+      if (width.endsWith('%') || width === 'auto') {
+        return measuredWidth;
+      }
+
+      const parsed = Number(width);
+      if (!Number.isNaN(parsed)) {
+        return parsed;
+      }
+    }
+
+    return measuredWidth;
+  }, [width, measuredWidth]);
+  const progressBarWidth = resolvedWidth * clampedProgress;
+
+  const handleLayout = React.useCallback(
+    (event: any) => {
+      if (typeof width === 'number') {
+        return;
+      }
+
+      const layoutWidth = event?.nativeEvent?.layout?.width;
+
+      if (typeof layoutWidth === 'number' && layoutWidth > 0 && layoutWidth !== measuredWidth) {
+        setMeasuredWidth(layoutWidth);
+      }
+    },
+    [width, measuredWidth]
+  );
 
   const getVariantColors = () => {
     switch (variant) {
@@ -68,8 +101,19 @@ export const ThemedLinearProgress: React.FC<ThemedLinearProgressProps> = ({
   const colors = getVariantColors();
 
   return (
-    <View style={[styles.container, { width: width as any }, style]}>
-      <Svg height={height} width={progressWidth} style={styles.svg}>
+    <View
+      onLayout={handleLayout}
+      style={[
+        styles.container,
+        {
+          height,
+          width: width as any,
+          borderRadius: height / 2,
+        },
+        style,
+      ]}
+    >
+      <Svg height={height} width={resolvedWidth} style={styles.svg}>
         <Defs>
           <LinearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <Stop offset="0%" stopColor={colors.progress} stopOpacity="0.8" />
@@ -81,7 +125,7 @@ export const ThemedLinearProgress: React.FC<ThemedLinearProgressProps> = ({
         <Rect
           x={0}
           y={0}
-          width={progressWidth}
+          width={resolvedWidth}
           height={height}
           rx={height / 2}
           ry={height / 2}
@@ -121,6 +165,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   svg: {
     width: '100%',

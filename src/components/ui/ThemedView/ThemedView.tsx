@@ -1,12 +1,12 @@
 import { SIZES } from '@/rootconstants/sizes';
 import React from 'react';
-import { View, ViewProps, ViewStyle } from 'react-native';
+import { StyleProp, View, ViewProps, ViewStyle } from 'react-native';
 import { useThemeColors } from '@/hooks/useTheme';
 import { ViewVariant } from './types';
 
 export interface ThemedViewProps extends ViewProps {
   variant?: ViewVariant;
-  style?: ViewStyle | ViewStyle[];
+  style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 }
 
@@ -18,7 +18,7 @@ export const ThemedView: React.FC<ThemedViewProps> = ({
 }) => {
   const theme = useThemeColors();
 
-  const getViewStyle = (): ViewStyle | ViewStyle[] => {
+  const getViewStyle = (): StyleProp<ViewStyle> => {
     const baseStyle: ViewStyle = {};
 
     // Variant styles
@@ -47,20 +47,20 @@ export const ThemedView: React.FC<ThemedViewProps> = ({
       },
     };
 
-    const finalStyle = {
+    const finalStyle: ViewStyle = {
       ...baseStyle,
       ...variantStyles[variant],
     };
 
-    // Handle both single style and array of styles
+    if (!style) {
+      return finalStyle;
+    }
+
     if (Array.isArray(style)) {
       return [finalStyle, ...style];
     }
 
-    return {
-      ...finalStyle,
-      ...style,
-    };
+    return [finalStyle, style];
   };
 
   return (

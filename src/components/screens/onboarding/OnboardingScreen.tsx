@@ -2,7 +2,6 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { OnboardingNavigation } from './components/OnboardingNavigation';
@@ -27,8 +26,6 @@ export const OnboardingScreen: React.FC = () => {
 
   return (
     <ThemedView style={[styles.container, { backgroundColor: theme.background.primary }]}>
-      <StatusBar style="dark" />
-      
       <ThemedView style={styles.header}>
         <TouchableOpacity onPress={handleSkip} style={styles.skipButton}>
           <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary">
