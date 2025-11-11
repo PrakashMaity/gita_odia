@@ -29,6 +29,8 @@ const assets = {
     'quaternary': require('../../assets/fonts/quaternary.ttf'),
   },
   layoutBackground1: require('../../assets/images/layoutBackground1.png'),
+  layoutBackground2: require('../../assets/images/layoutBackground2.png'),
+  layoutBackground3: require('../../assets/images/layoutBackground3.png'),
   chapters: [
     require('../../assets/images/chapter/c1.png'),
     require('../../assets/images/chapter/c2.png'),
@@ -71,6 +73,8 @@ export const ClientFonts = assets.fonts;
 
 export const LayoutImages = {
   background1: assets.layoutBackground1,
+  background2: assets.layoutBackground2,
+  background3: assets.layoutBackground3,
 };
 
 export const ChapterImages = assets.chapters;

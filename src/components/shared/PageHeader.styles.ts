@@ -1,40 +1,44 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    paddingHorizontal: SIZES.spacing.xl,
-    paddingTop: SIZES.spacing.lg,
-    paddingBottom: SIZES.spacing.sm,
-  },
-  backButton: {
-    marginRight: SIZES.spacing.lg,
-    marginTop: SIZES.spacing.xs,
-    padding: SIZES.spacing.sm,
-    borderRadius: SIZES.radius.lg,
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  placeholder: {
-    width: 40,
+  headerContainer: {
+    marginHorizontal: 0,
+    marginTop: 0,
+    borderRadius: 0,
+    overflow: 'visible',
   },
   headerContent: {
+    paddingVertical: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.lg,
+  },
+  leftContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
-    padding: SIZES.spacing.md,
+  },
+  backButton: {
+    width: SIZES.header.sm,
+    height: SIZES.header.sm,
+    borderRadius: SIZES.radius.round,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: SIZES.spacing.md,
+    borderWidth: SIZES.borderSize.md,
   },
   title: {
-    marginBottom: SIZES.spacing.xs,
-    lineHeight: 32,
+    marginBottom: SIZES.spacing.xs / 2,
   },
   subtitle: {
-    marginBottom: SIZES.spacing.sm,
-    lineHeight: 24,
+    marginTop: SIZES.spacing.xs / 2,
     opacity: 0.85,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  rightContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 

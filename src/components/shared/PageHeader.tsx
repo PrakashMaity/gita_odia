@@ -1,11 +1,13 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import { PageHeaderProps } from '@/interface/screen.interface';
+import { HomeImages } from '@/utils/assets';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { styles } from './PageHeader.styles';
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
@@ -15,7 +17,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   rightAction,
   onBack,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   const handleBack = () => {
     if (onBack) {
@@ -26,38 +28,63 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   };
 
   return (
-    <ThemedView style={styles.header}>
-      {showBackButton ? (
-        <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={SIZES.icon.lg} color={theme.icon.primary} />
-        </TouchableOpacity>
-      ) : (
-        <View style={styles.placeholder} />
-      )}
-      
-      <ThemedView style={styles.headerContent}>
-        <ThemedLanguageText 
-          variant="primary" 
-          size="title" 
-          fontFamily="regional_secondary"
-          style={styles.title}
-        >
-          {title}
-        </ThemedLanguageText>
-        {subtitle && (
-          <ThemedLanguageText 
-            variant="secondary" 
-            size="large" 
-            fontFamily="regional_secondary"
-            style={styles.subtitle}
-          >
-            {subtitle}
-          </ThemedLanguageText>
-        )}
-      </ThemedView>
+    <ScreenHeader
+      backgroundSource={HomeImages.hero}
+      blurRadius={3}
+      containerStyle={[
+        styles.headerContainer,
+        { backgroundColor: theme.background.secondary },
+      ]}
+      contentStyle={styles.headerContent}
+      leftSectionStyle={styles.leftContent}
+      rightSectionStyle={styles.rightContent}
+      leftContent={
+        <ThemedView style={styles.leftContent}>
+          {showBackButton ? (
+            <TouchableOpacity
+              onPress={handleBack}
+              style={[
+                styles.backButton,
+                {
+                  backgroundColor: theme.background.secondary,
+                  borderColor: theme.border.primary,
+                },
+              ]}
+            >
+              <Ionicons name="arrow-back" size={SIZES.icon.md} color={theme.icon.primary} />
+            </TouchableOpacity>
+          ) : null}
 
-      {rightAction ? rightAction : <View style={styles.placeholder} />}
-    </ThemedView>
+          <ThemedView style={styles.textContainer}>
+            <ThemedLanguageText
+              variant="primary"
+              size="title"
+              fontFamily="regional_secondary"
+              style={styles.title}
+            >
+              {title}
+            </ThemedLanguageText>
+            {subtitle ? (
+              <ThemedLanguageText
+                variant="secondary"
+                size="large"
+                fontFamily="regional_secondary"
+                style={styles.subtitle}
+              >
+                {subtitle}
+              </ThemedLanguageText>
+            ) : null}
+          </ThemedView>
+        </ThemedView>
+      }
+      rightContent={
+        rightAction ? (
+          <ThemedView style={styles.rightContent}>
+            {rightAction}
+          </ThemedView>
+        ) : undefined
+      }
+    />
   );
 };
 

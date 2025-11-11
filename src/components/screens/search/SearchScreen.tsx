@@ -7,6 +7,8 @@ import { SearchBar, SearchResults, SearchTips } from './components';
 import { useSearchNavigation } from './hooks/useSearchNavigation';
 import { useSearchOperations } from './hooks/useSearchOperations';
 import { PageHeader } from '@/components/shared';
+import { LayoutImages } from '@/utils/assets';
+import { ImageBackground } from 'react-native';
 import { styles } from './SearchScreen.styles';
 
 export const SearchScreen: React.FC = () => {
@@ -22,35 +24,42 @@ export const SearchScreen: React.FC = () => {
 
   return (
     <ThemedSafeAreaView>
-      <ThemedView style={styles.container}>
-        <PageHeader
-          title={i18n.t('common.search')}
-          subtitle={i18n.t('search.searchTips')}
-        />
-
-        <SearchBar
-          onSearch={handleSearch}
-          onClear={handleClear}
-          placeholder={i18n.t('search.placeholder')}
-          value={searchQuery}
-        />
-
-        {isSearching ? (
-          <ThemedView style={styles.loadingContainer}>
-            <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
-              {i18n.t('search.searching')}
-            </ThemedText>
-          </ThemedView>
-        ) : (
-          <SearchResults
-            results={searchResults}
-            query={searchQuery}
-            onResultPress={handleResultPress}
+      <ImageBackground
+        source={LayoutImages.background3}
+        style={styles.backgroundImage}
+        resizeMode="cover"
+        blurRadius={2.5}
+      >
+        <ThemedView variant="transparent" style={styles.container}>
+          <PageHeader
+            title={i18n.t('common.search')}
+            subtitle={i18n.t('search.searchTips')}
           />
-        )}
 
-        {searchQuery.length === 0 && <SearchTips />}
-      </ThemedView>
+          <SearchBar
+            onSearch={handleSearch}
+            onClear={handleClear}
+            placeholder={i18n.t('search.placeholder')}
+            value={searchQuery}
+          />
+
+          {isSearching ? (
+            <ThemedView style={styles.loadingContainer}>
+              <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
+                {i18n.t('search.searching')}
+              </ThemedText>
+            </ThemedView>
+          ) : (
+            <SearchResults
+              results={searchResults}
+              query={searchQuery}
+              onResultPress={handleResultPress}
+            />
+          )}
+
+          {searchQuery.length === 0 && <SearchTips />}
+        </ThemedView>
+      </ImageBackground>
     </ThemedSafeAreaView>
   );
 };
