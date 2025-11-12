@@ -1,18 +1,34 @@
-// Ad Components
-export { default as AdsManager } from './AdsManager';
-export { default as BannerAds } from './bannerAds';
+// Ad Functions - Following official react-native-google-mobile-ads documentation
+export {
+  createInterstitialAd,
+  setupInterstitialListeners,
+  showInterstitialAd,
+} from './interstitialAd';
 
-// Ad Hooks
-export { useAdFrequency } from './hooks/useAdFrequency';
-export { useInterstitialAds } from './hooks/useInterstitialAds';
-export { useRewardedAds } from './hooks/useRewardedAds';
-export { useRewardedInterstitialAds } from './hooks/useRewardedInterstitialAds';
+export {
+  createRewardedAd,
+  setupRewardedListeners,
+  showRewardedAd,
+} from './rewardedAd';
+
+export {
+  createRewardedInterstitialAd,
+  setupRewardedInterstitialListeners,
+  showRewardedInterstitialAd,
+} from './rewardedInterstitialAd';
+
+export { BannerAdComponent } from './bannerAd';
+
+export {
+  createAppOpenAd,
+  setupAppOpenListeners,
+  showAppOpenAd,
+} from './appOpenAd';
 
 // Ad Configuration
 export {
-    BANNER_AD_UNIT_ID,
-    INTERSTITIAL_AD_UNIT_ID,
-    REWARDED_AD_UNIT_ID,
-    REWARDED_INTERSTITIAL_AD_UNIT_ID
+  BANNER_AD_UNIT_ID,
+  INTERSTITIAL_AD_UNIT_ID,
+  REWARDED_AD_UNIT_ID,
+  REWARDED_INTERSTITIAL_AD_UNIT_ID,
 } from './config/config';
-

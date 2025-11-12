@@ -1,4 +1,3 @@
-import { BannerAds } from '@/components/ads';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
@@ -61,12 +60,6 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
           </ThemedLanguageText>
         </ThemedView>
       </ThemedCard>
-      
-      {shouldShowBanner && (
-        <BannerAds 
-          containerStyle={styles.bannerContainer}
-        />
-      )}
     </ThemedView>
   );
 };

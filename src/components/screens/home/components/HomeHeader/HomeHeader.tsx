@@ -5,6 +5,7 @@ import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { HomeImages } from '@/utils/assets';
 import { Image, TouchableOpacity } from 'react-native';
+import { router } from 'expo-router';
 import { styles } from './HomeHeader.styles';
 
 export const HomeHeader: React.FC = () => {
@@ -12,6 +13,10 @@ export const HomeHeader: React.FC = () => {
   const headerAccentColor = theme.background.tertiary;
   const headerIcons = HomeImages.headerIcons;
   const iconBackgroundColor = theme.background.secondary;
+
+  const handleNotificationPress = () => {
+    router.push('/notifications');
+  };
 
   return (
     <ScreenHeader
@@ -33,7 +38,10 @@ export const HomeHeader: React.FC = () => {
           <TouchableOpacity style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}>
             <Image source={headerIcons.mic} style={[styles.icon, { tintColor: headerAccentColor }]} />
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}>
+          <TouchableOpacity 
+            style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}
+            onPress={handleNotificationPress}
+          >
             <Image source={headerIcons.notification} style={[styles.icon, { tintColor: headerAccentColor }]} />
           </TouchableOpacity>
         </ThemedView>

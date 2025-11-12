@@ -1,4 +1,3 @@
-import { useAdFrequency } from '@/components/ads/hooks/useAdFrequency';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useTheme } from '@/hooks/useTheme';
@@ -25,9 +24,6 @@ export const BookmarksScreen: React.FC = () => {
     handleRemoveAllBookmarks,
     AlertComponent 
   } = useBookmarkOperations();
-  const { incrementAction, showInterstitialIfReady } = useAdFrequency({
-    interstitialInterval: 2,
-  });
 
   const [refreshKey, setRefreshKey] = useState(0);
 
@@ -39,14 +35,9 @@ export const BookmarksScreen: React.FC = () => {
 
   const sortedBookmarks = getBookmarksSortedByDate();
 
-  // Enhanced bookmark press handler with ad logic
   const handleBookmarkPress = useCallback((chapterId: string, verseNumber: string) => {
-    incrementAction();
     baseHandleBookmarkPress(chapterId, verseNumber);
-    setTimeout(() => {
-      showInterstitialIfReady();
-    }, 500);
-  }, [baseHandleBookmarkPress, incrementAction, showInterstitialIfReady]);
+  }, [baseHandleBookmarkPress]);
 
   if (isLoading) {
     return <LoadingState message={i18n.t('common.loading')} />;

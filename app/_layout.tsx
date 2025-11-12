@@ -6,6 +6,7 @@ import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/servic
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
+import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -105,20 +106,87 @@ export default function RootLayout() {
           <ThemedSafeAreaView variant='tertiary'>
             <ThemedView variant='secondary' style={{ flex: 1 }}>
               <ThemedStatusBar />
-              <Stack screenOptions={{
-                headerShown: false,
-              }}>
-                <Stack.Screen name="onboarding" />
-                <Stack.Screen name="(tabs)" />
-                <Stack.Screen name="chapter/[id]" />
-                <Stack.Screen name="translation/[id]" />
-                <Stack.Screen name="search" />
-                <Stack.Screen name="favorites" />
-                <Stack.Screen name="gita-summary" />
-                <Stack.Screen name="gita-mahatmya" />
-                <Stack.Screen name="mangalacharan" />
-                <Stack.Screen name="dhyana" />
-                <Stack.Screen name="translations" />
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  animation: TRANSITION_ANIMATIONS.default,
+                  contentStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                }}
+              >
+                <Stack.Screen 
+                  name="onboarding" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.fade,
+                  }}
+                />
+                <Stack.Screen 
+                  name="(tabs)" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.fade,
+                  }}
+                />
+                <Stack.Screen 
+                  name="chapter/[id]" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="translation/[id]" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="search" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.fadeFromBottom,
+                  }}
+                />
+                <Stack.Screen 
+                  name="favorites" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="gita-summary" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="gita-mahatmya" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="mangalacharan" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="dhyana" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="translations" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="notifications" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.fadeFromBottom,
+                  }}
+                />
               </Stack>
             </ThemedView>
           </ThemedSafeAreaView>

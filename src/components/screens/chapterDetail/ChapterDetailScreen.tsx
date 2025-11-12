@@ -1,4 +1,3 @@
-import { useAdFrequency } from '@/components/ads/hooks/useAdFrequency';
 import { ReadingProgress } from '@/components/progress';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { VerseReader } from '@/components/verseReader';
@@ -22,10 +21,6 @@ export const ChapterDetailScreen: React.FC = () => {
   const { showAlert, AlertComponent } = useCustomAlert();
   const [showTranslation, setShowTranslation] = React.useState(true);
   const [showLanguage, setShowLanguage] = React.useState(true);
-  const { incrementAction, showInterstitialIfReady, showRewardedIfReady } = useAdFrequency({
-    interstitialInterval: 3,
-    rewardedCooldown: 3,
-  });
 
   const { 
     chapterData, 
@@ -39,14 +34,9 @@ export const ChapterDetailScreen: React.FC = () => {
     handleNextVerse: baseHandleNextVerse 
   } = useChapterDetailOperations(chapterData, id, currentVerse, setCurrentVerse);
 
-  // Enhanced handlers with ad logic
   const handleNextVerse = useCallback(() => {
     baseHandleNextVerse();
-    incrementAction();
-    setTimeout(() => {
-      showInterstitialIfReady();
-    }, 1000);
-  }, [baseHandleNextVerse, incrementAction, showInterstitialIfReady]);
+  }, [baseHandleNextVerse]);
 
   const handlePreviousVerse = useCallback(() => {
     baseHandlePreviousVerse();
@@ -79,7 +69,6 @@ export const ChapterDetailScreen: React.FC = () => {
           title={`${chapter.title} || ${chapter.subtitle}`}
           onBack={() => {
             router.back();
-            showRewardedIfReady();
           }}
         />
 

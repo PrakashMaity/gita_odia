@@ -1,9 +1,26 @@
+import Constants from "expo-constants";
 import { TestIds } from "react-native-google-mobile-ads";
 
-// Ad unit IDs
-const BANNER_AD_UNIT_ID = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3406043589920136/4136707352';
-const INTERSTITIAL_AD_UNIT_ID = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-3406043589920136/2823625684';
-const REWARDED_AD_UNIT_ID = __DEV__ ? TestIds.REWARDED : 'ca-app-pub-3406043589920136/5062776214';
-const REWARDED_INTERSTITIAL_AD_UNIT_ID = __DEV__ ? TestIds.REWARDED_INTERSTITIAL : 'ca-app-pub-3406043589920136/3167278602';
+// Get ad unit IDs from Expo Constants (app.config.js extra section)
+const getAdUnitId = (key: string, testId: string): string => {
+  if (__DEV__) {
+    return testId;
+  }
+  
+  const adUnitId = Constants.expoConfig?.extra?.[key] as string | undefined;
+  
+  if (!adUnitId) {
+    console.warn(`Ad unit ID for ${key} not found in Expo Constants. Using test ID.`);
+    return testId;
+  }
+  
+  return adUnitId;
+};
+
+// Ad unit IDs from Expo Constants
+const BANNER_AD_UNIT_ID = getAdUnitId('BANNER_AD_UNIT_ID', TestIds.BANNER);
+const INTERSTITIAL_AD_UNIT_ID = getAdUnitId('INTERSTITIAL_AD_UNIT_ID', TestIds.INTERSTITIAL);
+const REWARDED_AD_UNIT_ID = getAdUnitId('REWARDED_AD_UNIT_ID', TestIds.REWARDED);
+const REWARDED_INTERSTITIAL_AD_UNIT_ID = getAdUnitId('REWARDED_INTERSTITIAL_AD_UNIT_ID', TestIds.REWARDED_INTERSTITIAL);
 
 export { BANNER_AD_UNIT_ID, INTERSTITIAL_AD_UNIT_ID, REWARDED_AD_UNIT_ID, REWARDED_INTERSTITIAL_AD_UNIT_ID };

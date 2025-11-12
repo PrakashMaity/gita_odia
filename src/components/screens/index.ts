@@ -7,6 +7,7 @@ export * from './gitaMahatmya';
 export * from './gitaSummary';
 export * from './home';
 export * from './mangalacharan';
+export * from './notifications';
 export * from './onboarding';
 export * from './profile';
 export * from './search';
