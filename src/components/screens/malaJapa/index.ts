@@ -1,0 +1,2 @@
+export { MalaJapaScreen } from './MalaJapaScreen';
+

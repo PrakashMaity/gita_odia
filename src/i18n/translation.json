@@ -177,6 +177,8 @@
     "mangalacharanDesc": "গীতা পাঠের পূর্বে মঙ্গলাচরণ",
     "dhyana": "ধ্যান",
     "dhyanaDesc": "ধ্যান ও চিন্তন",
+    "malaJapa": "মালাজপ",
+    "malaJapaDesc": "ডিজিটাল মালা দিয়ে জপ করুন",
     "allChapters": "সমস্ত অধ্যায়",
     "allChaptersDesc": "সমস্ত ১৮টি অধ্যায়",
     "translations": "বাংলা অনুবাদ",
@@ -248,6 +250,18 @@
     "noFavorites": "কোনো প্রিয় শ্লোক নেই",
     "favoriteHint": "অধ্যায় পড়ার সময় শ্লোক প্রিয় করুন"
   },
+  "share": {
+    "title": "শেয়ার করুন",
+    "chooseOption": "শেয়ার করার পদ্ধতি নির্বাচন করুন",
+    "asText": "টেক্সট হিসাবে শেয়ার",
+    "asImage": "ছবি হিসাবে শেয়ার",
+    "success": "সফল",
+    "error": "ত্রুটি",
+    "textShared": "শ্লোক টেক্সট হিসাবে শেয়ার করা হয়েছে",
+    "imageShared": "শ্লোক ছবি হিসাবে শেয়ার করা হয়েছে",
+    "shareFailed": "শেয়ার করতে সমস্যা হয়েছে",
+    "imageCaptureFailed": "ছবি ক্যাপচার করতে সমস্যা হয়েছে"
+  },
   "search": {
     "placeholder": "অনুসন্ধান করুন...",
     "searching": "অনুসন্ধান করা হচ্ছে...",
@@ -302,7 +316,35 @@
     "about": "সম্পর্কে",
     "aboutDesc": "অ্যাপের তথ্য এবং সহায়তা",
     "appVersion": "অ্যাপ ভার্সন",
-    "appVersionDesc": "ভগবদ গীতা অ্যাপ বর্তমান ভার্সন"
+    "appVersionDesc": "ভগবদ গীতা অ্যাপ বর্তমান ভার্সন",
+    "sharing": "শেয়ারিং",
+    "sharingDesc": "আপনার শেয়ারিং পরিসংখ্যান দেখুন",
+    "shareStats": "শেয়ারিং পরিসংখ্যান",
+    "verseShares": "শ্লোক শেয়ার",
+    "appShares": "অ্যাপ শেয়ার",
+    "totalShares": "মোট শেয়ার",
+    "today": "আজ",
+    "thisWeek": "এই সপ্তাহ",
+    "thisMonth": "এই মাস",
+    "shareApp": "অ্যাপ শেয়ার করুন",
+    "shareAppDesc": "অ্যাপটি আপনার বন্ধুদের সাথে শেয়ার করুন",
+    "loading": "লোড হচ্ছে...",
+    "noShares": "কোনো শেয়ার নেই",
+    "total": "মোট",
+    "refresh": "রিফ্রেশ",
+    "pointsEarned": "পয়েন্ট অর্জিত",
+    "pointsDesc": "শেয়ার করে পয়েন্ট অর্জন করুন এবং বিজ্ঞাপন-মুক্ত অভিজ্ঞতা পান",
+    "allTime": "সর্বকাল",
+    "currentPoints": "বর্তমান পয়েন্ট",
+    "expiredPoints": "মেয়াদ শেষ পয়েন্ট",
+    "totalPointsEarned": "মোট অর্জিত পয়েন্ট",
+    "pointsBreakdown": "পয়েন্ট বিশ্লেষণ",
+    "fromVerseShares": "শ্লোক শেয়ার থেকে",
+    "fromAppShares": "অ্যাপ শেয়ার থেকে",
+    "pointsWindow": "১০ দিনের উইন্ডো",
+    "pointsExpireIn": "পয়েন্ট মেয়াদ শেষ হবে",
+    "days": "দিন",
+    "points": "পয়েন্ট"
   },
   "tabs": {
     "home": "ঘর",
@@ -325,5 +367,34 @@
     "shreebhagwan": "শ্রীভগবান",
     "duryadhona": "দুর্যোধন",
     "shreekrishna": "শ্রীকৃষ্ণ"
+  },
+  "malaJapa": {
+    "title": "মালাজপ",
+    "subtitle": "দৈনিক জপ করুন মন শান্ত রাখতে।",
+    "currentJapa": "জপ",
+    "completedMalas": "সম্পূর্ণ",
+    "selectMantra": "মন্ত্র নির্বাচন করুন",
+    "mantras": {
+      "hareKrishna": "হরে কৃষ্ণ মহামন্ত্র",
+      "omNamah": "ওম নমো ভগবতে বাসুদেবায়",
+      "gitaDhyana": "গীতা ধ্যান শ্লোক",
+      "custom": "কাস্টম মন্ত্র"
+    },
+    "beadCount": {
+      "27": "27",
+      "54": "54",
+      "108": "108"
+    },
+    "settings": {
+      "title": "সেটিংস",
+      "beadSound": "বিড শব্দ",
+      "mantraAudio": "মন্ত্র অডিও",
+      "vibration": "কম্পন",
+      "backgroundMusic": "ব্যাকগ্রাউন্ড মিউজিক"
+    },
+    "reset": "রিসেট",
+    "resetConfirm": "আপনি কি নিশ্চিত যে আপনি জপ রিসেট করতে চান?",
+    "completeMala": "মালা সম্পূর্ণ!",
+    "startJapa": "জপ শুরু করুন"
   }
 }

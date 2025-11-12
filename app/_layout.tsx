@@ -3,7 +3,9 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
+import { syncPendingShareData } from '@/services/shareAnalyticsService';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
+import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
@@ -61,6 +63,7 @@ export default function RootLayout() {
     // Initial sync attempt
     const syncInterval = setInterval(() => {
       syncDeviceDataWhenOnline();
+      syncPendingShareData(); // Sync pending share analytics
     }, 60000); // Sync every minute
 
     // Also sync when app comes to foreground (handled by syncDeviceDataWhenOnline internally)
@@ -74,9 +77,16 @@ export default function RootLayout() {
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        await loadAllChapters();
+        // Load chapters and notifications in parallel
+        await Promise.all([
+          loadAllChapters(),
+          fetchNotificationsWithRetry().catch((err) => {
+            // Silently fail for notifications - they'll be fetched when user visits the page
+            console.log('Notification pre-fetch failed (will retry on page visit):', err);
+          }),
+        ]);
       } catch (error) {
-        console.error('Error loading chapters:', error);
+        console.error('Error loading app resources:', error);
       } finally {
         // Mark app as ready once everything is loaded
         setAppIsReady(true);
@@ -171,6 +181,12 @@ export default function RootLayout() {
                 />
                 <Stack.Screen 
                   name="dhyana" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="mala-japa" 
                   options={{
                     animation: TRANSITION_ANIMATIONS.default,
                   }}

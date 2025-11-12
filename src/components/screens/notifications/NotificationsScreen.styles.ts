@@ -58,5 +58,38 @@ export const styles = StyleSheet.create({
   itemTime: {
     opacity: 0.7,
   },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: SIZES.spacing.xxl,
+    paddingHorizontal: SIZES.spacing.lg,
+  },
+  loadingText: {
+    marginTop: SIZES.spacing.md,
+    textAlign: 'center',
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: SIZES.spacing.xxl,
+    paddingHorizontal: SIZES.spacing.lg,
+  },
+  errorText: {
+    marginTop: SIZES.spacing.md,
+    textAlign: 'center',
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: SIZES.spacing.xxl,
+    paddingHorizontal: SIZES.spacing.lg,
+  },
+  emptyText: {
+    marginTop: SIZES.spacing.md,
+    textAlign: 'center',
+  },
 });
 

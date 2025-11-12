@@ -5,8 +5,10 @@ import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { getSpeakerImage } from '@/utils/speakerUtils';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { FavoriteButton } from '@/components/screens/favorites/components';
+import { ShareButton } from '@/components/screens/chapterDetail/components';
+import React, { useRef } from 'react';
 
 interface Verse {
   verseNumber: string;
@@ -39,10 +41,13 @@ export default function VerseReader({
   onAlert,
 }: VerseReaderProps) {
   const { theme } = useTheme();
+  const verseCardRef = useRef<View | null>(null);
+  const [hideShareButton, setHideShareButton] = React.useState(false);
 
   return (
     <ThemedView style={styles.container}>
       {/* Verse Display */}
+      <View ref={verseCardRef} collapsable={false}>
       <ThemedCard variant="primary" style={styles.verseCard}>
         <ThemedView style={styles.verseHeader}>
          
@@ -63,17 +68,36 @@ export default function VerseReader({
           
           </ThemedView>
 
-           {/* Favorite Button for Language verse */}
+           {/* Action Buttons Container */}
            {chapterId && chapterNumber && (
-                <ThemedView style={styles.favoriteContainer}>
-                  <FavoriteButton
-                    verseId={verse.id}
-                    chapterId={chapterId}
-                    chapterNumber={chapterNumber}
-                    verseNumber={verse.verseNumber}
-                    verseText={verse.Language}
-                    onAlert={onAlert}
-                  />
+                <ThemedView style={styles.actionsContainer}>
+                  <ThemedView style={styles.favoriteContainer}>
+                    <FavoriteButton
+                      verseId={verse.id}
+                      chapterId={chapterId}
+                      chapterNumber={chapterNumber}
+                      verseNumber={verse.verseNumber}
+                      verseText={verse.Language}
+                      onAlert={onAlert}
+                    />
+                  </ThemedView>
+                  {!hideShareButton && (
+                    <ThemedView style={styles.shareContainer}>
+                      <ShareButton
+                        verseId={verse.id}
+                        chapterId={chapterId}
+                        chapterNumber={chapterNumber}
+                        verseNumber={verse.verseNumber}
+                        verseText={verse.Language}
+                        translation={verse.translation}
+                        speaker={verse.speaker}
+                        onAlert={onAlert}
+                        verseViewRef={verseCardRef}
+                        onCaptureStart={() => setHideShareButton(true)}
+                        onCaptureEnd={() => setHideShareButton(false)}
+                      />
+                    </ThemedView>
+                  )}
                 </ThemedView>
               )}
         </ThemedView>
@@ -115,6 +139,7 @@ export default function VerseReader({
           </ThemedView>
         )}
       </ThemedCard>
+      </View>
     </ThemedView>
   );
 }
@@ -177,8 +202,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
   },
-  favoriteContainer: {
+  actionsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: SIZES.spacing.lg,
     marginTop: SIZES.spacing.sm,
+  },
+  favoriteContainer: {
+    // Container for favorite button
+  },
+  shareContainer: {
+    // Container for share button
   },
   translationText: {
     textAlign: 'center',

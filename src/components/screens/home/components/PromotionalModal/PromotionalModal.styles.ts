@@ -128,6 +128,9 @@ export const styles = StyleSheet.create({
   },
   badgeContainer: {
     marginTop: SIZES.spacing.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SIZES.spacing.sm,
   },
   badge: {
     alignSelf: 'flex-start',
@@ -137,6 +140,36 @@ export const styles = StyleSheet.create({
   },
   badgeText: {
     fontWeight: '600',
+  },
+  navigationIcon: {
+    marginLeft: SIZES.spacing.xs,
+  },
+  promotionImage: {
+    width: '100%',
+    height: 150,
+    borderRadius: SIZES.radius.md,
+    marginBottom: SIZES.spacing.md,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: SIZES.spacing.xxl,
+    minHeight: 200,
+  },
+  loadingText: {
+    marginTop: SIZES.spacing.md,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: SIZES.spacing.xxl,
+    minHeight: 200,
+  },
+  emptyText: {
+    marginTop: SIZES.spacing.md,
+    textAlign: 'center',
   },
 });
 

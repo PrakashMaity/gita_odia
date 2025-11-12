@@ -11,7 +11,11 @@ export const styles = StyleSheet.create({
   messageHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: SIZES.spacing.md,
+  },
+  shareButtonContainer: {
+    marginLeft: SIZES.spacing.md,
   },
   speakerInfo: {
     flexDirection: 'row',

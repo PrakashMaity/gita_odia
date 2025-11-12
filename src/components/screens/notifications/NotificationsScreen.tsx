@@ -2,70 +2,23 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { useThemeColors } from '@/hooks/useTheme';
 import { Ionicons } from '@expo/vector-icons';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, ActivityIndicator } from 'react-native';
 import { PageHeader } from '@/components/shared';
 import { LayoutImages } from '@/utils/assets';
 import { SIZES } from '@/rootconstants/sizes';
 import { styles } from './NotificationsScreen.styles';
+import { useEffect, useState } from 'react';
+import { fetchNotifications, type NotificationItem } from '@/services/notificationService';
 
-interface NotificationItem {
-  id: string;
-  title: string;
-  message: string;
-  time: string;
-  type: 'update' | 'promotion' | 'reminder' | 'info';
-  isRead: boolean;
-}
-
-// Static notification content for design
-const notifications: NotificationItem[] = [
+// Fallback static notification content (used when no notifications are available)
+const fallbackNotifications: NotificationItem[] = [
   {
     id: '1',
-    title: 'New Feature: Daily Reading',
-    message: 'Start your day with a verse from the Bhagavad Gita. Set daily reading reminders and track your progress.',
-    time: '2 hours ago',
-    type: 'update',
-    isRead: false,
-  },
-  {
-    id: '2',
-    title: 'Special Offer: Premium Access',
-    message: 'Unlock all translations, audio features, and exclusive content. Limited time offer - 50% off!',
-    time: '5 hours ago',
-    type: 'promotion',
-    isRead: false,
-  },
-  {
-    id: '3',
-    title: 'New Translation Added',
-    message: 'We have added a new translation in your preferred language. Check it out in the Translations section.',
-    time: '1 day ago',
-    type: 'update',
-    isRead: true,
-  },
-  {
-    id: '4',
-    title: 'Daily Reading Reminder',
-    message: "Don't forget to read today's verse from Chapter 2, Verse 47. Your progress is waiting!",
-    time: '2 days ago',
-    type: 'reminder',
-    isRead: true,
-  },
-  {
-    id: '5',
-    title: 'App Update Available',
-    message: 'A new version of the app is available with bug fixes and performance improvements.',
-    time: '3 days ago',
+    title: 'Welcome to Gita',
+    message: 'Start your spiritual journey with the Bhagavad Gita. Explore chapters, verses, and translations.',
+    time: 'Just now',
     type: 'info',
-    isRead: true,
-  },
-  {
-    id: '6',
-    title: 'Weekly Progress Summary',
-    message: 'You have read 15 verses this week. Keep up the great work on your spiritual journey!',
-    time: '1 week ago',
-    type: 'info',
-    isRead: true,
+    isRead: false,
   },
 ];
 
@@ -101,6 +54,36 @@ const getNotificationColor = (type: NotificationItem['type'], theme: ReturnType<
 
 export const NotificationsScreen: React.FC = () => {
   const theme = useThemeColors();
+  const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch notifications when component mounts
+  useEffect(() => {
+    const loadNotifications = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const fetchedNotifications = await fetchNotifications();
+        
+        // Use fetched notifications or fallback if empty
+        if (fetchedNotifications.length > 0) {
+          setNotifications(fetchedNotifications);
+        } else {
+          setNotifications(fallbackNotifications);
+        }
+      } catch (err) {
+        console.error('Error loading notifications:', err);
+        setError('Failed to load notifications');
+        // Use fallback notifications on error
+        setNotifications(fallbackNotifications);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadNotifications();
+  }, []);
 
   const renderNotificationItem = (item: NotificationItem) => {
     const iconName = getNotificationIcon(item.type);
@@ -189,10 +172,42 @@ export const NotificationsScreen: React.FC = () => {
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
+          refreshControl={
+            // Add pull-to-refresh functionality
+            undefined // Can be enhanced with RefreshControl if needed
+          }
         >
-          <ThemedView style={styles.notificationsList}>
-            {notifications.map(renderNotificationItem)}
-          </ThemedView>
+          {loading ? (
+            <ThemedView style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color={theme.icon.primary} />
+              <ThemedLanguageText
+                variant="secondary"
+                size="md"
+                fontFamily="regional_secondary"
+                style={styles.loadingText}
+              >
+                Loading notifications...
+              </ThemedLanguageText>
+            </ThemedView>
+          ) : (
+            <ThemedView style={styles.notificationsList}>
+              {notifications.length > 0 ? (
+                notifications.map(renderNotificationItem)
+              ) : (
+                <ThemedView style={styles.emptyContainer}>
+                  <Ionicons name="notifications-off" size={SIZES.icon.xl} color={theme.icon.secondary} />
+                  <ThemedLanguageText
+                    variant="secondary"
+                    size="md"
+                    fontFamily="regional_secondary"
+                    style={styles.emptyText}
+                  >
+                    No notifications available
+                  </ThemedLanguageText>
+                </ThemedView>
+              )}
+            </ThemedView>
+          )}
         </ScrollView>
       </ThemedView>
     </ImageBackground>

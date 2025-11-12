@@ -12,6 +12,10 @@ export const navigationHandlers = {
     router.push('/dhyana');
   },
   
+  'mala-japa': () => {
+    router.push('/mala-japa');
+  },
+  
   stotra: () => {
     // Add navigation logic here
   },
@@ -93,6 +97,7 @@ export const getNavigationHandler = (item: MenuItem) => {
   const handlerMap: Record<string, () => void> = {
     'mangalacharan': navigationHandlers.mangalacharan,
     'dhyana': navigationHandlers.dhyana,
+    'mala-japa': navigationHandlers['mala-japa'],
     'stotra': navigationHandlers.stotra,
     'all-chapters': navigationHandlers.allChapters,
     'all-translations': navigationHandlers.allTranslations,

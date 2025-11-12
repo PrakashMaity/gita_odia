@@ -46,6 +46,8 @@ export const TranslationDetailScreen: React.FC = () => {
               verse={verse}
               index={index}
               shouldShowBanner={(index + 1) % 4 === 0}
+              chapterId={chapter.id}
+              chapterNumber={chapter.number}
             />
           ))}
         </ScrollView>

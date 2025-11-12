@@ -5,6 +5,7 @@ import type { ImageSourcePropType } from 'react-native';
 
 import dhyaanImage from '@/assets/images/Home/menu/dhyaan.png';
 import mangalacharanImage from '@/assets/images/Home/menu/mongalacharan.png';
+import rudrashaImage from '@/assets/images/rudrasha.png';
 
 export interface MenuItem {
   id: string;
@@ -42,6 +43,13 @@ export const getMenuSections = (): MenuSection[] => [
         image: dhyaanImage,
         description: i18n.t('menu.dhyanaDesc'),
         action: () => getNavigationHandler({ id: 'dhyana' } as MenuItem)(),
+      },
+      {
+        id: 'mala-japa',
+        title: i18n.t('menu.malaJapa'),
+        image: rudrashaImage,
+        description: i18n.t('menu.malaJapaDesc'),
+        action: () => getNavigationHandler({ id: 'mala-japa' } as MenuItem)(),
       },
     
     ],
