@@ -1,6 +1,7 @@
 import { AppOpenAd, AdEventType } from 'react-native-google-mobile-ads';
 import { TestIds } from 'react-native-google-mobile-ads';
 import Constants from 'expo-constants';
+import { shouldShowAds } from '@/services/adFreeService';
 
 // Get App Open Ad Unit ID from Expo Constants (app.config.js extra section)
 // Note: Add APP_OPEN_AD_UNIT_ID to app.config.js extra section when available
@@ -71,10 +72,15 @@ export const setupAppOpenListeners = (
 };
 
 /**
- * Shows an app open ad if it's loaded
+ * Shows an app open ad if it's loaded and ad-free is not active
  */
-export const showAppOpenAd = (appOpenAd: AppOpenAd) => {
+export const showAppOpenAd = async (appOpenAd: AppOpenAd) => {
   try {
+    const shouldShow = await shouldShowAds();
+    if (!shouldShow) {
+      console.log('Ad-free active: skipping app open ad');
+      return;
+    }
     appOpenAd.show();
   } catch (error) {
     console.log('Error showing app open ad:', error);

@@ -7,39 +7,38 @@ import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import constants from 'expo-constants';
-import { ImageBackground, ScrollView, Alert } from 'react-native';
+import { ImageBackground, ScrollView } from 'react-native';
 import { ProfileHeader } from './components/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { shareApp } from '@/services/appShareService';
 import { styles } from './ProfileScreen.styles';
+import { createSuccessAlert, createErrorAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
+  const { showAlert, AlertComponent } = useCustomAlert();
 
   const handleShareApp = async () => {
     try {
       const success = await shareApp();
       if (success) {
-        Alert.alert(
+        showAlert(createSuccessAlert(
           i18n.t('share.success'),
-          i18n.t('share.textShared'),
-          [{ text: 'OK' }]
-        );
+          i18n.t('share.textShared')
+        ));
       } else {
-        Alert.alert(
+        showAlert(createErrorAlert(
           i18n.t('share.error'),
-          i18n.t('share.shareFailed'),
-          [{ text: 'OK' }]
-        );
+          i18n.t('share.shareFailed')
+        ));
       }
     } catch (error) {
       console.error('Error sharing app:', error);
-      Alert.alert(
+      showAlert(createErrorAlert(
         i18n.t('share.error'),
-        i18n.t('share.shareFailed'),
-        [{ text: 'OK' }]
-      );
+        i18n.t('share.shareFailed')
+      ));
     }
   };
 
@@ -51,6 +50,7 @@ export const ProfileScreen: React.FC = () => {
       blurRadius={1.5}
     >
       <ThemedView variant='transparent' style={styles.container}>
+        {AlertComponent}
         <ProfileHeader />
 
         <ScrollView 

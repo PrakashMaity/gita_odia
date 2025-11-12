@@ -3,7 +3,6 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
-import { syncPendingShareData } from '@/services/shareAnalyticsService';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { useChapterStore } from '@/store';
@@ -63,7 +62,6 @@ export default function RootLayout() {
     // Initial sync attempt
     const syncInterval = setInterval(() => {
       syncDeviceDataWhenOnline();
-      syncPendingShareData(); // Sync pending share analytics
     }, 60000); // Sync every minute
 
     // Also sync when app comes to foreground (handled by syncDeviceDataWhenOnline internally)

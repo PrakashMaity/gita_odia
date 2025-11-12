@@ -1,5 +1,6 @@
 import { AdEventType, RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
 import { REWARDED_AD_UNIT_ID } from './config/config';
+import { shouldShowAds } from '@/services/adFreeService';
 
 /**
  * Creates and loads a rewarded ad
@@ -54,10 +55,15 @@ export const setupRewardedListeners = (
 };
 
 /**
- * Shows a rewarded ad if it's loaded
+ * Shows a rewarded ad if it's loaded and ad-free is not active
  */
-export const showRewardedAd = (rewarded: RewardedAd) => {
+export const showRewardedAd = async (rewarded: RewardedAd) => {
   try {
+    const shouldShow = await shouldShowAds();
+    if (!shouldShow) {
+      console.log('Ad-free active: skipping rewarded ad');
+      return;
+    }
     rewarded.show();
   } catch (error) {
     console.log('Error showing rewarded ad:', error);

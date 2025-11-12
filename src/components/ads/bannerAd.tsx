@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 import { BannerAd, BannerAdSize, useForeground } from 'react-native-google-mobile-ads';
 import { BANNER_AD_UNIT_ID } from './config/config';
+import { shouldShowAds } from '@/services/adFreeService';
 
 interface BannerAdComponentProps {
   size?: BannerAdSize;
@@ -33,12 +34,30 @@ export const BannerAdComponent: React.FC<BannerAdComponentProps> = ({
   onSizeChange,
 }) => {
   const bannerRef = useRef<BannerAd>(null);
+  const [showAd, setShowAd] = useState(true);
+
+  // Check ad-free status
+  useEffect(() => {
+    const checkAdFree = async () => {
+      const shouldShow = await shouldShowAds();
+      setShowAd(shouldShow);
+    };
+    checkAdFree();
+    
+    // Check periodically (every 30 seconds) in case ad-free status changes
+    const interval = setInterval(checkAdFree, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
   // Therefore it's advised to "manually" request a new ad when the app is foregrounded
   useForeground(() => {
     Platform.OS === 'ios' && bannerRef.current?.load();
   });
+
+  if (!showAd) {
+    return null;
+  }
 
   return (
     <BannerAd

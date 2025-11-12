@@ -1,6 +1,7 @@
 import { Platform, StatusBar } from 'react-native';
 import { AdEventType, InterstitialAd } from 'react-native-google-mobile-ads';
 import { INTERSTITIAL_AD_UNIT_ID } from './config/config';
+import { shouldShowAds } from '@/services/adFreeService';
 
 /**
  * Creates and loads an interstitial ad
@@ -58,10 +59,15 @@ export const setupInterstitialListeners = (
 };
 
 /**
- * Shows an interstitial ad if it's loaded
+ * Shows an interstitial ad if it's loaded and ad-free is not active
  */
-export const showInterstitialAd = (interstitial: InterstitialAd) => {
+export const showInterstitialAd = async (interstitial: InterstitialAd) => {
   try {
+    const shouldShow = await shouldShowAds();
+    if (!shouldShow) {
+      console.log('Ad-free active: skipping interstitial ad');
+      return;
+    }
     interstitial.show();
   } catch (error) {
     console.log('Error showing interstitial ad:', error);

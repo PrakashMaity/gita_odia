@@ -1,16 +1,11 @@
-import firestore from '@react-native-firebase/firestore';
-import { getApp } from '@react-native-firebase/app';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as SecureStore from 'expo-secure-store';
 
-const DEVICE_ID_KEY = 'gita_device_id';
-const SHARE_ANALYTICS_COLLECTION = 'ShareAnalytics';
-const APP_SHARE_ANALYTICS_COLLECTION = 'AppShareAnalytics';
-const PENDING_SHARES_KEY = 'gita_pending_shares';
-const PENDING_APP_SHARES_KEY = 'gita_pending_app_shares';
+const SHARES_STORAGE_KEY = 'gita_shares_data';
+const APP_SHARES_STORAGE_KEY = 'gita_app_shares_data';
+const REDEEMED_POINTS_KEY = 'gita_redeemed_points';
+const AD_FREE_UNTIL_KEY = 'gita_ad_free_until';
 
-export interface ShareAnalyticsData {
-  deviceId: string;
+export interface ShareData {
   verseId: string;
   chapterId: string;
   chapterNumber: string;
@@ -18,14 +13,11 @@ export interface ShareAnalyticsData {
   shareType: 'text' | 'image';
   isTranslationOnly: boolean;
   timestamp: number;
-  createdAt: number;
 }
 
-export interface AppShareAnalyticsData {
-  deviceId: string;
+export interface AppShareData {
   shareType: 'app';
   timestamp: number;
-  createdAt: number;
 }
 
 export interface ShareStatistics {
@@ -43,197 +35,68 @@ export interface PointsData {
     verseShares: number;
     appShares: number;
   };
-  windowStart: number; // Timestamp of the start of the 10-day window
-  windowEnd: number; // Timestamp of the end of the 10-day window
+  windowStart: number;
+  windowEnd: number;
+  canRedeem: boolean; // true if >= 1000 points
+}
+
+export interface RedeemData {
+  adFreeUntil: number; // Timestamp when ad-free expires
+  totalRedeemedPoints: number; // Total points redeemed so far
+  totalAdFreeDays: number; // Total ad-free days earned
 }
 
 const POINTS_PER_VERSE_SHARE = 2;
 const POINTS_PER_APP_SHARE = 10;
 const POINTS_WINDOW_DAYS = 10;
+export const REDEEM_THRESHOLD = 1000; // Points needed to redeem
+const POINTS_PER_AD_FREE_DAY = 100; // 100 points = 1 day ad-free
 
 /**
- * Get or create device ID
+ * Store share analytics data locally
  */
-async function getDeviceId(): Promise<string | null> {
+export async function storeShareAnalytics(data: Omit<ShareData, 'timestamp'>): Promise<void> {
   try {
-    const deviceId = await SecureStore.getItemAsync(DEVICE_ID_KEY);
-    return deviceId;
-  } catch (error) {
-    console.error('Error getting device ID:', error);
-    return null;
-  }
-}
-
-/**
- * Store share analytics data in Firestore
- */
-export async function storeShareAnalytics(data: Omit<ShareAnalyticsData, 'deviceId' | 'createdAt'>): Promise<void> {
-  try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      // Store offline for later sync
-      await saveShareDataOffline(data);
-      return;
-    }
-
-    const app = getApp();
-    if (!app) {
-      await saveShareDataOffline(data);
-      return;
-    }
-
-    const db = firestore();
-    const analyticsData: ShareAnalyticsData = {
-      deviceId,
+    const shareData: ShareData = {
       ...data,
-      createdAt: Date.now(),
+      timestamp: Date.now(),
     };
 
-    // Add to Firestore
-    await db.collection(SHARE_ANALYTICS_COLLECTION).add(analyticsData);
+    const existingData = await AsyncStorage.getItem(SHARES_STORAGE_KEY);
+    const shares: ShareData[] = existingData ? JSON.parse(existingData) : [];
     
-    console.log('Share analytics stored successfully');
+    shares.push(shareData);
+    
+    // Keep only last 1000 shares to prevent storage bloat
+    const trimmedShares = shares.slice(-1000);
+    
+    await AsyncStorage.setItem(SHARES_STORAGE_KEY, JSON.stringify(trimmedShares));
   } catch (error) {
     console.error('Error storing share analytics:', error);
-    // Store offline for later sync
-    await saveShareDataOffline(data);
   }
 }
 
 /**
- * Store app share analytics data in Firestore
+ * Store app share analytics data locally
  */
 export async function storeAppShareAnalytics(): Promise<void> {
   try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      // Store offline for later sync
-      await saveAppShareDataOffline();
-      return;
-    }
-
-    const app = getApp();
-    if (!app) {
-      await saveAppShareDataOffline();
-      return;
-    }
-
-    const db = firestore();
-    const analyticsData: AppShareAnalyticsData = {
-      deviceId,
+    const shareData: AppShareData = {
       shareType: 'app',
       timestamp: Date.now(),
-      createdAt: Date.now(),
     };
 
-    // Add to Firestore
-    await db.collection(APP_SHARE_ANALYTICS_COLLECTION).add(analyticsData);
+    const existingData = await AsyncStorage.getItem(APP_SHARES_STORAGE_KEY);
+    const shares: AppShareData[] = existingData ? JSON.parse(existingData) : [];
     
-    console.log('App share analytics stored successfully');
+    shares.push(shareData);
+    
+    // Keep only last 1000 shares to prevent storage bloat
+    const trimmedShares = shares.slice(-1000);
+    
+    await AsyncStorage.setItem(APP_SHARES_STORAGE_KEY, JSON.stringify(trimmedShares));
   } catch (error) {
     console.error('Error storing app share analytics:', error);
-    // Store offline for later sync
-    await saveAppShareDataOffline();
-  }
-}
-
-/**
- * Save share data offline for later sync
- */
-async function saveShareDataOffline(data: Omit<ShareAnalyticsData, 'deviceId' | 'createdAt'>): Promise<void> {
-  try {
-    const pendingData = await AsyncStorage.getItem(PENDING_SHARES_KEY);
-    const pendingShares: Array<Omit<ShareAnalyticsData, 'deviceId' | 'createdAt'>> = pendingData 
-      ? JSON.parse(pendingData) 
-      : [];
-    
-    pendingShares.push(data);
-    await AsyncStorage.setItem(PENDING_SHARES_KEY, JSON.stringify(pendingShares));
-  } catch (error) {
-    console.error('Error saving share data offline:', error);
-  }
-}
-
-/**
- * Save app share data offline for later sync
- */
-async function saveAppShareDataOffline(): Promise<void> {
-  try {
-    const pendingData = await AsyncStorage.getItem(PENDING_APP_SHARES_KEY);
-    const pendingShares: Array<Omit<AppShareAnalyticsData, 'deviceId' | 'createdAt'>> = pendingData 
-      ? JSON.parse(pendingData) 
-      : [];
-    
-    pendingShares.push({
-      shareType: 'app',
-      timestamp: Date.now(),
-    });
-    await AsyncStorage.setItem(PENDING_APP_SHARES_KEY, JSON.stringify(pendingShares));
-  } catch (error) {
-    console.error('Error saving app share data offline:', error);
-  }
-}
-
-/**
- * Sync pending share data to Firestore
- */
-export async function syncPendingShareData(): Promise<void> {
-  try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      return;
-    }
-
-    const app = getApp();
-    if (!app) {
-      return;
-    }
-
-    const db = firestore();
-    
-    // Sync verse/translation shares
-    const pendingSharesData = await AsyncStorage.getItem(PENDING_SHARES_KEY);
-    if (pendingSharesData) {
-      const pendingShares: Array<Omit<ShareAnalyticsData, 'deviceId' | 'createdAt'>> = JSON.parse(pendingSharesData);
-      
-      for (const shareData of pendingShares) {
-        try {
-          const analyticsData: ShareAnalyticsData = {
-            deviceId,
-            ...shareData,
-            createdAt: shareData.timestamp || Date.now(),
-          };
-          await db.collection(SHARE_ANALYTICS_COLLECTION).add(analyticsData);
-        } catch (error) {
-          console.error('Error syncing pending share:', error);
-        }
-      }
-      
-      await AsyncStorage.removeItem(PENDING_SHARES_KEY);
-    }
-
-    // Sync app shares
-    const pendingAppSharesData = await AsyncStorage.getItem(PENDING_APP_SHARES_KEY);
-    if (pendingAppSharesData) {
-      const pendingAppShares: Array<Omit<AppShareAnalyticsData, 'deviceId' | 'createdAt'>> = JSON.parse(pendingAppSharesData);
-      
-      for (const shareData of pendingAppShares) {
-        try {
-          const analyticsData: AppShareAnalyticsData = {
-            deviceId,
-            ...shareData,
-            createdAt: shareData.timestamp || Date.now(),
-          };
-          await db.collection(APP_SHARE_ANALYTICS_COLLECTION).add(analyticsData);
-        } catch (error) {
-          console.error('Error syncing pending app share:', error);
-        }
-      }
-      
-      await AsyncStorage.removeItem(PENDING_APP_SHARES_KEY);
-    }
-  } catch (error) {
-    console.error('Error syncing pending share data:', error);
   }
 }
 
@@ -242,38 +105,20 @@ export async function syncPendingShareData(): Promise<void> {
  */
 export async function getShareStatistics(): Promise<ShareStatistics> {
   try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      return { today: 0, week: 0, month: 0, total: 0 };
-    }
+    const sharesData = await AsyncStorage.getItem(SHARES_STORAGE_KEY);
+    const shares: ShareData[] = sharesData ? JSON.parse(sharesData) : [];
 
-    const app = getApp();
-    if (!app) {
-      return { today: 0, week: 0, month: 0, total: 0 };
-    }
-
-    const db = firestore();
     const now = Date.now();
     const oneDayAgo = now - 24 * 60 * 60 * 1000;
     const oneWeekAgo = now - 7 * 24 * 60 * 60 * 1000;
     const oneMonthAgo = now - 30 * 24 * 60 * 60 * 1000;
 
-    // Get all shares for this device
-    const sharesSnapshot = await db
-      .collection(SHARE_ANALYTICS_COLLECTION)
-      .where('deviceId', '==', deviceId)
-      .get();
+    const timestamps = shares.map(share => share.timestamp);
 
-    const shares = sharesSnapshot.docs.map(doc => {
-      const data = doc.data();
-      return data.timestamp || data.createdAt;
-    });
-
-    // Calculate statistics
-    const today = shares.filter(timestamp => timestamp >= oneDayAgo).length;
-    const week = shares.filter(timestamp => timestamp >= oneWeekAgo).length;
-    const month = shares.filter(timestamp => timestamp >= oneMonthAgo).length;
-    const total = shares.length;
+    const today = timestamps.filter(timestamp => timestamp >= oneDayAgo).length;
+    const week = timestamps.filter(timestamp => timestamp >= oneWeekAgo).length;
+    const month = timestamps.filter(timestamp => timestamp >= oneMonthAgo).length;
+    const total = timestamps.length;
 
     return { today, week, month, total };
   } catch (error) {
@@ -287,38 +132,20 @@ export async function getShareStatistics(): Promise<ShareStatistics> {
  */
 export async function getAppShareStatistics(): Promise<ShareStatistics> {
   try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      return { today: 0, week: 0, month: 0, total: 0 };
-    }
+    const sharesData = await AsyncStorage.getItem(APP_SHARES_STORAGE_KEY);
+    const shares: AppShareData[] = sharesData ? JSON.parse(sharesData) : [];
 
-    const app = getApp();
-    if (!app) {
-      return { today: 0, week: 0, month: 0, total: 0 };
-    }
-
-    const db = firestore();
     const now = Date.now();
     const oneDayAgo = now - 24 * 60 * 60 * 1000;
     const oneWeekAgo = now - 7 * 24 * 60 * 60 * 1000;
     const oneMonthAgo = now - 30 * 24 * 60 * 60 * 1000;
 
-    // Get all app shares for this device
-    const sharesSnapshot = await db
-      .collection(APP_SHARE_ANALYTICS_COLLECTION)
-      .where('deviceId', '==', deviceId)
-      .get();
+    const timestamps = shares.map(share => share.timestamp);
 
-    const shares = sharesSnapshot.docs.map(doc => {
-      const data = doc.data();
-      return data.timestamp || data.createdAt;
-    });
-
-    // Calculate statistics
-    const today = shares.filter(timestamp => timestamp >= oneDayAgo).length;
-    const week = shares.filter(timestamp => timestamp >= oneWeekAgo).length;
-    const month = shares.filter(timestamp => timestamp >= oneMonthAgo).length;
-    const total = shares.length;
+    const today = timestamps.filter(timestamp => timestamp >= oneDayAgo).length;
+    const week = timestamps.filter(timestamp => timestamp >= oneWeekAgo).length;
+    const month = timestamps.filter(timestamp => timestamp >= oneMonthAgo).length;
+    const total = timestamps.length;
 
     return { today, week, month, total };
   } catch (error) {
@@ -351,74 +178,44 @@ export async function getCombinedShareStatistics(): Promise<{
 }
 
 /**
- * Calculate points with 10-day rolling window
- * Points expire after 10 days (on 11th day, 1st day points expire)
+ * Calculate points with 10-day rolling window (local storage only)
  */
 export async function getPointsData(): Promise<PointsData> {
   try {
-    const deviceId = await getDeviceId();
-    if (!deviceId) {
-      return {
-        currentPoints: 0,
-        expiredPoints: 0,
-        totalEarned: 0,
-        pointsBreakdown: { verseShares: 0, appShares: 0 },
-        windowStart: Date.now(),
-        windowEnd: Date.now() + POINTS_WINDOW_DAYS * 24 * 60 * 60 * 1000,
-      };
-    }
+    const [verseSharesData, appSharesData, redeemedTimestampsData] = await Promise.all([
+      AsyncStorage.getItem(SHARES_STORAGE_KEY),
+      AsyncStorage.getItem(APP_SHARES_STORAGE_KEY),
+      AsyncStorage.getItem('gita_redeemed_share_timestamps'),
+    ]);
 
-    const app = getApp();
-    if (!app) {
-      return {
-        currentPoints: 0,
-        expiredPoints: 0,
-        totalEarned: 0,
-        pointsBreakdown: { verseShares: 0, appShares: 0 },
-        windowStart: Date.now(),
-        windowEnd: Date.now() + POINTS_WINDOW_DAYS * 24 * 60 * 60 * 1000,
-      };
-    }
+    const verseShares: ShareData[] = verseSharesData ? JSON.parse(verseSharesData) : [];
+    const appShares: AppShareData[] = appSharesData ? JSON.parse(appSharesData) : [];
+    const redeemedTimestamps: number[] = redeemedTimestampsData ? JSON.parse(redeemedTimestampsData) : [];
 
-    const db = firestore();
     const now = Date.now();
     const tenDaysAgo = now - POINTS_WINDOW_DAYS * 24 * 60 * 60 * 1000;
     const elevenDaysAgo = now - (POINTS_WINDOW_DAYS + 1) * 24 * 60 * 60 * 1000;
 
-    // Get all verse shares
-    const verseSharesSnapshot = await db
-      .collection(SHARE_ANALYTICS_COLLECTION)
-      .where('deviceId', '==', deviceId)
-      .get();
-
-    // Get all app shares
-    const appSharesSnapshot = await db
-      .collection(APP_SHARE_ANALYTICS_COLLECTION)
-      .where('deviceId', '==', deviceId)
-      .get();
-
-    // Process verse shares
-    const verseShares = verseSharesSnapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        timestamp: data.timestamp || data.createdAt,
+    // Process verse shares (exclude redeemed ones)
+    const verseSharesWithPoints = verseShares
+      .filter(share => !redeemedTimestamps.includes(share.timestamp))
+      .map(share => ({
+        timestamp: share.timestamp,
         points: POINTS_PER_VERSE_SHARE,
         type: 'verse' as const,
-      };
-    });
+      }));
 
-    // Process app shares
-    const appShares = appSharesSnapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        timestamp: data.timestamp || data.createdAt,
+    // Process app shares (exclude redeemed ones)
+    const appSharesWithPoints = appShares
+      .filter(share => !redeemedTimestamps.includes(share.timestamp))
+      .map(share => ({
+        timestamp: share.timestamp,
         points: POINTS_PER_APP_SHARE,
         type: 'app' as const,
-      };
-    });
+      }));
 
     // Combine all shares
-    const allShares = [...verseShares, ...appShares];
+    const allShares = [...verseSharesWithPoints, ...appSharesWithPoints];
 
     // Calculate points in the 10-day window (current points)
     const currentShares = allShares.filter(share => share.timestamp >= tenDaysAgo);
@@ -449,6 +246,7 @@ export async function getPointsData(): Promise<PointsData> {
       pointsBreakdown,
       windowStart: tenDaysAgo,
       windowEnd: now,
+      canRedeem: currentPoints >= REDEEM_THRESHOLD,
     };
   } catch (error) {
     console.error('Error getting points data:', error);
@@ -459,7 +257,203 @@ export async function getPointsData(): Promise<PointsData> {
       pointsBreakdown: { verseShares: 0, appShares: 0 },
       windowStart: Date.now(),
       windowEnd: Date.now() + POINTS_WINDOW_DAYS * 24 * 60 * 60 * 1000,
+      canRedeem: false,
     };
   }
 }
 
+/**
+ * Get redeem data (ad-free status)
+ */
+export async function getRedeemData(): Promise<RedeemData> {
+  try {
+    const adFreeUntilData = await AsyncStorage.getItem(AD_FREE_UNTIL_KEY);
+    const redeemedPointsData = await AsyncStorage.getItem(REDEEMED_POINTS_KEY);
+
+    const adFreeUntil = adFreeUntilData ? parseInt(adFreeUntilData, 10) : 0;
+    const redeemedHistory = redeemedPointsData ? JSON.parse(redeemedPointsData) : [];
+
+    const totalRedeemedPoints = redeemedHistory.reduce((sum: number, entry: { points: number }) => sum + entry.points, 0);
+    const totalAdFreeDays = Math.floor(totalRedeemedPoints / POINTS_PER_AD_FREE_DAY);
+
+    return {
+      adFreeUntil,
+      totalRedeemedPoints,
+      totalAdFreeDays,
+    };
+  } catch (error) {
+    console.error('Error getting redeem data:', error);
+    return {
+      adFreeUntil: 0,
+      totalRedeemedPoints: 0,
+      totalAdFreeDays: 0,
+    };
+  }
+}
+
+/**
+ * Check if ads should be disabled (ad-free active)
+ */
+export async function isAdFreeActive(): Promise<boolean> {
+  try {
+    const adFreeUntilData = await AsyncStorage.getItem(AD_FREE_UNTIL_KEY);
+    if (!adFreeUntilData) {
+      return false;
+    }
+
+    const adFreeUntil = parseInt(adFreeUntilData, 10);
+    return Date.now() < adFreeUntil;
+  } catch (error) {
+    console.error('Error checking ad-free status:', error);
+    return false;
+  }
+}
+
+/**
+ * Redeem points for ad-free days
+ * 100 points = 1 day ad-free
+ * Minimum 1000 points required to redeem
+ */
+export async function redeemPoints(pointsToRedeem: number = REDEEM_THRESHOLD): Promise<{ success: boolean; adFreeDays: number; message: string }> {
+  try {
+    const pointsData = await getPointsData();
+    
+    if (pointsData.currentPoints < pointsToRedeem) {
+      return {
+        success: false,
+        adFreeDays: 0,
+        message: `Insufficient points. You need ${pointsToRedeem} points to redeem.`,
+      };
+    }
+
+    if (pointsToRedeem < POINTS_PER_AD_FREE_DAY) {
+      return {
+        success: false,
+        adFreeDays: 0,
+        message: `Minimum ${POINTS_PER_AD_FREE_DAY} points required to redeem.`,
+      };
+    }
+
+    // Calculate ad-free days
+    const adFreeDays = Math.floor(pointsToRedeem / POINTS_PER_AD_FREE_DAY);
+    const adFreeDuration = adFreeDays * 24 * 60 * 60 * 1000; // Convert days to milliseconds
+
+    // Get current ad-free status
+    const currentAdFreeUntil = await AsyncStorage.getItem(AD_FREE_UNTIL_KEY);
+    const currentAdFreeUntilTime = currentAdFreeUntil ? parseInt(currentAdFreeUntil, 10) : Date.now();
+    
+    // If already ad-free, extend from current expiry, otherwise start from now
+    const newAdFreeUntil = currentAdFreeUntilTime > Date.now() 
+      ? currentAdFreeUntilTime + adFreeDuration 
+      : Date.now() + adFreeDuration;
+
+    // Save new ad-free expiry
+    await AsyncStorage.setItem(AD_FREE_UNTIL_KEY, newAdFreeUntil.toString());
+
+    // Record redemption
+    const redeemedHistoryData = await AsyncStorage.getItem(REDEEMED_POINTS_KEY);
+    const redeemedHistory = redeemedHistoryData ? JSON.parse(redeemedHistoryData) : [];
+    redeemedHistory.push({
+      points: pointsToRedeem,
+      adFreeDays,
+      timestamp: Date.now(),
+    });
+    await AsyncStorage.setItem(REDEEMED_POINTS_KEY, JSON.stringify(redeemedHistory));
+
+    // Remove redeemed points from shares (mark as redeemed)
+    // We'll track this by removing shares that contribute to the redeemed points
+    await removeRedeemedPointsFromShares(pointsToRedeem);
+
+    return {
+      success: true,
+      adFreeDays,
+      message: `Successfully redeemed ${pointsToRedeem} points for ${adFreeDays} day(s) of ad-free experience!`,
+    };
+  } catch (error) {
+    console.error('Error redeeming points:', error);
+    return {
+      success: false,
+      adFreeDays: 0,
+      message: 'Error redeeming points. Please try again.',
+    };
+  }
+}
+
+/**
+ * Remove redeemed points from shares (to prevent double redemption)
+ */
+async function removeRedeemedPointsFromShares(pointsToRedeem: number): Promise<void> {
+  try {
+    const [verseSharesData, appSharesData] = await Promise.all([
+      AsyncStorage.getItem(SHARES_STORAGE_KEY),
+      AsyncStorage.getItem(APP_SHARES_STORAGE_KEY),
+    ]);
+
+    const verseShares: ShareData[] = verseSharesData ? JSON.parse(verseSharesData) : [];
+    const appShares: AppShareData[] = appSharesData ? JSON.parse(appSharesData) : [];
+
+    const now = Date.now();
+    const tenDaysAgo = now - POINTS_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+
+    // Get current window shares sorted by timestamp (oldest first)
+    const currentVerseShares = verseShares
+      .filter(share => share.timestamp >= tenDaysAgo)
+      .sort((a, b) => a.timestamp - b.timestamp);
+    
+    const currentAppShares = appShares
+      .filter(share => share.timestamp >= tenDaysAgo)
+      .sort((a, b) => a.timestamp - b.timestamp);
+
+    // Remove shares starting from oldest until we've removed enough points
+    let pointsRemoved = 0;
+    const sharesToRemove: { type: 'verse' | 'app'; index: number }[] = [];
+
+    // Remove verse shares first (worth less points)
+    for (let i = 0; i < currentVerseShares.length && pointsRemoved < pointsToRedeem; i++) {
+      sharesToRemove.push({ type: 'verse', index: i });
+      pointsRemoved += POINTS_PER_VERSE_SHARE;
+    }
+
+    // If still need more points, remove app shares
+    for (let i = 0; i < currentAppShares.length && pointsRemoved < pointsToRedeem; i++) {
+      sharesToRemove.push({ type: 'app', index: i });
+      pointsRemoved += POINTS_PER_APP_SHARE;
+    }
+
+    // Remove the shares (mark them as redeemed by removing from current window)
+    // We'll keep them in storage but mark them as redeemed by storing redeemed timestamps
+    const redeemedTimestampsKey = 'gita_redeemed_share_timestamps';
+    const redeemedTimestampsData = await AsyncStorage.getItem(redeemedTimestampsKey);
+    const redeemedTimestamps: number[] = redeemedTimestampsData ? JSON.parse(redeemedTimestampsData) : [];
+
+    sharesToRemove.forEach(({ type, index }) => {
+      const share = type === 'verse' ? currentVerseShares[index] : currentAppShares[index];
+      if (share && !redeemedTimestamps.includes(share.timestamp)) {
+        redeemedTimestamps.push(share.timestamp);
+      }
+    });
+
+    await AsyncStorage.setItem(redeemedTimestampsKey, JSON.stringify(redeemedTimestamps));
+  } catch (error) {
+    console.error('Error removing redeemed points from shares:', error);
+  }
+}
+
+/**
+ * Get remaining ad-free time in milliseconds
+ */
+export async function getRemainingAdFreeTime(): Promise<number> {
+  try {
+    const adFreeUntilData = await AsyncStorage.getItem(AD_FREE_UNTIL_KEY);
+    if (!adFreeUntilData) {
+      return 0;
+    }
+
+    const adFreeUntil = parseInt(adFreeUntilData, 10);
+    const remaining = adFreeUntil - Date.now();
+    return remaining > 0 ? remaining : 0;
+  } catch (error) {
+    console.error('Error getting remaining ad-free time:', error);
+    return 0;
+  }
+}

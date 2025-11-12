@@ -4,6 +4,7 @@ import {
   RewardedInterstitialAd,
 } from 'react-native-google-mobile-ads';
 import { REWARDED_INTERSTITIAL_AD_UNIT_ID } from './config/config';
+import { shouldShowAds } from '@/services/adFreeService';
 
 /**
  * Creates and loads a rewarded interstitial ad
@@ -70,10 +71,15 @@ export const setupRewardedInterstitialListeners = (
 };
 
 /**
- * Shows a rewarded interstitial ad if it's loaded
+ * Shows a rewarded interstitial ad if it's loaded and ad-free is not active
  */
-export const showRewardedInterstitialAd = (rewardedInterstitial: RewardedInterstitialAd) => {
+export const showRewardedInterstitialAd = async (rewardedInterstitial: RewardedInterstitialAd) => {
   try {
+    const shouldShow = await shouldShowAds();
+    if (!shouldShow) {
+      console.log('Ad-free active: skipping rewarded interstitial ad');
+      return;
+    }
     rewardedInterstitial.show();
   } catch (error) {
     console.log('Error showing rewarded interstitial ad:', error);

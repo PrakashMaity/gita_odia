@@ -9,10 +9,12 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     View,
+    Platform,
 } from 'react-native';
 import { ThemedButton } from '../ThemedButton/ThemedButton';
 import { ThemedCard } from '../ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '../ThemedLanguageText/ThemedLanguageText';
+import Feather from '@expo/vector-icons/Feather';
 
 export interface AlertButton {
   text: string;
@@ -81,26 +83,36 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
         return {
           iconColor: theme.status.success,
           borderColor: theme.status.success,
+          backgroundColor: `${theme.status.success}15`,
+          iconBackground: `${theme.status.success}20`,
         };
       case 'error':
         return {
           iconColor: theme.status.error,
           borderColor: theme.status.error,
+          backgroundColor: `${theme.status.error}15`,
+          iconBackground: `${theme.status.error}20`,
         };
       case 'warning':
         return {
           iconColor: theme.status.warning,
           borderColor: theme.status.warning,
+          backgroundColor: `${theme.status.warning}15`,
+          iconBackground: `${theme.status.warning}20`,
         };
       case 'info':
         return {
           iconColor: theme.status.info,
           borderColor: theme.status.info,
+          backgroundColor: `${theme.status.info}15`,
+          iconBackground: `${theme.status.info}20`,
         };
       default:
         return {
-          iconColor: theme.text.primary,
+          iconColor: theme.icon.primary,
           borderColor: theme.border.primary,
+          backgroundColor: `${theme.background.primary}30`,
+          iconBackground: `${theme.background.primary}20`,
         };
     }
   };
@@ -136,15 +148,15 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
   const getIcon = () => {
     switch (type) {
       case 'success':
-        return '✓';
+        return 'check-circle';
       case 'error':
-        return '✕';
+        return 'x-circle';
       case 'warning':
-        return '⚠';
+        return 'alert-triangle';
       case 'info':
-        return 'ℹ';
+        return 'info';
       default:
-        return '';
+        return 'alert-circle';
     }
   };
 
@@ -162,7 +174,6 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
           style={[
             styles.backdrop,
             {
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
               opacity: fadeAnim,
             },
           ]}
@@ -183,76 +194,80 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                   {
                     borderColor: typeStyles.borderColor,
                     borderWidth: 2,
+                    backgroundColor: theme.background.card,
                   },
                 ]}
               >
-                {/* Header with icon and close button */}
-                <View style={styles.header}>
-                  <View style={styles.iconContainer}>
-                    {getIcon() && (
-                      <ThemedLanguageText
-                        fontFamily="regional_secondary"
-                        variant="primary"
-                        size="large"
-                        style={[
-                          styles.icon,
-                          { color: typeStyles.iconColor },
-                        ]}
-                      >
-                        {getIcon()}
-                      </ThemedLanguageText>
-                    )}
-                  </View>
-                  {showCloseButton && (
+                {/* Header with close button */}
+                {showCloseButton && (
+                  <View style={styles.headerContainer}>
                     <TouchableOpacity
                       onPress={onDismiss}
                       style={styles.closeButton}
+                      hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                     >
-                      <ThemedLanguageText
-                        fontFamily="regional_secondary"
-                        variant="secondary"
-                        size="medium"
-                        style={[styles.closeButtonText, { color: theme.text.secondary }]}
-                      >
-                        ✕
-                      </ThemedLanguageText>
+                      <Feather
+                        name="x"
+                        size={SIZES.icon.md}
+                        color={theme.text.secondary}
+                      />
                     </TouchableOpacity>
+                  </View>
+                )}
+
+                {/* Icon Container - Centered */}
+                {getIcon() && (
+                  <View style={[
+                    styles.iconContainer,
+                    { backgroundColor: typeStyles.iconBackground },
+                  ]}>
+                    <Feather
+                      name={getIcon() as any}
+                      size={SIZES.icon.xxl}
+                      color={typeStyles.iconColor}
+                    />
+                  </View>
+                )}
+
+                {/* Content Container */}
+                <View style={styles.contentContainer}>
+                  {/* Title */}
+                  {title && (
+                    <ThemedLanguageText
+                      fontFamily="regional_secondary"
+                      variant="primary"
+                      size="title"
+                      style={[
+                        styles.title,
+                        { color: theme.text.primary },
+                      ]}
+                    >
+                      {title}
+                    </ThemedLanguageText>
+                  )}
+
+                  {/* Message */}
+                  {message && (
+                    <ThemedLanguageText
+                      fontFamily="regional_secondary"
+                      variant="secondary"
+                      size="large"
+                      style={[
+                        styles.message,
+                        { color: theme.text.secondary },
+                      ]}
+                    >
+                      {message}
+                    </ThemedLanguageText>
                   )}
                 </View>
 
-                {/* Title */}
-                {title && (
-                  <ThemedLanguageText
-                    fontFamily="regional_secondary"
-                    variant="primary"
-                    size="title"
-                    style={[
-                      styles.title,
-                      { color: theme.text.primary },
-                    ]}
-                  >
-                    {title}
-                  </ThemedLanguageText>
-                )}
-
-                {/* Message */}
-                {message && (
-                  <ThemedLanguageText
-                    fontFamily="regional_secondary"
-                    variant="secondary"
-                    size="large"
-                    style={[
-                      styles.message,
-                      { color: theme.text.secondary },
-                    ]}
-                  >
-                    {message}
-                  </ThemedLanguageText>
-                )}
-
                 {/* Buttons */}
                 {buttons.length > 0 && (
-                  <View style={styles.buttonContainer}>
+                  <View style={[
+                    styles.buttonContainer,
+                    buttons.length > 1 && styles.buttonContainerMultiple,
+                  ]}>
                     {buttons.map((button, index) => (
                       <ThemedButton
                         key={index}
@@ -262,7 +277,8 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                         size="md"
                         style={StyleSheet.flatten([
                           styles.button,
-                          index > 0 && styles.buttonSpacing,
+                          buttons.length === 1 && styles.buttonFullWidth,
+                          buttons.length > 1 && index > 0 && styles.buttonSpacing,
                         ])}
                       />
                     ))}
@@ -282,33 +298,55 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.xl,
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    ...Platform.select({
+      ios: {
+        backdropFilter: 'blur(10px)',
+      },
+    }),
   },
   alertContainer: {
     width: '100%',
     maxWidth: 400,
+    alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.35,
+        shadowRadius: 20,
+      },
+      android: {
+        elevation: 16,
+      },
+    }),
   },
   alertCard: {
-    padding: SIZES.spacing.xl,
+    width: '100%',
+    paddingTop: SIZES.spacing.xl,
+    paddingBottom: SIZES.spacing.xxl,
+    paddingHorizontal: SIZES.spacing.xxl,
     margin: 0,
-  },
-  header: {
-    flexDirection: 'row',
+    borderRadius: SIZES.radius.xl,
+    position: 'relative',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: SIZES.spacing.md,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.25,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
   },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  icon: {
-    fontSize: SIZES.xl,
-    fontWeight: 'bold',
+  headerContainer: {
+    width: '100%',
+    alignItems: 'flex-end',
+    marginBottom: SIZES.spacing.xs,
   },
   closeButton: {
     width: 32,
@@ -316,35 +354,57 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.06)',
   },
-  closeButtonText: {
-    fontSize: SIZES.lg,
-    fontWeight: 'bold',
+  iconContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.lg,
+    marginTop: SIZES.spacing.xs,
+  },
+  contentContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.lg,
   },
   title: {
     fontSize: SIZES.title,
-    fontWeight: 'bold',
+    fontWeight: '700',
     textAlign: 'center',
-    marginBottom: SIZES.spacing.sm,
-    lineHeight: 32,
+    marginBottom: SIZES.spacing.md,
+    lineHeight: 36,
+    letterSpacing: 0.3,
+    width: '100%',
   },
   message: {
     fontSize: SIZES.lg,
     textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: SIZES.spacing.lg,
+    lineHeight: 26,
+    width: '100%',
+    paddingHorizontal: SIZES.spacing.xs,
   },
   buttonContainer: {
+    width: '100%',
+    flexDirection: 'column',
+    gap: SIZES.spacing.md,
+    marginTop: SIZES.spacing.md,
+  },
+  buttonContainerMultiple: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    gap: SIZES.spacing.sm,
+    justifyContent: 'space-between',
+    gap: SIZES.spacing.md,
   },
   button: {
-    minWidth: 100,
+    minHeight: 44,
+  },
+  buttonFullWidth: {
+    width: '100%',
   },
   buttonSpacing: {
-    marginLeft: SIZES.spacing.sm,
+    marginLeft: 0,
   },
 });
 
