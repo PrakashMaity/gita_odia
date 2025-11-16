@@ -3,6 +3,7 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
+import { registerDeviceForPushNotifications } from '@/services/pushNotifications';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { useChapterStore } from '@/store';
@@ -13,9 +14,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
-import { Platform, StatusBar as RNStatusBar,PermissionsAndroid } from 'react-native';
+import { Platform, StatusBar as RNStatusBar, PermissionsAndroid } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import messaging from '@react-native-firebase/messaging';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -45,20 +45,6 @@ export default function RootLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
   
   const [loaded, error] = useFonts(ClientFonts);
-const getFcmToken = async () => {
-  const token = await messaging().getToken();
-  console.log('FCM Token:', token);
-}
-  useEffect(() => {
-    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS).then((granted) => {
-      if (granted) {
-        console.log('Notification permission granted');
-        getFcmToken();
-      } else {
-        console.log('Notification permission denied');
-      }
-    });
-  }, []);
   // Initialize Firebase
   useEffect(() => {
     initializeFirebase();
@@ -67,6 +53,32 @@ const getFcmToken = async () => {
   // Initialize device registration
   useEffect(() => {
     initializeDeviceRegistration();
+  }, []);
+
+  // Register device for push notifications via Supabase / Expo
+  useEffect(() => {
+    // Android 13+ requires runtime permission; on iOS Expo handles the permission flow
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
+      )
+        .then((granted) => {
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            registerDeviceForPushNotifications().catch((error) => {
+              console.error('Error registering push notifications:', error);
+            });
+          } else {
+            console.log('Notification permission denied');
+          }
+        })
+        .catch((error) => {
+          console.error('Error requesting notification permission:', error);
+        });
+    } else {
+      registerDeviceForPushNotifications().catch((error) => {
+        console.error('Error registering push notifications:', error);
+      });
+    }
   }, []);
 
   // Sync device data periodically and when app comes to foreground
