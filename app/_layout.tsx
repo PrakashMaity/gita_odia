@@ -13,8 +13,9 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
-import { Platform, StatusBar as RNStatusBar } from 'react-native';
+import { Platform, StatusBar as RNStatusBar,PermissionsAndroid } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import messaging from '@react-native-firebase/messaging';
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync().catch(() => {
@@ -38,15 +39,26 @@ const ThemedStatusBar = () => {
   );
 };
 
-// Note: expo-keep-awake error suppression is handled in index.js
-// (It must be set up before any modules are imported)
 
 export default function RootLayout() {
   const { loadAllChapters } = useChapterStore();
   const [appIsReady, setAppIsReady] = useState(false);
   
   const [loaded, error] = useFonts(ClientFonts);
-
+const getFcmToken = async () => {
+  const token = await messaging().getToken();
+  console.log('FCM Token:', token);
+}
+  useEffect(() => {
+    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS).then((granted) => {
+      if (granted) {
+        console.log('Notification permission granted');
+        getFcmToken();
+      } else {
+        console.log('Notification permission denied');
+      }
+    });
+  }, []);
   // Initialize Firebase
   useEffect(() => {
     initializeFirebase();
