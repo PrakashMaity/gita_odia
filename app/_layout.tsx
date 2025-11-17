@@ -1,20 +1,20 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
-import { registerDeviceForPushNotifications } from '@/services/pushNotifications';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
+import { registerDeviceForPushNotifications, setupFCMNotificationHandlers } from '@/services/pushNotifications';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
-import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
-import { Platform, StatusBar as RNStatusBar, PermissionsAndroid } from 'react-native';
+import { PermissionsAndroid, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // Prevent splash screen from auto-hiding
@@ -48,6 +48,8 @@ export default function RootLayout() {
   // Initialize Firebase
   useEffect(() => {
     initializeFirebase();
+    // Set up FCM notification handlers
+    setupFCMNotificationHandlers();
   }, []);
 
   // Initialize device registration
@@ -55,9 +57,9 @@ export default function RootLayout() {
     initializeDeviceRegistration();
   }, []);
 
-  // Register device for push notifications via Supabase / Expo
+  // Register device for push notifications via Firebase FCM
   useEffect(() => {
-    // Android 13+ requires runtime permission; on iOS Expo handles the permission flow
+    // Android 13+ requires runtime permission; iOS permissions are handled by FCM
     if (Platform.OS === 'android') {
       PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS

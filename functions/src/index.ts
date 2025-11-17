@@ -1,12 +1,25 @@
+/**
+ * NOTE: This file contains Firebase Cloud Functions for sending FCM notifications.
+ * 
+ * Since you're using Supabase for your backend, you can:
+ * 1. Use Supabase Edge Functions instead (recommended)
+ * 2. Use your own backend service
+ * 3. Keep this as a reference or for future use
+ * 
+ * To send FCM notifications from Supabase:
+ * - Create a Supabase Edge Function
+ * - Use Firebase Admin SDK (npm:firebase-admin) in the Edge Function
+ * - Query your Supabase 'devices' table for fcm_token values
+ * - Use admin.messaging().sendEach() to send notifications
+ * 
+ * See pushNotifications.ts for client-side FCM setup and example Edge Function code.
+ */
+
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import { Expo, ExpoPushMessage } from 'expo-server-sdk';
 
 // Initialize Firebase Admin
 admin.initializeApp();
-
-// Create Expo client
-const expo = new Expo();
 
 /**
  * Daily Sloka data for notifications
@@ -49,9 +62,11 @@ function getDailySloka() {
 }
 
 /**
- * Fetch Expo Push Tokens from Firestore
+ * Fetch FCM Tokens from Supabase devices table via Firestore
+ * Note: This assumes you're syncing device tokens from Supabase to Firestore
+ * Alternatively, you can query Supabase directly if you have the Supabase client set up
  */
-async function getExpoPushTokensFromFirestore(language?: string): Promise<string[]> {
+async function getFCMTokensFromFirestore(language?: string): Promise<string[]> {
   try {
     const db = admin.firestore();
     const tokens: string[] = [];
@@ -67,8 +82,10 @@ async function getExpoPushTokensFromFirestore(language?: string): Promise<string
 
       snapshot.forEach((doc) => {
         const data = doc.data();
-        if (data.token && Expo.isExpoPushToken(data.token)) {
-          tokens.push(data.token);
+        // Support both fcm_token and token field names for migration
+        const token = data.fcm_token || data.token;
+        if (token && typeof token === 'string' && token.length > 0) {
+          tokens.push(token);
         }
       });
     } else {
@@ -83,8 +100,10 @@ async function getExpoPushTokensFromFirestore(language?: string): Promise<string
 
         notificationSnapshot.forEach((doc) => {
           const data = doc.data();
-          if (data.token && Expo.isExpoPushToken(data.token)) {
-            tokens.push(data.token);
+          // Support both fcm_token and token field names for migration
+          const token = data.fcm_token || data.token;
+          if (token && typeof token === 'string' && token.length > 0) {
+            tokens.push(token);
           }
         });
       }
@@ -92,15 +111,15 @@ async function getExpoPushTokensFromFirestore(language?: string): Promise<string
 
     return tokens;
   } catch (error) {
-    console.error('Error fetching Expo Push Tokens from Firestore:', error);
+    console.error('Error fetching FCM Tokens from Firestore:', error);
     return [];
   }
 }
 
 /**
- * Send Expo Push Notifications
+ * Send FCM Push Notifications
  */
-async function sendExpoPushNotifications(
+async function sendFCMPushNotifications(
   tokens: string[],
   title: string,
   body: string,
@@ -110,47 +129,65 @@ async function sendExpoPushNotifications(
     return { successCount: 0, failureCount: 0 };
   }
 
-  // Filter out invalid tokens
-  const validTokens = tokens.filter((token) => Expo.isExpoPushToken(token));
+  // Filter out invalid/empty tokens
+  const validTokens = tokens.filter((token) => token && typeof token === 'string' && token.length > 0);
   
   if (validTokens.length === 0) {
-    console.warn('No valid Expo Push Tokens found');
+    console.warn('No valid FCM Tokens found');
     return { successCount: 0, failureCount: 0 };
   }
 
-  // Create messages
-  const messages: ExpoPushMessage[] = validTokens.map((token) => ({
-    to: token,
-    sound: 'default',
-    title: title,
-    body: body,
-    data: data,
-    badge: 1,
+  // Create FCM messages
+  const messages = validTokens.map((token) => ({
+    token: token,
+    notification: {
+      title: title,
+      body: body,
+    },
+    data: {
+      ...Object.keys(data).reduce((acc, key) => {
+        acc[key] = String(data[key]);
+        return acc;
+      }, {} as Record<string, string>),
+    },
+    android: {
+      priority: 'high' as const,
+      notification: {
+        sound: 'default',
+        channelId: 'default',
+      },
+    },
+    apns: {
+      payload: {
+        aps: {
+          sound: 'default',
+          badge: 1,
+        },
+      },
+    },
   }));
 
-  // Send in chunks (Expo allows max 100 messages per request)
-  const chunks = expo.chunkPushNotifications(messages);
-  const tickets = [];
-
-  for (const chunk of chunks) {
-    try {
-      const ticketChunk = await expo.sendPushNotificationsAsync(chunk);
-      tickets.push(...ticketChunk);
-    } catch (error) {
-      console.error('Error sending push notification chunk:', error);
-    }
-  }
-
-  // Count successes and failures
+  // Send messages in batches (FCM allows up to 500 messages per batch)
+  const batchSize = 500;
   let successCount = 0;
   let failureCount = 0;
 
-  for (const ticket of tickets) {
-    if (ticket.status === 'ok') {
-      successCount++;
-    } else {
-      failureCount++;
-      console.error('Push notification error:', ticket.message);
+  for (let i = 0; i < messages.length; i += batchSize) {
+    const batch = messages.slice(i, i + batchSize);
+    try {
+      const response = await admin.messaging().sendEach(batch);
+      successCount += response.successCount;
+      failureCount += response.failureCount;
+      
+      // Log any failures
+      response.responses.forEach((resp, idx) => {
+        if (!resp.success) {
+          console.error(`Failed to send to token ${batch[idx].token}:`, resp.error);
+        }
+      });
+    } catch (error) {
+      console.error('Error sending FCM notification batch:', error);
+      failureCount += batch.length;
     }
   }
 
@@ -179,11 +216,11 @@ export const sendDailySlokaNotification = functions.pubsub
       const today = new Date().toISOString().split('T')[0];
       const notificationId = `daily-sloka-${today}-${Date.now()}`;
 
-      // Get all active Expo Push Tokens from Firestore
-      const tokens = await getExpoPushTokensFromFirestore();
+      // Get all active FCM Tokens from Firestore
+      const tokens = await getFCMTokensFromFirestore();
 
       if (tokens.length === 0) {
-        console.info('No active Expo Push Tokens found in Firestore');
+        console.info('No active FCM Tokens found in Firestore');
         return {
           success: true,
           message: 'No tokens to send notifications to',
@@ -194,7 +231,7 @@ export const sendDailySlokaNotification = functions.pubsub
       console.info(`Sending notifications to ${tokens.length} devices...`);
 
       // Send notifications
-      const result = await sendExpoPushNotifications(
+      const result = await sendFCMPushNotifications(
         tokens,
         `Daily Sloka - Chapter ${sloka.chapterNumber}`,
         sloka.body.substring(0, 100) + (sloka.body.length > 100 ? '...' : ''),
@@ -228,7 +265,7 @@ export const sendDailySlokaNotification = functions.pubsub
 /**
  * HTTP-triggered function to send test notification
  * GET/POST https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net/sendTestNotification
- * Query params: ?token=EXPO_PUSH_TOKEN or ?language=bn
+ * Query params: ?token=FCM_TOKEN or ?language=bn
  */
 export const sendTestNotification = functions.https.onRequest(async (req, res) => {
   try {
@@ -236,7 +273,7 @@ export const sendTestNotification = functions.https.onRequest(async (req, res) =
     
     if (!token && !language) {
       res.status(400).json({ 
-        error: 'Please provide either "token" (Expo Push Token) or "language" (e.g., bn) query parameter' 
+        error: 'Please provide either "token" (FCM Token) or "language" (e.g., bn) query parameter' 
       });
       return;
     }
@@ -250,14 +287,14 @@ export const sendTestNotification = functions.https.onRequest(async (req, res) =
     if (token) {
       // Send to specific token
       const tokenStr = token as string;
-      if (!Expo.isExpoPushToken(tokenStr)) {
-        res.status(400).json({ error: 'Invalid Expo Push Token format' });
+      if (!tokenStr || tokenStr.length === 0) {
+        res.status(400).json({ error: 'Invalid FCM Token format' });
         return;
       }
       tokens = [tokenStr];
     } else {
       // Send to all tokens for a language
-      tokens = await getExpoPushTokensFromFirestore(language as string);
+      tokens = await getFCMTokensFromFirestore(language as string);
       if (tokens.length === 0) {
         res.status(404).json({ 
           error: `No active tokens found for language: ${language}` 
@@ -266,7 +303,7 @@ export const sendTestNotification = functions.https.onRequest(async (req, res) =
       }
     }
 
-    const result = await sendExpoPushNotifications(
+    const result = await sendFCMPushNotifications(
       tokens,
       `Test - Daily Sloka - Chapter ${sloka.chapterNumber}`,
       sloka.body.substring(0, 100) + (sloka.body.length > 100 ? '...' : ''),
@@ -298,21 +335,16 @@ export const sendTestNotification = functions.https.onRequest(async (req, res) =
 });
 
 /**
- * HTTP-triggered function to send notification to specific Expo Push Token
+ * HTTP-triggered function to send notification to specific FCM Token
  * POST /sendNotificationToToken
- * Body: { "token": "ExponentPushToken[...]", "title": "optional", "body": "optional" }
+ * Body: { "token": "FCM_TOKEN", "title": "optional", "body": "optional" }
  */
 export const sendNotificationToToken = functions.https.onRequest(async (req, res) => {
   try {
     const { token, title, body, chapterId, chapterNumber, verseNumber } = req.body;
     
-    if (!token) {
-      res.status(400).json({ error: 'Expo Push Token is required' });
-      return;
-    }
-
-    if (!Expo.isExpoPushToken(token)) {
-      res.status(400).json({ error: 'Invalid Expo Push Token format' });
+    if (!token || typeof token !== 'string' || token.length === 0) {
+      res.status(400).json({ error: 'FCM Token is required and must be a valid string' });
       return;
     }
 
@@ -329,7 +361,7 @@ export const sendNotificationToToken = functions.https.onRequest(async (req, res
     const today = new Date().toISOString().split('T')[0];
     const notificationId = `custom-${Date.now()}`;
 
-    const result = await sendExpoPushNotifications(
+    const result = await sendFCMPushNotifications(
       [token],
       title || `Daily Sloka - Chapter ${sloka.chapterNumber}`,
       body || sloka.body.substring(0, 100) + (sloka.body.length > 100 ? '...' : ''),

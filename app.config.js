@@ -86,17 +86,7 @@ export default function ({ config = {} }) {
     ]);
   }
 
-  plugins.push(
-    [
-      'expo-notifications',
-      {
-        icon: PATHS.icon,
-        color: COLORS.primary,
-        sounds: [],
-      },
-    ],
-    'expo-secure-store'
-  );
+  plugins.push('expo-secure-store');
 
   const androidConfig = {
     package: APP_INFO.package,
