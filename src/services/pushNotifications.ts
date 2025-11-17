@@ -7,6 +7,8 @@ import { getLanguageCode } from './firebase/utils/languageUtils';
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
     shouldPlaySound: true,
     shouldSetBadge: false,
   }),
@@ -22,7 +24,6 @@ async function registerForExpoPushTokenAsync(): Promise<string | null> {
   }
 
   if (finalStatus !== 'granted') {
-    console.log('Push notification permissions not granted');
     return null;
   }
 
@@ -67,8 +68,6 @@ export async function registerDeviceForPushNotifications(): Promise<void> {
 
     if (error) {
       console.error('Error registering device push token with Supabase:', error);
-    } else {
-      console.log('Registered device for push notifications with Supabase');
     }
   } catch (error) {
     console.error('Failed to register device for push notifications:', error);

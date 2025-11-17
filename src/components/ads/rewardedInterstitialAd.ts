@@ -77,12 +77,11 @@ export const showRewardedInterstitialAd = async (rewardedInterstitial: RewardedI
   try {
     const shouldShow = await shouldShowAds();
     if (!shouldShow) {
-      console.log('Ad-free active: skipping rewarded interstitial ad');
       return;
     }
     rewardedInterstitial.show();
   } catch (error) {
-    console.log('Error showing rewarded interstitial ad:', error);
+    console.error('Error showing rewarded interstitial ad:', error);
   }
 };
 

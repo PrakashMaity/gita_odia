@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, TouchableOpacity, ViewStyle } from 'react-native';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
@@ -22,8 +22,10 @@ interface StatsCardProps {
 }
 
 const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highlight = false }) => {
+  const highlightStyle: ViewStyle = highlight ? styles.highlightCard : {};
+
   return (
-    <ThemedCard variant="card" style={[styles.statsCard, highlight ? styles.highlightCard : null]}>
+    <ThemedCard variant="card" style={[styles.statsCard, highlightStyle]}>
       {icon && (
         <View style={styles.iconWrapper}>
           <Feather name={icon as any} size={SIZES.icon.lg} color={theme.icon.primary} />

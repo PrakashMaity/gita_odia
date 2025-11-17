@@ -65,12 +65,11 @@ export const showInterstitialAd = async (interstitial: InterstitialAd) => {
   try {
     const shouldShow = await shouldShowAds();
     if (!shouldShow) {
-      console.log('Ad-free active: skipping interstitial ad');
       return;
     }
     interstitial.show();
   } catch (error) {
-    console.log('Error showing interstitial ad:', error);
+    console.error('Error showing interstitial ad:', error);
   }
 };
 

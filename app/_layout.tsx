@@ -67,8 +67,6 @@ export default function RootLayout() {
             registerDeviceForPushNotifications().catch((error) => {
               console.error('Error registering push notifications:', error);
             });
-          } else {
-            console.log('Notification permission denied');
           }
         })
         .catch((error) => {
@@ -102,9 +100,8 @@ export default function RootLayout() {
         // Load chapters and notifications in parallel
         await Promise.all([
           loadAllChapters(),
-          fetchNotificationsWithRetry().catch((err) => {
+          fetchNotificationsWithRetry().catch(() => {
             // Silently fail for notifications - they'll be fetched when user visits the page
-            console.log('Notification pre-fetch failed (will retry on page visit):', err);
           }),
         ]);
       } catch (error) {

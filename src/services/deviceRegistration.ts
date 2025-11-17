@@ -2,7 +2,13 @@ import * as Application from 'expo-application';
 import { Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import firestore from '@react-native-firebase/firestore';
+import '@react-native-firebase/firestore';
+import {
+  collection,
+  doc,
+  getFirestore,
+  setDoc,
+} from '@react-native-firebase/firestore/lib/modular';
 import { getApp } from '@react-native-firebase/app';
 
 const DEVICE_ID_KEY = 'gita_device_id';
@@ -41,9 +47,14 @@ export interface DeviceRegistrationData {
 }
 
 /**
- * Generate or retrieve a unique device ID
- */
+* Generate or retrieve a unique device ID
+*/
 async function getOrCreateDeviceId(): Promise<string> {
+  const generateFallbackId = () =>
+    `${Date.now()}-${Math.random().toString(36).substring(2, 15)}-${Math.random()
+      .toString(36)
+      .substring(2, 15)}`;
+
   try {
     // Try to get existing device ID from secure storage
     let deviceId = await SecureStore.getItemAsync(DEVICE_ID_KEY);
@@ -53,19 +64,16 @@ async function getOrCreateDeviceId(): Promise<string> {
       // Use installation ID if available, otherwise generate UUID
       let installationId: string | null = null;
       try {
-        installationId = Application.getInstallationIdAsync 
-          ? await Application.getInstallationIdAsync() 
-          : null;
-      } catch (e) {
+        if (Platform.OS === 'android' && typeof Application.getAndroidId === 'function') {
+          installationId = Application.getAndroidId?.() ?? null;
+        } else if (Platform.OS === 'ios' && typeof Application.getIosIdForVendorAsync === 'function') {
+          installationId = await Application.getIosIdForVendorAsync();
+        }
+      } catch {
         // Installation ID not available, will generate one
       }
       
-      if (installationId) {
-        deviceId = installationId;
-      } else {
-        // Generate a UUID-like string
-        deviceId = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}-${Math.random().toString(36).substring(2, 15)}`;
-      }
+      deviceId = installationId || generateFallbackId();
       
       // Store the device ID
       await SecureStore.setItemAsync(DEVICE_ID_KEY, deviceId);
@@ -75,7 +83,7 @@ async function getOrCreateDeviceId(): Promise<string> {
   } catch (error) {
     console.error('Error getting/creating device ID:', error);
     // Fallback: generate a temporary ID
-    return `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
+    return generateFallbackId();
   }
 }
 
@@ -93,34 +101,23 @@ async function collectDeviceInfo(): Promise<DeviceInfo> {
   let bundleId: string | null = null;
   let installationId: string | null = null;
   
-  try {
-    // Get application info
     try {
-      deviceName = Application.getApplicationNameAsync 
-        ? await Application.getApplicationNameAsync() 
-        : Application.applicationName || 'Unknown Device';
-    } catch (e) {
+      // Get application info
       deviceName = Application.applicationName || 'Unknown Device';
-    }
-    
-    appVersion = Application.nativeApplicationVersion || null;
-    buildNumber = Application.nativeBuildVersion || null;
-    
-    try {
-      bundleId = Application.getApplicationIdAsync 
-        ? await Application.getApplicationIdAsync() 
-        : Application.applicationId || null;
-    } catch (e) {
+      
+      appVersion = Application.nativeApplicationVersion || null;
+      buildNumber = Application.nativeBuildVersion || null;
       bundleId = Application.applicationId || null;
-    }
-    
-    try {
-      installationId = Application.getInstallationIdAsync 
-        ? await Application.getInstallationIdAsync() 
-        : null;
-    } catch (e) {
-      installationId = null;
-    }
+      
+      try {
+        if (Platform.OS === 'android' && typeof Application.getAndroidId === 'function') {
+          installationId = Application.getAndroidId?.() || null;
+        } else if (Platform.OS === 'ios' && typeof Application.getIosIdForVendorAsync === 'function') {
+          installationId = await Application.getIosIdForVendorAsync();
+        }
+      } catch {
+        installationId = null;
+      }
     
     // Get OS version
     osVersion = Platform.Version?.toString() || null;
@@ -208,7 +205,7 @@ async function registerDeviceToFirestore(deviceInfo: DeviceInfo): Promise<void> 
       throw new Error('Firebase app not initialized');
     }
     
-    const db = firestore();
+    const db = getFirestore();
     
     const deviceData: DeviceRegistrationData = {
       deviceId: deviceInfo.deviceId,
@@ -227,16 +224,14 @@ async function registerDeviceToFirestore(deviceInfo: DeviceInfo): Promise<void> 
     };
     
     // Use deviceId as document ID in UserClients collection
-    const deviceRef = db.collection('UserClients').doc(deviceInfo.deviceId);
+    const deviceRef = doc(collection(db, 'UserClients'), deviceInfo.deviceId);
     
     // Use set with merge to update existing or create new
-    await deviceRef.set(deviceData, { merge: true });
+    await setDoc(deviceRef, deviceData, { merge: true });
     
     // Update last sync time
     await AsyncStorage.setItem('gita_last_sync_time', Date.now().toString());
     await AsyncStorage.removeItem(PENDING_SYNC_KEY);
-    
-    console.log('Device registered successfully:', deviceInfo.deviceId);
   } catch (error) {
     console.error('Error registering device to Firestore:', error);
     throw error;
@@ -274,7 +269,11 @@ async function syncPendingDeviceData(): Promise<void> {
       isOnline: true,
     };
     
-    await registerDeviceToFirestore(deviceInfo);
+    try {
+      await registerDeviceToFirestore(deviceInfo);
+    } catch {
+      // If offline, data is already saved locally
+    }
   } catch (error) {
     console.error('Error syncing pending device data:', error);
   }
@@ -293,12 +292,7 @@ export async function initializeDeviceRegistration(): Promise<void> {
     await saveDeviceDataOffline(deviceInfo);
     
     // Try to register to Firestore (if online)
-    try {
-      await registerDeviceToFirestore(deviceInfo);
-    } catch (error) {
-      // If offline, data is already saved locally
-      console.log('Device registration deferred (offline):', error);
-    }
+    await registerDeviceToFirestore(deviceInfo);
   } catch (error) {
     console.error('Error initializing device registration:', error);
   }

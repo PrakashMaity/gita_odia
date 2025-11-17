@@ -78,12 +78,11 @@ export const showAppOpenAd = async (appOpenAd: AppOpenAd) => {
   try {
     const shouldShow = await shouldShowAds();
     if (!shouldShow) {
-      console.log('Ad-free active: skipping app open ad');
       return;
     }
     appOpenAd.show();
   } catch (error) {
-    console.log('Error showing app open ad:', error);
+    console.error('Error showing app open ad:', error);
   }
 };
 

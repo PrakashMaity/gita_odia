@@ -118,7 +118,7 @@ export const NotificationsScreen: React.FC = () => {
             <ThemedView style={styles.titleRow}>
               <ThemedLanguageText
                 variant="primary"
-                size="lg"
+                size="large"
                 fontFamily="regional_secondary"
                 style={[
                   styles.itemTitle,
@@ -138,7 +138,7 @@ export const NotificationsScreen: React.FC = () => {
             </ThemedView>
             <ThemedLanguageText
               variant="secondary"
-              size="md"
+              size="medium"
               fontFamily="regional_secondary"
               style={styles.itemMessage}
             >
@@ -146,7 +146,7 @@ export const NotificationsScreen: React.FC = () => {
             </ThemedLanguageText>
             <ThemedLanguageText
               variant="secondary"
-              size="sm"
+              size="small"
               fontFamily="regional_secondary"
               style={styles.itemTime}
             >
@@ -182,7 +182,7 @@ export const NotificationsScreen: React.FC = () => {
               <ActivityIndicator size="large" color={theme.icon.primary} />
               <ThemedLanguageText
                 variant="secondary"
-                size="md"
+                size="medium"
                 fontFamily="regional_secondary"
                 style={styles.loadingText}
               >
@@ -198,7 +198,7 @@ export const NotificationsScreen: React.FC = () => {
                   <Ionicons name="notifications-off" size={SIZES.icon.xl} color={theme.icon.secondary} />
                   <ThemedLanguageText
                     variant="secondary"
-                    size="md"
+                    size="medium"
                     fontFamily="regional_secondary"
                     style={styles.emptyText}
                   >

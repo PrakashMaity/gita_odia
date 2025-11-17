@@ -24,7 +24,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
         <View style={styles.card}>
           <ThemedLanguageText
             variant="primary"
-            size="xxxl"
+            size="title"
             style={styles.countText}
             fontFamily="regional_secondary"
           >
@@ -32,7 +32,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
           </ThemedLanguageText>
           <ThemedLanguageText
             variant="secondary"
-            size="sm"
+            size="small"
             style={styles.labelText}
             fontFamily="regional_secondary"
           >
@@ -44,7 +44,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
         <View style={styles.card}>
           <ThemedLanguageText
             variant="primary"
-            size="xxxl"
+            size="title"
             style={styles.countText}
             fontFamily="regional_secondary"
           >
@@ -52,7 +52,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
           </ThemedLanguageText>
           <ThemedLanguageText
             variant="secondary"
-            size="sm"
+            size="small"
             style={styles.labelText}
             fontFamily="regional_secondary"
           >

@@ -17,6 +17,8 @@ interface PointsDisplayProps {
 
 export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
   const theme = useThemeColors();
+  const adFreeBackgroundColor = theme.status.success ?? 'rgba(34, 197, 94, 0.15)';
+  const adFreeTextColor = theme.text.success ?? '#22c55e';
   const { showAlert, AlertComponent } = useCustomAlert();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -189,13 +191,13 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
 
         {/* Ad-Free Status */}
         {adFreeStatus?.isActive && (
-          <View style={[styles.adFreeBanner, { backgroundColor: theme.background.success || 'rgba(34, 197, 94, 0.15)' }]}>
+          <View style={[styles.adFreeBanner, { backgroundColor: adFreeBackgroundColor }]}>
             <Feather name="shield" size={SIZES.icon.sm} color={theme.icon.success || '#22c55e'} />
             <ThemedLanguageText
               variant="primary"
               size="small"
               fontFamily="regional_secondary"
-              style={[styles.adFreeText, { color: theme.text.success || '#22c55e' }]}
+              style={[styles.adFreeText, { color: adFreeTextColor }]}
             >
               {i18n.t('profile.adFreeActive')} • {adFreeStatus.remainingDays} {i18n.t('profile.adFreeDays')} {adFreeStatus.remainingHours} {i18n.t('profile.adFreeHours')}
             </ThemedLanguageText>

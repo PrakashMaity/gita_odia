@@ -148,7 +148,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
         >
           <ThemedLanguageText
             variant="primary"
-            size="huge"
+            size="title"
             style={styles.omSymbol}
           >
             ॐ

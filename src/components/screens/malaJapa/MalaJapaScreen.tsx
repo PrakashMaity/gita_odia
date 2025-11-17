@@ -3,7 +3,6 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   StyleSheet,
 } from 'react-native';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
@@ -13,7 +12,7 @@ import { SIZES } from '@/rootconstants/sizes';
 import i18n from '@/i18n';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Audio } from 'expo-av';
+import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import { MalaBeads } from './components/MalaBeads';
 import { MantraSelector } from './components/MantraSelector';
 import { ProgressCards } from './components/ProgressCards';
@@ -23,7 +22,6 @@ type MantraType = 'hareKrishna' | 'omNamah' | 'gitaDhyana' | 'custom';
 type BeadCount = 27 | 54 | 108;
 
 export const MalaJapaScreen: React.FC = () => {
-  const { width, height } = Dimensions.get('window');
   const [currentBead, setCurrentBead] = useState(0);
   const [beadCount, setBeadCount] = useState<BeadCount>(108);
   const [selectedMantra, setSelectedMantra] = useState<MantraType>('hareKrishna');
@@ -36,16 +34,17 @@ export const MalaJapaScreen: React.FC = () => {
   useEffect(() => {
     const setupAudio = async () => {
       try {
-        await Audio.setAudioModeAsync({
-          allowsRecordingIOS: false,
-          staysActiveInBackground: false,
-          playsInSilentModeIOS: true,
-          shouldDuckAndroid: true,
-          playThroughEarpieceAndroid: false,
+        await setAudioModeAsync({
+          allowsRecording: false,
+          shouldPlayInBackground: false,
+          playsInSilentMode: true,
+          interruptionMode: 'duckOthers',
+          interruptionModeAndroid: 'duckOthers',
+          shouldRouteThroughEarpiece: false,
         });
         soundInitialized.current = true;
       } catch (error) {
-        console.log('Audio setup error:', error);
+        console.error('Audio setup error:', error);
       }
     };
 
@@ -55,132 +54,79 @@ export const MalaJapaScreen: React.FC = () => {
   // Calculate current japa count
   const currentJapa = currentBead + completedMalas * beadCount;
 
-  // Play bead sound - simple beep
-  const playBeadSound = async () => {
-    if (!soundInitialized.current) return;
-    
+  const createToneBase64 = (frequency: number, duration: number) => {
+    const sampleRate = 44100;
+    const numSamples = Math.floor(sampleRate * duration);
+    const buffer = new ArrayBuffer(44 + numSamples * 2);
+    const view = new DataView(buffer);
+
+    const writeString = (offset: number, value: string) => {
+      for (let i = 0; i < value.length; i++) {
+        view.setUint8(offset + i, value.charCodeAt(i));
+      }
+    };
+
+    writeString(0, 'RIFF');
+    view.setUint32(4, 36 + numSamples * 2, true);
+    writeString(8, 'WAVE');
+    writeString(12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeString(36, 'data');
+    view.setUint32(40, numSamples * 2, true);
+
+    for (let i = 0; i < numSamples; i++) {
+      const sample = Math.sin((2 * Math.PI * frequency * i) / sampleRate) * 0.4;
+      const intSample = Math.max(-1, Math.min(1, sample));
+      view.setInt16(44 + i * 2, intSample * 0x7fff, true);
+    }
+
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  };
+
+  const playTone = (frequency: number, duration: number, volume: number) => {
+    if (!soundInitialized.current) {
+      return;
+    }
+
     try {
-      // Create a simple beep using Audio API
-      // Generate a brief tone (800Hz for 100ms)
-      const sampleRate = 44100;
-      const duration = 0.1;
-      const frequency = 800;
-      const numSamples = Math.floor(sampleRate * duration);
-      
-      // Create WAV file data
-      const buffer = new ArrayBuffer(44 + numSamples * 2);
-      const view = new DataView(buffer);
-      
-      // WAV header
-      const writeString = (offset: number, string: string) => {
-        for (let i = 0; i < string.length; i++) {
-          view.setUint8(offset + i, string.charCodeAt(i));
-        }
-      };
-      
-      writeString(0, 'RIFF');
-      view.setUint32(4, 36 + numSamples * 2, true);
-      writeString(8, 'WAVE');
-      writeString(12, 'fmt ');
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, 1, true);
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * 2, true);
-      view.setUint16(32, 2, true);
-      view.setUint16(34, 16, true);
-      writeString(36, 'data');
-      view.setUint32(40, numSamples * 2, true);
-      
-      // Generate sine wave
-      for (let i = 0; i < numSamples; i++) {
-        const sample = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.3;
-        const intSample = Math.max(-1, Math.min(1, sample));
-        view.setInt16(44 + i * 2, intSample * 0x7FFF, true);
-      }
-      
-      // Convert to base64
-      const bytes = new Uint8Array(buffer);
-      let binary = '';
-      for (let i = 0; i < bytes.length; i++) {
-        binary += String.fromCharCode(bytes[i]);
-      }
-      const base64 = btoa(binary);
-      
-      const { sound } = await Audio.Sound.createAsync(
+      const base64 = createToneBase64(frequency, duration);
+      const player = createAudioPlayer(
         { uri: `data:audio/wav;base64,${base64}` },
-        { shouldPlay: true, volume: 0.3 }
+        { keepAudioSessionActive: false }
       );
-      
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded && status.didJustFinish) {
-          sound.unloadAsync().catch(() => {});
+      player.volume = volume;
+      player.play();
+      setTimeout(() => {
+        try {
+          player.remove();
+        } catch {
+          // ignore cleanup errors
         }
-      });
-    } catch (error) {
-      // Silently fail - vibration will still work
+      }, Math.ceil(duration * 1000) + 200);
+    } catch {
+      // ignore playback errors
     }
   };
 
+  // Play bead sound - simple beep
+  const playBeadSound = () => {
+    playTone(800, 0.1, 0.3);
+  };
+
   // Play completion sound
-  const playCompletionSound = async () => {
-    if (!soundInitialized.current) return;
-    
-    try {
-      const sampleRate = 44100;
-      const duration = 0.2;
-      const frequency = 1000; // Higher pitch
-      const numSamples = Math.floor(sampleRate * duration);
-      
-      const buffer = new ArrayBuffer(44 + numSamples * 2);
-      const view = new DataView(buffer);
-      
-      const writeString = (offset: number, string: string) => {
-        for (let i = 0; i < string.length; i++) {
-          view.setUint8(offset + i, string.charCodeAt(i));
-        }
-      };
-      
-      writeString(0, 'RIFF');
-      view.setUint32(4, 36 + numSamples * 2, true);
-      writeString(8, 'WAVE');
-      writeString(12, 'fmt ');
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, 1, true);
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * 2, true);
-      view.setUint16(32, 2, true);
-      view.setUint16(34, 16, true);
-      writeString(36, 'data');
-      view.setUint32(40, numSamples * 2, true);
-      
-      for (let i = 0; i < numSamples; i++) {
-        const sample = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.4;
-        const intSample = Math.max(-1, Math.min(1, sample));
-        view.setInt16(44 + i * 2, intSample * 0x7FFF, true);
-      }
-      
-      const bytes = new Uint8Array(buffer);
-      let binary = '';
-      for (let i = 0; i < bytes.length; i++) {
-        binary += String.fromCharCode(bytes[i]);
-      }
-      const base64 = btoa(binary);
-      
-      const { sound } = await Audio.Sound.createAsync(
-        { uri: `data:audio/wav;base64,${base64}` },
-        { shouldPlay: true, volume: 0.5 }
-      );
-      
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded && status.didJustFinish) {
-          sound.unloadAsync().catch(() => {});
-        }
-      });
-    } catch (error) {
-      // Silently fail
-    }
+  const playCompletionSound = () => {
+    playTone(1000, 0.2, 0.5);
   };
 
   // Handle bead tap with sound and vibration
@@ -193,9 +139,7 @@ export const MalaJapaScreen: React.FC = () => {
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       
       // Sound
-      playBeadSound().catch(() => {
-        // Silently continue if sound fails
-      });
+      playBeadSound();
     } else {
       // Complete one mala
       const newCompletedMalas = completedMalas + 1;
@@ -206,9 +150,7 @@ export const MalaJapaScreen: React.FC = () => {
       await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       
       // Completion sound
-      playCompletionSound().catch(() => {
-        // Silently continue
-      });
+      playCompletionSound();
       
       // Show success modal
       setShowSuccessModal(true);

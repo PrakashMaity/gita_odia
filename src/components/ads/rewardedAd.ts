@@ -61,12 +61,11 @@ export const showRewardedAd = async (rewarded: RewardedAd) => {
   try {
     const shouldShow = await shouldShowAds();
     if (!shouldShow) {
-      console.log('Ad-free active: skipping rewarded ad');
       return;
     }
     rewarded.show();
   } catch (error) {
-    console.log('Error showing rewarded ad:', error);
+    console.error('Error showing rewarded ad:', error);
   }
 };
 

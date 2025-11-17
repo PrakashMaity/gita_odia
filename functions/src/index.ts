@@ -172,7 +172,7 @@ export const sendDailySlokaNotification = functions.pubsub
   .schedule("0 */6 * * *") // Every 6 hours
   .timeZone("Asia/Kolkata") // Adjust to your timezone
   .onRun(async (context) => {
-    console.log('Starting scheduled daily sloka notification...');
+    console.info('Starting scheduled daily sloka notification...');
     
     try {
       const sloka = getDailySloka();
@@ -183,7 +183,7 @@ export const sendDailySlokaNotification = functions.pubsub
       const tokens = await getExpoPushTokensFromFirestore();
 
       if (tokens.length === 0) {
-        console.log('No active Expo Push Tokens found in Firestore');
+        console.info('No active Expo Push Tokens found in Firestore');
         return {
           success: true,
           message: 'No tokens to send notifications to',
@@ -191,7 +191,7 @@ export const sendDailySlokaNotification = functions.pubsub
         };
       }
 
-      console.log(`Sending notifications to ${tokens.length} devices...`);
+      console.info(`Sending notifications to ${tokens.length} devices...`);
 
       // Send notifications
       const result = await sendExpoPushNotifications(
@@ -210,8 +210,8 @@ export const sendDailySlokaNotification = functions.pubsub
         }
       );
 
-      console.log(`✅ Successfully sent ${result.successCount} notifications`);
-      console.log(`❌ Failed to send ${result.failureCount} notifications`);
+      console.info(`✅ Successfully sent ${result.successCount} notifications`);
+      console.info(`❌ Failed to send ${result.failureCount} notifications`);
 
       return {
         success: true,

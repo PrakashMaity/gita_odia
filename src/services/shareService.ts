@@ -63,7 +63,6 @@ export async function storeShareData(shareData: ShareData, shareType: 'text' | '
       verseNumber: shareData.verseNumber,
       shareType,
       isTranslationOnly: shareData.isTranslationOnly || false,
-      timestamp: shareData.timestamp,
     }).catch(error => {
       console.error('Error storing share analytics:', error);
     });
@@ -265,7 +264,6 @@ export async function shareTranslationVerseAsImage(
       }
     } catch (sharingError: any) {
       // If expo-sharing fails (native module not available), fallback to Share API with message
-      console.log('expo-sharing not available, using fallback:', sharingError?.message);
     }
 
     // Fallback: Share the message with download link
@@ -338,7 +336,6 @@ export async function shareVerseAsImage(
       }
     } catch (sharingError: any) {
       // If expo-sharing fails (native module not available), fallback to Share API with message
-      console.log('expo-sharing not available, using fallback:', sharingError?.message);
     }
 
     // Fallback: Share the message with download link

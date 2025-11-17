@@ -46,19 +46,20 @@ const handleNavigation = (navigationUrl?: string) => {
   try {
     // Remove leading slash if present
     const path = navigationUrl.startsWith('/') ? navigationUrl.slice(1) : navigationUrl;
-    
+    const normalizedPath = `/${path}`;
+
     // Handle different navigation patterns
     if (path.startsWith('chapter/')) {
       // Extract chapter number from path like "chapter/1" or "chapter/1?verse=5"
-      router.push(`/${path}`);
+      router.push(normalizedPath as never);
     } else if (path.startsWith('translation/')) {
-      router.push(`/${path}`);
+      router.push(normalizedPath as never);
     } else if (path.startsWith('(tabs)/')) {
       // Handle tab routes
-      router.push(`/${path}`);
+      router.push(normalizedPath as never);
     } else {
       // Generic route
-      router.push(`/${path}`);
+      router.push(normalizedPath as never);
     }
   } catch (error) {
     console.error('Error navigating:', error);
@@ -81,15 +82,11 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
   const loadPromotions = async () => {
     try {
       setLoading(true);
-      console.log('[PromotionalModal] Loading promotions...');
       const fetchedPromotions = await fetchPromotions();
-      console.log('[PromotionalModal] Loaded', fetchedPromotions.length, 'promotions');
-      console.log('[PromotionalModal] Promotion details:', fetchedPromotions.map(p => ({ id: p.id, title: p.title, type: p.type })));
       setPromotions(fetchedPromotions);
       
       // If no promotions found after loading, close the modal
       if (fetchedPromotions.length === 0) {
-        console.log('[PromotionalModal] No promotions found, closing modal');
         setTimeout(() => {
           onClose();
         }, 100);
@@ -176,7 +173,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
               <ThemedView style={styles.titleRow}>
                 <ThemedLanguageText
                   variant="primary"
-                  size="lg"
+                  size="large"
                   fontFamily="regional_secondary"
                   style={[styles.itemTitle, { fontWeight: 'bold' }]}
                 >
@@ -185,7 +182,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
               </ThemedView>
               <ThemedLanguageText
                 variant="secondary"
-                size="md"
+                size="medium"
                 fontFamily="regional_secondary"
                 style={styles.itemDescription}
               >
@@ -204,7 +201,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
                 >
                   <ThemedLanguageText
                     variant={isPromotion ? 'primary' : 'secondary'}
-                    size="sm"
+                    size="small"
                     fontFamily="regional_secondary"
                     style={styles.badgeText}
                   >
@@ -321,7 +318,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
                     <ActivityIndicator size="large" color={theme.icon.primary} />
                     <ThemedLanguageText
                       variant="secondary"
-                      size="md"
+                      size="medium"
                       fontFamily="regional_secondary"
                       style={styles.loadingText}
                     >
@@ -337,7 +334,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onC
                     />
                     <ThemedLanguageText
                       variant="secondary"
-                      size="lg"
+                      size="large"
                       fontFamily="regional_secondary"
                       style={styles.emptyText}
                     >

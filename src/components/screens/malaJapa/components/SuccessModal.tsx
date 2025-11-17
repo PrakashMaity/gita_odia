@@ -88,7 +88,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           <View style={styles.content}>
             <ThemedLanguageText
               variant="primary"
-              size="huge"
+              size="title"
               style={styles.successIcon}
             >
               ✨
@@ -103,7 +103,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
             </ThemedLanguageText>
             <ThemedLanguageText
               variant="secondary"
-              size="lg"
+              size="large"
               style={styles.successMessage}
               fontFamily="regional_secondary"
             >
@@ -116,7 +116,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
             >
               <ThemedLanguageText
                 variant="primary"
-                size="md"
+                size="medium"
                 style={styles.closeButtonText}
                 fontFamily="regional_secondary"
               >

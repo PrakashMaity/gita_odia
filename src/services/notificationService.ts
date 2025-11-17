@@ -1,4 +1,13 @@
-import firestore from '@react-native-firebase/firestore';
+import '@react-native-firebase/firestore';
+import type { FirebaseFirestoreTypes } from '@react-native-firebase/firestore';
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  orderBy,
+  query,
+  where,
+} from '@react-native-firebase/firestore/lib/modular';
 import { getLanguageCode } from './firebase/utils/languageUtils';
 
 export interface NotificationItem {
@@ -23,7 +32,7 @@ export interface FirestoreNotification {
  * Convert Firestore notification to app notification item
  */
 function convertFirestoreNotification(
-  doc: firestore.QueryDocumentSnapshot<firestore.DocumentData>
+  doc: FirebaseFirestoreTypes.QueryDocumentSnapshot<FirebaseFirestoreTypes.DocumentData>
 ): NotificationItem {
   const data = doc.data() as FirestoreNotification;
   const createdAt = data.createdAt?.toMillis?.() || Date.now();
@@ -65,8 +74,8 @@ function convertFirestoreNotification(
  */
 export async function fetchNotifications(): Promise<NotificationItem[]> {
   try {
-    const db = firestore();
-    const notificationsCollection = db.collection('staticNotifications');
+    const db = getFirestore();
+    const notificationsCollection = collection(db, 'staticNotifications');
     
     // Get client code from language settings
     const clientCode = getLanguageCode();
@@ -75,21 +84,24 @@ export async function fetchNotifications(): Promise<NotificationItem[]> {
     // Note: This requires a composite index in Firestore: clientCode (Ascending) + createdAt (Descending)
     let snapshot;
     try {
-      snapshot = await notificationsCollection
-        .where('clientCode', '==', clientCode)
-        .orderBy('createdAt', 'desc')
-        .get();
+      const notificationsQuery = query(
+        notificationsCollection,
+        where('clientCode', '==', clientCode),
+        orderBy('createdAt', 'desc')
+      );
+      snapshot = await getDocs(notificationsQuery);
     } catch (indexError: any) {
       // If composite index doesn't exist, try without orderBy and sort in memory
       if (indexError?.code === 'failed-precondition' || indexError?.message?.includes('index')) {
-        console.warn('Firestore composite index not found, fetching without orderBy and sorting in memory');
-        const unsortedSnapshot = await notificationsCollection
-          .where('clientCode', '==', clientCode)
-          .get();
+        const fallbackQuery = query(
+          notificationsCollection,
+          where('clientCode', '==', clientCode)
+        );
+        const unsortedSnapshot = await getDocs(fallbackQuery);
         
-        const notifications = unsortedSnapshot.docs.map(convertFirestoreNotification);
+        const notifications: NotificationItem[] = unsortedSnapshot.docs.map(convertFirestoreNotification);
         // Sort by createdAt descending
-        return notifications.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+        return notifications.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
       }
       throw indexError;
     }
@@ -98,7 +110,7 @@ export async function fetchNotifications(): Promise<NotificationItem[]> {
       return [];
     }
 
-    const notifications = snapshot.docs.map(convertFirestoreNotification);
+    const notifications: NotificationItem[] = snapshot.docs.map(convertFirestoreNotification);
     return notifications;
   } catch (error) {
     console.error('Error fetching notifications:', error);

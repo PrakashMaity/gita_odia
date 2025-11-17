@@ -38,7 +38,7 @@ export const MantraSelector: React.FC<MantraSelectorProps> = ({
     >
       <ThemedLanguageText
         variant="primary"
-        size="md"
+        size="medium"
         style={styles.buttonText}
         fontFamily="regional_secondary"
       >
