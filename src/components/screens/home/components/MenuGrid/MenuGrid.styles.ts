@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
     paddingHorizontal: SIZES.spacing.sm,
   },
   sectionIndicator: {

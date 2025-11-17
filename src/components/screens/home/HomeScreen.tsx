@@ -5,6 +5,7 @@ import { HeroSection, HomeHeader, MenuGrid, QuickActions } from './components';
 import { styles } from './HomeScreen.styles';
 import { useHomeInitialization } from './hooks/useHomeInitialization';
 import { useHomeNavigation } from './hooks/useHomeNavigation';
+import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 
 
 
@@ -31,6 +32,7 @@ export const HomeScreen: React.FC = () => {
         >
           <HeroSection />
           <QuickActions />
+          <ThemedSpacer size='lg' />
           <MenuGrid onMenuItemPress={handleMenuItemPress} />
         </ScrollView>
 

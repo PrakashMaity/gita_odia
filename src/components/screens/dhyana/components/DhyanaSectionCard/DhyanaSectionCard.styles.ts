@@ -26,12 +26,11 @@ export const styles = StyleSheet.create({
   },
   introText: {
     textAlign: 'center',
-    lineHeight: SIZES.spacing.xl,
+   
   },
   text: {
     textAlign: 'center',
-    lineHeight: SIZES.spacing.xl,
-    fontStyle: 'italic',
+  
   },
   list: {
     gap: SIZES.spacing.md,
@@ -49,7 +48,6 @@ export const styles = StyleSheet.create({
   },
   bulletText: {
     flex: 1,
-    lineHeight: SIZES.spacing.lg,
   },
   stepNumber: {
     width: 24,
@@ -64,7 +62,6 @@ export const styles = StyleSheet.create({
   },
   stepText: {
     flex: 1,
-    lineHeight: SIZES.spacing.lg,
   },
 });
 

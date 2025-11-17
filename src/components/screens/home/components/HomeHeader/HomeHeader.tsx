@@ -3,11 +3,11 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { isAdFreeActive } from '@/services/shareAnalyticsService';
 import { HomeImages } from '@/utils/assets';
-import { Image, TouchableOpacity, View } from 'react-native';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { isAdFreeActive } from '@/services/shareAnalyticsService';
+import { Image, TouchableOpacity, View } from 'react-native';
 import { styles } from './HomeHeader.styles';
 
 export const HomeHeader: React.FC = () => {
@@ -66,9 +66,9 @@ export const HomeHeader: React.FC = () => {
       }
       rightContent={
         <ThemedView style={styles.iconGroup}>
-          <TouchableOpacity style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}>
+          {/* <TouchableOpacity style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}>
             <Image source={headerIcons.mic} style={[styles.icon, { tintColor: headerAccentColor }]} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity 
             style={[styles.iconButton, { backgroundColor: iconBackgroundColor }]}
             onPress={handleNotificationPress}

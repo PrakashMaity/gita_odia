@@ -1,8 +1,8 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { Tabs } from 'expo-router';
 import { Image, ImageSourcePropType, View } from 'react-native';
 
@@ -12,9 +12,8 @@ export default function TabLayout() {
   const INACTIVE_ICON_SIZE = SIZES.icon.xxl;
   const ACTIVE_WRAPPER_SIZE = ACTIVE_ICON_SIZE + SIZES.spacing.md;
 
-  const renderMenuIcon =
-    (iconSource: ImageSourcePropType) =>
-    ({ focused }: { focused: boolean }) => {
+  const renderMenuIcon = (iconSource: ImageSourcePropType) => {
+    const MenuIcon = ({ focused }: { focused: boolean }) => {
       const isActive = focused;
       const wrapperSize = isActive ? ACTIVE_WRAPPER_SIZE : INACTIVE_ICON_SIZE;
 
@@ -41,6 +40,11 @@ export default function TabLayout() {
         </View>
       );
     };
+
+    MenuIcon.displayName = 'MenuIcon';
+
+    return MenuIcon;
+  };
 
   return (
     <ErrorBoundary>
@@ -105,8 +109,7 @@ export default function TabLayout() {
               <BookmarkIcon
                 size={focused ? ACTIVE_ICON_SIZE : INACTIVE_ICON_SIZE}
                 focused={focused}
-                showBadge={true}
-                badgeSize={focused ? 'medium' : 'small'}
+                showBadge={false}
               />
             </View>
           ),

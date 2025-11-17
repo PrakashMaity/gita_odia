@@ -32,13 +32,13 @@ const assets = {
   layoutBackground2: require('../../assets/images/layoutBackground2.png'),
   layoutBackground3: require('../../assets/images/layoutBackground3.png'),
   chapters: [
-    require('../../assets/images/chapter/c1.png'),
-    require('../../assets/images/chapter/c2.png'),
-    require('../../assets/images/chapter/c3.png'),
-    require('../../assets/images/chapter/c4.png'),
-    require('../../assets/images/chapter/c5.png'),
-    require('../../assets/images/chapter/c6.png'),
-    require('../../assets/images/chapter/c7.png'),
+    require('../../assets/images/chapter/c1.jpeg'),
+    require('../../assets/images/chapter/c2.jpeg'),
+    require('../../assets/images/chapter/c3.jpeg'),
+    require('../../assets/images/chapter/c4.jpeg'),
+    require('../../assets/images/chapter/c5.jpeg'),
+    require('../../assets/images/chapter/c6.jpeg'),
+    require('../../assets/images/chapter/c7.jpeg'),
   ],
 };
 

@@ -29,8 +29,6 @@ export const styles = StyleSheet.create({
   },
   centeredText: {
     textAlign: 'center',
-    lineHeight: SIZES.spacing.xl,
-    fontStyle: 'italic',
   },
   list: {
     gap: SIZES.spacing.md,
@@ -48,7 +46,6 @@ export const styles = StyleSheet.create({
   },
   itemText: {
     flex: 1,
-    lineHeight: SIZES.spacing.lg,
   },
 });
 
