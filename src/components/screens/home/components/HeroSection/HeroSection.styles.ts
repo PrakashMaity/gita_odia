@@ -5,6 +5,9 @@ export const styles = StyleSheet.create({
     margin: 16,
     marginBottom: 8,
   },
+  heroCardTablet: {
+    marginHorizontal: 0,
+  },
   heroContainer: {
     position: 'relative',
     borderRadius: 8,
@@ -12,7 +15,6 @@ export const styles = StyleSheet.create({
   },
   heroImage: {
     width: '100%',
-    height: 180,
   },
   textOverlay: {
     position: 'absolute',

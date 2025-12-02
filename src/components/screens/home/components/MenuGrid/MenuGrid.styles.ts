@@ -4,7 +4,13 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+  },
+  containerMobile: {
     paddingHorizontal: SIZES.spacing.lg,
+  },
+  containerTablet: {
+    paddingHorizontal: 0,
   },
   section: {
     marginBottom: SIZES.spacing.xxl,
@@ -21,10 +27,18 @@ export const styles = StyleSheet.create({
     marginRight: SIZES.spacing.md,
   },
   menuContainer: {
-    
+    gap: SIZES.spacing.md,
+  },
+  menuContainerGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   menuItemContainer: {
-   
+    width: '100%',
+  },
+  menuItemGrid: {
+    marginBottom: SIZES.spacing.lg,
   },
   menuItem: {
     flexDirection: 'row',

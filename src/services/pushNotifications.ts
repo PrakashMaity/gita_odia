@@ -9,6 +9,8 @@ import { supabase } from './supabaseClient';
  */
 async function getFCMToken(): Promise<string | null> {
   try {
+    await messaging().registerDeviceForRemoteMessages();
+
     // Request permission (iOS only, Android permissions are handled at runtime)
     if (Platform.OS === 'ios') {
       const authStatus = await messaging().requestPermission();
@@ -22,7 +24,6 @@ async function getFCMToken(): Promise<string | null> {
       }
     }
 
-    // Get FCM token
     const token = await messaging().getToken();
     console.log('FCM token:', token);
     return token;

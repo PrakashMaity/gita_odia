@@ -2,6 +2,7 @@ import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { MenuItem, getMenuSections } from '@/constants/menuData';
+import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
 import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -16,6 +17,8 @@ interface MenuGridProps {
 export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
   const theme = useThemeColors();
   const menuSections = getMenuSections();
+  const layout = useDeviceLayout();
+  const isGrid = layout.gridColumns > 1;
 
   const renderIcon = (item: MenuItem) => {
     if (item.image) {
@@ -58,7 +61,14 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
     <TouchableOpacity
       key={item.id}
       onPress={() => handleItemPress(item)}
-      style={styles.menuItemContainer}
+      style={[
+        styles.menuItemContainer,
+        isGrid && styles.menuItemGrid,
+        isGrid && {
+          width: layout.gridItemWidthPercent,
+          maxWidth: layout.gridItemWidthPercent,
+        },
+      ]}
     >
       <ThemedCard 
         style={styles.menuItem}
@@ -111,14 +121,24 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
           {section.title}
         </ThemedLanguageText>
       </ThemedView>
-      <ThemedView style={styles.menuContainer}>
+      <ThemedView
+        style={[
+          styles.menuContainer,
+          isGrid && styles.menuContainerGrid,
+        ]}
+      >
         {section.items.map(renderMenuItem)}
       </ThemedView>
     </ThemedView>
   );
 
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView
+      style={[
+        styles.container,
+        layout.isTablet ? styles.containerTablet : styles.containerMobile,
+      ]}
+    >
       {menuSections.map(renderSection)}
     </ThemedView>
   );

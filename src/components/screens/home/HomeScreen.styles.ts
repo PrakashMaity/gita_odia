@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { SIZES } from '@/rootconstants/sizes';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -13,6 +14,10 @@ export const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: 32,
+  },
+  contentStack: {
+    width: '100%',
+    gap: SIZES.spacing.xl,
   },
 });
 

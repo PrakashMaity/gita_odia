@@ -1,5 +1,6 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
+import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
@@ -8,6 +9,7 @@ import { Image, ImageSourcePropType, View } from 'react-native';
 
 export default function TabLayout() {
   const { theme } = useTheme();
+  const layout = useDeviceLayout();
   const ACTIVE_ICON_SIZE = SIZES.icon.huge;
   const INACTIVE_ICON_SIZE = SIZES.icon.xxl;
   const ACTIVE_WRAPPER_SIZE = ACTIVE_ICON_SIZE + SIZES.spacing.md;
@@ -60,6 +62,11 @@ export default function TabLayout() {
             height: ACTIVE_WRAPPER_SIZE + SIZES.spacing.lg,
             paddingBottom: SIZES.spacing.sm,
             paddingTop: SIZES.spacing.sm,
+            width: layout.isTablet ? layout.contentMaxWidth : '100%',
+            alignSelf: layout.isTablet ? 'center' : undefined,
+            borderRadius: layout.isTablet ? SIZES.radius.xl : 0,
+            marginHorizontal: layout.isTablet ? layout.horizontalPadding : 0,
+            paddingHorizontal: layout.isTablet ? SIZES.spacing.lg : 0,
           },
           tabBarIconStyle: {
             width: ACTIVE_ICON_SIZE,

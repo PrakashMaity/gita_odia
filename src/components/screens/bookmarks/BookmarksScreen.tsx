@@ -1,6 +1,8 @@
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ResponsiveContainer } from '@/components/ui/ResponsiveContainer/ResponsiveContainer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useTheme } from '@/hooks/useTheme';
+import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import i18n from '@/i18n';
 import { useBookmarkStore } from '@/store';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
@@ -17,6 +19,7 @@ import { styles } from './BookmarksScreen.styles';
 
 export const BookmarksScreen: React.FC = () => {
   const { theme } = useTheme();
+  const layout = useDeviceLayout();
   const { isLoading, getBookmarksSortedByDate } = useBookmarkStore();
   const { 
     handleRemoveBookmark, 
@@ -54,25 +57,33 @@ export const BookmarksScreen: React.FC = () => {
       <ThemedView variant="transparent" style={styles.container}>
         {AlertComponent}
 
-        <BookmarkHeader 
-          bookmarkCount={sortedBookmarks.length}
-          onClearAll={handleRemoveAllBookmarks}
-        />
+        <ResponsiveContainer horizontalPadding={layout.isTablet ? layout.horizontalPadding : 0}>
+          <BookmarkHeader 
+            bookmarkCount={sortedBookmarks.length}
+            onClearAll={handleRemoveAllBookmarks}
+          />
+        </ResponsiveContainer>
 
         {sortedBookmarks.length === 0 ? (
-          <EmptyState
-            icon={<Ionicons name="bookmark-outline" size={64} color={theme.icon.tertiary} />}
-            title={i18n.t('bookmark.noBookmarks')}
-            subtitle={i18n.t('bookmark.bookmarkHint')}
-          />
+          <ResponsiveContainer contentStyle={styles.emptyStateWrapper}>
+            <EmptyState
+              icon={<Ionicons name="bookmark-outline" size={64} color={theme.icon.tertiary} />}
+              title={i18n.t('bookmark.noBookmarks')}
+              subtitle={i18n.t('bookmark.bookmarkHint')}
+            />
+          </ResponsiveContainer>
         ) : (
           <ScrollView 
             style={styles.scrollView}
-            contentContainerStyle={styles.scrollContent}
+            contentContainerStyle={[
+              styles.scrollContent,
+              { paddingBottom: layout.sectionSpacing },
+            ]}
             showsVerticalScrollIndicator={false}
           >
-            <ThemedView style={styles.section}>
-              <ThemedView style={styles.sectionHeader}>
+            <ResponsiveContainer contentStyle={styles.sectionStack}>
+              <ThemedView style={styles.section}>
+                <ThemedView style={styles.sectionHeader}>
                 <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
                 <ThemedLanguageText 
                   variant="primary" 
@@ -82,30 +93,46 @@ export const BookmarksScreen: React.FC = () => {
                 >
                   {i18n.t('bookmark.bookmarks')}
                 </ThemedLanguageText>
+                </ThemedView>
+                <ThemedView
+                  style={[
+                    styles.bookmarksContainer,
+                    layout.gridColumns > 1 && styles.bookmarksGrid,
+                  ]}
+                >
+                  {sortedBookmarks.map((bookmark, index) => (
+                    <ThemedView
+                      key={`${bookmark.verseId}-${index}`}
+                      style={[
+                        styles.bookmarkWrapper,
+                        layout.gridColumns > 1 && {
+                          width: layout.gridItemWidthPercent,
+                          maxWidth: layout.gridItemWidthPercent,
+                        },
+                      ]}
+                    >
+                      <BookmarkCard
+                        bookmark={bookmark}
+                        index={index}
+                        onPress={handleBookmarkPress}
+                        onDelete={handleRemoveBookmark}
+                      />
+                    </ThemedView>
+                  ))}
+                </ThemedView>
               </ThemedView>
-              <ThemedView style={styles.bookmarksContainer}>
-                {sortedBookmarks.map((bookmark, index) => (
-                  <BookmarkCard
-                    key={`${bookmark.verseId}-${index}`}
-                    bookmark={bookmark}
-                    index={index}
-                    onPress={handleBookmarkPress}
-                    onDelete={handleRemoveBookmark}
-                  />
-                ))}
-              </ThemedView>
-            </ThemedView>
 
-            <ThemedView style={styles.footer}>
-              <ThemedLanguageText 
-                variant="tertiary" 
-                size="small" 
-                fontFamily="regional_secondary"
-                style={styles.footerText}
-              >
-                {convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
-              </ThemedLanguageText>
-            </ThemedView>
+              <ThemedView style={styles.footer}>
+                <ThemedLanguageText 
+                  variant="tertiary" 
+                  size="small" 
+                  fontFamily="regional_secondary"
+                  style={styles.footerText}
+                >
+                  {convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
+                </ThemedLanguageText>
+              </ThemedView>
+            </ResponsiveContainer>
           </ScrollView>
         )}
       </ThemedView>

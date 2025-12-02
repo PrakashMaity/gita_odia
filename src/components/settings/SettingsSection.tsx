@@ -49,8 +49,9 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     marginVertical: SIZES.spacing.sm,
-    marginHorizontal: SIZES.spacing.lg,
+    marginHorizontal: 0,
     padding: 0,
   },
   header: {

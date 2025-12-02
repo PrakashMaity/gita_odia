@@ -15,6 +15,13 @@ export const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: SIZES.spacing.xl,
   },
+  headerWrapper: {
+    width: '100%',
+    marginBottom: SIZES.spacing.lg,
+  },
+  contentStack: {
+    width: '100%',
+  },
   section: {
     marginBottom: SIZES.spacing.xxl,
   },
@@ -35,7 +42,21 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   chaptersContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
+    width: '100%',
+    gap: SIZES.spacing.md,
+  },
+  chaptersGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    columnGap: SIZES.spacing.lg,
+    rowGap: SIZES.spacing.lg,
+  },
+  chapterItem: {
+    width: '100%',
+  },
+  chapterItemGrid: {
+    minWidth: 280,
   },
 });
 

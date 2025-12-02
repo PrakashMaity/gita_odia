@@ -129,7 +129,7 @@ export default function ({ config = {} }) {
     name: APP_INFO.name,
     slug: APP_INFO.slug,
     version: APP_INFO.version,
-    orientation: 'portrait',
+    orientation: 'default',
     icon: PATHS.icon,
     scheme: APP_INFO.scheme,
     splash: {
