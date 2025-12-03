@@ -8,8 +8,9 @@ import { SIZES } from '@/rootconstants/sizes';
 import { ChapterData } from '@/store';
 import { ChapterImages } from '@/utils/assets';
 import { MaterialIcons } from '@expo/vector-icons';
-import React, { useMemo } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image } from 'expo-image';
+import React, { useCallback, useMemo } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { styles } from './ChapterCard.styles';
 
 interface ChapterCardProps {
@@ -18,7 +19,7 @@ interface ChapterCardProps {
   onPress: (chapterId: string) => void;
 }
 
-export const ChapterCard: React.FC<ChapterCardProps> = ({
+export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
   chapter,
   progressPercentage,
   onPress,
@@ -55,15 +56,25 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
     return ChapterImages[(chapterNumber - 1) % ChapterImages.length];
   }, [chapterInfo.id, chapterInfo.number]);
 
+  const handlePress = useCallback(() => {
+    onPress(chapterInfo.id);
+  }, [onPress, chapterInfo.id]);
+
   return (
     <TouchableOpacity
       key={chapterInfo.id}
-      onPress={() => onPress(chapterInfo.id)}
+      onPress={handlePress}
     >
       <ThemedCard  style={[styles.card,{padding:0}]} pattern='mandala' patternOpacity={0.05}>
         <ThemedView style={styles.content}>
           <ThemedView style={styles.coverWrapper}>
-            <Image source={coverImage} style={styles.coverImage} resizeMode="cover" />
+            <Image 
+              source={coverImage} 
+              style={styles.coverImage} 
+              contentFit="cover"
+              transition={200}
+              cachePolicy="memory-disk"
+            />
           </ThemedView>
 
           <ThemedView style={styles.textContainer}>
@@ -104,5 +115,11 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
       </ThemedCard>
     </TouchableOpacity>
   );
-};
+}, (prevProps, nextProps) => {
+  // Custom comparison function for React.memo
+  return (
+    prevProps.chapter.chapter.id === nextProps.chapter.chapter.id &&
+    prevProps.progressPercentage === nextProps.progressPercentage
+  );
+});
 

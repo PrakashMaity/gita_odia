@@ -56,8 +56,16 @@ export const navigationHandlers = {
   },
   
   // Study handlers
-  dailyReading: () => {
-    // Add navigation logic here
+  'daily-reading': () => {
+    router.push('/daily-reading');
+  },
+  
+  'verse-of-the-day': () => {
+    router.push('/verse-of-the-day');
+  },
+  
+  'reading-timer': () => {
+    router.push('/reading-timer');
   },
   
   progress: () => {
@@ -107,7 +115,9 @@ export const getNavigationHandler = (item: MenuItem) => {
     'favorites': navigationHandlers.favorites,
     'notes': navigationHandlers.notes,
     'search': navigationHandlers.search,
-    'daily-reading': navigationHandlers.dailyReading,
+    'daily-reading': navigationHandlers['daily-reading'],
+    'verse-of-the-day': navigationHandlers['verse-of-the-day'],
+    'reading-timer': navigationHandlers['reading-timer'],
     'progress': navigationHandlers.progress,
     'quiz': navigationHandlers.quiz,
     'font-settings': navigationHandlers.fontSettings,

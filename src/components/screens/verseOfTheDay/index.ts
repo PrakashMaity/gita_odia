@@ -1,0 +1,2 @@
+export { VerseOfTheDayScreen } from './VerseOfTheDayScreen';
+

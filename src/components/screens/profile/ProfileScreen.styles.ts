@@ -16,12 +16,7 @@ export const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: SIZES.spacing.xl,
   },
-  sectionStack: {
-    width: '100%',
-    gap: SIZES.spacing.lg,
-  },
   bottomSpacing: {
     height: SIZES.spacing.huge,
   },
 });
-

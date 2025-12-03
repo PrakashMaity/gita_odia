@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    padding: SIZES.spacing.xl,
+    padding: SIZES.spacing.lg,
     borderRadius: SIZES.radius.xl,
     borderWidth: SIZES.borderSize.sm,
     shadowOffset: {

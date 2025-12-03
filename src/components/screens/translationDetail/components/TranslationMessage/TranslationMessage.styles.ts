@@ -14,8 +14,21 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: SIZES.spacing.md,
   },
+  actionButtonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SIZES.spacing.sm,
+  },
+  audioButton: {
+    width: SIZES.icon.lg + SIZES.spacing.sm,
+    height: SIZES.icon.lg + SIZES.spacing.sm,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: SIZES.borderSize.xs,
+  },
   shareButtonContainer: {
-    marginLeft: SIZES.spacing.md,
+    marginLeft: 0,
   },
   speakerInfo: {
     flexDirection: 'row',

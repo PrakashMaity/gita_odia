@@ -1,6 +1,7 @@
 export * from './bookmarks';
 export * from './chapterDetail';
 export * from './chapters';
+export * from './dailyReading';
 export * from './dhyana';
 export * from './favorites';
 export * from './gitaMahatmya';
@@ -11,7 +12,9 @@ export * from './mangalacharan';
 export * from './notifications';
 export * from './onboarding';
 export * from './profile';
+export * from './readingTimer';
 export * from './search';
 export * from './translationDetail';
 export * from './translations';
+export * from './verseOfTheDay';
 

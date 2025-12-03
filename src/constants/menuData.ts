@@ -51,7 +51,24 @@ export const getMenuSections = (): MenuSection[] => [
         description: i18n.t('menu.malaJapaDesc'),
         action: () => getNavigationHandler({ id: 'mala-japa' } as MenuItem)(),
       },
-    
+      {
+        id: 'verse-of-the-day',
+        title: i18n.t('menu.verseOfTheDay'),
+        icon: FontAwesome6,
+        iconName: 'sun',
+        iconFamily: 'FontAwesome6',
+        description: i18n.t('menu.verseOfTheDayDesc'),
+        action: () => getNavigationHandler({ id: 'verse-of-the-day' } as MenuItem)(),
+      },
+      {
+        id: 'reading-timer',
+        title: i18n.t('menu.readingTimer'),
+        icon: MaterialIcons,
+        iconName: 'timer',
+        iconFamily: 'MaterialIcons',
+        description: i18n.t('menu.readingTimerDesc'),
+        action: () => getNavigationHandler({ id: 'reading-timer' } as MenuItem)(),
+      },
     ],
   },
   {
@@ -83,7 +100,15 @@ export const getMenuSections = (): MenuSection[] => [
     id: 'features',
     title: i18n.t('menu.features'),
     items: [
-     
+      {
+        id: 'daily-reading',
+        title: i18n.t('menu.dailyReading'),
+        icon: FontAwesome6,
+        iconName: 'chart-line',
+        iconFamily: 'FontAwesome6',
+        description: i18n.t('menu.dailyReadingDesc'),
+        action: () => getNavigationHandler({ id: 'daily-reading' } as MenuItem)(),
+      },
       {
         id: 'favorites',
         title: i18n.t('menu.favorites'),
@@ -93,7 +118,6 @@ export const getMenuSections = (): MenuSection[] => [
         description: i18n.t('menu.favoritesDesc'),
         action: () => getNavigationHandler({ id: 'favorites' } as MenuItem)(),
       },
-      
     ],
   },
   

@@ -185,7 +185,13 @@
     "translations": "বাংলা অনুবাদ",
     "translationsDesc": "সমস্ত অধ্যায়ের বাংলা অনুবাদ",
     "favorites": "প্রিয় শ্লোক",
-    "favoritesDesc": "আপনার প্রিয় শ্লোকসমূহ"
+    "favoritesDesc": "আপনার প্রিয় শ্লোকসমূহ",
+    "dailyReading": "দৈনিক পাঠ",
+    "dailyReadingDesc": "আপনার পাঠের অগ্রগতি ট্র্যাক করুন",
+    "verseOfTheDay": "আজকের শ্লোক",
+    "verseOfTheDayDesc": "প্রতিদিন একটি অনুপ্রেরণামূলক শ্লোক",
+    "readingTimer": "পাঠ টাইমার",
+    "readingTimerDesc": "ধ্যান ও পাঠের জন্য টাইমার"
   },
   "common": {
     "back": "ফিরে যান",
@@ -411,5 +417,36 @@
     "resetConfirm": "আপনি কি নিশ্চিত যে আপনি জপ রিসেট করতে চান?",
     "completeMala": "মালা সম্পূর্ণ!",
     "startJapa": "জপ শুরু করুন"
+  },
+  "dailyReading": {
+    "title": "দৈনিক পাঠ",
+    "subtitle": "আপনার পাঠের অগ্রগতি ট্র্যাক করুন",
+    "todayVerses": "আজকের শ্লোক",
+    "totalDays": "মোট দিন",
+    "totalVerses": "মোট শ্লোক",
+    "longestStreak": "দীর্ঘতম ধারা",
+    "streakMessage": "আপনার {count} দিনের ধারাবাহিকতা চলছে!",
+    "startMessage": "আজই শুরু করুন আপনার পাঠ যাত্রা"
+  },
+  "verseOfTheDay": {
+    "title": "আজকের শ্লোক",
+    "subtitle": "প্রতিদিন একটি অনুপ্রেরণামূলক শ্লোক",
+    "share": "শেয়ার করুন",
+    "shareTitle": "আজকের শ্লোক",
+    "viewChapter": "অধ্যায় দেখুন",
+    "inspirationMessage": "প্রতিদিন গীতার একটি শ্লোক পড়ে নিজেকে অনুপ্রাণিত করুন"
+  },
+  "readingTimer": {
+    "title": "পাঠ টাইমার",
+    "subtitle": "ধ্যান ও পাঠের জন্য টাইমার",
+    "selectDuration": "সময়কাল নির্বাচন করুন",
+    "minutes": "মিনিট",
+    "start": "শুরু",
+    "pause": "বিরতি",
+    "resume": "পুনরায় শুরু",
+    "reset": "রিসেট",
+    "restart": "পুনরায় শুরু",
+    "completed": "সম্পন্ন!",
+    "completionSound": "সম্পন্ন শব্দ"
   }
 }

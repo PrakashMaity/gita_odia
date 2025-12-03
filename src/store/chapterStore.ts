@@ -35,73 +35,92 @@ const normalizeChapterData = (rawData: any): ChapterData => {
 
 
 // --- MAIN STORE ---
-export const useChapterStore = create<ChapterStore>()((set, get) => ({
-  chapters: [],
-  isLoading: false,
-  isInitialized: false,
-  error: null,
+export const useChapterStore = create<ChapterStore>()((set, get) => {
+  // Internal cache for O(1) lookups
+  let chaptersByIdMap = new Map<string, ChapterData>();
+  let chaptersByNumberMap = new Map<number, ChapterData>();
 
-  loadAllChapters: async () => {
-    const { isInitialized } = get();
-    if (isInitialized) return;
-
-    set({ isLoading: true, error: null });
-
-    try {
+  const buildLookupMaps = (chapters: ChapterData[]) => {
+    chaptersByIdMap.clear();
+    chaptersByNumberMap.clear();
     
+    for (let i = 0; i < chapters.length; i++) {
+      const chapter = chapters[i];
+      chaptersByIdMap.set(chapter.chapter.id, chapter);
+      const chapterNumber = parseInt(chapter.chapter.number, 10);
+      if (!isNaN(chapterNumber)) {
+        chaptersByNumberMap.set(chapterNumber, chapter);
+      }
+    }
+  };
 
-      const normalizedData = rawChapters.map(normalizeChapterData);
+  return {
+    chapters: [],
+    isLoading: false,
+    isInitialized: false,
+    error: null,
 
+    loadAllChapters: async () => {
+      const { isInitialized } = get();
+      if (isInitialized) return;
+
+      set({ isLoading: true, error: null });
+
+      try {
+        const normalizedData = rawChapters.map(normalizeChapterData);
+        
+        // Build lookup maps for O(1) access
+        buildLookupMaps(normalizedData);
+
+        set({
+          chapters: normalizedData,
+          isLoading: false,
+          isInitialized: true,
+          error: null,
+        });
+      } catch (error) {
+        console.error('❌ Error loading chapters:', error);
+        set({
+          isLoading: false,
+          error:
+            error instanceof Error ? error.message : 'Failed to load chapters',
+        });
+      }
+    },
+
+    getChapterById: (chapterId: string) => {
+      // Use Map for O(1) lookup instead of O(n) find
+      return chaptersByIdMap.get(chapterId) || null;
+    },
+
+    getChapterByNumber: (chapterNumber: number) => {
+      // Use Map for O(1) lookup instead of O(n) find
+      return chaptersByNumberMap.get(chapterNumber) || null;
+    },
+
+    getAllChapters: () => get().chapters,
+
+    getChapterWithProgress: (chapterId: string, progressStore: any) => {
+      const chapter = chaptersByIdMap.get(chapterId);
+      if (!chapter) return null;
+
+      const chapterNumber = parseInt(chapter.chapter.number, 10);
+      const progress = progressStore.getProgress(chapterNumber);
+
+      return { ...chapter, progress };
+    },
+
+    setLoading: (loading: boolean) => set({ isLoading: loading }),
+    setError: (error: string | null) => set({ error }),
+    reset: () => {
+      chaptersByIdMap.clear();
+      chaptersByNumberMap.clear();
       set({
-        chapters: normalizedData,
+        chapters: [],
         isLoading: false,
-        isInitialized: true,
+        isInitialized: false,
         error: null,
       });
-    } catch (error) {
-      console.error('❌ Error loading chapters:', error);
-      set({
-        isLoading: false,
-        error:
-          error instanceof Error ? error.message : 'Failed to load chapters',
-      });
-    }
-  },
-
-  getChapterById: (chapterId: string) => {
-    const { chapters } = get();
-    return chapters.find((ch) => ch.chapter.id === chapterId) || null;
-  },
-
-  getChapterByNumber: (chapterNumber: number) => {
-    const { chapters } = get();
-    return (
-      chapters.find(
-        (ch) => parseInt(ch.chapter.number, 10) === chapterNumber
-      ) || null
-    );
-  },
-
-  getAllChapters: () => get().chapters,
-
-  getChapterWithProgress: (chapterId: string, progressStore: any) => {
-    const { chapters } = get();
-    const chapter = chapters.find((ch) => ch.chapter.id === chapterId);
-    if (!chapter) return null;
-
-    const chapterNumber = parseInt(chapter.chapter.number, 10);
-    const progress = progressStore.getProgress(chapterNumber);
-
-    return { ...chapter, progress };
-  },
-
-  setLoading: (loading: boolean) => set({ isLoading: loading }),
-  setError: (error: string | null) => set({ error }),
-  reset: () =>
-    set({
-      chapters: [],
-      isLoading: false,
-      isInitialized: false,
-      error: null,
-    }),
-}));
+    },
+  };
+});

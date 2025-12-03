@@ -15,12 +15,6 @@ export const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: SIZES.spacing.xl,
   },
-  emptyStateWrapper: {
-    paddingVertical: SIZES.spacing.xl,
-  },
-  sectionStack: {
-    width: '100%',
-  },
   section: {
     marginBottom: SIZES.spacing.xxl,
   },
@@ -41,18 +35,8 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   bookmarksContainer: {
-    width: '100%',
+    paddingHorizontal: SIZES.spacing.lg,
     gap: SIZES.spacing.sm,
-  },
-  bookmarksGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    columnGap: SIZES.spacing.lg,
-    rowGap: SIZES.spacing.lg,
-  },
-  bookmarkWrapper: {
-    width: '100%',
   },
   footer: {
     alignItems: 'center',
@@ -63,4 +47,3 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-

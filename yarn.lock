@@ -4798,6 +4798,11 @@ expo-sharing@^14.0.7:
   resolved "https://registry.npmjs.org/expo-sharing/-/expo-sharing-14.0.7.tgz"
   integrity sha512-t/5tR8ZJNH6tMkHXlF7453UafNIfrpfTG+THN9EMLC4Wsi4bJuESPm3NdmWDg2D4LDALJI/LQo0iEnLAd5Sp4g==
 
+expo-speech@^14.0.7:
+  version "14.0.7"
+  resolved "https://registry.npmjs.org/expo-speech/-/expo-speech-14.0.7.tgz"
+  integrity sha512-Ff/seq4tfj6AnGZj8Mj83EGnHj636f2mO30bPr3qQJzF9zn3ArakuUQTK8UrkVy0OS0E12z28d+9Fe+AgSUB0w==
+
 expo-splash-screen@~31.0.10:
   version "31.0.10"
   resolved "https://registry.npmjs.org/expo-splash-screen/-/expo-splash-screen-31.0.10.tgz"

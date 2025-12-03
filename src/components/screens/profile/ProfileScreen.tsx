@@ -1,9 +1,7 @@
 import { SettingsItem, SettingsSection } from '@/components/settings';
-import { ResponsiveContainer } from '@/components/ui/ResponsiveContainer/ResponsiveContainer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
-import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import i18n from '@/i18n';
 import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
@@ -19,7 +17,6 @@ import { createSuccessAlert, createErrorAlert, useCustomAlert } from '@/hooks/us
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
-  const layout = useDeviceLayout();
   const { showAlert, AlertComponent } = useCustomAlert();
 
   const handleShareApp = async () => {
@@ -54,53 +51,46 @@ export const ProfileScreen: React.FC = () => {
     >
       <ThemedView variant='transparent' style={styles.container}>
         {AlertComponent}
-        <ResponsiveContainer horizontalPadding={layout.isTablet ? layout.horizontalPadding : SIZES.spacing.lg}>
-          <ProfileHeader />
-        </ResponsiveContainer>
+        <ProfileHeader />
 
         <ScrollView 
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={[
-            styles.scrollContent,
-            { paddingBottom: layout.sectionSpacing },
-          ]}
+          contentContainerStyle={styles.scrollContent}
         >
-          <ResponsiveContainer contentStyle={styles.sectionStack}>
-            <SettingsSection 
-              title={i18n.t('profile.pointsEarned')} 
-              description={i18n.t('profile.pointsDesc')}
-            >
-              <PointsDisplay />
-            </SettingsSection>
+          <SettingsSection 
+            title={i18n.t('profile.pointsEarned')} 
+            description={i18n.t('profile.pointsDesc')}
+          >
+            <PointsDisplay />
+          </SettingsSection>
 
-            <SettingsSection 
-              title={i18n.t('profile.sharing')} 
-              description={i18n.t('profile.sharingDesc')}
-            >
-              <ShareStats />
-              <SettingsItem
-                title={i18n.t('profile.shareApp')}
-                subtitle={i18n.t('profile.shareAppDesc')}
-                icon={<MaterialIcons name="share" size={SIZES.icon.lg} color={theme.icon.primary} />}
-                onPress={handleShareApp}
-              />
-            </SettingsSection>
+          <SettingsSection 
+            title={i18n.t('profile.sharing')} 
+            description={i18n.t('profile.sharingDesc')}
+          >
+            <ShareStats />
+            <SettingsItem
+              title={i18n.t('profile.shareApp')}
+              subtitle={i18n.t('profile.shareAppDesc')}
+              icon={<MaterialIcons name="share" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              onPress={handleShareApp}
+            />
+          </SettingsSection>
 
-            <SettingsSection 
-              title={i18n.t('profile.about')} 
-              description={i18n.t('profile.aboutDesc')}
-            >
-              <SettingsItem
-                title={i18n.t('profile.appVersion')}
-                subtitle={i18n.t('profile.appVersionDesc')}
-                icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
-                value={constants.expoConfig?.version}
-              />
-            </SettingsSection>
+          <SettingsSection 
+            title={i18n.t('profile.about')} 
+            description={i18n.t('profile.aboutDesc')}
+          >
+            <SettingsItem
+              title={i18n.t('profile.appVersion')}
+              subtitle={i18n.t('profile.appVersionDesc')}
+              icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              value={constants.expoConfig?.version}
+            />
+          </SettingsSection>
 
-            <ThemedView style={styles.bottomSpacing} />
-          </ResponsiveContainer>
+          <ThemedView style={styles.bottomSpacing} />
         </ScrollView>
       </ThemedView>
     </ImageBackground>

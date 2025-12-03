@@ -86,7 +86,7 @@ export default function RootLayout() {
     // Initial sync attempt
     const syncInterval = setInterval(() => {
       syncDeviceDataWhenOnline();
-    }, 60000); // Sync every minute
+    }, 300000); // Sync every 5 minutes (reduced from 1 minute for better battery life)
 
     // Also sync when app comes to foreground (handled by syncDeviceDataWhenOnline internally)
     
@@ -213,9 +213,29 @@ export default function RootLayout() {
                   }}
                 />
                 <Stack.Screen 
+                  name="daily-reading" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="verse-of-the-day" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="reading-timer" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
                   name="translations" 
                   options={{
                     animation: TRANSITION_ANIMATIONS.default,
+                    gestureEnabled: true,
+                    animationTypeForReplace: 'push',
                   }}
                 />
                 <Stack.Screen 

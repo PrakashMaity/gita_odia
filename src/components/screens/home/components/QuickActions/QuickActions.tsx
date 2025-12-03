@@ -1,7 +1,6 @@
 import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { MenuItem } from '@/constants/menuData';
-import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
@@ -13,25 +12,14 @@ import { styles } from './QuickActions.styles';
 
 export const QuickActions: React.FC = () => {
   const theme = useThemeColors();
-  const layout = useDeviceLayout();
   const quickActionTextColor = theme.text.primary;
   const quickActionIconColor = theme.icon.primary;
-  const isStacked = !layout.isTablet && layout.width < 400;
-  const buttonSize = layout.isTablet ? 'lg' : 'md';
 
   return (
-    <ThemedCard
-      variant='primary'
-      pattern='sacredGeometry'
-      style={[
-        styles.quickActionsCard,
-        layout.isTablet ? styles.quickActionsCardTablet : styles.quickActionsCardMobile,
-        isStacked && styles.quickActionsCardStacked,
-      ]}
-    >
+    <ThemedCard variant='primary' pattern='sacredGeometry' style={styles.quickActionsCard}>
       <ImageBackground
         source={HomeImages.buttonBackground}
-        style={[styles.actionBackground, layout.isTablet && styles.actionBackgroundTablet]}
+        style={styles.actionBackground}
         imageStyle={styles.actionBackgroundImage}
         blurRadius={4}
       >
@@ -41,8 +29,8 @@ export const QuickActions: React.FC = () => {
             getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
           }}
           variant="basic"
-          size={buttonSize}
-          fullWidth={!layout.isTablet}
+          size="md"
+          fullWidth
           style={styles.actionButton}
           textStyle={{ ...styles.actionText, color: quickActionTextColor }}
           icon={<FontAwesome6 name="book-bookmark" size={SIZES.icon.lg} color={quickActionIconColor} />}
@@ -61,8 +49,8 @@ export const QuickActions: React.FC = () => {
             getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();
           }}
           variant="basic"
-          size={buttonSize}
-          fullWidth={!layout.isTablet}
+          size="md"
+          fullWidth
           style={styles.actionButton}
           textStyle={{ ...styles.actionText, color: quickActionTextColor }}
           icon={<FontAwesome5 name="book" size={SIZES.icon.lg} color={quickActionIconColor} />}

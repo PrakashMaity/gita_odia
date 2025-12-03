@@ -2,18 +2,35 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import i18n from '@/i18n';
 import { useTranslationStore } from '@/store';
 import { useLocalSearchParams } from 'expo-router';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import { PageHeader, LoadingState } from '@/components/shared';
 import { ErrorState } from './components/ErrorState';
 import { TranslationMessage } from './components/TranslationMessage';
+import { AudioModal } from './components/AudioModal';
 import { styles } from './TranslationDetailScreen.styles';
 import { LayoutImages } from '@/utils/assets';
+import { MaterialIcons } from '@expo/vector-icons';
+import { useTheme } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
+import { useState, useMemo } from 'react';
 
 export const TranslationDetailScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { getTranslationById, isLoading } = useTranslationStore();
+  const { theme } = useTheme();
+  const [isFullChapterAudioModalVisible, setIsFullChapterAudioModalVisible] = useState(false);
   
   const translationData = id ? getTranslationById(id) : null;
+
+  // Prepare full chapter verses for audio with speaker-specific voices
+  const fullChapterVerses = useMemo(() => {
+    if (!translationData?.verses) return [];
+    
+    return translationData.verses.map((verse) => ({
+      text: verse.translation,
+      speakerEnglish: verse.speaker_english,
+    }));
+  }, [translationData?.verses]);
 
   if (isLoading) {
     return <LoadingState message={i18n.t('common.loading')} />;
@@ -33,7 +50,24 @@ export const TranslationDetailScreen: React.FC = () => {
       blurRadius={2.5}
     >
       <ThemedView variant="transparent" style={styles.container}>
-        <PageHeader title={`${chapter.title} || ${chapter.subtitle}`} />
+        <PageHeader
+          title={`${chapter.title} || ${chapter.subtitle}`}
+          rightAction={
+            <TouchableOpacity
+              onPress={() => setIsFullChapterAudioModalVisible(true)}
+              style={[
+                styles.headerAudioButton,
+                { backgroundColor: theme.background.quaternary },
+              ]}
+            >
+              <MaterialIcons
+                name="volume-up"
+                size={SIZES.icon.md}
+                color={theme.icon.primary}
+              />
+            </TouchableOpacity>
+          }
+        />
 
         <ScrollView 
           style={styles.chatContainer} 
@@ -51,6 +85,15 @@ export const TranslationDetailScreen: React.FC = () => {
             />
           ))}
         </ScrollView>
+
+        {/* Full Chapter Audio Modal */}
+        <AudioModal
+          visible={isFullChapterAudioModalVisible}
+          onClose={() => setIsFullChapterAudioModalVisible(false)}
+          verses={fullChapterVerses}
+          title={`${chapter.title} || ${chapter.subtitle}`}
+          chapterNumber={chapter.number}
+        />
       </ThemedView>
     </ImageBackground>
   );

@@ -3,30 +3,18 @@ import { SIZES } from '@/rootconstants/sizes';
 
 export const styles = StyleSheet.create({
   quickActionsCard: {
-    width: '100%',
+    flexDirection: 'row',
     gap: SIZES.spacing.md,
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  quickActionsCardMobile: {
-    marginHorizontal: SIZES.spacing.lg,
-    flexDirection: 'row',
-  },
-  quickActionsCardTablet: {
-    marginHorizontal: 0,
-    flexDirection: 'row',
-    gap: SIZES.spacing.lg,
-  },
-  quickActionsCardStacked: {
-    flexDirection: 'column',
+    margin: SIZES.spacing.lg,
+    marginTop: SIZES.spacing.sm,
+    marginBottom: SIZES.spacing.sm,
   },
   actionBackground: {
     flex: 1,
     borderRadius: SIZES.radius.lg,
     overflow: 'hidden',
-  },
-  actionBackgroundTablet: {
-    minHeight: 140,
   },
   actionBackgroundImage: {
     borderRadius: SIZES.radius.lg,
@@ -38,4 +26,3 @@ export const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
 });
-

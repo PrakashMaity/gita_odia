@@ -3,10 +3,14 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { getSpeakerImage } from '@/utils/speakerUtils';
 import i18n from '@/i18n';
-import React, { useRef } from 'react';
-import { Image, View } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { Image, View, TouchableOpacity } from 'react-native';
 import { ShareButton } from '@/components/screens/chapterDetail/components';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { AudioModal } from '../AudioModal';
+import { MaterialIcons } from '@expo/vector-icons';
+import { useTheme } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
 import { styles } from './TranslationMessage.styles';
 
 type TranslationVerse = {
@@ -33,8 +37,10 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
   chapterNumber,
 }) => {
   const { showAlert, AlertComponent } = useCustomAlert();
+  const { theme } = useTheme();
   const messageCardRef = useRef<View | null>(null);
-  const [hideShareButton, setHideShareButton] = React.useState(false);
+  const [hideShareButton, setHideShareButton] = useState(false);
+  const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
 
   return (
     <ThemedView key={verse.id}>
@@ -60,31 +66,51 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
               </ThemedView>
             </ThemedView>
             
-            {/* Share Button */}
-            {chapterId && chapterNumber && !hideShareButton && (
-              <ThemedView style={styles.shareButtonContainer}>
-                <ShareButton
-                  verseId={verse.id}
-                  chapterId={chapterId}
-                  chapterNumber={chapterNumber}
-                  verseNumber={verse.verseNumber}
-                  verseText="" // Translation-only, no original verse text
-                  translation={verse.translation}
-                  speaker={verse.speaker}
-                  onAlert={(title, message, type) => {
-                    if (type === 'success') {
-                      showAlert(createSuccessAlert(title, message));
-                    } else if (type === 'error') {
-                      showAlert(createErrorAlert(title, message));
-                    } else {
-                      showAlert({ title, message });
-                    }
-                  }}
-                  verseViewRef={messageCardRef}
-                  isTranslationOnly={true}
-                  onCaptureStart={() => setHideShareButton(true)}
-                  onCaptureEnd={() => setHideShareButton(false)}
-                />
+            {/* Action Buttons */}
+            {!hideShareButton && (
+              <ThemedView style={styles.actionButtonsContainer}>
+                {/* Audio Button */}
+                <TouchableOpacity
+                  onPress={() => setIsAudioModalVisible(true)}
+                  style={[
+                    styles.audioButton,
+                    { backgroundColor: theme.background.quaternary },
+                  ]}
+                >
+                  <MaterialIcons
+                    name="volume-up"
+                    size={SIZES.icon.md}
+                    color={theme.icon.primary}
+                  />
+                </TouchableOpacity>
+
+                {/* Share Button */}
+                {chapterId && chapterNumber && (
+                  <ThemedView style={styles.shareButtonContainer}>
+                    <ShareButton
+                      verseId={verse.id}
+                      chapterId={chapterId}
+                      chapterNumber={chapterNumber}
+                      verseNumber={verse.verseNumber}
+                      verseText="" // Translation-only, no original verse text
+                      translation={verse.translation}
+                      speaker={verse.speaker}
+                      onAlert={(title, message, type) => {
+                        if (type === 'success') {
+                          showAlert(createSuccessAlert(title, message));
+                        } else if (type === 'error') {
+                          showAlert(createErrorAlert(title, message));
+                        } else {
+                          showAlert({ title, message });
+                        }
+                      }}
+                      verseViewRef={messageCardRef}
+                      isTranslationOnly={true}
+                      onCaptureStart={() => setHideShareButton(true)}
+                      onCaptureEnd={() => setHideShareButton(false)}
+                    />
+                  </ThemedView>
+                )}
               </ThemedView>
             )}
           </ThemedView>
@@ -101,6 +127,16 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
           </ThemedView>
         </ThemedCard>
       </View>
+
+      {/* Audio Modal */}
+      <AudioModal
+        visible={isAudioModalVisible}
+        onClose={() => setIsAudioModalVisible(false)}
+        text={verse.translation}
+        speaker={verse.speaker}
+        speakerEnglish={verse.speaker_english}
+        verseNumber={verse.verseNumber}
+      />
     </ThemedView>
   );
 };

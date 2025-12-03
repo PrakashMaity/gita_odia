@@ -1,4 +1,4 @@
-import { ResponsiveContainer } from '@/components/ui/ResponsiveContainer/ResponsiveContainer';
+import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { HomeImages } from '@/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
@@ -6,8 +6,6 @@ import { HeroSection, HomeHeader, MenuGrid, QuickActions } from './components';
 import { styles } from './HomeScreen.styles';
 import { useHomeInitialization } from './hooks/useHomeInitialization';
 import { useHomeNavigation } from './hooks/useHomeNavigation';
-import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
-import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 
 
 
@@ -15,7 +13,7 @@ import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 export const HomeScreen: React.FC = () => {
   useHomeInitialization();
   const { handleMenuItemPress } = useHomeNavigation();
-  const layout = useDeviceLayout();
+  
 
   return (
     <ImageBackground
@@ -25,27 +23,17 @@ export const HomeScreen: React.FC = () => {
       blurRadius={.5}
     >
       <ThemedView variant='transparent' style={styles.container}>
-        <ResponsiveContainer horizontalPadding={layout.isTablet ? layout.horizontalPadding : 0}>
-          <HomeHeader />
-        </ResponsiveContainer>
+        <HomeHeader />
 
         <ScrollView
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={[
-            styles.scrollContent,
-            { paddingBottom: layout.sectionSpacing },
-          ]}
+          contentContainerStyle={styles.scrollContent}
         >
-          <ResponsiveContainer
-            horizontalPadding={layout.isTablet ? layout.horizontalPadding : 0}
-            contentStyle={styles.contentStack}
-          >
-            <HeroSection />
-            <QuickActions />
-            <ThemedSpacer size='lg' />
-            <MenuGrid onMenuItemPress={handleMenuItemPress} />
-          </ResponsiveContainer>
+          <HeroSection />
+          <QuickActions />
+          <ThemedSpacer size='lg' />
+          <MenuGrid onMenuItemPress={handleMenuItemPress} />
         </ScrollView>
 
         {/* <PromotionalModal visible={isModalVisible} onClose={handleCloseModal} /> */}
@@ -53,4 +41,3 @@ export const HomeScreen: React.FC = () => {
     </ImageBackground>
   );
 };
-

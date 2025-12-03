@@ -17,7 +17,6 @@ export const styles = StyleSheet.create({
   },
   contentStack: {
     width: '100%',
-    gap: SIZES.spacing.xl,
   },
 });
 

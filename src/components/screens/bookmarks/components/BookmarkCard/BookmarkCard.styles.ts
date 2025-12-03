@@ -3,15 +3,15 @@ import { SIZES } from '@/rootconstants/sizes';
 
 export const styles = StyleSheet.create({
   container: {
-    marginBottom: SIZES.spacing.md,
+    marginBottom: SIZES.spacing.sm,
   },
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: SIZES.spacing.xl,
+    padding: SIZES.spacing.lg,
     borderRadius: SIZES.radius.xl,
     borderWidth: SIZES.borderSize.sm,
-    marginBottom: SIZES.spacing.sm,
+    marginBottom: 0,
     shadowOffset: {
       width: 0,
       height: SIZES.shadow.md,

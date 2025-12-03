@@ -5,10 +5,12 @@ import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { getSpeakerImage } from '@/utils/speakerUtils';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { FavoriteButton } from '@/components/screens/favorites/components';
 import { ShareButton } from '@/components/screens/chapterDetail/components';
-import React, { useRef } from 'react';
+import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
+import { MaterialIcons } from '@expo/vector-icons';
+import React, { useRef, useState, useMemo } from 'react';
 
 interface Verse {
   verseNumber: string;
@@ -42,7 +44,17 @@ export default function VerseReader({
 }: VerseReaderProps) {
   const { theme } = useTheme();
   const verseCardRef = useRef<View | null>(null);
-  const [hideShareButton, setHideShareButton] = React.useState(false);
+  const [hideShareButton, setHideShareButton] = useState(false);
+  const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
+
+  // Prepare verse data for audio with proper structure
+  const audioVerse = useMemo(() => {
+    return {
+      Language: showLanguage ? verse.Language : undefined,
+      translation: showTranslation ? verse.translation : undefined,
+      speakerEnglish: verse.speaker_english,
+    };
+  }, [showLanguage, showTranslation, verse.Language, verse.translation, verse.speaker_english]);
 
   return (
     <ThemedView style={styles.container}>
@@ -71,6 +83,21 @@ export default function VerseReader({
            {/* Action Buttons Container */}
            {chapterId && chapterNumber && (
                 <ThemedView style={styles.actionsContainer}>
+                  {/* Audio Button */}
+                  <TouchableOpacity
+                    onPress={() => setIsAudioModalVisible(true)}
+                    style={[
+                      styles.audioButton,
+                      { backgroundColor: theme.background.quaternary },
+                    ]}
+                  >
+                    <MaterialIcons
+                      name="volume-up"
+                      size={SIZES.icon.md}
+                      color={theme.icon.primary}
+                    />
+                  </TouchableOpacity>
+
                   <ThemedView style={styles.favoriteContainer}>
                     <FavoriteButton
                       verseId={verse.id}
@@ -140,6 +167,17 @@ export default function VerseReader({
         )}
       </ThemedCard>
       </View>
+
+      {/* Audio Modal */}
+      <AudioModal
+        visible={isAudioModalVisible}
+        onClose={() => setIsAudioModalVisible(false)}
+        verses={audioVerse.Language || audioVerse.translation ? [audioVerse] : undefined}
+        speaker={verse.speaker}
+        speakerEnglish={verse.speaker_english}
+        verseNumber={verse.verseNumber}
+        chapterNumber={chapterNumber}
+      />
     </ThemedView>
   );
 }
@@ -208,6 +246,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: SIZES.spacing.lg,
     marginTop: SIZES.spacing.sm,
+  },
+  audioButton: {
+    width: SIZES.icon.lg + SIZES.spacing.sm,
+    height: SIZES.icon.lg + SIZES.spacing.sm,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: SIZES.borderSize.xs,
   },
   favoriteContainer: {
     // Container for favorite button

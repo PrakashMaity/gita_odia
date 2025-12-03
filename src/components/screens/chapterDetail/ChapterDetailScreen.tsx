@@ -5,13 +5,17 @@ import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/us
 import i18n from '@/i18n';
 import { useChapterStore } from '@/store';
 import { router, useLocalSearchParams } from 'expo-router';
-import React, { useCallback } from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
+import React, { useCallback, useState, useMemo } from 'react';
+import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import { PageHeader, LoadingState } from '@/components/shared';
 import { ErrorState } from './components/ErrorState';
 import { VerseNavigation } from './components/VerseNavigation';
 import { useChapterDetailInitialization } from './hooks/useChapterDetailInitialization';
 import { useChapterDetailOperations } from './hooks/useChapterDetailOperations';
+import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
+import { MaterialIcons } from '@expo/vector-icons';
+import { useTheme } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
 import { styles } from './ChapterDetailScreen.styles';
 import { LayoutImages } from '@/utils/assets';
 
@@ -19,8 +23,10 @@ export const ChapterDetailScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { isLoading } = useChapterStore();
   const { showAlert, AlertComponent } = useCustomAlert();
+  const { theme } = useTheme();
   const [showTranslation, setShowTranslation] = React.useState(true);
   const [showLanguage, setShowLanguage] = React.useState(true);
+  const [isFullChapterAudioModalVisible, setIsFullChapterAudioModalVisible] = useState(false);
 
   const { 
     chapterData, 
@@ -56,6 +62,18 @@ export const ChapterDetailScreen: React.FC = () => {
   const { chapter, verses } = chapterData;
   const currentVerseData = verses?.[currentVerse];
 
+  // Prepare full chapter verses for audio with speaker-specific voices
+  // Separate Language and translation for proper playback sequence
+  const fullChapterVerses = useMemo(() => {
+    if (!verses || verses.length === 0) return [];
+    
+    return verses.map((verse: any) => ({
+      Language: verse.Language,
+      translation: verse.translation,
+      speakerEnglish: verse.speaker_english,
+    }));
+  }, [verses]);
+
   return (
     <ImageBackground
       source={LayoutImages.background2}
@@ -70,6 +88,21 @@ export const ChapterDetailScreen: React.FC = () => {
           onBack={() => {
             router.back();
           }}
+          rightAction={
+            <TouchableOpacity
+              onPress={() => setIsFullChapterAudioModalVisible(true)}
+              style={[
+                styles.headerAudioButton,
+                { backgroundColor: theme.background.quaternary },
+              ]}
+            >
+              <MaterialIcons
+                name="volume-up"
+                size={SIZES.icon.md}
+                color={theme.icon.primary}
+              />
+            </TouchableOpacity>
+          }
         />
 
         <ScrollView style={styles.verseContainer} showsVerticalScrollIndicator={false}>
@@ -116,6 +149,15 @@ export const ChapterDetailScreen: React.FC = () => {
           chapterNumber={chapter.number}
           onPrevious={handlePreviousVerse}
           onNext={handleNextVerse}
+        />
+
+        {/* Full Chapter Audio Modal */}
+        <AudioModal
+          visible={isFullChapterAudioModalVisible}
+          onClose={() => setIsFullChapterAudioModalVisible(false)}
+          verses={fullChapterVerses}
+          title={`${chapter.title} || ${chapter.subtitle}`}
+          chapterNumber={chapter.number}
         />
       </ThemedView>
     </ImageBackground>
