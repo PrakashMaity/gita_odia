@@ -3,10 +3,12 @@ import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAre
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
+import { useRatingPrompter } from '@/hooks/useRatingPrompter';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { registerDeviceForPushNotifications, setupFCMNotificationHandlers } from '@/services/pushNotifications';
+import { initializeRevenueCat } from '@/services/revenueCat/initializeRevenueCat';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
@@ -45,11 +47,19 @@ export default function RootLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
   
   const [loaded, error] = useFonts(ClientFonts);
+  
+  // Initialize rating prompter - automatically shows rating after 5 minutes of usage
+  useRatingPrompter();
   // Initialize Firebase
   useEffect(() => {
     initializeFirebase();
     // Set up FCM notification handlers
     setupFCMNotificationHandlers();
+  }, []);
+
+  // Initialize RevenueCat
+  useEffect(() => {
+    initializeRevenueCat();
   }, []);
 
   // Initialize device registration

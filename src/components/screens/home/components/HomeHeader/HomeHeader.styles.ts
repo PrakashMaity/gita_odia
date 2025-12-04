@@ -23,15 +23,22 @@ export const styles = StyleSheet.create({
   proBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: SIZES.spacing.xs,
-    paddingVertical: 2,
+    paddingHorizontal: SIZES.spacing.sm,
+    paddingVertical: SIZES.spacing.xs,
     borderRadius: SIZES.borderRadius.sm,
-    gap: 4,
+    marginLeft: SIZES.spacing.xs,
+    elevation: 2,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
   proText: {
     fontWeight: '700',
-    fontSize: 10,
-    letterSpacing: 0.5,
+    fontSize: 11,
+    letterSpacing: 0.8,
   },
   iconGroup: {
     flexDirection: 'row',

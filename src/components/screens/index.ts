@@ -14,6 +14,7 @@ export * from './onboarding';
 export * from './profile';
 export * from './readingTimer';
 export * from './search';
+export * from './subscription';
 export * from './translationDetail';
 export * from './translations';
 export * from './verseOfTheDay';

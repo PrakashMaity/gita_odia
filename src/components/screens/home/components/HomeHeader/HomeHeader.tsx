@@ -1,12 +1,11 @@
 import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { isAdFreeActive } from '@/services/shareAnalyticsService';
 import { HomeImages } from '@/utils/assets';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import { styles } from './HomeHeader.styles';
 
@@ -15,20 +14,7 @@ export const HomeHeader: React.FC = () => {
   const headerAccentColor = theme.background.tertiary;
   const headerIcons = HomeImages.headerIcons;
   const iconBackgroundColor = theme.background.secondary;
-  const [isPro, setIsPro] = useState(false);
-
-  useEffect(() => {
-    const checkAdFreeStatus = async () => {
-      const adFree = await isAdFreeActive();
-      setIsPro(adFree);
-    };
-    
-    checkAdFreeStatus();
-    
-    // Check periodically (every 30 seconds) in case ad-free status changes
-    const interval = setInterval(checkAdFreeStatus, 30000);
-    return () => clearInterval(interval);
-  }, []);
+  const { isPro } = useProStatus();
 
   const handleNotificationPress = () => {
     router.push('/notifications');
@@ -49,13 +35,12 @@ export const HomeHeader: React.FC = () => {
               {i18n.t('home.headerTitle')}
             </ThemedLanguageText>
             {isPro && (
-              <View style={[styles.proBadge, { backgroundColor: theme.background.primary }]}>
-               
+              <View style={[styles.proBadge, { backgroundColor: theme.button.primary.background }]}>
                 <ThemedLanguageText
                   variant="primary"
                   size="xs"
                   fontFamily="regional_secondary"
-                  style={[styles.proText, { color: theme.text.primary }]}
+                  style={[styles.proText, { color: theme.button.primary.text }]}
                 >
                   PRO
                 </ThemedLanguageText>

@@ -8,16 +8,27 @@ import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import constants from 'expo-constants';
 import { ImageBackground, ScrollView } from 'react-native';
+import { router } from 'expo-router';
 import { ProfileHeader } from './components/ProfileHeader';
+import { SubscriptionDetails } from './components/SubscriptionDetails';
 import { ShareStats } from './components/ShareStats/ShareStats';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
+import { useProStatus } from '@/hooks/useProStatus';
 import { shareApp } from '@/services/appShareService';
 import { styles } from './ProfileScreen.styles';
 import { createSuccessAlert, createErrorAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { showRatingPrompt } from '@/hooks/useRatingPrompter';
+import { useEffect } from 'react';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
   const { showAlert, AlertComponent } = useCustomAlert();
+  const { isPro, refreshStatus } = useProStatus();
+
+  // Refresh PRO status when component mounts
+  useEffect(() => {
+    refreshStatus();
+  }, [refreshStatus]);
 
   const handleShareApp = async () => {
     try {
@@ -37,6 +48,18 @@ export const ProfileScreen: React.FC = () => {
       console.error('Error sharing app:', error);
       showAlert(createErrorAlert(
         i18n.t('share.error'),
+        i18n.t('share.shareFailed')
+      ));
+    }
+  };
+
+  const handleRateApp = async () => {
+    try {
+      await showRatingPrompt();
+    } catch (error) {
+      console.error('Error showing rating prompt:', error);
+      showAlert(createErrorAlert(
+        i18n.t('common.error'),
         i18n.t('share.shareFailed')
       ));
     }
@@ -66,6 +89,22 @@ export const ProfileScreen: React.FC = () => {
           </SettingsSection>
 
           <SettingsSection 
+            title={i18n.t('profile.subscription')} 
+            description={i18n.t('profile.subscriptionDesc')}
+          >
+            {isPro ? (
+              <SubscriptionDetails />
+            ) : (
+              <SettingsItem
+                title={i18n.t('profile.goToPro')}
+                subtitle={i18n.t('profile.goToProDesc')}
+                icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.lg} color={theme.icon.primary} />}
+                onPress={() => router.push('/subscription')}
+              />
+            )}
+          </SettingsSection>
+
+          <SettingsSection 
             title={i18n.t('profile.sharing')} 
             description={i18n.t('profile.sharingDesc')}
           >
@@ -87,6 +126,12 @@ export const ProfileScreen: React.FC = () => {
               subtitle={i18n.t('profile.appVersionDesc')}
               icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
               value={constants.expoConfig?.version}
+            />
+            <SettingsItem
+              title={i18n.t('profile.rateApp')}
+              subtitle={i18n.t('profile.rateAppDesc')}
+              icon={<MaterialIcons name="star" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              onPress={handleRateApp}
             />
           </SettingsSection>
 
