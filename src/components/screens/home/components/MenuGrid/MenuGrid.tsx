@@ -18,7 +18,11 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
   const theme = useThemeColors();
   const menuSections = getMenuSections();
   const layout = useDeviceLayout();
-  const isGrid = layout.gridColumns > 1;
+  // Force 2-column grid on all devices
+  const isGrid = true;
+  const gridColumns = 2;
+  // Use 49.5% width for very minimal gap between items (leaves ~1% for gap)
+  const gridItemWidth = '49.5%';
 
   const renderIcon = (item: MenuItem) => {
     if (item.image) {
@@ -65,8 +69,8 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
         styles.menuItemContainer,
         isGrid && styles.menuItemGrid,
         isGrid && {
-          width: layout.gridItemWidthPercent as ViewStyle['width'],
-          maxWidth: layout.gridItemWidthPercent as ViewStyle['maxWidth'],
+          width: gridItemWidth as ViewStyle['width'],
+          maxWidth: gridItemWidth as ViewStyle['maxWidth'],
         },
       ]}
     >
@@ -91,10 +95,15 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
           {item.description && (
             <ThemedLanguageText 
               variant='secondary'
-              size='medium'
+              size='small'
               fontFamily='regional_secondary'
+              style={styles.descriptionText}
+              numberOfLines={1}
+              ellipsizeMode="tail"
             >
-              {item.description}
+              {item.description.length > 25 
+                ? item.description.substring(0, 25) + '...' 
+                : item.description}
             </ThemedLanguageText>
           )}
         </ThemedView>

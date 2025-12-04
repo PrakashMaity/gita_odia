@@ -1,26 +1,29 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { SIZES } from '@/rootconstants/sizes';
+import { useThemeColors } from '@/hooks/useTheme';
 
 interface StatsCardProps {
   title: string;
   value: string;
-  icon: string;
+  iconName: keyof typeof Ionicons.glyphMap;
 }
 
-export const StatsCard: React.FC<StatsCardProps> = ({ title, value, icon }) => {
+export const StatsCard: React.FC<StatsCardProps> = ({ title, value, iconName }) => {
+  const theme = useThemeColors();
+
   return (
-    <ThemedCard variant="card" style={styles.card}>
-      <ThemedLanguageText
-        variant="primary"
-        size="title"
-        style={styles.icon}
-        fontFamily="regional_secondary"
-      >
-        {icon}
-      </ThemedLanguageText>
+    <ThemedCard variant="card" style={styles.card} borderVariant="primary">
+      <View style={[styles.iconContainer, { backgroundColor: theme.status.success + '20' }]}>
+        <Ionicons 
+          name={iconName} 
+          size={SIZES.icon.lg} 
+          color={theme.status.success} 
+        />
+      </View>
       <ThemedLanguageText
         variant="primary"
         size="title"
@@ -46,22 +49,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 120,
+    minHeight: 140,
+    paddingVertical: SIZES.spacing.lg,
   },
-  icon: {
-    fontSize: 32,
-    marginBottom: SIZES.spacing.xs,
+  iconContainer: {
+    width: SIZES.spacing.xxxl * 1.5,
+    height: SIZES.spacing.xxxl * 1.5,
+    borderRadius: SIZES.radius.full,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: SIZES.spacing.md,
   },
   value: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: '700',
     marginBottom: SIZES.spacing.xs,
     textAlign: 'center',
   },
   title: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '500',
     textAlign: 'center',
+    lineHeight: 18,
   },
 });
 

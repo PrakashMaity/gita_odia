@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { SIZES } from '@/rootconstants/sizes';
@@ -24,15 +25,18 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
   };
 
   return (
-    <ThemedCard variant="card" style={styles.container}>
-      <ThemedLanguageText
-        variant="primary"
-        size="large"
-        style={styles.title}
-        fontFamily="regional_secondary"
-      >
-        সপ্তাহের পরিসংখ্যান
-      </ThemedLanguageText>
+    <ThemedCard variant="card" style={styles.container} borderVariant="primary">
+      <ThemedView style={styles.header}>
+        <ThemedView style={[styles.indicator, { backgroundColor: theme.status.info + '40' }]} />
+        <ThemedLanguageText
+          variant="primary"
+          size="large"
+          style={styles.title}
+          fontFamily="regional_secondary"
+        >
+          সপ্তাহের পরিসংখ্যান
+        </ThemedLanguageText>
+      </ThemedView>
       <View style={styles.chart}>
         {data.map((item, index) => {
           const barHeight = (item.versesRead / maxVerses) * BAR_MAX_HEIGHT;
@@ -76,12 +80,24 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
 const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.spacing.xl,
+    padding: SIZES.spacing.xl,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.lg,
+  },
+  indicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xxxl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.md,
   },
   title: {
+    flex: 1,
     fontSize: 18,
     fontWeight: '600',
-    marginBottom: SIZES.spacing.md,
-    textAlign: 'center',
   },
   chart: {
     flexDirection: 'row',

@@ -5,13 +5,13 @@ import i18n from '@/i18n';
 import { useBookmarkStore } from '@/store';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { LayoutImages } from '@/utils/assets';
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
 import { ImageBackground, ScrollView } from 'react-native';
-import { EmptyState, LoadingState } from '@/components/shared';
+import { LoadingState } from '@/components/shared';
 import { BookmarkCard } from './components/BookmarkCard';
 import { BookmarkHeader } from './components/BookmarkHeader';
+import { EmptyBookmarkState } from './components/EmptyBookmarkState';
 import { useBookmarkOperations } from './hooks/useBookmarkOperations';
 import { styles } from './BookmarksScreen.styles';
 
@@ -60,11 +60,7 @@ export const BookmarksScreen: React.FC = () => {
         />
 
         {sortedBookmarks.length === 0 ? (
-          <EmptyState
-            icon={<Ionicons name="bookmark-outline" size={64} color={theme.icon.tertiary} />}
-            title={i18n.t('bookmark.noBookmarks')}
-            subtitle={i18n.t('bookmark.bookmarkHint')}
-          />
+          <EmptyBookmarkState />
         ) : (
           <ScrollView 
             style={styles.scrollView}

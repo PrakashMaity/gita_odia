@@ -46,6 +46,8 @@ export const styles = StyleSheet.create({
     padding: SIZES.spacing.sm,
     borderRadius: SIZES.radius.xl,
     borderWidth: 1,
+    minHeight: 80,
+    height: 80,
   },
   iconContainer: {
     width: 48,
@@ -64,6 +66,10 @@ export const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     justifyContent: 'center',
+  },
+  descriptionText: {
+    marginTop: SIZES.spacing.xs / 2,
+    lineHeight: 16,
   },
   arrowContainer: {
     width: 24,

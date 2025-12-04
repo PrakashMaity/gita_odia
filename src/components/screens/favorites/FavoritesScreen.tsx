@@ -5,9 +5,10 @@ import i18n from '@/i18n';
 import { useFavoriteStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { PageHeader, EmptyState, LoadingState } from '@/components/shared';
+import { PageHeader, LoadingState } from '@/components/shared';
 import { LayoutImages } from '@/utils/assets';
 import { FavoriteCard } from './components/FavoriteCard';
+import { EmptyFavoriteState } from './components/EmptyFavoriteState';
 import { useFavoriteOperations } from './hooks/useFavoriteOperations';
 import { styles } from './FavoritesScreen.styles';
 
@@ -52,11 +53,7 @@ export const FavoritesScreen: React.FC = () => {
         />
 
         {sortedFavorites.length === 0 ? (
-          <EmptyState
-            icon={<Ionicons name="heart-outline" size={64} color={theme.icon.tertiary} />}
-            title={i18n.t('favorite.noFavorites')}
-            subtitle={i18n.t('favorite.favoriteHint')}
-          />
+          <EmptyFavoriteState />
         ) : (
           <ScrollView 
             style={styles.chatContainer}

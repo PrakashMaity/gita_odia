@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, ScrollView, ImageBackground } from 'react-native';
+import { View, ScrollView, ImageBackground, Dimensions } from 'react-native';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { PageHeader } from '@/components/shared';
+import { WavePattern } from '@/illustration/cardBackground';
 import { SIZES } from '@/rootconstants/sizes';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useDailyReadingStore } from '@/store/dailyReadingStore';
 import { StatsCard } from './components/StatsCard';
@@ -37,15 +39,20 @@ export const DailyReadingScreen: React.FC = () => {
 
   const weeklyStats = getWeeklyStats();
   const todayVerses = todayRecord?.versesRead || 0;
+  const theme = useThemeColors();
+
+  const { width, height } = Dimensions.get('window');
 
   return (
     <ImageBackground
-      source={LayoutImages.background2}
+      source={LayoutImages.background3}
       style={styles.backgroundImage}
       resizeMode="cover"
       blurRadius={2.5}
     >
       <ThemedView variant="transparent" style={styles.container}>
+        <WavePattern width={width} height={height} />
+        
         <PageHeader
           title={i18n.t('dailyReading.title')}
           subtitle={i18n.t('dailyReading.subtitle')}
@@ -63,32 +70,47 @@ export const DailyReadingScreen: React.FC = () => {
             longestStreak={longestStreak}
           />
 
-          {/* Stats Cards Row */}
-          <View style={styles.statsRow}>
-            <StatsCard
-              title={i18n.t('dailyReading.todayVerses')}
-              value={todayVerses.toString()}
-              icon="📖"
-            />
-            <StatsCard
-              title={i18n.t('dailyReading.totalDays')}
-              value={totalReadingDays.toString()}
-              icon="📅"
-            />
-          </View>
+          {/* Stats Section */}
+          <ThemedView style={styles.statsSection}>
+            <ThemedView style={styles.sectionHeader}>
+              <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.status.error + '40' }]} />
+              <ThemedLanguageText 
+                variant="primary" 
+                size="large" 
+                fontFamily="regional_secondary"
+                style={styles.sectionTitle}
+              >
+                {i18n.t('dailyReading.statsTitle')}
+              </ThemedLanguageText>
+            </ThemedView>
 
-          <View style={styles.statsRow}>
-            <StatsCard
-              title={i18n.t('dailyReading.totalVerses')}
-              value={totalVersesRead.toString()}
-              icon="✨"
-            />
-            <StatsCard
-              title={i18n.t('dailyReading.longestStreak')}
-              value={longestStreak.toString()}
-              icon="🔥"
-            />
-          </View>
+            {/* Stats Cards Row */}
+            <View style={styles.statsRow}>
+              <StatsCard
+                title={i18n.t('dailyReading.todayVerses')}
+                value={todayVerses.toString()}
+                iconName="book-outline"
+              />
+              <StatsCard
+                title={i18n.t('dailyReading.totalDays')}
+                value={totalReadingDays.toString()}
+                iconName="calendar-outline"
+              />
+            </View>
+
+            <View style={styles.statsRow}>
+              <StatsCard
+                title={i18n.t('dailyReading.totalVerses')}
+                value={totalVersesRead.toString()}
+                iconName="library-outline"
+              />
+              <StatsCard
+                title={i18n.t('dailyReading.longestStreak')}
+                value={longestStreak.toString()}
+                iconName="flame-outline"
+              />
+            </View>
+          </ThemedView>
 
           {/* Weekly Chart */}
           {weeklyStats.length > 0 && (
@@ -96,9 +118,20 @@ export const DailyReadingScreen: React.FC = () => {
           )}
 
           {/* Motivational Message */}
-          <ThemedCard variant="card" style={styles.motivationCard}>
+          <ThemedCard variant="card" style={styles.motivationCard} borderVariant="primary">
+            <ThemedView style={styles.motivationHeader}>
+              <ThemedView style={[styles.motivationIndicator, { backgroundColor: theme.status.success + '40' }]} />
+              <ThemedLanguageText 
+                variant="primary" 
+                size="large" 
+                fontFamily="regional_secondary"
+                style={styles.motivationTitle}
+              >
+                {i18n.t('dailyReading.motivationTitle')}
+              </ThemedLanguageText>
+            </ThemedView>
             <ThemedLanguageText
-              variant="primary"
+              variant="secondary"
               size="medium"
               style={styles.motivationText}
               fontFamily="regional_secondary"
