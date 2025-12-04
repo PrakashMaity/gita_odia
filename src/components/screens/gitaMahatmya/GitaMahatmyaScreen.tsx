@@ -32,7 +32,11 @@ export const GitaMahatmyaScreen: React.FC = () => {
           <MahatmyaSectionCard
             content={i18n.t('gitaMahatmya.intro')}
             variant="intro"
-            textStyle="center"
+          />
+
+          <MahatmyaSectionCard
+            titleKey="gitaMahatmya.significanceTitle"
+            content={i18n.t('gitaMahatmya.significanceText')}
           />
 
           <MahatmyaSectionCard
@@ -42,9 +46,29 @@ export const GitaMahatmyaScreen: React.FC = () => {
           />
 
           <MahatmyaSectionCard
+            titleKey="gitaMahatmya.mahatmyaMeaningTitle"
+            content={i18n.t('gitaMahatmya.mahatmyaMeaningText')}
+          />
+
+          <MahatmyaSectionCard
             titleKey="gitaMahatmya.benefitsTitle"
             content={benefits}
             isList
+          />
+
+          <MahatmyaSectionCard
+            titleKey="gitaMahatmya.readingBenefitsTitle"
+            content={i18n.t('gitaMahatmya.readingBenefitsText')}
+          />
+
+          <MahatmyaSectionCard
+            titleKey="gitaMahatmya.historicalContextTitle"
+            content={i18n.t('gitaMahatmya.historicalContextText')}
+          />
+
+          <MahatmyaSectionCard
+            titleKey="gitaMahatmya.spiritualSignificanceTitle"
+            content={i18n.t('gitaMahatmya.spiritualSignificanceText')}
           />
         </ScrollView>
       </ThemedView>

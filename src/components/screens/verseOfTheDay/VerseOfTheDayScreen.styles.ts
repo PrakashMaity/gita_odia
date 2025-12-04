@@ -37,10 +37,24 @@ export const styles = StyleSheet.create({
     marginTop: SIZES.spacing.xl,
   },
   verseHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: SIZES.spacing.md,
     paddingBottom: SIZES.spacing.md,
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
+  },
+  speakerButton: {
+    width: SIZES.icon.lg + SIZES.spacing.sm,
+    height: SIZES.icon.lg + SIZES.spacing.sm,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: SIZES.borderSize.xs,
+  },
+  speakerButtonActive: {
+    opacity: 0.8,
   },
   chapterInfo: {
     fontSize: 16,
@@ -92,6 +106,22 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
     lineHeight: 22,
+  },
+  introCard: {
+    marginBottom: SIZES.spacing.lg,
+    padding: SIZES.spacing.xl,
+  },
+  introHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SIZES.spacing.md,
+  },
+  introTitle: {
+    flex: 1,
+  },
+  introText: {
+    lineHeight: SIZES.spacing.xl,
   },
 });
 

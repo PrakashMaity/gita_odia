@@ -1,7 +1,6 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { commonStyles } from '@/constants';
 import { useTheme } from '@/hooks/useTheme';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
@@ -10,22 +9,18 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { SIZES } from '@/rootconstants/sizes';
-import { styles } from './MahatmyaSectionCard.styles';
+import { styles } from './SectionCard.styles';
 
-interface MahatmyaSectionCardProps {
+interface SectionCardProps {
   titleKey?: string;
-  content: string | string[];
-  isList?: boolean;
+  content: string;
   variant?: 'intro' | 'default';
-  textStyle?: 'center' | 'left';
 }
 
-export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
+export const SectionCard: React.FC<SectionCardProps> = ({
   titleKey,
   content,
-  isList = false,
   variant = 'default',
-  textStyle = 'left',
 }) => {
   const { theme } = useTheme();
   const { speak, stop, isSpeaking } = useTextToSpeech({
@@ -34,59 +29,29 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
     pitch: 1.0,
   });
 
-  // Get text content for TTS
-  const getTextForTTS = (): string => {
-    if (isList && Array.isArray(content)) {
-      return content.join('. ');
-    }
-    return content as string;
-  };
-
   const handleSpeak = async () => {
     if (isSpeaking) {
       await stop();
     } else {
-      const textToSpeak = getTextForTTS();
-      if (textToSpeak) {
-        await speak(textToSpeak);
+      if (content) {
+        await speak(content);
       }
     }
   };
 
-  const renderContent = () => {
-    if (isList && Array.isArray(content)) {
-      return (
-        <ThemedView style={commonStyles.listItem.list}>
-          {content.map((item: string, index: number) => (
-            <ThemedView key={index} style={commonStyles.listItem.listItem}>
-              <ThemedView style={[commonStyles.listItem.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
-              <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary" style={commonStyles.listItem.itemText}>
-                {item}
-              </ThemedLanguageText>
-            </ThemedView>
-          ))}
-        </ThemedView>
-      );
-    }
-
-    return (
-      <ThemedLanguageText 
-        variant={variant === 'intro' ? 'secondary' : 'primary'}
-        size={variant === 'intro' ? 'medium' : 'large'}
-        fontFamily="regional_secondary"
-        style={textStyle === 'center' ? styles.centeredText : styles.text}
-      >
-        {content as string}
-      </ThemedLanguageText>
-    );
-  };
-
   return (
-    <ThemedCard style={variant === 'intro' ? commonStyles.card.introCard : commonStyles.card.card}>
+    <ThemedCard style={variant === 'intro' ? styles.introCard : styles.card}>
       {variant === 'intro' ? (
         <ThemedView style={styles.introContainer}>
           <ThemedView style={styles.introContent}>
-            {renderContent()}
+            <ThemedLanguageText
+              variant="secondary"
+              size="medium"
+              fontFamily="regional_secondary"
+              style={styles.text}
+            >
+              {content}
+            </ThemedLanguageText>
           </ThemedView>
           <TouchableOpacity
             onPress={handleSpeak}
@@ -107,9 +72,14 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
       ) : (
         <>
           {titleKey && (
-            <ThemedView style={commonStyles.section.sectionHeader}>
-              <ThemedView style={[commonStyles.section.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-              <ThemedLanguageText variant="primary" size="large" fontFamily="regional_secondary" style={commonStyles.section.sectionTitle}>
+            <ThemedView style={styles.sectionHeader}>
+              <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
+              <ThemedLanguageText 
+                variant="primary" 
+                size="large" 
+                fontFamily="regional_secondary"
+                style={styles.sectionTitle}
+              >
                 {i18n.t(titleKey)}
               </ThemedLanguageText>
               <TouchableOpacity
@@ -128,7 +98,14 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
               </TouchableOpacity>
             </ThemedView>
           )}
-          {renderContent()}
+          <ThemedLanguageText 
+            variant="primary"
+            size="large"
+            fontFamily="regional_secondary"
+            style={styles.text}
+          >
+            {content}
+          </ThemedLanguageText>
         </>
       )}
     </ThemedCard>

@@ -2,12 +2,13 @@ import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
 
 export const styles = StyleSheet.create({
-  text: {
-    lineHeight: SIZES.spacing.xl,
+  introCard: {
+    marginBottom: SIZES.spacing.lg,
+    padding: SIZES.spacing.xl,
   },
-  centeredText: {
-    textAlign: 'center',
-    lineHeight: SIZES.spacing.xl,
+  card: {
+    marginBottom: SIZES.spacing.lg,
+    padding: SIZES.spacing.xl,
   },
   introContainer: {
     flexDirection: 'row',
@@ -16,6 +17,23 @@ export const styles = StyleSheet.create({
   },
   introContent: {
     flex: 1,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.lg,
+  },
+  sectionIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xxxl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.md,
+  },
+  sectionTitle: {
+    flex: 1,
+  },
+  text: {
+    lineHeight: SIZES.spacing.xl,
   },
   speakerButton: {
     width: SIZES.icon.lg + SIZES.spacing.sm,

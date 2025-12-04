@@ -1,5 +1,3 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { WavePattern } from '@/illustration/cardBackground';
 import i18n from '@/i18n';
@@ -7,6 +5,7 @@ import { Dimensions, ImageBackground, ScrollView } from 'react-native';
 import { PageHeader } from '@/components/shared';
 import { ConclusionCard } from './components/ConclusionCard';
 import { SummaryCard } from './components/SummaryCard';
+import { SectionCard } from './components/SectionCard';
 import { useGitaSummaryData } from './hooks/useGitaSummaryData';
 import { styles } from './GitaSummaryScreen.styles';
 import { LayoutImages } from '@/utils/assets';
@@ -32,16 +31,25 @@ export const GitaSummaryScreen: React.FC = () => {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          <ThemedCard style={styles.introCard}>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium" 
-              fontFamily="regional_secondary"
-              style={styles.introText}
-            >
-              {i18n.t('gitaSummary.intro')}
-            </ThemedLanguageText>
-          </ThemedCard>
+          <SectionCard
+            content={i18n.t('gitaSummary.intro')}
+            variant="intro"
+          />
+
+          <SectionCard
+            titleKey="gitaSummary.significanceTitle"
+            content={i18n.t('gitaSummary.significanceText')}
+          />
+
+          <SectionCard
+            titleKey="gitaSummary.structureTitle"
+            content={i18n.t('gitaSummary.structureText')}
+          />
+
+          <SectionCard
+            titleKey="gitaSummary.importanceTitle"
+            content={i18n.t('gitaSummary.importanceText')}
+          />
 
           {summaryData.map((item, index) => (
             <SummaryCard

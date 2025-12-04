@@ -12,6 +12,8 @@ export const MangalacharanScreen: React.FC = () => {
   const mangalacharanText = i18n.t('mangalacharan.mantraText');
   const meaningText = i18n.t('mangalacharan.meaningText');
   const instructions = i18n.t('mangalacharan.instructions') as string[];
+  const benefits = i18n.t('mangalacharan.benefits') as string[];
+  const mantraBreakdown = i18n.t('mangalacharan.mantraBreakdown') as any;
 
   return (
     <ImageBackground
@@ -36,14 +38,42 @@ export const MangalacharanScreen: React.FC = () => {
           />
 
           <MangalacharanSectionCard
+            titleKey="mangalacharan.significanceTitle"
+            content={i18n.t('mangalacharan.significanceText')}
+          />
+
+          <MangalacharanSectionCard
             titleKey="mangalacharan.mantraTitle"
             content={mangalacharanText}
             textStyle="center"
           />
 
           <MangalacharanSectionCard
+            titleKey="mangalacharan.mantraBreakdownTitle"
+            content=""
+            isBreakdown
+            breakdownData={mantraBreakdown}
+          />
+
+          <MangalacharanSectionCard
             titleKey="mangalacharan.meaningTitle"
             content={meaningText}
+          />
+
+          <MangalacharanSectionCard
+            titleKey="mangalacharan.benefitsTitle"
+            content={benefits}
+            isList
+          />
+
+          <MangalacharanSectionCard
+            titleKey="mangalacharan.historicalContextTitle"
+            content={i18n.t('mangalacharan.historicalContextText')}
+          />
+
+          <MangalacharanSectionCard
+            titleKey="mangalacharan.spiritualSignificanceTitle"
+            content={i18n.t('mangalacharan.spiritualSignificanceText')}
           />
 
           <MangalacharanSectionCard

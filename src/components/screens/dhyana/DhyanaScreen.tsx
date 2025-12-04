@@ -38,8 +38,18 @@ export const DhyanaScreen: React.FC = () => {
           />
 
           <DhyanaSectionCard
+            titleKey="dhyana.significanceTitle"
+            content={i18n.t('dhyana.significanceText')}
+          />
+
+          <DhyanaSectionCard
             titleKey="dhyana.slokaTitle"
             content={dhyanaText}
+          />
+
+          <DhyanaSectionCard
+            titleKey="dhyana.slokaMeaningTitle"
+            content={i18n.t('dhyana.slokaMeaningText')}
           />
 
           <DhyanaSectionCard
@@ -55,10 +65,30 @@ export const DhyanaScreen: React.FC = () => {
           />
 
           <DhyanaSectionCard
+            titleKey="dhyana.typesTitle"
+            content={i18n.t('dhyana.typesText')}
+          />
+
+          <DhyanaSectionCard
             titleKey="dhyana.stepsTitle"
             content={steps}
             isList
             listType="numbered"
+          />
+
+          <DhyanaSectionCard
+            titleKey="dhyana.tipsTitle"
+            content={i18n.t('dhyana.tipsText')}
+          />
+
+          <DhyanaSectionCard
+            titleKey="dhyana.historicalContextTitle"
+            content={i18n.t('dhyana.historicalContextText')}
+          />
+
+          <DhyanaSectionCard
+            titleKey="dhyana.spiritualSignificanceTitle"
+            content={i18n.t('dhyana.spiritualSignificanceText')}
           />
         </ScrollView>
       </ThemedView>

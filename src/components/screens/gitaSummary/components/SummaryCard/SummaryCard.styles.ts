@@ -23,5 +23,16 @@ export const styles = StyleSheet.create({
   chapterTitle: {
     flex: 1,
   },
+  speakerButton: {
+    width: SIZES.icon.lg + SIZES.spacing.sm,
+    height: SIZES.icon.lg + SIZES.spacing.sm,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: SIZES.borderSize.xs,
+  },
+  speakerButtonActive: {
+    opacity: 0.8,
+  },
 });
 
