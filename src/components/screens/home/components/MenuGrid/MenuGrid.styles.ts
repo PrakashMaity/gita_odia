@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     marginRight: SIZES.spacing.md,
   },
   menuContainer: {
-    gap: SIZES.spacing.xs,
+    // gap: SIZES.spacing.xs,
   },
   menuContainerGrid: {
     flexDirection: 'row',

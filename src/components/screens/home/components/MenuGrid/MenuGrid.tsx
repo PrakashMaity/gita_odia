@@ -95,7 +95,7 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
           {item.description && (
             <ThemedLanguageText 
               variant='secondary'
-              size='small'
+              size='xs'
               fontFamily='regional_secondary'
               style={styles.descriptionText}
               numberOfLines={1}
@@ -107,13 +107,13 @@ export const MenuGrid: React.FC<MenuGridProps> = ({ onMenuItemPress }) => {
             </ThemedLanguageText>
           )}
         </ThemedView>
-        <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.tertiary }]}>
+        {/* <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.tertiary }]}>
           <MaterialIcons 
             name="arrow-forward-ios" 
             size={SIZES.icon.xs} 
             color={theme.icon.secondary} 
           />
-        </ThemedView>
+        </ThemedView> */}
       </ThemedCard>
     </TouchableOpacity>
   );

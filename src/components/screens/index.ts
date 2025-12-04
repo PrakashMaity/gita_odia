@@ -1,3 +1,4 @@
+export * from './allEkadashi';
 export * from './bookmarks';
 export * from './chapterDetail';
 export * from './chapters';

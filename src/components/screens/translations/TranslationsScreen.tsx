@@ -4,7 +4,7 @@ import i18n from '@/i18n';
 import { useTranslationStore } from '@/store';
 import { LayoutImages } from '@/utils/assets';
 import { useEffect } from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, View } from 'react-native';
 import { TranslationCard } from './components/TranslationCard';
 import { TranslationsHeader } from './components/TranslationsHeader';
 import { useTranslationsOperations } from './hooks/useTranslationsOperations';
@@ -39,11 +39,12 @@ export const TranslationsScreen: React.FC = () => {
         >
           <ThemedView style={styles.translationsContainer}>
             {translations.map((translation) => (
-              <TranslationCard
-                key={translation.chapter.id}
-                translation={translation}
-                onPress={handleTranslationPress}
-              />
+              <View key={translation.chapter.id} style={styles.translationCardWrapper}>
+                <TranslationCard
+                  translation={translation}
+                  onPress={handleTranslationPress}
+                />
+              </View>
             ))}
           </ThemedView>
         </ScrollView>

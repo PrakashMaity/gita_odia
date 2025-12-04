@@ -62,7 +62,11 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
       key={chapter.id}
       onPress={handlePress}
     >
-      <ThemedCard style={[styles.card, { padding: 0 }]} pattern="mandala" patternOpacity={0.05}>
+      <ThemedCard 
+        style={[styles.card, { padding: 0, borderColor: theme.border.secondary }]} 
+        pattern="mandala" 
+        patternOpacity={0.05}
+      >
         <ThemedView style={styles.content}>
           <ThemedView style={styles.coverWrapper}>
             <Image 

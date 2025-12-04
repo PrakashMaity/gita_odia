@@ -13,6 +13,8 @@ import i18n from '@/i18n';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
+import { useTextToSpeech } from '@/hooks/useTextToSpeech';
+import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
 import { MalaBeads } from './components/MalaBeads';
 import { MantraSelector } from './components/MantraSelector';
 import { ProgressCards } from './components/ProgressCards';
@@ -29,6 +31,29 @@ export const MalaJapaScreen: React.FC = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   
   const soundInitialized = useRef(false);
+
+  // Initialize TTS for mantra chanting
+  const { speak: speakMantra, stop: stopMantra } = useTextToSpeech({
+    language: getBengaliTTSLanguage(),
+    rate: 1.0, // Normal rate for mantra chanting
+    pitch: 1.0,
+  });
+
+  // Get mantra text based on selected mantra
+  const getMantraText = useCallback((mantra: MantraType): string => {
+    switch (mantra) {
+      case 'hareKrishna':
+        return i18n.t('malaJapa.mantras.hareKrishnaText');
+      case 'omNamah':
+        return i18n.t('malaJapa.mantras.omNamahText');
+      case 'gitaDhyana':
+        return i18n.t('malaJapa.mantras.gitaDhyanaText');
+      case 'custom':
+        return i18n.t('malaJapa.mantras.customText');
+      default:
+        return i18n.t('malaJapa.mantras.hareKrishnaText');
+    }
+  }, []);
 
   // Initialize audio
   useEffect(() => {
@@ -129,7 +154,7 @@ export const MalaJapaScreen: React.FC = () => {
     playTone(1000, 0.2, 0.5);
   };
 
-  // Handle bead tap with sound and vibration
+  // Handle bead tap with sound, vibration, and TTS mantra
   const handleBeadTap = useCallback(async () => {
     if (currentBead < beadCount - 1) {
       const newBead = currentBead + 1;
@@ -140,6 +165,20 @@ export const MalaJapaScreen: React.FC = () => {
       
       // Sound
       playBeadSound();
+      
+      // Chant mantra using TTS
+      try {
+        const mantraText = getMantraText(selectedMantra);
+        if (mantraText) {
+          // Stop any ongoing speech before starting new one
+          await stopMantra();
+          // Speak the mantra
+          await speakMantra(mantraText);
+        }
+      } catch (error) {
+        console.error('Error chanting mantra:', error);
+        // Continue even if TTS fails
+      }
     } else {
       // Complete one mala
       const newCompletedMalas = completedMalas + 1;
@@ -152,10 +191,21 @@ export const MalaJapaScreen: React.FC = () => {
       // Completion sound
       playCompletionSound();
       
+      // Chant mantra one last time on completion
+      try {
+        const mantraText = getMantraText(selectedMantra);
+        if (mantraText) {
+          await stopMantra();
+          await speakMantra(mantraText);
+        }
+      } catch (error) {
+        console.error('Error chanting mantra on completion:', error);
+      }
+      
       // Show success modal
       setShowSuccessModal(true);
     }
-  }, [currentBead, beadCount, completedMalas]);
+  }, [currentBead, beadCount, completedMalas, selectedMantra, getMantraText, speakMantra, stopMantra]);
 
   return (
     <LinearGradient
@@ -169,6 +219,12 @@ export const MalaJapaScreen: React.FC = () => {
           title={i18n.t('malaJapa.title')}
           subtitle={i18n.t('malaJapa.subtitle')}
           showBackButton={true}
+        />
+
+        {/* Mantra Selector Tabs - Below Header */}
+        <MantraSelector
+          selectedMantra={selectedMantra}
+          onMantraChange={setSelectedMantra}
         />
 
         <ScrollView
@@ -185,12 +241,6 @@ export const MalaJapaScreen: React.FC = () => {
               selectedMantra={selectedMantra}
             />
           </View>
-
-          {/* Mantra Selector Button */}
-          <MantraSelector
-            selectedMantra={selectedMantra}
-            onMantraChange={setSelectedMantra}
-          />
 
           {/* Progress Cards */}
           <ProgressCards

@@ -30,6 +30,7 @@ export const HomeScreen: React.FC = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
+        <ThemedSpacer size='xs' />
           <HeroSection />
           <QuickActions />
           <ThemedSpacer size='lg' />

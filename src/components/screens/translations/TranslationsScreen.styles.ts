@@ -17,6 +17,13 @@ export const styles = StyleSheet.create({
   },
   translationsContainer: {
     paddingHorizontal: SIZES.spacing.xs,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  translationCardWrapper: {
+    width: '49.5%',
+    marginBottom: SIZES.spacing.xs,
   },
 });
 

@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, ScrollView } from 'react-native';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
 import i18n from '@/i18n';
-import { Ionicons } from '@expo/vector-icons';
+import { useThemeColors } from '@/hooks/useTheme';
 
 type MantraType = 'hareKrishna' | 'omNamah' | 'gitaDhyana' | 'custom';
 
@@ -23,50 +24,92 @@ export const MantraSelector: React.FC<MantraSelectorProps> = ({
   selectedMantra,
   onMantraChange,
 }) => {
-  const currentMantra = mantras.find(m => m.id === selectedMantra);
+  const theme = useThemeColors();
 
   return (
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => {
-        // Cycle through mantras
-        const currentIndex = mantras.findIndex(m => m.id === selectedMantra);
-        const nextIndex = (currentIndex + 1) % mantras.length;
-        onMantraChange(mantras[nextIndex].id);
-      }}
-      activeOpacity={0.7}
-    >
-      <ThemedLanguageText
-        variant="primary"
-        size="medium"
-        style={styles.buttonText}
-        fontFamily="regional_secondary"
+    <ThemedView style={styles.container}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.tabContainer}
       >
-        {i18n.t(`malaJapa.${currentMantra?.key}`)}
-      </ThemedLanguageText>
-      <Ionicons name="chevron-forward" size={SIZES.icon.md} color="#5D4037" />
-    </TouchableOpacity>
+        {mantras.map((mantra) => {
+          const isSelected = selectedMantra === mantra.id;
+          return (
+            <TouchableOpacity
+              key={mantra.id}
+              style={[
+                styles.tab,
+                isSelected && [
+                  styles.tabActive,
+                  { backgroundColor: theme.background.quaternary },
+                ],
+                !isSelected && styles.tabInactive,
+              ]}
+              onPress={() => onMantraChange(mantra.id)}
+              activeOpacity={0.7}
+            >
+              <ThemedLanguageText
+                variant={isSelected ? 'primary' : 'secondary'}
+                size="small"
+                style={[
+                  styles.tabText,
+                  isSelected && styles.tabTextActive,
+                ]}
+                fontFamily="regional_secondary"
+              >
+                {i18n.t(`malaJapa.${mantra.key}`)}
+              </ThemedLanguageText>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+    </ThemedView>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#FFF8E1',
-    paddingVertical: SIZES.spacing.md,
-    paddingHorizontal: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.lg,
-    marginBottom: SIZES.spacing.lg,
+  container: {
     width: '100%',
-    borderWidth: 1,
+    paddingHorizontal: SIZES.spacing.lg,
+    paddingVertical: SIZES.spacing.md,
+    backgroundColor: 'rgba(255, 248, 225, 0.6)',
+    borderBottomWidth: 1,
+    borderBottomColor: '#FFE0B2',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    gap: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.xs,
+  },
+  tab: {
+    paddingVertical: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.lg,
+    borderRadius: SIZES.radius.full,
+    minWidth: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+  },
+  tabActive: {
+    borderColor: '#FF8F00',
+    shadowColor: '#FF8F00',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  tabInactive: {
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderColor: '#FFE0B2',
   },
-  buttonText: {
-    flex: 1,
-    fontSize: 16,
-    color: '#5D4037',
-    fontWeight: '600',
+  tabText: {
+    fontSize: 13,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  tabTextActive: {
+    fontWeight: '700',
+    fontSize: 14,
   },
 });

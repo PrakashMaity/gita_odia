@@ -267,6 +267,12 @@ export default function RootLayout() {
                   }}
                 />
                 <Stack.Screen 
+                  name="all-ekadashi" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
                   name="notifications" 
                   options={{
                     animation: TRANSITION_ANIMATIONS.fadeFromBottom,
