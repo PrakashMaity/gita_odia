@@ -1,8 +1,9 @@
+import { SIZES } from '@/rootconstants/sizes';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   heroCard: {
-    margin: 16,
+    margin: SIZES.spacing.xs,
     marginBottom: 8,
   },
   heroCardTablet: {

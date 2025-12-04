@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -35,6 +35,6 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   chaptersContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.xs,
   },
 });

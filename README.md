@@ -14,10 +14,11 @@ A multilingual Bhagavad Gita app built with React Native and Expo, supporting Od
 - ✅ ProGuard rules for production builds
 - ✅ Error handling improvements
 
-### For detailed information:
-- **Fix Documentation**: See [SPLASH_CRASH_FIX.md](./SPLASH_CRASH_FIX.md)
-- **Quick Commands**: See [QUICK_COMMANDS.md](./QUICK_COMMANDS.md)
-- **Changes Summary**: See [CHANGES_SUMMARY.md](./CHANGES_SUMMARY.md)
+### Documentation:
+- **Subscription Implementation**: See [SUBSCRIPTION_IMPLEMENTATION.md](./SUBSCRIPTION_IMPLEMENTATION.md)
+- **RevenueCat Setup**: See [REVENUECAT_SETUP.md](./REVENUECAT_SETUP.md)
+- **Firebase Sync**: See [FIREBASE_SYNC.md](./FIREBASE_SYNC.md)
+- **Pricing & Currency**: See [PRICING_CURRENCY.md](./PRICING_CURRENCY.md)
 
 ---
 

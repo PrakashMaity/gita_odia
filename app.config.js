@@ -17,6 +17,7 @@ const PATHS = {
 
 const COLORS = {
   primary: '#ffffff',
+  splashBackground: '#FFE0B2', // Light saffron - matches theme
 };
 
 const EXTRA_KEYS = {
@@ -145,7 +146,7 @@ export default function ({ config = {} }) {
     splash: {
       image: PATHS.splash,
       resizeMode: 'contain',
-      backgroundColor: COLORS.primary,
+      backgroundColor: COLORS.splashBackground,
     },
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,

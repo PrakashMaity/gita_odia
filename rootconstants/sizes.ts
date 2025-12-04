@@ -76,7 +76,7 @@ export const SIZES = {
   
   card: {
     padding: 16,
-    margin: 8,
+    margin: 4,
     borderRadius: 12,
   },
   

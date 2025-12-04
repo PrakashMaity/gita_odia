@@ -7,13 +7,13 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   containerMobile: {
-    paddingHorizontal: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.xs,
   },
   containerTablet: {
     paddingHorizontal: 0,
   },
   section: {
-    marginBottom: SIZES.spacing.xxl,
+    marginBottom: SIZES.spacing.sm,
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     marginRight: SIZES.spacing.md,
   },
   menuContainer: {
-    gap: SIZES.spacing.md,
+    gap: SIZES.spacing.xs,
   },
   menuContainerGrid: {
     flexDirection: 'row',
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   menuItemGrid: {
-    marginBottom: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.xs,
   },
   menuItem: {
     flexDirection: 'row',

@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     paddingBottom: SIZES.spacing.xl,
   },
   translationsContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
+    paddingHorizontal: SIZES.spacing.xs,
   },
 });
 

@@ -13,6 +13,10 @@ export default function TabLayout() {
   const ACTIVE_ICON_SIZE = SIZES.icon.huge;
   const INACTIVE_ICON_SIZE = SIZES.icon.xxl;
   const ACTIVE_WRAPPER_SIZE = ACTIVE_ICON_SIZE + SIZES.spacing.md;
+  // Big center icon sizes for mala-japa
+  const CENTER_ACTIVE_ICON_SIZE = 56;
+  const CENTER_INACTIVE_ICON_SIZE = 48;
+  const CENTER_ACTIVE_WRAPPER_SIZE = CENTER_ACTIVE_ICON_SIZE + SIZES.spacing.md;
 
   const renderMenuIcon = (iconSource: ImageSourcePropType) => {
     const MenuIcon = ({ focused }: { focused: boolean }) => {
@@ -59,8 +63,8 @@ export default function TabLayout() {
             backgroundColor: theme.background.primary,
             borderTopColor: theme.border.primary,
             borderTopWidth: SIZES.borderSize.md,
-            height: ACTIVE_WRAPPER_SIZE + SIZES.spacing.lg,
-            paddingBottom: SIZES.spacing.sm,
+            height: CENTER_ACTIVE_WRAPPER_SIZE ,
+            // paddingBottom: SIZES.spacing.sm,
             paddingTop: SIZES.spacing.sm,
             width: layout.isTablet ? layout.contentMaxWidth : '100%',
             alignSelf: layout.isTablet ? 'center' : undefined,
@@ -97,7 +101,40 @@ export default function TabLayout() {
           ),
         }}
       />
-  
+      <Tabs.Screen
+        name="mala-japa"
+        options={{
+          title: i18n.t('tabs.malaJapa'),
+          tabBarIcon: ({ focused }) => {
+            const isActive = focused;
+            const wrapperSize = isActive ? CENTER_ACTIVE_WRAPPER_SIZE : CENTER_INACTIVE_ICON_SIZE;
+            const iconSize = isActive ? CENTER_ACTIVE_ICON_SIZE : CENTER_INACTIVE_ICON_SIZE;
+
+            return (
+              <View
+                style={{
+                  width: wrapperSize-SIZES.spacing.xs,
+                  height: wrapperSize-SIZES.spacing.xs,
+                  borderRadius: (wrapperSize-SIZES.spacing.xs) / 2,
+                  backgroundColor: isActive ? theme.background.secondary : 'transparent',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Image
+                  source={require('@/assets/images/rudrasha.png')}
+                  style={{
+                    width: iconSize,
+                    height: iconSize,
+                    opacity: isActive ? 1 : 0.75,
+                  }}
+                  resizeMode="contain"
+                />
+              </View>
+            );
+          },
+        }}
+      />
       <Tabs.Screen
         name="bookmarks"
         options={{

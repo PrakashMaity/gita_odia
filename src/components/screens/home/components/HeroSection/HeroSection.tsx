@@ -15,10 +15,17 @@ export const HeroSection: React.FC = React.memo(() => {
     [layout.isTablet, layout.isLandscape]
   );
 
+  const cardStyle = useMemo(() => 
+    layout.isTablet 
+      ? [styles.heroCard, styles.heroCardTablet]
+      : [styles.heroCard],
+    [layout.isTablet]
+  );
+
   return (
     <ThemedCard
       variant='primary'
-      style={[styles.heroCard, layout.isTablet && styles.heroCardTablet]}
+      style={cardStyle}
       pattern="sacredGeometry"
       patternOpacity={0.15}
     >
@@ -46,3 +53,4 @@ export const HeroSection: React.FC = React.memo(() => {
   );
 });
 
+HeroSection.displayName = 'HeroSection';

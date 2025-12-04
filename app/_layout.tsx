@@ -1,4 +1,5 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { AnimatedSplash } from '@/components/ui/AnimatedSplash';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
@@ -45,6 +46,7 @@ const ThemedStatusBar = () => {
 export default function RootLayout() {
   const { loadAllChapters } = useChapterStore();
   const [appIsReady, setAppIsReady] = useState(false);
+  const [showAnimatedSplash, setShowAnimatedSplash] = useState(true);
   
   const [loaded, error] = useFonts(ClientFonts);
   
@@ -129,17 +131,33 @@ export default function RootLayout() {
     }
   }, [loaded, error, loadAllChapters]);
 
-  // Hide splash screen when app is ready
+  // Hide native splash screen when app is ready
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
 
+  // Handle animated splash completion
+  const handleAnimatedSplashComplete = useCallback(() => {
+    setShowAnimatedSplash(false);
+  }, []);
+
   // Don't render app until ready
   if (!appIsReady) {
     return null;
   }
+
+  // Show animated splash screen first
+  if (showAnimatedSplash) {
+    return (
+      <AnimatedSplash
+        onAnimationComplete={handleAnimatedSplashComplete}
+        duration={2500}
+      />
+    );
+  }
+
   return (
     <ErrorBoundary>
       <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
