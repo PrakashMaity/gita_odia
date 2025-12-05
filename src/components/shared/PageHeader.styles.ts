@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
     overflow: 'visible',
   },
   headerContent: {
-    paddingVertical: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.lg,
+    paddingVertical: SIZES.spacing.md,
+    paddingHorizontal: SIZES.spacing.md,
   },
   leftContent: {
     flexDirection: 'row',
@@ -18,12 +18,12 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   backButton: {
-    width: SIZES.header.sm,
-    height: SIZES.header.sm,
+    width: 36,
+    height: 36,
     borderRadius: SIZES.radius.round,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: SIZES.spacing.md,
+    marginRight: SIZES.spacing.sm,
     borderWidth: SIZES.borderSize.md,
   },
   title: {

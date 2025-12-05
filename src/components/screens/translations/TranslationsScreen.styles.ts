@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
+    paddingHorizontal: SIZES.spacing.lg,
     paddingBottom: SIZES.spacing.xl,
   },
   translationsContainer: {
@@ -20,10 +21,33 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    marginBottom: SIZES.spacing.xl,
   },
   translationCardWrapper: {
     width: '49.5%',
     marginBottom: SIZES.spacing.xs,
+  },
+  motivationCard: {
+    marginTop: SIZES.spacing.xl,
+    marginBottom: SIZES.spacing.xl,
+    padding: SIZES.spacing.xl,
+  },
+  motivationHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.md,
+  },
+  motivationIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xxxl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.md,
+  },
+  motivationTitle: {
+    flex: 1,
+  },
+  motivationText: {
+    lineHeight: SIZES.spacing.xl * 1.3,
   },
 });
 

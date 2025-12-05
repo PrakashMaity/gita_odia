@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -13,37 +13,81 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: SIZES.spacing.xl,
+    paddingHorizontal: SIZES.spacing.sm,
+    paddingBottom: SIZES.spacing.sm,
+  },
+  statsSection: {
+    marginTop: SIZES.spacing.xs,
+    marginBottom: SIZES.spacing.xs,
+  },
+  statsCard: {
+    padding: SIZES.spacing.sm,
+    marginBottom: 0,
+  },
+  statsHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.xs / 2,
+  },
+  statsIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.xs,
+  },
+  statsTitle: {
+    flex: 1,
+    fontWeight: '600',
+  },
+  statsText: {
+    lineHeight: SIZES.spacing.lg * 1.2,
+    opacity: 0.9,
   },
   section: {
-    marginBottom: SIZES.spacing.xxl,
+    marginBottom: SIZES.spacing.sm,
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.xs / 2,
+    paddingHorizontal: 0,
   },
   sectionIndicator: {
-    width: 5,
-    height: 32,
-    borderRadius: SIZES.radius.md,
-    marginRight: SIZES.spacing.md,
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.xs,
   },
   sectionTitle: {
     flex: 1,
     fontWeight: '600',
   },
   bookmarksContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
-    gap: SIZES.spacing.sm,
+    paddingHorizontal: 0,
+    gap: SIZES.spacing.xs,
   },
-  footer: {
+  footerCard: {
+    marginTop: SIZES.spacing.xs,
+    marginBottom: SIZES.spacing.xs,
+    padding: SIZES.spacing.sm,
+  },
+  footerHeader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginTop: SIZES.spacing.xl,
-    paddingTop: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.xs / 2,
+  },
+  footerIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.xs,
+  },
+  footerTitle: {
+    flex: 1,
+    fontWeight: '600',
   },
   footerText: {
-    textAlign: 'center',
+    lineHeight: SIZES.spacing.lg * 1.2,
+    opacity: 0.9,
   },
 });

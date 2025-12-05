@@ -102,6 +102,10 @@ export const navigationHandlers = {
   'all-ekadashi': () => {
     router.push('/all-ekadashi');
   },
+  
+  'krishna-mantras': () => {
+    router.push('/krishna-mantras');
+  },
 };
 
 // Helper function to get the appropriate handler for a menu item
@@ -130,6 +134,7 @@ export const getNavigationHandler = (item: MenuItem) => {
     'gita-summary': navigationHandlers.gitaSummary,
     'gita-mahatmya': navigationHandlers.gitaMahatmya,
     'all-ekadashi': navigationHandlers['all-ekadashi'],
+    'krishna-mantras': navigationHandlers['krishna-mantras'],
   };
   
   return handlerMap[item.id] || (() => {});

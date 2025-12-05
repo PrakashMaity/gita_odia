@@ -1,19 +1,18 @@
+import { LoadingState } from '@/components/shared';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useFavoriteStore } from '@/store';
-import { Ionicons } from '@expo/vector-icons';
-import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { PageHeader, LoadingState } from '@/components/shared';
 import { LayoutImages } from '@/utils/assets';
-import { FavoriteCard } from './components/FavoriteCard';
+import { ImageBackground, ScrollView } from 'react-native';
 import { EmptyFavoriteState } from './components/EmptyFavoriteState';
-import { useFavoriteOperations } from './hooks/useFavoriteOperations';
+import { FavoriteCard } from './components/FavoriteCard';
+import { FavoritesHeader } from './components/FavoritesHeader';
 import { styles } from './FavoritesScreen.styles';
+import { useFavoriteOperations } from './hooks/useFavoriteOperations';
 
 export const FavoritesScreen: React.FC = () => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
   const { isLoading, getFavoritesSortedByDate } = useFavoriteStore();
   const { 
     handleRemoveFavorite, 
@@ -30,35 +29,26 @@ export const FavoritesScreen: React.FC = () => {
 
   return (
     <ImageBackground
-      source={LayoutImages.background2}
+      source={LayoutImages.background1}
       style={styles.backgroundImage}
       resizeMode="cover"
-      blurRadius={2.5}
+      blurRadius={1.5}
     >
       <ThemedView variant="transparent" style={styles.container}>
         {AlertComponent}
-        <PageHeader
-          title={i18n.t('favorite.favorites')}
-          subtitle={sortedFavorites.length > 0 ? i18n.t('favorite.totalFavorites', { count: sortedFavorites.length }) : undefined}
-          rightAction={
-            sortedFavorites.length > 0 ? (
-              <TouchableOpacity
-                onPress={handleRemoveAllFavorites}
-                style={styles.clearAllButton}
-              >
-                <Ionicons name="trash-outline" size={SIZES.icon.lg} color={theme.icon.error} />
-              </TouchableOpacity>
-            ) : undefined
-          }
+        
+        <FavoritesHeader 
+          favoriteCount={sortedFavorites.length}
+          onClearAll={handleRemoveAllFavorites}
         />
 
         {sortedFavorites.length === 0 ? (
           <EmptyFavoriteState />
         ) : (
           <ScrollView 
-            style={styles.chatContainer}
+            style={styles.scrollView}
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.chatContent}
+            contentContainerStyle={styles.scrollContent}
           >
             {sortedFavorites.map((favorite, index) => (
               <FavoriteCard

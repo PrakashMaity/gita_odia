@@ -1,5 +1,5 @@
+import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
 import { StyleSheet, Switch, View } from 'react-native';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';
 import { ThemedView } from '../ui/ThemedView/ThemedView';
@@ -23,13 +23,13 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
   disabled = false,
   showDivider = false,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   return (
     <ThemedView style={[styles.container]}>
       <View style={styles.leftContent}>
         {icon && (
-          <View style={styles.iconContainer}>
+          <View style={[styles.iconContainer, { backgroundColor: theme.background.quaternary }]}>
             {typeof icon === 'string' ? (
               <ThemedLanguageText style={[styles.icon, { color: theme.icon.primary }]}>
                 {icon}
@@ -42,18 +42,18 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
         <View style={styles.textContent}>
           <ThemedLanguageText 
             variant='primary'
-            size='large' 
+            size='medium' 
             fontFamily='regional_secondary' 
-            style={[styles.title, { color: theme.text.primary }]}
+            style={styles.title}
           >
             {title}
           </ThemedLanguageText>
           {subtitle && (
             <ThemedLanguageText 
               variant='secondary'
-              size='medium'
+              size='small'
               fontFamily='regional_secondary' 
-              style={[styles.subtitle, { color: theme.text.secondary }]}
+              style={styles.subtitle}
             >
               {subtitle}
             </ThemedLanguageText>
@@ -72,10 +72,6 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
         thumbColor={value ? theme.text.primary : theme.text.secondary}
         ios_backgroundColor={theme.background.card}
       />
-      
-      {showDivider && (
-        <ThemedView style={[styles.divider, { backgroundColor: theme.border.tertiary }]} />
-      )}
     </ThemedView>
   );
 };
@@ -85,10 +81,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.xl,
-    marginVertical: SIZES.spacing.xs,
-    minHeight: SIZES.button.lg,
+    paddingVertical: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.md,
+    marginVertical: SIZES.spacing.xs / 2,
+    minHeight: 56,
     borderRadius: SIZES.radius.md,
   },
   disabledContainer: {
@@ -100,29 +96,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconContainer: {
-    marginRight: SIZES.spacing.lg,
-    width: SIZES.icon.xl,
+    marginRight: SIZES.spacing.sm,
+    width: 36,
+    height: 36,
+    borderRadius: SIZES.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
   icon: {
-    fontSize: SIZES.icon.lg,
+    fontSize: SIZES.icon.md,
     textAlign: 'center',
   },
   textContent: {
     flex: 1,
   },
   title: {
-   
+    marginBottom: 2,
   },
   subtitle: {
-   
-  },
-  divider: {
-    position: 'absolute',
-    bottom: 0,
-    left: SIZES.spacing.xl,
-    right: SIZES.spacing.xl,
-    height: SIZES.borderSize.xs,
+    opacity: 0.8,
   },
 });

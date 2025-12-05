@@ -1,5 +1,4 @@
 import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
-import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
@@ -7,16 +6,16 @@ import { SIZES } from '@/rootconstants/sizes';
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { BookmarkMenu } from '../BookmarkCard/BookmarkMenu';
-import { styles } from './BookmarkHeader.styles';
+import { FavoriteMenu } from '../FavoriteCard/FavoriteMenu';
+import { styles } from './FavoritesHeader.styles';
 
-interface BookmarkHeaderProps {
-  bookmarkCount: number;
+interface FavoritesHeaderProps {
+  favoriteCount: number;
   onClearAll?: () => void;
 }
 
-export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
-  bookmarkCount,
+export const FavoritesHeader: React.FC<FavoritesHeaderProps> = ({
+  favoriteCount,
   onClearAll,
 }) => {
   const theme = useThemeColors();
@@ -25,20 +24,11 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
   return (
     <>
       <ScreenHeader
-        title={i18n.t('bookmark.bookmarks')}
+        title={i18n.t('favorite.favorites')}
         containerStyle={{ backgroundColor: theme.background.secondary }}
         rightContent={
           <ThemedView style={styles.headerActions}>
-            <ThemedView style={[styles.actionButton, { backgroundColor: theme.background.secondary }]}>
-              <BookmarkIcon
-                size={SIZES.icon.xs}
-                focused={true}
-                showBadge={true}
-                badgeSize="small"
-              />
-            </ThemedView>
-
-            {bookmarkCount > 0 && (
+            {favoriteCount > 0 && (
               <TouchableOpacity
                 onPress={() => setMenuVisible(true)}
                 style={[styles.actionButton, { backgroundColor: theme.background.secondary }]}
@@ -54,7 +44,7 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
         }
       />
       
-      <BookmarkMenu
+      <FavoriteMenu
         visible={menuVisible}
         onClose={() => setMenuVisible(false)}
         onDelete={() => {
@@ -68,4 +58,3 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
     </>
   );
 };
-

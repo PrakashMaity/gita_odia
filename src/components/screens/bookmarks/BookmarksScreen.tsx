@@ -1,22 +1,23 @@
+import { LoadingState } from '@/components/shared';
+import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useBookmarkStore } from '@/store';
-import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { LayoutImages } from '@/utils/assets';
+import { convertToLocalizedNumber } from '@/utils/numberConverter';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
 import { ImageBackground, ScrollView } from 'react-native';
-import { LoadingState } from '@/components/shared';
+import { styles } from './BookmarksScreen.styles';
 import { BookmarkCard } from './components/BookmarkCard';
 import { BookmarkHeader } from './components/BookmarkHeader';
 import { EmptyBookmarkState } from './components/EmptyBookmarkState';
 import { useBookmarkOperations } from './hooks/useBookmarkOperations';
-import { styles } from './BookmarksScreen.styles';
 
 export const BookmarksScreen: React.FC = () => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
   const { isLoading, getBookmarksSortedByDate } = useBookmarkStore();
   const { 
     handleRemoveBookmark, 
@@ -67,18 +68,45 @@ export const BookmarksScreen: React.FC = () => {
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}
           >
+            {/* Stats Section */}
+            <ThemedView style={styles.statsSection}>
+              <ThemedCard variant="card" style={styles.statsCard} borderVariant="none">
+                <ThemedView style={styles.statsHeader}>
+                  <ThemedView style={[styles.statsIndicator, { backgroundColor: theme.status.success + '40' }]} />
+                  <ThemedLanguageText 
+                    variant="primary" 
+                    size="large" 
+                    fontFamily="regional_secondary"
+                    style={styles.statsTitle}
+                  >
+                    {i18n.t('bookmark.yourBookmarks')}
+                  </ThemedLanguageText>
+                </ThemedView>
+                <ThemedLanguageText
+                  variant="secondary"
+                  size="medium"
+                  style={styles.statsText}
+                  fontFamily="regional_secondary"
+                >
+                  {convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
+                </ThemedLanguageText>
+              </ThemedCard>
+            </ThemedView>
+
+            {/* Bookmarks List Section */}
             <ThemedView style={styles.section}>
               <ThemedView style={styles.sectionHeader}>
-                <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
+                <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.status.success + '60' }]} />
                 <ThemedLanguageText 
                   variant="primary" 
-                  size="large" 
+                  size="title" 
                   fontFamily="regional_secondary"
                   style={styles.sectionTitle}
                 >
-                  {i18n.t('bookmark.bookmarks')}
+                  {i18n.t('bookmark.recentBookmarks')}
                 </ThemedLanguageText>
               </ThemedView>
+              
               <ThemedView style={styles.bookmarksContainer}>
                 {sortedBookmarks.map((bookmark, index) => (
                   <BookmarkCard
@@ -92,16 +120,28 @@ export const BookmarksScreen: React.FC = () => {
               </ThemedView>
             </ThemedView>
 
-            <ThemedView style={styles.footer}>
-              <ThemedLanguageText 
-                variant="tertiary" 
-                size="small" 
-                fontFamily="regional_secondary"
+            {/* Footer Message */}
+            <ThemedCard variant="card" style={styles.footerCard} borderVariant="none">
+              <ThemedView style={styles.footerHeader}>
+                <ThemedView style={[styles.footerIndicator, { backgroundColor: theme.status.success + '40' }]} />
+                <ThemedLanguageText 
+                  variant="primary" 
+                  size="large" 
+                  fontFamily="regional_secondary"
+                  style={styles.footerTitle}
+                >
+                  {i18n.t('bookmark.keepReading')}
+                </ThemedLanguageText>
+              </ThemedView>
+              <ThemedLanguageText
+                variant="secondary"
+                size="medium"
                 style={styles.footerText}
+                fontFamily="regional_secondary"
               >
-                {convertToLocalizedNumber(i18n.t('bookmark.totalBookmarks', { count: sortedBookmarks.length || 0 }))}
+                {i18n.t('bookmark.footerMessage')}
               </ThemedLanguageText>
-            </ThemedView>
+            </ThemedCard>
           </ScrollView>
         )}
       </ThemedView>

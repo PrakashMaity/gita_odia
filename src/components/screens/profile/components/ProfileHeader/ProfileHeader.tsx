@@ -3,8 +3,6 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
-import i18n from '@/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import React from 'react';
 import { View } from 'react-native';
 import { styles } from './ProfileHeader.styles';
@@ -20,16 +18,16 @@ export const ProfileHeader: React.FC = () => {
           <View style={styles.titleRow}>
             <ThemedLanguageText
               variant="primary"
-              size="xxl"
-              fontFamily="regional_secondary"
-              style={styles.title}
+              size="large"
+              fontFamily="none"
+              style={[styles.title, { color: theme.text.primary }]}
             >
-              {i18n.t('profile.settings')}
+              Settings
             </ThemedLanguageText>
             {isPro && (
               <ThemedLanguageText
                 variant="accent"
-                size="xxl"
+                size="large"
                 fontFamily="regional_secondary"
                 style={styles.proText}
               >
@@ -39,11 +37,11 @@ export const ProfileHeader: React.FC = () => {
           </View>
           <ThemedLanguageText
             variant="secondary"
-            size="medium"
-            fontFamily="regional_secondary"
-            style={styles.subtitle}
+            size="small"
+            fontFamily="none"
+            style={[styles.subtitle, { color: theme.text.secondary }]}
           >
-            {i18n.t('profile.customizeExperience')}
+            Customize your Bhagavad Gita experience
           </ThemedLanguageText>
         </ThemedView>
       }

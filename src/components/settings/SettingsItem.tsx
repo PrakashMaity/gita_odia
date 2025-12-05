@@ -1,6 +1,7 @@
+import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
 import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
-import { useTheme } from '@/hooks/useTheme';
+import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';
 import { ThemedView } from '../ui/ThemedView/ThemedView';
@@ -24,13 +25,13 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
   rightElement,
   disabled = false,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   const content = (
     <ThemedView style={[styles.container]}>
       <View style={styles.leftContent}>
         {icon && (
-          <View style={styles.iconContainer}>
+          <View style={[styles.iconContainer, { backgroundColor: theme.background.quaternary }]}>
             {typeof icon === 'string' ? (
               <ThemedLanguageText style={[styles.icon, { color: theme.icon.primary }]}>
                 {icon}
@@ -43,8 +44,8 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
         <View style={styles.textContent}>
           <ThemedLanguageText 
             variant='primary'
-            size='large' 
-            fontFamily='regional_secondary' 
+            size='medium' 
+            fontFamily='none' 
             style={[styles.title, { color: theme.text.primary }]}
           >
             {title}
@@ -52,8 +53,8 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
           {subtitle && (
             <ThemedLanguageText 
               variant='secondary'
-              size='medium'
-              fontFamily='regional_secondary' 
+              size='small'
+              fontFamily='none' 
               style={[styles.subtitle, { color: theme.text.secondary }]}
             >
               {subtitle}
@@ -67,7 +68,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
           <ThemedLanguageText 
             variant='secondary'
             size='small'
-            fontFamily='regional_secondary'
+            fontFamily='none'
             style={[styles.value, { color: theme.text.secondary }]}
           >
             {value}
@@ -75,14 +76,13 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
         )}
         {rightElement}
         {onPress && (
-          <ThemedLanguageText 
-            variant='secondary'
-            size='large'
-            fontFamily='regional_secondary'
-            style={[styles.chevron, { color: theme.text.secondary }]}
-          >
-            ›
-          </ThemedLanguageText>
+          <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
+            <MaterialIcons
+              name="arrow-forward-ios"
+              size={SIZES.icon.xs}
+              color={theme.icon.quaternary}
+            />
+          </ThemedView>
         )}
       </View>
     </ThemedView>
@@ -104,10 +104,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.xl,
-    marginVertical: SIZES.spacing.xs,
-    minHeight: SIZES.button.lg,
+    paddingVertical: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.md,
+    marginVertical: SIZES.spacing.xs / 2,
+    minHeight: 56,
     borderRadius: SIZES.radius.md,
   },
   disabledContainer: {
@@ -119,23 +119,33 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconContainer: {
-    marginRight: SIZES.spacing.lg,
-    width: SIZES.icon.xl,
+    marginRight: SIZES.spacing.sm,
+    width: 36,
+    height: 36,
+    borderRadius: SIZES.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
   icon: {
-    fontSize: SIZES.icon.lg,
+    fontSize: SIZES.icon.md,
     textAlign: 'center',
   },
   textContent: {
     flex: 1,
   },
   title: {
-  
+    marginBottom: 3,
+    textTransform: 'none',
+    fontWeight: '700',
+    letterSpacing: 0.3,
+    lineHeight: 20,
   },
   subtitle: {
- 
+    textTransform: 'none',
+    lineHeight: 18,
+    letterSpacing: 0.2,
+    fontSize: 13,
+    fontWeight: '400',
   },
   rightContent: {
     flexDirection: 'row',
@@ -143,14 +153,17 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: TYPOGRAPHY.fontSize.sm,
-    marginRight: SIZES.spacing.md,
+    marginRight: SIZES.spacing.sm,
     lineHeight: TYPOGRAPHY.lineHeight.sm,
-    opacity: 0.8,
     fontWeight: TYPOGRAPHY.fontWeight.medium,
+    textTransform: 'none',
   },
-  chevron: {
-    fontSize: TYPOGRAPHY.fontSize.xl,
-    fontWeight: TYPOGRAPHY.fontWeight.light,
-    opacity: 0.6,
+  arrowContainer: {
+    width: 24,
+    height: 24,
+    borderRadius: SIZES.radius.full,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: SIZES.spacing.xs,
   },
 });

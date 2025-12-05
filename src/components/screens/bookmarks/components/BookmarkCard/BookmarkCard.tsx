@@ -1,13 +1,12 @@
-import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { Bookmark } from '@/store';
 import { formatFullDate } from '@/utils/dateUtils';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { styles } from './BookmarkCard.styles';
@@ -25,64 +24,132 @@ export const BookmarkCard: React.FC<BookmarkCardProps> = ({
   onPress,
   onDelete,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   return (
     <TouchableOpacity
       key={`${bookmark.verseId}-${index}`}
       onPress={() => onPress(bookmark.chapterId, bookmark.verseNumber)}
       style={styles.container}
+      activeOpacity={0.7}
     >
-      <ThemedCard style={styles.card}>
-        <TouchableOpacity
-          onPress={() => onDelete(bookmark.verseId)}
-          style={[styles.deleteButton, { backgroundColor: theme.background.quaternary }]}
-        >
-          <Ionicons name="cut" size={SIZES.icon.xs} color={theme.icon.error} />
-        </TouchableOpacity>
+      <ThemedCard 
+        variant="card" 
+        style={[styles.card, { shadowOpacity: 0, elevation: 0 }]}
+        pattern="mandala"
+        patternOpacity={0.05}
+        borderVariant="none"
+      >
+        {/* Left Indicator Bar */}
+        <ThemedView 
+          style={[styles.indicatorBar, { backgroundColor: theme.status.success + '60' }]} 
+        />
 
-        <ThemedView style={[styles.iconContainer, { 
-          backgroundColor: theme.background.tertiary,
-        }]}>
-          <ThemedLanguageText 
-            variant="primary" 
-            size="large" 
-            fontFamily="regional_primary"
-          >
-            {bookmark.chapterNumber}
-          </ThemedLanguageText>
-        </ThemedView>
+        {/* Content Container */}
+        <ThemedView style={styles.contentContainer}>
+          {/* Header Section */}
+          <ThemedView style={styles.headerSection}>
+            <ThemedView style={styles.headerLeft}>
+              {/* Chapter Number Badge */}
+              <ThemedView 
+                style={[styles.chapterBadge, { 
+                  backgroundColor: theme.status.success + '20',
+                }]}
+              >
+                <ThemedLanguageText 
+                  variant="primary" 
+                  size="large" 
+                  fontFamily="regional_primary"
+                  style={[styles.chapterNumber, { color: theme.status.success }]}
+                >
+                  {bookmark.chapterNumber}
+                </ThemedLanguageText>
+              </ThemedView>
 
-        <ThemedView style={styles.textContainer}>
-          <ThemedLanguageText
-            variant="primary"
-            size="medium"
-            fontFamily="regional_secondary"
-            numberOfLines={2}
-          >
-            {i18n.t('chapter.chapter')} {bookmark.chapterNumber} || {i18n.t('verse.verse')} {bookmark.verseNumber}
-          </ThemedLanguageText>
+              {/* Chapter and Verse Info */}
+              <ThemedView style={styles.chapterInfo}>
+                <ThemedLanguageText
+                  variant="primary"
+                  size="medium"
+                  fontFamily="regional_secondary"
+                  style={styles.chapterTitle}
+                  numberOfLines={1}
+                >
+                  {i18n.t('chapter.chapter')} {bookmark.chapterNumber}
+                </ThemedLanguageText>
+                <ThemedLanguageText
+                  variant="secondary"
+                  size="small"
+                  fontFamily="regional_secondary"
+                  style={styles.verseInfo}
+                >
+                  {i18n.t('verse.verse')} {bookmark.verseNumber}
+                </ThemedLanguageText>
+              </ThemedView>
+            </ThemedView>
 
-          <ThemedView style={styles.bookmarkInfo}>
-            <ThemedLanguageText 
-              variant="secondary" 
-              size="small" 
-              fontFamily="regional_secondary"
-              style={styles.bookmarkDate}
+            {/* Delete Button */}
+            <TouchableOpacity
+              onPress={(e) => {
+                e.stopPropagation();
+                onDelete(bookmark.verseId);
+              }}
+              style={[styles.deleteButton, { backgroundColor: theme.status.error + '15' }]}
+              activeOpacity={0.7}
             >
-              ({formatFullDate(bookmark.timestamp)})
-            </ThemedLanguageText>
+              <Ionicons 
+                name="trash-outline" 
+                size={SIZES.icon.xs} 
+                color={theme.status.error} 
+              />
+            </TouchableOpacity>
           </ThemedView>
 
-          <ThemedLanguageText 
-            variant="secondary"
-            size="small"
-            fontFamily="regional_secondary"
-            style={styles.verseText}
-            numberOfLines={3}
+          {/* Verse Text Section */}
+          <ThemedView style={styles.verseSection}>
+            <ThemedView style={styles.verseTextContainer}>
+              <ThemedLanguageText 
+                variant="secondary"
+                size="medium"
+                fontFamily="regional_secondary"
+                style={styles.verseText}
+                numberOfLines={4}
+              >
+                {bookmark.verseText}
+              </ThemedLanguageText>
+            </ThemedView>
+          </ThemedView>
+
+          {/* Footer Section with Date and Arrow */}
+          <ThemedView 
+            style={styles.footerSection}
           >
-            {bookmark.verseText}
-          </ThemedLanguageText>
+            <ThemedView style={styles.dateContainer}>
+              <MaterialIcons 
+                name="bookmark" 
+                size={SIZES.icon.xs} 
+                color={theme.icon.secondary} 
+                style={styles.bookmarkIcon}
+              />
+              <ThemedLanguageText 
+                variant="tertiary" 
+                size="small" 
+                fontFamily="regional_secondary"
+                style={styles.bookmarkDate}
+              >
+                {formatFullDate(bookmark.timestamp)}
+              </ThemedLanguageText>
+            </ThemedView>
+
+            {/* Arrow Icon */}
+            <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
+              <MaterialIcons
+                name="arrow-forward-ios"
+                size={SIZES.icon.xs}
+                color={theme.icon.quaternary}
+              />
+            </ThemedView>
+          </ThemedView>
         </ThemedView>
       </ThemedCard>
     </TouchableOpacity>

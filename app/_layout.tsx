@@ -3,8 +3,8 @@ import { AnimatedSplash } from '@/components/ui/AnimatedSplash';
 import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
-import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { useRatingPrompter } from '@/hooks/useRatingPrompter';
+import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
@@ -236,6 +236,12 @@ export default function RootLayout() {
                 />
                 <Stack.Screen 
                   name="mala-japa" 
+                  options={{
+                    animation: TRANSITION_ANIMATIONS.default,
+                  }}
+                />
+                <Stack.Screen 
+                  name="krishna-mantras" 
                   options={{
                     animation: TRANSITION_ANIMATIONS.default,
                   }}

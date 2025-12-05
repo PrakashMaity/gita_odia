@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
+    paddingHorizontal: SIZES.spacing.lg,
     paddingBottom: SIZES.spacing.xl,
   },
   section: {
@@ -36,5 +37,27 @@ export const styles = StyleSheet.create({
   },
   chaptersContainer: {
     paddingHorizontal: SIZES.spacing.xs,
+  },
+  motivationCard: {
+    marginTop: SIZES.spacing.xl,
+    marginBottom: SIZES.spacing.xl,
+    padding: SIZES.spacing.xl,
+  },
+  motivationHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SIZES.spacing.md,
+  },
+  motivationIndicator: {
+    width: SIZES.borderSize.xxl,
+    height: SIZES.spacing.xxxl,
+    borderRadius: SIZES.radius.sm,
+    marginRight: SIZES.spacing.md,
+  },
+  motivationTitle: {
+    flex: 1,
+  },
+  motivationText: {
+    lineHeight: SIZES.spacing.xl * 1.3,
   },
 });

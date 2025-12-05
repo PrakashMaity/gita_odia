@@ -8,6 +8,7 @@ export * from './favorites';
 export * from './gitaMahatmya';
 export * from './gitaSummary';
 export * from './home';
+export * from './krishnaMantras';
 export * from './malaJapa';
 export * from './mangalacharan';
 export * from './notifications';

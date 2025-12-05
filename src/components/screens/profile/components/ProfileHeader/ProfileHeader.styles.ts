@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   titleContainer: {
@@ -11,14 +11,21 @@ export const styles = StyleSheet.create({
     marginBottom: SIZES.spacing.xs,
   },
   title: {
-    // Title text styling
+    textTransform: 'none',
+    letterSpacing: 0.3,
+    fontWeight: '700',
   },
   proText: {
     fontWeight: 'bold',
     marginLeft: SIZES.spacing.xs,
+    textTransform: 'none',
+    letterSpacing: 0.3,
   },
   subtitle: {
-    opacity: 0.8,
+    textTransform: 'none',
+    letterSpacing: 0.2,
+    lineHeight: 18,
+    fontWeight: '400',
   },
 });
 

@@ -4,12 +4,12 @@ import { useThemeColors } from '@/hooks/useTheme';
 import { HomeImages } from '@/utils/assets';
 import React from 'react';
 import {
-  ImageBackground,
-  ImageSourcePropType,
-  ImageStyle,
-  StyleProp,
-  View,
-  ViewStyle,
+    ImageBackground,
+    ImageSourcePropType,
+    ImageStyle,
+    StyleProp,
+    View,
+    ViewStyle,
 } from 'react-native';
 import { styles } from './ScreenHeader.styles';
 
@@ -63,7 +63,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
         {title ? (
           <ThemedLanguageText
             variant="primary"
-            size="title"
+            size="large"
             fontFamily="regional_secondary"
             style={[styles.title, titleStyleProp]}
             {...titleRestProps}
@@ -75,7 +75,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
         {subtitle ? (
           <ThemedLanguageText
             variant="secondary"
-            size="medium"
+            size="small"
             fontFamily="regional_secondary"
             style={[styles.subtitle, subtitleStyleProp]}
             {...subtitleRestProps}

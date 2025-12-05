@@ -1,75 +1,106 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    marginBottom: SIZES.spacing.sm,
+    marginBottom: SIZES.spacing.xs,
   },
   card: {
+    position: 'relative',
+    overflow: 'hidden',
+    marginBottom: 0,
+    padding: 0,
+  },
+  indicatorBar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: SIZES.borderSize.xxl,
+    borderTopLeftRadius: SIZES.radius.xl,
+    borderBottomLeftRadius: SIZES.radius.xl,
+  },
+  contentContainer: {
+    padding: SIZES.spacing.md,
+    paddingLeft: SIZES.spacing.lg + SIZES.borderSize.xxl,
+  },
+  headerSection: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    marginBottom: SIZES.spacing.sm,
+  },
+  headerLeft: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.xl,
-    borderWidth: SIZES.borderSize.sm,
-    marginBottom: 0,
-    shadowOffset: {
-      width: 0,
-      height: SIZES.shadow.md,
-    },
-    shadowOpacity: 0.15,
-    shadowRadius: SIZES.shadow.lg,
-    elevation: 4,
-    position: 'relative',
+    flex: 1,
   },
-  deleteButton: {
-    position: 'absolute',
-    top: SIZES.spacing.sm,
-    right: SIZES.spacing.sm,
-    width: SIZES.avatar.md,
-    height: SIZES.avatar.md,
-    borderRadius: SIZES.radius.round,
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 10,
-    shadowOffset: {
-      width: 0,
-      height: SIZES.shadow.md,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: SIZES.shadow.md,
-    elevation: 4,
-  },
-  iconContainer: {
-    width: SIZES.avatar.md,
-    height: SIZES.avatar.md,
+  chapterBadge: {
+    width: 44,
+    height: 44,
     borderRadius: SIZES.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: SIZES.spacing.lg,
-    shadowOffset: {
-      width: 0,
-      height: SIZES.shadow.md,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: SIZES.shadow.md,
-    elevation: 3,
+    marginRight: SIZES.spacing.sm,
   },
-  textContainer: {
+  chapterNumber: {
+    fontWeight: '700',
+  },
+  chapterInfo: {
     flex: 1,
     justifyContent: 'center',
   },
-  bookmarkInfo: {
-    flexDirection: 'row',
+  chapterTitle: {
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  verseInfo: {
+    opacity: 0.8,
+  },
+  deleteButton: {
+    width: 28,
+    height: 28,
+    borderRadius: SIZES.radius.round,
     alignItems: 'center',
-    gap: SIZES.spacing.md,
+    justifyContent: 'center',
+    marginLeft: SIZES.spacing.xs,
+  },
+  verseSection: {
     marginBottom: SIZES.spacing.sm,
   },
-  bookmarkDate: {
-    opacity: 0.9,
+  verseTextContainer: {
+    paddingLeft: SIZES.spacing.xs / 2,
   },
   verseText: {
-    lineHeight: 22,
-    opacity: 0.85,
+    lineHeight: SIZES.spacing.lg * 1.3,
+    opacity: 0.9,
+  },
+  footerSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: SIZES.spacing.xs,
+  },
+  dateContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  bookmarkIcon: {
+    marginRight: SIZES.spacing.xs / 2,
+    opacity: 0.7,
+  },
+  bookmarkDate: {
+    opacity: 0.7,
+    fontSize: 11,
+  },
+  arrowContainer: {
+    width: 24,
+    height: 24,
+    borderRadius: SIZES.radius.full,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: SIZES.spacing.xs,
   },
 });
 

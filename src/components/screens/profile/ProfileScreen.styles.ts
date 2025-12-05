@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
-import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -14,7 +13,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: SIZES.spacing.xl,
+    paddingHorizontal: SIZES.spacing.sm,
+    paddingBottom: SIZES.spacing.sm,
   },
   bottomSpacing: {
     height: SIZES.spacing.huge,

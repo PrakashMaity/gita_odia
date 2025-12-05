@@ -1,9 +1,9 @@
 import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import { PageHeaderProps } from '@/interface/screen.interface';
+import { SIZES } from '@/rootconstants/sizes';
 import { HomeImages } from '@/utils/assets';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -51,14 +51,14 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
                 },
               ]}
             >
-              <Ionicons name="arrow-back" size={SIZES.icon.md} color={theme.icon.primary} />
+              <Ionicons name="arrow-back" size={SIZES.icon.sm} color={theme.icon.primary} />
             </TouchableOpacity>
           ) : null}
 
           <ThemedView style={styles.textContainer}>
             <ThemedLanguageText
               variant="primary"
-              size="title"
+              size="large"
               fontFamily="regional_secondary"
               style={styles.title}
             >
@@ -67,7 +67,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
             {subtitle ? (
               <ThemedLanguageText
                 variant="secondary"
-                size="large"
+                size="small"
                 fontFamily="regional_secondary"
                 style={styles.subtitle}
               >

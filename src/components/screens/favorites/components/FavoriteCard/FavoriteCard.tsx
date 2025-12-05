@@ -1,15 +1,14 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { FavoriteVerse } from '@/store';
 import { formatFullDate } from '@/utils/dateUtils';
-import { getSpeakerAvatar } from '@/utils/speakerUtils';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { styles } from './FavoriteCard.styles';
 
 interface FavoriteCardProps {
@@ -25,34 +24,115 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
   onPress,
   onDelete,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
 
   return (
     <TouchableOpacity
       key={`${favorite.verseId}-${index}`}
       onPress={() => onPress(favorite.chapterId, favorite.verseNumber)}
       style={styles.container}
-      activeOpacity={0.8}
+      activeOpacity={0.7}
     >
-      <ThemedCard style={styles.card}>
-        <ThemedView style={styles.messageHeader}>
-          <ThemedView style={styles.speakerInfo}>
-            <Image 
-              source={getSpeakerAvatar(favorite.chapterNumber)} 
-              style={styles.speakerAvatar}
-              resizeMode="cover"
-            />
-            <ThemedView style={styles.speakerDetails}>
-              <ThemedLanguageText
-                variant="primary"
+      <ThemedCard 
+        variant="card" 
+        style={[styles.card, { shadowOpacity: 0, elevation: 0 }]}
+        pattern="mandala"
+        patternOpacity={0.05}
+        borderVariant="none"
+      >
+        {/* Left Indicator Bar */}
+        <ThemedView 
+          style={[styles.indicatorBar, { backgroundColor: theme.status.error + '60' }]} 
+        />
+
+        {/* Content Container */}
+        <ThemedView style={styles.contentContainer}>
+          {/* Header Section */}
+          <ThemedView style={styles.headerSection}>
+            <ThemedView style={styles.headerLeft}>
+              {/* Chapter Number Badge */}
+              <ThemedView 
+                style={[styles.chapterBadge, { 
+                  backgroundColor: theme.status.error + '20',
+                }]}
+              >
+                <ThemedLanguageText 
+                  variant="primary" 
+                  size="large" 
+                  fontFamily="regional_primary"
+                  style={[styles.chapterNumber, { color: theme.status.error }]}
+                >
+                  {favorite.chapterNumber}
+                </ThemedLanguageText>
+              </ThemedView>
+
+              {/* Chapter and Verse Info */}
+              <ThemedView style={styles.chapterInfo}>
+                <ThemedLanguageText
+                  variant="primary"
+                  size="medium"
+                  fontFamily="regional_secondary"
+                  style={styles.chapterTitle}
+                  numberOfLines={1}
+                >
+                  {i18n.t('chapter.chapter')} {favorite.chapterNumber}
+                </ThemedLanguageText>
+                <ThemedLanguageText
+                  variant="secondary"
+                  size="small"
+                  fontFamily="regional_secondary"
+                  style={styles.verseInfo}
+                >
+                  {i18n.t('verse.verse')} {favorite.verseNumber}
+                </ThemedLanguageText>
+              </ThemedView>
+            </ThemedView>
+
+            {/* Delete Button */}
+            <TouchableOpacity
+              onPress={(e) => {
+                e.stopPropagation();
+                onDelete(favorite.verseId);
+              }}
+              style={[styles.deleteButton, { backgroundColor: theme.status.error + '15' }]}
+              activeOpacity={0.7}
+            >
+              <Ionicons 
+                name="heart-dislike-outline" 
+                size={SIZES.icon.xs} 
+                color={theme.status.error} 
+              />
+            </TouchableOpacity>
+          </ThemedView>
+
+          {/* Verse Text Section */}
+          <ThemedView style={styles.verseSection}>
+            <ThemedView style={styles.verseTextContainer}>
+              <ThemedLanguageText 
+                variant="secondary"
                 size="medium"
                 fontFamily="regional_secondary"
-                style={styles.speakerName}
+                style={styles.verseText}
+                numberOfLines={4}
               >
-                {i18n.t('chapter.chapter')} {favorite.chapterNumber} • {i18n.t('verse.verse')} {favorite.verseNumber}
+                {favorite.verseText}
               </ThemedLanguageText>
+            </ThemedView>
+          </ThemedView>
+
+          {/* Footer Section with Date and Arrow */}
+          <ThemedView 
+            style={styles.footerSection}
+          >
+            <ThemedView style={styles.dateContainer}>
+              <MaterialIcons 
+                name="favorite" 
+                size={SIZES.icon.xs} 
+                color={theme.icon.secondary} 
+                style={styles.favoriteIcon}
+              />
               <ThemedLanguageText 
-                variant="secondary" 
+                variant="tertiary" 
                 size="small" 
                 fontFamily="regional_secondary"
                 style={styles.favoriteDate}
@@ -60,25 +140,16 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
                 {formatFullDate(favorite.timestamp)}
               </ThemedLanguageText>
             </ThemedView>
+
+            {/* Arrow Icon */}
+            <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
+              <MaterialIcons
+                name="arrow-forward-ios"
+                size={SIZES.icon.xs}
+                color={theme.icon.quaternary}
+              />
+            </ThemedView>
           </ThemedView>
-          
-          <TouchableOpacity
-            onPress={() => onDelete(favorite.verseId)}
-            style={styles.removeButton}
-          >
-            <Ionicons name="heart-dislike-outline" size={SIZES.icon.md} color={theme.icon.error} />
-          </TouchableOpacity>
-        </ThemedView>
-        
-        <ThemedView style={styles.messageContent}>
-          <ThemedLanguageText
-            variant="primary"
-            size="medium"
-            fontFamily="regional_secondary"
-            style={styles.translationText}
-          >
-            {favorite.verseText}
-          </ThemedLanguageText>
         </ThemedView>
       </ThemedCard>
     </TouchableOpacity>

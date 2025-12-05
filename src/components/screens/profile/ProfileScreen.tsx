@@ -1,24 +1,23 @@
 import { SettingsItem, SettingsSection } from '@/components/settings';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
+import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { useProStatus } from '@/hooks/useProStatus';
+import { showRatingPrompt } from '@/hooks/useRatingPrompter';
 import { useThemeColors } from '@/hooks/useTheme';
-import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
+import { shareApp } from '@/services/appShareService';
 import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import constants from 'expo-constants';
-import { ImageBackground, ScrollView } from 'react-native';
 import { router } from 'expo-router';
-import { ProfileHeader } from './components/ProfileHeader';
-import { SubscriptionDetails } from './components/SubscriptionDetails';
-import { ShareStats } from './components/ShareStats/ShareStats';
-import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
-import { useProStatus } from '@/hooks/useProStatus';
-import { shareApp } from '@/services/appShareService';
-import { styles } from './ProfileScreen.styles';
-import { createSuccessAlert, createErrorAlert, useCustomAlert } from '@/hooks/useCustomAlert';
-import { showRatingPrompt } from '@/hooks/useRatingPrompter';
 import { useEffect } from 'react';
+import { ImageBackground, ScrollView } from 'react-native';
+import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
+import { ProfileHeader } from './components/ProfileHeader';
+import { ShareStats } from './components/ShareStats/ShareStats';
+import { SubscriptionDetails } from './components/SubscriptionDetails';
+import { styles } from './ProfileScreen.styles';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
@@ -35,20 +34,20 @@ export const ProfileScreen: React.FC = () => {
       const success = await shareApp();
       if (success) {
         showAlert(createSuccessAlert(
-          i18n.t('share.success'),
-          i18n.t('share.textShared')
+          'Success',
+          'App shared successfully'
         ));
       } else {
         showAlert(createErrorAlert(
-          i18n.t('share.error'),
-          i18n.t('share.shareFailed')
+          'Error',
+          'Unable to share the app. Please try again.'
         ));
       }
     } catch (error) {
       console.error('Error sharing app:', error);
       showAlert(createErrorAlert(
-        i18n.t('share.error'),
-        i18n.t('share.shareFailed')
+        'Error',
+        'Unable to share the app. Please try again.'
       ));
     }
   };
@@ -59,8 +58,8 @@ export const ProfileScreen: React.FC = () => {
     } catch (error) {
       console.error('Error showing rating prompt:', error);
       showAlert(createErrorAlert(
-        i18n.t('common.error'),
-        i18n.t('share.shareFailed')
+        'Error',
+        'Unable to open rating prompt. Please try again.'
       ));
     }
   };
@@ -82,55 +81,55 @@ export const ProfileScreen: React.FC = () => {
           contentContainerStyle={styles.scrollContent}
         >
           <SettingsSection 
-            title={i18n.t('profile.pointsEarned')} 
-            description={i18n.t('profile.pointsDesc')}
+            title="Points" 
+            description="Earn points by sharing and unlock an ad-free experience"
           >
             <PointsDisplay />
           </SettingsSection>
 
           <SettingsSection 
-            title={i18n.t('profile.subscription')} 
-            description={i18n.t('profile.subscriptionDesc')}
+            title="Subscription" 
+            description="Upgrade to Pro and unlock all premium features"
           >
             {isPro ? (
               <SubscriptionDetails />
             ) : (
               <SettingsItem
-                title={i18n.t('profile.goToPro')}
-                subtitle={i18n.t('profile.goToProDesc')}
-                icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.lg} color={theme.icon.primary} />}
+                title="Upgrade to Pro"
+                subtitle="Unlock all premium features"
+                icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.md} color={theme.icon.primary} />}
                 onPress={() => router.push('/subscription')}
               />
             )}
           </SettingsSection>
 
           <SettingsSection 
-            title={i18n.t('profile.sharing')} 
-            description={i18n.t('profile.sharingDesc')}
+            title="Sharing" 
+            description="View your sharing statistics and activity"
           >
             <ShareStats />
             <SettingsItem
-              title={i18n.t('profile.shareApp')}
-              subtitle={i18n.t('profile.shareAppDesc')}
-              icon={<MaterialIcons name="share" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              title="Share App"
+              subtitle="Share this app with your friends and family"
+              icon={<MaterialIcons name="share" size={SIZES.icon.md} color={theme.icon.primary} />}
               onPress={handleShareApp}
             />
           </SettingsSection>
 
           <SettingsSection 
-            title={i18n.t('profile.about')} 
-            description={i18n.t('profile.aboutDesc')}
+            title="About" 
+            description="App information and support"
           >
             <SettingsItem
-              title={i18n.t('profile.appVersion')}
-              subtitle={i18n.t('profile.appVersionDesc')}
-              icon={<Feather name="info" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              title="App Version"
+              subtitle="Current version of the app"
+              icon={<Feather name="info" size={SIZES.icon.md} color={theme.icon.primary} />}
               value={constants.expoConfig?.version}
             />
             <SettingsItem
-              title={i18n.t('profile.rateApp')}
-              subtitle={i18n.t('profile.rateAppDesc')}
-              icon={<MaterialIcons name="star" size={SIZES.icon.lg} color={theme.icon.primary} />}
+              title="Rate App"
+              subtitle="Share your feedback and rate the app"
+              icon={<MaterialIcons name="star" size={SIZES.icon.md} color={theme.icon.primary} />}
               onPress={handleRateApp}
             />
           </SettingsSection>

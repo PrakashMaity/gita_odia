@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
+    width: '100%',
   },
   container: {
     flex: 1,
@@ -13,8 +14,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: SIZES.spacing.sm,
-    paddingBottom: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.lg,
+    paddingBottom: SIZES.spacing.xl,
   },
 });
-

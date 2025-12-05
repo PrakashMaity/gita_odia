@@ -1,5 +1,9 @@
+import { MangalacharanSectionCard } from '@/components/screens/mangalacharan/components/MangalacharanSectionCard';
 import { LoadingState } from '@/components/shared';
+import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { useTranslationStore } from '@/store';
 import { LayoutImages } from '@/utils/assets';
@@ -13,6 +17,7 @@ import { styles } from './TranslationsScreen.styles';
 export const TranslationsScreen: React.FC = () => {
   const { translations, isLoading, loadAllTranslations } = useTranslationStore();
   const { handleTranslationPress } = useTranslationsOperations();
+  const theme = useThemeColors();
 
   useEffect(() => {
     loadAllTranslations();
@@ -37,6 +42,13 @@ export const TranslationsScreen: React.FC = () => {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* Intro Section */}
+          <MangalacharanSectionCard
+            content={i18n.t('translations.intro')}
+            variant="intro"
+          />
+
+          {/* Translations List */}
           <ThemedView style={styles.translationsContainer}>
             {translations.map((translation) => (
               <View key={translation.chapter.id} style={styles.translationCardWrapper}>
@@ -47,6 +59,29 @@ export const TranslationsScreen: React.FC = () => {
               </View>
             ))}
           </ThemedView>
+
+          {/* Motivational Message - Footer */}
+          <ThemedCard variant="card" style={styles.motivationCard} borderVariant="primary">
+            <ThemedView style={styles.motivationHeader}>
+              <ThemedView style={[styles.motivationIndicator, { backgroundColor: theme.status.success + '40' }]} />
+              <ThemedLanguageText 
+                variant="primary" 
+                size="large" 
+                fontFamily="regional_secondary"
+                style={styles.motivationTitle}
+              >
+                {i18n.t('translations.motivationTitle')}
+              </ThemedLanguageText>
+            </ThemedView>
+            <ThemedLanguageText
+              variant="secondary"
+              size="medium"
+              style={styles.motivationText}
+              fontFamily="regional_secondary"
+            >
+              {i18n.t('translations.motivationText')}
+            </ThemedLanguageText>
+          </ThemedCard>
         </ScrollView>
       </ThemedView>
     </ImageBackground>

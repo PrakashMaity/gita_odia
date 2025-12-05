@@ -15,4 +15,3 @@ export const styles = StyleSheet.create({
     marginLeft: SIZES.spacing.xs,
   },
 });
-
