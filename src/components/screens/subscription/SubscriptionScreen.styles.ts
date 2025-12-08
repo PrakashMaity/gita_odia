@@ -104,6 +104,5 @@ export const styles = StyleSheet.create({
   },
   planSavings: {
     opacity: 0.7,
-    fontStyle: 'italic',
   },
 });

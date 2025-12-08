@@ -5,9 +5,11 @@ import { SIZES } from '@/rootconstants/sizes';
 import { HomeImages } from '@/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
 import { HeroSection, HomeHeader, MenuGrid, QuickActions } from './components';
+import { ProActivationModal } from './components/ProActivationModal';
 import { styles } from './HomeScreen.styles';
 import { useHomeInitialization } from './hooks/useHomeInitialization';
 import { useHomeNavigation } from './hooks/useHomeNavigation';
+import { useProActivationPopup } from './hooks/useProActivationPopup';
 
 
 
@@ -15,7 +17,7 @@ import { useHomeNavigation } from './hooks/useHomeNavigation';
 export const HomeScreen: React.FC = () => {
   useHomeInitialization();
   const { handleMenuItemPress } = useHomeNavigation();
-  
+  const { isPopupVisible, handleClosePopup } = useProActivationPopup();
 
   return (
     <ImageBackground
@@ -44,7 +46,7 @@ export const HomeScreen: React.FC = () => {
           <ThemedSpacer size='md' />
         </ScrollView>
 
-        {/* <PromotionalModal visible={isModalVisible} onClose={handleCloseModal} /> */}
+        <ProActivationModal visible={isPopupVisible} onClose={handleClosePopup} />
       </ThemedView>
     </ImageBackground>
   );

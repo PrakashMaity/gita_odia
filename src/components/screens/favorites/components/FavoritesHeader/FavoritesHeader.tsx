@@ -1,9 +1,11 @@
 import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { FavoriteMenu } from '../FavoriteCard/FavoriteMenu';
@@ -24,8 +26,28 @@ export const FavoritesHeader: React.FC<FavoritesHeaderProps> = ({
   return (
     <>
       <ScreenHeader
-        title={i18n.t('favorite.favorites')}
         containerStyle={{ backgroundColor: theme.background.secondary }}
+        leftContent={
+          <ThemedView style={styles.leftContent}>
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={[styles.backButton, { 
+                backgroundColor: theme.background.secondary,
+                borderColor: theme.border.primary 
+              }]}
+            >
+              <Ionicons name="arrow-back" size={SIZES.icon.sm} color={theme.icon.primary} />
+            </TouchableOpacity>
+            <ThemedLanguageText
+              variant="primary"
+              size="large"
+              fontFamily="regional_secondary"
+              style={styles.title}
+            >
+              {i18n.t('favorite.favorites')}
+            </ThemedLanguageText>
+          </ThemedView>
+        }
         rightContent={
           <ThemedView style={styles.headerActions}>
             {favoriteCount > 0 && (

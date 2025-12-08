@@ -9,6 +9,7 @@ import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { shareApp } from '@/services/appShareService';
+import { clearProMode } from '@/services/proService';
 import { useSettingsStore } from '@/store/settingsStore';
 import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
@@ -85,6 +86,31 @@ export const ProfileScreen: React.FC = () => {
       showAlert(createErrorAlert(
         i18n.t('common.error'),
         i18n.t('share.shareFailed')
+      ));
+    }
+  };
+
+  const handleClearProMode = async () => {
+    try {
+      const result = await clearProMode();
+      if (result.success) {
+        showAlert(createSuccessAlert(
+          i18n.t('common.success', { defaultValue: 'Success' }),
+          result.message
+        ));
+        // Refresh Pro status to update UI
+        await refreshStatus();
+      } else {
+        showAlert(createErrorAlert(
+          i18n.t('common.error', { defaultValue: 'Error' }),
+          result.message
+        ));
+      }
+    } catch (error) {
+      console.error('Error clearing Pro mode:', error);
+      showAlert(createErrorAlert(
+        i18n.t('common.error', { defaultValue: 'Error' }),
+        'Failed to clear Pro mode. Please try again.'
       ));
     }
   };
@@ -170,6 +196,13 @@ export const ProfileScreen: React.FC = () => {
                 value={settings.developerMode}
                 onValueChange={toggleDeveloperMode}
                 icon={<MaterialIcons name="code" size={SIZES.icon.md} color={theme.icon.primary} />}
+              />
+              
+              <SettingsItem
+                title={i18n.t('profile.clearProMode', { defaultValue: 'Clear Pro Mode' })}
+                subtitle={i18n.t('profile.clearProModeDesc', { defaultValue: 'Remove all Pro status and reset Pro mode' })}
+                icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.md} color={theme.icon.primary} />}
+                onPress={handleClearProMode}
               />
               
               {/* Ad Status Information */}

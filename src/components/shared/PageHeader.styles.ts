@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   backButton: {
-    width: 36,
-    height: 36,
+    width: SIZES.icon.lg,
+    height: SIZES.icon.lg,
     borderRadius: SIZES.radius.round,
     alignItems: 'center',
     justifyContent: 'center',

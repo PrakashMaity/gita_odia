@@ -65,8 +65,20 @@ export const BannerAdComponent: React.FC<BannerAdComponentProps> = ({
     setAdLoaded(false);
     setAdError(error.message);
     onAdFailedToLoad?.(error);
+    
+    // "no-fill" errors are expected when there's no ad inventory available
+    // Only log actual errors, not no-fill scenarios
     if (__DEV__) {
-      console.warn('Banner ad failed to load:', error.message);
+      const isNoFillError = error.message?.includes('error-code-no-fill') || 
+                           error.message?.includes('no ad was returned due to lack of ad inventory');
+      
+      if (isNoFillError) {
+        // No-fill is expected behavior, use debug level instead of warn
+        console.debug('Banner ad: No ad inventory available (no-fill)');
+      } else {
+        // Log actual errors as warnings
+        console.warn('Banner ad failed to load:', error.message);
+      }
     }
   };
 

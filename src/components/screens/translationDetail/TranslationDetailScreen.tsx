@@ -1,18 +1,18 @@
+import { LoadingState, PageHeader } from '@/components/shared';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTranslationStore } from '@/store';
-import { useLocalSearchParams } from 'expo-router';
-import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { PageHeader, LoadingState } from '@/components/shared';
-import { ErrorState } from './components/ErrorState';
-import { TranslationMessage } from './components/TranslationMessage';
-import { AudioModal } from './components/AudioModal';
-import { styles } from './TranslationDetailScreen.styles';
 import { LayoutImages } from '@/utils/assets';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { useState, useMemo } from 'react';
+import { useLocalSearchParams } from 'expo-router';
+import { useMemo, useState } from 'react';
+import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
+import { AudioModal } from './components/AudioModal';
+import { ErrorState } from './components/ErrorState';
+import { TranslationMessage } from './components/TranslationMessage';
+import { styles } from './TranslationDetailScreen.styles';
 
 export const TranslationDetailScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -61,9 +61,9 @@ export const TranslationDetailScreen: React.FC = () => {
               ]}
             >
               <MaterialIcons
-                name="volume-up"
+                name="volume-down"
                 size={SIZES.icon.md}
-                color={theme.icon.primary}
+                color={theme.icon.tertiary}
               />
             </TouchableOpacity>
           }

@@ -1,3 +1,4 @@
+import { activateProForFirstTime } from '@/services/proService';
 import { useSettingsStore } from '@/store';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
@@ -14,6 +15,9 @@ export default function IndexScreen() {
 
     const handleNavigation = async () => {
       try {
+        // Activate Pro for first-time users (1 day free Pro)
+        await activateProForFirstTime();
+        
         // Small delay to ensure navigation is ready
         await new Promise(resolve => setTimeout(resolve, 50));
         

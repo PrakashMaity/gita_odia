@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   leftContent: {
@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   backButton: {
-    width: 40,
-    height: 40,
+    width: SIZES.icon.lg,
+    height: SIZES.icon.lg,
     borderRadius: SIZES.radius.round,
     justifyContent: 'center',
     alignItems: 'center',
@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
     flexShrink: 1,
   },
   actionButton: {
-    width: 40,
-    height: 40,
+    width: SIZES.icon.lg,
+    height: SIZES.icon.lg,
     borderRadius: SIZES.radius.round,
     justifyContent: 'center',
     alignItems: 'center',

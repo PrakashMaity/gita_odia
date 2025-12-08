@@ -1,9 +1,9 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useProgressStore } from '@/store';
 import { formatLastReadDate } from '@/utils/dateUtils';
 import { Ionicons } from '@expo/vector-icons';
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
   noProgressText: {
     fontSize: SIZES.sm,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   progressHeader: {
     flexDirection: 'row',

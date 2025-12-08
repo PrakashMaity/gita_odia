@@ -1,9 +1,9 @@
 import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
@@ -22,7 +22,7 @@ export const TranslationsHeader: React.FC = () => {
             onPress={() => router.back()}
             style={[styles.backButton, { backgroundColor: theme.background.secondary }]}
           >
-            <Ionicons name="arrow-back" size={SIZES.icon.md} color={theme.icon.primary} />
+            <Ionicons name="arrow-back" size={SIZES.icon.sm} color={theme.icon.primary} />
           </TouchableOpacity>
 
           <ThemedLanguageText
@@ -45,7 +45,7 @@ export const TranslationsHeader: React.FC = () => {
             },
           ]}
         >
-          <MaterialIcons name="translate" size={SIZES.icon.md} color={theme.icon.primary} />
+          <MaterialIcons name="translate" size={SIZES.icon.sm} color={theme.icon.primary} />
         </ThemedView>
       }
     />

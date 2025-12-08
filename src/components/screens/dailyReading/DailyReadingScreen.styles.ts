@@ -18,33 +18,31 @@ export const styles = StyleSheet.create({
     paddingBottom: SIZES.spacing.xxxl,
   },
   statsSection: {
-    marginTop: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.lg,
+    marginTop: SIZES.spacing.md,
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.md,
   },
   sectionIndicator: {
-    width: SIZES.borderSize.xxl,
-    height: SIZES.spacing.xxxl,
-    borderRadius: SIZES.radius.sm,
+    width: 4,
+    height: 20,
+    borderRadius: 2,
     marginRight: SIZES.spacing.md,
   },
   sectionTitle: {
     flex: 1,
+    fontSize: 18,
     fontWeight: '600',
   },
   statsRow: {
     flexDirection: 'row',
     gap: SIZES.spacing.md,
     marginBottom: SIZES.spacing.md,
-    paddingHorizontal: SIZES.spacing.lg,
   },
   motivationCard: {
-    marginTop: SIZES.spacing.xl,
+    marginTop: SIZES.spacing.lg,
     padding: SIZES.spacing.xl,
   },
   motivationHeader: {
@@ -53,18 +51,19 @@ export const styles = StyleSheet.create({
     marginBottom: SIZES.spacing.md,
   },
   motivationIndicator: {
-    width: SIZES.borderSize.xxl,
-    height: SIZES.spacing.xxxl,
-    borderRadius: SIZES.radius.sm,
+    width: 4,
+    height: 20,
+    borderRadius: 2,
     marginRight: SIZES.spacing.md,
   },
   motivationTitle: {
     flex: 1,
+    fontSize: 18,
     fontWeight: '600',
   },
   motivationText: {
     textAlign: 'left',
-    lineHeight: SIZES.spacing.xl * 1.4,
+    lineHeight: 24,
+    fontSize: 15,
   },
 });
-

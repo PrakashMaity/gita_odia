@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: SIZES.spacing.lg,
+    // paddingHorizontal: SIZES.spacing.lg,
     paddingBottom: SIZES.spacing.xl,
   },
   section: {

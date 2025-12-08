@@ -11,6 +11,7 @@ import { useDailyReadingStore } from '@/store/dailyReadingStore';
 import { LayoutImages } from '@/utils/assets';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, ImageBackground, ScrollView, View } from 'react-native';
+import { QuickActionButtons } from './components/QuickActionButtons';
 import { StatsCard } from './components/StatsCard';
 import { StreakCard } from './components/StreakCard';
 import { WeeklyChart } from './components/WeeklyChart';
@@ -65,6 +66,9 @@ export const DailyReadingScreen: React.FC = () => {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* Quick Action Buttons */}
+          <QuickActionButtons />
+
           {/* Streak Card */}
           <StreakCard
             currentStreak={currentStreak}
@@ -74,7 +78,7 @@ export const DailyReadingScreen: React.FC = () => {
           {/* Stats Section */}
           <ThemedView style={styles.statsSection}>
             <ThemedView style={styles.sectionHeader}>
-              <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.status.error + '40' }]} />
+              <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.status.info + '40' }]} />
               <ThemedLanguageText 
                 variant="primary" 
                 size="large" 

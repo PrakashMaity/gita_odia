@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -83,7 +83,6 @@ export const styles = StyleSheet.create({
   },
   speaker: {
     fontSize: 12,
-    fontStyle: 'italic',
   },
   matchTypeBadge: {
     paddingHorizontal: SIZES.spacing.sm,
@@ -105,7 +104,6 @@ export const styles = StyleSheet.create({
   translationText: {
     fontSize: 13,
     lineHeight: 18,
-    fontStyle: 'italic',
   },
   resultFooter: {
     alignItems: 'flex-end',

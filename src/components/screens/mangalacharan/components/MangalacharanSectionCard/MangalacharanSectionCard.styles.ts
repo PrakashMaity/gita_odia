@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   introCard: {
@@ -73,7 +73,6 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: SIZES.spacing.xl * 1.5,
     marginVertical: SIZES.spacing.md,
-    fontStyle: 'italic',
   },
   breakdownMeaning: {
     lineHeight: SIZES.spacing.xl * 1.3,

@@ -51,6 +51,5 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 13,
     color: '#5D4037',
-    fontStyle: 'italic',
   },
 });

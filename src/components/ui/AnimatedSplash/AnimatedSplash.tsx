@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 interface AnimatedSplashProps {
   onAnimationComplete?: () => void;
@@ -181,6 +181,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
       clearTimeout(timer);
       animationSequence.stop();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration, onAnimationComplete]);
 
   // Logo rotation interpolation (subtle rotation)
@@ -544,7 +545,6 @@ const styles = StyleSheet.create({
     color: colors.secondary100,
     textAlign: 'center',
     opacity: 0.95,
-    fontStyle: 'italic',
     fontFamily: languageFonts.regional_secondary,
     letterSpacing: 1,
     textShadowColor: 'rgba(0, 0, 0, 0.1)',

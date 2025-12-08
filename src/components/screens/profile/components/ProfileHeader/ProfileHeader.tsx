@@ -25,14 +25,16 @@ export const ProfileHeader: React.FC = () => {
               Settings
             </ThemedLanguageText>
             {isPro && (
-              <ThemedLanguageText
-                variant="accent"
-                size="large"
-                fontFamily="regional_secondary"
-                style={styles.proText}
-              >
-                {' PRO'}
-              </ThemedLanguageText>
+              <View style={[styles.proBadge, { backgroundColor: theme.button.primary.background }]}>
+                <ThemedLanguageText
+                  variant="primary"
+                  size="xs"
+                  fontFamily="regional_secondary"
+                  style={[styles.proText, { color: theme.button.primary.text }]}
+                >
+                  PRO
+                </ThemedLanguageText>
+              </View>
             )}
           </View>
           <ThemedLanguageText

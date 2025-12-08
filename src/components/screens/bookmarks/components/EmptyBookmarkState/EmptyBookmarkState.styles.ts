@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   scrollContent: {
@@ -18,12 +18,12 @@ export const styles = StyleSheet.create({
     marginBottom: SIZES.spacing.xl,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 180,
-    width: 180,
+    height: 180/2,
+    width: 180/2,
   },
   iconCircle: {
-    width: 140,
-    height: 140,
+    width: 140/2,
+    height: 140/2,
     borderRadius: 70,
     alignItems: 'center',
     justifyContent: 'center',
@@ -125,8 +125,6 @@ export const styles = StyleSheet.create({
   },
   quoteText: {
     textAlign: 'center',
-    fontStyle: 'italic',
-    lineHeight: SIZES.spacing.xl * 1.4,
     paddingHorizontal: SIZES.spacing.md,
   },
 });

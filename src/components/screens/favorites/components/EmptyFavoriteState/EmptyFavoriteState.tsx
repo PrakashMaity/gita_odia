@@ -1,13 +1,13 @@
-import React from 'react';
-import { TouchableOpacity, ScrollView } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useTheme } from '@/hooks/useTheme';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { SIZES } from '@/rootconstants/sizes';
-import { router } from 'expo-router';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React from 'react';
+import { ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './EmptyFavoriteState.styles';
 
 export const EmptyFavoriteState: React.FC = () => {
@@ -26,13 +26,13 @@ export const EmptyFavoriteState: React.FC = () => {
         {/* Decorative Icon Container */}
         <ThemedView style={styles.iconContainer}>
           <ThemedView style={[styles.iconCircle, { backgroundColor: theme.background.quaternary + '40' }]}>
-            <Ionicons name="heart-outline" size={80} color={theme.icon.tertiary} />
+            <Ionicons name="heart-outline" size={80/2} color={theme.icon.tertiary} />
           </ThemedView>
           <ThemedView style={[styles.iconCircleSmall, styles.iconCircleTop, { backgroundColor: theme.background.quaternary + '30' }]}>
-            <Ionicons name="star-outline" size={32} color={theme.icon.secondary} />
+            <Ionicons name="star-outline" size={32/2} color={theme.icon.secondary} />
           </ThemedView>
           <ThemedView style={[styles.iconCircleSmall, styles.iconCircleBottom, { backgroundColor: theme.background.quaternary + '30' }]}>
-            <MaterialIcons name="favorite-outline" size={32} color={theme.icon.secondary} />
+            <MaterialIcons name="favorite-outline" size={32/2} color={theme.icon.secondary} />
           </ThemedView>
         </ThemedView>
 

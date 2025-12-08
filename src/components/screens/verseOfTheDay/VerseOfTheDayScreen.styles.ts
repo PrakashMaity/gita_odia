@@ -80,7 +80,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   actionsContainer: {
     marginTop: SIZES.spacing.xl,

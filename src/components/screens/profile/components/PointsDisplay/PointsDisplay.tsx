@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator, TouchableOpacity, Modal, ScrollView } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { getPointsData, PointsData, redeemPoints, REDEEM_THRESHOLD } from '@/services/shareAnalyticsService';
-import { getAdFreeStatus } from '@/services/adFreeService';
 import { SIZES } from '@/rootconstants/sizes';
+import { getAdFreeStatus } from '@/services/adFreeService';
+import { canExtendProWithPoints, extendProWithPoints } from '@/services/proService';
+import { getPointsData, PointsData, REDEEM_THRESHOLD, redeemPoints } from '@/services/shareAnalyticsService';
 import Feather from '@expo/vector-icons/Feather';
-import { createSuccessAlert, createErrorAlert, createConfirmAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Modal, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 interface PointsDisplayProps {
   style?: any;
@@ -30,6 +32,9 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
   } | null>(null);
   const [infoModalVisible, setInfoModalVisible] = useState(false);
   const [redeeming, setRedeeming] = useState(false);
+  const [extendingPro, setExtendingPro] = useState(false);
+  const [canExtendPro, setCanExtendPro] = useState(false);
+  const { refreshStatus } = useProStatus();
 
   const loadData = async (isRefresh = false) => {
     try {
@@ -38,12 +43,14 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
       } else {
         setLoading(true);
       }
-      const [points, adFree] = await Promise.all([
+      const [points, adFree, proExtension] = await Promise.all([
         getPointsData(),
         getAdFreeStatus(),
+        canExtendProWithPoints(),
       ]);
       setPointsData(points);
       setAdFreeStatus(adFree);
+      setCanExtendPro(proExtension.canExtend);
     } catch (error) {
       console.error('Error loading data:', error);
     } finally {
@@ -96,6 +103,48 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
           ));
         } finally {
           setRedeeming(false);
+        }
+      }
+    ));
+  };
+
+  const handleExtendPro = async () => {
+    if (!canExtendPro) {
+      showAlert(createErrorAlert(
+        i18n.t('profile.proExtendError', { defaultValue: 'Cannot Extend Pro' }),
+        i18n.t('profile.proExtendErrorMsg', { defaultValue: 'You need 2000 points to extend Pro, or you have already extended Pro using points.' })
+      ));
+      return;
+    }
+
+    showAlert(createConfirmAlert(
+      i18n.t('profile.proExtend', { defaultValue: 'Extend Pro' }),
+      i18n.t('profile.proExtendConfirm', { defaultValue: 'Extend Pro for 1 day using 2000 points?' }),
+      async () => {
+        setExtendingPro(true);
+        try {
+          const result = await extendProWithPoints();
+          if (result.success) {
+            showAlert(createSuccessAlert(
+              i18n.t('profile.proExtendSuccess', { defaultValue: 'Pro Extended!' }),
+              result.message
+            ));
+            await refreshStatus();
+            await loadData();
+          } else {
+            showAlert(createErrorAlert(
+              i18n.t('profile.proExtendError', { defaultValue: 'Cannot Extend Pro' }),
+              result.message
+            ));
+          }
+        } catch (error) {
+          console.error('Error extending Pro:', error);
+          showAlert(createErrorAlert(
+            i18n.t('profile.proExtendError', { defaultValue: 'Cannot Extend Pro' }),
+            i18n.t('profile.proExtendErrorMsg', { defaultValue: 'An error occurred while extending Pro.' })
+          ));
+        } finally {
+          setExtendingPro(false);
         }
       }
     ));
@@ -202,6 +251,31 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               {i18n.t('profile.adFreeActive')} • {adFreeStatus.remainingDays} {i18n.t('profile.adFreeDays')} {adFreeStatus.remainingHours} {i18n.t('profile.adFreeHours')}
             </ThemedLanguageText>
           </View>
+        )}
+
+        {/* Extend Pro Button */}
+        {canExtendPro && (
+          <TouchableOpacity
+            style={[styles.redeemButton, { backgroundColor: theme.button.primary.background }]}
+            onPress={handleExtendPro}
+            disabled={extendingPro}
+          >
+            {extendingPro ? (
+              <ActivityIndicator size="small" color={theme.button.primary.text} />
+            ) : (
+              <>
+                <Feather name="star" size={SIZES.icon.sm} color={theme.button.primary.text} />
+                <ThemedLanguageText
+                  variant="primary"
+                  size="medium"
+                  fontFamily="regional_secondary"
+                  style={[styles.redeemButtonText, { color: theme.button.primary.text }]}
+                >
+                  {i18n.t('profile.extendPro', { defaultValue: 'Extend Pro (2000 points)' })}
+                </ThemedLanguageText>
+              </>
+            )}
+          </TouchableOpacity>
         )}
 
         {/* Redeem Button */}

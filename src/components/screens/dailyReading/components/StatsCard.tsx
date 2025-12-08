@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { SIZES } from '@/rootconstants/sizes';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { useThemeColors } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
+import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 interface StatsCardProps {
   title: string;
@@ -12,15 +12,19 @@ interface StatsCardProps {
   iconName: keyof typeof Ionicons.glyphMap;
 }
 
-export const StatsCard: React.FC<StatsCardProps> = ({ title, value, iconName }) => {
+export const StatsCard: React.FC<StatsCardProps> = ({ 
+  title, 
+  value, 
+  iconName
+}) => {
   const theme = useThemeColors();
 
   return (
-    <ThemedCard variant="card" style={styles.card} borderVariant="primary">
-      <View style={[styles.iconContainer, { backgroundColor: theme.status.success + '20' }]}>
+    <ThemedCard variant="card" style={styles.card} borderVariant="none">
+      <View style={[styles.iconContainer, { backgroundColor: theme.status.success + '15' }]}>
         <Ionicons 
           name={iconName} 
-          size={SIZES.icon.lg} 
+          size={24} 
           color={theme.status.success} 
         />
       </View>
@@ -49,28 +53,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 140,
-    paddingVertical: SIZES.spacing.lg,
+    padding: SIZES.spacing.lg,
+    minHeight: 130,
   },
   iconContainer: {
-    width: SIZES.spacing.xxxl * 1.5,
-    height: SIZES.spacing.xxxl * 1.5,
-    borderRadius: SIZES.radius.full,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: SIZES.spacing.md,
+    marginBottom: SIZES.spacing.sm,
   },
   value: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: '700',
     marginBottom: SIZES.spacing.xs,
     textAlign: 'center',
   },
   title: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '500',
     textAlign: 'center',
-    lineHeight: 18,
+    opacity: 0.75,
   },
 });
-

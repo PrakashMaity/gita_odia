@@ -1,14 +1,14 @@
-import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { SIZES } from '@/rootconstants/sizes';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
+import { colors } from '@/rootconstants/tint';
+import React from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const CHART_WIDTH = width - SIZES.spacing.lg * 2;
-const BAR_MAX_HEIGHT = 120;
+const BAR_MAX_HEIGHT = 100;
 
 interface WeeklyChartProps {
   data: { date: string; versesRead: number }[];
@@ -27,7 +27,7 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
   return (
     <ThemedCard variant="card" style={styles.container} borderVariant="primary">
       <ThemedView style={styles.header}>
-        <ThemedView style={[styles.indicator, { backgroundColor: theme.status.info + '40' }]} />
+        <ThemedView style={[styles.indicator, { backgroundColor: theme.status.info + '30' }]} />
         <ThemedLanguageText
           variant="primary"
           size="large"
@@ -40,6 +40,8 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
       <View style={styles.chart}>
         {data.map((item, index) => {
           const barHeight = (item.versesRead / maxVerses) * BAR_MAX_HEIGHT;
+          const hasValue = item.versesRead > 0;
+          
           return (
             <View key={index} style={styles.barContainer}>
               <View style={styles.barWrapper}>
@@ -47,8 +49,8 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
                   style={[
                     styles.bar,
                     {
-                      height: barHeight || 4,
-                      backgroundColor: barHeight > 0 ? theme.status.success : theme.background.tertiary,
+                      height: hasValue ? Math.max(barHeight, 4) : 4,
+                      backgroundColor: hasValue ? colors.primary500 : theme.background.tertiary,
                     },
                   ]}
                 />
@@ -79,19 +81,18 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: SIZES.spacing.xl,
+    marginTop: SIZES.spacing.lg,
     padding: SIZES.spacing.xl,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: SIZES.spacing.lg,
-    paddingHorizontal: SIZES.spacing.lg,
   },
   indicator: {
-    width: SIZES.borderSize.xxl,
-    height: SIZES.spacing.xxxl,
-    borderRadius: SIZES.radius.sm,
+    width: 4,
+    height: 20,
+    borderRadius: 2,
     marginRight: SIZES.spacing.md,
   },
   title: {
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'flex-end',
     height: BAR_MAX_HEIGHT + 60,
+    paddingHorizontal: SIZES.spacing.xs,
   },
   barContainer: {
     flex: 1,
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
     height: BAR_MAX_HEIGHT,
     justifyContent: 'flex-end',
     marginBottom: SIZES.spacing.xs,
+    alignItems: 'center',
   },
   bar: {
     width: '100%',
@@ -125,11 +128,12 @@ const styles = StyleSheet.create({
     fontSize: 11,
     marginTop: SIZES.spacing.xs,
     textAlign: 'center',
+    fontWeight: '500',
   },
   valueLabel: {
     fontSize: 10,
     marginTop: 2,
     fontWeight: '600',
+    opacity: 0.8,
   },
 });
-
