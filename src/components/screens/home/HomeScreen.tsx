@@ -1,5 +1,7 @@
+import { BannerAdComponent } from '@/components/ads';
 import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { SIZES } from '@/rootconstants/sizes';
 import { HomeImages } from '@/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
 import { HeroSection, HomeHeader, MenuGrid, QuickActions } from './components';
@@ -35,6 +37,11 @@ export const HomeScreen: React.FC = () => {
           <QuickActions />
           <ThemedSpacer size='lg' />
           <MenuGrid onMenuItemPress={handleMenuItemPress} />
+          <ThemedSpacer size='lg' />
+          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md }}>
+            <BannerAdComponent />
+          </ThemedView>
+          <ThemedSpacer size='md' />
         </ScrollView>
 
         {/* <PromotionalModal visible={isModalVisible} onClose={handleCloseModal} /> */}

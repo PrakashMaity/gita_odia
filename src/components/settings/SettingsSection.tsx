@@ -21,10 +21,10 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
   return (
     <ThemedCard 
       variant="card" 
-      style={[styles.container, { shadowOpacity: 0, elevation: 0 }]} 
+      style={styles.container}
       pattern='mandala' 
-      patternOpacity={0.05}
-      borderVariant="none"
+      patternOpacity={0.08}
+      borderVariant="primary"
     >
       <View style={styles.header}>
         <ThemedView style={[styles.indicator, { backgroundColor: theme.status.success + '40' }]} />
@@ -60,13 +60,12 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: SIZES.spacing.xs,
     marginHorizontal: 0,
-    padding: 0,
+    padding: SIZES.spacing.sm,
+    borderRadius: SIZES.radius.xl,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: SIZES.spacing.md,
-    paddingTop: SIZES.spacing.sm,
     paddingBottom: SIZES.spacing.xs,
   },
   indicator: {
@@ -83,7 +82,6 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   description: {
-    paddingHorizontal: SIZES.spacing.md,
     paddingBottom: SIZES.spacing.xs,
     paddingTop: SIZES.spacing.xs / 2,
     textTransform: 'none',
@@ -94,6 +92,5 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingTop: SIZES.spacing.xs / 2,
-    paddingBottom: SIZES.spacing.xs,
   },
 });

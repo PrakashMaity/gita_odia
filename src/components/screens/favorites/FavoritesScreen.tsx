@@ -1,7 +1,9 @@
+import { BannerAdComponent } from '@/components/ads';
 import { LoadingState } from '@/components/shared';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useFavoriteStore } from '@/store';
 import { LayoutImages } from '@/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
@@ -59,6 +61,11 @@ export const FavoritesScreen: React.FC = () => {
                 onDelete={handleRemoveFavorite}
               />
             ))}
+
+            {/* Banner Ad */}
+            <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+              <BannerAdComponent />
+            </ThemedView>
           </ScrollView>
         )}
       </ThemedView>

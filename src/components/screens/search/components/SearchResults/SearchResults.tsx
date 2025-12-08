@@ -1,10 +1,11 @@
+import { BannerAdComponent } from '@/components/ads';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SearchResult } from '@/interface/screen.interface';
+import { SIZES } from '@/rootconstants/sizes';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './SearchResults.styles';
@@ -137,6 +138,11 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results, query, on
             </ThemedCard>
           </TouchableOpacity>
         ))}
+      </ThemedView>
+
+      {/* Banner Ad */}
+      <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+        <BannerAdComponent />
       </ThemedView>
     </ScrollView>
   );

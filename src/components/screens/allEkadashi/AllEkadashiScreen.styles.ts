@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -137,6 +137,44 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
   upcomingBadge: {
+    fontWeight: '600',
+  },
+  yearSelectorCard: {
+    padding: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.md,
+    borderRadius: SIZES.radius.xl,
+  },
+  yearLabel: {
+    marginBottom: SIZES.spacing.md,
+    fontWeight: '600',
+  },
+  yearInputContainer: {
+    gap: SIZES.spacing.md,
+  },
+  yearInput: {
+    borderWidth: 1,
+    borderRadius: SIZES.radius.md,
+    paddingHorizontal: SIZES.spacing.md,
+    paddingVertical: SIZES.spacing.sm,
+    fontSize: SIZES.md,
+    textAlign: 'center',
+  },
+  yearButtonsContainer: {
+    flexDirection: 'row',
+    gap: SIZES.spacing.sm,
+    flexWrap: 'wrap',
+  },
+  yearButton: {
+    flex: 1,
+    minWidth: '22%',
+    paddingVertical: SIZES.spacing.sm,
+    paddingHorizontal: SIZES.spacing.md,
+    borderRadius: SIZES.radius.md,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  yearButtonText: {
     fontWeight: '600',
   },
 });

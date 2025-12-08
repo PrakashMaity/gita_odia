@@ -7,231 +7,103 @@ export const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    position: 'relative',
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
+    paddingHorizontal: SIZES.spacing.lg,
+    paddingTop: SIZES.spacing.lg,
     paddingBottom: SIZES.spacing.xl * 2,
   },
-  closeButton: {
-    position: 'absolute',
-    top: SIZES.spacing.lg + 20,
-    right: SIZES.spacing.lg,
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  floralHeader: {
-    height: 200,
-    width: '100%',
-    position: 'relative',
-    marginTop: 60,
-  },
-  floralBackground: {
-    width: '100%',
-    height: '100%',
-  },
-  floralOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-  },
-  titleSection: {
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingTop: SIZES.spacing.xl,
-    alignItems: 'center',
-  },
-  mainTitle: {
-    fontSize: 28,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginBottom: SIZES.spacing.md,
-    lineHeight: 34,
-    letterSpacing: -0.5,
-  },
-  ratingContainer: {
-    flexDirection: 'row',
-    gap: 4,
-    marginBottom: SIZES.spacing.lg,
-  },
-  testimonialContainer: {
-    width: '100%',
+  comingSoonContainer: {
     alignItems: 'center',
     marginBottom: SIZES.spacing.xl,
-    paddingHorizontal: SIZES.spacing.md,
+    marginTop: SIZES.spacing.md,
   },
-  testimonialText: {
-    fontSize: 15,
-    lineHeight: 22,
-    textAlign: 'center',
-    marginBottom: SIZES.spacing.md,
-    paddingHorizontal: SIZES.spacing.sm,
-  },
-  testimonialAuthor: {
+  comingSoonBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    paddingHorizontal: SIZES.spacing.lg,
+    paddingVertical: SIZES.spacing.sm,
+    borderRadius: SIZES.radius.full,
+    gap: SIZES.spacing.xs,
+  },
+  comingSoonIcon: {
+    marginRight: SIZES.spacing.xs,
+  },
+  comingSoonText: {
+    fontWeight: '600',
+  },
+  featuresCard: {
+    padding: SIZES.spacing.xl,
+    marginBottom: SIZES.spacing.xl,
+    borderRadius: SIZES.radius.xl,
+    alignItems: 'center',
+  },
+  premiumIconContainer: {
     marginBottom: SIZES.spacing.lg,
   },
-  authorName: {
-    fontSize: 14,
-    opacity: 0.7,
+  premiumTitle: {
+    textAlign: 'center',
+    marginBottom: SIZES.spacing.sm,
+    fontWeight: '700',
   },
-  leafEmoji: {
-    fontSize: 14,
+  premiumDescription: {
+    textAlign: 'center',
+    marginBottom: SIZES.spacing.xl,
+    opacity: 0.8,
   },
-  paginationDots: {
+  featuresList: {
+    width: '100%',
+    gap: SIZES.spacing.md,
+  },
+  featureItem: {
     flexDirection: 'row',
-    gap: 6,
     alignItems: 'center',
+    gap: SIZES.spacing.md,
   },
-  dot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: '#E0E0E0',
+  featureText: {
+    flex: 1,
   },
-  dotActive: {
-    backgroundColor: '#757575',
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+  plansContainer: {
+    gap: SIZES.spacing.md,
+    marginBottom: SIZES.spacing.xl,
   },
-  freeTrialContainer: {
+  planCard: {
+    padding: SIZES.spacing.lg,
+    borderRadius: SIZES.radius.lg,
+    marginBottom: SIZES.spacing.md,
+  },
+  planCardFeatured: {
+    borderWidth: 2,
+    borderColor: '#FFD700',
+  },
+  planHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#B2DFDB',
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingVertical: SIZES.spacing.md,
-    borderRadius: SIZES.radius.md,
-    width: '100%',
-    marginBottom: SIZES.spacing.xl,
-  },
-  freeTrialText: {
-    fontSize: 15,
-    fontWeight: '500',
-  },
-  plansContainer: {
-    paddingHorizontal: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.xl,
-    gap: SIZES.spacing.md,
-  },
-  planCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: SIZES.radius.lg,
-    padding: SIZES.spacing.lg,
     marginBottom: SIZES.spacing.md,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-  },
-  planCardSelected: {
-    borderWidth: 2,
-    borderColor: '#BA68C8',
-    shadowColor: '#BA68C8',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  planContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.md,
-  },
-  planRadioContainer: {
-    width: 24,
-    height: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  planRadio: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    borderWidth: 2,
-    borderColor: '#E0E0E0',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  planRadioSelected: {
-    backgroundColor: '#BA68C8',
-    borderColor: '#BA68C8',
-  },
-  planDetails: {
-    flex: 1,
   },
   planTitle: {
-    fontSize: 18,
     fontWeight: '700',
-    marginBottom: 4,
+    flex: 1,
   },
-  planSubtitle: {
-    fontSize: 14,
-    opacity: 0.7,
+  planBadge: {
+    paddingHorizontal: SIZES.spacing.sm,
+    paddingVertical: SIZES.spacing.xs / 2,
+    borderRadius: SIZES.radius.sm,
+  },
+  planBadgeText: {
+    fontSize: 10,
+    fontWeight: '600',
   },
   planPrice: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  continueButton: {
-    marginHorizontal: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.lg,
-    minHeight: 52,
-    borderRadius: SIZES.radius.lg,
-    backgroundColor: '#BA68C8',
-  },
-  footerLinks: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.xl,
-  },
-  footerLink: {
-    fontSize: 14,
-    textDecorationLine: 'underline',
-  },
-  footerSeparator: {
-    fontSize: 14,
-    opacity: 0.5,
-  },
-  premiumCard: {
-    margin: SIZES.spacing.xl,
-    padding: SIZES.spacing.xl,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 200,
-    borderRadius: SIZES.radius.xl,
-  },
-  premiumTitle: {
-    marginTop: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.md,
-    textAlign: 'center',
-    fontSize: 24,
     fontWeight: '700',
+    marginBottom: SIZES.spacing.xs,
   },
-  premiumSubtitle: {
-    textAlign: 'center',
-    opacity: 0.8,
-    fontSize: 16,
+  planSavings: {
+    opacity: 0.7,
+    fontStyle: 'italic',
   },
 });

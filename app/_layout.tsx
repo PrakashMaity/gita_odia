@@ -5,6 +5,7 @@ import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { useRatingPrompter } from '@/hooks/useRatingPrompter';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
+import { initializeAds } from '@/services/ads/initializeAds';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
@@ -17,7 +18,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
-import { PermissionsAndroid, Platform, StatusBar as RNStatusBar } from 'react-native';
+import { PermissionsAndroid, Platform, StatusBar as RNStatusBar, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // Prevent splash screen from auto-hiding
@@ -62,6 +63,13 @@ export default function RootLayout() {
   // Initialize RevenueCat
   useEffect(() => {
     initializeRevenueCat();
+  }, []);
+
+  // Initialize Google Mobile Ads
+  useEffect(() => {
+    initializeAds().catch((error) => {
+      console.error('Error initializing ads:', error);
+    });
   }, []);
 
   // Initialize device registration
@@ -131,21 +139,31 @@ export default function RootLayout() {
     }
   }, [loaded, error, loadAllChapters]);
 
-  // Hide native splash screen when app is ready
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
+  // Hide native splash screen right when we're about to show animated splash
+  // This prevents white screen flash between native and animated splash
+  useEffect(() => {
+    if (appIsReady && showAnimatedSplash) {
+      // Hide native splash synchronously when animated splash is ready
+      // This ensures seamless transition without white flash
+      SplashScreen.hideAsync().catch(() => {
+        // Ignore errors if splash is already hidden
+      });
     }
-  }, [appIsReady]);
+  }, [appIsReady, showAnimatedSplash]);
 
   // Handle animated splash completion
   const handleAnimatedSplashComplete = useCallback(() => {
     setShowAnimatedSplash(false);
   }, []);
 
-  // Don't render app until ready
+  // Show loading placeholder with splash background color while app is loading
+  // This prevents white screen flash between native splash and animated splash
   if (!appIsReady) {
-    return null;
+    return (
+      <View style={{ flex: 1, backgroundColor: '#FFE0B2' }}>
+        {/* Keep native splash visible while loading */}
+      </View>
+    );
   }
 
   // Show animated splash screen first
@@ -160,7 +178,7 @@ export default function RootLayout() {
 
   return (
     <ErrorBoundary>
-      <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
         <ThemeProvider>
           <ThemedSafeAreaView variant='tertiary'>
             <ThemedView variant='secondary' style={{ flex: 1 }}>

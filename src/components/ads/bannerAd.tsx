@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { shouldShowAds } from '@/services/adFreeService';
+import React, { useEffect, useRef, useState } from 'react';
 import { Platform } from 'react-native';
 import { BannerAd, BannerAdSize, useForeground } from 'react-native-google-mobile-ads';
 import { BANNER_AD_UNIT_ID } from './config/config';
-import { shouldShowAds } from '@/services/adFreeService';
 
 interface BannerAdComponentProps {
   size?: BannerAdSize;
@@ -35,6 +35,8 @@ export const BannerAdComponent: React.FC<BannerAdComponentProps> = ({
 }) => {
   const bannerRef = useRef<BannerAd>(null);
   const [showAd, setShowAd] = useState(true);
+  const [adLoaded, setAdLoaded] = useState(false);
+  const [adError, setAdError] = useState<string | null>(null);
 
   // Check ad-free status
   useEffect(() => {
@@ -49,6 +51,25 @@ export const BannerAdComponent: React.FC<BannerAdComponentProps> = ({
     return () => clearInterval(interval);
   }, []);
 
+  // Handle ad load events
+  const handleAdLoaded = (dimensions: { width: number; height: number }) => {
+    setAdLoaded(true);
+    setAdError(null);
+    onAdLoaded?.(dimensions);
+    if (__DEV__) {
+      console.log('Banner ad loaded successfully', dimensions);
+    }
+  };
+
+  const handleAdFailedToLoad = (error: Error) => {
+    setAdLoaded(false);
+    setAdError(error.message);
+    onAdFailedToLoad?.(error);
+    if (__DEV__) {
+      console.warn('Banner ad failed to load:', error.message);
+    }
+  };
+
   // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
   // Therefore it's advised to "manually" request a new ad when the app is foregrounded
   useForeground(() => {
@@ -60,20 +81,31 @@ export const BannerAdComponent: React.FC<BannerAdComponentProps> = ({
   }
 
   return (
-    <BannerAd
-      ref={bannerRef}
-      unitId={BANNER_AD_UNIT_ID}
-      size={size}
-      requestOptions={requestOptions}
-      onAdLoaded={onAdLoaded}
-      onAdFailedToLoad={onAdFailedToLoad}
-      onAdOpened={onAdOpened}
-      onAdImpression={onAdImpression}
-      onAdClicked={onAdClicked}
-      onAdClosed={onAdClosed}
-      onPaid={onPaid}
-      onSizeChange={onSizeChange}
-    />
+    <>
+      <BannerAd
+        ref={bannerRef}
+        unitId={BANNER_AD_UNIT_ID}
+        size={size}
+        requestOptions={requestOptions}
+        onAdLoaded={handleAdLoaded}
+        onAdFailedToLoad={handleAdFailedToLoad}
+        onAdOpened={onAdOpened}
+        onAdImpression={onAdImpression}
+        onAdClicked={onAdClicked}
+        onAdClosed={onAdClosed}
+        onPaid={onPaid}
+        onSizeChange={onSizeChange}
+      />
+      {__DEV__ && (
+        <React.Fragment>
+          {adError && (
+            <React.Fragment>
+              {/* Debug info - remove in production */}
+            </React.Fragment>
+          )}
+        </React.Fragment>
+      )}
+    </>
   );
 };
 

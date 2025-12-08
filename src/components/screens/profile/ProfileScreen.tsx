@@ -1,28 +1,53 @@
-import { SettingsItem, SettingsSection } from '@/components/settings';
+import { SettingsItem, SettingsSection, SettingsToggle } from '@/components/settings';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useAdStatus } from '@/hooks/useAdStatus';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useProStatus } from '@/hooks/useProStatus';
 import { showRatingPrompt } from '@/hooks/useRatingPrompter';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { shareApp } from '@/services/appShareService';
+import { useSettingsStore } from '@/store/settingsStore';
 import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { ProfileHeader } from './components/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
 import { SubscriptionDetails } from './components/SubscriptionDetails';
 import { styles } from './ProfileScreen.styles';
 
+const adStatusStyles = StyleSheet.create({
+  statusContainer: {
+    marginTop: SIZES.spacing.sm,
+    padding: SIZES.spacing.sm,
+    borderRadius: SIZES.radius.md,
+    backgroundColor: 'rgba(0,0,0,0.05)',
+  },
+  statusTitle: {
+    marginBottom: SIZES.spacing.xs,
+    fontWeight: '600',
+  },
+  statusRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: SIZES.spacing.xs / 2,
+  },
+});
+
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
   const { showAlert, AlertComponent } = useCustomAlert();
   const { isPro, refreshStatus } = useProStatus();
+  const { settings, toggleDeveloperMode } = useSettingsStore();
+  const adStatus = useAdStatus();
 
   // Refresh PRO status when component mounts
   useEffect(() => {
@@ -34,20 +59,20 @@ export const ProfileScreen: React.FC = () => {
       const success = await shareApp();
       if (success) {
         showAlert(createSuccessAlert(
-          'Success',
-          'App shared successfully'
+          i18n.t('common.success'),
+          i18n.t('share.textShared')
         ));
       } else {
         showAlert(createErrorAlert(
-          'Error',
-          'Unable to share the app. Please try again.'
+          i18n.t('common.error'),
+          i18n.t('share.shareFailed')
         ));
       }
     } catch (error) {
       console.error('Error sharing app:', error);
       showAlert(createErrorAlert(
-        'Error',
-        'Unable to share the app. Please try again.'
+        i18n.t('common.error'),
+        i18n.t('share.shareFailed')
       ));
     }
   };
@@ -58,8 +83,8 @@ export const ProfileScreen: React.FC = () => {
     } catch (error) {
       console.error('Error showing rating prompt:', error);
       showAlert(createErrorAlert(
-        'Error',
-        'Unable to open rating prompt. Please try again.'
+        i18n.t('common.error'),
+        i18n.t('share.shareFailed')
       ));
     }
   };
@@ -82,7 +107,7 @@ export const ProfileScreen: React.FC = () => {
         >
           <SettingsSection 
             title="Points" 
-            description="Earn points by sharing and unlock an ad-free experience"
+            description={i18n.t('profile.pointsDesc')}
           >
             <PointsDisplay />
           </SettingsSection>
@@ -105,12 +130,12 @@ export const ProfileScreen: React.FC = () => {
 
           <SettingsSection 
             title="Sharing" 
-            description="View your sharing statistics and activity"
+            description={i18n.t('profile.sharingDesc')}
           >
             <ShareStats />
             <SettingsItem
-              title="Share App"
-              subtitle="Share this app with your friends and family"
+              title={i18n.t('profile.shareApp')}
+              subtitle={i18n.t('profile.shareAppDesc')}
               icon={<MaterialIcons name="share" size={SIZES.icon.md} color={theme.icon.primary} />}
               onPress={handleShareApp}
             />
@@ -118,21 +143,114 @@ export const ProfileScreen: React.FC = () => {
 
           <SettingsSection 
             title="About" 
-            description="App information and support"
+            description={i18n.t('profile.aboutDesc')}
           >
             <SettingsItem
-              title="App Version"
-              subtitle="Current version of the app"
+              title={i18n.t('profile.appVersion')}
+              subtitle={i18n.t('profile.appVersionDesc')}
               icon={<Feather name="info" size={SIZES.icon.md} color={theme.icon.primary} />}
               value={constants.expoConfig?.version}
             />
             <SettingsItem
-              title="Rate App"
-              subtitle="Share your feedback and rate the app"
+              title={i18n.t('profile.rateApp')}
+              subtitle={i18n.t('profile.rateAppDesc')}
               icon={<MaterialIcons name="star" size={SIZES.icon.md} color={theme.icon.primary} />}
               onPress={handleRateApp}
             />
           </SettingsSection>
+
+          {__DEV__ && (
+            <SettingsSection 
+              title={i18n.t('profile.developer')} 
+              description={i18n.t('profile.developerDesc')}
+            >
+              <SettingsToggle
+                title={i18n.t('profile.developerMode')}
+                subtitle={i18n.t('profile.developerModeDesc')}
+                value={settings.developerMode}
+                onValueChange={toggleDeveloperMode}
+                icon={<MaterialIcons name="code" size={SIZES.icon.md} color={theme.icon.primary} />}
+              />
+              
+              {/* Ad Status Information */}
+              <ThemedView style={adStatusStyles.statusContainer}>
+                <ThemedLanguageText 
+                  variant="secondary" 
+                  size="small" 
+                  fontFamily="none"
+                  style={[adStatusStyles.statusTitle, { color: theme.text.secondary }]}
+                >
+                  {i18n.t('profile.adsStatus')}
+                </ThemedLanguageText>
+                
+                <View style={adStatusStyles.statusRow}>
+                  <ThemedLanguageText 
+                    variant="secondary" 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ color: theme.text.secondary }}
+                  >
+                    {i18n.t('profile.adsInitialized')}:
+                  </ThemedLanguageText>
+                  <ThemedLanguageText 
+                    variant={adStatus.isInitialized ? 'primary' : 'secondary'} 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ 
+                      color: adStatus.isInitialized ? theme.status.success : theme.status.error,
+                      fontWeight: '600'
+                    }}
+                  >
+                    {adStatus.isInitialized ? i18n.t('common.yes') : i18n.t('common.no')}
+                  </ThemedLanguageText>
+                </View>
+                
+                <View style={adStatusStyles.statusRow}>
+                  <ThemedLanguageText 
+                    variant="secondary" 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ color: theme.text.secondary }}
+                  >
+                    {i18n.t('profile.adsEnabled')}:
+                  </ThemedLanguageText>
+                  <ThemedLanguageText 
+                    variant={adStatus.isEnabled ? 'primary' : 'secondary'} 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ 
+                      color: adStatus.isEnabled ? theme.status.success : theme.status.error,
+                      fontWeight: '600'
+                    }}
+                  >
+                    {adStatus.isEnabled ? i18n.t('common.yes') : i18n.t('common.no')}
+                  </ThemedLanguageText>
+                </View>
+                
+                <View style={adStatusStyles.statusRow}>
+                  <ThemedLanguageText 
+                    variant="secondary" 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ color: theme.text.secondary }}
+                  >
+                    {i18n.t('profile.adFreeActive')}:
+                  </ThemedLanguageText>
+                  <ThemedLanguageText 
+                    variant={adStatus.adFreeActive ? 'secondary' : 'primary'} 
+                    size="small" 
+                    fontFamily="none"
+                    style={{ 
+                      color: adStatus.adFreeActive ? theme.status.warning : theme.text.secondary,
+                      fontWeight: '600'
+                    }}
+                  >
+                    {adStatus.adFreeActive ? i18n.t('common.yes') : i18n.t('common.no')}
+                  </ThemedLanguageText>
+                </View>
+              </ThemedView>
+            </SettingsSection>
+          )}
 
           <ThemedView style={styles.bottomSpacing} />
         </ScrollView>

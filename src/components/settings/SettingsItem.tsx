@@ -3,6 +3,7 @@ import { SIZES } from '@/rootconstants/sizes';
 import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ThemedCard } from '../ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';
 import { ThemedView } from '../ui/ThemedView/ThemedView';
 
@@ -28,10 +29,16 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
   const theme = useThemeColors();
 
   const content = (
-    <ThemedView style={[styles.container]}>
+    <ThemedCard
+      variant="card"
+      style={styles.container}
+      pattern="mandala"
+      patternOpacity={0.08}
+      borderVariant="primary"
+    >
       <View style={styles.leftContent}>
         {icon && (
-          <View style={[styles.iconContainer, { backgroundColor: theme.background.quaternary }]}>
+          <ThemedView style={[styles.iconContainer, { backgroundColor: theme.background.tertiary }]}>
             {typeof icon === 'string' ? (
               <ThemedLanguageText style={[styles.icon, { color: theme.icon.primary }]}>
                 {icon}
@@ -39,7 +46,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
             ) : (
               icon
             )}
-          </View>
+          </ThemedView>
         )}
         <View style={styles.textContent}>
           <ThemedLanguageText 
@@ -85,7 +92,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
           </ThemedView>
         )}
       </View>
-    </ThemedView>
+    </ThemedCard>
   );
 
   if (onPress && !disabled) {
@@ -104,11 +111,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.md,
+    padding: SIZES.spacing.sm,
     marginVertical: SIZES.spacing.xs / 2,
-    minHeight: 56,
-    borderRadius: SIZES.radius.md,
+    minHeight: 80,
+    borderRadius: SIZES.radius.xl,
+    borderWidth: 1,
   },
   disabledContainer: {
     opacity: 0.5,
@@ -119,12 +126,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconContainer: {
-    marginRight: SIZES.spacing.sm,
-    width: 36,
-    height: 36,
-    borderRadius: SIZES.radius.md,
+    marginRight: SIZES.spacing.lg,
+    width: 48,
+    height: 48,
+    borderRadius: SIZES.radius.xl,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
   },
   icon: {
     fontSize: SIZES.icon.md,
@@ -132,6 +140,7 @@ const styles = StyleSheet.create({
   },
   textContent: {
     flex: 1,
+    justifyContent: 'center',
   },
   title: {
     marginBottom: 3,

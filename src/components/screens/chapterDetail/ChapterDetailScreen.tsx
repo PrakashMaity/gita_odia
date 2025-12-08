@@ -1,23 +1,24 @@
 import { ReadingProgress } from '@/components/progress';
+import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
+import { LoadingState, PageHeader } from '@/components/shared';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { VerseReader } from '@/components/verseReader';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useChapterStore } from '@/store';
+import { LayoutImages } from '@/utils/assets';
+import { MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
-import React, { useCallback, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { PageHeader, LoadingState } from '@/components/shared';
+import { styles } from './ChapterDetailScreen.styles';
 import { ErrorState } from './components/ErrorState';
 import { VerseNavigation } from './components/VerseNavigation';
 import { useChapterDetailInitialization } from './hooks/useChapterDetailInitialization';
 import { useChapterDetailOperations } from './hooks/useChapterDetailOperations';
-import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
-import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { styles } from './ChapterDetailScreen.styles';
-import { LayoutImages } from '@/utils/assets';
 
 export const ChapterDetailScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -27,6 +28,8 @@ export const ChapterDetailScreen: React.FC = () => {
   const [showTranslation, setShowTranslation] = React.useState(true);
   const [showLanguage, setShowLanguage] = React.useState(true);
   const [isFullChapterAudioModalVisible, setIsFullChapterAudioModalVisible] = useState(false);
+  const { showAd } = useInterstitialAd();
+  const chapterCompletedRef = useRef(false);
 
   const { 
     chapterData, 
@@ -50,6 +53,23 @@ export const ChapterDetailScreen: React.FC = () => {
 
   const toggleTranslation = useCallback(() => setShowTranslation(prev => !prev), []);
   const toggleLanguage = useCallback(() => setShowLanguage(prev => !prev), []);
+
+  // Show interstitial ad when chapter is completed
+  useEffect(() => {
+    if (
+      chapterData &&
+      chapterData.verses &&
+      currentVerse === chapterData.verses.length - 1 &&
+      !chapterCompletedRef.current
+    ) {
+      chapterCompletedRef.current = true;
+      // Show ad after a delay to let user see completion state
+      const timer = setTimeout(() => {
+        showAd();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentVerse, chapterData, showAd]);
 
   if (isLoading || !isInitialized) {
     return <LoadingState message={i18n.t('chapter.loading')} />;

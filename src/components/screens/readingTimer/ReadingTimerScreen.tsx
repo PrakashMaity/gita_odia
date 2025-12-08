@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { View, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { PageHeader } from '@/components/shared';
-import { SIZES } from '@/rootconstants/sizes';
-import i18n from '@/i18n';
-import * as Haptics from 'expo-haptics';
-import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
-import { TimerDisplay } from './components/TimerDisplay';
-import { TimerControls } from './components/TimerControls';
-import { SoundSelector } from './components/SoundSelector';
-import { LayoutImages } from '@/utils/assets';
+import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/i18n';
+import { LayoutImages } from '@/utils/assets';
+import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
+import * as Haptics from 'expo-haptics';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ImageBackground, ScrollView, TouchableOpacity, View } from 'react-native';
+import { SoundSelector } from './components/SoundSelector';
+import { TimerControls } from './components/TimerControls';
+import { TimerDisplay } from './components/TimerDisplay';
 import { styles } from './ReadingTimerScreen.styles';
 
 type TimerState = 'idle' | 'running' | 'paused' | 'completed';
@@ -28,6 +28,7 @@ export const ReadingTimerScreen: React.FC = () => {
   const [selectedPreset, setSelectedPreset] = useState<number>(15);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const soundInitialized = useRef(false);
+  const { showAd } = useInterstitialAd();
 
   // Initialize audio
   useEffect(() => {
@@ -82,7 +83,13 @@ export const ReadingTimerScreen: React.FC = () => {
     if (selectedSound !== 'none' && soundInitialized.current) {
       playCompletionSound(selectedSound);
     }
-  }, [selectedSound]);
+
+    // Show interstitial ad after timer completion
+    // Small delay to let user see completion state first
+    setTimeout(() => {
+      showAd();
+    }, 1000);
+  }, [selectedSound, showAd]);
 
   const playCompletionSound = (soundType: SoundType) => {
     if (!soundInitialized.current) return;

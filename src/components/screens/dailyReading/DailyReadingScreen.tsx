@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { View, ScrollView, ImageBackground, Dimensions } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { BannerAdComponent } from '@/components/ads';
 import { PageHeader } from '@/components/shared';
-import { WavePattern } from '@/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
+import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { WavePattern } from '@/illustration/cardBackground';
+import { SIZES } from '@/rootconstants/sizes';
 import { useDailyReadingStore } from '@/store/dailyReadingStore';
+import { LayoutImages } from '@/utils/assets';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, ImageBackground, ScrollView, View } from 'react-native';
 import { StatsCard } from './components/StatsCard';
 import { StreakCard } from './components/StreakCard';
 import { WeeklyChart } from './components/WeeklyChart';
-import { LayoutImages } from '@/utils/assets';
 import { styles } from './DailyReadingScreen.styles';
 
 export const DailyReadingScreen: React.FC = () => {
@@ -141,6 +142,11 @@ export const DailyReadingScreen: React.FC = () => {
                 : i18n.t('dailyReading.startMessage')}
             </ThemedLanguageText>
           </ThemedCard>
+
+          {/* Banner Ad */}
+          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+            <BannerAdComponent />
+          </ThemedView>
         </ScrollView>
       </ThemedView>
     </ImageBackground>

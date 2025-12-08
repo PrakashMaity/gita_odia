@@ -8,6 +8,7 @@ export interface Settings {
   fontSize: 'small' | 'medium' | 'large';
   language: 'Language' | 'english' | 'hindi';
   onboardingCompleted: boolean;
+  developerMode: boolean; // Developer mode toggle for ads
 }
 
 interface SettingsStore {
@@ -19,6 +20,7 @@ interface SettingsStore {
   resetOnboarding: () => void;
   toggleNotifications: () => void;
   toggleAutoPlayNext: () => void;
+  toggleDeveloperMode: () => void;
 }
 
 const defaultSettings: Settings = {
@@ -27,6 +29,7 @@ const defaultSettings: Settings = {
   fontSize: 'medium',
   language: 'Language',
   onboardingCompleted: false,
+  developerMode: false, // Default: ads are enabled
 };
 
 export const useSettingsStore = create<SettingsStore>()(
@@ -78,6 +81,14 @@ export const useSettingsStore = create<SettingsStore>()(
           settings: {
             ...state.settings,
             autoPlayNext: !state.settings.autoPlayNext,
+          },
+        })),
+      
+      toggleDeveloperMode: () =>
+        set((state) => ({
+          settings: {
+            ...state.settings,
+            developerMode: !state.settings.developerMode,
           },
         })),
     }),

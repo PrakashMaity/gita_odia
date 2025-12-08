@@ -1,20 +1,18 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { PageHeader } from '@/components/shared';
-import { SIZES } from '@/rootconstants/sizes';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
+import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
+import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
-import { useTextToSpeech } from '@/hooks/useTextToSpeech';
-import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {
+    ScrollView,
+    StyleSheet,
+    View
+} from 'react-native';
 import { MalaBeads } from './components/MalaBeads';
 import { MantraSelector } from './components/MantraSelector';
 import { ProgressCards } from './components/ProgressCards';

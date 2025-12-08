@@ -1,3 +1,4 @@
+import { BannerAdComponent } from '@/components/ads';
 import { MangalacharanSectionCard } from '@/components/screens/mangalacharan/components/MangalacharanSectionCard';
 import { LoadingState } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
@@ -5,6 +6,7 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useTranslationStore } from '@/store';
 import { LayoutImages } from '@/utils/assets';
 import { useEffect } from 'react';
@@ -82,6 +84,11 @@ export const TranslationsScreen: React.FC = () => {
               {i18n.t('translations.motivationText')}
             </ThemedLanguageText>
           </ThemedCard>
+
+          {/* Banner Ad */}
+          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+            <BannerAdComponent />
+          </ThemedView>
         </ScrollView>
       </ThemedView>
     </ImageBackground>

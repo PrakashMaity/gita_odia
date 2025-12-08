@@ -1,9 +1,11 @@
+import { BannerAdComponent } from '@/components/ads';
 import { LoadingState } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import { useBookmarkStore } from '@/store';
 import { LayoutImages } from '@/utils/assets';
 import { convertToLocalizedNumber } from '@/utils/numberConverter';
@@ -142,6 +144,11 @@ export const BookmarksScreen: React.FC = () => {
                 {i18n.t('bookmark.footerMessage')}
               </ThemedLanguageText>
             </ThemedCard>
+
+            {/* Banner Ad */}
+            <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+              <BannerAdComponent />
+            </ThemedView>
           </ScrollView>
         )}
       </ThemedView>

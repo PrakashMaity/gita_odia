@@ -25,8 +25,10 @@ class RevenueCatService {
       return;
     }
     try {
-      // Set log level - use VERBOSE for debugging, ERROR for production
-      Purchases.setLogLevel(__DEV__ ? LOG_LEVEL.VERBOSE : LOG_LEVEL.ERROR);
+      // Set log level - use WARN to suppress DEBUG logs, ERROR for production
+      // Set to LOG_LEVEL.ERROR to completely disable all logs except errors
+      // Set to LOG_LEVEL.VERBOSE only when you need detailed debugging
+      Purchases.setLogLevel(LOG_LEVEL.ERROR); // Only show errors, suppress all DEBUG logs
 
       // Configure with platform-specific API keys
       if (Platform.OS === 'ios') {

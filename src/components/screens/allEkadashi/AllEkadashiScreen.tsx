@@ -1,20 +1,45 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { PageHeader } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { WavePattern } from '@/illustration/cardBackground';
-import i18n from '@/i18n';
-import { Dimensions, ImageBackground, ScrollView, View } from 'react-native';
-import { PageHeader } from '@/components/shared';
-import { styles } from './AllEkadashiScreen.styles';
-import { LayoutImages } from '@/utils/assets';
-import { SIZES } from '@/rootconstants/sizes';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
-import { useMemo } from 'react';
+import i18n from '@/i18n';
+import { WavePattern } from '@/illustration/cardBackground';
+import { LayoutImages } from '@/utils/assets';
+import { router, useLocalSearchParams } from 'expo-router';
+import { useMemo, useState } from 'react';
+import { Dimensions, ImageBackground, ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
+import { styles } from './AllEkadashiScreen.styles';
 
 export const AllEkadashiScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');
   const theme = useThemeColors();
-  const ekadashiList = i18n.t('allEkadashi.ekadashiList') as any[];
+  const params = useLocalSearchParams();
+  const [selectedYear, setSelectedYear] = useState<string>(params.year as string || '1432');
+  
+  // Get ekadashi data for the selected year
+  const getEkadashiDataForYear = (year: string) => {
+    try {
+      // Try to get the year-specific data
+      const allEkadashiData = i18n.t('allEkadashi') as any;
+      const yearsData = allEkadashiData?.years;
+      if (yearsData && yearsData[year]) {
+        return yearsData[year].ekadashiList || [];
+      }
+      // Fallback: try direct access
+      const yearData = i18n.t(`allEkadashi.years.${year}`) as any;
+      if (yearData && yearData.ekadashiList) {
+        return yearData.ekadashiList;
+      }
+    } catch (error) {
+      console.error('Error loading ekadashi data:', error);
+    }
+    return [];
+  };
+
+  const ekadashiList = useMemo(() => {
+    return getEkadashiDataForYear(selectedYear);
+  }, [selectedYear]);
 
   // Calculate upcoming Ekadashi
   const { upcomingEkadashi, upcomingIndex } = useMemo(() => {
@@ -43,13 +68,86 @@ export const AllEkadashiScreen: React.FC = () => {
       <ThemedView variant="transparent" style={styles.container}>
         <WavePattern width={width} height={height} />
         
-        <PageHeader title={i18n.t('allEkadashi.title')} />
+        <PageHeader title={`${i18n.t('menu.allEkadashi')} ${selectedYear}`} />
 
         <ScrollView 
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* Year Selection Card */}
+          <ThemedCard style={styles.yearSelectorCard}>
+            <ThemedLanguageText 
+              variant="primary"
+              size="medium"
+              fontFamily="regional_secondary"
+              style={styles.yearLabel}
+            >
+              বছর নির্বাচন করুন:
+            </ThemedLanguageText>
+            <View style={styles.yearInputContainer}>
+              <TextInput
+                style={[
+                  styles.yearInput,
+                  {
+                    color: theme.text.primary,
+                    borderColor: theme.border.primary,
+                    backgroundColor: theme.background.secondary,
+                  }
+                ]}
+                value={selectedYear}
+                onChangeText={(text) => {
+                  // Only allow numbers
+                  const numericText = text.replace(/[^0-9]/g, '');
+                  if (numericText.length <= 4) {
+                    setSelectedYear(numericText);
+                  }
+                }}
+                placeholder="1432"
+                placeholderTextColor={theme.text.tertiary}
+                keyboardType="numeric"
+                maxLength={4}
+                onSubmitEditing={() => {
+                  // Update URL when year is submitted
+                  if (selectedYear && ['1432', '1433', '1434', '1435'].includes(selectedYear)) {
+                    router.setParams({ year: selectedYear });
+                  }
+                }}
+              />
+              <View style={styles.yearButtonsContainer}>
+                {['1432', '1433', '1434', '1435'].map((year) => (
+                  <TouchableOpacity
+                    key={year}
+                    onPress={() => {
+                      setSelectedYear(year);
+                      router.setParams({ year });
+                    }}
+                    style={[
+                      styles.yearButton,
+                      {
+                        backgroundColor: selectedYear === year 
+                          ? theme.background.tertiary 
+                          : theme.background.secondary,
+                        borderColor: selectedYear === year 
+                          ? theme.border.primary 
+                          : theme.border.secondary,
+                      }
+                    ]}
+                  >
+                    <ThemedLanguageText 
+                      variant={selectedYear === year ? 'primary' : 'secondary'}
+                      size="small"
+                      fontFamily="regional_secondary"
+                      style={styles.yearButtonText}
+                    >
+                      {year}
+                    </ThemedLanguageText>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
+          </ThemedCard>
+
           <ThemedCard style={styles.introCard}>
             <ThemedLanguageText 
               variant="primary"
