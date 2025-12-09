@@ -1,7 +1,6 @@
-import { SettingsItem, SettingsSection, SettingsToggle } from '@/components/settings';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { PasswordModal } from '@/components/screens/developer/components/PasswordModal/PasswordModal';
+import { SettingsItem, SettingsSection } from '@/components/settings';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useAdStatus } from '@/hooks/useAdStatus';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useProStatus } from '@/hooks/useProStatus';
 import { showRatingPrompt } from '@/hooks/useRatingPrompter';
@@ -9,46 +8,25 @@ import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { shareApp } from '@/services/appShareService';
-import { clearProMode } from '@/services/proService';
-import { useSettingsStore } from '@/store/settingsStore';
 import { LayoutImages } from '@/utils/assets';
 import Feather from '@expo/vector-icons/Feather';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import constants from 'expo-constants';
 import { router } from 'expo-router';
-import { useEffect } from 'react';
-import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { ImageBackground, ScrollView } from 'react-native';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { ProfileHeader } from './components/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
 import { SubscriptionDetails } from './components/SubscriptionDetails';
 import { styles } from './ProfileScreen.styles';
 
-const adStatusStyles = StyleSheet.create({
-  statusContainer: {
-    marginTop: SIZES.spacing.sm,
-    padding: SIZES.spacing.sm,
-    borderRadius: SIZES.radius.md,
-    backgroundColor: 'rgba(0,0,0,0.05)',
-  },
-  statusTitle: {
-    marginBottom: SIZES.spacing.xs,
-    fontWeight: '600',
-  },
-  statusRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: SIZES.spacing.xs / 2,
-  },
-});
-
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
   const { showAlert, AlertComponent } = useCustomAlert();
   const { isPro, refreshStatus } = useProStatus();
-  const { settings, toggleDeveloperMode } = useSettingsStore();
-  const adStatus = useAdStatus();
+  const [showDeveloperButton, setShowDeveloperButton] = useState(false);
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
 
   // Refresh PRO status when component mounts
   useEffect(() => {
@@ -90,29 +68,24 @@ export const ProfileScreen: React.FC = () => {
     }
   };
 
-  const handleClearProMode = async () => {
-    try {
-      const result = await clearProMode();
-      if (result.success) {
-        showAlert(createSuccessAlert(
-          i18n.t('common.success', { defaultValue: 'Success' }),
-          result.message
-        ));
-        // Refresh Pro status to update UI
-        await refreshStatus();
-      } else {
-        showAlert(createErrorAlert(
-          i18n.t('common.error', { defaultValue: 'Error' }),
-          result.message
-        ));
-      }
-    } catch (error) {
-      console.error('Error clearing Pro mode:', error);
-      showAlert(createErrorAlert(
-        i18n.t('common.error', { defaultValue: 'Error' }),
-        'Failed to clear Pro mode. Please try again.'
-      ));
-    }
+  const handleTitleTaps = () => {
+    // Show developer button after 10 taps on Settings title
+    setShowDeveloperButton(true);
+  };
+
+  const handleDeveloperButtonClick = () => {
+    // When developer button is clicked, show password modal
+    setShowPasswordModal(true);
+  };
+
+  const handlePasswordSuccess = () => {
+    setShowPasswordModal(false);
+    setShowDeveloperButton(false);
+    router.push('/developer-panel');
+  };
+
+  const handlePasswordCancel = () => {
+    setShowPasswordModal(false);
   };
 
   return (
@@ -124,7 +97,17 @@ export const ProfileScreen: React.FC = () => {
     >
       <ThemedView variant='transparent' style={styles.container}>
         {AlertComponent}
-        <ProfileHeader />
+        <ProfileHeader
+          onDeveloperButtonPress={handleTitleTaps}
+          showDeveloperButton={showDeveloperButton}
+          onDeveloperButtonClick={handleDeveloperButtonClick}
+        />
+        
+        <PasswordModal
+          visible={showPasswordModal}
+          onSuccess={handlePasswordSuccess}
+          onCancel={handlePasswordCancel}
+        />
 
         <ScrollView 
           style={styles.scrollView}
@@ -184,106 +167,6 @@ export const ProfileScreen: React.FC = () => {
               onPress={handleRateApp}
             />
           </SettingsSection>
-
-          {__DEV__ && (
-            <SettingsSection 
-              title={i18n.t('profile.developer')} 
-              description={i18n.t('profile.developerDesc')}
-            >
-              <SettingsToggle
-                title={i18n.t('profile.developerMode')}
-                subtitle={i18n.t('profile.developerModeDesc')}
-                value={settings.developerMode}
-                onValueChange={toggleDeveloperMode}
-                icon={<MaterialIcons name="code" size={SIZES.icon.md} color={theme.icon.primary} />}
-              />
-              
-              <SettingsItem
-                title={i18n.t('profile.clearProMode', { defaultValue: 'Clear Pro Mode' })}
-                subtitle={i18n.t('profile.clearProModeDesc', { defaultValue: 'Remove all Pro status and reset Pro mode' })}
-                icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.md} color={theme.icon.primary} />}
-                onPress={handleClearProMode}
-              />
-              
-              {/* Ad Status Information */}
-              <ThemedView style={adStatusStyles.statusContainer}>
-                <ThemedLanguageText 
-                  variant="secondary" 
-                  size="small" 
-                  fontFamily="none"
-                  style={[adStatusStyles.statusTitle, { color: theme.text.secondary }]}
-                >
-                  {i18n.t('profile.adsStatus')}
-                </ThemedLanguageText>
-                
-                <View style={adStatusStyles.statusRow}>
-                  <ThemedLanguageText 
-                    variant="secondary" 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ color: theme.text.secondary }}
-                  >
-                    {i18n.t('profile.adsInitialized')}:
-                  </ThemedLanguageText>
-                  <ThemedLanguageText 
-                    variant={adStatus.isInitialized ? 'primary' : 'secondary'} 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ 
-                      color: adStatus.isInitialized ? theme.status.success : theme.status.error,
-                      fontWeight: '600'
-                    }}
-                  >
-                    {adStatus.isInitialized ? i18n.t('common.yes') : i18n.t('common.no')}
-                  </ThemedLanguageText>
-                </View>
-                
-                <View style={adStatusStyles.statusRow}>
-                  <ThemedLanguageText 
-                    variant="secondary" 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ color: theme.text.secondary }}
-                  >
-                    {i18n.t('profile.adsEnabled')}:
-                  </ThemedLanguageText>
-                  <ThemedLanguageText 
-                    variant={adStatus.isEnabled ? 'primary' : 'secondary'} 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ 
-                      color: adStatus.isEnabled ? theme.status.success : theme.status.error,
-                      fontWeight: '600'
-                    }}
-                  >
-                    {adStatus.isEnabled ? i18n.t('common.yes') : i18n.t('common.no')}
-                  </ThemedLanguageText>
-                </View>
-                
-                <View style={adStatusStyles.statusRow}>
-                  <ThemedLanguageText 
-                    variant="secondary" 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ color: theme.text.secondary }}
-                  >
-                    {i18n.t('profile.adFreeActive')}:
-                  </ThemedLanguageText>
-                  <ThemedLanguageText 
-                    variant={adStatus.adFreeActive ? 'secondary' : 'primary'} 
-                    size="small" 
-                    fontFamily="none"
-                    style={{ 
-                      color: adStatus.adFreeActive ? theme.status.warning : theme.text.secondary,
-                      fontWeight: '600'
-                    }}
-                  >
-                    {adStatus.adFreeActive ? i18n.t('common.yes') : i18n.t('common.no')}
-                  </ThemedLanguageText>
-                </View>
-              </ThemedView>
-            </SettingsSection>
-          )}
 
           <ThemedView style={styles.bottomSpacing} />
         </ScrollView>

@@ -2,7 +2,7 @@ import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
 import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import { MaterialIcons } from '@expo/vector-icons';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedCard } from '../ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';
 import { ThemedView } from '../ui/ThemedView/ThemedView';
@@ -30,13 +30,13 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
 
   const content = (
     <ThemedCard
-      variant="card"
+      variant="primary"
       style={styles.container}
       pattern="mandala"
       patternOpacity={0.08}
       borderVariant="primary"
     >
-      <View style={styles.leftContent}>
+      <ThemedView style={styles.leftContent}>
         {icon && (
           <ThemedView style={[styles.iconContainer, { backgroundColor: theme.background.tertiary }]}>
             {typeof icon === 'string' ? (
@@ -48,11 +48,11 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
             )}
           </ThemedView>
         )}
-        <View style={styles.textContent}>
+        <ThemedView style={styles.textContent}>
           <ThemedLanguageText 
             variant='primary'
             size='medium' 
-            fontFamily='none' 
+            fontFamily='regional_secondary' 
             style={[styles.title, { color: theme.text.primary }]}
           >
             {title}
@@ -61,21 +61,21 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
             <ThemedLanguageText 
               variant='secondary'
               size='small'
-              fontFamily='none' 
+              fontFamily='regional_secondary' 
               style={[styles.subtitle, { color: theme.text.secondary }]}
             >
               {subtitle}
             </ThemedLanguageText>
           )}
-        </View>
-      </View>
+        </ThemedView>
+      </ThemedView>
       
-      <View style={styles.rightContent}>
+      <ThemedView style={styles.rightContent}>
         {value && (
           <ThemedLanguageText 
             variant='secondary'
             size='small'
-            fontFamily='none'
+            fontFamily='regional_secondary'
             style={[styles.value, { color: theme.text.secondary }]}
           >
             {value}
@@ -91,7 +91,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
             />
           </ThemedView>
         )}
-      </View>
+      </ThemedView>
     </ThemedCard>
   );
 
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: 3,
     textTransform: 'none',
-    fontWeight: '700',
+   
     letterSpacing: 0.3,
     lineHeight: 20,
   },
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     letterSpacing: 0.2,
     fontSize: 13,
-    fontWeight: '400',
+   
   },
   rightContent: {
     flexDirection: 'row',

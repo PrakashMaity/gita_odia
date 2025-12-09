@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator, TouchableOpacity, ViewStyle } from 'react-native';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import { getCombinedShareStatistics, ShareStatistics } from '@/services/shareAnalyticsService';
 import { SIZES } from '@/rootconstants/sizes';
+import { getCombinedShareStatistics, ShareStatistics } from '@/services/shareAnalyticsService';
 import Feather from '@expo/vector-icons/Feather';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
 interface ShareStatsProps {
   style?: any;
@@ -25,11 +25,11 @@ const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highli
   const highlightStyle: ViewStyle = highlight ? styles.highlightCard : {};
 
   return (
-    <ThemedCard variant="card" style={[styles.statsCard, highlightStyle]}>
+    <ThemedCard variant="primary" style={[styles.statsCard, highlightStyle]}>
       {icon && (
-        <View style={styles.iconWrapper}>
+        <ThemedView style={styles.iconWrapper}>
           <Feather name={icon as any} size={SIZES.icon.lg} color={theme.icon.primary} />
-        </View>
+        </ThemedView>
       )}
       <ThemedLanguageText
         variant="primary"
@@ -62,10 +62,10 @@ interface CategorySectionProps {
 
 const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, theme, isExpanded, onToggle }) => {
   return (
-    <ThemedCard variant="card" style={styles.accordionCard}>
+    <ThemedCard variant="primary" style={styles.accordionCard}>
       <TouchableOpacity onPress={onToggle} activeOpacity={0.7}>
-        <View style={styles.categoryHeader}>
-          <View style={styles.categoryHeaderLeft}>
+        <ThemedView style={styles.categoryHeader}>
+          <ThemedView style={styles.categoryHeaderLeft}>
             <Feather name={icon as any} size={SIZES.icon.md} color={theme.icon.primary} />
             <ThemedLanguageText
               variant="primary"
@@ -75,8 +75,8 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
             >
               {title}
             </ThemedLanguageText>
-          </View>
-          <View style={styles.categoryHeaderRight}>
+          </ThemedView>
+          <ThemedView style={styles.categoryHeaderRight}>
             <ThemedLanguageText
               variant="secondary"
               size="small"
@@ -91,12 +91,12 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
               color={theme.icon.secondary}
               style={styles.chevronIcon}
             />
-          </View>
-        </View>
+          </ThemedView>
+        </ThemedView>
       </TouchableOpacity>
       
       {isExpanded && (
-        <View style={styles.statsRow}>
+        <ThemedView style={styles.statsRow}>
           <StatsCard 
             label={i18n.t('profile.today')} 
             value={stats.today} 
@@ -115,7 +115,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
             theme={theme}
             icon="trending-up"
           />
-        </View>
+        </ThemedView>
       )}
     </ThemedCard>
   );
@@ -189,15 +189,15 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
   return (
     <ThemedView style={[styles.container, style]}>
       {/* Summary Section - Now also accordion */}
-      <ThemedCard variant="card" style={styles.accordionCard}>
+      <ThemedCard variant="primary" style={styles.accordionCard}>
         <TouchableOpacity 
           onPress={() => toggleSection('summary')} 
           activeOpacity={0.7}
         >
-          <View style={styles.summaryHeader}>
-            <View style={styles.summaryHeaderLeft}>
+          <ThemedView style={styles.summaryHeader}>
+            <ThemedView style={styles.summaryHeaderLeft}>
               <Feather name="share-2" size={SIZES.icon.lg} color={theme.icon.primary} />
-              <View style={styles.summaryTitleContainer}>
+              <ThemedView style={styles.summaryTitleContainer}>
                 <ThemedLanguageText
                   variant="primary"
                   size="medium"
@@ -214,9 +214,9 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                 >
                   {i18n.t('profile.allTime')}: {totalStats.total} {i18n.t('profile.totalShares')}
                 </ThemedLanguageText>
-              </View>
-            </View>
-            <View style={styles.summaryHeaderRight}>
+              </ThemedView>
+            </ThemedView>
+            <ThemedView style={styles.summaryHeaderRight}>
               <TouchableOpacity 
                 onPress={(e) => {
                   e.stopPropagation();
@@ -237,20 +237,20 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                 color={theme.icon.secondary}
                 style={styles.chevronIcon}
               />
-            </View>
-          </View>
+            </ThemedView>
+          </ThemedView>
         </TouchableOpacity>
         
         {refreshing && (
-          <View style={styles.refreshingIndicator}>
+          <ThemedView style={styles.refreshingIndicator}>
             <ActivityIndicator size="small" color={theme.icon.primary} />
-          </View>
+          </ThemedView>
         )}
 
         {expandedSections.summary && (
           <>
             {hasNoShares ? (
-              <View style={styles.emptyState}>
+              <ThemedView style={styles.emptyState}>
                 <Feather name="share-2" size={SIZES.icon.xxl} color={theme.icon.secondary} />
                 <ThemedLanguageText
                   variant="secondary"
@@ -268,11 +268,11 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                 >
                   {i18n.t('profile.shareAppDesc')}
                 </ThemedLanguageText>
-              </View>
+              </ThemedView>
             ) : (
               <>
                 {/* Total Highlights */}
-                <View style={styles.highlightsRow}>
+                <ThemedView style={styles.highlightsRow}>
                   <StatsCard 
                     label={i18n.t('profile.today')} 
                     value={totalStats.today} 
@@ -294,7 +294,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                     icon="activity"
                     highlight={totalStats.month > 0}
                   />
-                </View>
+                </ThemedView>
               </>
             )}
           </>

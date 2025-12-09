@@ -8,8 +8,17 @@ import { WavePattern } from '@/illustration/cardBackground';
 import { LayoutImages } from '@/utils/assets';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Dimensions, ImageBackground, ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ImageBackground, ScrollView, TouchableOpacity, View } from 'react-native';
 import { styles } from './AllEkadashiScreen.styles';
+
+type EkadashiItem = {
+  name: string;
+  englishDate?: string;
+  bengaliDate?: string;
+  description?: string;
+  benefits?: string[];
+  dateTimestamp?: number;
+};
 
 export const AllEkadashiScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');
@@ -18,18 +27,18 @@ export const AllEkadashiScreen: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<string>(params.year as string || '1432');
   
   // Get ekadashi data for the selected year
-  const getEkadashiDataForYear = (year: string) => {
+  const getEkadashiDataForYear = (year: string): EkadashiItem[] => {
     try {
       // Try to get the year-specific data
       const allEkadashiData = i18n.t('allEkadashi') as any;
       const yearsData = allEkadashiData?.years;
       if (yearsData && yearsData[year]) {
-        return yearsData[year].ekadashiList || [];
+        return (yearsData[year].ekadashiList || []) as EkadashiItem[];
       }
       // Fallback: try direct access
       const yearData = i18n.t(`allEkadashi.years.${year}`) as any;
       if (yearData && yearData.ekadashiList) {
-        return yearData.ekadashiList;
+        return yearData.ekadashiList as EkadashiItem[];
       }
     } catch (error) {
       console.error('Error loading ekadashi data:', error);
@@ -37,7 +46,7 @@ export const AllEkadashiScreen: React.FC = () => {
     return [];
   };
 
-  const ekadashiList = useMemo(() => {
+  const ekadashiList = useMemo<EkadashiItem[]>(() => {
     return getEkadashiDataForYear(selectedYear);
   }, [selectedYear]);
 
@@ -86,34 +95,7 @@ export const AllEkadashiScreen: React.FC = () => {
               বছর নির্বাচন করুন:
             </ThemedLanguageText>
             <View style={styles.yearInputContainer}>
-              <TextInput
-                style={[
-                  styles.yearInput,
-                  {
-                    color: theme.text.primary,
-                    borderColor: theme.border.primary,
-                    backgroundColor: theme.background.secondary,
-                  }
-                ]}
-                value={selectedYear}
-                onChangeText={(text) => {
-                  // Only allow numbers
-                  const numericText = text.replace(/[^0-9]/g, '');
-                  if (numericText.length <= 4) {
-                    setSelectedYear(numericText);
-                  }
-                }}
-                placeholder="1432"
-                placeholderTextColor={theme.text.tertiary}
-                keyboardType="numeric"
-                maxLength={4}
-                onSubmitEditing={() => {
-                  // Update URL when year is submitted
-                  if (selectedYear && ['1432', '1433', '1434', '1435'].includes(selectedYear)) {
-                    router.setParams({ year: selectedYear });
-                  }
-                }}
-              />
+             
               <View style={styles.yearButtonsContainer}>
                 {['1432', '1433', '1434', '1435'].map((year) => (
                   <TouchableOpacity

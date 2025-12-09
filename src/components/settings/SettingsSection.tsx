@@ -1,6 +1,6 @@
 import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { ThemedCard } from '../ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '../ui/ThemedLanguageText';
 import { ThemedView } from '../ui/ThemedView/ThemedView';
@@ -20,13 +20,13 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
 
   return (
     <ThemedCard 
-      variant="card" 
+      variant="primary" 
       style={styles.container}
       pattern='mandala' 
       patternOpacity={0.08}
       borderVariant="primary"
     >
-      <View style={styles.header}>
+      <ThemedView style={styles.header}>
         <ThemedView style={[styles.indicator, { backgroundColor: theme.status.success + '40' }]} />
         <ThemedLanguageText 
           variant='primary'
@@ -36,21 +36,21 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
         >
           {title}
         </ThemedLanguageText>
-      </View>
+      </ThemedView>
       {description && (
         <ThemedLanguageText 
           variant='secondary'
           size='small'
-          fontFamily='none' 
+          fontFamily='regional_secondary' 
           style={[styles.description, { color: theme.text.secondary }]}
         >
           {description}
         </ThemedLanguageText>
       )}
       
-      <View style={styles.content}>
+      <ThemedView style={styles.content}>
         {children}
-      </View>
+      </ThemedView>
     </ThemedCard>
   );
 };

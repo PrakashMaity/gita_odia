@@ -11,7 +11,7 @@ import { canExtendProWithPoints, extendProWithPoints } from '@/services/proServi
 import { getPointsData, PointsData, REDEEM_THRESHOLD, redeemPoints } from '@/services/shareAnalyticsService';
 import Feather from '@expo/vector-icons/Feather';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Modal, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Modal, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 interface PointsDisplayProps {
   style?: any;
@@ -173,14 +173,14 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
   return (
     <ThemedView style={[styles.container, style]}>
       {AlertComponent}
-      <ThemedCard variant="card" style={styles.pointsCard}>
+      <ThemedCard variant="primary" style={styles.pointsCard}>
         {/* Header with Current Points */}
-        <View style={styles.pointsHeader}>
-          <View style={styles.pointsHeaderLeft}>
-            <View style={styles.pointsIconContainer}>
+        <ThemedView style={styles.pointsHeader}>
+          <ThemedView style={styles.pointsHeaderLeft}>
+            <ThemedView style={styles.pointsIconContainer}>
               <Feather name="award" size={SIZES.icon.lg} color={theme.icon.primary} />
-            </View>
-            <View style={styles.pointsTitleContainer}>
+            </ThemedView>
+            <ThemedView style={styles.pointsTitleContainer}>
               <ThemedLanguageText
                 variant="primary"
                 size="medium"
@@ -197,9 +197,9 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               >
                 {i18n.t('profile.pointsWindow')}
               </ThemedLanguageText>
-            </View>
-          </View>
-          <View style={styles.pointsValueContainer}>
+            </ThemedView>
+          </ThemedView>
+          <ThemedView style={styles.pointsValueContainer}>
             <ThemedLanguageText
               variant="primary"
               size="xxl"
@@ -229,18 +229,18 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                 color={refreshing ? theme.icon.disabled : theme.icon.secondary}
               />
             </TouchableOpacity>
-          </View>
-        </View>
+          </ThemedView>
+        </ThemedView>
         
         {refreshing && (
-          <View style={styles.refreshingIndicator}>
+          <ThemedView style={styles.refreshingIndicator}>
             <ActivityIndicator size="small" color={theme.icon.primary} />
-          </View>
+          </ThemedView>
         )}
 
         {/* Ad-Free Status */}
         {adFreeStatus?.isActive && (
-          <View style={[styles.adFreeBanner, { backgroundColor: adFreeBackgroundColor }]}>
+          <ThemedView style={[styles.adFreeBanner, { backgroundColor: adFreeBackgroundColor }]}>
             <Feather name="shield" size={SIZES.icon.sm} color={theme.icon.success || '#22c55e'} />
             <ThemedLanguageText
               variant="primary"
@@ -250,7 +250,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             >
               {i18n.t('profile.adFreeActive')} • {adFreeStatus.remainingDays} {i18n.t('profile.adFreeDays')} {adFreeStatus.remainingHours} {i18n.t('profile.adFreeHours')}
             </ThemedLanguageText>
-          </View>
+          </ThemedView>
         )}
 
         {/* Extend Pro Button */}
@@ -304,8 +304,8 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         )}
 
         {/* Points Details Row */}
-        <View style={styles.pointsDetailsRow}>
-          <View style={styles.pointsDetailCard}>
+        <ThemedView style={styles.pointsDetailsRow}>
+          <ThemedView style={styles.pointsDetailCard}>
             <ThemedLanguageText
               variant="secondary"
               size="xs"
@@ -322,8 +322,8 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             >
               {pointsData.expiredPoints}
             </ThemedLanguageText>
-          </View>
-          <View style={styles.pointsDetailCard}>
+          </ThemedView>
+          <ThemedView style={styles.pointsDetailCard}>
             <ThemedLanguageText
               variant="secondary"
               size="xs"
@@ -340,13 +340,13 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             >
               {pointsData.totalEarned}
             </ThemedLanguageText>
-          </View>
-        </View>
+          </ThemedView>
+        </ThemedView>
 
         {/* Points Breakdown - Compact */}
-        <View style={styles.pointsBreakdown}>
-          <View style={styles.breakdownRow}>
-            <View style={styles.breakdownItem}>
+        <ThemedView style={styles.pointsBreakdown}>
+          <ThemedView style={styles.breakdownRow}>
+            <ThemedView style={styles.breakdownItem}>
               <Feather name="file-text" size={SIZES.icon.xs} color={theme.icon.secondary} />
               <ThemedLanguageText
                 variant="secondary"
@@ -356,9 +356,9 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               >
                 {pointsData.pointsBreakdown.verseShares} {i18n.t('profile.points')}
               </ThemedLanguageText>
-            </View>
-            <View style={styles.breakdownDivider} />
-            <View style={styles.breakdownItem}>
+            </ThemedView>
+            <ThemedView style={styles.breakdownDivider} />
+            <ThemedView style={styles.breakdownItem}>
               <Feather name="users" size={SIZES.icon.xs} color={theme.icon.secondary} />
               <ThemedLanguageText
                 variant="secondary"
@@ -368,9 +368,9 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               >
                 {pointsData.pointsBreakdown.appShares} {i18n.t('profile.points')}
               </ThemedLanguageText>
-            </View>
-          </View>
-        </View>
+            </ThemedView>
+          </ThemedView>
+        </ThemedView>
       </ThemedCard>
 
       {/* Info Modal */}
@@ -388,9 +388,9 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
           <TouchableOpacity
             activeOpacity={1}
             onPress={(e) => e.stopPropagation()}
-            style={[styles.modalContent, { backgroundColor: theme.background.card }]}
+            style={[styles.modalContent, { backgroundColor: theme.background.secondary }]}
           >
-            <View style={styles.modalHeader}>
+            <ThemedView style={styles.modalHeader}>
               <ThemedLanguageText
                 variant="primary"
                 size="large"
@@ -405,7 +405,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               >
                 <Feather name="x" size={SIZES.icon.md} color={theme.icon.primary} />
               </TouchableOpacity>
-            </View>
+            </ThemedView>
 
             <ScrollView 
               style={styles.modalScrollView} 
@@ -413,11 +413,11 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               contentContainerStyle={styles.modalScrollContent}
             >
               {/* Sharing Points Info */}
-              <ThemedCard variant="card" style={styles.infoCard}>
-                <View style={styles.infoCardHeader}>
-                  <View style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
+              <ThemedCard variant="primary" style={styles.infoCard}>
+                <ThemedView style={styles.infoCardHeader}>
+                  <ThemedView style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
                     <Feather name="share-2" size={SIZES.icon.lg} color={theme.icon.primary} />
-                  </View>
+                  </ThemedView>
                   <ThemedLanguageText
                     variant="primary"
                     size="large"
@@ -426,8 +426,8 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                   >
                     {i18n.t('profile.sharingPointsInfo')}
                   </ThemedLanguageText>
-                </View>
-                <View style={styles.infoCardContent}>
+                </ThemedView>
+                <ThemedView style={styles.infoCardContent}>
                   {i18n.t('profile.sharingPointsDesc')
                     .split('\n')
                     .filter(line => line.trim())
@@ -435,7 +435,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                       const icons = ['file-text', 'users', 'clock', 'alert-circle'];
                       const cleanText = line.replace(/^•\s*/, '').trim();
                       return (
-                        <View key={index} style={styles.infoItem}>
+                        <ThemedView key={index} style={styles.infoItem}>
                           <Feather 
                             name={icons[index] as any} 
                             size={SIZES.icon.sm} 
@@ -450,18 +450,18 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                           >
                             {cleanText}
                           </ThemedLanguageText>
-                        </View>
+                        </ThemedView>
                       );
                     })}
-                </View>
+                </ThemedView>
               </ThemedCard>
 
               {/* Redeem Conditions */}
-              <ThemedCard variant="card" style={styles.infoCard}>
-                <View style={styles.infoCardHeader}>
-                  <View style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
+              <ThemedCard variant="primary" style={styles.infoCard}>
+                <ThemedView style={styles.infoCardHeader}>
+                  <ThemedView style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
                     <Feather name="gift" size={SIZES.icon.lg} color={theme.icon.primary} />
-                  </View>
+                  </ThemedView>
                   <ThemedLanguageText
                     variant="primary"
                     size="large"
@@ -470,8 +470,8 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                   >
                     {i18n.t('profile.redeemConditions')}
                   </ThemedLanguageText>
-                </View>
-                <View style={styles.infoCardContent}>
+                </ThemedView>
+                <ThemedView style={styles.infoCardContent}>
                   {i18n.t('profile.redeemConditionsDesc')
                     .split('\n')
                     .filter(line => line.trim())
@@ -479,7 +479,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                       const icons = ['target', 'calendar', 'clock', 'alert-circle'];
                       const cleanText = line.replace(/^•\s*/, '').trim();
                       return (
-                        <View key={index} style={styles.infoItem}>
+                        <ThemedView key={index} style={styles.infoItem}>
                           <Feather 
                             name={icons[index] as any} 
                             size={SIZES.icon.sm} 
@@ -494,10 +494,10 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                           >
                             {cleanText}
                           </ThemedLanguageText>
-                        </View>
+                        </ThemedView>
                       );
                     })}
-                </View>
+                </ThemedView>
               </ThemedCard>
             </ScrollView>
           </TouchableOpacity>

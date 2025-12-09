@@ -296,6 +296,37 @@ export async function resetProPointsExtension(): Promise<void> {
 }
 
 /**
+ * Activate Pro mode programmatically (for developer/testing purposes)
+ * @param days - Number of days to activate Pro for (default: 30 days)
+ */
+export async function activateProMode(days: number = 30): Promise<{ success: boolean; message: string }> {
+  try {
+    // Get current Pro status
+    const currentProUntil = await AsyncStorage.getItem(PRO_UNTIL_KEY);
+    const currentProUntilTime = currentProUntil ? parseInt(currentProUntil, 10) : Date.now();
+    
+    // Activate Pro for specified days from current expiry (or from now if not active)
+    const newProUntil = currentProUntilTime > Date.now() 
+      ? currentProUntilTime + (days * 24 * 60 * 60 * 1000)
+      : Date.now() + (days * 24 * 60 * 60 * 1000);
+
+    // Save new Pro expiry
+    await AsyncStorage.setItem(PRO_UNTIL_KEY, newProUntil.toString());
+    
+    return {
+      success: true,
+      message: `Pro mode activated successfully for ${days} day(s).`,
+    };
+  } catch (error) {
+    console.error('Error activating Pro mode:', error);
+    return {
+      success: false,
+      message: 'Failed to activate Pro mode. Please try again.',
+    };
+  }
+}
+
+/**
  * Clear/Remove Pro mode (for developer/testing purposes)
  * This will remove all Pro-related data
  */
