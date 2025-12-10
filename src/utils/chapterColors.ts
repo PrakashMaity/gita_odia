@@ -85,3 +85,22 @@ export const getChapterColors = (chapterNumber: string | number | undefined) => 
   const colorIndex = (normalized - 1) % CHAPTER_COLORS.length;
   return CHAPTER_COLORS[colorIndex];
 };
+
+/**
+ * Get verse-based color scheme (cycles through colors based on verse index)
+ * @param verseIndex - Verse index (1-based)
+ * @param baseChapterNumber - Optional chapter number to add variation
+ * @returns Color scheme object with primary, secondary, accent, and gradient
+ */
+export const getVerseColors = (verseIndex: number, baseChapterNumber?: string | number) => {
+  // Use verse index to cycle through colors
+  // Add chapter number offset for more variation if provided
+  let colorIndex = (verseIndex - 1) % CHAPTER_COLORS.length;
+  
+  if (baseChapterNumber) {
+    const chapterOffset = normalizeChapterNumber(baseChapterNumber);
+    colorIndex = (colorIndex + chapterOffset) % CHAPTER_COLORS.length;
+  }
+  
+  return CHAPTER_COLORS[colorIndex];
+};

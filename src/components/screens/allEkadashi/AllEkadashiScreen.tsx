@@ -1,7 +1,8 @@
-import { PageHeader } from '@/components/shared';
+import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
@@ -25,6 +26,8 @@ export const AllEkadashiScreen: React.FC = () => {
   const theme = useThemeColors();
   const params = useLocalSearchParams();
   const [selectedYear, setSelectedYear] = useState<string>(params.year as string || '1432');
+  const { isPro } = useProStatus();
+  const [showProModal, setShowProModal] = useState(false);
   
   // Get ekadashi data for the selected year
   const getEkadashiDataForYear = (year: string): EkadashiItem[] => {
@@ -253,18 +256,24 @@ export const AllEkadashiScreen: React.FC = () => {
             <View style={styles.ekadashiList}>
               {ekadashiList.map((ekadashi, index) => {
                 const isUpcoming = index === upcomingIndex;
+                // Lock cards after the first 3 for non-PRO users
+                const isLocked = !isPro && index >= 3;
                 return (
-                  <ThemedCard 
+                  <LockedCardOverlay
                     key={index}
-                    style={[
-                      styles.ekadashiItem, 
-                      { 
-                        borderColor: isUpcoming ? theme.border.primary : theme.border.secondary,
-                        borderWidth: isUpcoming ? 2 : 1,
-                        backgroundColor: isUpcoming ? theme.background.quaternary : undefined,
-                      }
-                    ]}
+                    isLocked={isLocked}
+                    onPress={() => setShowProModal(true)}
                   >
+                    <ThemedCard 
+                      style={[
+                        styles.ekadashiItem, 
+                        { 
+                          borderColor: isUpcoming ? theme.border.primary : theme.border.secondary,
+                          borderWidth: isUpcoming ? 2 : 1,
+                          backgroundColor: isUpcoming ? theme.background.quaternary : undefined,
+                        }
+                      ]}
+                    >
                     <View style={styles.ekadashiHeader}>
                       <ThemedView 
                         style={[
@@ -382,8 +391,9 @@ export const AllEkadashiScreen: React.FC = () => {
                         </ThemedLanguageText>
                       ))}
                     </View>
-                  )}
-                </ThemedCard>
+                    )}
+                  </ThemedCard>
+                  </LockedCardOverlay>
                 );
               })}
             </View>
@@ -411,6 +421,10 @@ export const AllEkadashiScreen: React.FC = () => {
             ))}
           </ThemedCard>
         </ScrollView>
+        <ProUpgradeModal
+          visible={showProModal}
+          onClose={() => setShowProModal(false)}
+        />
       </ThemedView>
     </ImageBackground>
   );

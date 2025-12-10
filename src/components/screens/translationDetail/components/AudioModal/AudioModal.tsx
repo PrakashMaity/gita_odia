@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import {
-  Modal,
-  View,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Animated,
-  Dimensions,
-} from 'react-native';
-import { BlurView } from 'expo-blur';
-import { LinearGradient } from 'expo-linear-gradient';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import { useVerseTextToSpeech, VerseItem } from '@/hooks/useVerseTextToSpeech';
 import { SIZES } from '@/rootconstants/sizes';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Image } from 'react-native';
+import { getChapterColors, getVerseColors } from '@/utils/chapterColors';
 import { getSpeakerImage } from '@/utils/speakerUtils';
-import { getChapterColors } from '@/utils/chapterColors';
+import { MaterialIcons } from '@expo/vector-icons';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+    Animated,
+    Dimensions,
+    Image,
+    Modal,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View,
+} from 'react-native';
 import { styles } from './AudioModal.styles';
 
 interface AudioModalProps {
@@ -48,12 +50,14 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   const screenData = Dimensions.get('screen');
   const { width, height } = screenData;
   
-  // Get chapter-based colors
-  const chapterColors = chapterNumber ? getChapterColors(chapterNumber) : null;
-  
   const [currentVerseIndex, setCurrentVerseIndex] = useState<number>(0);
   const [totalVerses, setTotalVerses] = useState<number>(0);
+  const [currentText, setCurrentText] = useState<string>('');
+  const [currentSpeakerEnglish, setCurrentSpeakerEnglish] = useState<string | undefined>(undefined);
+  const prevVerseIndexRef = useRef<number>(-1);
 
+  const { isPro } = useProStatus();
+  const [showProModal, setShowProModal] = useState(false);
   const { speak, speakVerses, stop, isSpeaking, isPaused, pause, resume } = useVerseTextToSpeech({
     onFinish: () => {
       // Automatically close modal when speech finishes
@@ -62,23 +66,89 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       }, 300);
     },
     onError: (error) => {
-      console.error('TTS Error:', error);
+      if (error.message === 'PRO_REQUIRED') {
+        setShowProModal(true);
+      } else {
+        console.error('TTS Error:', error);
+      }
     },
     onVerseStart: (verseIndex, total) => {
       setCurrentVerseIndex(verseIndex);
       setTotalVerses(total);
+      // Clear previous text when new verse starts
+      setCurrentText('');
     },
     onVerseComplete: (verseIndex, total) => {
       // Verse completed, next one will start automatically
       setCurrentVerseIndex(verseIndex);
     },
+    onLanguageStart: (text, verseIndex) => {
+      setCurrentText(text);
+      // Get speaker from current verse (verseIndex is 1-based)
+      if (verses && verses.length > 0 && verseIndex > 0) {
+        const verseIdx = verseIndex - 1; // Convert to 0-based
+        if (verseIdx >= 0 && verseIdx < verses.length) {
+          const currentVerse = verses[verseIdx];
+          setCurrentSpeakerEnglish(currentVerse.speakerEnglish);
+        }
+      }
+    },
+    onLanguageComplete: () => {
+      // Don't clear text immediately, wait for translation or next verse
+    },
+    onTranslationStart: (text, verseIndex) => {
+      setCurrentText(text);
+      // Get speaker from current verse (verseIndex is 1-based)
+      if (verses && verses.length > 0 && verseIndex > 0) {
+        const verseIdx = verseIndex - 1; // Convert to 0-based
+        if (verseIdx >= 0 && verseIdx < verses.length) {
+          const currentVerse = verses[verseIdx];
+          setCurrentSpeakerEnglish(currentVerse.speakerEnglish);
+        }
+      }
+    },
+    onTranslationComplete: () => {
+      // Clear text when translation completes
+      setCurrentText('');
+    },
   });
 
   const [scaleAnim] = useState(new Animated.Value(0));
   const [fadeAnim] = useState(new Animated.Value(0));
+  const [slideAnim] = useState(new Animated.Value(0));
+  const [rotateAnim] = useState(new Animated.Value(0));
+  const [scaleTransitionAnim] = useState(new Animated.Value(1));
+  const [fadeTransitionAnim] = useState(new Animated.Value(1));
   const [waveformAnims] = useState(() => 
     Array.from({ length: 5 }, () => new Animated.Value(20))
   );
+
+  // Combined animated values for scale and opacity
+  const combinedScale = useMemo(
+    () => Animated.multiply(scaleAnim, scaleTransitionAnim),
+    [scaleAnim, scaleTransitionAnim]
+  );
+  const combinedOpacity = useMemo(
+    () => Animated.multiply(fadeAnim, fadeTransitionAnim),
+    [fadeAnim, fadeTransitionAnim]
+  );
+  const rotateInterpolated = useMemo(
+    () =>
+      rotateAnim.interpolate({
+        inputRange: [-15, 0, 15],
+        outputRange: ['-15deg', '0deg', '15deg'],
+      }),
+    [rotateAnim]
+  );
+
+  // Get verse-based colors that change with each verse
+  const verseColors = useMemo(() => {
+    if (currentVerseIndex > 0) {
+      return getVerseColors(currentVerseIndex, chapterNumber);
+    }
+    // Fallback to chapter colors if no verse is playing yet
+    return chapterNumber ? getChapterColors(chapterNumber) : null;
+  }, [currentVerseIndex, chapterNumber]);
 
   useEffect(() => {
     if (visible) {
@@ -117,9 +187,16 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       // Reset animation
       scaleAnim.setValue(0);
       fadeAnim.setValue(0);
+      slideAnim.setValue(0);
+      rotateAnim.setValue(0);
+      scaleTransitionAnim.setValue(1);
+      fadeTransitionAnim.setValue(1);
       waveformAnims.forEach(anim => anim.setValue(20));
       setCurrentVerseIndex(0);
       setTotalVerses(0);
+      setCurrentText('');
+      setCurrentSpeakerEnglish(undefined);
+      prevVerseIndexRef.current = -1;
       // Stop speaking when modal closes
       stop();
     }
@@ -127,7 +204,97 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     return () => {
       stop();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible, text, verses, speakerEnglish]);
+
+  // Creative slide animation effect when verse completes
+  useEffect(() => {
+    // Only animate if verse index changed and it's not the initial load
+    if (currentVerseIndex !== prevVerseIndexRef.current && prevVerseIndexRef.current >= 0 && verses && verses.length > 0) {
+      // Reset transition animations
+      scaleTransitionAnim.setValue(1);
+      fadeTransitionAnim.setValue(1);
+      rotateAnim.setValue(0);
+      
+      // Creative animation: slide out with rotation and scale, then slide in with bounce
+      Animated.sequence([
+        // Phase 1: Slide out to left with rotation, scale down, and fade
+        Animated.parallel([
+          Animated.timing(slideAnim, {
+            toValue: -width * 0.5,
+            duration: 250,
+            useNativeDriver: true,
+          }),
+          Animated.timing(rotateAnim, {
+            toValue: -15,
+            duration: 250,
+            useNativeDriver: true,
+          }),
+          Animated.timing(scaleTransitionAnim, {
+            toValue: 0.7,
+            duration: 250,
+            useNativeDriver: true,
+          }),
+          Animated.timing(fadeTransitionAnim, {
+            toValue: 0.3,
+            duration: 250,
+            useNativeDriver: true,
+          }),
+        ]),
+        // Phase 2: Instantly reset to right side (invisible)
+        Animated.parallel([
+          Animated.timing(slideAnim, {
+            toValue: width * 0.5,
+            duration: 0,
+            useNativeDriver: true,
+          }),
+          Animated.timing(rotateAnim, {
+            toValue: 15,
+            duration: 0,
+            useNativeDriver: true,
+          }),
+          Animated.timing(scaleTransitionAnim, {
+            toValue: 0.7,
+            duration: 0,
+            useNativeDriver: true,
+          }),
+          Animated.timing(fadeTransitionAnim, {
+            toValue: 0.3,
+            duration: 0,
+            useNativeDriver: true,
+          }),
+        ]),
+        // Phase 3: Slide in with elastic bounce, rotate back, scale up, and fade in
+        Animated.parallel([
+          Animated.spring(slideAnim, {
+            toValue: 0,
+            useNativeDriver: true,
+            tension: 40,
+            friction: 7,
+            velocity: 0.5,
+          }),
+          Animated.spring(rotateAnim, {
+            toValue: 0,
+            useNativeDriver: true,
+            tension: 40,
+            friction: 7,
+          }),
+          Animated.spring(scaleTransitionAnim, {
+            toValue: 1,
+            useNativeDriver: true,
+            tension: 40,
+            friction: 7,
+          }),
+          Animated.timing(fadeTransitionAnim, {
+            toValue: 1,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+        ]),
+      ]).start();
+    }
+    prevVerseIndexRef.current = currentVerseIndex;
+  }, [currentVerseIndex, verses, slideAnim, rotateAnim, scaleTransitionAnim, fadeTransitionAnim, width]);
 
   // Waveform animation effect
   useEffect(() => {
@@ -214,8 +381,12 @@ export const AudioModal: React.FC<AudioModalProps> = ({
               {
                 backgroundColor: theme.background.secondary,
                 maxWidth: width * 0.9,
-                transform: [{ scale: scaleAnim }],
-                opacity: fadeAnim,
+                transform: [
+                  { scale: combinedScale },
+                  { translateX: slideAnim },
+                  { rotate: rotateInterpolated },
+                ],
+                opacity: combinedOpacity,
                 shadowColor: '#000',
                 shadowOffset: {
                   width: 0,
@@ -231,16 +402,20 @@ export const AudioModal: React.FC<AudioModalProps> = ({
               variant="card"
               style={[
                 styles.card,
-                chapterColors && {
-                  borderColor: chapterColors.primary,
-                  borderWidth: 2,
-                },
+                ...(verseColors
+                  ? [
+                      {
+                        borderColor: verseColors.primary,
+                        borderWidth: 2,
+                      },
+                    ]
+                  : []),
               ]}
               borderVariant="none"
             >
-              {chapterColors && (
+              {verseColors && verseColors.gradient.length >= 2 && (
                 <LinearGradient
-                  colors={chapterColors.gradient}
+                  colors={verseColors.gradient as unknown as readonly [string, string, ...string[]]}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                   style={styles.gradientBackground}
@@ -306,8 +481,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                   style={[
                     styles.closeButton,
                     {
-                      backgroundColor: chapterColors
-                        ? chapterColors.accent
+                      backgroundColor: verseColors
+                        ? verseColors.accent
                         : theme.background.tertiary,
                     },
                   ]}
@@ -328,8 +503,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     style={[
                       styles.waveformBar,
                       {
-                        backgroundColor: chapterColors
-                          ? chapterColors.primary
+                        backgroundColor: verseColors
+                          ? verseColors.primary
                           : theme.icon.primary,
                         height: anim,
                       },
@@ -338,31 +513,49 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                 ))}
               </ThemedView>
 
-              {/* Text Preview */}
+              {/* Current Text Display with Speaker Icon */}
               <ThemedView style={styles.textContainer}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.textPreview}
-                  numberOfLines={3}
-                >
-                  {verses && verses.length > 0
-                    ? `${verses.length} verses`
-                    : text || ''}
-                </ThemedLanguageText>
+                {currentText ? (
+                  <ThemedView style={styles.currentTextContainer}>
+                    {currentSpeakerEnglish && (
+                      <Image
+                        source={getSpeakerImage(currentSpeakerEnglish)}
+                        style={styles.speakerIconSmall}
+                        resizeMode="cover"
+                      />
+                    )}
+                    <ThemedLanguageText
+                      variant="primary"
+                      size="large"
+                      fontFamily="regional_secondary"
+                      style={styles.currentText}
+                      numberOfLines={5}
+                    >
+                      {currentText}
+                    </ThemedLanguageText>
+                  </ThemedView>
+                ) : (
+                  <ThemedLanguageText
+                    variant="secondary"
+                    size="medium"
+                    fontFamily="regional_secondary"
+                    style={styles.textPreview}
+                  >
+                    {text || (verses && verses.length > 0 ? `${verses.length} verses` : '')}
+                  </ThemedLanguageText>
+                )}
               </ThemedView>
 
               {/* Controls */}
               <ThemedView style={styles.controlsContainer}>
-                {isSpeaking && !isPaused && (
+                {/* {isSpeaking && !isPaused && (
                   <TouchableOpacity
                     onPress={handlePauseResume}
                     style={[
                       styles.controlButton,
                       {
-                        backgroundColor: chapterColors
-                          ? chapterColors.primary
+                        backgroundColor: verseColors
+                          ? verseColors.primary
                           : theme.button.primary.background,
                       },
                     ]}
@@ -373,16 +566,16 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                       color={theme.button.primary.text}
                     />
                   </TouchableOpacity>
-                )}
+                )} */}
 
-                {isPaused && (
+                {/* {isPaused && (
                   <TouchableOpacity
                     onPress={handlePauseResume}
                     style={[
                       styles.controlButton,
                       {
-                        backgroundColor: chapterColors
-                          ? chapterColors.primary
+                        backgroundColor: verseColors
+                          ? verseColors.primary
                           : theme.button.primary.background,
                       },
                     ]}
@@ -407,8 +600,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     style={[
                       styles.controlButton,
                       {
-                        backgroundColor: chapterColors
-                          ? chapterColors.primary
+                        backgroundColor: verseColors
+                          ? verseColors.primary
                           : theme.button.primary.background,
                       },
                     ]}
@@ -419,22 +612,22 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                       color={theme.button.primary.text}
                     />
                   </TouchableOpacity>
-                )}
+                )} */}
 
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={handleStop}
                   style={[
                     styles.controlButton,
                     styles.stopButton,
-                    { backgroundColor: theme.button.error?.background || theme.background.tertiary },
+                    { backgroundColor: theme.status.error || theme.background.tertiary },
                   ]}
                 >
                   <MaterialIcons
                     name="stop"
                     size={SIZES.icon.lg}
-                    color={theme.button.error?.text || theme.icon.primary}
+                    color={theme.icon.error || theme.icon.primary}
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </ThemedView>
 
               {/* Status and Progress */}
@@ -455,8 +648,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                       styles.progressBar,
                       {
                         width: `${(currentVerseIndex / totalVerses) * 100}%`,
-                        backgroundColor: chapterColors
-                          ? chapterColors.primary
+                        backgroundColor: verseColors
+                          ? verseColors.primary
                           : theme.icon.primary,
                       },
                     ]}
@@ -482,6 +675,10 @@ export const AudioModal: React.FC<AudioModalProps> = ({
           </Animated.View>
         </TouchableWithoutFeedback>
       </View>
+      <ProUpgradeModal
+        visible={showProModal}
+        onClose={() => setShowProModal(false)}
+      />
     </Modal>
   );
 };

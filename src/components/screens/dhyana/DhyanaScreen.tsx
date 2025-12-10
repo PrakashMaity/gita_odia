@@ -1,11 +1,15 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { WavePattern } from '@/illustration/cardBackground';
-import i18n from '@/i18n';
-import { Dimensions, ImageBackground, ScrollView } from 'react-native';
+import { BannerAdComponent } from '@/components/ads';
 import { PageHeader } from '@/components/shared';
+import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import i18n from '@/i18n';
+import { WavePattern } from '@/illustration/cardBackground';
+import { SIZES } from '@/rootconstants/sizes';
+import { LayoutImages } from '@/utils/assets';
+import { useCallback, useEffect, useRef } from 'react';
+import { Dimensions, ImageBackground, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
 import { DhyanaSectionCard } from './components/DhyanaSectionCard';
 import { styles } from './DhyanaScreen.styles';
-import { LayoutImages } from '@/utils/assets';
 
 export const DhyanaScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');
@@ -13,6 +17,35 @@ export const DhyanaScreen: React.FC = () => {
   const meaningText = i18n.t('dhyana.meaningText');
   const benefits = i18n.t('dhyana.benefits') as string[];
   const steps = i18n.t('dhyana.steps') as string[];
+  const { showAd, isLoaded } = useInterstitialAd();
+  const adsShownCountRef = useRef<number>(0);
+  const hasReachedEndRef = useRef<boolean>(false);
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  // Reset ad count when component mounts (page revisit)
+  useEffect(() => {
+    adsShownCountRef.current = 0;
+    hasReachedEndRef.current = false;
+  }, []);
+
+  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+    const paddingToBottom = 20;
+    const isAtEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+
+    if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
+      hasReachedEndRef.current = true;
+      adsShownCountRef.current += 1;
+      
+      setTimeout(() => {
+        showAd();
+      }, 500);
+    }
+
+    if (!isAtEnd && hasReachedEndRef.current) {
+      hasReachedEndRef.current = false;
+    }
+  }, [showAd, isLoaded]);
 
   return (
     <ImageBackground
@@ -27,9 +60,12 @@ export const DhyanaScreen: React.FC = () => {
         <PageHeader title={i18n.t('dhyana.title')} showBackButton={true} />
 
         <ScrollView 
+          ref={scrollViewRef}
           style={styles.scrollView}
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
+          onScroll={handleScroll}
+          scrollEventThrottle={400}
         >
           <DhyanaSectionCard
             titleKey="dhyana.introTitle"
@@ -45,6 +81,12 @@ export const DhyanaScreen: React.FC = () => {
           <DhyanaSectionCard
             titleKey="dhyana.slokaTitle"
             content={dhyanaText}
+          />
+
+          {/* Banner Ad - Center */}
+          <BannerAdComponent 
+            adKey="dhyana-center" 
+            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
           />
 
           <DhyanaSectionCard
@@ -67,6 +109,12 @@ export const DhyanaScreen: React.FC = () => {
           <DhyanaSectionCard
             titleKey="dhyana.typesTitle"
             content={i18n.t('dhyana.typesText')}
+          />
+
+          {/* Banner Ad - Below Center */}
+          <BannerAdComponent 
+            adKey="dhyana-below-center" 
+            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
           />
 
           <DhyanaSectionCard

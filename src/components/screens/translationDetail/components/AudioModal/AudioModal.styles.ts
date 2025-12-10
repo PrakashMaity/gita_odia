@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   backdrop: {
@@ -127,6 +127,23 @@ export const styles = StyleSheet.create({
   textPreview: {
     textAlign: 'center',
     lineHeight: 24,
+  },
+  currentTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: SIZES.spacing.md,
+    width: '100%',
+  },
+  currentText: {
+    textAlign: 'center',
+    lineHeight: 28,
+    flex: 1,
+  },
+  speakerIconSmall: {
+    width: SIZES.avatar.sm || 32,
+    height: SIZES.avatar.sm || 32,
+    borderRadius: SIZES.radius.round,
   },
   controlsContainer: {
     flexDirection: 'row',

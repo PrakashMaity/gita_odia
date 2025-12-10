@@ -6,6 +6,7 @@ import { getVoiceOptions } from '@/utils/speakerVoiceConfig';
 import { delay, MAX_TEXT_LENGTH, splitTextIntoChunks } from '@/utils/textToSpeechUtils';
 import * as Speech from 'expo-speech';
 import { useEffect, useRef, useState } from 'react';
+import { useProStatus } from './useProStatus';
 
 export interface UseTextToSpeechOptions {
   onFinish?: () => void;
@@ -16,6 +17,7 @@ export interface UseTextToSpeechOptions {
 }
 
 export const useTextToSpeech = (options: UseTextToSpeechOptions = {}) => {
+  const { isPro } = useProStatus();
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const currentTextRef = useRef<string>('');
@@ -76,6 +78,12 @@ export const useTextToSpeech = (options: UseTextToSpeechOptions = {}) => {
   };
 
   const speak = async (text: string, speakerEnglish?: string): Promise<void> => {
+    // Check PRO status before allowing speech
+    if (!isPro) {
+      options.onError?.(new Error('PRO_REQUIRED'));
+      return;
+    }
+
     try {
       await stop();
 

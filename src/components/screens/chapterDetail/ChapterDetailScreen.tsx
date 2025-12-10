@@ -1,6 +1,7 @@
 import { ReadingProgress } from '@/components/progress';
 import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
 import { LoadingState, PageHeader } from '@/components/shared';
+import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { VerseReader } from '@/components/verseReader';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
@@ -28,8 +29,8 @@ export const ChapterDetailScreen: React.FC = () => {
   const [showTranslation, setShowTranslation] = React.useState(true);
   const [showLanguage, setShowLanguage] = React.useState(true);
   const [isFullChapterAudioModalVisible, setIsFullChapterAudioModalVisible] = useState(false);
-  const { showAd } = useInterstitialAd();
-  const chapterCompletedRef = useRef(false);
+  const { showAd,isLoaded } = useInterstitialAd();
+  const adsShownRef = useRef<Set<number>>(new Set());
 
   const { 
     chapterData, 
@@ -54,22 +55,35 @@ export const ChapterDetailScreen: React.FC = () => {
   const toggleTranslation = useCallback(() => setShowTranslation(prev => !prev), []);
   const toggleLanguage = useCallback(() => setShowLanguage(prev => !prev), []);
 
-  // Show interstitial ad when chapter is completed
+  // Show interstitial ad after every three verses
   useEffect(() => {
-    if (
-      chapterData &&
-      chapterData.verses &&
-      currentVerse === chapterData.verses.length - 1 &&
-      !chapterCompletedRef.current
-    ) {
-      chapterCompletedRef.current = true;
-      // Show ad after a delay to let user see completion state
+    if (!chapterData?.verses || currentVerse < 0) return;
+
+    // Show ad after reading 3rd, 6th, 9th verse, etc. (indices 2, 5, 8, ...)
+    // Formula: (currentVerse + 1) % 3 === 0 && currentVerse >= 2
+    const shouldShowAd = (currentVerse + 1) % 3 === 0 && currentVerse >= 2;
+    
+    if (shouldShowAd && !adsShownRef.current.has(currentVerse)) {
+      adsShownRef.current.add(currentVerse);
+      // Show ad after a short delay
       const timer = setTimeout(() => {
         showAd();
-      }, 1500);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [currentVerse, chapterData, showAd]);
+
+  // Prepare full chapter verses for audio with speaker-specific voices
+  // Separate Language and translation for proper playback sequence
+  const fullChapterVerses = useMemo(() => {
+    if (!chapterData?.verses || chapterData.verses.length === 0) return [];
+    
+    return chapterData.verses.map((verse: any) => ({
+      Language: verse.Language,
+      translation: verse.translation,
+      speakerEnglish: verse.speaker_english,
+    }));
+  }, [chapterData?.verses]);
 
   if (isLoading || !isInitialized) {
     return <LoadingState message={i18n.t('chapter.loading')} />;
@@ -81,18 +95,6 @@ export const ChapterDetailScreen: React.FC = () => {
 
   const { chapter, verses } = chapterData;
   const currentVerseData = verses?.[currentVerse];
-
-  // Prepare full chapter verses for audio with speaker-specific voices
-  // Separate Language and translation for proper playback sequence
-  const fullChapterVerses = useMemo(() => {
-    if (!verses || verses.length === 0) return [];
-    
-    return verses.map((verse: any) => ({
-      Language: verse.Language,
-      translation: verse.translation,
-      speakerEnglish: verse.speaker_english,
-    }));
-  }, [verses]);
 
   return (
     <ImageBackground
@@ -107,6 +109,7 @@ export const ChapterDetailScreen: React.FC = () => {
           title={`${chapter.title} || ${chapter.subtitle}`}
           onBack={() => {
             router.back();
+            showAd();
           }}
           rightAction={
             <TouchableOpacity
@@ -126,6 +129,7 @@ export const ChapterDetailScreen: React.FC = () => {
         />
 
         <ScrollView style={styles.verseContainer} showsVerticalScrollIndicator={false}>
+          <ThemedSpacer size="md" />
           <VerseReader
             verse={currentVerseData}
             showLanguage={showLanguage}

@@ -150,6 +150,10 @@ export default function ({ config = {} }) {
     },
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
+    runtimeVersion: '1.0.0',
+    updates: {
+      url: 'https://u.expo.dev/4276c4fa-4062-4c56-9fb4-26fabacd8a23',
+    },
     ios: iosConfig,
     android: androidConfig,
     extra,

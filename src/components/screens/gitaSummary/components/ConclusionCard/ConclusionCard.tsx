@@ -1,14 +1,16 @@
+import { ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
-import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
+import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/i18n';
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import { SIZES } from '@/rootconstants/sizes';
+import { getBengaliTTSLanguage } from '@/utils/ttsLanguageUtils';
+import { MaterialIcons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { styles } from './ConclusionCard.styles';
 
 interface ConclusionCardProps {
@@ -21,13 +23,24 @@ export const ConclusionCard: React.FC<ConclusionCardProps> = ({
   teachings,
 }) => {
   const { theme } = useTheme();
+  const { isPro } = useProStatus();
+  const [showProModal, setShowProModal] = useState(false);
   const { speak, stop, isSpeaking } = useTextToSpeech({
     language: getBengaliTTSLanguage(), // Bengali language for TTS (tries bn-IN first, falls back to bn-BD or bn)
     rate: 0.85,
     pitch: 1.0,
+    onError: (error) => {
+      if (error.message === 'PRO_REQUIRED') {
+        setShowProModal(true);
+      }
+    },
   });
 
   const handleSpeak = async () => {
+    if (!isPro) {
+      setShowProModal(true);
+      return;
+    }
     if (isSpeaking) {
       await stop();
     } else {
@@ -79,6 +92,10 @@ export const ConclusionCard: React.FC<ConclusionCardProps> = ({
           </ThemedView>
         ))}
       </ThemedView>
+      <ProUpgradeModal
+        visible={showProModal}
+        onClose={() => setShowProModal(false)}
+      />
     </ThemedCard>
   );
 };

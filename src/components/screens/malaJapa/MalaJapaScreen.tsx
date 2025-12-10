@@ -1,5 +1,7 @@
-import { PageHeader } from '@/components/shared';
+import { PageHeader, ProUpgradeModal } from '@/components/shared';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
@@ -9,9 +11,9 @@ import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
-    ScrollView,
-    StyleSheet,
-    View
+  ScrollView,
+  StyleSheet,
+  View
 } from 'react-native';
 import { MalaBeads } from './components/MalaBeads';
 import { MantraSelector } from './components/MantraSelector';
@@ -27,8 +29,12 @@ export const MalaJapaScreen: React.FC = () => {
   const [selectedMantra, setSelectedMantra] = useState<MantraType>('hareKrishna');
   const [completedMalas, setCompletedMalas] = useState(0);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showProModal, setShowProModal] = useState(false);
   
   const soundInitialized = useRef(false);
+  const { showAd } = useInterstitialAd();
+  const lastAdShownJapa = useRef(0);
+  const { isPro } = useProStatus();
 
   // Initialize TTS for mantra chanting
   const { speak: speakMantra, stop: stopMantra } = useTextToSpeech({
@@ -77,6 +83,13 @@ export const MalaJapaScreen: React.FC = () => {
   // Calculate current japa count
   const currentJapa = currentBead + completedMalas * beadCount;
 
+  // Reset to first mantra if user loses pro status while using a locked mantra
+  useEffect(() => {
+    if (!isPro && selectedMantra !== 'hareKrishna') {
+      setSelectedMantra('hareKrishna');
+    }
+  }, [isPro, selectedMantra]);
+
   const createToneBase64 = (frequency: number, duration: number) => {
     const sampleRate = 44100;
     const numSamples = Math.floor(sampleRate * duration);
@@ -117,7 +130,7 @@ export const MalaJapaScreen: React.FC = () => {
     return btoa(binary);
   };
 
-  const playTone = (frequency: number, duration: number, volume: number) => {
+  const playTone = useCallback((frequency: number, duration: number, volume: number) => {
     if (!soundInitialized.current) {
       return;
     }
@@ -140,17 +153,34 @@ export const MalaJapaScreen: React.FC = () => {
     } catch {
       // ignore playback errors
     }
-  };
+  }, []);
 
   // Play bead sound - simple beep
-  const playBeadSound = () => {
+  const playBeadSound = useCallback(() => {
     playTone(800, 0.1, 0.3);
-  };
+  }, [playTone]);
 
   // Play completion sound
-  const playCompletionSound = () => {
+  const playCompletionSound = useCallback(() => {
     playTone(1000, 0.2, 0.5);
-  };
+  }, [playTone]);
+
+  // Handle mantra change with pro check
+  const handleMantraChange = useCallback((mantra: MantraType) => {
+    // First mantra (hareKrishna) is always available
+    if (mantra === 'hareKrishna') {
+      setSelectedMantra(mantra);
+      return;
+    }
+    
+    // Other mantras require pro
+    if (!isPro) {
+      setShowProModal(true);
+      return;
+    }
+    
+    setSelectedMantra(mantra);
+  }, [isPro]);
 
   // Handle bead tap with sound, vibration, and TTS mantra
   const handleBeadTap = useCallback(async () => {
@@ -180,6 +210,8 @@ export const MalaJapaScreen: React.FC = () => {
     } else {
       // Complete one mala
       const newCompletedMalas = completedMalas + 1;
+      const newTotalJapa = newCompletedMalas * beadCount;
+      
       setCompletedMalas(newCompletedMalas);
       setCurrentBead(0);
       
@@ -200,10 +232,16 @@ export const MalaJapaScreen: React.FC = () => {
         console.error('Error chanting mantra on completion:', error);
       }
       
+      // Show interstitial ad after completing 108 japa
+      if (newTotalJapa === 108 && lastAdShownJapa.current < 108) {
+        showAd();
+        lastAdShownJapa.current = 108;
+      }
+      
       // Show success modal
       setShowSuccessModal(true);
     }
-  }, [currentBead, beadCount, completedMalas, selectedMantra, getMantraText, speakMantra, stopMantra]);
+  }, [currentBead, beadCount, completedMalas, selectedMantra, getMantraText, speakMantra, stopMantra, showAd, playBeadSound, playCompletionSound]);
 
   return (
     <LinearGradient
@@ -216,13 +254,14 @@ export const MalaJapaScreen: React.FC = () => {
         <PageHeader
           title={i18n.t('malaJapa.title')}
           subtitle={i18n.t('malaJapa.subtitle')}
-          showBackButton={true}
+          showBackButton={false}
         />
 
         {/* Mantra Selector Tabs - Below Header */}
         <MantraSelector
           selectedMantra={selectedMantra}
-          onMantraChange={setSelectedMantra}
+          onMantraChange={handleMantraChange}
+          isPro={isPro}
         />
 
         <ScrollView
@@ -253,6 +292,12 @@ export const MalaJapaScreen: React.FC = () => {
           visible={showSuccessModal}
           completedMalas={completedMalas}
           onClose={() => setShowSuccessModal(false)}
+        />
+
+        {/* Pro Upgrade Modal */}
+        <ProUpgradeModal
+          visible={showProModal}
+          onClose={() => setShowProModal(false)}
         />
       </ThemedView>
     </LinearGradient>

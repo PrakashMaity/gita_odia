@@ -1,8 +1,9 @@
 import { BannerAdComponent } from '@/components/ads';
-import { PageHeader } from '@/components/shared';
+import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { WavePattern } from '@/illustration/cardBackground';
@@ -42,6 +43,8 @@ export const DailyReadingScreen: React.FC = () => {
   const weeklyStats = getWeeklyStats();
   const todayVerses = todayRecord?.versesRead || 0;
   const theme = useThemeColors();
+  const { isPro } = useProStatus();
+  const [showProModal, setShowProModal] = useState(false);
 
   const { width, height } = Dimensions.get('window');
 
@@ -104,22 +107,39 @@ export const DailyReadingScreen: React.FC = () => {
             </View>
 
             <View style={styles.statsRow}>
-              <StatsCard
-                title={i18n.t('dailyReading.totalVerses')}
-                value={totalVersesRead.toString()}
-                iconName="library-outline"
-              />
-              <StatsCard
-                title={i18n.t('dailyReading.longestStreak')}
-                value={longestStreak.toString()}
-                iconName="flame-outline"
-              />
+              <LockedCardOverlay
+                isLocked={!isPro}
+                onPress={() => setShowProModal(true)}
+                style={{ flex: 1 }}
+              >
+                <StatsCard
+                  title={i18n.t('dailyReading.totalVerses')}
+                  value={totalVersesRead.toString()}
+                  iconName="library-outline"
+                />
+              </LockedCardOverlay>
+              <LockedCardOverlay
+                isLocked={!isPro}
+                onPress={() => setShowProModal(true)}
+                style={{ flex: 1 }}
+              >
+                <StatsCard
+                  title={i18n.t('dailyReading.longestStreak')}
+                  value={longestStreak.toString()}
+                  iconName="flame-outline"
+                />
+              </LockedCardOverlay>
             </View>
           </ThemedView>
 
           {/* Weekly Chart */}
           {weeklyStats.length > 0 && (
-            <WeeklyChart data={weeklyStats} />
+            <LockedCardOverlay
+              isLocked={!isPro}
+              onPress={() => setShowProModal(true)}
+            >
+              <WeeklyChart data={weeklyStats} />
+            </LockedCardOverlay>
           )}
 
           {/* Motivational Message */}
@@ -152,6 +172,10 @@ export const DailyReadingScreen: React.FC = () => {
             <BannerAdComponent />
           </ThemedView>
         </ScrollView>
+        <ProUpgradeModal
+          visible={showProModal}
+          onClose={() => setShowProModal(false)}
+        />
       </ThemedView>
     </ImageBackground>
   );

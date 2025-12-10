@@ -8,6 +8,22 @@
 **/.git/
 **/node_modules/
 
+# Android build artifacts
+android/app/.cxx/
+android/app/build/
+android/.gradle/
+android/build/
+android/app/debug.keystore
+
+# iOS build artifacts and dependencies
+# Pods directory is regenerated during EAS build, so exclude it (979M saved!)
+ios/Pods/
+ios/build/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+# Note: Podfile.lock is kept for dependency version consistency
+
 # OS files
 .DS_Store
 *.log
@@ -16,6 +32,7 @@
 .vscode/
 .idea/
 *.iml
+.cursor/
 
 # Testing
 coverage/
@@ -28,6 +45,37 @@ coverage/
 # Documentation
 README.md
 *.md
+
+# Firebase Functions (not needed for mobile app builds)
+functions/
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Lock files (keep only one - yarn.lock is preferred if using yarn)
+package-lock.json
+
+# Screenshots and temporary files
+**/Screenshot_*.png
+**/*.png.bak
+**/*.jpg.bak
+
+# Firebase config files (if not needed at build time)
+firebase.json
+firestore.indexes.json
+firestore.rules
+.firebaserc
+
+# SQL migration files
+*.sql
+
+# Shell scripts
+*.sh
 
 # Don't ignore android/gradlew - it's needed for building!
 !android/gradlew
