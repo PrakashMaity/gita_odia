@@ -1,6 +1,5 @@
 import { useSettingsStore } from '@/store/settingsStore';
 import { isProActive } from './proService';
-import { revenueCatService } from './revenueCat/revenueCatService';
 import { getRedeemData, getRemainingAdFreeTime, isAdFreeActive } from './shareAnalyticsService';
 
 /**
@@ -16,17 +15,14 @@ export async function shouldShowAds(): Promise<boolean> {
       return false;
     }
     
-    // Check Pro status - if user has Pro (either RevenueCat or free Pro), disable ads
+    // Check Pro status - if user has free Pro, disable ads
     try {
-      // Check RevenueCat premium status
-      const hasRevenueCatPro = await revenueCatService.isPremium();
-      
       // Check free Pro status (1-day Pro)
       const hasFreePro = await isProActive();
       
-      // If user has any Pro status, don't show ads
-      if (hasRevenueCatPro || hasFreePro) {
-        console.log('[shouldShowAds] Ads disabled: Pro status active', { hasRevenueCatPro, hasFreePro });
+      // If user has Pro status, don't show ads
+      if (hasFreePro) {
+        console.log('[shouldShowAds] Ads disabled: Pro status active', { hasFreePro });
         return false;
       }
     } catch (error) {

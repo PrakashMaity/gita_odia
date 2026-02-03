@@ -27,8 +27,6 @@ const EXTRA_KEYS = {
   interstitialAdUnitId: 'INTERSTITIAL_AD_UNIT_ID',
   rewardedAdUnitId: 'REWARDED_AD_UNIT_ID',
   rewardedInterstitialAdUnitId: 'REWARDED_INTERSTITIAL_AD_UNIT_ID',
-  revenueCatIosApiKey: 'REVENUECAT_IOS_API_KEY',
-  revenueCatAndroidApiKey: 'REVENUECAT_ANDROID_API_KEY',
 };
 
 const AD_UNIT_IDS = {
@@ -43,11 +41,6 @@ const MOBILE_ADS_CONFIG = {
   iosAppId: 'ca-app-pub-3940256099942544~1458002511',
 };
 
-// RevenueCat API Keys - Replace with your actual keys from RevenueCat dashboard
-const REVENUECAT_CONFIG = {
-  iosApiKey: process.env.REVENUECAT_IOS_API_KEY || 'test_FBQtPMQntYcFvZHIQATXQUBRPDW',
-  androidApiKey: process.env.REVENUECAT_ANDROID_API_KEY || 'test_FBQtPMQntYcFvZHIQATXQUBRPDW',
-};
 
 const APP_INFO = {
   name: 'গীতা বাংলা',
@@ -131,8 +124,6 @@ export default function ({ config = {} }) {
     [EXTRA_KEYS.interstitialAdUnitId]: AD_UNIT_IDS.interstitial,
     [EXTRA_KEYS.rewardedAdUnitId]: AD_UNIT_IDS.rewarded,
     [EXTRA_KEYS.rewardedInterstitialAdUnitId]: AD_UNIT_IDS.rewardedInterstitial,
-    [EXTRA_KEYS.revenueCatIosApiKey]: REVENUECAT_CONFIG.iosApiKey,
-    [EXTRA_KEYS.revenueCatAndroidApiKey]: REVENUECAT_CONFIG.androidApiKey,
   };
 
   return {

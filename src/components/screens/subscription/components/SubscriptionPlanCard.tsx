@@ -1,21 +1,18 @@
 import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
+import { SIZES } from '@/rootconstants/sizes';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import type { PurchasesPackage } from 'react-native-purchases';
-import { ActivityIndicator, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
 import { styles } from './SubscriptionPlanCard.styles';
 
 interface SubscriptionPlanCardProps {
   title: string;
   price: string;
   period: string;
-  packageToPurchase: PurchasesPackage;
-  onPurchase: (pkg: PurchasesPackage) => Promise<void>;
+  onPurchase: () => Promise<void>;
   isPurchasing: boolean;
   showBestValue?: boolean;
   features?: string[];
@@ -25,7 +22,6 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
   title,
   price,
   period,
-  packageToPurchase,
   onPurchase,
   isPurchasing,
   showBestValue = false,
@@ -34,7 +30,7 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
   const theme = useThemeColors();
 
   const handlePress = async () => {
-    await onPurchase(packageToPurchase);
+    await onPurchase();
   };
 
   return (
@@ -47,7 +43,7 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
         variant={showBestValue ? 'primary' : 'card'}
         style={[
           styles.card,
-          showBestValue && styles.featuredCard,
+          ...(showBestValue ? [styles.featuredCard] : []),
         ]}
         pattern={showBestValue ? 'sacredGeometry' : 'mandala'}
         patternOpacity={showBestValue ? 0.15 : 0.08}

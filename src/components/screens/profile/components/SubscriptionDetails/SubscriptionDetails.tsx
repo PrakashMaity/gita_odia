@@ -1,54 +1,37 @@
 import { SettingsItem } from '@/components/settings';
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
-import { useRevenueCat } from '@/hooks/useRevenueCat';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { getProStatus } from '@/services/proService';
-import { revenueCatService } from '@/services/revenueCat/revenueCatService';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Linking, Platform } from 'react-native';
-import type { PurchasesEntitlementInfo } from 'react-native-purchases';
+import { ActivityIndicator } from 'react-native';
 import { styles } from './SubscriptionDetails.styles';
 
 export const SubscriptionDetails: React.FC = () => {
   const theme = useThemeColors();
-  const { customerInfo, isLoading, refreshCustomerInfo } = useRevenueCat();
-  const { showAlert, AlertComponent } = useCustomAlert();
-  const [activeEntitlement, setActiveEntitlement] = useState<PurchasesEntitlementInfo | null>(null);
-  const [isCancelling, setIsCancelling] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [freeProStatus, setFreeProStatus] = useState<{ isActive: boolean; proUntil: number; remainingDays: number; remainingHours: number } | null>(null);
 
   useEffect(() => {
-    if (customerInfo) {
-      const entitlements = customerInfo.entitlements.active;
-      // Get the first active entitlement (usually 'premium')
-      const entitlementKey = Object.keys(entitlements)[0];
-      if (entitlementKey) {
-        setActiveEntitlement(entitlements[entitlementKey]);
-      } else {
-        setActiveEntitlement(null);
-      }
-    } else {
-      setActiveEntitlement(null);
-    }
-  }, [customerInfo]);
-
-  useEffect(() => {
-    refreshCustomerInfo();
-    // Also check free Pro status
+    // Check free Pro status
     const checkFreePro = async () => {
-      const status = await getProStatus();
-      setFreeProStatus({
-        isActive: status.isActive,
-        proUntil: status.proUntil,
-        remainingDays: status.remainingDays,
-        remainingHours: status.remainingHours,
-      });
+      setIsLoading(true);
+      try {
+        const status = await getProStatus();
+        setFreeProStatus({
+          isActive: status.isActive,
+          proUntil: status.proUntil,
+          remainingDays: status.remainingDays,
+          remainingHours: status.remainingHours,
+        });
+      } catch (error) {
+        console.error('[SubscriptionDetails] Error checking Pro status:', error);
+      } finally {
+        setIsLoading(false);
+      }
     };
     checkFreePro();
     
@@ -56,7 +39,7 @@ export const SubscriptionDetails: React.FC = () => {
     const interval = setInterval(checkFreePro, 60000);
     
     return () => clearInterval(interval);
-  }, [refreshCustomerInfo]);
+  }, []);
 
   if (isLoading) {
     return (
@@ -74,23 +57,18 @@ export const SubscriptionDetails: React.FC = () => {
     );
   }
 
-  // If no RevenueCat entitlement, check for free Pro
-  if (!activeEntitlement && (!freeProStatus || !freeProStatus.isActive)) {
+  // If no free Pro status, don't show anything
+  if (!freeProStatus || !freeProStatus.isActive) {
     return null;
   }
 
-  const expirationDate = activeEntitlement?.expirationDate
-    ? new Date(activeEntitlement.expirationDate)
-    : null;
-
-  // Free Pro expiration (if no RevenueCat subscription)
-  const freeProExpirationDate = freeProStatus?.isActive && !activeEntitlement
+  // Free Pro expiration
+  const freeProExpirationDate = freeProStatus.isActive
     ? new Date(freeProStatus.proUntil)
     : null;
 
-  const isActive = activeEntitlement?.isActive ?? false;
-  const productIdentifier = activeEntitlement?.productIdentifier ?? 'Free Pro';
-  const periodType = activeEntitlement?.periodType;
+  const isActive = freeProStatus.isActive;
+  const productIdentifier = 'Free Pro';
   
   // Format product identifier for display
   const getPlanName = (identifier: string): string => {
@@ -112,14 +90,6 @@ export const SubscriptionDetails: React.FC = () => {
     return identifier;
   };
 
-  const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('bn-BD', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
-
   const formatDateTime = (date: Date): string => {
     const dateStr = date.toLocaleDateString('bn-BD', {
       year: 'numeric',
@@ -135,23 +105,20 @@ export const SubscriptionDetails: React.FC = () => {
   };
 
   const getStatusText = (): string => {
-    const expDate = expirationDate || freeProExpirationDate;
-    if (!isActive && !freeProStatus?.isActive) {
+    const expDate = freeProExpirationDate;
+    if (!isActive) {
       return i18n.t('subscription.expired');
     }
-    if (periodType === 'NORMAL' || freeProExpirationDate) {
+    if (freeProExpirationDate) {
       return expDate
         ? `${i18n.t('subscription.expiresOn')} ${formatDateTime(expDate)}`
         : i18n.t('subscription.active');
-    }
-    if (periodType === 'TRIAL') {
-      return i18n.t('subscription.trial');
     }
     return i18n.t('subscription.active');
   };
 
   const getDaysRemaining = (): number | null => {
-    const expDate = expirationDate || freeProExpirationDate;
+    const expDate = freeProExpirationDate;
     if (!expDate) return null;
     const now = new Date();
     const diffTime = expDate.getTime() - now.getTime();
@@ -160,7 +127,7 @@ export const SubscriptionDetails: React.FC = () => {
   };
 
   const getHoursRemaining = (): number | null => {
-    const expDate = expirationDate || freeProExpirationDate;
+    const expDate = freeProExpirationDate;
     if (!expDate) return null;
     const now = new Date();
     const diffTime = expDate.getTime() - now.getTime();
@@ -171,60 +138,11 @@ export const SubscriptionDetails: React.FC = () => {
   const daysRemaining = getDaysRemaining();
   const hoursRemaining = getHoursRemaining();
 
-  const handleCancelSubscription = async () => {
-    setIsCancelling(true);
-    try {
-      // Get the management URL from RevenueCat
-      const managementURL = await revenueCatService.getManagementURL();
-      
-      if (managementURL) {
-        // Check if we can open the URL
-        const canOpen = await Linking.canOpenURL(managementURL);
-        
-        if (canOpen) {
-          await Linking.openURL(managementURL);
-          showAlert(createSuccessAlert(
-            i18n.t('subscription.managementOpened'),
-            i18n.t('subscription.managementOpenedMessage')
-          ));
-        } else {
-          throw new Error('Cannot open management URL');
-        }
-      } else {
-        // Show manual instructions if URL is not available
-        const instructions = Platform.OS === 'ios'
-          ? i18n.t('subscription.iosCancelInstructions')
-          : i18n.t('subscription.androidCancelInstructions');
-        
-        showAlert(createErrorAlert(
-          i18n.t('subscription.managementUnavailable'),
-          instructions
-        ));
-      }
-    } catch (error) {
-      console.error('Error opening subscription management:', error);
-      const instructions = Platform.OS === 'ios'
-        ? i18n.t('subscription.iosCancelInstructions')
-        : i18n.t('subscription.androidCancelInstructions');
-      
-      showAlert(createErrorAlert(
-        i18n.t('subscription.cancelError'),
-        instructions
-      ));
-    } finally {
-      setIsCancelling(false);
-    }
-  };
-
-  // Only show cancel button if subscription will renew (not lifetime) and has RevenueCat subscription
-  const canCancel = activeEntitlement && activeEntitlement.willRenew !== false && expirationDate !== null;
-
-  const expDate = expirationDate || freeProExpirationDate;
-  const isFreePro = !activeEntitlement && freeProStatus?.isActive;
+  const expDate = freeProExpirationDate;
+  const isFreePro = freeProStatus?.isActive;
 
   return (
     <ThemedView style={styles.container}>
-      {AlertComponent}
       <SettingsItem
         title={i18n.t('subscription.plan')}
         subtitle={getPlanName(productIdentifier)}
@@ -242,46 +160,6 @@ export const SubscriptionDetails: React.FC = () => {
               ? `${daysRemaining} ${i18n.t('profile.days')}${hoursRemaining !== null && hoursRemaining < 24 ? `, ${hoursRemaining} ${i18n.t('profile.hours')}` : ''}`
               : undefined
           }
-        />
-      )}
-
-      {!expDate && activeEntitlement && (
-        <SettingsItem
-          title={i18n.t('subscription.status')}
-          subtitle={i18n.t('subscription.lifetimeAccess')}
-          icon={<MaterialIcons name="all-inclusive" size={SIZES.icon.lg} color={theme.icon.primary} />}
-          value={i18n.t('subscription.active')}
-        />
-      )}
-
-      {activeEntitlement && activeEntitlement.willRenew !== undefined && (
-        <SettingsItem
-          title={i18n.t('subscription.renewal')}
-          subtitle={
-            activeEntitlement.willRenew
-              ? i18n.t('subscription.autoRenewOn')
-              : i18n.t('subscription.autoRenewOff')
-          }
-          icon={
-            <MaterialIcons
-              name={activeEntitlement.willRenew ? 'autorenew' : 'cancel'}
-              size={SIZES.icon.lg}
-              color={theme.icon.primary}
-            />
-          }
-        />
-      )}
-
-      {/* Cancel Subscription Button - Only show for renewable subscriptions */}
-      {canCancel && (
-        <ThemedButton
-          title={isCancelling ? i18n.t('subscription.cancelling') : i18n.t('subscription.cancelSubscription')}
-          onPress={handleCancelSubscription}
-          variant="outline"
-          disabled={isCancelling}
-          icon={isCancelling ? <ActivityIndicator size="small" color={theme.text.primary} /> : undefined}
-          style={styles.cancelButton}
-          fullWidth
         />
       )}
     </ThemedView>

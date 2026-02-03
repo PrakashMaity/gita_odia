@@ -10,7 +10,6 @@ import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/servic
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { registerDeviceForPushNotifications, setupFCMNotificationHandlers } from '@/services/pushNotifications';
-import { initializeRevenueCat } from '@/services/revenueCat/initializeRevenueCat';
 import { useChapterStore } from '@/store';
 import { ClientFonts } from '@/utils/assets';
 import { useFonts } from 'expo-font';
@@ -60,10 +59,6 @@ export default function RootLayout() {
     setupFCMNotificationHandlers();
   }, []);
 
-  // Initialize RevenueCat
-  useEffect(() => {
-    initializeRevenueCat();
-  }, []);
 
   // Initialize Google Mobile Ads
   useEffect(() => {

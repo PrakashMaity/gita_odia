@@ -1,11 +1,10 @@
 import { isProActive } from '@/services/proService';
-import { revenueCatService } from '@/services/revenueCat/revenueCatService';
 import { useCallback, useEffect, useState } from 'react';
 import { AppState, AppStateStatus } from 'react-native';
 
 /**
  * Hook to check PRO/Premium status
- * Checks both RevenueCat premium entitlement AND free Pro status (1-day Pro)
+ * Checks free Pro status (1-day Pro)
  * 
  * @example
  * ```tsx
@@ -24,22 +23,11 @@ export const useProStatus = () => {
     try {
       setIsLoading(true);
       
-      // Check RevenueCat premium status
-      let hasRevenueCatPro = false;
-      try {
-        const customerInfo = await revenueCatService.getCustomerInfo();
-        const activeEntitlements = customerInfo.entitlements.active;
-        hasRevenueCatPro = Object.keys(activeEntitlements).length > 0 && 
-                          Object.values(activeEntitlements).some(ent => ent.isActive);
-      } catch (error) {
-        console.error('[useProStatus] Error checking RevenueCat status:', error);
-      }
-      
       // Check free Pro status (1-day Pro)
       const hasFreePro = await isProActive();
       
-      // User is Pro if either RevenueCat Pro or free Pro is active
-      setIsPro(hasRevenueCatPro || hasFreePro);
+      // User is Pro if free Pro is active
+      setIsPro(hasFreePro);
     } catch (error) {
       console.error('[useProStatus] Error checking PRO status:', error);
       setIsPro(false);
