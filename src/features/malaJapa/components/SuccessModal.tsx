@@ -1,15 +1,17 @@
+import { Box } from '@/components/ui/box';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
+import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
 import React, { useEffect, useRef } from 'react';
 import {
-  Modal,
-  View,
-  StyleSheet,
   Animated,
+  Dimensions,
+  Modal,
+  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
-import i18n from '@/lib/i18n';
-import { ANIMATION } from '@/constants/animation';
 
 interface SuccessModalProps {
   visible: boolean;
@@ -24,6 +26,8 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
 }) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fonts = getLanguageFonts();
+  const { width: screenWidth } = Dimensions.get('screen');
 
   useEffect(() => {
     if (visible) {
@@ -36,7 +40,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
         }),
         Animated.timing(fadeAnim, {
           toValue: 1,
-          duration: ANIMATION.normal,
+          duration: 300,
           useNativeDriver: true,
         }),
       ]).start();
@@ -44,12 +48,12 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
       Animated.parallel([
         Animated.timing(scaleAnim, {
           toValue: 0,
-          duration: ANIMATION.fast,
+          duration: 200,
           useNativeDriver: true,
         }),
         Animated.timing(fadeAnim, {
           toValue: 0,
-          duration: ANIMATION.fast,
+          duration: 200,
           useNativeDriver: true,
         }),
       ]).start();
@@ -71,59 +75,57 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
         <Animated.View
           style={[
             styles.overlayBackground,
-            {
-              opacity: fadeAnim,
-            },
+            { opacity: fadeAnim },
           ]}
         />
         <Animated.View
           style={[
-            styles.modalContent,
+            styles.modalWrapper,
             {
               transform: [{ scale: scaleAnim }],
               opacity: fadeAnim,
+              maxWidth: screenWidth * 0.85,
             },
           ]}
         >
-          <View style={styles.content}>
-            <ThemedLanguageText
-              variant="primary"
-              size="title"
-              style={styles.successIcon}
-            >
-              ✨
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="primary"
-              size="title"
-              style={styles.successTitle}
-              fontFamily="regional_secondary"
-            >
-              {i18n.t('malaJapa.completeMala')}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="secondary"
-              size="large"
-              style={styles.successMessage}
-              fontFamily="regional_secondary"
-            >
-              {completedMalas} {i18n.t('malaJapa.completedMalas')}
-            </ThemedLanguageText>
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={onClose}
-              activeOpacity={0.7}
-            >
-              <ThemedLanguageText
-                variant="primary"
-                size="medium"
-                style={styles.closeButtonText}
-                fontFamily="regional_secondary"
+          <Box className="bg-white rounded-[28px] border border-amber-200/60 overflow-hidden">
+            {/* Top Accent */}
+            <Box className="h-1.5 w-full bg-amber-500/80" />
+
+            <VStack className="items-center px-8 py-10 gap-4">
+              {/* Emoji */}
+              <Text className="text-[56px]">✨</Text>
+
+              {/* Title */}
+              <Text
+                className="text-[22px] font-black text-[#3E2723] text-center tracking-tight"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
-                {i18n.t('common.ok')}
-              </ThemedLanguageText>
-            </TouchableOpacity>
-          </View>
+                {i18n.t('malaJapa.completeMala')}
+              </Text>
+
+              {/* Completed Count */}
+              <Text
+                className="text-[17px] font-bold text-[#8D6E63] text-center"
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                {completedMalas} {i18n.t('malaJapa.completedMalas')}
+              </Text>
+
+              {/* Close Button */}
+              <Pressable
+                onPress={onClose}
+                className="mt-3 bg-amber-600 rounded-2xl px-10 py-3 items-center justify-center active:opacity-80 shadow-sm"
+              >
+                <Text
+                  className="text-white text-[15px] font-bold"
+                  style={{ fontFamily: fonts.regional_secondary }}
+                >
+                  {i18n.t('common.ok')}
+                </Text>
+              </Pressable>
+            </VStack>
+          </Box>
         </Animated.View>
       </TouchableOpacity>
     </Modal>
@@ -140,60 +142,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.45)',
   },
-  modalContent: {
-    backgroundColor: '#FFF8E1',
-    borderRadius: SIZES.radius.xl,
-    padding: SIZES.spacing.xxxl,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 3,
-    borderColor: '#FF8F00',
+  modalWrapper: {
+    width: '85%',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 10,
-    minWidth: 280,
-  },
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  successIcon: {
-    fontSize: 64,
-    marginBottom: SIZES.spacing.md,
-  },
-  successTitle: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#5D4037',
-    marginBottom: SIZES.spacing.sm,
-    textAlign: 'center',
-  },
-  successMessage: {
-    fontSize: 18,
-    color: '#5D4037',
-    marginBottom: SIZES.spacing.xl,
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-  closeButton: {
-    backgroundColor: '#FF8F00',
-    paddingVertical: SIZES.spacing.md,
-    paddingHorizontal: SIZES.spacing.xl,
-    borderRadius: SIZES.radius.lg,
-    minWidth: 120,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: '#E65100',
-  },
-  closeButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 12,
   },
 });
-

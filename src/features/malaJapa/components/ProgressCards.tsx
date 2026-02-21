@@ -1,8 +1,10 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
+import React from 'react';
 
 interface ProgressCardsProps {
   currentJapa: number;
@@ -16,85 +18,48 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
   beadCount,
 }) => {
   const currentCount = currentJapa % beadCount;
+  const fonts = getLanguageFonts();
+  const theme = useThemeColors();
 
   return (
-    <View style={styles.container}>
-      <View style={styles.cardsRow}>
-        {/* Left Card - Current Japa */}
-        <View style={styles.card}>
-          <ThemedLanguageText
-            variant="primary"
-            size="title"
-            style={styles.countText}
-            fontFamily="regional_secondary"
-          >
-            {currentCount} / {beadCount}
-          </ThemedLanguageText>
-          <ThemedLanguageText
-            variant="secondary"
-            size="small"
-            style={styles.labelText}
-            fontFamily="regional_secondary"
-          >
-            {i18n.t('malaJapa.currentJapa')}
-          </ThemedLanguageText>
-        </View>
+    <HStack className="w-full px-4 gap-3 mt-4">
+      {/* Current Japa Card */}
+      <Box
+        className="flex-1 rounded-[22px] p-5 border border-amber-100/60 items-center justify-center shadow-sm"
+        style={{ backgroundColor: theme.background.secondary, minHeight: 100 }}
+      >
+        <Text
+          className="text-[30px] font-black text-[#5D4037] mb-1 text-center tracking-tight"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {currentCount} / {beadCount}
+        </Text>
+        <Text
+          className="text-[13px] font-semibold text-[#8D6E63] text-center"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {i18n.t('malaJapa.currentJapa')}
+        </Text>
+      </Box>
 
-        {/* Right Card - Completed Malas */}
-        <View style={styles.card}>
-          <ThemedLanguageText
-            variant="primary"
-            size="title"
-            style={styles.countText}
-            fontFamily="regional_secondary"
-          >
-            {completedMalas} {i18n.t('malaJapa.completedMalas')}
-          </ThemedLanguageText>
-          <ThemedLanguageText
-            variant="secondary"
-            size="small"
-            style={styles.labelText}
-            fontFamily="regional_secondary"
-          >
-            {i18n.t('malaJapa.completedMalas')}
-          </ThemedLanguageText>
-        </View>
-      </View>
-    </View>
+      {/* Completed Malas Card */}
+      <Box
+        className="flex-1 rounded-[22px] p-5 border border-amber-100/60 items-center justify-center shadow-sm"
+        style={{ backgroundColor: theme.background.secondary, minHeight: 100 }}
+      >
+        <Text
+          className="text-[30px] font-black text-[#5D4037] mb-1 text-center tracking-tight"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {completedMalas}
+        </Text>
+        <Text
+          className="text-[13px] font-semibold text-[#8D6E63] text-center"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {i18n.t('malaJapa.completedMalas')}
+        </Text>
+      </Box>
+    </HStack>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginTop: SIZES.spacing.lg,
-  },
-  cardsRow: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.md,
-  },
-  card: {
-    flex: 1,
-    backgroundColor: '#FFF8E1',
-    padding: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.lg,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 100,
-    borderWidth: 1,
-    borderColor: '#FFE0B2',
-  },
-  countText: {
-    fontSize: 32,
-    fontWeight: '700',
-    color: '#5D4037',
-    marginBottom: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  labelText: {
-    fontSize: 14,
-    color: '#5D4037',
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-});

@@ -1,11 +1,13 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet, View, ScrollView } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import i18n from '@/lib/i18n';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { ScrollView } from 'react-native';
 
 type MantraType = 'hareKrishna' | 'omNamah' | 'gitaDhyana' | 'custom';
 
@@ -28,130 +30,60 @@ export const MantraSelector: React.FC<MantraSelectorProps> = ({
   isPro,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   const isMantraLocked = (mantraId: MantraType): boolean => {
-    // First mantra (hareKrishna) is always unlocked
-    if (mantraId === 'hareKrishna') {
-      return false;
-    }
-    // Other mantras are locked if not pro
+    if (mantraId === 'hareKrishna') return false;
     return !isPro;
   };
 
   return (
-    <ThemedView style={styles.container}>
+    <Box className="w-full px-4 py-3 bg-amber-50/40 border-b border-amber-100/40">
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.tabContainer}
+        contentContainerStyle={{ gap: 8, paddingHorizontal: 2 }}
       >
         {mantras.map((mantra) => {
           const isSelected = selectedMantra === mantra.id;
           const isLocked = isMantraLocked(mantra.id);
           return (
-            <TouchableOpacity
+            <Pressable
               key={mantra.id}
-              style={[
-                styles.tab,
-                isSelected && [
-                  styles.tabActive,
-                  { backgroundColor: theme.background.quaternary },
-                ],
-                !isSelected && styles.tabInactive,
-                isLocked && styles.tabLocked,
-              ]}
               onPress={() => onMantraChange(mantra.id)}
-              activeOpacity={0.7}
               disabled={isLocked && !isSelected}
+              className={`active:opacity-70 ${isLocked ? 'opacity-50' : ''}`}
             >
-              <View style={styles.tabContent}>
-                <ThemedLanguageText
-                  variant={isSelected ? 'primary' : isLocked ? 'tertiary' : 'secondary'}
-                  size="small"
-                  style={[
-                    styles.tabText,
-                    isSelected && styles.tabTextActive,
-                    isLocked && styles.tabTextLocked,
-                  ]}
-                  fontFamily="regional_secondary"
-                >
-                  {i18n.t(`malaJapa.${mantra.key}`)}
-                </ThemedLanguageText>
-                {isLocked && (
-                  <Ionicons
-                    name="lock-closed"
-                    size={14}
-                    color={theme.icon.tertiary}
-                    style={styles.lockIcon}
-                  />
-                )}
-              </View>
-            </TouchableOpacity>
+              <Box
+                className={`px-4 py-2 rounded-full border items-center justify-center ${isSelected
+                    ? 'bg-amber-100 border-amber-300'
+                    : 'bg-white/70 border-amber-100/60'
+                  }`}
+              >
+                <HStack className="items-center gap-1.5">
+                  <Text
+                    className={`text-[13px] ${isSelected
+                        ? 'font-bold text-amber-900'
+                        : 'font-medium text-neutral-600'
+                      }`}
+                    style={{ fontFamily: fonts.regional_secondary }}
+                    numberOfLines={1}
+                  >
+                    {i18n.t(`malaJapa.${mantra.key}`)}
+                  </Text>
+                  {isLocked && (
+                    <Ionicons
+                      name="lock-closed"
+                      size={12}
+                      color={theme.icon.tertiary}
+                    />
+                  )}
+                </HStack>
+              </Box>
+            </Pressable>
           );
         })}
       </ScrollView>
-    </ThemedView>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingVertical: SIZES.spacing.md,
-    backgroundColor: 'rgba(255, 248, 225, 0.6)',
-    borderBottomWidth: 1,
-    borderBottomColor: '#FFE0B2',
-  },
-  tabContainer: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.xs,
-  },
-  tab: {
-    paddingVertical: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.full,
-    minWidth: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 1.5,
-  },
-  tabActive: {
-    borderColor: '#FF8F00',
-    shadowColor: '#FF8F00',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  tabInactive: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderColor: '#FFE0B2',
-  },
-  tabLocked: {
-    opacity: 0.6,
-    backgroundColor: 'rgba(200, 200, 200, 0.3)',
-  },
-  tabContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: SIZES.spacing.xs,
-  },
-  tabText: {
-    fontSize: 13,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-  tabTextActive: {
-    fontWeight: '700',
-    fontSize: 14,
-  },
-  tabTextLocked: {
-    opacity: 0.7,
-  },
-  lockIcon: {
-    marginLeft: 2,
-  },
-});

@@ -1,13 +1,14 @@
-import React, { useRef, useEffect } from 'react';
-import { View, StyleSheet, Dimensions, Animated, TouchableOpacity, Image } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
+import { Text } from '@/components/ui/text';
+import { getLanguageFonts } from '@/types/font.interface';
+import React, { useEffect, useRef } from 'react';
+import { Animated, Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
 const MALA_SIZE = Math.min(width * 0.85, 360);
-const BEAD_SIZE = 36; // Increased size for better visibility
-const VISUAL_BEAD_COUNT = 12; // Show 12 visual beads instead of all beads
+const BEAD_SIZE = 36;
+const VISUAL_BEAD_COUNT = 12;
 const MALA_RADIUS = MALA_SIZE / 2 - BEAD_SIZE * 1.5;
+const BACKDROP_SIZE = MALA_SIZE + 24;
 
 type MantraType = 'hareKrishna' | 'omNamah' | 'gitaDhyana' | 'custom';
 
@@ -26,11 +27,10 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
 }) => {
   const rotationAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
+  const fonts = getLanguageFonts();
 
-  // Animate rotation when bead changes - rotate on every click based on actual beadCount
+  // Animate rotation when bead changes
   useEffect(() => {
-    // Calculate rotation based on actual bead count, so it rotates smoothly on each click
-    // Calculate degrees per bead: 360 / beadCount
     const degreesPerBead = 360 / beadCount;
     const targetRotation = currentBead * degreesPerBead;
     Animated.spring(rotationAnim, {
@@ -67,17 +67,15 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
     onBeadTap();
   };
 
-  // Render beads - using rudrasha image, showing only VISUAL_BEAD_COUNT beads
+  // Render beads
   const renderBeads = () => {
     const beads = [];
-    // Calculate which visual bead should be active based on currentBead position
-    // Ensure it maps correctly when currentBead reaches the end
     const progress = currentBead / Math.max(beadCount - 1, 1);
     const activeVisualBead = Math.min(
       Math.floor(progress * VISUAL_BEAD_COUNT),
       VISUAL_BEAD_COUNT - 1
     );
-    
+
     for (let i = 0; i < VISUAL_BEAD_COUNT; i++) {
       const position = getBeadPosition(i, VISUAL_BEAD_COUNT);
       const isActive = i === activeVisualBead;
@@ -91,7 +89,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
             {
               left: position.x - BEAD_SIZE / 2,
               top: position.y - BEAD_SIZE / 2,
-              opacity: isActive ? 1 : isCompleted ? 0.7 : 0.5,
+              opacity: isActive ? 1 : isCompleted ? 0.85 : 0.5,
               transform: [{ scale: isActive ? 1.3 : 1 }],
             },
             isActive && styles.activeBeadContainer,
@@ -108,8 +106,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
     return beads;
   };
 
-  // Create rotation string - allow values beyond 360 for continuous rotation
-  // Rotation naturally wraps (720deg = 360deg = 0deg), so we can use extend
+  // Rotation interpolation
   const rotationInterpolate = rotationAnim.interpolate({
     inputRange: [0, 720],
     outputRange: ['0deg', '720deg'],
@@ -117,49 +114,61 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
   });
 
   return (
-    <View style={styles.container}>
-      {/* Mala Circle */}
-      <Animated.View
-        style={[
-          styles.malaCircle,
-          {
-            width: MALA_SIZE,
-            height: MALA_SIZE,
-            transform: [{ rotate: rotationInterpolate }],
-          },
-        ]}
-      >
-        {renderBeads()}
-      </Animated.View>
+    <View style={styles.outerContainer}>
+      {/* Semi-transparent backdrop for bead visibility */}
+      <View style={styles.backdrop} />
 
-      {/* Center Om Symbol */}
-      <TouchableOpacity
-        onPress={handleTap}
-        activeOpacity={0.8}
-        style={styles.centerSymbol}
-      >
+      <View style={styles.container}>
+        {/* Mala Circle */}
         <Animated.View
           style={[
-            styles.symbolContainer,
+            styles.malaCircle,
             {
-              transform: [{ scale: scaleAnim }],
+              width: MALA_SIZE,
+              height: MALA_SIZE,
+              transform: [{ rotate: rotationInterpolate }],
             },
           ]}
         >
-          <ThemedLanguageText
-            variant="primary"
-            size="title"
-            style={styles.omSymbol}
-          >
-            ॐ
-          </ThemedLanguageText>
+          {renderBeads()}
         </Animated.View>
-      </TouchableOpacity>
+
+        {/* Center Om Symbol — Tap Target */}
+        <TouchableOpacity
+          onPress={handleTap}
+          activeOpacity={0.8}
+          style={styles.centerSymbol}
+        >
+          <Animated.View
+            style={[
+              styles.symbolContainer,
+              { transform: [{ scale: scaleAnim }] },
+            ]}
+          >
+            <Text style={styles.omSymbol}>ॐ</Text>
+          </Animated.View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    width: BACKDROP_SIZE,
+    height: BACKDROP_SIZE,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backdrop: {
+    position: 'absolute',
+    width: BACKDROP_SIZE,
+    height: BACKDROP_SIZE,
+    borderRadius: BACKDROP_SIZE / 2,
+    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    borderWidth: 1,
+    borderColor: 'rgba(180, 83, 9, 0.08)',
+  },
   container: {
     width: MALA_SIZE,
     height: MALA_SIZE,
@@ -185,31 +194,35 @@ const styles = StyleSheet.create({
     height: BEAD_SIZE,
   },
   activeBeadContainer: {
-    shadowColor: '#FF8F00',
+    shadowColor: '#5D4037',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
+    shadowOpacity: 0.7,
+    shadowRadius: 12,
     elevation: 8,
   },
   centerSymbol: {
-    width: MALA_SIZE * 0.5,
-    height: MALA_SIZE * 0.5,
-    borderRadius: (MALA_SIZE * 0.5) / 2,
+    width: MALA_SIZE * 0.48,
+    height: MALA_SIZE * 0.48,
+    borderRadius: (MALA_SIZE * 0.48) / 2,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'visible',
   },
   symbolContainer: {
     width: '100%',
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'visible',
   },
   omSymbol: {
-    fontSize: MALA_SIZE * 0.25,
-    color: '#8B4513',
+    fontSize: MALA_SIZE * 0.2,
+    color: '#3E2723',
     fontWeight: 'bold',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
+    textShadowColor: 'rgba(255, 255, 255, 0.4)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
 });

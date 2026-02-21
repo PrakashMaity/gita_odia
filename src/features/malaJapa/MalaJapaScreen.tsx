@@ -1,20 +1,23 @@
-import { PageHeader, ProUpgradeModal } from '@/components/shared';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { ProUpgradeModal } from '@/components/shared';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { createConfirmAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
+import { HomeImages } from '@/lib/utils/assets';
 import { getBengaliTTSLanguage } from '@/lib/utils/ttsLanguageUtils';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Ionicons } from '@expo/vector-icons';
 import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
-import { LinearGradient } from 'expo-linear-gradient';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  View
-} from 'react-native';
+import { ImageBackground, ScrollView, StatusBar } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { MalaJapaHeader } from './components';
 import { MalaBeads } from './components/MalaBeads';
 import { MantraSelector } from './components/MantraSelector';
 import { ProgressCards } from './components/ProgressCards';
@@ -30,16 +33,20 @@ export const MalaJapaScreen: React.FC = () => {
   const [completedMalas, setCompletedMalas] = useState(0);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showProModal, setShowProModal] = useState(false);
-  
+  const [isFocusMode, setIsFocusMode] = useState(false);
+
   const soundInitialized = useRef(false);
   const { showAd } = useInterstitialAd();
   const lastAdShownJapa = useRef(0);
   const { isPro } = useProStatus();
+  const fonts = getLanguageFonts();
+  const insets = useSafeAreaInsets();
+  const { showAlert, AlertComponent } = useCustomAlert();
 
   // Initialize TTS for mantra chanting
   const { speak: speakMantra, stop: stopMantra } = useTextToSpeech({
     language: getBengaliTTSLanguage(),
-    rate: 1.0, // Normal rate for mantra chanting
+    rate: 1.0,
     pitch: 1.0,
   });
 
@@ -155,73 +162,72 @@ export const MalaJapaScreen: React.FC = () => {
     }
   }, []);
 
-  // Play bead sound - simple beep
   const playBeadSound = useCallback(() => {
     playTone(800, 0.1, 0.3);
   }, [playTone]);
 
-  // Play completion sound
   const playCompletionSound = useCallback(() => {
     playTone(1000, 0.2, 0.5);
   }, [playTone]);
 
   // Handle mantra change with pro check
   const handleMantraChange = useCallback((mantra: MantraType) => {
-    // First mantra (hareKrishna) is always available
     if (mantra === 'hareKrishna') {
       setSelectedMantra(mantra);
       return;
     }
-    
-    // Other mantras require pro
+
     if (!isPro) {
       setShowProModal(true);
       return;
     }
-    
+
     setSelectedMantra(mantra);
   }, [isPro]);
+
+  // Handle Reset with confirmation alert
+  const handleReset = useCallback(() => {
+    showAlert(
+      createConfirmAlert(
+        i18n.t('malaJapa.reset'),
+        i18n.t('malaJapa.resetConfirm'),
+        () => {
+          setCurrentBead(0);
+          setCompletedMalas(0);
+          lastAdShownJapa.current = 0;
+        }
+      )
+    );
+  }, [showAlert]);
 
   // Handle bead tap with sound, vibration, and TTS mantra
   const handleBeadTap = useCallback(async () => {
     if (currentBead < beadCount - 1) {
       const newBead = currentBead + 1;
       setCurrentBead(newBead);
-      
-      // Vibration - always works
+
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      
-      // Sound
       playBeadSound();
-      
-      // Chant mantra using TTS
+
       try {
         const mantraText = getMantraText(selectedMantra);
         if (mantraText) {
-          // Stop any ongoing speech before starting new one
           await stopMantra();
-          // Speak the mantra
           await speakMantra(mantraText);
         }
       } catch (error) {
         console.error('Error chanting mantra:', error);
-        // Continue even if TTS fails
       }
     } else {
-      // Complete one mala
       const newCompletedMalas = completedMalas + 1;
       const newTotalJapa = newCompletedMalas * beadCount;
-      
+
       setCompletedMalas(newCompletedMalas);
       setCurrentBead(0);
-      
-      // Stronger vibration for completion
+
       await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-      
-      // Completion sound
       playCompletionSound();
-      
-      // Chant mantra one last time on completion
+
       try {
         const mantraText = getMantraText(selectedMantra);
         if (mantraText) {
@@ -231,102 +237,147 @@ export const MalaJapaScreen: React.FC = () => {
       } catch (error) {
         console.error('Error chanting mantra on completion:', error);
       }
-      
-      // Show interstitial ad after completing 108 japa
+
       if (newTotalJapa === 108 && lastAdShownJapa.current < 108) {
         showAd();
         lastAdShownJapa.current = 108;
       }
-      
-      // Show success modal
+
       setShowSuccessModal(true);
     }
   }, [currentBead, beadCount, completedMalas, selectedMantra, getMantraText, speakMantra, stopMantra, showAd, playBeadSound, playCompletionSound]);
 
   return (
-    <LinearGradient
-      colors={['#FFE082', '#FFB74D', '#FF8F00']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 0, y: 1 }}
-      style={styles.container}
+    <ImageBackground
+      source={HomeImages.background}
+      style={{ flex: 1 }}
+      resizeMode="cover"
+      blurRadius={0.5}
     >
-      <ThemedView variant="transparent" style={styles.content}>
-        <PageHeader
-          title={i18n.t('malaJapa.title')}
-          subtitle={i18n.t('malaJapa.subtitle')}
-          showBackButton={false}
-        />
+      {isFocusMode && <StatusBar hidden />}
 
-        {/* Mantra Selector Tabs - Below Header */}
-        <MantraSelector
-          selectedMantra={selectedMantra}
-          onMantraChange={handleMantraChange}
-          isPro={isPro}
-        />
+      <Box className="flex-1 relative">
+        {/* ─── Header (hidden in focus mode) ─── */}
+        {!isFocusMode && <MalaJapaHeader />}
 
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Mala Beads Interface */}
-          <View style={styles.malaContainer}>
+        {/* ─── Mantra Selector (hidden in focus mode) ─── */}
+        {!isFocusMode && (
+          <MantraSelector
+            selectedMantra={selectedMantra}
+            onMantraChange={handleMantraChange}
+            isPro={isPro}
+          />
+        )}
+
+        {isFocusMode ? (
+          /* ─── Focus Mode: Centered immersive view ─── */
+          <Box className="flex-1 items-center justify-center">
+            {/* Exit Focus Mode Button — top-right corner */}
+            <Pressable
+              onPress={() => setIsFocusMode(false)}
+              className="absolute right-5 bg-white/70 rounded-full w-10 h-10 items-center justify-center border border-amber-200/50 active:opacity-70 z-20"
+              style={{ top: insets.top + 8 }}
+            >
+              <Ionicons name="close" size={22} color="#3E2723" />
+            </Pressable>
+
             <MalaBeads
               beadCount={beadCount}
               currentBead={currentBead}
               onBeadTap={handleBeadTap}
               selectedMantra={selectedMantra}
             />
-          </View>
 
-          {/* Progress Cards */}
-          <ProgressCards
-            currentJapa={currentJapa}
-            completedMalas={completedMalas}
-            beadCount={beadCount}
-          />
-        </ScrollView>
+            {/* Minimal count in focus mode */}
+            <Text
+              className="text-[#3E2723] text-[28px] font-black mt-6 tracking-tight"
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {currentBead} / {beadCount}
+            </Text>
+            <Text
+              className="text-[#8D6E63] text-[13px] font-semibold mt-1"
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {completedMalas} {i18n.t('malaJapa.completedMalas')}
+            </Text>
+          </Box>
+        ) : (
+          /* ─── Normal Mode ─── */
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ paddingBottom: 40, alignItems: 'center' }}
+            style={{ flex: 1 }}
+          >
+            {/* ─── Mala Beads ─── */}
+            <Box className="w-full items-center justify-center mt-4 mb-2" style={{ minHeight: 400 }}>
+              <MalaBeads
+                beadCount={beadCount}
+                currentBead={currentBead}
+                onBeadTap={handleBeadTap}
+                selectedMantra={selectedMantra}
+              />
+            </Box>
 
-        {/* Success Modal */}
+            {/* ─── Progress Cards ─── */}
+            <ProgressCards
+              currentJapa={currentJapa}
+              completedMalas={completedMalas}
+              beadCount={beadCount}
+            />
+
+            {/* ─── Action Buttons: Reset + Focus Mode ─── */}
+            <HStack className="w-full px-4 gap-3 mt-4">
+              {/* Reset */}
+              <Pressable
+                onPress={handleReset}
+                className="flex-1 active:opacity-70"
+              >
+                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-red-200/60 bg-white/80">
+                  <Ionicons name="refresh" size={18} color="#DC2626" />
+                  <Text
+                    className="text-red-600 text-[14px] font-bold"
+                    style={{ fontFamily: fonts.regional_secondary }}
+                  >
+                    {i18n.t('malaJapa.reset')}
+                  </Text>
+                </Box>
+              </Pressable>
+
+              {/* Focus Mode */}
+              <Pressable
+                onPress={() => setIsFocusMode(true)}
+                className="flex-1 active:opacity-70"
+              >
+                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-amber-200/60 bg-white/80">
+                  <Ionicons name="eye-outline" size={18} color="#B45309" />
+                  <Text
+                    className="text-amber-700 text-[14px] font-bold"
+                    style={{ fontFamily: fonts.regional_secondary }}
+                  >
+                    {i18n.t('malaJapa.focusMode')}
+                  </Text>
+                </Box>
+              </Pressable>
+            </HStack>
+          </ScrollView>
+        )}
+
+        {/* ─── Modals ─── */}
         <SuccessModal
           visible={showSuccessModal}
           completedMalas={completedMalas}
           onClose={() => setShowSuccessModal(false)}
         />
 
-        {/* Pro Upgrade Modal */}
         <ProUpgradeModal
           visible={showProModal}
           onClose={() => setShowProModal(false)}
         />
-      </ThemedView>
-    </LinearGradient>
+
+        {/* ─── Custom Alert ─── */}
+        {AlertComponent}
+      </Box>
+    </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-  },
-  content: {
-    flex: 1,
-    position: 'relative',
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: SIZES.spacing.lg,
-    paddingBottom: SIZES.spacing.xxxl,
-    alignItems: 'center',
-  },
-  malaContainer: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: SIZES.spacing.xl,
-    marginBottom: SIZES.spacing.lg,
-    minHeight: 400,
-  },
-});
