@@ -1,17 +1,17 @@
-import { SettingsItem } from '@/components/settings';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
+import { SettingsItem } from '@/features/profile/components/settings';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { getProStatus } from '@/services/proService';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { getLanguageFonts } from '@/types/font.interface';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { styles } from './SubscriptionDetails.styles';
 
 export const SubscriptionDetails: React.FC = () => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const [isLoading, setIsLoading] = useState(true);
   const [freeProStatus, setFreeProStatus] = useState<{ isActive: boolean; proUntil: number; remainingDays: number; remainingHours: number } | null>(null);
 
@@ -34,26 +34,24 @@ export const SubscriptionDetails: React.FC = () => {
       }
     };
     checkFreePro();
-    
+
     // Refresh free Pro status every minute to update expiration time
     const interval = setInterval(checkFreePro, 60000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   if (isLoading) {
     return (
-      <ThemedView variant="secondary" style={styles.loadingContainer}>
-        <ActivityIndicator size="small" color={theme.icon.primary} />
-        <ThemedLanguageText
-          variant="secondary"
-          size="medium"
-          fontFamily="regional_secondary"
-          style={styles.loadingText}
+      <Box className="items-center justify-center p-4">
+        <ActivityIndicator size="small" color={theme.status.success} />
+        <Text
+          className="mt-2 text-[14px] font-medium text-neutral-500"
+          style={{ fontFamily: fonts.regional_secondary }}
         >
           {i18n.t('subscription.loading')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
 
@@ -69,7 +67,7 @@ export const SubscriptionDetails: React.FC = () => {
 
   const isActive = freeProStatus.isActive;
   const productIdentifier = 'Free Pro';
-  
+
   // Format product identifier for display
   const getPlanName = (identifier: string): string => {
     if (identifier === 'Free Pro') {
@@ -142,11 +140,11 @@ export const SubscriptionDetails: React.FC = () => {
   const isFreePro = freeProStatus?.isActive;
 
   return (
-    <ThemedView style={styles.container}>
+    <Box className="w-full">
       <SettingsItem
         title={i18n.t('subscription.plan')}
         subtitle={getPlanName(productIdentifier)}
-        icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.lg} color={theme.icon.primary} />}
+        icon={<MaterialIcons name="workspace-premium" size={24} color={theme.icon.primary} />}
         value={isActive || isFreePro ? i18n.t('subscription.active') : i18n.t('subscription.inactive')}
       />
 
@@ -154,15 +152,14 @@ export const SubscriptionDetails: React.FC = () => {
         <SettingsItem
           title={i18n.t('subscription.status')}
           subtitle={getStatusText()}
-          icon={<MaterialIcons name="schedule" size={SIZES.icon.lg} color={theme.icon.primary} />}
+          icon={<MaterialIcons name="schedule" size={24} color={theme.icon.primary} />}
           value={
-            daysRemaining !== null 
+            daysRemaining !== null
               ? `${daysRemaining} ${i18n.t('profile.days')}${hoursRemaining !== null && hoursRemaining < 24 ? `, ${hoursRemaining} ${i18n.t('profile.hours')}` : ''}`
               : undefined
           }
         />
       )}
-    </ThemedView>
+    </Box>
   );
 };
-

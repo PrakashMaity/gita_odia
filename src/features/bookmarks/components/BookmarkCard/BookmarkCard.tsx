@@ -1,15 +1,15 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import { Bookmark } from '@/store';
 import { formatFullDate } from '@/lib/utils/dateUtils';
+import { Bookmark } from '@/store';
+import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './BookmarkCard.styles';
 
 interface BookmarkCardProps {
   bookmark: Bookmark;
@@ -25,134 +25,109 @@ export const BookmarkCard: React.FC<BookmarkCardProps> = ({
   onDelete,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   return (
-    <TouchableOpacity
+    <Pressable
       key={`${bookmark.verseId}-${index}`}
       onPress={() => onPress(bookmark.chapterId, bookmark.verseNumber)}
-      style={styles.container}
-      activeOpacity={0.7}
+      className="bg-white rounded-[24px] shadow-sm mb-4 border border-amber-100/50 overflow-hidden active:opacity-80 flex-row"
+      style={{ backgroundColor: theme.background.primary }}
     >
-      <ThemedCard 
-        variant="card" 
-        style={[styles.card, { shadowOpacity: 0, elevation: 0 }]}
-        pattern="mandala"
-        patternOpacity={0.05}
-        borderVariant="none"
-      >
-        {/* Left Indicator Bar */}
-        <ThemedView 
-          style={[styles.indicatorBar, { backgroundColor: theme.status.success + '60' }]} 
-        />
+      <Box
+        className="w-2"
+        style={{ backgroundColor: theme.status.success + '60' }}
+      />
 
-        {/* Content Container */}
-        <ThemedView style={styles.contentContainer}>
-          {/* Header Section */}
-          <ThemedView style={styles.headerSection}>
-            <ThemedView style={styles.headerLeft}>
-              {/* Chapter Number Badge */}
-              <ThemedView 
-                style={[styles.chapterBadge, { 
-                  backgroundColor: theme.status.success + '20',
-                }]}
-              >
-                <ThemedLanguageText 
-                  variant="primary" 
-                  size="large" 
-                  fontFamily="regional_primary"
-                  style={[styles.chapterNumber, { color: theme.status.success }]}
-                >
-                  {bookmark.chapterNumber}
-                </ThemedLanguageText>
-              </ThemedView>
+      <VStack className="flex-1 p-5 relative overflow-hidden">
+        <Box className="absolute -right-6 -bottom-6 opacity-[0.03]" pointerEvents="none">
+          <MaterialIcons name="bookmark" size={120} color="#000" />
+        </Box>
 
-              {/* Chapter and Verse Info */}
-              <ThemedView style={styles.chapterInfo}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.chapterTitle}
-                  numberOfLines={1}
-                >
-                  {i18n.t('chapter.chapter')} {bookmark.chapterNumber}
-                </ThemedLanguageText>
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="small"
-                  fontFamily="regional_secondary"
-                  style={styles.verseInfo}
-                >
-                  {i18n.t('verse.verse')} {bookmark.verseNumber}
-                </ThemedLanguageText>
-              </ThemedView>
-            </ThemedView>
-
-            {/* Delete Button */}
-            <TouchableOpacity
-              onPress={(e) => {
-                e.stopPropagation();
-                onDelete(bookmark.verseId);
-              }}
-              style={[styles.deleteButton, { backgroundColor: theme.status.error + '15' }]}
-              activeOpacity={0.7}
+        <HStack className="items-start justify-between mb-4">
+          <HStack className="items-center flex-1 pr-4">
+            <Box
+              className="w-12 h-12 rounded-[16px] items-center justify-center mr-3"
+              style={{ backgroundColor: theme.status.success + '20' }}
             >
-              <Ionicons 
-                name="trash-outline" 
-                size={SIZES.icon.xs} 
-                color={theme.status.error} 
-              />
-            </TouchableOpacity>
-          </ThemedView>
-
-          {/* Verse Text Section */}
-          <ThemedView style={styles.verseSection}>
-            <ThemedView style={styles.verseTextContainer}>
-              <ThemedLanguageText 
-                variant="secondary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.verseText}
-                numberOfLines={4}
+              <Text
+                className="text-[20px] font-bold"
+                style={{ fontFamily: fonts.regional_primary, color: theme.status.success }}
               >
-                {bookmark.verseText}
-              </ThemedLanguageText>
-            </ThemedView>
-          </ThemedView>
+                {bookmark.chapterNumber}
+              </Text>
+            </Box>
 
-          {/* Footer Section with Date and Arrow */}
-          <ThemedView 
-            style={styles.footerSection}
+            <VStack className="flex-1">
+              <Text
+                className="text-[16px] font-black tracking-tight text-neutral-800"
+                style={{ fontFamily: fonts.regional_secondary }}
+                numberOfLines={1}
+              >
+                {i18n.t('chapter.chapter')} {bookmark.chapterNumber}
+              </Text>
+              <Text
+                className="text-[12px] font-medium mt-0.5"
+                style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
+              >
+                {i18n.t('verse.verse')} {bookmark.verseNumber}
+              </Text>
+            </VStack>
+          </HStack>
+
+          <Pressable
+            onPress={(e: any) => {
+              e.stopPropagation();
+              onDelete(bookmark.verseId);
+            }}
+            className="w-10 h-10 rounded-full items-center justify-center border border-red-100/30"
+            style={{ backgroundColor: theme.status.error + '10' }}
           >
-            <ThemedView style={styles.dateContainer}>
-              <MaterialIcons 
-                name="bookmark" 
-                size={SIZES.icon.xs} 
-                color={theme.icon.secondary} 
-                style={styles.bookmarkIcon}
-              />
-              <ThemedLanguageText 
-                variant="tertiary" 
-                size="small" 
-                fontFamily="regional_secondary"
-                style={styles.bookmarkDate}
-              >
-                {formatFullDate(bookmark.timestamp)}
-              </ThemedLanguageText>
-            </ThemedView>
+            <Ionicons
+              name="trash-outline"
+              size={18}
+              color={theme.status.error}
+            />
+          </Pressable>
+        </HStack>
 
-            {/* Arrow Icon */}
-            <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
-              <MaterialIcons
-                name="arrow-forward-ios"
-                size={SIZES.icon.xs}
-                color={theme.icon.quaternary}
-              />
-            </ThemedView>
-          </ThemedView>
-        </ThemedView>
-      </ThemedCard>
-    </TouchableOpacity>
+        <Text
+          className="text-[15px] font-medium leading-6 text-neutral-600 mb-5"
+          style={{ fontFamily: fonts.regional_secondary }}
+          numberOfLines={4}
+        >
+          {bookmark.verseText}
+        </Text>
+
+        <HStack className="items-center justify-between border-t border-amber-900/5 pt-4">
+          <HStack className="items-center">
+            <MaterialIcons
+              name="bookmark"
+              size={14}
+              color={theme.icon.secondary}
+              style={{ marginRight: 6 }}
+            />
+            <Text
+              className="text-[12px] font-medium"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.tertiary }}
+            >
+              {formatFullDate(bookmark.timestamp)}
+            </Text>
+          </HStack>
+
+          <Box
+            className="w-8 h-8 rounded-full items-center justify-center"
+            style={{ backgroundColor: theme.background.secondary }}
+          >
+            <MaterialIcons
+              name="arrow-forward-ios"
+              size={12}
+              color={theme.icon.secondary}
+            />
+          </Box>
+        </HStack>
+
+      </VStack>
+    </Pressable>
   );
 };
-

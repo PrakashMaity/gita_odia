@@ -1,17 +1,19 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { getAdFreeStatus } from '@/services/adFreeService';
 import { canExtendProWithPoints, extendProWithPoints } from '@/services/proService';
 import { getPointsData, PointsData, REDEEM_THRESHOLD, redeemPoints } from '@/services/shareAnalyticsService';
-import Feather from '@expo/vector-icons/Feather';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Feather } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Modal, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Modal, ScrollView, TouchableOpacity } from 'react-native';
 
 interface PointsDisplayProps {
   style?: any;
@@ -19,8 +21,9 @@ interface PointsDisplayProps {
 
 export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
   const theme = useThemeColors();
-  const adFreeBackgroundColor = theme.status.success ?? 'rgba(34, 197, 94, 0.15)';
-  const adFreeTextColor = theme.text.success ?? '#22c55e';
+  const fonts = getLanguageFonts();
+  const adFreeBackgroundColor = theme.status.success ? theme.status.success + '20' : 'rgba(34, 197, 94, 0.15)';
+  const adFreeTextColor = theme.status.success ?? '#22c55e';
   const { showAlert, AlertComponent } = useCustomAlert();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -152,17 +155,15 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
 
   if (loading) {
     return (
-      <ThemedView style={[styles.container, style]}>
-        <ActivityIndicator size="small" color={theme.icon.primary} />
-        <ThemedLanguageText
-          variant="secondary"
-          size="small"
-          fontFamily="regional_secondary"
-          style={[styles.loadingText, { color: theme.text.secondary }]}
+      <Box className="items-center justify-center p-4 min-h-[120px]" style={style}>
+        <ActivityIndicator size="small" color={theme.status.success} />
+        <Text
+          className="mt-2 text-[14px] font-medium text-neutral-500 text-center"
+          style={{ fontFamily: fonts.regional_secondary }}
         >
           {i18n.t('profile.loading')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
 
@@ -171,207 +172,209 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
   }
 
   return (
-    <ThemedView style={[styles.container, style]}>
+    <Box className="w-full mb-2" style={style}>
       {AlertComponent}
-      <ThemedCard variant="primary" style={styles.pointsCard}>
+      <Box
+        className="w-full bg-white rounded-[20px] shadow-sm border border-amber-100/50 p-5 overflow-hidden relative"
+        style={{ backgroundColor: theme.background.primary }}
+      >
+        {/* Background icon */}
+        <Box className="absolute -right-6 -bottom-6 opacity-[0.03]" pointerEvents="none">
+          <Feather name="award" size={120} color="#000" />
+        </Box>
+
         {/* Header with Current Points */}
-        <ThemedView style={styles.pointsHeader}>
-          <ThemedView style={styles.pointsHeaderLeft}>
-            <ThemedView style={styles.pointsIconContainer}>
-              <Feather name="award" size={SIZES.icon.lg} color={theme.icon.primary} />
-            </ThemedView>
-            <ThemedView style={styles.pointsTitleContainer}>
-              <ThemedLanguageText
-                variant="primary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={[styles.pointsTitle, { color: theme.text.primary }]}
+        <HStack className="items-start justify-between mb-6 relative z-10">
+          <HStack className="items-center flex-1">
+            <Box
+              className="w-12 h-12 rounded-[16px] items-center justify-center mr-4"
+              style={{ backgroundColor: theme.status.warning + '15' }}
+            >
+              <Feather name="award" size={24} color={theme.status.warning} />
+            </Box>
+            <VStack className="flex-1">
+              <Text
+                className="text-[16px] font-bold tracking-tight text-neutral-800"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.currentPoints')}
-              </ThemedLanguageText>
-              <ThemedLanguageText
-                variant="secondary"
-                size="xs"
-                fontFamily="regional_secondary"
-                style={[styles.pointsSubtitle, { color: theme.text.secondary }]}
+              </Text>
+              <Text
+                className="text-[13px] font-medium text-neutral-500"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.pointsWindow')}
-              </ThemedLanguageText>
-            </ThemedView>
-          </ThemedView>
-          <ThemedView style={styles.pointsValueContainer}>
-            <ThemedLanguageText
-              variant="primary"
-              size="xxl"
-              fontFamily="regional_secondary"
-              style={[styles.pointsMainValue, { color: theme.icon.primary }]}
+              </Text>
+            </VStack>
+          </HStack>
+          <HStack className="items-center">
+            <Text
+              className="text-[32px] font-black tracking-tight"
+              style={{ fontFamily: fonts.regional_primary, color: theme.status.warning }}
             >
               {pointsData.currentPoints}
-            </ThemedLanguageText>
-            <TouchableOpacity 
-              onPress={() => setInfoModalVisible(true)}
-              style={styles.infoButton}
-            >
-              <Feather 
-                name="info" 
-                size={SIZES.icon.sm} 
-                color={theme.icon.secondary}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity 
-              onPress={handleRefresh} 
-              disabled={refreshing}
-              style={styles.refreshButton}
-            >
-              <Feather 
-                name="refresh-cw" 
-                size={SIZES.icon.sm} 
-                color={refreshing ? theme.icon.disabled : theme.icon.secondary}
-              />
-            </TouchableOpacity>
-          </ThemedView>
-        </ThemedView>
-        
+            </Text>
+            <VStack space="xs" className="ml-3">
+              <Pressable
+                onPress={() => setInfoModalVisible(true)}
+                className="w-8 h-8 rounded-full items-center justify-center active:opacity-70"
+                style={{ backgroundColor: theme.background.secondary }}
+              >
+                <Feather
+                  name="info"
+                  size={14}
+                  color={theme.icon.secondary}
+                />
+              </Pressable>
+              <Pressable
+                onPress={handleRefresh}
+                disabled={refreshing}
+                className="w-8 h-8 rounded-full items-center justify-center active:opacity-70"
+                style={{ backgroundColor: theme.background.secondary }}
+              >
+                <Feather
+                  name="refresh-cw"
+                  size={14}
+                  color={refreshing ? theme.icon.disabled : theme.icon.secondary}
+                />
+              </Pressable>
+            </VStack>
+          </HStack>
+        </HStack>
+
         {refreshing && (
-          <ThemedView style={styles.refreshingIndicator}>
-            <ActivityIndicator size="small" color={theme.icon.primary} />
-          </ThemedView>
+          <Box className="items-center py-2 mb-2">
+            <ActivityIndicator size="small" color={theme.status.success} />
+          </Box>
         )}
 
         {/* Ad-Free Status */}
         {adFreeStatus?.isActive && (
-          <ThemedView style={[styles.adFreeBanner, { backgroundColor: adFreeBackgroundColor }]}>
-            <Feather name="shield" size={SIZES.icon.sm} color={theme.icon.success || '#22c55e'} />
-            <ThemedLanguageText
-              variant="primary"
-              size="small"
-              fontFamily="regional_secondary"
-              style={[styles.adFreeText, { color: adFreeTextColor }]}
+          <HStack
+            className="items-center p-3 rounded-[12px] mb-4"
+            style={{ backgroundColor: adFreeBackgroundColor }}
+          >
+            <Feather name="shield" size={16} color={adFreeTextColor} style={{ marginRight: 8 }} />
+            <Text
+              className="text-[13px] font-bold flex-1"
+              style={{ fontFamily: fonts.regional_secondary, color: adFreeTextColor }}
             >
               {i18n.t('profile.adFreeActive')} • {adFreeStatus.remainingDays} {i18n.t('profile.adFreeDays')} {adFreeStatus.remainingHours} {i18n.t('profile.adFreeHours')}
-            </ThemedLanguageText>
-          </ThemedView>
+            </Text>
+          </HStack>
         )}
 
         {/* Extend Pro Button */}
         {canExtendPro && (
-          <TouchableOpacity
-            style={[styles.redeemButton, { backgroundColor: theme.button.primary.background }]}
+          <Pressable
+            className="flex-row items-center justify-center p-4 rounded-[16px] mb-3 active:opacity-80"
+            style={{ backgroundColor: theme.status.warning }}
             onPress={handleExtendPro}
             disabled={extendingPro}
           >
             {extendingPro ? (
-              <ActivityIndicator size="small" color={theme.button.primary.text} />
+              <ActivityIndicator size="small" color="#fff" />
             ) : (
-              <>
-                <Feather name="star" size={SIZES.icon.sm} color={theme.button.primary.text} />
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={[styles.redeemButtonText, { color: theme.button.primary.text }]}
+              <HStack space="sm" className="items-center">
+                <Feather name="star" size={18} color="#fff" />
+                <Text
+                  className="text-[16px] font-bold tracking-tight text-white"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.extendPro', { defaultValue: 'Extend Pro (2000 points)' })}
-                </ThemedLanguageText>
-              </>
+                </Text>
+              </HStack>
             )}
-          </TouchableOpacity>
+          </Pressable>
         )}
 
         {/* Redeem Button */}
         {pointsData.canRedeem && (
-          <TouchableOpacity
-            style={[styles.redeemButton, { backgroundColor: theme.background.primary }]}
+          <Pressable
+            className="flex-row items-center justify-center p-4 rounded-[16px] mb-4 active:opacity-80 border border-amber-900/10"
+            style={{ backgroundColor: theme.background.secondary }}
             onPress={handleRedeem}
             disabled={redeeming}
           >
             {redeeming ? (
               <ActivityIndicator size="small" color={theme.text.primary} />
             ) : (
-              <>
-                <Feather name="gift" size={SIZES.icon.sm} color={theme.icon.primary} />
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={[styles.redeemButtonText, { color: theme.text.primary }]}
+              <HStack space="sm" className="items-center">
+                <Feather name="gift" size={18} color={theme.icon.primary} />
+                <Text
+                  className="text-[16px] font-bold tracking-tight text-neutral-800"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.redeemButton')}
-                </ThemedLanguageText>
-              </>
+                </Text>
+              </HStack>
             )}
-          </TouchableOpacity>
+          </Pressable>
         )}
 
         {/* Points Details Row */}
-        <ThemedView style={styles.pointsDetailsRow}>
-          <ThemedView style={styles.pointsDetailCard}>
-            <ThemedLanguageText
-              variant="secondary"
-              size="xs"
-              fontFamily="regional_secondary"
-              style={[styles.pointsDetailLabel, { color: theme.text.secondary }]}
+        <HStack space="md" className="pt-4 border-t border-amber-900/5 mb-4">
+          <Box
+            className="flex-1 p-3 rounded-[12px] items-center"
+            style={{ backgroundColor: theme.background.secondary }}
+          >
+            <Text
+              className="text-[12px] font-medium text-neutral-500 mb-1 text-center"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.expiredPoints')}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={[styles.pointsDetailValue, { color: theme.text.error || theme.text.secondary }]}
+            </Text>
+            <Text
+              className="text-[18px] font-bold text-neutral-800 text-center"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {pointsData.expiredPoints}
-            </ThemedLanguageText>
-          </ThemedView>
-          <ThemedView style={styles.pointsDetailCard}>
-            <ThemedLanguageText
-              variant="secondary"
-              size="xs"
-              fontFamily="regional_secondary"
-              style={[styles.pointsDetailLabel, { color: theme.text.secondary }]}
+            </Text>
+          </Box>
+          <Box
+            className="flex-1 p-3 rounded-[12px] items-center"
+            style={{ backgroundColor: theme.background.secondary }}
+          >
+            <Text
+              className="text-[12px] font-medium text-neutral-500 mb-1 text-center"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.totalPointsEarned')}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={[styles.pointsDetailValue, { color: theme.text.primary }]}
+            </Text>
+            <Text
+              className="text-[18px] font-bold text-neutral-800 text-center"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {pointsData.totalEarned}
-            </ThemedLanguageText>
-          </ThemedView>
-        </ThemedView>
+            </Text>
+          </Box>
+        </HStack>
 
         {/* Points Breakdown - Compact */}
-        <ThemedView style={styles.pointsBreakdown}>
-          <ThemedView style={styles.breakdownRow}>
-            <ThemedView style={styles.breakdownItem}>
-              <Feather name="file-text" size={SIZES.icon.xs} color={theme.icon.secondary} />
-              <ThemedLanguageText
-                variant="secondary"
-                size="xs"
-                fontFamily="regional_secondary"
-                style={[styles.breakdownText, { color: theme.text.secondary }]}
+        <Box className="pt-4 border-t border-amber-900/5">
+          <HStack className="items-center justify-center space-x-4">
+            <HStack space="xs" className="items-center">
+              <Feather name="file-text" size={14} color={theme.icon.secondary} />
+              <Text
+                className="text-[12px] font-medium text-neutral-500"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {pointsData.pointsBreakdown.verseShares} {i18n.t('profile.points')}
-              </ThemedLanguageText>
-            </ThemedView>
-            <ThemedView style={styles.breakdownDivider} />
-            <ThemedView style={styles.breakdownItem}>
-              <Feather name="users" size={SIZES.icon.xs} color={theme.icon.secondary} />
-              <ThemedLanguageText
-                variant="secondary"
-                size="xs"
-                fontFamily="regional_secondary"
-                style={[styles.breakdownText, { color: theme.text.secondary }]}
+              </Text>
+            </HStack>
+            <Box className="w-[1px] h-4 mx-4" style={{ backgroundColor: theme.border.primary }} />
+            <HStack space="xs" className="items-center">
+              <Feather name="users" size={14} color={theme.icon.secondary} />
+              <Text
+                className="text-[12px] font-medium text-neutral-500"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {pointsData.pointsBreakdown.appShares} {i18n.t('profile.points')}
-              </ThemedLanguageText>
-            </ThemedView>
-          </ThemedView>
-        </ThemedView>
-      </ThemedCard>
+              </Text>
+            </HStack>
+          </HStack>
+        </Box>
+      </Box>
 
       {/* Info Modal */}
       <Modal
@@ -381,53 +384,56 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         onRequestClose={() => setInfoModalVisible(false)}
       >
         <TouchableOpacity
-          style={styles.modalOverlay}
+          className="flex-1 bg-black/50 justify-center items-center p-6"
           activeOpacity={1}
           onPress={() => setInfoModalVisible(false)}
         >
           <TouchableOpacity
             activeOpacity={1}
             onPress={(e) => e.stopPropagation()}
-            style={[styles.modalContent, { backgroundColor: theme.background.secondary }]}
+            className="w-full max-w-[500px] max-h-[85%] rounded-[24px] p-6 shadow-md border border-amber-100/50"
+            style={{ backgroundColor: theme.background.primary }}
           >
-            <ThemedView style={styles.modalHeader}>
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-                style={[styles.modalTitle, { color: theme.text.primary }]}
+            <HStack className="justify-between items-center mb-6">
+              <Text
+                className="text-[20px] font-black tracking-tight flex-1 text-neutral-800"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.redeemInfo')}
-              </ThemedLanguageText>
-              <TouchableOpacity
+              </Text>
+              <Pressable
                 onPress={() => setInfoModalVisible(false)}
-                style={styles.modalCloseButton}
+                className="w-10 h-10 rounded-full items-center justify-center"
+                style={{ backgroundColor: theme.background.secondary }}
               >
-                <Feather name="x" size={SIZES.icon.md} color={theme.icon.primary} />
-              </TouchableOpacity>
-            </ThemedView>
+                <Feather name="x" size={20} color={theme.icon.primary} />
+              </Pressable>
+            </HStack>
 
-            <ScrollView 
-              style={styles.modalScrollView} 
+            <ScrollView
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={styles.modalScrollContent}
+              contentContainerStyle={{ paddingBottom: 16 }}
             >
               {/* Sharing Points Info */}
-              <ThemedCard variant="primary" style={styles.infoCard}>
-                <ThemedView style={styles.infoCardHeader}>
-                  <ThemedView style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
-                    <Feather name="share-2" size={SIZES.icon.lg} color={theme.icon.primary} />
-                  </ThemedView>
-                  <ThemedLanguageText
-                    variant="primary"
-                    size="large"
-                    fontFamily="regional_secondary"
-                    style={[styles.infoCardTitle, { color: theme.text.primary }]}
+              <Box
+                className="mb-4 rounded-[16px] p-4 border border-amber-900/5"
+                style={{ backgroundColor: theme.background.secondary }}
+              >
+                <HStack className="items-center mb-4 space-x-3">
+                  <Box
+                    className="w-10 h-10 rounded-full items-center justify-center"
+                    style={{ backgroundColor: theme.status.warning + '15' }}
+                  >
+                    <Feather name="share-2" size={20} color={theme.status.warning} />
+                  </Box>
+                  <Text
+                    className="text-[16px] font-bold text-neutral-800 flex-1 ml-3"
+                    style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('profile.sharingPointsInfo')}
-                  </ThemedLanguageText>
-                </ThemedView>
-                <ThemedView style={styles.infoCardContent}>
+                  </Text>
+                </HStack>
+                <VStack space="sm">
                   {i18n.t('profile.sharingPointsDesc')
                     .split('\n')
                     .filter(line => line.trim())
@@ -435,43 +441,45 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                       const icons = ['file-text', 'users', 'clock', 'alert-circle'];
                       const cleanText = line.replace(/^•\s*/, '').trim();
                       return (
-                        <ThemedView key={index} style={styles.infoItem}>
-                          <Feather 
-                            name={icons[index] as any} 
-                            size={SIZES.icon.sm} 
-                            color={theme.icon.secondary} 
-                            style={styles.infoItemIcon}
+                        <HStack key={index} className="items-start space-x-3 py-1">
+                          <Feather
+                            name={icons[index] as any}
+                            size={16}
+                            color={theme.icon.secondary}
+                            style={{ marginTop: 2 }}
                           />
-                          <ThemedLanguageText
-                            variant="secondary"
-                            size="small"
-                            fontFamily="regional_secondary"
-                            style={[styles.infoItemText, { color: theme.text.secondary }]}
+                          <Text
+                            className="text-[13px] leading-5 text-neutral-600 flex-1 ml-3"
+                            style={{ fontFamily: fonts.regional_secondary }}
                           >
                             {cleanText}
-                          </ThemedLanguageText>
-                        </ThemedView>
+                          </Text>
+                        </HStack>
                       );
                     })}
-                </ThemedView>
-              </ThemedCard>
+                </VStack>
+              </Box>
 
               {/* Redeem Conditions */}
-              <ThemedCard variant="primary" style={styles.infoCard}>
-                <ThemedView style={styles.infoCardHeader}>
-                  <ThemedView style={[styles.infoIconContainer, { backgroundColor: theme.background.primary + '20' }]}>
-                    <Feather name="gift" size={SIZES.icon.lg} color={theme.icon.primary} />
-                  </ThemedView>
-                  <ThemedLanguageText
-                    variant="primary"
-                    size="large"
-                    fontFamily="regional_secondary"
-                    style={[styles.infoCardTitle, { color: theme.text.primary }]}
+              <Box
+                className="rounded-[16px] p-4 border border-amber-900/5"
+                style={{ backgroundColor: theme.background.secondary }}
+              >
+                <HStack className="items-center mb-4 space-x-3">
+                  <Box
+                    className="w-10 h-10 rounded-full items-center justify-center"
+                    style={{ backgroundColor: theme.status.success + '15' }}
+                  >
+                    <Feather name="gift" size={20} color={theme.status.success} />
+                  </Box>
+                  <Text
+                    className="text-[16px] font-bold text-neutral-800 flex-1 ml-3"
+                    style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('profile.redeemConditions')}
-                  </ThemedLanguageText>
-                </ThemedView>
-                <ThemedView style={styles.infoCardContent}>
+                  </Text>
+                </HStack>
+                <VStack space="sm">
                   {i18n.t('profile.redeemConditionsDesc')
                     .split('\n')
                     .filter(line => line.trim())
@@ -479,241 +487,28 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                       const icons = ['target', 'calendar', 'clock', 'alert-circle'];
                       const cleanText = line.replace(/^•\s*/, '').trim();
                       return (
-                        <ThemedView key={index} style={styles.infoItem}>
-                          <Feather 
-                            name={icons[index] as any} 
-                            size={SIZES.icon.sm} 
-                            color={theme.icon.secondary} 
-                            style={styles.infoItemIcon}
+                        <HStack key={index} className="items-start space-x-3 py-1">
+                          <Feather
+                            name={icons[index] as any}
+                            size={16}
+                            color={theme.icon.secondary}
+                            style={{ marginTop: 2 }}
                           />
-                          <ThemedLanguageText
-                            variant="secondary"
-                            size="small"
-                            fontFamily="regional_secondary"
-                            style={[styles.infoItemText, { color: theme.text.secondary }]}
+                          <Text
+                            className="text-[13px] leading-5 text-neutral-600 flex-1 ml-3"
+                            style={{ fontFamily: fonts.regional_secondary }}
                           >
                             {cleanText}
-                          </ThemedLanguageText>
-                        </ThemedView>
+                          </Text>
+                        </HStack>
                       );
                     })}
-                </ThemedView>
-              </ThemedCard>
+                </VStack>
+              </Box>
             </ScrollView>
           </TouchableOpacity>
         </TouchableOpacity>
       </Modal>
-    </ThemedView>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: SIZES.spacing.md,
-    paddingVertical: SIZES.spacing.xs,
-  },
-  loadingText: {
-    marginTop: SIZES.spacing.sm,
-    textAlign: 'center',
-  },
-  pointsCard: {
-    padding: SIZES.spacing.md,
-  },
-  pointsHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.sm,
-  },
-  pointsHeaderLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  pointsIconContainer: {
-    marginRight: SIZES.spacing.sm,
-  },
-  pointsTitleContainer: {
-    flex: 1,
-  },
-  pointsTitle: {
-    fontWeight: '600',
-    marginBottom: 2,
-  },
-  pointsSubtitle: {
-    opacity: 0.7,
-  },
-  pointsValueContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.xs,
-  },
-  pointsMainValue: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 38,
-  },
-  infoButton: {
-    padding: SIZES.spacing.xs,
-  },
-  refreshButton: {
-    padding: SIZES.spacing.xs,
-  },
-  refreshingIndicator: {
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-    marginBottom: SIZES.spacing.xs,
-  },
-  adFreeBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: SIZES.spacing.sm,
-    borderRadius: SIZES.borderRadius.sm,
-    marginBottom: SIZES.spacing.sm,
-    gap: SIZES.spacing.xs,
-  },
-  adFreeText: {
-    fontWeight: '600',
-    flex: 1,
-  },
-  redeemButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: SIZES.spacing.md,
-    borderRadius: SIZES.borderRadius.md,
-    marginBottom: SIZES.spacing.sm,
-    gap: SIZES.spacing.xs,
-  },
-  redeemButtonText: {
-    fontWeight: '600',
-  },
-  pointsDetailsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: SIZES.spacing.sm,
-    marginBottom: SIZES.spacing.sm,
-    paddingTop: SIZES.spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  pointsDetailCard: {
-    flex: 1,
-    paddingVertical: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.xs,
-    borderRadius: SIZES.borderRadius.sm,
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-    alignItems: 'center',
-  },
-  pointsDetailLabel: {
-    marginBottom: 4,
-    textAlign: 'center',
-    opacity: 0.7,
-  },
-  pointsDetailValue: {
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  pointsBreakdown: {
-    paddingTop: SIZES.spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  breakdownRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: SIZES.spacing.sm,
-  },
-  breakdownItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.xs,
-  },
-  breakdownDivider: {
-    width: 1,
-    height: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-  },
-  breakdownText: {
-    opacity: 0.7,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: SIZES.spacing.lg,
-  },
-  modalContent: {
-    borderRadius: SIZES.borderRadius.lg,
-    padding: SIZES.spacing.lg,
-    width: '100%',
-    maxWidth: 500,
-    maxHeight: '85%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.md,
-  },
-  modalTitle: {
-    fontWeight: '700',
-    flex: 1,
-  },
-  modalCloseButton: {
-    padding: SIZES.spacing.xs,
-  },
-  modalScrollView: {
-    maxHeight: 500,
-  },
-  modalScrollContent: {
-    paddingBottom: SIZES.spacing.md,
-  },
-  infoCard: {
-    marginBottom: SIZES.spacing.md,
-    padding: SIZES.spacing.md,
-    overflow: 'hidden',
-  },
-  infoCardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.md,
-    gap: SIZES.spacing.sm,
-  },
-  infoIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: SIZES.borderRadius.md,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  infoCardTitle: {
-    fontWeight: '700',
-    flex: 1,
-  },
-  infoCardContent: {
-    gap: SIZES.spacing.sm,
-  },
-  infoItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: SIZES.spacing.sm,
-    paddingVertical: SIZES.spacing.xs,
-    paddingHorizontal: SIZES.spacing.xs,
-    borderRadius: SIZES.borderRadius.sm,
-  },
-  infoItemIcon: {
-    marginTop: 2,
-  },
-  infoItemText: {
-    flex: 1,
-    lineHeight: 20,
-  },
-});

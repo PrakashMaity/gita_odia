@@ -1,15 +1,15 @@
-import { ScreenHeader } from '@/components/shared/ScreenHeader';
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { getLanguageFonts } from '@/types/font.interface';
+import { MaterialIcons } from '@expo/vector-icons';
 import React, { useCallback, useRef, useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './ProfileHeader.styles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface ProfileHeaderProps {
   onDeveloperButtonPress?: () => void;
@@ -23,18 +23,19 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   onDeveloperButtonClick,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const { isPro } = useProStatus();
+  const insets = useSafeAreaInsets();
+
   const [tapCount, setTapCount] = useState(0);
   const tapTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const REQUIRED_TAPS = 10;
 
   const handleTitlePress = useCallback(() => {
-    // Clear existing timeout
     if (tapTimeoutRef.current) {
       clearTimeout(tapTimeoutRef.current);
     }
 
-    // Reset tap count after 2 seconds of inactivity
     tapTimeoutRef.current = setTimeout(() => {
       setTapCount(0);
     }, 2000);
@@ -47,7 +48,6 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       if (tapTimeoutRef.current) {
         clearTimeout(tapTimeoutRef.current);
       }
-      // Trigger parent to show developer button
       if (onDeveloperButtonPress) {
         onDeveloperButtonPress();
       }
@@ -63,59 +63,65 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   }, []);
 
   return (
-    <ScreenHeader
-      leftContent={
-        <ThemedView style={styles.titleContainer}>
-          <ThemedView style={styles.titleRow}>
-            <TouchableOpacity
-              onPress={handleTitlePress}
-              activeOpacity={0.7}
-              style={{ flexDirection: 'row', alignItems: 'center' }}
-            >
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="primary_english"
-                style={[styles.title, { color: theme.text.primary }]}
+    <Box
+      className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+      style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+    >
+      <HStack className="items-center justify-between min-h-[48px]">
+        <Pressable
+          onPress={handleTitlePress}
+          className="flex-1 active:opacity-70"
+        >
+          <VStack>
+            <HStack className="items-center space-x-2">
+              <Text
+                className="text-[28px] font-black tracking-tight text-neutral-800"
+                style={{ fontFamily: fonts.primary_english }}
               >
                 Settings
-              </ThemedLanguageText>
+              </Text>
               {isPro && (
-                <ThemedView style={[styles.proBadge, { backgroundColor: theme.button.primary.background }]}>
-                  <ThemedLanguageText
-                    variant="primary"
-                    size="xs"
-                    fontFamily="regional_secondary"
-                    style={[styles.proText, { color: theme.button.primary.text }]}
+                <Box
+                  className="px-2 py-0.5 rounded-full ml-2"
+                  style={{ backgroundColor: theme.button.primary.background }}
+                >
+                  <Text
+                    className="text-[10px] font-bold tracking-wider text-white"
+                    style={{ fontFamily: fonts.regional_secondary }}
                   >
                     PRO
-                  </ThemedLanguageText>
-                </ThemedView>
+                  </Text>
+                </Box>
               )}
-            </TouchableOpacity>
-          </ThemedView>
-          <ThemedLanguageText
-            variant="secondary"
-            size="small"
-            fontFamily="regional_secondary"
-            style={[styles.subtitle, { color: theme.text.secondary }]}
+            </HStack>
+            <Text
+              className="text-[13px] font-medium text-neutral-500 mt-0.5"
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {i18n.t('profile.customizeExperience')}
+            </Text>
+          </VStack>
+        </Pressable>
+
+        {showDeveloperButton && (
+          <Pressable
+            onPress={onDeveloperButtonClick || onDeveloperButtonPress || (() => { })}
+            className="px-3 py-2 rounded-xl flex-row items-center space-x-2 border shadow-sm active:opacity-70"
+            style={{
+              backgroundColor: theme.background.primary,
+              borderColor: theme.border.primary
+            }}
           >
-            {i18n.t('profile.customizeExperience')}
-          </ThemedLanguageText>
-        </ThemedView>
-      }
-      rightContent={
-        showDeveloperButton ? (
-          <ThemedButton
-            title="Developer"
-            onPress={onDeveloperButtonClick || onDeveloperButtonPress || (() => {})}
-            variant="outline"
-            icon={<MaterialIcons name="code" size={SIZES.icon.sm} color={theme.icon.primary} />}
-            style={{ paddingHorizontal: SIZES.spacing.sm }}
-          />
-        ) : null
-      }
-      containerStyle={{ backgroundColor: theme.background.secondary }}
-    />
+            <MaterialIcons name="code" size={16} color={theme.icon.primary} />
+            <Text
+              className="text-[13px] font-medium ml-2"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+            >
+              Developer
+            </Text>
+          </Pressable>
+        )}
+      </HStack>
+    </Box>
   );
 };

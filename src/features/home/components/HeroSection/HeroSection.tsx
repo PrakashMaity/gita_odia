@@ -1,44 +1,35 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { Center } from '@/components/ui/center';
+import { Text } from '@/components/ui/text';
 import { useDeviceLayout } from '@/hooks/useDeviceLayout';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { HomeImages } from '@/lib/utils/assets';
-import { Image } from 'expo-image';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5 } from '@expo/vector-icons';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Animated } from 'react-native';
-import { styles } from './HeroSection.styles';
 
-export const HeroSection: React.FC = React.memo(() => {
+export const HeroQuote: React.FC = React.memo(() => {
   const layout = useDeviceLayout();
   const heroQuotes = i18n.t('home.heroQuotes') as string[];
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const fadeAnim = useState(new Animated.Value(1))[0];
+  const fonts = getLanguageFonts();
+  const theme = useThemeColors();
 
-  const heroHeight = useMemo(() => 
-    layout.isTablet ? (layout.isLandscape ? 280 : 240) : 180,
+  const heroHeight = useMemo(
+    () => (layout.isTablet ? (layout.isLandscape ? 280 : 240) : 180),
     [layout.isTablet, layout.isLandscape]
   );
 
-  const cardStyle = useMemo(() => 
-    layout.isTablet 
-      ? [styles.heroCard, styles.heroCardTablet]
-      : [styles.heroCard],
-    [layout.isTablet]
-  );
-
-  // Rotate quotes every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      // Fade out
       Animated.timing(fadeAnim, {
         toValue: 0,
         duration: 500,
         useNativeDriver: true,
       }).start(() => {
-        // Change quote
-        setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % heroQuotes.length);
-        // Fade in
+        setCurrentQuoteIndex((prev) => (prev + 1) % heroQuotes.length);
         Animated.timing(fadeAnim, {
           toValue: 1,
           duration: 500,
@@ -46,45 +37,36 @@ export const HeroSection: React.FC = React.memo(() => {
         }).start();
       });
     }, 5000);
-
     return () => clearInterval(interval);
   }, [heroQuotes.length, fadeAnim]);
 
   const currentQuote = heroQuotes[currentQuoteIndex] || heroQuotes[0];
-  // Using decorative curly quotation marks
   const quotedText = `\u201C${currentQuote}\u201D`;
 
   return (
-    <ThemedCard
-      variant='primary'
-      style={cardStyle}
-      pattern="sacredGeometry"
-      patternOpacity={0.15}
+    <Box
+      className="mx-4 rounded-[28px] overflow-hidden border border-amber-100/60 shadow-sm justify-center relative"
+      style={{ height: heroHeight, backgroundColor: theme.background.secondary }}
     >
-      <ThemedView style={styles.heroContainer}>
-        <Image
-          source={HomeImages.hero}
-          contentFit='cover'
-          style={[styles.heroImage, { height: heroHeight }]}
-          blurRadius={3}
-          transition={200}
-          cachePolicy="memory-disk"
-        />
-        <ThemedView style={styles.textOverlay}>
-          <Animated.View style={{ opacity: fadeAnim }}>
-            <ThemedLanguageText
-              variant="primary"
-              size="xxl"
-              fontFamily="regional_secondary"
-              style={styles.overlayText}
-            >
-              {quotedText}
-            </ThemedLanguageText>
-          </Animated.View>
-        </ThemedView>
-      </ThemedView>
-    </ThemedCard>
+      <Box className="absolute -left-4 -top-6 opacity-[0.05]" pointerEvents="none">
+        <FontAwesome5 name="quote-left" size={140} color="#000" />
+      </Box>
+      <Box className="absolute -right-4 -bottom-6 opacity-[0.05]" pointerEvents="none">
+        <FontAwesome5 name="om" size={180} color="#000" />
+      </Box>
+
+      <Center className="px-8 z-10">
+        <Animated.View style={{ opacity: fadeAnim }}>
+          <Text
+            className="text-neutral-800 text-center font-extrabold text-[18px] leading-7 tracking-tight"
+            style={{ fontFamily: fonts.regional_secondary }}
+          >
+            {quotedText}
+          </Text>
+        </Animated.View>
+      </Center>
+    </Box>
   );
 });
 
-HeroSection.displayName = 'HeroSection';
+HeroQuote.displayName = 'HeroQuote';

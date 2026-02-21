@@ -1,18 +1,21 @@
 import { BannerAdComponent } from '@/components/ads';
-import { PageHeader } from '@/components/shared';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { WavePattern } from '@/lib/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
-import { LayoutImages } from '@/lib/utils/assets';
-import { useCallback, useEffect, useRef } from 'react';
-import { Dimensions, ImageBackground, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { Dimensions, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MangalacharanSectionCard } from './components/MangalacharanSectionCard';
-import { styles } from './MangalacharanScreen.styles';
 
 export const MangalacharanScreen: React.FC = () => {
-  const { width, height } = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
   const mangalacharanText = i18n.t('mangalacharan.mantraText');
   const meaningText = i18n.t('mangalacharan.meaningText');
   const instructions = i18n.t('mangalacharan.instructions') as string[];
@@ -22,8 +25,10 @@ export const MangalacharanScreen: React.FC = () => {
   const adsShownCountRef = useRef<number>(0);
   const hasReachedEndRef = useRef<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
+  const insets = useSafeAreaInsets();
 
-  // Reset ad count when component mounts (page revisit)
   useEffect(() => {
     adsShownCountRef.current = 0;
     hasReachedEndRef.current = false;
@@ -37,7 +42,7 @@ export const MangalacharanScreen: React.FC = () => {
     if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
       hasReachedEndRef.current = true;
       adsShownCountRef.current += 1;
-      
+
       setTimeout(() => {
         showAd();
       }, 500);
@@ -49,88 +54,112 @@ export const MangalacharanScreen: React.FC = () => {
   }, [showAd, isLoaded]);
 
   return (
-    <ImageBackground
-      source={LayoutImages.background3}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <WavePattern width={width} height={height} />
-        
-        <PageHeader title={i18n.t('mangalacharan.title')} />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
 
-        <ScrollView 
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={400}
+      {/* Custom Modern Header */}
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <Pressable
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            onPress={() => router.back()}
+          >
+            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+          </Pressable>
+
+          <Text
+            className="text-[20px] font-black tracking-tight flex-1 text-center"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+            numberOfLines={1}
+          >
+            {i18n.t('mangalacharan.title')}
+          </Text>
+
+          <Box className="w-10 h-10" />
+        </HStack>
+      </Box>
+
+      {/* Main Container */}
+      <ScrollView
+        ref={scrollViewRef}
+        className="flex-1 px-4 pt-6"
+        contentContainerStyle={{ paddingBottom: 64 }}
+        showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={400}
+      >
+
+        {/* Intro */}
+        <Box
+          className="bg-white rounded-[24px] border border-amber-100/50 shadow-sm overflow-hidden mb-6"
+          style={{ backgroundColor: theme.background.primary }}
         >
           <MangalacharanSectionCard
             content={i18n.t('mangalacharan.intro')}
             variant="intro"
           />
+        </Box>
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.significanceTitle"
-            content={i18n.t('mangalacharan.significanceText')}
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.significanceTitle"
+          content={i18n.t('mangalacharan.significanceText')}
+        />
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.mantraTitle"
-            content={mangalacharanText}
-            textStyle="center"
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.mantraTitle"
+          content={mangalacharanText}
+          textStyle="center"
+        />
 
-          {/* Banner Ad - Center */}
-          <BannerAdComponent 
-            adKey="mangalacharan-center" 
-            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
+        <Box className="w-full my-6 items-center flex">
+          <BannerAdComponent
+            adKey="mangalacharan-center"
           />
+        </Box>
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.mantraBreakdownTitle"
-            content=""
-            isBreakdown
-            breakdownData={mantraBreakdown}
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.mantraBreakdownTitle"
+          content=""
+          isBreakdown
+          breakdownData={mantraBreakdown}
+        />
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.meaningTitle"
-            content={meaningText}
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.meaningTitle"
+          content={meaningText}
+        />
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.benefitsTitle"
-            content={benefits}
-            isList
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.benefitsTitle"
+          content={benefits}
+          isList
+        />
 
-          {/* Banner Ad - Below Center */}
-          <BannerAdComponent 
-            adKey="mangalacharan-below-center" 
-            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
+        <Box className="my-6">
+          <BannerAdComponent
+            adKey="mangalacharan-below-center"
           />
+        </Box>
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.historicalContextTitle"
-            content={i18n.t('mangalacharan.historicalContextText')}
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.historicalContextTitle"
+          content={i18n.t('mangalacharan.historicalContextText')}
+        />
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.spiritualSignificanceTitle"
-            content={i18n.t('mangalacharan.spiritualSignificanceText')}
-          />
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.spiritualSignificanceTitle"
+          content={i18n.t('mangalacharan.spiritualSignificanceText')}
+        />
 
-          <MangalacharanSectionCard
-            titleKey="mangalacharan.instructionsTitle"
-            content={instructions}
-            isList
-          />
-        </ScrollView>
-      </ThemedView>
-    </ImageBackground>
+        <MangalacharanSectionCard
+          titleKey="mangalacharan.instructionsTitle"
+          content={instructions}
+          isList
+        />
+
+      </ScrollView>
+    </Box>
   );
 };

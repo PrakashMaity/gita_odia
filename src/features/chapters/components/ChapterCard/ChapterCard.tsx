@@ -1,17 +1,16 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedLinearProgress } from '@/components/ui/ThemedLinearProgress';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Image } from '@/components/ui/image';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import { ChapterData } from '@/store';
 import { ChapterImages } from '@/lib/utils/assets';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Image } from 'expo-image';
+import { ChapterData } from '@/store';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import React, { useCallback, useMemo } from 'react';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './ChapterCard.styles';
 
 interface ChapterCardProps {
   chapter: ChapterData;
@@ -24,7 +23,8 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
   progressPercentage,
   onPress,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const { chapter: chapterInfo } = chapter;
 
   const coverImage = useMemo(() => {
@@ -32,17 +32,14 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
       if (typeof value === 'number') {
         return value;
       }
-
       if (!value) {
         return NaN;
       }
-
       const banglaDigits = '০১২৩৪৫৬৭৮৯';
       const normalizedString = `${value}`.replace(/[০-৯]/g, (digit) => {
         const index = banglaDigits.indexOf(digit);
         return index >= 0 ? `${index}` : digit;
       });
-
       const parsed = Number(normalizedString);
       return Number.isNaN(parsed) ? NaN : parsed;
     };
@@ -61,65 +58,77 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
   }, [onPress, chapterInfo.id]);
 
   return (
-    <TouchableOpacity
-      key={chapterInfo.id}
+    <Pressable
       onPress={handlePress}
+      className="w-full mb-4 active:opacity-80"
     >
-      <ThemedCard  style={[styles.card,{padding:0}]} pattern='mandala' patternOpacity={0.05}>
-        <ThemedView style={styles.content}>
-          <ThemedView style={styles.coverWrapper}>
-            <Image 
-              source={coverImage} 
-              style={styles.coverImage} 
-              contentFit="cover"
-              transition={200}
-              cachePolicy="memory-disk"
-            />
-          </ThemedView>
+      <Box
+        className="w-full rounded-[24px] p-3 border border-amber-100/50 shadow-sm overflow-hidden relative flex-row items-center"
+        style={{ backgroundColor: theme.background.primary }}
+      >
+        <Box className="absolute -right-4 -bottom-4 opacity-[0.03]" pointerEvents="none">
+          <FontAwesome5 name="book-open" size={90} color="#000" />
+        </Box>
 
-          <ThemedView style={styles.textContainer}>
-            {chapterInfo.subtitle && chapterInfo.subtitle !== chapterInfo.title && (
-              <ThemedLanguageText
-                variant="primary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.subtitle}
-                numberOfLines={1}
-              >
-                {chapterInfo.subtitle} || {chapterInfo.totalVerses} {i18n.t('chapter.verses')}
-              </ThemedLanguageText>
-            )}
-            {progressPercentage > 0 && (
-          <>
-            <ThemedView style={styles.progressSpacer} />
-            <ThemedLinearProgress
-              progress={progressPercentage / 100}
-              height={20}
-              variant="primary"
-              showPercentage={false}
-            />
-          </>
-        )}
-          </ThemedView>
+        <Box className="w-[84px] h-[84px] rounded-[18px] mr-4 overflow-hidden border border-amber-100 shadow-sm">
+          <Image
+            source={coverImage}
+            alt={chapterInfo.title || 'Chapter cover'}
+            className="w-full h-full"
+            resizeMode="cover"
+          />
+        </Box>
 
-          <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
-            <MaterialIcons
-              name="arrow-forward-ios"
-              size={SIZES.icon.xs}
-              color={theme.icon.quaternary}
-            />
-          </ThemedView>
-        </ThemedView>
+        <VStack className="flex-1 justify-center py-1">
+          <Text
+            className="text-neutral-800 font-extrabold text-[16px] mb-1 tracking-tight pr-4"
+            style={{ fontFamily: fonts.regional_secondary }}
+            numberOfLines={2}
+          >
+            {chapterInfo.title}
+          </Text>
 
-       
-      </ThemedCard>
-    </TouchableOpacity>
+          {chapterInfo.subtitle && chapterInfo.subtitle !== chapterInfo.title && (
+            <Text
+              className="text-neutral-500 text-[12px] mb-2 pr-4 leading-4"
+              style={{ fontFamily: fonts.regional_secondary }}
+              numberOfLines={2}
+            >
+              {chapterInfo.subtitle} • {chapterInfo.totalVerses} {i18n.t('chapter.verses')}
+            </Text>
+          )}
+
+          {progressPercentage > 0 && (
+            <VStack className="mt-1 w-[90%]">
+              <HStack className="justify-between mb-1.5 items-center">
+                <Text className="text-[10px] text-amber-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
+                  {i18n.t('progress.readingProgress') || 'Progress'}
+                </Text>
+                <Text className="text-[10px] text-amber-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
+                  {Math.round(progressPercentage)}%
+                </Text>
+              </HStack>
+              <Box className="h-1.5 w-full bg-amber-100 rounded-full overflow-hidden">
+                <Box
+                  className="h-full rounded-full"
+                  style={{ width: `${progressPercentage}%`, backgroundColor: theme.status.success || '#ea580c' }}
+                />
+              </Box>
+            </VStack>
+          )}
+        </VStack>
+
+        <Box className="w-8 h-8 rounded-full items-center justify-center bg-orange-50 mr-1 ml-2">
+          <MaterialIcons name="arrow-forward-ios" size={14} color="#d97706" />
+        </Box>
+      </Box>
+    </Pressable>
   );
 }, (prevProps, nextProps) => {
-  // Custom comparison function for React.memo
   return (
     prevProps.chapter.chapter.id === nextProps.chapter.chapter.id &&
     prevProps.progressPercentage === nextProps.progressPercentage
   );
 });
 
+ChapterCard.displayName = 'ChapterCard';

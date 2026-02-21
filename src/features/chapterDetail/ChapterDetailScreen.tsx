@@ -1,21 +1,23 @@
 import { ReadingProgress } from '@/components/progress';
-import { AudioModal } from '@/features/translationDetail/components/AudioModal';
-import { LoadingState, PageHeader } from '@/components/shared';
-import { ThemedSpacer } from '@/components/ui/ThemedSpacer/ThemedSpacer';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { LoadingState } from '@/components/shared';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { VerseReader } from '@/components/verseReader';
+import { AudioModal } from '@/features/translationDetail/components/AudioModal';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { useChapterStore } from '@/store';
-import { LayoutImages } from '@/lib/utils/assets';
-import { MaterialIcons } from '@expo/vector-icons';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import { styles } from './ChapterDetailScreen.styles';
+import { ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ErrorState } from './components/ErrorState';
 import { VerseNavigation } from './components/VerseNavigation';
 import { useChapterDetailInitialization } from './hooks/useChapterDetailInitialization';
@@ -25,23 +27,26 @@ export const ChapterDetailScreen: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { isLoading } = useChapterStore();
   const { showAlert, AlertComponent } = useCustomAlert();
-  const { theme } = useTheme();
-  const [showTranslation, setShowTranslation] = React.useState(true);
-  const [showLanguage, setShowLanguage] = React.useState(true);
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
+  const insets = useSafeAreaInsets();
+
+  const [showTranslation, setShowTranslation] = useState(true);
+  const [showLanguage, setShowLanguage] = useState(true);
   const [isFullChapterAudioModalVisible, setIsFullChapterAudioModalVisible] = useState(false);
-  const { showAd,isLoaded } = useInterstitialAd();
+  const { showAd, isLoaded } = useInterstitialAd();
   const adsShownRef = useRef<Set<number>>(new Set());
 
-  const { 
-    chapterData, 
-    currentVerse, 
-    setCurrentVerse, 
-    isInitialized 
+  const {
+    chapterData,
+    currentVerse,
+    setCurrentVerse,
+    isInitialized
   } = useChapterDetailInitialization(id);
 
-  const { 
+  const {
     handlePreviousVerse: baseHandlePreviousVerse,
-    handleNextVerse: baseHandleNextVerse 
+    handleNextVerse: baseHandleNextVerse
   } = useChapterDetailOperations(chapterData, id, currentVerse, setCurrentVerse);
 
   const handleNextVerse = useCallback(() => {
@@ -60,12 +65,10 @@ export const ChapterDetailScreen: React.FC = () => {
     if (!chapterData?.verses || currentVerse < 0) return;
 
     // Show ad after reading 3rd, 6th, 9th verse, etc. (indices 2, 5, 8, ...)
-    // Formula: (currentVerse + 1) % 3 === 0 && currentVerse >= 2
     const shouldShowAd = (currentVerse + 1) % 3 === 0 && currentVerse >= 2;
-    
+
     if (shouldShowAd && !adsShownRef.current.has(currentVerse)) {
       adsShownRef.current.add(currentVerse);
-      // Show ad after a short delay
       const timer = setTimeout(() => {
         showAd();
       }, 500);
@@ -73,11 +76,8 @@ export const ChapterDetailScreen: React.FC = () => {
     }
   }, [currentVerse, chapterData, showAd]);
 
-  // Prepare full chapter verses for audio with speaker-specific voices
-  // Separate Language and translation for proper playback sequence
   const fullChapterVerses = useMemo(() => {
     if (!chapterData?.verses || chapterData.verses.length === 0) return [];
-    
     return chapterData.verses.map((verse: any) => ({
       Language: verse.Language,
       translation: verse.translation,
@@ -97,39 +97,69 @@ export const ChapterDetailScreen: React.FC = () => {
   const currentVerseData = verses?.[currentVerse];
 
   return (
-    <ImageBackground
-      source={LayoutImages.background2}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        {AlertComponent}
-        <PageHeader
-          title={`${chapter.title} || ${chapter.subtitle}`}
-          onBack={() => {
-            router.back();
-            showAd();
-          }}
-          rightAction={
-            <TouchableOpacity
-              onPress={() => setIsFullChapterAudioModalVisible(true)}
-              style={[
-                styles.headerAudioButton,
-                { backgroundColor: theme.background.quaternary },
-              ]}
-            >
-              <MaterialIcons
-                name="volume-up"
-                size={SIZES.icon.md}
-                color={theme.icon.primary}
-              />
-            </TouchableOpacity>
-          }
-        />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      {AlertComponent}
 
-        <ScrollView style={styles.verseContainer} showsVerticalScrollIndicator={false}>
-          <ThemedSpacer size="md" />
+      {/* Modern Saffron Light Header */}
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <Pressable
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            onPress={() => {
+              router.back();
+              showAd();
+            }}
+          >
+            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+          </Pressable>
+
+          <VStack className="items-center flex-1 px-4">
+            <Text
+              className="text-[18px] font-black tracking-tight text-center"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+              numberOfLines={1}
+            >
+              {chapter.title}
+            </Text>
+            {chapter.subtitle && chapter.subtitle !== chapter.title && (
+              <Text
+                className="text-[11px] mt-0.5 opacity-80"
+                style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
+                numberOfLines={1}
+              >
+                {chapter.subtitle}
+              </Text>
+            )}
+          </VStack>
+
+          <Pressable
+            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100 shadow-sm"
+            style={{ backgroundColor: theme.background.quaternary }}
+            onPress={() => setIsFullChapterAudioModalVisible(true)}
+          >
+            <MaterialIcons name="volume-up" size={24} color={theme.icon.primary} />
+          </Pressable>
+        </HStack>
+      </Box>
+
+      {/* Main Content Area */}
+      <ScrollView
+        className="flex-1"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 16, paddingBottom: 32 }}
+      >
+        <Box
+          className="rounded-[28px] p-2 border border-amber-100 shadow-sm overflow-hidden mb-6 relative"
+          style={{ backgroundColor: theme.background.primary }}
+        >
+          {/* subtle watermark for verse card */}
+          <Box className="absolute -left-6 -bottom-6 opacity-[0.03]" pointerEvents="none">
+            <FontAwesome5 name="book-open" size={160} color="#000" />
+          </Box>
+
           <VerseReader
             verse={currentVerseData}
             showLanguage={showLanguage}
@@ -148,7 +178,9 @@ export const ChapterDetailScreen: React.FC = () => {
               }
             }}
           />
+        </Box>
 
+        <Box className="mb-2">
           <ReadingProgress
             chapterId={chapter.id}
             currentVerseIndex={currentVerse}
@@ -163,27 +195,28 @@ export const ChapterDetailScreen: React.FC = () => {
               }
             }}
           />
-        </ScrollView>
+        </Box>
+      </ScrollView>
 
-        <VerseNavigation
-          currentVerse={currentVerse}
-          totalVerses={verses?.length || 0}
-          currentVerseData={currentVerseData}
-          chapterId={chapter.id}
-          chapterNumber={chapter.number}
-          onPrevious={handlePreviousVerse}
-          onNext={handleNextVerse}
-        />
+      {/* Modern Bottom Navigation */}
+      <VerseNavigation
+        currentVerse={currentVerse}
+        totalVerses={verses?.length || 0}
+        currentVerseData={currentVerseData}
+        chapterId={chapter.id}
+        chapterNumber={chapter.number}
+        onPrevious={handlePreviousVerse}
+        onNext={handleNextVerse}
+      />
 
-        {/* Full Chapter Audio Modal */}
-        <AudioModal
-          visible={isFullChapterAudioModalVisible}
-          onClose={() => setIsFullChapterAudioModalVisible(false)}
-          verses={fullChapterVerses}
-          title={`${chapter.title} || ${chapter.subtitle}`}
-          chapterNumber={chapter.number}
-        />
-      </ThemedView>
-    </ImageBackground>
+      {/* Full Chapter Audio Modal */}
+      <AudioModal
+        visible={isFullChapterAudioModalVisible}
+        onClose={() => setIsFullChapterAudioModalVisible(false)}
+        verses={fullChapterVerses}
+        title={`${chapter.title} || ${chapter.subtitle}`}
+        chapterNumber={chapter.number}
+      />
+    </Box>
   );
 };

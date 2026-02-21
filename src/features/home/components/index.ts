@@ -1,5 +1,6 @@
-export * from './HeroSection';
+export { HeroQuote } from './HeroSection';
 export * from './HomeHeader';
-export * from './QuickActions';
 export * from './MenuGrid';
 export * from './PromotionalModal';
+export * from './QuickActions';
+

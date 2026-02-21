@@ -93,13 +93,6 @@ export const getMenuSections = (): MenuSection[] => [
         description: i18n.t('menu.translationsDesc'),
         action: () => getNavigationHandler({ id: 'all-translations' } as MenuItem)(),
       },
-     
-    ],
-  },
-  {
-    id: 'features',
-    title: i18n.t('menu.features'),
-    items: [
       {
         id: 'daily-reading',
         title: i18n.t('menu.dailyReading'),
@@ -118,12 +111,6 @@ export const getMenuSections = (): MenuSection[] => [
         description: i18n.t('menu.favoritesDesc'),
         action: () => getNavigationHandler({ id: 'favorites' } as MenuItem)(),
       },
-    ],
-  },
-  {
-    id: 'extra',
-    title: i18n.t('menu.extra') || 'অতিরিক্ত',
-    items: [
       {
         id: 'reading-timer',
         title: i18n.t('menu.readingTimer'),
@@ -144,5 +131,4 @@ export const getMenuSections = (): MenuSection[] => [
       },
     ],
   },
-  
 ];

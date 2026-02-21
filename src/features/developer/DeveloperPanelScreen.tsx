@@ -11,20 +11,20 @@ import {
   showRewardedInterstitialAd,
 } from '@/components/ads';
 import { ScreenHeader } from '@/components/shared/ScreenHeader';
-import { SettingsToggle } from '@/components/settings';
 import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { SettingsToggle } from '@/features/profile/components/settings';
 import { useAdStatus } from '@/hooks/useAdStatus';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
+import { LayoutImages } from '@/lib/utils/assets';
 import { SIZES } from '@/rootconstants/sizes';
 import { activateProMode, clearProMode } from '@/services/proService';
 import { useSettingsStore } from '@/store/settingsStore';
-import { LayoutImages } from '@/lib/utils/assets';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import React, { useEffect, useRef, useState } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';

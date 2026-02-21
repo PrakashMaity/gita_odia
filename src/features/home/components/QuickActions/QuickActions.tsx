@@ -1,61 +1,71 @@
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
+import { Box } from '@/components/ui/box';
+import { Grid, GridItem } from '@/components/ui/grid';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { MenuItem } from '@/constants/menuData';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import { HomeImages } from '@/lib/utils/assets';
+import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5, FontAwesome6 } from '@expo/vector-icons';
-import { ImageBackground } from 'react-native';
+import React from 'react';
 import { getNavigationHandler } from '../../navigationHandlers';
-import { styles } from './QuickActions.styles';
 
-export const QuickActions: React.FC = () => {
+export const QuickActions: React.FC = React.memo(() => {
+  const fonts = getLanguageFonts();
   const theme = useThemeColors();
-  const quickActionTextColor = theme.text.primary;
-  const quickActionIconColor = theme.icon.primary;
 
   return (
-    <ThemedCard variant='primary' pattern='sacredGeometry' style={styles.quickActionsCard}>
-      <ImageBackground
-        source={HomeImages.buttonBackground}
-        style={styles.actionBackground}
-        imageStyle={styles.actionBackgroundImage}
-        blurRadius={4}
-      >
-        <ThemedButton
-          title={i18n.t('gitaSummary.title')}
-          onPress={() => {
-            getNavigationHandler({ id: 'gita-summary' } as MenuItem)();
-          }}
-          variant="basic"
-          size="md"
-          fullWidth
-          style={styles.actionButton}
-          textStyle={{ ...styles.actionText, color: quickActionTextColor }}
-          icon={<FontAwesome6 name="book-bookmark" size={SIZES.icon.lg} color={quickActionIconColor} />}
-        />
-      </ImageBackground>
+    <Grid
+      className="px-4 gap-4 pb-2"
+      _extra={{ className: 'grid-cols-2' }}
+    >
+      <GridItem _extra={{ className: 'col-span-1' }}>
+        <Pressable
+          onPress={() => getNavigationHandler({ id: 'gita-summary' } as MenuItem)()}
+          className="active:opacity-80"
+        >
+          <Box className="flex-row items-center justify-start rounded-[20px] border border-amber-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
+            <Box className="absolute -right-3 -top-3 opacity-[0.04]" pointerEvents="none">
+              <FontAwesome6 name="book-bookmark" size={70} color="#000" />
+            </Box>
+            <Box className="w-11 h-11 bg-amber-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
+              <FontAwesome6 name="book-bookmark" size={18} color="#d97706" />
+            </Box>
+            <Text
+              className="text-neutral-800 font-extrabold text-[14px] flex-1 tracking-tight"
+              style={{ fontFamily: fonts.regional_secondary }}
+              numberOfLines={2}
+            >
+              {i18n.t('gitaSummary.title')}
+            </Text>
+          </Box>
+        </Pressable>
+      </GridItem>
 
-      <ImageBackground
-        source={HomeImages.buttonBackground}
-        style={styles.actionBackground}
-        imageStyle={styles.actionBackgroundImage}
-        blurRadius={4}
-      >
-        <ThemedButton
-          title={i18n.t('gitaMahatmya.title')}
-          onPress={() => {
-            getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)();
-          }}
-          variant="basic"
-          size="md"
-          fullWidth
-          style={styles.actionButton}
-          textStyle={{ ...styles.actionText, color: quickActionTextColor }}
-          icon={<FontAwesome5 name="book" size={SIZES.icon.lg} color={quickActionIconColor} />}
-        />
-      </ImageBackground>
-    </ThemedCard>
+      <GridItem _extra={{ className: 'col-span-1' }}>
+        <Pressable
+          onPress={() => getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)()}
+          className="active:opacity-80"
+        >
+          <Box className="flex-row items-center justify-start rounded-[20px] border border-amber-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
+            <Box className="absolute -right-3 -top-3 opacity-[0.04]" pointerEvents="none">
+              <FontAwesome5 name="book" size={70} color="#000" />
+            </Box>
+            <Box className="w-11 h-11 bg-orange-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
+              <FontAwesome5 name="book" size={18} color="#d97706" />
+            </Box>
+            <Text
+              className="text-neutral-800 font-extrabold text-[14px] flex-1 tracking-tight"
+              style={{ fontFamily: fonts.regional_secondary }}
+              numberOfLines={2}
+            >
+              {i18n.t('gitaMahatmya.title')}
+            </Text>
+          </Box>
+        </Pressable>
+      </GridItem>
+    </Grid>
   );
-};
+});
+
+QuickActions.displayName = 'QuickActions';

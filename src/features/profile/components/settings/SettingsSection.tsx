@@ -1,9 +1,9 @@
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
 import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { StyleSheet } from 'react-native';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { getLanguageFonts } from '@/types/font.interface';
+import React from 'react';
 
 interface SettingsSectionProps {
   title: string;
@@ -17,80 +17,38 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
   description,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   return (
-    <ThemedCard 
-      variant="primary" 
-      style={styles.container}
-      pattern='mandala' 
-      patternOpacity={0.08}
-      borderVariant="primary"
+    <Box
+      className="w-full mb-6 p-5 rounded-[24px] shadow-sm border border-amber-100/50"
+      style={{ backgroundColor: theme.background.primary }}
     >
-      <ThemedView style={styles.header}>
-        <ThemedView style={[styles.indicator, { backgroundColor: theme.status.success + '40' }]} />
-        <ThemedLanguageText 
-          variant='primary'
-          size='medium' 
-          fontFamily='none' 
-          style={[styles.title, { color: theme.text.primary }]}
+      <HStack className="items-center mb-2">
+        <Box
+          className="w-1.5 h-6 rounded-full mr-3"
+          style={{ backgroundColor: theme.status.success + '60' }}
+        />
+        <Text
+          className="text-[20px] font-black tracking-tight flex-1"
+          style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
         >
           {title}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </HStack>
+
       {description && (
-        <ThemedLanguageText 
-          variant='secondary'
-          size='small'
-          fontFamily='regional_secondary' 
-          style={[styles.description, { color: theme.text.secondary }]}
+        <Text
+          className="text-[15px] font-medium leading-6 mb-4 pl-[18px]"
+          style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
         >
           {description}
-        </ThemedLanguageText>
+        </Text>
       )}
-      
-      <ThemedView style={styles.content}>
+
+      <Box className="mt-1">
         {children}
-      </ThemedView>
-    </ThemedCard>
+      </Box>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginVertical: SIZES.spacing.xs,
-    marginHorizontal: 0,
-    padding: SIZES.spacing.sm,
-    borderRadius: SIZES.radius.xl,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingBottom: SIZES.spacing.xs,
-  },
-  indicator: {
-    width: SIZES.borderSize.xxl,
-    height: SIZES.spacing.xl,
-    borderRadius: SIZES.radius.sm,
-    marginRight: SIZES.spacing.xs,
-  },
-  title: {
-    flex: 1,
-    fontWeight: '700',
-    textTransform: 'none',
-    letterSpacing: 0.3,
-    lineHeight: 22,
-  },
-  description: {
-    paddingBottom: SIZES.spacing.xs,
-    paddingTop: SIZES.spacing.xs / 2,
-    textTransform: 'none',
-    lineHeight: 20,
-    letterSpacing: 0.2,
-    fontSize: 13,
-    fontWeight: '400',
-  },
-  content: {
-    paddingTop: SIZES.spacing.xs / 2,
-  },
-});

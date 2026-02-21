@@ -1,1 +1,1 @@
-export { HeroSection } from './HeroSection';
+export { HeroQuote } from './HeroSection';

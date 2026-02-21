@@ -1,13 +1,15 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { getCombinedShareStatistics, ShareStatistics } from '@/services/shareAnalyticsService';
-import Feather from '@expo/vector-icons/Feather';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Feather } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 interface ShareStatsProps {
   style?: any;
@@ -22,32 +24,30 @@ interface StatsCardProps {
 }
 
 const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highlight = false }) => {
-  const highlightStyle: ViewStyle = highlight ? styles.highlightCard : {};
-
+  const fonts = getLanguageFonts();
   return (
-    <ThemedCard variant="primary" style={[styles.statsCard, highlightStyle]}>
-      {icon && (
-        <ThemedView style={styles.iconWrapper}>
-          <Feather name={icon as any} size={SIZES.icon.lg} color={theme.icon.primary} />
-        </ThemedView>
-      )}
-      <ThemedLanguageText
-        variant="primary"
-        size="xxl"
-        fontFamily="regional_secondary"
-        style={[styles.statsValue, { color: highlight ? theme.icon.primary : theme.text.primary }]}
-      >
-        {value}
-      </ThemedLanguageText>
-      <ThemedLanguageText
-        variant="secondary"
-        size="small"
-        fontFamily="regional_secondary"
-        style={[styles.statsLabel, { color: theme.text.secondary }]}
-      >
-        {label}
-      </ThemedLanguageText>
-    </ThemedCard>
+    <Box
+      className={`flex-1 p-3 rounded-[16px] items-center justify-center min-h-[90px] border ${highlight ? 'border-amber-500/30' : 'border-amber-900/5'}`}
+      style={{ backgroundColor: highlight ? theme.status.success + '10' : theme.background.secondary }}
+    >
+      <VStack space="sm" className="items-center">
+        {icon && (
+          <Feather name={icon as any} size={16} color={highlight ? theme.status.success : theme.icon.secondary} />
+        )}
+        <Text
+          className={`text-[24px] font-black tracking-tight ${highlight ? 'text-amber-600' : 'text-neutral-800'}`}
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {value}
+        </Text>
+        <Text
+          className="text-[12px] font-medium text-neutral-500 text-center"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {label}
+        </Text>
+      </VStack>
+    </Box>
   );
 };
 
@@ -61,75 +61,82 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, theme, isExpanded, onToggle }) => {
+  const fonts = getLanguageFonts();
   return (
-    <ThemedCard variant="primary" style={styles.accordionCard}>
-      <TouchableOpacity onPress={onToggle} activeOpacity={0.7}>
-        <ThemedView style={styles.categoryHeader}>
-          <ThemedView style={styles.categoryHeaderLeft}>
-            <Feather name={icon as any} size={SIZES.icon.md} color={theme.icon.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={[styles.categoryTitle, { color: theme.text.primary }]}
+    <Box
+      className="mb-4 bg-white rounded-[20px] shadow-sm border border-amber-100/50 overflow-hidden"
+      style={{ backgroundColor: theme.background.primary }}
+    >
+      <Pressable onPress={onToggle} className="p-4 active:opacity-70">
+        <HStack className="items-center justify-between">
+          <HStack className="items-center flex-1">
+            <Box
+              className="w-10 h-10 rounded-[12px] items-center justify-center mr-3"
+              style={{ backgroundColor: theme.status.success + '15' }}
+            >
+              <Feather name={icon as any} size={20} color={theme.status.success} />
+            </Box>
+            <Text
+              className="text-[16px] font-bold text-neutral-800"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {title}
-            </ThemedLanguageText>
-          </ThemedView>
-          <ThemedView style={styles.categoryHeaderRight}>
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="regional_secondary"
-              style={[styles.totalLabel, { color: theme.text.secondary }]}
+            </Text>
+          </HStack>
+          <HStack className="items-center" space="md">
+            <Text
+              className="text-[13px] font-medium text-neutral-500"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
-              {i18n.t('profile.total')}: {stats.total}
-            </ThemedLanguageText>
-            <Feather 
-              name={isExpanded ? "chevron-up" : "chevron-down"} 
-              size={SIZES.icon.md} 
+              {i18n.t('profile.total')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: '700' }}>{stats.total}</Text>
+            </Text>
+            <Feather
+              name={isExpanded ? "chevron-up" : "chevron-down"}
+              size={20}
               color={theme.icon.secondary}
-              style={styles.chevronIcon}
             />
-          </ThemedView>
-        </ThemedView>
-      </TouchableOpacity>
-      
+          </HStack>
+        </HStack>
+      </Pressable>
+
       {isExpanded && (
-        <ThemedView style={styles.statsRow}>
-          <StatsCard 
-            label={i18n.t('profile.today')} 
-            value={stats.today} 
-            theme={theme}
-            icon="sun"
-          />
-          <StatsCard 
-            label={i18n.t('profile.thisWeek')} 
-            value={stats.week} 
-            theme={theme}
-            icon="calendar"
-          />
-          <StatsCard 
-            label={i18n.t('profile.thisMonth')} 
-            value={stats.month} 
-            theme={theme}
-            icon="trending-up"
-          />
-        </ThemedView>
+        <Box className="px-4 pb-4 pt-2 border-t border-amber-900/5">
+          <HStack space="sm" className="justify-between w-full">
+            <StatsCard
+              label={i18n.t('profile.today')}
+              value={stats.today}
+              theme={theme}
+              icon="sun"
+            />
+            <StatsCard
+              label={i18n.t('profile.thisWeek')}
+              value={stats.week}
+              theme={theme}
+              icon="calendar"
+            />
+            <StatsCard
+              label={i18n.t('profile.thisMonth')}
+              value={stats.month}
+              theme={theme}
+              icon="trending-up"
+            />
+          </HStack>
+        </Box>
       )}
-    </ThemedCard>
+    </Box>
   );
 };
 
 export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [verseStats, setVerseStats] = useState<ShareStatistics>({ today: 0, week: 0, month: 0, total: 0 });
   const [appStats, setAppStats] = useState<ShareStatistics>({ today: 0, week: 0, month: 0, total: 0 });
   const [totalStats, setTotalStats] = useState<ShareStatistics>({ today: 0, week: 0, month: 0, total: 0 });
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
-    summary: false, // First part also collapsed by default
+    summary: false,
     verseShares: false,
     appShares: false,
   });
@@ -170,136 +177,135 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
 
   if (loading) {
     return (
-      <ThemedView style={[styles.container, style, styles.loadingContainer]}>
-        <ActivityIndicator size="large" color={theme.icon.primary} />
-        <ThemedLanguageText
-          variant="secondary"
-          size="medium"
-          fontFamily="regional_secondary"
-          style={[styles.loadingText, { color: theme.text.secondary }]}
+      <Box className="items-center justify-center min-h-[200px]" style={style}>
+        <ActivityIndicator size="large" color={theme.status.success} />
+        <Text
+          className="mt-4 text-[14px] font-medium text-neutral-500 text-center"
+          style={{ fontFamily: fonts.regional_secondary }}
         >
           {i18n.t('profile.loading')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
 
   const hasNoShares = totalStats.total === 0 && verseStats.total === 0 && appStats.total === 0;
 
   return (
-    <ThemedView style={[styles.container, style]}>
-      {/* Summary Section - Now also accordion */}
-      <ThemedCard variant="primary" style={styles.accordionCard}>
-        <TouchableOpacity 
-          onPress={() => toggleSection('summary')} 
-          activeOpacity={0.7}
+    <Box className="w-full flex-1 mb-2" style={style}>
+      {/* Summary Section */}
+      <Box
+        className="mb-4 bg-white rounded-[20px] shadow-sm border border-amber-100/50 overflow-hidden"
+        style={{ backgroundColor: theme.background.primary }}
+      >
+        <Pressable
+          onPress={() => toggleSection('summary')}
+          className="p-4 active:opacity-70"
         >
-          <ThemedView style={styles.summaryHeader}>
-            <ThemedView style={styles.summaryHeaderLeft}>
-              <Feather name="share-2" size={SIZES.icon.lg} color={theme.icon.primary} />
-              <ThemedView style={styles.summaryTitleContainer}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={[styles.summaryTitle, { color: theme.text.primary }]}
+          <HStack className="items-center justify-between">
+            <HStack className="items-center flex-1">
+              <Box
+                className="w-10 h-10 rounded-[12px] items-center justify-center mr-3"
+                style={{ backgroundColor: theme.status.success + '15' }}
+              >
+                <Feather name="share-2" size={20} color={theme.status.success} />
+              </Box>
+              <VStack className="flex-1 justify-center">
+                <Text
+                  className="text-[16px] font-bold text-neutral-800"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.shareStats')}
-                </ThemedLanguageText>
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="small"
-                  fontFamily="regional_secondary"
-                  style={[styles.summarySubtitle, { color: theme.text.secondary }]}
+                </Text>
+                <Text
+                  className="text-[12px] font-medium text-neutral-500"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
-                  {i18n.t('profile.allTime')}: {totalStats.total} {i18n.t('profile.totalShares')}
-                </ThemedLanguageText>
-              </ThemedView>
-            </ThemedView>
-            <ThemedView style={styles.summaryHeaderRight}>
-              <TouchableOpacity 
-                onPress={(e) => {
+                  {i18n.t('profile.allTime')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: '700' }}>{totalStats.total}</Text> {i18n.t('profile.totalShares')}
+                </Text>
+              </VStack>
+            </HStack>
+            <HStack className="items-center" space="sm">
+              <Pressable
+                onPress={(e: any) => {
                   e.stopPropagation();
                   handleRefresh();
                 }}
                 disabled={refreshing}
-                style={styles.refreshButton}
+                className="p-2 active:opacity-70"
               >
-                <Feather 
-                  name="refresh-cw" 
-                  size={SIZES.icon.sm} 
+                <Feather
+                  name="refresh-cw"
+                  size={16}
                   color={refreshing ? theme.icon.disabled : theme.icon.secondary}
                 />
-              </TouchableOpacity>
-              <Feather 
-                name={expandedSections.summary ? "chevron-up" : "chevron-down"} 
-                size={SIZES.icon.md} 
+              </Pressable>
+              <Feather
+                name={expandedSections.summary ? "chevron-up" : "chevron-down"}
+                size={20}
                 color={theme.icon.secondary}
-                style={styles.chevronIcon}
               />
-            </ThemedView>
-          </ThemedView>
-        </TouchableOpacity>
-        
+            </HStack>
+          </HStack>
+        </Pressable>
+
         {refreshing && (
-          <ThemedView style={styles.refreshingIndicator}>
-            <ActivityIndicator size="small" color={theme.icon.primary} />
-          </ThemedView>
+          <Box className="py-2 items-center">
+            <ActivityIndicator size="small" color={theme.status.success} />
+          </Box>
         )}
 
         {expandedSections.summary && (
-          <>
+          <Box className="px-4 pb-4 pt-2 border-t border-amber-900/5">
             {hasNoShares ? (
-              <ThemedView style={styles.emptyState}>
-                <Feather name="share-2" size={SIZES.icon.xxl} color={theme.icon.secondary} />
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={[styles.emptyStateText, { color: theme.text.secondary }]}
+              <VStack space="md" className="items-center justify-center py-6 px-4">
+                <Box
+                  className="w-16 h-16 rounded-full items-center justify-center mb-2"
+                  style={{ backgroundColor: theme.background.secondary }}
+                >
+                  <Feather name="share-2" size={24} color={theme.icon.secondary} />
+                </Box>
+                <Text
+                  className="text-[16px] font-medium text-neutral-600 text-center"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.noShares')}
-                </ThemedLanguageText>
-                <ThemedLanguageText
-                  variant="secondary"
-                  size="small"
-                  fontFamily="regional_secondary"
-                  style={[styles.emptyStateSubtext, { color: theme.text.tertiary }]}
+                </Text>
+                <Text
+                  className="text-[13px] text-neutral-400 text-center leading-5"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.shareAppDesc')}
-                </ThemedLanguageText>
-              </ThemedView>
+                </Text>
+              </VStack>
             ) : (
-              <>
-                {/* Total Highlights */}
-                <ThemedView style={styles.highlightsRow}>
-                  <StatsCard 
-                    label={i18n.t('profile.today')} 
-                    value={totalStats.today} 
-                    theme={theme}
-                    icon="zap"
-                    highlight={totalStats.today > 0}
-                  />
-                  <StatsCard 
-                    label={i18n.t('profile.thisWeek')} 
-                    value={totalStats.week} 
-                    theme={theme}
-                    icon="clock"
-                    highlight={totalStats.week > 0}
-                  />
-                  <StatsCard 
-                    label={i18n.t('profile.thisMonth')} 
-                    value={totalStats.month} 
-                    theme={theme}
-                    icon="activity"
-                    highlight={totalStats.month > 0}
-                  />
-                </ThemedView>
-              </>
+              <HStack space="sm" className="justify-between w-full">
+                <StatsCard
+                  label={i18n.t('profile.today')}
+                  value={totalStats.today}
+                  theme={theme}
+                  icon="zap"
+                  highlight={totalStats.today > 0}
+                />
+                <StatsCard
+                  label={i18n.t('profile.thisWeek')}
+                  value={totalStats.week}
+                  theme={theme}
+                  icon="clock"
+                  highlight={totalStats.week > 0}
+                />
+                <StatsCard
+                  label={i18n.t('profile.thisMonth')}
+                  value={totalStats.month}
+                  theme={theme}
+                  icon="activity"
+                  highlight={totalStats.month > 0}
+                />
+              </HStack>
             )}
-          </>
+          </Box>
         )}
-      </ThemedCard>
+      </Box>
 
       {/* Verse Shares Section */}
       <CategorySection
@@ -320,148 +326,6 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
         isExpanded={expandedSections.appShares}
         onToggle={() => toggleSection('appShares')}
       />
-    </ThemedView>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: SIZES.spacing.md,
-    paddingVertical: SIZES.spacing.sm,
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 200,
-  },
-  loadingText: {
-    marginTop: SIZES.spacing.md,
-    textAlign: 'center',
-  },
-  summaryHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-  },
-  summaryHeaderLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  summaryHeaderRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.xs,
-  },
-  summaryTitleContainer: {
-    marginLeft: SIZES.spacing.sm,
-    flex: 1,
-  },
-  summaryTitle: {
-    fontWeight: '600',
-    marginBottom: 2,
-  },
-  summarySubtitle: {
-    opacity: 0.7,
-  },
-  refreshButton: {
-    padding: SIZES.spacing.xs,
-  },
-  refreshingIndicator: {
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-    marginBottom: SIZES.spacing.xs,
-  },
-  highlightsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: SIZES.spacing.sm,
-    marginTop: SIZES.spacing.md,
-    paddingTop: SIZES.spacing.md,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  accordionCard: {
-    marginBottom: SIZES.spacing.md,
-    padding: SIZES.spacing.md,
-  },
-  categoryHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-  },
-  categoryHeaderLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  categoryHeaderRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SIZES.spacing.sm,
-  },
-  categoryTitle: {
-    marginLeft: SIZES.spacing.sm,
-    fontWeight: '600',
-  },
-  totalLabel: {
-    opacity: 0.8,
-    fontWeight: '500',
-  },
-  chevronIcon: {
-    marginLeft: SIZES.spacing.xs,
-  },
-  statsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: SIZES.spacing.sm,
-    marginTop: SIZES.spacing.md,
-    paddingTop: SIZES.spacing.md,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  statsCard: {
-    flex: 1,
-    padding: SIZES.spacing.md,
-    borderRadius: SIZES.borderRadius.md,
-    alignItems: 'center',
-    minHeight: 100,
-    justifyContent: 'center',
-  },
-  highlightCard: {
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  iconWrapper: {
-    marginBottom: SIZES.spacing.xs,
-    opacity: 0.8,
-  },
-  statsValue: {
-    fontWeight: 'bold',
-    marginVertical: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  statsLabel: {
-    marginTop: SIZES.spacing.xs,
-    textAlign: 'center',
-    opacity: 0.8,
-  },
-  emptyState: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: SIZES.spacing.xl,
-    paddingHorizontal: SIZES.spacing.lg,
-  },
-  emptyStateText: {
-    marginTop: SIZES.spacing.md,
-    textAlign: 'center',
-    fontWeight: '500',
-  },
-  emptyStateSubtext: {
-    marginTop: SIZES.spacing.sm,
-    textAlign: 'center',
-    opacity: 0.7,
-  },
-});

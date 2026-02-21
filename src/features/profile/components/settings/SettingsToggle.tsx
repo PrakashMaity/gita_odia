@@ -1,8 +1,11 @@
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { StyleSheet, Switch, View } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { getLanguageFonts } from '@/types/font.interface';
+import React from 'react';
+import { Switch } from 'react-native';
 
 interface SettingsToggleProps {
   title: string;
@@ -11,7 +14,6 @@ interface SettingsToggleProps {
   onValueChange: (value: boolean) => void;
   icon?: string | React.ReactNode;
   disabled?: boolean;
-  showDivider?: boolean;
 }
 
 export const SettingsToggle: React.FC<SettingsToggleProps> = ({
@@ -21,99 +23,61 @@ export const SettingsToggle: React.FC<SettingsToggleProps> = ({
   onValueChange,
   icon,
   disabled = false,
-  showDivider = false,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   return (
-    <ThemedView style={[styles.container]}>
-      <View style={styles.leftContent}>
+    <HStack
+      className={`items-center justify-between p-4 min-h-[80px] rounded-[20px] mb-2 border border-amber-900/5 ${disabled ? 'opacity-50' : ''}`}
+      style={{ backgroundColor: theme.background.secondary }}
+    >
+      <HStack className="items-center flex-1">
         {icon && (
-          <View style={[styles.iconContainer, { backgroundColor: theme.background.quaternary }]}>
+          <Box
+            className="w-12 h-12 rounded-[16px] mr-4 items-center justify-center overflow-hidden border border-amber-100/50 shadow-sm"
+            style={{ backgroundColor: theme.background.primary }}
+          >
             {typeof icon === 'string' ? (
-              <ThemedLanguageText style={[styles.icon, { color: theme.icon.primary }]}>
+              <Text style={{ color: theme.icon.primary, fontSize: 24, textAlign: 'center' }}>
                 {icon}
-              </ThemedLanguageText>
+              </Text>
             ) : (
               icon
             )}
-          </View>
+          </Box>
         )}
-        <View style={styles.textContent}>
-          <ThemedLanguageText 
-            variant='primary'
-            size='medium' 
-            fontFamily='regional_secondary' 
-            style={styles.title}
+        <VStack className="flex-1 justify-center mr-4">
+          <Text
+            className="text-[16px] font-black tracking-tight mb-1"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
           >
             {title}
-          </ThemedLanguageText>
+          </Text>
           {subtitle && (
-            <ThemedLanguageText 
-              variant='secondary'
-              size='small'
-              fontFamily='regional_secondary' 
-              style={styles.subtitle}
+            <Text
+              className="text-[13px] font-medium leading-[18px]"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
             >
               {subtitle}
-            </ThemedLanguageText>
+            </Text>
           )}
-        </View>
-      </View>
-      
-      <Switch
-        value={value}
-        onValueChange={onValueChange}
-        disabled={disabled}
-        trackColor={{
-          false: theme.background.card,
-          true: theme.button.primary.background,
-        }}
-        thumbColor={value ? theme.text.primary : theme.text.secondary}
-        ios_backgroundColor={theme.background.card}
-      />
-    </ThemedView>
+        </VStack>
+      </HStack>
+
+      <Box className="shrink-0 ml-2">
+        <Switch
+          value={value}
+          onValueChange={onValueChange}
+          disabled={disabled}
+          trackColor={{
+            false: theme.background.card,
+            true: theme.status.success,
+          }}
+          thumbColor={theme.background.primary}
+          ios_backgroundColor={theme.background.card}
+        />
+      </Box>
+    </HStack>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: SIZES.spacing.sm,
-    paddingHorizontal: SIZES.spacing.md,
-    marginVertical: SIZES.spacing.xs / 2,
-    minHeight: 56,
-    borderRadius: SIZES.radius.md,
-  },
-  disabledContainer: {
-    opacity: 0.5,
-  },
-  leftContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  iconContainer: {
-    marginRight: SIZES.spacing.sm,
-    width: 36,
-    height: 36,
-    borderRadius: SIZES.radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    fontSize: SIZES.icon.md,
-    textAlign: 'center',
-  },
-  textContent: {
-    flex: 1,
-  },
-  title: {
-    marginBottom: 2,
-  },
-  subtitle: {
-    opacity: 0.8,
-  },
-});

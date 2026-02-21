@@ -1,17 +1,17 @@
 import { BannerAdComponent } from '@/components/ads';
-import { MangalacharanSectionCard } from '@/features/mangalacharan/components/MangalacharanSectionCard';
 import { LoadingState } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
+import { MangalacharanSectionCard } from '@/features/mangalacharan/components/MangalacharanSectionCard';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { useChapterStore } from '@/store';
-import { LayoutImages } from '@/lib/utils/assets';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
-import { styles } from './ChaptersScreen.styles';
+import { ScrollView } from 'react-native';
 import { ChapterCard } from './components';
 import { ChaptersHeader } from './components/ChaptersHeader';
 import { useChapterProgress } from './hooks/useChapterProgress';
@@ -22,75 +22,81 @@ export const ChaptersScreen: React.FC = () => {
   const { progressLoading, getChapterProgressPercentage } = useChapterProgress();
   const { handleChapterPress } = useChaptersOperations();
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   if (isLoading || progressLoading) {
     return <LoadingState message={i18n.t('chapter.chaptersLoading')} />;
   }
 
   return (
-    <ImageBackground
-      source={LayoutImages.background1}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <ChaptersHeader />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      <ChaptersHeader />
 
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Intro Section */}
-          <MangalacharanSectionCard
-            content={i18n.t('chapter.intro')}
-            variant="intro"
-          />
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{ paddingBottom: 64 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <VStack space="md" className="pt-4">
 
-          {/* Chapters List */}
-          <ThemedView style={styles.section}>
-            <ThemedView style={styles.chaptersContainer}>
-              {chapters.map((chapter) => (
-                <ChapterCard
-                  key={chapter.chapter.id}
-                  chapter={chapter}
-                  progressPercentage={getChapterProgressPercentage(chapter)}
-                  onPress={handleChapterPress}
-                />
-              ))}
-            </ThemedView>
-          </ThemedView>
+          <Box className="px-4">
+            <Box className="mb-4 bg-white rounded-[24px] border border-amber-100 shadow-sm overflow-hidden"
+              style={{ backgroundColor: theme.background.primary }}>
+              <MangalacharanSectionCard
+                content={i18n.t('chapter.intro')}
+                variant="intro"
+              />
+            </Box>
+          </Box>
 
-          {/* Motivational Message - Footer */}
-          <ThemedCard variant="card" style={styles.motivationCard} borderVariant="primary">
-            <ThemedView style={styles.motivationHeader}>
-              <ThemedView style={[styles.motivationIndicator, { backgroundColor: theme.status.success + '40' }]} />
-              <ThemedLanguageText 
-                variant="primary" 
-                size="large" 
-                fontFamily="regional_secondary"
-                style={styles.motivationTitle}
-              >
-                {i18n.t('chapter.motivationTitle')}
-              </ThemedLanguageText>
-            </ThemedView>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              style={styles.motivationText}
-              fontFamily="regional_secondary"
+          <VStack className="px-4">
+            {chapters.map((chapter) => (
+              <ChapterCard
+                key={chapter.chapter.id}
+                chapter={chapter}
+                progressPercentage={getChapterProgressPercentage(chapter)}
+                onPress={handleChapterPress}
+              />
+            ))}
+          </VStack>
+
+          <Box className="px-4 mt-6">
+            <Box
+              className="rounded-[28px] p-6 border border-amber-100 shadow-sm justify-between relative overflow-hidden"
+              style={{ backgroundColor: theme.background.primary }}
             >
-              {i18n.t('chapter.motivationText')}
-            </ThemedLanguageText>
-          </ThemedCard>
+              <Box className="absolute -bottom-4 -right-4 opacity-[0.05]" pointerEvents="none">
+                <FontAwesome5 name="seedling" size={140} color="#000" />
+              </Box>
 
-          {/* Banner Ad */}
-          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
+              <HStack className="items-center mb-3">
+                <Box className="w-10 h-10 bg-emerald-50 rounded-[16px] items-center justify-center mr-3 z-10">
+                  <Box className="w-6 h-6 items-center justify-center">
+                    <FontAwesome5 name="seedling" size={20} color="#10b981" />
+                  </Box>
+                </Box>
+                <Text
+                  className="text-neutral-800 font-extrabold text-[18px] tracking-tight flex-1 z-10"
+                  style={{ fontFamily: fonts.regional_secondary }}
+                >
+                  {i18n.t('chapter.motivationTitle')}
+                </Text>
+              </HStack>
+              <Text
+                className="text-neutral-500 text-[14px] leading-5 z-10"
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                {i18n.t('chapter.motivationText')}
+              </Text>
+            </Box>
+          </Box>
+
+          <Box className="px-4 mt-6">
             <BannerAdComponent />
-          </ThemedView>
-        </ScrollView>
-      </ThemedView>
-    </ImageBackground>
+          </Box>
+
+        </VStack>
+      </ScrollView>
+    </Box>
   );
 };

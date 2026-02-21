@@ -1,13 +1,13 @@
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { BookmarkButton } from '@/features/bookmarks/components';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './VerseNavigation.styles';
 
 interface VerseNavigationProps {
   currentVerse: number;
@@ -32,7 +32,9 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
   onPrevious,
   onNext,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
+
   const isFirstVerse = currentVerse <= 0;
   const isLastVerse = currentVerse >= totalVerses - 1;
 
@@ -41,49 +43,51 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
   }
 
   return (
-    <ThemedView style={styles.container}>
-      <TouchableOpacity
-        onPress={onPrevious}
-        disabled={isFirstVerse}
-        style={[
-          styles.verseNavButton,
-          {
-            backgroundColor: theme.background.secondary,
-            opacity: isFirstVerse ? 0.5 : 1
-          }
-        ]}
-      >
-        <Ionicons name="chevron-back" size={SIZES.icon.md} color={theme.icon.primary} />
-        <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium">
-          {i18n.t('common.previous')}
-        </ThemedLanguageText>
-      </TouchableOpacity>
+    <Box
+      className="px-4 py-4 border-t border-amber-900/10 shadow-sm"
+      style={{ backgroundColor: theme.background.secondary }}
+    >
+      <HStack className="items-center justify-between">
+        <Pressable
+          onPress={onPrevious}
+          disabled={isFirstVerse}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-amber-100/60 shadow-sm active:opacity-70 ${isFirstVerse ? 'opacity-50' : ''}`}
+          style={{ backgroundColor: theme.background.primary }}
+        >
+          <Ionicons name="chevron-back" size={20} color={theme.icon.primary} />
+          <Text
+            className="ml-2 font-bold text-[14px]"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+          >
+            {i18n.t('common.previous')}
+          </Text>
+        </Pressable>
 
-      <BookmarkButton
-        verseId={currentVerseData.id}
-        chapterId={chapterId}
-        chapterNumber={chapterNumber}
-        verseNumber={currentVerseData.verseNumber}
-        verseText={currentVerseData.Language}
-      />
+        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/60 shadow-sm" style={{ backgroundColor: theme.background.primary }}>
+          <BookmarkButton
+            verseId={currentVerseData.id}
+            chapterId={chapterId}
+            chapterNumber={chapterNumber}
+            verseNumber={currentVerseData.verseNumber}
+            verseText={currentVerseData.Language}
+          />
+        </Box>
 
-      <TouchableOpacity
-        onPress={onNext}
-        disabled={isLastVerse}
-        style={[
-          styles.verseNavButton,
-          {
-            backgroundColor: theme.background.secondary,
-            opacity: isLastVerse ? 0.5 : 1
-          }
-        ]}
-      >
-        <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium">
-          {i18n.t('common.next')}
-        </ThemedLanguageText>
-        <Ionicons name="chevron-forward" size={SIZES.icon.md} color={theme.icon.primary} />
-      </TouchableOpacity>
-    </ThemedView>
+        <Pressable
+          onPress={onNext}
+          disabled={isLastVerse}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-amber-100/60 shadow-sm active:opacity-70 ${isLastVerse ? 'opacity-50' : ''}`}
+          style={{ backgroundColor: theme.background.primary }}
+        >
+          <Text
+            className="mr-2 font-bold text-[14px]"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+          >
+            {i18n.t('common.next')}
+          </Text>
+          <Ionicons name="chevron-forward" size={20} color={theme.icon.primary} />
+        </Pressable>
+      </HStack>
+    </Box>
   );
 };
-

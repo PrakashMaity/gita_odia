@@ -1,11 +1,12 @@
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
+import { getLanguageFonts } from '@/types/font.interface';
 import { MaterialIcons } from '@expo/vector-icons';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import React from 'react';
 
 interface SettingsItemProps {
   title: string;
@@ -27,152 +28,79 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
   disabled = false,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   const content = (
-    <ThemedCard
-      variant="primary"
-      style={styles.container}
-      pattern="mandala"
-      patternOpacity={0.08}
-      borderVariant="primary"
+    <HStack
+      className={`items-center justify-between p-4 min-h-[80px] rounded-[20px] mb-2 border border-amber-900/5 ${disabled ? 'opacity-50' : ''}`}
+      style={{ backgroundColor: theme.background.secondary }}
     >
-      <ThemedView style={styles.leftContent}>
+      <HStack className="items-center flex-1">
         {icon && (
-          <ThemedView style={[styles.iconContainer, { backgroundColor: theme.background.tertiary }]}>
+          <Box
+            className="w-12 h-12 rounded-[16px] mr-4 items-center justify-center overflow-hidden border border-amber-100/50 shadow-sm"
+            style={{ backgroundColor: theme.background.primary }}
+          >
             {typeof icon === 'string' ? (
-              <ThemedLanguageText style={[styles.icon, { color: theme.icon.primary }]}>
+              <Text style={{ color: theme.icon.primary, fontSize: 24, textAlign: 'center' }}>
                 {icon}
-              </ThemedLanguageText>
+              </Text>
             ) : (
               icon
             )}
-          </ThemedView>
+          </Box>
         )}
-        <ThemedView style={styles.textContent}>
-          <ThemedLanguageText 
-            variant='primary'
-            size='medium' 
-            fontFamily='regional_secondary' 
-            style={[styles.title, { color: theme.text.primary }]}
+        <VStack className="flex-1 justify-center">
+          <Text
+            className="text-[16px] font-black tracking-tight mb-1"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
           >
             {title}
-          </ThemedLanguageText>
+          </Text>
           {subtitle && (
-            <ThemedLanguageText 
-              variant='secondary'
-              size='small'
-              fontFamily='regional_secondary' 
-              style={[styles.subtitle, { color: theme.text.secondary }]}
+            <Text
+              className="text-[13px] font-medium leading-[18px]"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
             >
               {subtitle}
-            </ThemedLanguageText>
+            </Text>
           )}
-        </ThemedView>
-      </ThemedView>
-      
-      <ThemedView style={styles.rightContent}>
+        </VStack>
+      </HStack>
+
+      <HStack className="items-center shrink-0 ml-4">
         {value && (
-          <ThemedLanguageText 
-            variant='secondary'
-            size='small'
-            fontFamily='regional_secondary'
-            style={[styles.value, { color: theme.text.secondary }]}
+          <Text
+            className="text-[14px] font-medium mr-3"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
           >
             {value}
-          </ThemedLanguageText>
+          </Text>
         )}
         {rightElement}
         {onPress && (
-          <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
+          <Box
+            className="w-7 h-7 rounded-full items-center justify-center ml-2 border border-amber-100/50 shadow-sm"
+            style={{ backgroundColor: theme.background.primary }}
+          >
             <MaterialIcons
               name="arrow-forward-ios"
-              size={SIZES.icon.xs}
-              color={theme.icon.quaternary}
+              size={12}
+              color={theme.icon.secondary}
             />
-          </ThemedView>
+          </Box>
         )}
-      </ThemedView>
-    </ThemedCard>
+      </HStack>
+    </HStack>
   );
 
   if (onPress && !disabled) {
     return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+      <Pressable onPress={onPress} className="active:opacity-80">
         {content}
-      </TouchableOpacity>
+      </Pressable>
     );
   }
 
   return content;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: SIZES.spacing.sm,
-    marginVertical: SIZES.spacing.xs / 2,
-    minHeight: 80,
-    borderRadius: SIZES.radius.xl,
-    borderWidth: 1,
-  },
-  disabledContainer: {
-    opacity: 0.5,
-  },
-  leftContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  iconContainer: {
-    marginRight: SIZES.spacing.lg,
-    width: 48,
-    height: 48,
-    borderRadius: SIZES.radius.xl,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  icon: {
-    fontSize: SIZES.icon.md,
-    textAlign: 'center',
-  },
-  textContent: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  title: {
-    marginBottom: 3,
-    textTransform: 'none',
-   
-    letterSpacing: 0.3,
-    lineHeight: 20,
-  },
-  subtitle: {
-    textTransform: 'none',
-    lineHeight: 18,
-    letterSpacing: 0.2,
-    fontSize: 13,
-   
-  },
-  rightContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  value: {
-    fontSize: TYPOGRAPHY.fontSize.sm,
-    marginRight: SIZES.spacing.sm,
-    lineHeight: TYPOGRAPHY.lineHeight.sm,
-    fontWeight: TYPOGRAPHY.fontWeight.medium,
-    textTransform: 'none',
-  },
-  arrowContainer: {
-    width: 24,
-    height: 24,
-    borderRadius: SIZES.radius.full,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginLeft: SIZES.spacing.xs,
-  },
-});
