@@ -1,17 +1,17 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { getSpeakerImage } from '@/lib/utils/speakerUtils';
-import i18n from '@/lib/i18n';
-import React, { useRef, useState } from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { ShareButton } from '@/features/chapterDetail/components';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
-import { AudioModal } from '../AudioModal';
+import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/lib/i18n';
+import { getSpeakerImage } from '@/lib/utils/speakerUtils';
+import { getLanguageFonts } from '@/types/font.interface';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { styles } from './TranslationMessage.styles';
+import React, { useRef, useState } from 'react';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { AudioModal } from '../AudioModal';
 
 type TranslationVerse = {
   id: string;
@@ -37,56 +37,66 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
   chapterNumber,
 }) => {
   const { showAlert, AlertComponent } = useCustomAlert();
-  const { theme } = useTheme();
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const messageCardRef = useRef<View | null>(null);
   const [hideShareButton, setHideShareButton] = useState(false);
   const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
 
   return (
-    <ThemedView key={verse.id}>
+    <Box className="mb-4">
       {AlertComponent}
       <View ref={messageCardRef} collapsable={false}>
-        <ThemedCard style={styles.card}>
-          <ThemedView style={styles.messageHeader}>
-            <ThemedView style={styles.speakerInfo}>
-              <Image 
-                source={getSpeakerImage(verse.speaker_english)} 
-                style={styles.speakerAvatar}
-                resizeMode="cover"
-              />
-              <ThemedView style={styles.speakerDetails}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.speakerName}
+        <Box
+          className="rounded-[24px] p-5 shadow-sm border border-amber-900/10"
+          style={{ backgroundColor: theme.background.primary }}
+        >
+          {/* Header row: Speaker info & actions */}
+          <HStack className="items-center justify-between mb-4">
+            <HStack className="items-center flex-1 pr-3">
+              <Box className="w-12 h-12 rounded-full overflow-hidden mr-3 bg-neutral-100 shrink-0">
+                <Image
+                  source={getSpeakerImage(verse.speaker_english)}
+                  style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
+                />
+              </Box>
+              <VStack className="flex-1 justify-center">
+                <Text
+                  className="text-[15px] font-black tracking-tight"
+                  style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+                  numberOfLines={1}
                 >
-                  {verse.speaker} • {i18n.t('verse.verse')} {verse.verseNumber}
-                </ThemedLanguageText>
-              </ThemedView>
-            </ThemedView>
-            
+                  {verse.speaker}
+                </Text>
+                <Text
+                  className="text-[13px] tracking-tight opacity-70"
+                  style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
+                  numberOfLines={1}
+                >
+                  {i18n.t('verse.verse')} {verse.verseNumber}
+                </Text>
+              </VStack>
+            </HStack>
+
             {/* Action Buttons */}
             {!hideShareButton && (
-              <ThemedView style={styles.actionButtonsContainer}>
+              <HStack className="items-center gap-2">
                 {/* Audio Button */}
                 <TouchableOpacity
                   onPress={() => setIsAudioModalVisible(true)}
-                  style={[
-                    styles.audioButton,
-                    { backgroundColor: theme.background.quaternary },
-                  ]}
+                  className="w-10 h-10 rounded-full items-center justify-center shadow-sm"
+                  style={{ backgroundColor: theme.background.secondary }}
                 >
                   <MaterialIcons
                     name="volume-up"
-                    size={SIZES.icon.md}
+                    size={20}
                     color={theme.icon.primary}
                   />
                 </TouchableOpacity>
 
                 {/* Share Button */}
                 {chapterId && chapterNumber && (
-                  <ThemedView style={styles.shareButtonContainer}>
+                  <Box>
                     <ShareButton
                       verseId={verse.id}
                       chapterId={chapterId}
@@ -109,23 +119,22 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
                       onCaptureStart={() => setHideShareButton(true)}
                       onCaptureEnd={() => setHideShareButton(false)}
                     />
-                  </ThemedView>
+                  </Box>
                 )}
-              </ThemedView>
+              </HStack>
             )}
-          </ThemedView>
-          
-          <ThemedView style={styles.messageContent}>
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.translationText}
+          </HStack>
+
+          {/* Translation Text */}
+          <Box className="pl-0 sm:pl-[60px]">
+            <Text
+              className="text-[16px] leading-7"
+              style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
             >
               {verse.translation}
-            </ThemedLanguageText>
-          </ThemedView>
-        </ThemedCard>
+            </Text>
+          </Box>
+        </Box>
       </View>
 
       {/* Audio Modal */}
@@ -137,7 +146,6 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
         speakerEnglish={verse.speaker_english}
         verseNumber={verse.verseNumber}
       />
-    </ThemedView>
+    </Box>
   );
 };
-

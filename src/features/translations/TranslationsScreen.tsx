@@ -1,25 +1,26 @@
 import { BannerAdComponent } from '@/components/ads';
-import { MangalacharanSectionCard } from '@/features/mangalacharan/components/MangalacharanSectionCard';
 import { LoadingState } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
+import { MangalacharanSectionCard } from '@/features/mangalacharan/components/MangalacharanSectionCard';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTranslationStore } from '@/store';
-import { LayoutImages } from '@/lib/utils/assets';
-import { useEffect } from 'react';
-import { ImageBackground, ScrollView, View } from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React, { useEffect } from 'react';
+import { ScrollView, TouchableOpacity } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TranslationCard } from './components/TranslationCard';
-import { TranslationsHeader } from './components/TranslationsHeader';
 import { useTranslationsOperations } from './hooks/useTranslationsOperations';
-import { styles } from './TranslationsScreen.styles';
 
 export const TranslationsScreen: React.FC = () => {
   const { translations, isLoading, loadAllTranslations } = useTranslationStore();
   const { handleTranslationPress } = useTranslationsOperations();
   const theme = useThemeColors();
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     loadAllTranslations();
@@ -30,67 +31,91 @@ export const TranslationsScreen: React.FC = () => {
   }
 
   return (
-    <ImageBackground
-      source={LayoutImages.background1}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <TranslationsHeader />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      {/* Custom Modern Header */}
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <TouchableOpacity
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            onPress={() => router.back()}
+          >
+            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+          </TouchableOpacity>
 
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
+          <Text
+            className="text-[20px] font-black tracking-tight flex-1 text-center"
+            style={{ fontWeight: 'bold', color: theme.text.primary }}
+            numberOfLines={1}
+          >
+            {i18n.t('menu.translations')}
+          </Text>
+
+          <Box className="w-10 h-10 items-center justify-center">
+            <MaterialIcons name="translate" size={24} color={theme.text.primary} />
+          </Box>
+        </HStack>
+      </Box>
+
+      <ScrollView
+        className="flex-1 px-4 pt-6"
+        contentContainerStyle={{ paddingBottom: 64 }}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Intro Section */}
+        <Box
+          className="rounded-[24px] border border-amber-100/50 shadow-sm overflow-hidden mb-6"
+          style={{ backgroundColor: theme.background.primary }}
         >
-          {/* Intro Section */}
           <MangalacharanSectionCard
             content={i18n.t('translations.intro')}
             variant="intro"
           />
+        </Box>
 
-          {/* Translations List */}
-          <ThemedView style={styles.translationsContainer}>
-            {translations.map((translation) => (
-              <View key={translation.chapter.id} style={styles.translationCardWrapper}>
-                <TranslationCard
-                  translation={translation}
-                  onPress={handleTranslationPress}
-                />
-              </View>
-            ))}
-          </ThemedView>
+        {/* Translations List */}
+        <VStack className="mb-6">
+          {translations.map((translation) => (
+            <TranslationCard
+              key={translation.chapter.id}
+              translation={translation}
+              onPress={handleTranslationPress}
+            />
+          ))}
+        </VStack>
 
-          {/* Motivational Message - Footer */}
-          <ThemedCard variant="card" style={styles.motivationCard} borderVariant="primary">
-            <ThemedView style={styles.motivationHeader}>
-              <ThemedView style={[styles.motivationIndicator, { backgroundColor: theme.status.success + '40' }]} />
-              <ThemedLanguageText 
-                variant="primary" 
-                size="large" 
-                fontFamily="regional_secondary"
-                style={styles.motivationTitle}
-              >
-                {i18n.t('translations.motivationTitle')}
-              </ThemedLanguageText>
-            </ThemedView>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              style={styles.motivationText}
-              fontFamily="regional_secondary"
+        {/* Motivational Message - Footer */}
+        <Box
+          className="rounded-[24px] border border-green-500/20 shadow-sm overflow-hidden mb-8 p-5"
+          style={{ backgroundColor: theme.background.primary }}
+        >
+          <HStack className="items-center mb-3">
+            <Box
+              className="w-1.5 h-6 rounded-[2px] mr-3"
+              style={{ backgroundColor: theme.status.success }}
+            />
+            <Text
+              className="text-[18px] font-black tracking-tight flex-1"
+              style={{ fontFamily: 'regional_secondary', color: theme.text.primary }}
             >
-              {i18n.t('translations.motivationText')}
-            </ThemedLanguageText>
-          </ThemedCard>
+              {i18n.t('translations.motivationTitle')}
+            </Text>
+          </HStack>
+          <Text
+            className="text-[15px] leading-relaxed opacity-80"
+            style={{ fontFamily: 'regional_secondary', color: theme.text.secondary }}
+          >
+            {i18n.t('translations.motivationText')}
+          </Text>
+        </Box>
 
-          {/* Banner Ad */}
-          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
-            <BannerAdComponent />
-          </ThemedView>
-        </ScrollView>
-      </ThemedView>
-    </ImageBackground>
+        {/* Banner Ad */}
+        <Box className="w-full mb-6 items-center flex">
+          <BannerAdComponent />
+        </Box>
+      </ScrollView>
+    </Box>
   );
 };

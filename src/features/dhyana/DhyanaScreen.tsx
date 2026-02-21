@@ -1,18 +1,24 @@
 import { BannerAdComponent } from '@/components/ads';
-import { PageHeader } from '@/components/shared';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { WavePattern } from '@/lib/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
-import { LayoutImages } from '@/lib/utils/assets';
-import { useCallback, useEffect, useRef } from 'react';
-import { Dimensions, ImageBackground, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React, { useCallback, useEffect, useRef } from 'react';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DhyanaSectionCard } from './components/DhyanaSectionCard';
-import { styles } from './DhyanaScreen.styles';
 
 export const DhyanaScreen: React.FC = () => {
-  const { width, height } = Dimensions.get('window');
   const dhyanaText = i18n.t('dhyana.slokaText');
   const meaningText = i18n.t('dhyana.meaningText');
   const benefits = i18n.t('dhyana.benefits') as string[];
@@ -21,125 +27,169 @@ export const DhyanaScreen: React.FC = () => {
   const adsShownCountRef = useRef<number>(0);
   const hasReachedEndRef = useRef<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
+  const fonts = getLanguageFonts();
+  const theme = useThemeColors();
+  const insets = useSafeAreaInsets();
 
-  // Reset ad count when component mounts (page revisit)
   useEffect(() => {
     adsShownCountRef.current = 0;
     hasReachedEndRef.current = false;
   }, []);
 
-  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-    const paddingToBottom = 20;
-    const isAtEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+  const handleScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+      const paddingToBottom = 20;
+      const isAtEnd =
+        layoutMeasurement.height + contentOffset.y >=
+        contentSize.height - paddingToBottom;
 
-    if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
-      hasReachedEndRef.current = true;
-      adsShownCountRef.current += 1;
-      
-      setTimeout(() => {
-        showAd();
-      }, 500);
-    }
+      if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
+        hasReachedEndRef.current = true;
+        adsShownCountRef.current += 1;
+        setTimeout(() => showAd(), 500);
+      }
 
-    if (!isAtEnd && hasReachedEndRef.current) {
-      hasReachedEndRef.current = false;
-    }
-  }, [showAd, isLoaded]);
+      if (!isAtEnd && hasReachedEndRef.current) {
+        hasReachedEndRef.current = false;
+      }
+    },
+    [showAd, isLoaded]
+  );
 
   return (
-    <ImageBackground
-      source={LayoutImages.background2}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <WavePattern width={width} height={height} />
-        
-        <PageHeader title={i18n.t('dhyana.title')} showBackButton={true} />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      {/* Custom Modern Header */}
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <Pressable
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            onPress={() => router.back()}
+          >
+            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+          </Pressable>
 
-        <ScrollView 
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={400}
+          <Text
+            className="text-[20px] font-black tracking-tight flex-1 text-center"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+            numberOfLines={1}
+          >
+            {i18n.t('dhyana.title')}
+          </Text>
+
+          <Box className="w-10 h-10" />
+        </HStack>
+      </Box>
+
+      <ScrollView
+        ref={scrollViewRef}
+        className="flex-1 px-4 pt-6"
+        contentContainerStyle={{ paddingBottom: 64 }}
+        showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={400}
+      >
+        {/* ─── Hero Intro Card ─── */}
+        <Box
+          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-amber-100/40"
+          style={{ backgroundColor: theme.background.primary }}
         >
-          <DhyanaSectionCard
-            titleKey="dhyana.introTitle"
-            content={i18n.t('dhyana.introText')}
-            variant="intro"
-          />
+          <Box className="absolute -right-6 -top-6 opacity-[0.04]" pointerEvents="none">
+            <FontAwesome5 name="om" size={160} color="#000" />
+          </Box>
+          <HStack className="items-center mb-3">
+            <Box
+              className="w-10 h-10 rounded-[14px] items-center justify-center mr-3"
+              style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}
+            >
+              <FontAwesome5 name="praying-hands" size={18} color="#D97706" />
+            </Box>
+            <Text
+              className="text-[20px] font-black text-neutral-800 tracking-tight flex-1"
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {i18n.t('dhyana.introTitle')}
+            </Text>
+          </HStack>
+          <Text
+            className="text-[15px] leading-6 text-neutral-600"
+            style={{ fontFamily: fonts.regional_secondary }}
+          >
+            {i18n.t('dhyana.introText')}
+          </Text>
+        </Box>
 
-          <DhyanaSectionCard
-            titleKey="dhyana.significanceTitle"
-            content={i18n.t('dhyana.significanceText')}
-          />
+        {/* ─── Section Cards ─── */}
+        <DhyanaSectionCard
+          titleKey="dhyana.significanceTitle"
+          content={i18n.t('dhyana.significanceText')}
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.slokaTitle"
-            content={dhyanaText}
-          />
+        <DhyanaSectionCard titleKey="dhyana.slokaTitle" content={dhyanaText} />
 
-          {/* Banner Ad - Center */}
-          <BannerAdComponent 
-            adKey="dhyana-center" 
-            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
+        {/* Banner Ad - Center */}
+        <Box className="my-4">
+          <BannerAdComponent
+            adKey="dhyana-center"
+            containerStyle={{ paddingHorizontal: 16 }}
           />
+        </Box>
 
-          <DhyanaSectionCard
-            titleKey="dhyana.slokaMeaningTitle"
-            content={i18n.t('dhyana.slokaMeaningText')}
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.slokaMeaningTitle"
+          content={i18n.t('dhyana.slokaMeaningText')}
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.meaningTitle"
-            content={meaningText}
-          />
+        <DhyanaSectionCard titleKey="dhyana.meaningTitle" content={meaningText} />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.benefitsTitle"
-            content={benefits}
-            isList
-            listType="bullet"
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.benefitsTitle"
+          content={benefits}
+          isList
+          listType="bullet"
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.typesTitle"
-            content={i18n.t('dhyana.typesText')}
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.typesTitle"
+          content={i18n.t('dhyana.typesText')}
+        />
 
-          {/* Banner Ad - Below Center */}
-          <BannerAdComponent 
-            adKey="dhyana-below-center" 
-            containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
+        {/* Banner Ad - Below Center */}
+        <Box className="my-4">
+          <BannerAdComponent
+            adKey="dhyana-below-center"
+            containerStyle={{ paddingHorizontal: 16 }}
           />
+        </Box>
 
-          <DhyanaSectionCard
-            titleKey="dhyana.stepsTitle"
-            content={steps}
-            isList
-            listType="numbered"
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.stepsTitle"
+          content={steps}
+          isList
+          listType="numbered"
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.tipsTitle"
-            content={i18n.t('dhyana.tipsText')}
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.tipsTitle"
+          content={i18n.t('dhyana.tipsText')}
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.historicalContextTitle"
-            content={i18n.t('dhyana.historicalContextText')}
-          />
+        <DhyanaSectionCard
+          titleKey="dhyana.historicalContextTitle"
+          content={i18n.t('dhyana.historicalContextText')}
+        />
 
-          <DhyanaSectionCard
-            titleKey="dhyana.spiritualSignificanceTitle"
-            content={i18n.t('dhyana.spiritualSignificanceText')}
-          />
-        </ScrollView>
-      </ThemedView>
-    </ImageBackground>
+        <DhyanaSectionCard
+          titleKey="dhyana.spiritualSignificanceTitle"
+          content={i18n.t('dhyana.spiritualSignificanceText')}
+        />
+
+        {/* Bottom spacing */}
+        <Box className="h-8" />
+      </ScrollView>
+    </Box>
   );
 };

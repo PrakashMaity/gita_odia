@@ -1,19 +1,27 @@
 import { BannerAdComponent } from '@/components/ads';
-import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { LockedCardOverlay, ProUpgradeModal } from '@/components/shared';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { WavePattern } from '@/lib/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
-import { LayoutImages } from '@/lib/utils/assets';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Dimensions, ImageBackground, NativeScrollEvent, NativeSyntheticEvent, ScrollView } from 'react-native';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MangalacharanSectionCard } from '../mangalacharan/components/MangalacharanSectionCard';
-import { styles } from './KrishnaMantrasScreen.styles';
 
 export const KrishnaMantrasScreen: React.FC = () => {
-  const { width, height } = Dimensions.get('window');
   const mantras = i18n.t('krishnaMantras.mantras') as any;
   const { showAd, isLoaded } = useInterstitialAd();
   const adsShownCountRef = useRef<number>(0);
@@ -21,171 +29,236 @@ export const KrishnaMantrasScreen: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
   const { isPro } = useProStatus();
   const [showProModal, setShowProModal] = useState(false);
+  const fonts = getLanguageFonts();
+  const theme = useThemeColors();
+  const insets = useSafeAreaInsets();
 
-  // Reset ad count when component mounts (page revisit)
   useEffect(() => {
     adsShownCountRef.current = 0;
     hasReachedEndRef.current = false;
   }, []);
 
-  const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-    const paddingToBottom = 20;
-    const isAtEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+  const handleScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
+      const paddingToBottom = 20;
+      const isAtEnd =
+        layoutMeasurement.height + contentOffset.y >=
+        contentSize.height - paddingToBottom;
 
-    if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
-      hasReachedEndRef.current = true;
-      adsShownCountRef.current += 1;
-      
-      setTimeout(() => {
-        showAd();
-      }, 500);
-    }
+      if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
+        hasReachedEndRef.current = true;
+        adsShownCountRef.current += 1;
+        setTimeout(() => showAd(), 500);
+      }
 
-    if (!isAtEnd && hasReachedEndRef.current) {
-      hasReachedEndRef.current = false;
-    }
-  }, [showAd, isLoaded]);
+      if (!isAtEnd && hasReachedEndRef.current) {
+        hasReachedEndRef.current = false;
+      }
+    },
+    [showAd, isLoaded]
+  );
 
   return (
-    <ImageBackground
-      source={LayoutImages.background3}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <WavePattern width={width} height={height} />
-        
-        <PageHeader title={i18n.t('krishnaMantras.title')} />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      {/* Custom Modern Header */}
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <Pressable
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            onPress={() => router.back()}
+          >
+            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+          </Pressable>
 
-        <ScrollView 
-          ref={scrollViewRef}
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          onScroll={handleScroll}
-          scrollEventThrottle={400}
+          <Text
+            className="text-[20px] font-black tracking-tight flex-1 text-center"
+            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+            numberOfLines={1}
+          >
+            {i18n.t('krishnaMantras.title')}
+          </Text>
+
+          <Box className="w-10 h-10" />
+        </HStack>
+      </Box>
+
+      <ScrollView
+        ref={scrollViewRef}
+        className="flex-1 px-4 pt-6"
+        contentContainerStyle={{ paddingBottom: 64 }}
+        showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={400}
+      >
+        {/* ─── Hero Intro Card ─── */}
+        <Box
+          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-amber-100/40"
+          style={{ backgroundColor: theme.background.primary }}
         >
-          <MangalacharanSectionCard
-            content={i18n.t('krishnaMantras.intro')}
-            variant="intro"
-          />
+          <Box className="absolute -right-8 -bottom-8 opacity-[0.04]" pointerEvents="none">
+            <FontAwesome5 name="om" size={180} color="#000" />
+          </Box>
+          <HStack className="items-center mb-3">
+            <Box
+              className="w-10 h-10 rounded-[14px] items-center justify-center mr-3"
+              style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}
+            >
+              <FontAwesome5 name="hands" size={18} color="#D97706" />
+            </Box>
+            <Text
+              className="text-[20px] font-black text-neutral-800 tracking-tight flex-1"
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {i18n.t('krishnaMantras.title')}
+            </Text>
+          </HStack>
+          <Text
+            className="text-[15px] leading-6 text-neutral-600"
+            style={{ fontFamily: fonts.regional_secondary }}
+          >
+            {i18n.t('krishnaMantras.intro')}
+          </Text>
+        </Box>
 
-          {/* Render each mantra with its details */}
-          {Object.keys(mantras).map((mantraKey, mantraIndex) => {
-            const mantra = mantras[mantraKey];
-            const isFirstMantra = mantraIndex === 0;
-            const isMiddleMantra = mantraIndex === Math.floor(Object.keys(mantras).length / 2);
-            
-            return (
-              <ThemedView key={mantraKey}>
-                {isFirstMantra && (
-                  <>
-                    <MangalacharanSectionCard
-                      titleKey={`krishnaMantras.mantras.${mantraKey}.name`}
-                      content={mantra.mantraText}
-                      textStyle="center"
-                    />
-                    {/* Banner Ad - Center */}
-                    <BannerAdComponent 
-                      adKey="krishna-mantras-center" 
-                      containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
-                    />
-                  </>
-                )}
-                
-                {!isFirstMantra && (
+        {/* ─── Mantras ─── */}
+        {Object.keys(mantras).map((mantraKey, mantraIndex) => {
+          const mantra = mantras[mantraKey];
+          const isFirstMantra = mantraIndex === 0;
+          const isMiddleMantra =
+            mantraIndex === Math.floor(Object.keys(mantras).length / 2);
+
+          return (
+            <VStack key={mantraKey}>
+              {/* ─── Mantra Divider ─── */}
+              {mantraIndex > 0 && (
+                <HStack className="items-center my-5">
+                  <Box className="h-[1px] flex-1 bg-amber-900/10" />
+                  <Box
+                    className="w-8 h-8 rounded-full items-center justify-center mx-3"
+                    style={{ backgroundColor: 'rgba(217,119,6,0.08)' }}
+                  >
+                    <FontAwesome5 name="om" size={12} color="#D97706" />
+                  </Box>
+                  <Box className="h-[1px] flex-1 bg-amber-900/10" />
+                </HStack>
+              )}
+
+              {isFirstMantra && (
+                <>
                   <MangalacharanSectionCard
                     titleKey={`krishnaMantras.mantras.${mantraKey}.name`}
                     content={mantra.mantraText}
                     textStyle="center"
                   />
-                )}
+                  <Box className="my-3">
+                    <BannerAdComponent
+                      adKey="krishna-mantras-center"
+                      containerStyle={{ paddingHorizontal: 16 }}
+                    />
+                  </Box>
+                </>
+              )}
 
+              {!isFirstMantra && (
                 <MangalacharanSectionCard
-                  titleKey="krishnaMantras.meaningTitle"
-                  content={mantra.meaning}
+                  titleKey={`krishnaMantras.mantras.${mantraKey}.name`}
+                  content={mantra.mantraText}
+                  textStyle="center"
                 />
+              )}
 
-                {!isFirstMantra && (
-                  <>
-                    <LockedCardOverlay
-                      isLocked={!isPro}
-                      onPress={() => setShowProModal(true)}
-                    >
-                      <MangalacharanSectionCard
-                        titleKey="krishnaMantras.niyomTitle"
-                        content={mantra.niyom}
-                        isList
-                      />
-                    </LockedCardOverlay>
+              <MangalacharanSectionCard
+                titleKey="krishnaMantras.meaningTitle"
+                content={mantra.meaning}
+              />
 
-                    <LockedCardOverlay
-                      isLocked={!isPro}
-                      onPress={() => setShowProModal(true)}
-                    >
-                      <MangalacharanSectionCard
-                        titleKey="krishnaMantras.podhotiTitle"
-                        content={mantra.podhoti}
-                        isList
-                      />
-                    </LockedCardOverlay>
-
-                    {mantra.benefits && (
-                      <LockedCardOverlay
-                        isLocked={!isPro}
-                        onPress={() => setShowProModal(true)}
-                      >
-                        <MangalacharanSectionCard
-                          titleKey="krishnaMantras.benefitsTitle"
-                          content={mantra.benefits}
-                          isList
-                        />
-                      </LockedCardOverlay>
-                    )}
-                  </>
-                )}
-
-                {isFirstMantra && (
-                  <>
+              {!isFirstMantra && (
+                <>
+                  <LockedCardOverlay
+                    isLocked={!isPro}
+                    onPress={() => setShowProModal(true)}
+                  >
                     <MangalacharanSectionCard
                       titleKey="krishnaMantras.niyomTitle"
                       content={mantra.niyom}
                       isList
                     />
+                  </LockedCardOverlay>
 
+                  <LockedCardOverlay
+                    isLocked={!isPro}
+                    onPress={() => setShowProModal(true)}
+                  >
                     <MangalacharanSectionCard
                       titleKey="krishnaMantras.podhotiTitle"
                       content={mantra.podhoti}
                       isList
                     />
+                  </LockedCardOverlay>
 
-                    {mantra.benefits && (
+                  {mantra.benefits && (
+                    <LockedCardOverlay
+                      isLocked={!isPro}
+                      onPress={() => setShowProModal(true)}
+                    >
                       <MangalacharanSectionCard
                         titleKey="krishnaMantras.benefitsTitle"
                         content={mantra.benefits}
                         isList
                       />
-                    )}
-                  </>
-                )}
+                    </LockedCardOverlay>
+                  )}
+                </>
+              )}
 
-                {isMiddleMantra && (
-                  <BannerAdComponent 
-                    adKey="krishna-mantras-below-center" 
-                    containerStyle={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg, marginBottom: SIZES.spacing.lg }}
+              {isFirstMantra && (
+                <>
+                  <MangalacharanSectionCard
+                    titleKey="krishnaMantras.niyomTitle"
+                    content={mantra.niyom}
+                    isList
                   />
-                )}
-              </ThemedView>
-            );
-          })}
-        </ScrollView>
-        <ProUpgradeModal
-          visible={showProModal}
-          onClose={() => setShowProModal(false)}
-        />
-      </ThemedView>
-    </ImageBackground>
+
+                  <MangalacharanSectionCard
+                    titleKey="krishnaMantras.podhotiTitle"
+                    content={mantra.podhoti}
+                    isList
+                  />
+
+                  {mantra.benefits && (
+                    <MangalacharanSectionCard
+                      titleKey="krishnaMantras.benefitsTitle"
+                      content={mantra.benefits}
+                      isList
+                    />
+                  )}
+                </>
+              )}
+
+              {isMiddleMantra && (
+                <Box className="my-3">
+                  <BannerAdComponent
+                    adKey="krishna-mantras-below-center"
+                    containerStyle={{ paddingHorizontal: 16 }}
+                  />
+                </Box>
+              )}
+            </VStack>
+          );
+        })}
+
+        {/* Bottom spacing */}
+        <Box className="h-8" />
+      </ScrollView>
+
+      <ProUpgradeModal
+        visible={showProModal}
+        onClose={() => setShowProModal(false)}
+      />
+    </Box>
   );
 };

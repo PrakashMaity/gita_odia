@@ -1,17 +1,17 @@
 import { ProUpgradeModal } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
-import { useTheme } from '@/hooks/useTheme';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { getBengaliTTSLanguage } from '@/lib/utils/ttsLanguageUtils';
+import { getLanguageFonts } from '@/types/font.interface';
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './DhyanaSectionCard.styles';
 
 interface DhyanaSectionCardProps {
   titleKey: string;
@@ -28,12 +28,13 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
   listType = 'bullet',
   variant = 'default',
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const { isPro } = useProStatus();
   const [showProModal, setShowProModal] = useState(false);
   const { speak, stop, isSpeaking } = useTextToSpeech({
-    language: getBengaliTTSLanguage(), // Bengali language for TTS (tries bn-IN first, falls back to bn-BD or bn)
-    rate: 0.85, // Slightly slower for better comprehension
+    language: getBengaliTTSLanguage(),
+    rate: 0.85,
     pitch: 1.0,
     onError: (error) => {
       if (error.message === 'PRO_REQUIRED') {
@@ -42,7 +43,6 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
     },
   });
 
-  // Get text content for TTS
   const getTextForTTS = (): string => {
     if (isList && Array.isArray(content)) {
       return content.join('. ');
@@ -59,124 +59,97 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
       await stop();
     } else {
       const textToSpeak = getTextForTTS();
-      if (textToSpeak) {
-        await speak(textToSpeak);
-      }
+      if (textToSpeak) await speak(textToSpeak);
     }
   };
 
   const renderContent = () => {
     if (isList && Array.isArray(content)) {
       return (
-        <ThemedView style={styles.list}>
+        <VStack space="md" className="mt-3">
           {content.map((item: string, index: number) => (
-            <ThemedView key={index} style={styles.listItem}>
+            <HStack key={index} className="items-start">
               {listType === 'bullet' ? (
-                <ThemedView style={[styles.bulletPoint, { backgroundColor: theme.background.quaternary }]} />
+                <Box
+                  className="w-2 h-2 rounded-full mt-2 mr-3 shrink-0"
+                  style={{ backgroundColor: '#D97706' }}
+                />
               ) : (
-                <ThemedView style={[styles.stepNumber, { backgroundColor: theme.background.quaternary }]}>
-                  <ThemedLanguageText 
-                    variant="primary"
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.stepNumberText}
+                <Box
+                  className="w-6 h-6 rounded-full items-center justify-center mr-3 mt-0.5 shrink-0"
+                  style={{ backgroundColor: 'rgba(217,119,6,0.12)' }}
+                >
+                  <Text
+                    className="text-[11px] font-bold"
+                    style={{ color: '#D97706' }}
                   >
                     {index + 1}
-                  </ThemedLanguageText>
-                </ThemedView>
+                  </Text>
+                </Box>
               )}
-              <ThemedLanguageText 
-                variant="secondary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={listType === 'bullet' ? styles.bulletText : styles.stepText}
+              <Text
+                className="flex-1 text-[15px] leading-6 text-neutral-700"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {item}
-              </ThemedLanguageText>
-            </ThemedView>
+              </Text>
+            </HStack>
           ))}
-        </ThemedView>
+        </VStack>
       );
     }
 
     return (
-      <ThemedLanguageText 
-        variant={variant === 'intro' ? 'secondary' : 'primary'}
-        size="medium"
-        fontFamily="regional_secondary"
-        style={variant === 'intro' ? styles.introText : styles.text}
+      <Text
+        className={`text-[15px] leading-6 text-neutral-700 ${variant === 'intro' ? 'text-center' : ''}`}
+        style={{ fontFamily: fonts.regional_secondary }}
       >
         {content as string}
-      </ThemedLanguageText>
+      </Text>
     );
   };
 
   return (
-    <ThemedCard style={styles.card}>
-      {variant === 'intro' ? (
-        <ThemedView style={styles.introContainer}>
-          <ThemedView style={styles.introContent}>
-            <ThemedLanguageText 
-              variant="primary" 
-              size="large" 
-              fontFamily="regional_secondary"
-              style={styles.introTitle}
-            >
-              {i18n.t(titleKey)}
-            </ThemedLanguageText>
-            {renderContent()}
-          </ThemedView>
-          <TouchableOpacity
-            onPress={handleSpeak}
-            style={[
-              styles.speakerButton,
-              styles.speakerButtonIntro,
-              { backgroundColor: theme.background.quaternary },
-              isSpeaking && styles.speakerButtonActive,
-            ]}
-          >
-            <MaterialIcons
-              name="volume-up"
-              size={SIZES.icon.md}
-              color={isSpeaking ? theme.status.success : theme.icon.primary}
-            />
-          </TouchableOpacity>
-        </ThemedView>
-      ) : (
-        <>
-          <ThemedView style={styles.sectionHeader}>
-            <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.background.quaternary }]} />
-            <ThemedLanguageText 
-              variant="primary" 
-              size="xl" 
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t(titleKey)}
-            </ThemedLanguageText>
-            <TouchableOpacity
-              onPress={handleSpeak}
-              style={[
-                styles.speakerButton,
-                { backgroundColor: theme.background.quaternary },
-                isSpeaking && styles.speakerButtonActive,
-              ]}
-            >
-              <MaterialIcons
-                name="volume-up"
-                size={SIZES.icon.md}
-                color={isSpeaking ? theme.status.success : theme.icon.primary}
-              />
-            </TouchableOpacity>
-          </ThemedView>
-          {renderContent()}
-        </>
-      )}
+    <Box
+      className="rounded-[24px] p-5 mb-5 border border-amber-100/50 overflow-hidden"
+      style={{ backgroundColor: theme.background.primary }}
+    >
+      {/* ─── Section Header ─── */}
+      <HStack className="items-center mb-4">
+        <Box
+          className="w-1.5 h-7 rounded-full mr-3"
+          style={{ backgroundColor: '#D97706' }}
+        />
+        <Text
+          className="text-[19px] font-black text-neutral-800 tracking-tight flex-1"
+          style={{ fontFamily: fonts.regional_secondary }}
+        >
+          {i18n.t(titleKey)}
+        </Text>
+        <Pressable
+          onPress={handleSpeak}
+          className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50"
+          style={{
+            backgroundColor: isSpeaking
+              ? theme.status.success
+              : theme.background.secondary,
+          }}
+        >
+          <MaterialIcons
+            name="volume-up"
+            size={20}
+            color={isSpeaking ? '#fff' : theme.icon.primary}
+          />
+        </Pressable>
+      </HStack>
+
+      {/* ─── Content ─── */}
+      {renderContent()}
+
       <ProUpgradeModal
         visible={showProModal}
         onClose={() => setShowProModal(false)}
       />
-    </ThemedCard>
+    </Box>
   );
 };
-

@@ -7,8 +7,9 @@ import { MenuItem, getMenuSections } from '@/constants/menuData';
 import { useThemeColors } from '@/hooks/useTheme';
 import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { Image as RNImage } from 'react-native';
+import { Image as RNImage, StyleSheet } from 'react-native';
 
 interface MenuGridProps {
   onMenuItemPress?: (item: MenuItem) => void;
@@ -19,7 +20,7 @@ const MenuItemIcon: React.FC<{ item: MenuItem; color?: string; size?: number }> 
     return (
       <RNImage
         source={item.image as any}
-        style={{ width: size, height: size, opacity: color === '#000' ? 0.05 : 1 }}
+        style={{ width: size, height: size }}
         resizeMode="contain"
       />
     );
@@ -39,14 +40,61 @@ const MenuItemIcon: React.FC<{ item: MenuItem; color?: string; size?: number }> 
 });
 MenuItemIcon.displayName = 'MenuItemIcon';
 
+// --- Premium Crown Badge --- //
+
+const PremiumBadge: React.FC<{ size?: 'sm' | 'md' | 'lg' }> = React.memo(({ size = 'md' }) => {
+  const sizeMap = {
+    sm: { container: 20, icon: 10, borderRadius: 8 },
+    md: { container: 24, icon: 12, borderRadius: 10 },
+    lg: { container: 28, icon: 14, borderRadius: 12 },
+  };
+  const s = sizeMap[size];
+
+  return (
+    <LinearGradient
+      colors={['#F59E0B', '#D97706', '#B45309']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={[
+        premiumStyles.badge,
+        {
+          width: s.container,
+          height: s.container,
+          borderRadius: s.borderRadius,
+        },
+      ]}
+    >
+      <MaterialIcons name="workspace-premium" size={s.icon} color="#FFF" />
+    </LinearGradient>
+  );
+});
+PremiumBadge.displayName = 'PremiumBadge';
+
+const premiumStyles = StyleSheet.create({
+  badge: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#D97706',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.35,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+});
+
 // --- Layout Card Variants (Light Theme) --- //
 
 const FeaturedCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; theme: any }> = ({ item, onPress, fonts, theme }) => (
   <Pressable onPress={() => onPress(item)} className="w-full mb-4 active:opacity-80">
     <Box className="w-full rounded-[28px] p-5 border border-amber-100/50 shadow-sm overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
       <Box className="absolute -right-6 -top-6 opacity-[0.05]" pointerEvents="none">
-        <MenuItemIcon item={item} color="#000" size={140} />
+        <MenuItemIcon item={item} color="#000" size={item.image ? 180 : 140} />
       </Box>
+      {item.isPremium && (
+        <Box className="absolute top-3 right-3 z-10">
+          <PremiumBadge size="lg" />
+        </Box>
+      )}
       <HStack className="items-center justify-between">
         <VStack className="flex-1 pr-4">
           <Box className="w-11 h-11 bg-amber-50 rounded-[18px] items-center justify-center mb-3">
@@ -72,8 +120,13 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
   <Pressable className="flex-1 active:opacity-80" onPress={() => onPress(item)}>
     <Box className="rounded-[24px] p-4 border border-amber-100/50 shadow-sm items-start h-[130px] overflow-hidden relative" style={{ backgroundColor: theme.background.primary }}>
       <Box className="absolute -right-5 -bottom-5 opacity-[0.05]" pointerEvents="none">
-        <MenuItemIcon item={item} color="#000" size={110} />
+        <MenuItemIcon item={item} color="#000" size={item.image ? 140 : 110} />
       </Box>
+      {item.isPremium && (
+        <Box className="absolute top-2.5 right-2.5 z-10">
+          <PremiumBadge size="sm" />
+        </Box>
+      )}
       <Box className="w-12 h-12 bg-orange-50/80 rounded-[18px] items-center justify-center mb-3">
         <Box className="w-7 h-7 overflow-hidden rounded-lg items-center justify-center">
           <MenuItemIcon item={item} color="#d97706" size={26} />
@@ -93,8 +146,13 @@ const TallCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; theme: any 
   <Pressable className="flex-1 active:opacity-80" onPress={() => onPress(item)}>
     <Box className="rounded-[26px] p-5 border border-amber-100/50 shadow-sm h-[200px] justify-between relative overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
       <Box className="absolute -bottom-5 -right-5 opacity-[0.05]" pointerEvents="none">
-        <MenuItemIcon item={item} color="#000" size={120} />
+        <MenuItemIcon item={item} color="#000" size={item.image ? 160 : 120} />
       </Box>
+      {item.isPremium && (
+        <Box className="absolute top-3 right-3 z-10">
+          <PremiumBadge size="md" />
+        </Box>
+      )}
       <Box className="w-14 h-14 bg-rose-50 rounded-[20px] items-center justify-center">
         <Box className="w-8 h-8 items-center justify-center overflow-hidden rounded-lg">
           <MenuItemIcon item={item} color="#e11d48" size={30} />
@@ -128,8 +186,13 @@ const StackedSmallCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; the
     <Pressable onPress={() => onPress(item)} className="active:opacity-80 flex-1">
       <Box className="rounded-[20px] p-3.5 border border-amber-100/50 shadow-sm flex-row items-center h-[92px] relative overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
         <Box className="absolute -right-4 -top-4 opacity-[0.05]" pointerEvents="none">
-          <MenuItemIcon item={item} color="#000" size={80} />
+          <MenuItemIcon item={item} color="#000" size={item.image ? 110 : 80} />
         </Box>
+        {item.isPremium && (
+          <Box className="absolute top-2 right-2 z-10">
+            <PremiumBadge size="sm" />
+          </Box>
+        )}
         <Box className={`w-12 h-12 ${bgColors[colorContext]} rounded-[18px] items-center justify-center mr-3 shrink-0`}>
           <Box className="w-6 h-6 items-center justify-center overflow-hidden rounded-lg">
             <MenuItemIcon item={item} color={iconColors[colorContext]} size={20} />

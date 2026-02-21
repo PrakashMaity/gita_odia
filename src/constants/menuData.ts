@@ -17,6 +17,7 @@ export interface MenuItem {
   description?: string;
   route?: string;
   action?: () => void;
+  isPremium?: boolean;
 }
 
 export interface MenuSection {
@@ -50,6 +51,7 @@ export const getMenuSections = (): MenuSection[] => [
         image: rudrashaImage,
         description: i18n.t('menu.malaJapaDesc'),
         action: () => getNavigationHandler({ id: 'mala-japa' } as MenuItem)(),
+        isPremium: true,
       },
       {
         id: 'krishna-mantras',
@@ -59,6 +61,7 @@ export const getMenuSections = (): MenuSection[] => [
         iconFamily: 'MaterialIcons',
         description: i18n.t('menu.krishnaMantrasDesc'),
         action: () => getNavigationHandler({ id: 'krishna-mantras' } as MenuItem)(),
+        isPremium: true,
       },
       {
         id: 'verse-of-the-day',
@@ -92,6 +95,7 @@ export const getMenuSections = (): MenuSection[] => [
         iconFamily: 'FontAwesome6',
         description: i18n.t('menu.translationsDesc'),
         action: () => getNavigationHandler({ id: 'all-translations' } as MenuItem)(),
+        isPremium: true,
       },
       {
         id: 'daily-reading',
@@ -119,6 +123,7 @@ export const getMenuSections = (): MenuSection[] => [
         iconFamily: 'MaterialIcons',
         description: i18n.t('menu.readingTimerDesc'),
         action: () => getNavigationHandler({ id: 'reading-timer' } as MenuItem)(),
+        isPremium: true,
       },
       {
         id: 'all-ekadashi',
@@ -128,6 +133,7 @@ export const getMenuSections = (): MenuSection[] => [
         iconFamily: 'FontAwesome6',
         description: i18n.t('menu.allEkadashiDesc'),
         action: () => getNavigationHandler({ id: 'all-ekadashi' } as MenuItem)(),
+        isPremium: true,
       },
     ],
   },

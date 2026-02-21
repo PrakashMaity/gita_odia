@@ -1,16 +1,15 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { TranslationData } from '@/store';
 import { ChapterImages } from '@/lib/utils/assets';
-import { SIZES } from '@/rootconstants/sizes';
+import { TranslationData } from '@/store';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import React, { useCallback, useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { styles } from './TranslationCard.styles';
 
 interface TranslationCardProps {
   translation: TranslationData;
@@ -21,7 +20,7 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
   translation,
   onPress,
 }) => {
-  const { theme } = useTheme();
+  const theme = useThemeColors();
   const { chapter } = translation;
 
   const coverImage = useMemo(() => {
@@ -29,10 +28,7 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
       if (typeof value === 'number') {
         return value;
       }
-
-      if (!value) {
-        return NaN;
-      }
+      if (!value) return NaN;
 
       const banglaDigits = '০১২৩৪৫৬৭৮৯';
       const normalizedString = `${value}`.replace(/[০-৯]/g, (digit) => {
@@ -49,7 +45,6 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
     if (Number.isNaN(chapterNumber) || chapterNumber <= 0) {
       return ChapterImages[0];
     }
-
     return ChapterImages[(chapterNumber - 1) % ChapterImages.length];
   }, [chapter.id, chapter.number]);
 
@@ -59,62 +54,59 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
 
   return (
     <TouchableOpacity
-      key={chapter.id}
+      activeOpacity={0.7}
       onPress={handlePress}
+      className="mb-4"
     >
-      <ThemedCard 
-        style={[styles.card, { padding: 0, borderColor: theme.border.secondary }]} 
-        pattern="mandala" 
-        patternOpacity={0.05}
+      <Box
+        className="rounded-[24px] overflow-hidden border border-amber-100/40 p-3 shadow-sm"
+        style={{ backgroundColor: theme.background.primary }}
       >
-        <ThemedView style={styles.content}>
-          <ThemedView style={styles.coverWrapper}>
-            <Image 
-              source={coverImage} 
-              style={styles.coverImage} 
+        <HStack className="items-center">
+          {/* Cover Image */}
+          <Box className="w-[72px] h-[72px] rounded-[16px] overflow-hidden bg-neutral-100 mr-4 shrink-0">
+            <Image
+              source={coverImage}
+              style={{ width: '100%', height: '100%' }}
               contentFit="cover"
               transition={200}
               cachePolicy="memory-disk"
             />
-          </ThemedView>
+          </Box>
 
-          <ThemedView style={styles.textContainer}>
+          {/* Text Content */}
+          <VStack className="flex-1 justify-center">
             {chapter.subtitle && chapter.subtitle !== chapter.title && (
-              <ThemedLanguageText
-                variant="primary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.subtitle}
+              <Text
+                className="text-[15px] font-bold text-neutral-800 leading-tight mb-1 tracking-tight"
                 numberOfLines={1}
               >
-                {chapter.subtitle} || {chapter.totalVerses} {i18n.t('verse.translation')}
-              </ThemedLanguageText>
+                {chapter.subtitle} • {chapter.totalVerses} {i18n.t('verse.translation')}
+              </Text>
             )}
-
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="regional_secondary"
-              style={styles.translationInfo}
+            <Text
+              className="text-[13px] text-neutral-500 leading-tight"
               numberOfLines={1}
             >
               {chapter.title}
-            </ThemedLanguageText>
-          </ThemedView>
+            </Text>
+          </VStack>
 
-          <ThemedView style={[styles.arrowContainer, { backgroundColor: theme.background.quaternary }]}>
+          {/* Arrow */}
+          <Box
+            className="w-8 h-8 rounded-full items-center justify-center shrink-0 ml-3 border border-amber-100/50"
+            style={{ backgroundColor: theme.background.secondary }}
+          >
             <MaterialIcons
               name="arrow-forward-ios"
-              size={SIZES.icon.xs}
-              color={theme.icon.quaternary}
+              size={12}
+              color={theme.icon.primary}
             />
-          </ThemedView>
-        </ThemedView>
-      </ThemedCard>
+          </Box>
+        </HStack>
+      </Box>
     </TouchableOpacity>
   );
 }, (prevProps, nextProps) => {
-  // Custom comparison function for React.memo
   return prevProps.translation.chapter.id === nextProps.translation.chapter.id;
 });
-
