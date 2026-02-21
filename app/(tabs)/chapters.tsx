@@ -1,4 +1,4 @@
-import { ChaptersScreen } from '@/components/screens';
+import { ChaptersScreen } from '@/features';
 
 export default function ChaptersPage() {
   return <ChaptersScreen />;

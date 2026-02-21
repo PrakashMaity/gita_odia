@@ -1,4 +1,4 @@
-import { MangalacharanScreen } from '@/components/screens';
+import { MangalacharanScreen } from '@/features';
 
 export default function MangalacharanPage() {
   return <MangalacharanScreen />;

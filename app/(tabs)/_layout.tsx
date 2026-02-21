@@ -2,7 +2,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { BookmarkIcon } from '@/components/ui/BookmarkIcon';
 import { useDeviceLayout } from '@/hooks/useDeviceLayout';
 import { useTheme } from '@/hooks/useTheme';
-import i18n from '@/i18n';
+import i18n from '@/lib/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { Tabs } from 'expo-router';
 import { Image, ImageSourcePropType, View } from 'react-native';

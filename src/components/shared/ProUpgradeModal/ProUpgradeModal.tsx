@@ -1,7 +1,7 @@
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
-import i18n from '@/i18n';
+import i18n from '@/lib/i18n';
 import { SIZES } from '@/rootconstants/sizes';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';

@@ -1,5 +1,5 @@
 import { colors } from '@/rootconstants/tint';
-import { Theme } from '@/interface/color.interface';
+import { Theme } from '@/types/color.interface';
 
 export type { Theme };
 

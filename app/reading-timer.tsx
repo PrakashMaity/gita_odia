@@ -1,4 +1,4 @@
-import { ReadingTimerScreen } from '@/components/screens';
+import { ReadingTimerScreen } from '@/features';
 
 export default function ReadingTimerPage() {
   return <ReadingTimerScreen />;

@@ -1,5 +1,5 @@
 import { rawChapters } from '@/assets/Data';
-import { ChapterData, ChapterStore } from '@/interface/chapter.interface';
+import { ChapterData, ChapterStore } from '@/types/chapter.interface';
 import { create } from 'zustand';
 // --- TYPES ---
 

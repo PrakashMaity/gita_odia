@@ -1,4 +1,4 @@
-export type { ChapterData } from '@/interface/chapter.interface';
+export type { ChapterData } from '@/types/chapter.interface';
 export { useBookmarkStore } from './bookmarkStore';
 export type { Bookmark } from './bookmarkStore';
 export { useChapterStore } from './chapterStore';

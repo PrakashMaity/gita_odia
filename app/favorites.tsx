@@ -1,4 +1,4 @@
-import { FavoritesScreen } from '@/components/screens';
+import { FavoritesScreen } from '@/features';
 
 export default function FavoritesPage() {
   return <FavoritesScreen />;

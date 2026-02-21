@@ -1,4 +1,4 @@
-import { TranslationDetailScreen } from '@/components/screens';
+import { TranslationDetailScreen } from '@/features';
 
 export default function TranslationDetailPage() {
   return <TranslationDetailScreen />;

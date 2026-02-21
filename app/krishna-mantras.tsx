@@ -1,4 +1,4 @@
-import { KrishnaMantrasScreen } from '@/components/screens';
+import { KrishnaMantrasScreen } from '@/features';
 
 export default function KrishnaMantrasPage() {
   return <KrishnaMantrasScreen />;

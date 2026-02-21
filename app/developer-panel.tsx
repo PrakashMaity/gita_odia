@@ -1,3 +1,3 @@
-import { DeveloperPanelScreen } from '@/components/screens/developer/DeveloperPanelScreen';
+import { DeveloperPanelScreen } from '@/features/developer/DeveloperPanelScreen';
 
 export default DeveloperPanelScreen;

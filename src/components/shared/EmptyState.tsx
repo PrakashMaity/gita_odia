@@ -1,7 +1,7 @@
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { useTheme } from '@/hooks/useTheme';
-import { EmptyStateProps } from '@/interface/screen.interface';
+import { EmptyStateProps } from '@/types/screen.interface';
 import { styles } from './EmptyState.styles';
 
 export const EmptyState: React.FC<EmptyStateProps> = ({

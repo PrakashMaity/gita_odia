@@ -2,8 +2,8 @@
  * Verse-specific Text-to-Speech hook
  * Handles verse playback with Language → "Orthat" → translation sequence
  */
-import { getVoiceOptions } from '@/utils/speakerVoiceConfig';
-import { delay, MAX_TEXT_LENGTH, splitTextIntoChunks } from '@/utils/textToSpeechUtils';
+import { getVoiceOptions } from '@/lib/utils/speakerVoiceConfig';
+import { delay, MAX_TEXT_LENGTH, splitTextIntoChunks } from '@/lib/utils/textToSpeechUtils';
 import * as Speech from 'expo-speech';
 import { useRef, useState } from 'react';
 import { useProStatus } from './useProStatus';

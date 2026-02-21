@@ -1,4 +1,4 @@
-import { DhyanaScreen } from '@/components/screens';
+import { DhyanaScreen } from '@/features';
 
 export default function DhyanaPage() {
   return <DhyanaScreen />;

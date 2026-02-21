@@ -1,7 +1,7 @@
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { WavePattern } from '@/illustration/cardBackground';
-import { LoadingStateProps } from '@/interface/screen.interface';
+import { WavePattern } from '@/lib/illustration/cardBackground';
+import { LoadingStateProps } from '@/types/screen.interface';
 import { styles } from './LoadingState.styles';
 
 export const LoadingState: React.FC<LoadingStateProps> = ({ message }) => {

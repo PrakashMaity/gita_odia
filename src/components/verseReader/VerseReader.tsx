@@ -3,12 +3,12 @@ import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
-import i18n from '@/i18n';
-import { getSpeakerImage } from '@/utils/speakerUtils';
+import i18n from '@/lib/i18n';
+import { getSpeakerImage } from '@/lib/utils/speakerUtils';
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { FavoriteButton } from '@/components/screens/favorites/components';
-import { ShareButton } from '@/components/screens/chapterDetail/components';
-import { AudioModal } from '@/components/screens/translationDetail/components/AudioModal';
+import { FavoriteButton } from '@/features/favorites/components';
+import { ShareButton } from '@/features/chapterDetail/components';
+import { AudioModal } from '@/features/translationDetail/components/AudioModal';
 import { MaterialIcons } from '@expo/vector-icons';
 import React, { useRef, useState, useMemo } from 'react';
 

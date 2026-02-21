@@ -1,0 +1,202 @@
+import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  backdrop: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: SIZES.spacing.lg,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+  },
+  backdropTouchable: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
+  },
+  blurOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
+  },
+  modalContainer: {
+    width: '100%',
+    borderRadius: SIZES.radius.xxl,
+    padding: SIZES.spacing.xl,
+    maxHeight: '70%',
+    borderWidth: SIZES.borderSize.md,
+  },
+  card: {
+    padding: SIZES.spacing.xl,
+    borderRadius: SIZES.radius.xl,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  gradientBackground: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0.15,
+    borderRadius: SIZES.radius.xl,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SIZES.spacing.xl,
+    paddingBottom: SIZES.spacing.lg,
+    borderBottomWidth: SIZES.borderSize.xs,
+    borderBottomColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  speakerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  speakerAvatar: {
+    width: SIZES.avatar.md,
+    height: SIZES.avatar.md,
+    borderRadius: SIZES.radius.round,
+    marginRight: SIZES.spacing.md,
+  },
+  speakerInfo: {
+    flex: 1,
+  },
+  speakerName: {
+    marginBottom: SIZES.spacing.xs / 2,
+  },
+  verseNumber: {
+    opacity: 0.7,
+  },
+  titleContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  title: {
+    textAlign: 'center',
+    marginBottom: SIZES.spacing.xs,
+  },
+  verseProgress: {
+    opacity: 0.7,
+    marginTop: SIZES.spacing.xs / 2,
+  },
+  closeButton: {
+    width: SIZES.icon.lg + SIZES.spacing.sm,
+    height: SIZES.icon.lg + SIZES.spacing.sm,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: SIZES.spacing.md,
+  },
+  waveformContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 60,
+    marginVertical: SIZES.spacing.xl,
+    gap: SIZES.spacing.sm,
+  },
+  waveformBar: {
+    width: 4,
+    borderRadius: SIZES.radius.sm,
+    marginHorizontal: 2,
+  },
+  textContainer: {
+    marginBottom: SIZES.spacing.xl,
+    padding: SIZES.spacing.lg,
+    borderRadius: SIZES.radius.lg,
+    minHeight: 80,
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  },
+  textPreview: {
+    textAlign: 'center',
+    lineHeight: 24,
+  },
+  currentTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: SIZES.spacing.md,
+    width: '100%',
+  },
+  currentText: {
+    textAlign: 'center',
+    lineHeight: 28,
+    flex: 1,
+  },
+  speakerIconSmall: {
+    width: SIZES.avatar.sm || 32,
+    height: SIZES.avatar.sm || 32,
+    borderRadius: SIZES.radius.round,
+  },
+  controlsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: SIZES.spacing.lg,
+    marginBottom: SIZES.spacing.lg,
+  },
+  controlButton: {
+    width: 64,
+    height: 64,
+    borderRadius: SIZES.radius.round,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: SIZES.shadow.md,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: SIZES.shadow.lg,
+    elevation: 6,
+  },
+  stopButton: {
+    width: 56,
+    height: 56,
+  },
+  statusContainer: {
+    alignItems: 'center',
+    marginTop: SIZES.spacing.md,
+    width: '100%',
+  },
+  statusText: {
+    opacity: 0.7,
+  },
+  progressContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  progressText: {
+    marginBottom: SIZES.spacing.md,
+    textAlign: 'center',
+  },
+  progressBarContainer: {
+    width: '100%',
+    height: 8,
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
+    borderRadius: SIZES.radius.md,
+    overflow: 'hidden',
+  },
+  progressBar: {
+    height: '100%',
+    borderRadius: SIZES.radius.sm,
+  },
+});
+

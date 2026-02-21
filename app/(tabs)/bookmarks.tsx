@@ -1,4 +1,4 @@
-import { BookmarksScreen } from '@/components/screens';
+import { BookmarksScreen } from '@/features';
 
 export default function BookmarksPage() {
   return <BookmarksScreen />;

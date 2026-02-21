@@ -1,4 +1,4 @@
-import { DailyReadingScreen } from '@/components/screens';
+import { DailyReadingScreen } from '@/features';
 
 export default function DailyReadingPage() {
   return <DailyReadingScreen />;

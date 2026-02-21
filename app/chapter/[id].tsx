@@ -1,4 +1,4 @@
-import { ChapterDetailScreen } from '@/components/screens';
+import { ChapterDetailScreen } from '@/features';
 
 
 

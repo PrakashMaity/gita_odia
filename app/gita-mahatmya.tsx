@@ -1,4 +1,4 @@
-import { GitaMahatmyaScreen } from '@/components/screens';
+import { GitaMahatmyaScreen } from '@/features';
 
 export default function GitaMahatmyaPage() {
   return <GitaMahatmyaScreen />;

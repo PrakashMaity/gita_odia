@@ -1,4 +1,4 @@
-import { getLanguageFonts } from '@/interface/font.interface';
+import { getLanguageFonts } from '@/types/font.interface';
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
 import { useThemeColors } from '@/hooks/useTheme';

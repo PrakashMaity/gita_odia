@@ -1,6 +1,6 @@
-import { getLanguageFonts } from '@/interface/font.interface';
+import { getLanguageFonts } from '@/types/font.interface';
 import { colors } from '@/rootconstants/tint';
-import { HomeImages } from '@/utils/assets';
+import { HomeImages } from '@/lib/utils/assets';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Dimensions, Image, StyleSheet, Text, View } from 'react-native';

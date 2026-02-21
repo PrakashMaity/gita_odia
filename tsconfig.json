@@ -11,6 +11,9 @@
       ],
       "@/rootconstants/*": [
         "./rootconstants/*"
+      ],
+      "tailwind.config": [
+        "./tailwind.config.js"
       ]
     }
   },
@@ -20,7 +23,8 @@
     "rootconstants",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "declarations.d.ts"
+    "declarations.d.ts",
+    "nativewind-env.d.ts"
   ],
   "exclude": [
     "node_modules",

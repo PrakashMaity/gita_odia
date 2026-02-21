@@ -1,4 +1,4 @@
-import i18n from '@/i18n';
+import i18n from '@/lib/i18n';
 
 /**
  * Language code mapping from settings language to Firestore language codes

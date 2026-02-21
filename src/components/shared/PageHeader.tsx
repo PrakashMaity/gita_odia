@@ -1,10 +1,10 @@
-import { ScreenHeader } from '@/components/screens/shared/ScreenHeader';
+import { ScreenHeader } from '@/components/shared/ScreenHeader';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
-import { PageHeaderProps } from '@/interface/screen.interface';
+import { PageHeaderProps } from '@/types/screen.interface';
 import { SIZES } from '@/rootconstants/sizes';
-import { HomeImages } from '@/utils/assets';
+import { HomeImages } from '@/lib/utils/assets';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { TouchableOpacity } from 'react-native';

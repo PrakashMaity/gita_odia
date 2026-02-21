@@ -1,4 +1,4 @@
-import { GitaSummaryScreen } from '@/components/screens';
+import { GitaSummaryScreen } from '@/features';
 
 export default function GitaSummaryPage() {
   return <GitaSummaryScreen />;
