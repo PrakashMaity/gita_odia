@@ -193,6 +193,11 @@ export const ReadingTimerScreen: React.FC = () => {
   };
 
   const handleReset = () => {
+    if (timerState === 'completed') {
+      setTimeout(() => {
+        showAd();
+      }, 400);
+    }
     setTimerState('idle');
     setTimeLeft(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -328,4 +333,3 @@ export const ReadingTimerScreen: React.FC = () => {
     </ImageBackground>
   );
 };
-

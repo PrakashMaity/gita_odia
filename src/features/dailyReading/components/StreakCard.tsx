@@ -33,7 +33,7 @@ export const StreakCard: React.FC<StreakCardProps> = ({
 
   return (
     <Animated.View style={animatedStyle}>
-      <ThemedCard variant="card" style={styles.card} borderVariant="primary">
+      <ThemedCard variant="card" style={styles.card}>
         <View style={styles.content}>
           <View style={[styles.iconContainer, { backgroundColor: theme.status.warning + '15' }]}>
             <Ionicons 

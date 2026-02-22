@@ -1,4 +1,3 @@
-import { BannerAdComponent } from '@/components/ads';
 import { LoadingState } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -89,10 +88,6 @@ export const ChaptersScreen: React.FC = () => {
                 {i18n.t('chapter.motivationText')}
               </Text>
             </Box>
-          </Box>
-
-          <Box className="px-4 mt-6">
-            <BannerAdComponent />
           </Box>
 
         </VStack>

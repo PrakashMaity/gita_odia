@@ -1,4 +1,3 @@
-import { BannerAdComponent } from '@/components/ads';
 import { LockedCardOverlay, ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -7,6 +6,7 @@ import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useRewardedInterstitialAd } from '@/hooks/useRewardedInterstitialAd';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { getLanguageFonts } from '@/types/font.interface';
@@ -24,8 +24,8 @@ import { MangalacharanSectionCard } from '../mangalacharan/components/Mangalacha
 export const KrishnaMantrasScreen: React.FC = () => {
   const mantras = i18n.t('krishnaMantras.mantras') as any;
   const { showAd, isLoaded } = useInterstitialAd();
-  const adsShownCountRef = useRef<number>(0);
-  const hasReachedEndRef = useRef<boolean>(false);
+  const { showAd: showRewardedInterstitialAd, isLoaded: isRewardedLoaded } = useRewardedInterstitialAd();
+  const triggeredMilestonesRef = useRef<Set<'mid' | 'deep' | 'end'>>(new Set());
   const scrollViewRef = useRef<ScrollView>(null);
   const { isPro } = useProStatus();
   const [showProModal, setShowProModal] = useState(false);
@@ -34,29 +34,38 @@ export const KrishnaMantrasScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
-    adsShownCountRef.current = 0;
-    hasReachedEndRef.current = false;
+    triggeredMilestonesRef.current.clear();
   }, []);
 
   const handleScroll = useCallback(
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-      const paddingToBottom = 20;
-      const isAtEnd =
-        layoutMeasurement.height + contentOffset.y >=
-        contentSize.height - paddingToBottom;
+      if (!contentSize.height) return;
 
-      if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
-        hasReachedEndRef.current = true;
-        adsShownCountRef.current += 1;
+      const progress = (contentOffset.y + layoutMeasurement.height) / contentSize.height;
+
+      if (progress >= 0.45 && !triggeredMilestonesRef.current.has('mid') && isLoaded) {
+        triggeredMilestonesRef.current.add('mid');
         setTimeout(() => showAd(), 500);
       }
 
-      if (!isAtEnd && hasReachedEndRef.current) {
-        hasReachedEndRef.current = false;
+      if (progress >= 0.72 && !triggeredMilestonesRef.current.has('deep')) {
+        triggeredMilestonesRef.current.add('deep');
+        setTimeout(() => {
+          if (isRewardedLoaded) {
+            showRewardedInterstitialAd();
+          } else if (isLoaded) {
+            showAd();
+          }
+        }, 500);
+      }
+
+      if (progress >= 0.95 && !triggeredMilestonesRef.current.has('end') && isLoaded) {
+        triggeredMilestonesRef.current.add('end');
+        setTimeout(() => showAd(), 500);
       }
     },
-    [showAd, isLoaded]
+    [showAd, isLoaded, showRewardedInterstitialAd, isRewardedLoaded]
   );
 
   return (
@@ -154,12 +163,6 @@ export const KrishnaMantrasScreen: React.FC = () => {
                     content={mantra.mantraText}
                     textStyle="center"
                   />
-                  <Box className="my-3">
-                    <BannerAdComponent
-                      adKey="krishna-mantras-center"
-                      containerStyle={{ paddingHorizontal: 16 }}
-                    />
-                  </Box>
                 </>
               )}
 
@@ -239,14 +242,7 @@ export const KrishnaMantrasScreen: React.FC = () => {
                 </>
               )}
 
-              {isMiddleMantra && (
-                <Box className="my-3">
-                  <BannerAdComponent
-                    adKey="krishna-mantras-below-center"
-                    containerStyle={{ paddingHorizontal: 16 }}
-                  />
-                </Box>
-              )}
+              {isMiddleMantra && <Box className="my-1" />}
             </VStack>
           );
         })}

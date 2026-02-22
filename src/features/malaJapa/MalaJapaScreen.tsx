@@ -238,9 +238,9 @@ export const MalaJapaScreen: React.FC = () => {
         console.error('Error chanting mantra on completion:', error);
       }
 
-      if (newTotalJapa === 108 && lastAdShownJapa.current < 108) {
+      if (newTotalJapa >= 54 && newTotalJapa - lastAdShownJapa.current >= 54) {
         showAd();
-        lastAdShownJapa.current = 108;
+        lastAdShownJapa.current = newTotalJapa;
       }
 
       setShowSuccessModal(true);

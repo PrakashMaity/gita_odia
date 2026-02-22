@@ -23,3 +23,4 @@ declare module '*.webp' {
   export default value;
 }
 
+declare module 'react-native-purchases';

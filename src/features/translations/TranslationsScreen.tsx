@@ -1,4 +1,3 @@
-import { BannerAdComponent } from '@/components/ads';
 import { LoadingState } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -111,10 +110,6 @@ export const TranslationsScreen: React.FC = () => {
           </Text>
         </Box>
 
-        {/* Banner Ad */}
-        <Box className="w-full mb-6 items-center flex">
-          <BannerAdComponent />
-        </Box>
       </ScrollView>
     </Box>
   );

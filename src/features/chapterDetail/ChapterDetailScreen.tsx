@@ -60,12 +60,12 @@ export const ChapterDetailScreen: React.FC = () => {
   const toggleTranslation = useCallback(() => setShowTranslation(prev => !prev), []);
   const toggleLanguage = useCallback(() => setShowLanguage(prev => !prev), []);
 
-  // Show interstitial ad after every three verses
+  // Show interstitial ad after every two verses for non-Pro users.
   useEffect(() => {
     if (!chapterData?.verses || currentVerse < 0) return;
 
-    // Show ad after reading 3rd, 6th, 9th verse, etc. (indices 2, 5, 8, ...)
-    const shouldShowAd = (currentVerse + 1) % 3 === 0 && currentVerse >= 2;
+    // Show ad after reading 2nd, 4th, 6th verse, etc. (indices 1, 3, 5, ...)
+    const shouldShowAd = (currentVerse + 1) % 2 === 0 && currentVerse >= 1;
 
     if (shouldShowAd && !adsShownRef.current.has(currentVerse)) {
       adsShownRef.current.add(currentVerse);

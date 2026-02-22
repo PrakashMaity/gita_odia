@@ -24,7 +24,6 @@ type TranslationVerse = {
 interface TranslationMessageProps {
   verse: TranslationVerse;
   index: number;
-  shouldShowBanner?: boolean;
   chapterId?: string;
   chapterNumber?: string;
 }
@@ -32,7 +31,6 @@ interface TranslationMessageProps {
 export const TranslationMessage: React.FC<TranslationMessageProps> = ({
   verse,
   index,
-  shouldShowBanner = false,
   chapterId,
   chapterNumber,
 }) => {

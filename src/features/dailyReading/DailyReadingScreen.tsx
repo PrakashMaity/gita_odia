@@ -1,22 +1,24 @@
-import { BannerAdComponent } from '@/components/ads';
-import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
+import { LockedCardOverlay, ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { WavePattern } from '@/lib/illustration/cardBackground';
-import { SIZES } from '@/rootconstants/sizes';
 import { useDailyReadingStore } from '@/store/dailyReadingStore';
-import { LayoutImages } from '@/lib/utils/assets';
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { Dimensions, ImageBackground, ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QuickActionButtons } from './components/QuickActionButtons';
 import { StatsCard } from './components/StatsCard';
 import { StreakCard } from './components/StreakCard';
 import { WeeklyChart } from './components/WeeklyChart';
-import { styles } from './DailyReadingScreen.styles';
 
 export const DailyReadingScreen: React.FC = () => {
   const {
@@ -27,7 +29,6 @@ export const DailyReadingScreen: React.FC = () => {
     totalVersesRead,
     getTodayRecord,
     getWeeklyStats,
-    isLoading,
   } = useDailyReadingStore();
 
   const [todayRecord, setTodayRecord] = useState(getTodayRecord());
@@ -42,58 +43,75 @@ export const DailyReadingScreen: React.FC = () => {
 
   const weeklyStats = getWeeklyStats();
   const todayVerses = todayRecord?.versesRead || 0;
-  const theme = useThemeColors();
   const { isPro } = useProStatus();
+  const theme = useThemeColors();
+  const insets = useSafeAreaInsets();
   const [showProModal, setShowProModal] = useState(false);
 
-  const { width, height } = Dimensions.get('window');
-
   return (
-    <ImageBackground
-      source={LayoutImages.background3}
-      style={styles.backgroundImage}
-      resizeMode="cover"
-      blurRadius={2.5}
-    >
-      <ThemedView variant="transparent" style={styles.container}>
-        <WavePattern width={width} height={height} />
-        
-        <PageHeader
-          title={i18n.t('dailyReading.title')}
-          subtitle={i18n.t('dailyReading.subtitle')}
-          showBackButton={true}
-        />
+    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      <Box
+        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+      >
+        <HStack className="items-center justify-between">
+          <Pressable
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70"
+            onPress={() => router.back()}
+          >
+            <Ionicons name="chevron-back" size={22} color={theme.text.primary} />
+          </Pressable>
 
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* Quick Action Buttons */}
+          <Text
+            className="flex-1 text-center text-xl font-bold"
+            style={{ color: theme.text.primary }}
+            numberOfLines={1}
+          >
+            {i18n.t('dailyReading.title')}
+          </Text>
+
+          <Box className="w-10 h-10" />
+        </HStack>
+      </Box>
+
+      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+        <VStack className="px-4 pt-4 pb-12" space="md">
+          <ThemedCard variant="card">
+            <ThemedLanguageText
+              variant="primary"
+              size="large"
+              fontFamily="regional_secondary"
+            >
+              {i18n.t('dailyReading.subtitle')}
+            </ThemedLanguageText>
+            <ThemedLanguageText
+              variant="secondary"
+              size="medium"
+              fontFamily="regional_secondary"
+            >
+              {i18n.t('dailyReading.todayVerses')}: {todayVerses}
+            </ThemedLanguageText>
+          </ThemedCard>
+
           <QuickActionButtons />
 
-          {/* Streak Card */}
           <StreakCard
             currentStreak={currentStreak}
             longestStreak={longestStreak}
           />
 
-          {/* Stats Section */}
-          <ThemedView style={styles.statsSection}>
-            <ThemedView style={styles.sectionHeader}>
-              <ThemedView style={[styles.sectionIndicator, { backgroundColor: theme.status.info + '40' }]} />
-              <ThemedLanguageText 
-                variant="primary" 
-                size="large" 
+          <VStack className="mt-2" space="sm">
+            <HStack className="items-center">
+              <ThemedLanguageText
+                variant="primary"
+                size="large"
                 fontFamily="regional_secondary"
-                style={styles.sectionTitle}
               >
                 {i18n.t('dailyReading.statsTitle')}
               </ThemedLanguageText>
-            </ThemedView>
+            </HStack>
 
-            {/* Stats Cards Row */}
-            <View style={styles.statsRow}>
+            <HStack className="gap-4">
               <StatsCard
                 title={i18n.t('dailyReading.todayVerses')}
                 value={todayVerses.toString()}
@@ -104,35 +122,36 @@ export const DailyReadingScreen: React.FC = () => {
                 value={totalReadingDays.toString()}
                 iconName="calendar-outline"
               />
-            </View>
+            </HStack>
 
-            <View style={styles.statsRow}>
-              <LockedCardOverlay
-                isLocked={!isPro}
-                onPress={() => setShowProModal(true)}
-                style={{ flex: 1 }}
-              >
-                <StatsCard
-                  title={i18n.t('dailyReading.totalVerses')}
-                  value={totalVersesRead.toString()}
-                  iconName="library-outline"
-                />
-              </LockedCardOverlay>
-              <LockedCardOverlay
-                isLocked={!isPro}
-                onPress={() => setShowProModal(true)}
-                style={{ flex: 1 }}
-              >
-                <StatsCard
-                  title={i18n.t('dailyReading.longestStreak')}
-                  value={longestStreak.toString()}
-                  iconName="flame-outline"
-                />
-              </LockedCardOverlay>
-            </View>
-          </ThemedView>
+            <HStack className="gap-4">
+              <Box className="flex-1">
+                <LockedCardOverlay
+                  isLocked={!isPro}
+                  onPress={() => setShowProModal(true)}
+                >
+                  <StatsCard
+                    title={i18n.t('dailyReading.totalVerses')}
+                    value={totalVersesRead.toString()}
+                    iconName="library-outline"
+                  />
+                </LockedCardOverlay>
+              </Box>
+              <Box className="flex-1">
+                <LockedCardOverlay
+                  isLocked={!isPro}
+                  onPress={() => setShowProModal(true)}
+                >
+                  <StatsCard
+                    title={i18n.t('dailyReading.longestStreak')}
+                    value={longestStreak.toString()}
+                    iconName="flame-outline"
+                  />
+                </LockedCardOverlay>
+              </Box>
+            </HStack>
+          </VStack>
 
-          {/* Weekly Chart */}
           {weeklyStats.length > 0 && (
             <LockedCardOverlay
               isLocked={!isPro}
@@ -142,23 +161,19 @@ export const DailyReadingScreen: React.FC = () => {
             </LockedCardOverlay>
           )}
 
-          {/* Motivational Message */}
-          <ThemedCard variant="card" style={styles.motivationCard} borderVariant="primary">
-            <ThemedView style={styles.motivationHeader}>
-              <ThemedView style={[styles.motivationIndicator, { backgroundColor: theme.status.success + '40' }]} />
-              <ThemedLanguageText 
-                variant="primary" 
-                size="large" 
+          <ThemedCard variant="card">
+            <HStack className="items-center mb-4">
+              <ThemedLanguageText
+                variant="primary"
+                size="large"
                 fontFamily="regional_secondary"
-                style={styles.motivationTitle}
               >
                 {i18n.t('dailyReading.motivationTitle')}
               </ThemedLanguageText>
-            </ThemedView>
+            </HStack>
             <ThemedLanguageText
               variant="secondary"
               size="medium"
-              style={styles.motivationText}
               fontFamily="regional_secondary"
             >
               {currentStreak > 0
@@ -167,17 +182,13 @@ export const DailyReadingScreen: React.FC = () => {
             </ThemedLanguageText>
           </ThemedCard>
 
-          {/* Banner Ad */}
-          <ThemedView style={{ paddingHorizontal: SIZES.spacing.md, marginTop: SIZES.spacing.lg }}>
-            <BannerAdComponent />
-          </ThemedView>
-        </ScrollView>
-        <ProUpgradeModal
-          visible={showProModal}
-          onClose={() => setShowProModal(false)}
-        />
-      </ThemedView>
-    </ImageBackground>
+        </VStack>
+      </ScrollView>
+
+      <ProUpgradeModal
+        visible={showProModal}
+        onClose={() => setShowProModal(false)}
+      />
+    </Box>
   );
 };
-

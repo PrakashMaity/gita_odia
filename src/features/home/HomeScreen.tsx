@@ -1,4 +1,3 @@
-import { BannerAdComponent } from '@/components/ads';
 import { Box } from '@/components/ui/box';
 import { VStack } from '@/components/ui/vstack';
 import { HomeImages } from '@/lib/utils/assets';
@@ -39,11 +38,6 @@ export const HomeScreen: React.FC = () => {
 
             {/* ─── Section: Menu Categories ─── */}
             <MenuGrid onMenuItemPress={handleMenuItemPress} />
-
-            {/* ─── Section: Banner Ad ─── */}
-            <Box className="px-4">
-              <BannerAdComponent />
-            </Box>
           </VStack>
         </ScrollView>
 

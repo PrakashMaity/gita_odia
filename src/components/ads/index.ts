@@ -17,8 +17,6 @@ export {
   showRewardedInterstitialAd,
 } from './rewardedInterstitialAd';
 
-export { BannerAdComponent } from './bannerAd';
-
 export {
   createAppOpenAd,
   setupAppOpenListeners,
@@ -27,7 +25,6 @@ export {
 
 // Ad Configuration
 export {
-  BANNER_AD_UNIT_ID,
   INTERSTITIAL_AD_UNIT_ID,
   REWARDED_AD_UNIT_ID,
   REWARDED_INTERSTITIAL_AD_UNIT_ID,

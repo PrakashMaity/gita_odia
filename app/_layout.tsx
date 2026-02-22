@@ -282,6 +282,18 @@ export default function RootLayout() {
                     }}
                   />
                   <Stack.Screen
+                    name="subscription"
+                    options={{
+                      animation: TRANSITION_ANIMATIONS.default,
+                    }}
+                  />
+                  <Stack.Screen
+                    name="subscription-details"
+                    options={{
+                      animation: TRANSITION_ANIMATIONS.default,
+                    }}
+                  />
+                  <Stack.Screen
                     name="translations"
                     options={{
                       animation: TRANSITION_ANIMATIONS.default,

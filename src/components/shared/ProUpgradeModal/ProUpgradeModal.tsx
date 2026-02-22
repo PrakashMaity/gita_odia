@@ -1,14 +1,15 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { router } from 'expo-router';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
-import { styles } from './ProUpgradeModal.styles';
+import { Animated, Modal, TouchableWithoutFeedback } from 'react-native';
 
 interface ProUpgradeModalProps {
   visible: boolean;
@@ -17,278 +18,132 @@ interface ProUpgradeModalProps {
 
 export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClose }) => {
   const theme = useThemeColors();
-  const screenData = Dimensions.get('screen');
-  const { width, height } = screenData;
-  
-  // Animation values
-  const scaleAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const iconScaleAnim = useRef(new Animated.Value(0)).current;
-  const iconRotateAnim = useRef(new Animated.Value(0)).current;
+  const translateYAnim = useRef(new Animated.Value(24)).current;
 
   useEffect(() => {
-    if (visible) {
-      // Reset animations
-      scaleAnim.setValue(0);
-      fadeAnim.setValue(0);
-      iconScaleAnim.setValue(0);
-      iconRotateAnim.setValue(0);
+    if (!visible) return;
 
-      // Animate modal entrance
-      Animated.parallel([
-        Animated.spring(scaleAnim, {
-          toValue: 1,
-          tension: 50,
-          friction: 7,
-          useNativeDriver: true,
-        }),
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 300,
-          useNativeDriver: true,
-        }),
-        Animated.sequence([
-          Animated.delay(200),
-          Animated.spring(iconScaleAnim, {
-            toValue: 1,
-            tension: 40,
-            friction: 5,
-            useNativeDriver: true,
-          }),
-          Animated.loop(
-            Animated.sequence([
-              Animated.timing(iconRotateAnim, {
-                toValue: 1,
-                duration: 2000,
-                useNativeDriver: true,
-              }),
-              Animated.timing(iconRotateAnim, {
-                toValue: 0,
-                duration: 2000,
-                useNativeDriver: true,
-              }),
-            ])
-          ),
-        ]),
-      ]).start();
-    }
-  }, [visible, scaleAnim, fadeAnim, iconScaleAnim, iconRotateAnim]);
+    fadeAnim.setValue(0);
+    translateYAnim.setValue(24);
 
-  const handleClose = () => {
-    // Animate exit
     Animated.parallel([
-      Animated.timing(scaleAnim, {
-        toValue: 0,
-        duration: 200,
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 220,
         useNativeDriver: true,
       }),
+      Animated.timing(translateYAnim, {
+        toValue: 0,
+        duration: 220,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [visible, fadeAnim, translateYAnim]);
+
+  const closeWithAnimation = () => {
+    Animated.parallel([
       Animated.timing(fadeAnim, {
         toValue: 0,
-        duration: 200,
+        duration: 180,
         useNativeDriver: true,
       }),
-    ]).start(() => {
-      onClose();
-    });
+      Animated.timing(translateYAnim, {
+        toValue: 24,
+        duration: 180,
+        useNativeDriver: true,
+      }),
+    ]).start(onClose);
   };
 
   const handleUpgrade = () => {
-    handleClose();
-    router.push('/subscription');
+    closeWithAnimation();
+    setTimeout(() => {
+      router.push('/subscription');
+    }, 120);
   };
-
-  const handleBackdropPress = () => {
-    // Allow closing by tapping backdrop
-    handleClose();
-  };
-
-  const iconRotation = iconRotateAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '15deg'],
-  });
 
   if (!visible) return null;
 
   return (
-    <Modal
-      transparent
-      visible={visible}
-      animationType="fade"
-      statusBarTranslucent
-      onRequestClose={handleClose}
-    >
-      <Animated.View 
-        style={[
-          styles.backdrop, 
-          { 
-            width, 
-            height,
-            opacity: fadeAnim,
-          }
-        ]}
-      >
-        <TouchableWithoutFeedback onPress={handleBackdropPress}>
-          <BlurView
-            intensity={80}
-            tint="dark"
-            style={[styles.backdropTouchable, { width, height }]}
-          >
-            <View style={[styles.blurOverlay, { width, height, backgroundColor: 'rgba(0, 0, 0, 0.4)' }]} />
+    <Modal transparent visible={visible} animationType="none" statusBarTranslucent onRequestClose={closeWithAnimation}>
+      <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
+        <TouchableWithoutFeedback onPress={closeWithAnimation}>
+          <BlurView intensity={80} tint="dark" style={{ flex: 1 }}>
+            <Box className="flex-1 items-center justify-end px-4 pb-8" style={{ backgroundColor: 'rgba(0,0,0,0.35)' }}>
+              <TouchableWithoutFeedback>
+                <Animated.View style={{ width: '100%', transform: [{ translateY: translateYAnim }] }}>
+                  <Box
+                    className="rounded-[28px] border border-amber-100/30 p-6"
+                    style={{ backgroundColor: theme.background.secondary }}
+                  >
+                    <HStack className="items-start justify-between mb-4">
+                      <HStack className="items-center flex-1 pr-3">
+                        <Box
+                          className="w-11 h-11 rounded-[14px] items-center justify-center mr-3"
+                          style={{ backgroundColor: theme.background.primary }}
+                        >
+                          <MaterialIcons name="workspace-premium" size={22} color={theme.icon.primary} />
+                        </Box>
+                        <VStack className="flex-1">
+                          <Text className="text-[20px] font-black tracking-tight" style={{ color: theme.text.primary }}>
+                            {i18n.t('pro.upgradeTitle')}
+                          </Text>
+                          <Text className="text-[12px]" style={{ color: theme.text.secondary }}>
+                            Premium Access
+                          </Text>
+                        </VStack>
+                      </HStack>
+
+                      <Pressable
+                        onPress={closeWithAnimation}
+                        className="w-9 h-9 rounded-full items-center justify-center active:opacity-70"
+                        style={{ backgroundColor: theme.background.primary }}
+                      >
+                        <Ionicons name="close" size={18} color={theme.text.primary} />
+                      </Pressable>
+                    </HStack>
+
+                    <Text className="text-[14px] leading-6 mb-4" style={{ color: theme.text.secondary }}>
+                      {i18n.t('pro.upgradeMessage')}
+                    </Text>
+
+                    <VStack space="xs" className="mb-5">
+                      {[i18n.t('pro.benefit1'), i18n.t('pro.benefit2'), i18n.t('pro.benefit3')].map((item, index) => (
+                        <HStack key={index} className="items-center">
+                          <Ionicons name="checkmark-circle" size={16} color={theme.status.success} />
+                          <Text className="text-[13px] ml-2 flex-1" style={{ color: theme.text.secondary }}>
+                            {item}
+                          </Text>
+                        </HStack>
+                      ))}
+                    </VStack>
+
+                    <HStack className="gap-3">
+                      <Pressable
+                        onPress={closeWithAnimation}
+                        className="flex-1 py-3.5 rounded-[14px] items-center justify-center active:opacity-80"
+                        style={{ backgroundColor: theme.background.primary }}
+                      >
+                        <Text className="text-[14px] font-bold" style={{ color: theme.text.primary }}>
+                          Later
+                        </Text>
+                      </Pressable>
+                      <Pressable
+                        onPress={handleUpgrade}
+                        className="flex-1 py-3.5 rounded-[14px] items-center justify-center active:opacity-80"
+                        style={{ backgroundColor: theme.button.primary.background }}
+                      >
+                        <Text className="text-[14px] font-black" style={{ color: theme.button.primary.text }}>
+                          {i18n.t('pro.upgradeButton')}
+                        </Text>
+                      </Pressable>
+                    </HStack>
+                  </Box>
+                </Animated.View>
+              </TouchableWithoutFeedback>
+            </Box>
           </BlurView>
-        </TouchableWithoutFeedback>
-        
-        <TouchableWithoutFeedback>
-          <Animated.View
-            style={[
-              styles.modalContainer,
-              {
-                backgroundColor: theme.background.secondary,
-                maxWidth: width * 0.85,
-                width: width * 0.85,
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: SIZES.shadow.xl,
-                },
-                shadowOpacity: 0.4,
-                shadowRadius: SIZES.shadow.lg,
-                elevation: 20,
-                transform: [{ scale: scaleAnim }],
-                opacity: fadeAnim,
-              },
-            ]}
-          >
-            {/* Decorative Top Border */}
-            <View
-              style={[
-                styles.decorativeBorder,
-                { backgroundColor: theme.button.primary.background },
-              ]}
-            />
-
-            {/* Close Button */}
-            <TouchableOpacity
-              onPress={handleClose}
-              style={[
-                styles.closeButton,
-                { backgroundColor: theme.background.tertiary },
-              ]}
-              activeOpacity={0.7}
-            >
-              <Ionicons
-                name="close"
-                size={SIZES.icon.md}
-                color={theme.icon.primary}
-              />
-            </TouchableOpacity>
-
-            {/* Content */}
-            <ThemedView style={styles.content}>
-              {/* Icon with Animation */}
-              <Animated.View
-                style={[
-                  styles.iconContainer,
-                  {
-                    backgroundColor: theme.button.primary.background,
-                    transform: [
-                      { scale: iconScaleAnim },
-                      { rotate: iconRotation },
-                    ],
-                  },
-                ]}
-              >
-                <View style={styles.iconGlow}>
-                  <Ionicons
-                    name="lock-closed"
-                    size={SIZES.icon.xxl}
-                    color={theme.button.primary.text}
-                  />
-                </View>
-                <View style={[styles.iconRing, { borderColor: theme.button.primary.background }]} />
-              </Animated.View>
-
-              {/* Title */}
-              <ThemedLanguageText
-                variant="primary"
-                size="title"
-                fontFamily="regional_secondary"
-                style={[styles.title, { color: theme.text.primary }]}
-              >
-                {i18n.t('pro.upgradeTitle', { defaultValue: 'Upgrade to PRO' })}
-              </ThemedLanguageText>
-
-              {/* Message */}
-              <ThemedLanguageText
-                variant="secondary"
-                size="large"
-                fontFamily="regional_secondary"
-                style={[styles.message, { color: theme.text.secondary }]}
-              >
-                {i18n.t('pro.upgradeMessage', { 
-                  defaultValue: 'This content is available for PRO users only. Upgrade to PRO to unlock all premium features and access exclusive content!' 
-                })}
-              </ThemedLanguageText>
-
-              {/* Benefits List */}
-              <ThemedView style={styles.benefitsContainer}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={[styles.benefitsTitle, { color: theme.text.primary }]}
-                >
-                  {i18n.t('pro.benefitsTitle', { defaultValue: 'PRO Features:' })}
-                </ThemedLanguageText>
-                {[
-                  i18n.t('pro.benefit1', { defaultValue: 'Access to all premium content' }),
-                  i18n.t('pro.benefit2', { defaultValue: 'Ad-free experience' }),
-                  i18n.t('pro.benefit3', { defaultValue: 'Unlimited access to all features' }),
-                ].map((benefit, index) => (
-                  <View key={index} style={styles.benefitItem}>
-                    <Ionicons
-                      name="checkmark-circle"
-                      size={SIZES.icon.sm}
-                      color={theme.status.success}
-                      style={styles.benefitIcon}
-                    />
-                    <ThemedLanguageText
-                      variant="secondary"
-                      size="medium"
-                      fontFamily="regional_secondary"
-                      style={[styles.benefitText, { color: theme.text.secondary }]}
-                    >
-                      {benefit}
-                    </ThemedLanguageText>
-                  </View>
-                ))}
-              </ThemedView>
-
-              {/* Upgrade Button */}
-              <TouchableOpacity
-                onPress={handleUpgrade}
-                style={[
-                  styles.upgradeButton,
-                  { backgroundColor: theme.button.primary.background },
-                ]}
-                activeOpacity={0.8}
-              >
-                <ThemedLanguageText
-                  variant="primary"
-                  size="large"
-                  fontFamily="regional_secondary"
-                  style={[styles.upgradeButtonText, { color: theme.button.primary.text }]}
-                >
-                  {i18n.t('pro.upgradeButton', { defaultValue: 'Upgrade to PRO' })}
-                </ThemedLanguageText>
-                <Ionicons
-                  name="arrow-forward"
-                  size={SIZES.icon.md}
-                  color={theme.button.primary.text}
-                  style={styles.upgradeButtonIcon}
-                />
-              </TouchableOpacity>
-            </ThemedView>
-          </Animated.View>
         </TouchableWithoutFeedback>
       </Animated.View>
     </Modal>

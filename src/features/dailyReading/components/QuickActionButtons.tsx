@@ -34,7 +34,6 @@ const QuickActionButton: React.FC<QuickActionButtonProps> = ({
           styles.button,
           ...(primary ? [{ backgroundColor: theme.status.success + '10' }] : [])
         ]}
-        borderVariant={primary ? "primary" : "none"}
       >
         <View style={[styles.iconContainer, { backgroundColor: primary ? theme.status.success + '20' : theme.background.tertiary }]}>
           <Ionicons

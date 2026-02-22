@@ -1,13 +1,11 @@
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useThemeColors } from '@/hooks/useTheme';
 import { SIZES } from '@/rootconstants/sizes';
 import { colors } from '@/rootconstants/tint';
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-const { width } = Dimensions.get('window');
 const BAR_MAX_HEIGHT = 100;
 
 interface WeeklyChartProps {
@@ -25,9 +23,8 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
   };
 
   return (
-    <ThemedCard variant="card" style={styles.container} borderVariant="primary">
-      <ThemedView style={styles.header}>
-        <ThemedView style={[styles.indicator, { backgroundColor: theme.status.info + '30' }]} />
+    <ThemedCard variant="card" style={styles.container}>
+      <View style={styles.header}>
         <ThemedLanguageText
           variant="primary"
           size="large"
@@ -36,7 +33,7 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
         >
           সপ্তাহের পরিসংখ্যান
         </ThemedLanguageText>
-      </ThemedView>
+      </View>
       <View style={styles.chart}>
         {data.map((item, index) => {
           const barHeight = (item.versesRead / maxVerses) * BAR_MAX_HEIGHT;
@@ -88,12 +85,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: SIZES.spacing.lg,
-  },
-  indicator: {
-    width: 4,
-    height: 20,
-    borderRadius: 2,
-    marginRight: SIZES.spacing.md,
   },
   title: {
     flex: 1,

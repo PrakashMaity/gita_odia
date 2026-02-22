@@ -1,5 +1,4 @@
 import {
-  BannerAdComponent,
   createInterstitialAd,
   createRewardedAd,
   createRewardedInterstitialAd,
@@ -457,10 +456,6 @@ export const DeveloperPanelScreen: React.FC = () => {
           {/* Ad Status */}
           <StatusCard title="Ad Active Status">
             <StatusRow
-              label="Banner Ad"
-              value={adStatus.bannerAdActive}
-            />
-            <StatusRow
               label="Interstitial Ad"
               value={interstitialLoaded}
             />
@@ -501,11 +496,8 @@ export const DeveloperPanelScreen: React.FC = () => {
               fontFamily="none"
               style={[styles.sectionLabel, { color: theme.text.secondary, marginBottom: SIZES.spacing.sm }]}
             >
-              Banner Ad (Live Display)
+              Full-Screen Ad Testing
             </ThemedLanguageText>
-            <View style={styles.bannerContainer}>
-              <BannerAdComponent force={true} />
-            </View>
 
             <ThemedButton
               title="Reload All Ads"
@@ -673,13 +665,6 @@ const styles = StyleSheet.create({
     padding: SIZES.spacing.sm,
     borderRadius: SIZES.radius.sm,
     backgroundColor: 'rgba(255,0,0,0.1)',
-  },
-  bannerContainer: {
-    marginBottom: SIZES.spacing.md,
-    alignItems: 'center',
-    minHeight: 50,
-    justifyContent: 'center',
-    width: '100%',
   },
   bottomSpacing: {
     height: SIZES.spacing.xl,

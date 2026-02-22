@@ -1,9 +1,10 @@
 import { createErrorAlert, createSuccessAlert, createConfirmAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import i18n from '@/lib/i18n';
 import { useFavoriteStore } from '@/store';
 import { convertLanguageToEnglish } from '@/features/bookmarks/utils/bookmarkUtils';
 import { router } from 'expo-router';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 /**
  * Custom hook for favorite operations
@@ -12,6 +13,8 @@ import { useCallback } from 'react';
 export const useFavoriteOperations = () => {
   const { removeFavorite, clearAllFavorites } = useFavoriteStore();
   const { showAlert, AlertComponent } = useCustomAlert();
+  const { showAd, isLoaded } = useInterstitialAd();
+  const openCountRef = useRef(0);
 
   const handleRemoveFavorite = useCallback(async (verseId: string) => {
     try {
@@ -26,7 +29,11 @@ export const useFavoriteOperations = () => {
   const handleFavoritePress = useCallback((chapterId: string, verseNumber: string) => {
     const englishVerse = convertLanguageToEnglish(verseNumber);
     router.push(`/chapter/${chapterId}?verse=${englishVerse}`);
-  }, []);
+    openCountRef.current += 1;
+    if (openCountRef.current % 2 === 0 && isLoaded) {
+      showAd();
+    }
+  }, [isLoaded, showAd]);
 
   const handleRemoveAllFavorites = useCallback(() => {
     showAlert(createConfirmAlert(
@@ -51,4 +58,3 @@ export const useFavoriteOperations = () => {
     AlertComponent,
   };
 };
-

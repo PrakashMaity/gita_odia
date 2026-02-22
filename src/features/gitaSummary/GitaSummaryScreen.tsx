@@ -1,9 +1,9 @@
-import { BannerAdComponent } from '@/components/ads';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useRewardedInterstitialAd } from '@/hooks/useRewardedInterstitialAd';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { getLanguageFonts } from '@/types/font.interface';
@@ -21,36 +21,44 @@ export const GitaSummaryScreen: React.FC = () => {
   const { width } = Dimensions.get('window');
   const { summaryData, teachings } = useGitaSummaryData();
   const { showAd, isLoaded } = useInterstitialAd();
-  const adsShownCountRef = useRef<number>(0);
-  const hasReachedEndRef = useRef<boolean>(false);
+  const { showAd: showRewardedInterstitialAd, isLoaded: isRewardedLoaded } = useRewardedInterstitialAd();
+  const triggeredMilestonesRef = useRef<Set<'mid' | 'deep' | 'end'>>(new Set());
   const scrollViewRef = useRef<ScrollView>(null);
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
-    adsShownCountRef.current = 0;
-    hasReachedEndRef.current = false;
+    triggeredMilestonesRef.current.clear();
   }, []);
 
   const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
-    const paddingToBottom = 20;
-    const isAtEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+    if (!contentSize.height) return;
 
-    if (isAtEnd && !hasReachedEndRef.current && adsShownCountRef.current < 2 && isLoaded) {
-      hasReachedEndRef.current = true;
-      adsShownCountRef.current += 1;
+    const progress = (contentOffset.y + layoutMeasurement.height) / contentSize.height;
 
+    if (progress >= 0.45 && !triggeredMilestonesRef.current.has('mid') && isLoaded) {
+      triggeredMilestonesRef.current.add('mid');
+      setTimeout(() => showAd(), 500);
+    }
+
+    if (progress >= 0.72 && !triggeredMilestonesRef.current.has('deep')) {
+      triggeredMilestonesRef.current.add('deep');
       setTimeout(() => {
-        showAd();
+        if (isRewardedLoaded) {
+          showRewardedInterstitialAd();
+        } else if (isLoaded) {
+          showAd();
+        }
       }, 500);
     }
 
-    if (!isAtEnd && hasReachedEndRef.current) {
-      hasReachedEndRef.current = false;
+    if (progress >= 0.95 && !triggeredMilestonesRef.current.has('end') && isLoaded) {
+      triggeredMilestonesRef.current.add('end');
+      setTimeout(() => showAd(), 500);
     }
-  }, [showAd, isLoaded]);
+  }, [showAd, isLoaded, showRewardedInterstitialAd, isRewardedLoaded]);
 
   return (
     <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
@@ -111,12 +119,6 @@ export const GitaSummaryScreen: React.FC = () => {
           content={i18n.t('gitaSummary.structureText')}
         />
 
-        <Box className="w-full my-6 items-center flex">
-          <BannerAdComponent
-            adKey="gita-summary-center"
-          />
-        </Box>
-
         <SectionCard
           titleKey="gitaSummary.importanceTitle"
           content={i18n.t('gitaSummary.importanceText')}
@@ -131,12 +133,6 @@ export const GitaSummaryScreen: React.FC = () => {
               summary={item.summary}
             />
           ))}
-        </Box>
-
-        <Box className="w-full my-6 items-center flex">
-          <BannerAdComponent
-            adKey="gita-summary-below-center"
-          />
         </Box>
 
         <ConclusionCard

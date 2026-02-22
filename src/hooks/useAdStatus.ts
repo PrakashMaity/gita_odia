@@ -11,7 +11,6 @@ export interface AdStatus {
   isEnabled: boolean; // Not blocked by developer mode or ad-free
   developerMode: boolean;
   adFreeActive: boolean;
-  bannerAdActive: boolean; // Banner ads are active if enabled (they auto-load when component mounts)
   interstitialAdLoaded: boolean;
   rewardedAdLoaded: boolean;
   rewardedInterstitialAdLoaded: boolean;
@@ -24,7 +23,6 @@ export const useAdStatus = (): AdStatus => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
   const [adFreeActive, setAdFreeActive] = useState(false);
-  const [bannerAdActive, setBannerAdActive] = useState(false);
   const [interstitialAdLoaded, setInterstitialAdLoaded] = useState(false);
   const [rewardedAdLoaded, setRewardedAdLoaded] = useState(false);
   const [rewardedInterstitialAdLoaded, setRewardedInterstitialAdLoaded] = useState(false);
@@ -44,20 +42,17 @@ export const useAdStatus = (): AdStatus => {
         
         if (!initialized) {
           setIsEnabled(false);
-          setBannerAdActive(false);
           return;
         }
       } catch {
         setIsInitialized(false);
         setIsEnabled(false);
-        setBannerAdActive(false);
         return;
       }
 
       // Check if ads should be shown
       const shouldShow = await shouldShowAds();
       setIsEnabled(shouldShow);
-      setBannerAdActive(shouldShow); // Banner ads are active if ads are enabled
 
       // Check ad-free status
       try {
@@ -202,7 +197,6 @@ export const useAdStatus = (): AdStatus => {
     isEnabled,
     developerMode: settings.developerMode,
     adFreeActive,
-    bannerAdActive,
     interstitialAdLoaded,
     rewardedAdLoaded,
     rewardedInterstitialAdLoaded,

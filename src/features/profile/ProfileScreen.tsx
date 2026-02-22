@@ -15,7 +15,6 @@ import { ScrollView } from 'react-native';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { ProfileHeader } from './components/ProfileHeader/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
-import { SubscriptionDetails } from './components/SubscriptionDetails';
 
 export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
@@ -112,16 +111,18 @@ export const ProfileScreen: React.FC = () => {
           title="Subscription"
           description="Upgrade to Pro and unlock all premium features"
         >
-          {isPro ? (
-            <SubscriptionDetails />
-          ) : (
-            <SettingsItem
-              title="Upgrade to Pro"
-              subtitle="Unlock all premium features"
-              icon={<MaterialIcons name="workspace-premium" size={24} color={theme.icon.primary} />}
-              onPress={() => router.push('/subscription')}
-            />
-          )}
+          <SettingsItem
+            title={isPro ? 'Manage Subscription' : 'Upgrade to Pro'}
+            subtitle={isPro ? 'View plan status and extend Pro' : 'Unlock all premium features'}
+            icon={<MaterialIcons name="workspace-premium" size={24} color={theme.icon.primary} />}
+            onPress={() => router.push('/subscription')}
+          />
+          <SettingsItem
+            title="Subscription Details"
+            subtitle="Plan, expiry, and points balance"
+            icon={<MaterialIcons name="receipt-long" size={24} color={theme.icon.primary} />}
+            onPress={() => router.push('/subscription-details')}
+          />
         </SettingsSection>
 
         <SettingsSection
