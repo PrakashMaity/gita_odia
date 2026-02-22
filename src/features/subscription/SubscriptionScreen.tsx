@@ -1,4 +1,5 @@
 import { initializeRevenueCat } from '@/services/revenuecat';
+import { useProStore } from '@/store/proStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import {
   type PackageType,
@@ -26,6 +27,7 @@ export const SubscriptionScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const updateSetting = useSettingsStore((state) => state.updateSetting);
+  const refreshProStatus = useProStore((state) => state.refreshProStatus);
   const [plans, setPlans] = useState<Plan[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -160,6 +162,7 @@ export const SubscriptionScreen: React.FC = () => {
       const { customerInfo } = await Purchases.purchasePackage(selectedPlanData.package);
 
       if (customerInfo.entitlements.active['premium']) {
+        await refreshProStatus(); // Synchronize global state immediately
         await skipSubscription();
         setTimeout(() => router.replace('/(tabs)'), 100);
       }
@@ -194,21 +197,83 @@ export const SubscriptionScreen: React.FC = () => {
   if (plans.length === 0) {
     return (
       <View
-        className="flex-1 bg-white items-center justify-center p-6"
+        className="flex-1 bg-white p-6"
         style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
       >
-        <Text className="text-typography-900 font-bold text-center mb-2 text-xl">
-          No plans available
-        </Text>
-        <Text className="text-typography-600 text-center mb-6 text-base">
-          Unable to load subscription plans. Please check your connection and try again.
-        </Text>
-        <Pressable
-          className="bg-primary-600 rounded-xl items-center justify-center py-3 px-6"
-          onPress={fetchOfferings}
-        >
-          <Text className="text-white font-semibold text-base">Retry</Text>
-        </Pressable>
+        <View className="flex-row justify-end mb-8">
+          <Pressable
+            onPress={() => router.replace('/(tabs)')}
+            className="w-10 h-10 rounded-full bg-background-50 justify-center items-center active:opacity-70"
+          >
+            <Ionicons name="close" size={24} color="#92400e" />
+          </Pressable>
+        </View>
+
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View className="items-center mb-8">
+            <Ionicons name="cloud-offline-outline" size={64} color="#d97706" />
+            <Text className="text-typography-900 font-bold text-center mt-4 text-xl">
+              Unable to load plans
+            </Text>
+            <Text className="text-typography-500 text-center mt-2 text-base">
+              We couldn't retrieve the subscription options from the store.
+            </Text>
+          </View>
+
+          <View className="bg-background-50 rounded-2xl p-6 mb-8">
+            <Text className="text-typography-900 font-bold mb-4 text-lg">Troubleshooting</Text>
+
+            <View className="flex-row gap-3 mb-4">
+              <View className="w-6 h-6 rounded-full bg-primary-100 items-center justify-center">
+                <Text className="text-primary-600 font-bold text-xs">1</Text>
+              </View>
+              <Text className="flex-1 text-typography-600 text-sm">
+                Ensure you are signed into the Google Play Store or Apple App Store.
+              </Text>
+            </View>
+
+            <View className="flex-row gap-3 mb-4">
+              <View className="w-6 h-6 rounded-full bg-primary-100 items-center justify-center">
+                <Text className="text-primary-600 font-bold text-xs">2</Text>
+              </View>
+              <Text className="flex-1 text-typography-600 text-sm">
+                Check your internet connection and verify VPNs are disabled.
+              </Text>
+            </View>
+
+            <View className="flex-row gap-3 mb-4">
+              <View className="w-6 h-6 rounded-full bg-primary-100 items-center justify-center">
+                <Text className="text-primary-600 font-bold text-xs">3</Text>
+              </View>
+              <Text className="flex-1 text-typography-600 text-sm">
+                Verify that in-app purchases are not restricted in your device settings.
+              </Text>
+            </View>
+
+            <View className="flex-row gap-3">
+              <View className="w-6 h-6 rounded-full bg-primary-100 items-center justify-center">
+                <Text className="text-primary-600 font-bold text-xs">4</Text>
+              </View>
+              <Text className="flex-1 text-typography-600 text-sm">
+                If using an emulator, ensure Google Play Services is installed and updated.
+              </Text>
+            </View>
+          </View>
+
+          <Pressable
+            className="bg-primary-600 h-14 rounded-xl items-center justify-center active:bg-primary-700"
+            onPress={fetchOfferings}
+          >
+            <Text className="text-white font-bold text-base">Try Again</Text>
+          </Pressable>
+
+          <Pressable
+            className="h-14 items-center justify-center mt-2"
+            onPress={() => router.replace('/(tabs)')}
+          >
+            <Text className="text-typography-500 font-medium">Continue with Free Version</Text>
+          </Pressable>
+        </ScrollView>
       </View>
     );
   }

@@ -1,10 +1,10 @@
-import { isProActive } from '@/services/proService';
-import { useCallback, useEffect, useState } from 'react';
+import { useProStore } from '@/store/proStore';
+import { useEffect } from 'react';
 import { AppState, AppStateStatus } from 'react-native';
 
 /**
  * Hook to check PRO/Premium status
- * Checks free Pro status (1-day Pro)
+ * Uses global proStore for synchronized state across the app
  * 
  * @example
  * ```tsx
@@ -16,37 +16,19 @@ import { AppState, AppStateStatus } from 'react-native';
  * ```
  */
 export const useProStatus = () => {
-  const [isPro, setIsPro] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const checkProStatus = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      
-      // Check free Pro status (1-day Pro)
-      const hasFreePro = await isProActive();
-      
-      // User is Pro if free Pro is active
-      setIsPro(hasFreePro);
-    } catch (error) {
-      console.error('[useProStatus] Error checking PRO status:', error);
-      setIsPro(false);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+  const { isPro, isLoading, refreshProStatus } = useProStore();
 
   useEffect(() => {
-    // Check immediately on mount
-    checkProStatus();
+    // Initial check on mount
+    refreshProStatus();
 
-    // Refresh status periodically (every 30 seconds)
-    const interval = setInterval(checkProStatus, 30000);
+    // Refresh status periodically (every 60 seconds)
+    const interval = setInterval(refreshProStatus, 60000);
 
     // Refresh when app comes to foreground
     const subscription = AppState.addEventListener('change', (nextAppState: AppStateStatus) => {
       if (nextAppState === 'active') {
-        checkProStatus();
+        refreshProStatus();
       }
     });
 
@@ -54,12 +36,12 @@ export const useProStatus = () => {
       clearInterval(interval);
       subscription.remove();
     };
-  }, [checkProStatus]);
+  }, [refreshProStatus]);
 
   return {
     isPro,
     isLoading,
-    refreshStatus: checkProStatus,
+    refreshStatus: refreshProStatus,
   };
 };
 

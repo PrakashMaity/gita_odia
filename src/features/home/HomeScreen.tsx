@@ -1,5 +1,6 @@
 import { Box } from '@/components/ui/box';
 import { VStack } from '@/components/ui/vstack';
+import { ProUpgradeModal } from '@/features/subscription/components/ProUpgradeModal';
 import { HomeImages } from '@/lib/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
 import { HeroQuote, HomeHeader, MenuGrid, QuickActions } from './components';
@@ -10,7 +11,12 @@ import { useProActivationPopup } from './hooks/useProActivationPopup';
 
 export const HomeScreen: React.FC = () => {
   useHomeInitialization();
-  const { handleMenuItemPress } = useHomeNavigation();
+  const {
+    handleMenuItemPress,
+    isUpgradeModalVisible,
+    lockedFeatureName,
+    closeUpgradeModal
+  } = useHomeNavigation();
   const { isPopupVisible, handleClosePopup } = useProActivationPopup();
 
   return (
@@ -41,8 +47,14 @@ export const HomeScreen: React.FC = () => {
           </VStack>
         </ScrollView>
 
-        {/* ─── Overlay: Pro Activation ─── */}
+        {/* ─── Overlays: Subscription/Pro ─── */}
         <ProActivationModal visible={isPopupVisible} onClose={handleClosePopup} />
+
+        <ProUpgradeModal
+          visible={isUpgradeModalVisible}
+          onClose={closeUpgradeModal}
+          featureName={lockedFeatureName}
+        />
       </Box>
     </ImageBackground>
   );

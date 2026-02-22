@@ -1,20 +1,31 @@
 import { MenuItem } from '@/constants/menuData';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useProStatus } from '@/hooks/useProStatus';
 import { useRewardedInterstitialAd } from '@/hooks/useRewardedInterstitialAd';
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { getNavigationHandler } from '../navigationHandlers';
-import { useCallback } from 'react';
 
 /**
  * Custom hook for home screen navigation
  * Follows Single Responsibility Principle - handles menu item navigation
  */
 export const useHomeNavigation = () => {
+  const { isPro } = useProStatus();
   const { showAd, isLoaded } = useInterstitialAd();
   const { showAd: showRewardedInterstitialAd, isLoaded: isRewardedLoaded } = useRewardedInterstitialAd();
   const navigationCountRef = useRef(0);
 
+  const [isUpgradeModalVisible, setIsUpgradeModalVisible] = useState(false);
+  const [lockedFeatureName, setLockedFeatureName] = useState<string | undefined>();
+
   const handleMenuItemPress = useCallback((item: MenuItem) => {
+    // Intercept premium items for non-pro users
+    if (item.isPremium && !isPro) {
+      setLockedFeatureName(item.title);
+      setIsUpgradeModalVisible(true);
+      return;
+    }
+
     const handler = getNavigationHandler(item);
     handler();
 
@@ -30,9 +41,17 @@ export const useHomeNavigation = () => {
     if (currentCount % 2 === 0 && isLoaded) {
       showAd();
     }
-  }, [isLoaded, isRewardedLoaded, showAd, showRewardedInterstitialAd]);
+  }, [isPro, isLoaded, isRewardedLoaded, showAd, showRewardedInterstitialAd]);
+
+  const closeUpgradeModal = () => {
+    setIsUpgradeModalVisible(false);
+    setLockedFeatureName(undefined);
+  };
 
   return {
     handleMenuItemPress,
+    isUpgradeModalVisible,
+    lockedFeatureName,
+    closeUpgradeModal,
   };
 };

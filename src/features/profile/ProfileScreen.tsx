@@ -1,4 +1,5 @@
 import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
 import { PasswordModal } from '@/features/developer/components/PasswordModal/PasswordModal';
 import { SettingsItem, SettingsSection } from '@/features/profile/components/settings';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
@@ -7,11 +8,12 @@ import { showRatingPrompt } from '@/hooks/useRatingPrompter';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { shareApp } from '@/services/appShareService';
+import { useProStore } from '@/store/proStore';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import constants from 'expo-constants';
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { ProfileHeader } from './components/ProfileHeader/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
@@ -20,9 +22,10 @@ export const ProfileScreen: React.FC = () => {
   const theme = useThemeColors();
   const { showAlert, AlertComponent } = useCustomAlert();
   const { isPro, refreshStatus } = useProStatus();
+  const subscriptionDetails = useProStore((state) => state.subscriptionDetails);
   const [showDeveloperButton, setShowDeveloperButton] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
-
+  /* ... methods ... */
   useEffect(() => {
     refreshStatus();
   }, [refreshStatus]);
@@ -109,20 +112,47 @@ export const ProfileScreen: React.FC = () => {
 
         <SettingsSection
           title="Subscription"
-          description="Upgrade to Pro and unlock all premium features"
+          description={isPro ? "You are a Pro member. Thank you for your support!" : "Upgrade to Pro and unlock all premium features"}
         >
-          <SettingsItem
-            title={isPro ? 'Manage Subscription' : 'Upgrade to Pro'}
-            subtitle={isPro ? 'View plan status and extend Pro' : 'Unlock all premium features'}
-            icon={<MaterialIcons name="workspace-premium" size={24} color={theme.icon.primary} />}
-            onPress={() => router.push('/subscription')}
-          />
-          <SettingsItem
-            title="Subscription Details"
-            subtitle="Plan, expiry, and points balance"
-            icon={<MaterialIcons name="receipt-long" size={24} color={theme.icon.primary} />}
-            onPress={() => router.push('/subscription-details')}
-          />
+          {isPro && (
+            <Box className="bg-background-50 rounded-2xl p-5 mb-4 border border-outline-100">
+              <HStack className="justify-between items-center mb-2">
+                <Text className="text-typography-900 font-bold text-lg">
+                  {subscriptionDetails?.planName || 'Pro Member'}
+                </Text>
+                <Box className="bg-primary-600 px-3 py-1 rounded-lg">
+                  <Text className="text-white text-[10px] font-bold uppercase tracking-wider">Active</Text>
+                </Box>
+              </HStack>
+              {subscriptionDetails?.expirationDate && (
+                <Text className="text-typography-500 text-sm">
+                  {subscriptionDetails.willRenew ? 'Next renewal' : 'Expires'}: {subscriptionDetails.expirationDate}
+                </Text>
+              )}
+              {!subscriptionDetails && isPro && (
+                <Text className="text-typography-500 text-sm">
+                  Free Pro access active via points/rewards.
+                </Text>
+              )}
+            </Box>
+          )}
+
+          {!isPro && (
+            <>
+              <SettingsItem
+                title="Upgrade to Pro"
+                subtitle="Unlock all premium features"
+                icon={<MaterialIcons name="workspace-premium" size={24} color={theme.icon.primary} />}
+                onPress={() => router.push('/subscription')}
+              />
+              <SettingsItem
+                title="Subscription Details"
+                subtitle="Plan, expiry, and points balance"
+                icon={<MaterialIcons name="receipt-long" size={24} color={theme.icon.primary} />}
+                onPress={() => router.push('/subscription-details')}
+              />
+            </>
+          )}
         </SettingsSection>
 
         <SettingsSection
