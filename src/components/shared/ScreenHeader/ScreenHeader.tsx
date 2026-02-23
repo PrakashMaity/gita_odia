@@ -1,19 +1,14 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { HomeImages } from '@/lib/utils/assets';
 import React from 'react';
 import {
-    ImageBackground,
-    ImageSourcePropType,
-    ImageStyle,
-    StyleProp,
-    View,
-    ViewStyle,
+  ImageBackground,
+  ImageSourcePropType,
+  ImageStyle,
+  StyleProp,
+  View,
 } from 'react-native';
-import { styles } from './ScreenHeader.styles';
-
-type LanguageTextProps = Partial<React.ComponentProps<typeof ThemedLanguageText>>;
 
 interface ScreenHeaderProps {
   title?: string;
@@ -22,12 +17,10 @@ interface ScreenHeaderProps {
   rightContent?: React.ReactNode;
   backgroundSource?: ImageSourcePropType;
   blurRadius?: number;
-  containerStyle?: StyleProp<ViewStyle>;
-  contentStyle?: StyleProp<ViewStyle>;
-  leftSectionStyle?: StyleProp<ViewStyle>;
-  rightSectionStyle?: StyleProp<ViewStyle>;
-  titleProps?: LanguageTextProps;
-  subtitleProps?: LanguageTextProps;
+  containerClassName?: string;
+  contentClassName?: string;
+  leftSectionClassName?: string;
+  rightSectionClassName?: string;
   imageStyle?: StyleProp<ImageStyle>;
   testID?: string;
 }
@@ -39,19 +32,14 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   rightContent,
   backgroundSource = HomeImages.header,
   blurRadius = 2,
-  containerStyle,
-  contentStyle,
-  leftSectionStyle,
-  rightSectionStyle,
-  titleProps,
-  subtitleProps,
+  containerClassName = '',
+  contentClassName = '',
+  leftSectionClassName = '',
+  rightSectionClassName = '',
   imageStyle,
   testID,
 }) => {
-  const theme = useThemeColors();
-  const { style: titleStyleProp, ...titleRestProps } = titleProps ?? {};
-  const { style: subtitleStyleProp, ...subtitleRestProps } = subtitleProps ?? {};
-  const headerOverlayColor = theme.background.tertiary;
+  const headerOverlayColor = '#000000'; // Pure black from theme
 
   const renderDefaultText = () => {
     if (!title && !subtitle) {
@@ -59,70 +47,57 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
     }
 
     return (
-      <ThemedView variant="transparent" style={styles.textWrapper}>
+      <Box className="flex-shrink">
         {title ? (
-          <ThemedLanguageText
-            variant="primary"
-            size="large"
-            fontFamily="regional_secondary"
-            style={[styles.title, titleStyleProp]}
-            {...titleRestProps}
+          <Text
+            className="text-white text-lg font-bold font-regional_secondary mb-1"
           >
             {title}
-          </ThemedLanguageText>
+          </Text>
         ) : null}
 
         {subtitle ? (
-          <ThemedLanguageText
-            variant="secondary"
-            size="small"
-            fontFamily="regional_secondary"
-            style={[styles.subtitle, subtitleStyleProp]}
-            {...subtitleRestProps}
+          <Text
+            className="text-neutral-400 text-sm font-regional_secondary"
           >
             {subtitle}
-          </ThemedLanguageText>
+          </Text>
         ) : null}
-      </ThemedView>
+      </Box>
     );
   };
 
   return (
-    <ThemedView
+    <Box
       testID={testID}
-      style={[styles.headerContainer, containerStyle]}
+      className={`shadow-md elevation-6 self-stretch ${containerClassName}`}
     >
       <ImageBackground
         source={backgroundSource}
-        style={[styles.headerBackground, { backgroundColor: headerOverlayColor }]}
-        imageStyle={[styles.headerImage, imageStyle]}
+        style={{ backgroundColor: headerOverlayColor, width: '100%' }}
+        imageStyle={imageStyle}
         resizeMode="cover"
         blurRadius={blurRadius}
       >
-        <View pointerEvents="none" style={[styles.overlay, { backgroundColor: headerOverlayColor }]} />
-        <ThemedView
-          variant="transparent"
-          style={[styles.headerContent, contentStyle]}
+        <View pointerEvents="none" className="absolute inset-0 opacity-85" style={{ backgroundColor: headerOverlayColor }} />
+        <Box
+          className={`flex-row items-center justify-between py-2 px-4 w-full ${contentClassName}`}
         >
-          <ThemedView
-            variant="transparent"
-            style={[styles.leftSection, leftSectionStyle]}
+          <Box
+            className={`flex-1 flex-row items-center ${leftSectionClassName}`}
           >
             {leftContent ?? renderDefaultText()}
-          </ThemedView>
+          </Box>
 
           {rightContent ? (
-            <ThemedView
-              variant="transparent"
-              style={[styles.rightSection, rightSectionStyle]}
+            <Box
+              className={`flex-row items-center justify-end ml-4 ${rightSectionClassName}`}
             >
               {rightContent}
-            </ThemedView>
+            </Box>
           ) : null}
-        </ThemedView>
+        </Box>
       </ImageBackground>
-    </ThemedView>
+    </Box>
   );
 };
-
-

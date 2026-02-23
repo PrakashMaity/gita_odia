@@ -45,7 +45,7 @@ const MOBILE_ADS_CONFIG = {
 const APP_INFO = {
   name: 'গীতা বাংলা',
   slug: 'bhagavad_gita',
-  version: '1.0.3',
+  version: '2.0.0',
   package: 'com.proninja.bhagavad_gita',
   bundleIdentifier: 'com.proninja.bhagavad-gita',
   scheme: 'gita',

@@ -10,68 +10,32 @@ import {
   showRewardedInterstitialAd,
 } from '@/components/ads';
 import { ScreenHeader } from '@/components/shared/ScreenHeader';
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { Button, ButtonIcon, ButtonText } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
 import { SettingsToggle } from '@/features/profile/components/settings';
 import { useAdStatus } from '@/hooks/useAdStatus';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useProStatus } from '@/hooks/useProStatus';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { LayoutImages } from '@/lib/utils/assets';
-import { SIZES } from '@/rootconstants/sizes';
 import { activateProMode, clearProMode } from '@/services/proService';
 import { useSettingsStore } from '@/store/settingsStore';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import React, { useEffect, useRef, useState } from 'react';
-import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-
-const statusCardStyles = StyleSheet.create({
-  card: {
-    marginBottom: SIZES.spacing.md,
-    padding: SIZES.spacing.md,
-  },
-  cardTitle: {
-    marginBottom: SIZES.spacing.md,
-    fontWeight: '600',
-  },
-  statusRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0,0,0,0.1)',
-  },
-  lastRow: {
-    borderBottomWidth: 0,
-  },
-  statusBadge: {
-    paddingHorizontal: SIZES.spacing.sm,
-    paddingVertical: SIZES.spacing.xs / 2,
-    borderRadius: SIZES.radius.sm,
-  },
-});
+import { ImageBackground, ScrollView, View } from 'react-native';
 
 const StatusCard: React.FC<{
   title: string;
   children: React.ReactNode;
 }> = ({ title, children }) => {
-  const theme = useThemeColors();
   return (
-    <ThemedCard variant="card" style={statusCardStyles.card} borderVariant="primary" pattern="mandala" patternOpacity={0.05}>
-      <ThemedLanguageText
-        variant="primary"
-        size="medium"
-        fontFamily="regional_secondary"
-        style={[statusCardStyles.cardTitle, { color: theme.text.primary }]}
-      >
+    <Box className="mb-4 p-4 rounded-xl bg-neutral-900 border border-white/20">
+      <Text className="mb-4 text-white font-semibold text-lg font-regional_secondary">
         {title}
-      </ThemedLanguageText>
+      </Text>
       {children}
-    </ThemedCard>
+    </Box>
   );
 };
 
@@ -80,63 +44,38 @@ const StatusRow: React.FC<{
   value: boolean | string;
   isLast?: boolean;
 }> = ({ label, value, isLast = false }) => {
-  const theme = useThemeColors();
   const isBoolean = typeof value === 'boolean';
-  const statusColor = isBoolean
-    ? value
-      ? theme.status.success
-      : theme.status.error
-    : theme.text.secondary;
 
   return (
-    <View style={[statusCardStyles.statusRow, isLast && statusCardStyles.lastRow]}>
-      <ThemedLanguageText
-        variant="secondary"
-        size="small"
-        fontFamily="none"
-        style={{ color: theme.text.secondary, flex: 1 }}
-      >
+    <View className={`flex-row justify-between items-center py-2 ${!isLast ? 'border-b border-white/10' : ''}`}>
+      <Text className="text-neutral-400 text-sm flex-1 font-regional_secondary">
         {label}
-      </ThemedLanguageText>
+      </Text>
       {isBoolean ? (
         <View
-          style={[
-            statusCardStyles.statusBadge,
-            { backgroundColor: statusColor + '20' },
-          ]}
+          className={`px-2 py-1 flex-row items-center justify-center rounded-md ${value ? 'bg-green-500/20' : 'bg-red-500/20'
+            }`}
         >
-          <ThemedLanguageText
-            variant="primary"
-            size="small"
-            fontFamily="none"
-            style={{ color: statusColor, fontWeight: '600' }}
-          >
+          <Text className={`text-xs font-semibold ${value ? 'text-green-500' : 'text-red-500'} font-regional_secondary`}>
             {value ? i18n.t('common.yes') : i18n.t('common.no')}
-          </ThemedLanguageText>
+          </Text>
         </View>
       ) : (
-        <ThemedLanguageText
-          variant="secondary"
-          size="small"
-          fontFamily="none"
-          style={{ color: theme.text.secondary }}
-        >
+        <Text className="text-neutral-400 text-sm font-regional_secondary">
           {value}
-        </ThemedLanguageText>
+        </Text>
       )}
     </View>
   );
 };
 
 export const DeveloperPanelScreen: React.FC = () => {
-  const theme = useThemeColors();
   const { showAlert, AlertComponent } = useCustomAlert();
   const { settings, toggleDeveloperMode } = useSettingsStore();
   const adStatus = useAdStatus();
   const { refreshStatus } = useProStatus();
   const [loading, setLoading] = useState(false);
 
-  // Ad instances for testing
   const interstitialRef = useRef<any>(null);
   const rewardedRef = useRef<any>(null);
   const rewardedInterstitialRef = useRef<any>(null);
@@ -149,30 +88,19 @@ export const DeveloperPanelScreen: React.FC = () => {
   }, [refreshStatus]);
 
   const initializeAds = React.useCallback(() => {
-    // Clear existing ads
-    if (interstitialRef.current) {
-      interstitialRef.current = null;
-    }
-    if (rewardedRef.current) {
-      rewardedRef.current = null;
-    }
-    if (rewardedInterstitialRef.current) {
-      rewardedInterstitialRef.current = null;
-    }
+    if (interstitialRef.current) interstitialRef.current = null;
+    if (rewardedRef.current) rewardedRef.current = null;
+    if (rewardedInterstitialRef.current) rewardedInterstitialRef.current = null;
 
-    // Reset loaded states
     setInterstitialLoaded(false);
     setRewardedLoaded(false);
     setRewardedInterstitialLoaded(false);
 
-    // Initialize ads for developer testing
-    // Only initialize if SDK is initialized
     if (!adStatus.isInitialized) {
       console.warn('[Developer Panel] Ad SDK not initialized. Ads may not work.');
       return;
     }
 
-    // Initialize Interstitial Ad
     try {
       const interstitial = createInterstitialAd();
       interstitialRef.current = interstitial;
@@ -184,9 +112,7 @@ export const DeveloperPanelScreen: React.FC = () => {
         onClosed: () => {
           setInterstitialLoaded(false);
           setTimeout(() => {
-            if (interstitialRef.current) {
-              interstitialRef.current.load();
-            }
+            if (interstitialRef.current) interstitialRef.current.load();
           }, 1000);
         },
         onError: (error) => {
@@ -200,7 +126,6 @@ export const DeveloperPanelScreen: React.FC = () => {
       setInterstitialLoaded(false);
     }
 
-    // Initialize Rewarded Ad
     try {
       const rewarded = createRewardedAd();
       rewardedRef.current = rewarded;
@@ -212,9 +137,7 @@ export const DeveloperPanelScreen: React.FC = () => {
         onClosed: () => {
           setRewardedLoaded(false);
           setTimeout(() => {
-            if (rewardedRef.current) {
-              rewardedRef.current.load();
-            }
+            if (rewardedRef.current) rewardedRef.current.load();
           }, 1000);
         },
         onError: (error) => {
@@ -228,7 +151,6 @@ export const DeveloperPanelScreen: React.FC = () => {
       setRewardedLoaded(false);
     }
 
-    // Initialize Rewarded Interstitial Ad
     try {
       const rewardedInterstitial = createRewardedInterstitialAd();
       rewardedInterstitialRef.current = rewardedInterstitial;
@@ -240,9 +162,7 @@ export const DeveloperPanelScreen: React.FC = () => {
         onClosed: () => {
           setRewardedInterstitialLoaded(false);
           setTimeout(() => {
-            if (rewardedInterstitialRef.current) {
-              rewardedInterstitialRef.current.load();
-            }
+            if (rewardedInterstitialRef.current) rewardedInterstitialRef.current.load();
           }, 1000);
         },
         onError: (error) => {
@@ -258,12 +178,9 @@ export const DeveloperPanelScreen: React.FC = () => {
   }, [adStatus.isInitialized]);
 
   useEffect(() => {
-    // Initialize ads when component mounts or when ad SDK becomes initialized
     if (adStatus.isInitialized) {
       initializeAds();
     }
-
-    // Cleanup on unmount
     return () => {
       interstitialRef.current = null;
       rewardedRef.current = null;
@@ -274,7 +191,6 @@ export const DeveloperPanelScreen: React.FC = () => {
   const handleTestInterstitialAd = async () => {
     try {
       if (interstitialRef.current && interstitialLoaded) {
-        // Bypass all checks for developer testing
         await showInterstitialAd(interstitialRef.current, true);
         setInterstitialLoaded(false);
       } else {
@@ -299,7 +215,6 @@ export const DeveloperPanelScreen: React.FC = () => {
   const handleTestRewardedAd = async () => {
     try {
       if (rewardedRef.current && rewardedLoaded) {
-        // Bypass all checks for developer testing
         await showRewardedAd(rewardedRef.current, true);
         setRewardedLoaded(false);
       } else {
@@ -324,7 +239,6 @@ export const DeveloperPanelScreen: React.FC = () => {
   const handleTestRewardedInterstitialAd = async () => {
     try {
       if (rewardedInterstitialRef.current && rewardedInterstitialLoaded) {
-        // Bypass all checks for developer testing
         await showRewardedInterstitialAd(rewardedInterstitialRef.current, true);
         setRewardedInterstitialLoaded(false);
       } else {
@@ -415,22 +329,22 @@ export const DeveloperPanelScreen: React.FC = () => {
   return (
     <ImageBackground
       source={LayoutImages.background1}
-      style={styles.backgroundImage}
+      className="flex-1 bg-black"
       resizeMode="cover"
       blurRadius={1.5}
     >
-      <ThemedView variant="transparent" style={styles.container}>
+      <View className="flex-1 bg-black/60">
         {AlertComponent}
         <ScreenHeader
           title="Developer Panel"
           subtitle="Monitor critical app features and status"
-          containerStyle={{ backgroundColor: theme.background.secondary }}
+          containerClassName="bg-black/90 pb-4 border-b border-white/10"
         />
 
         <ScrollView
-          style={styles.scrollView}
+          className="flex-1"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.scrollContent}
+          contentContainerStyle={{ padding: 24, paddingBottom: 60 }}
         >
           {/* App Status */}
           <StatusCard title="App Status">
@@ -472,127 +386,113 @@ export const DeveloperPanelScreen: React.FC = () => {
 
           {/* Ad Testing */}
           <StatusCard title="Test Ads">
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="none"
-              style={[styles.infoText, { color: theme.text.secondary, marginBottom: SIZES.spacing.sm }]}
-            >
+            <Text className="text-center italic text-neutral-400 text-xs p-2 bg-white/5 rounded-md mb-3">
               ℹ️ Test ads bypass all checks (developer mode, Pro, ad-free) for testing purposes
-            </ThemedLanguageText>
+            </Text>
+
             {!adStatus.isInitialized && (
-              <ThemedLanguageText
-                variant="secondary"
-                size="small"
-                fontFamily="none"
-                style={[styles.warningText, { color: theme.status.error, marginBottom: SIZES.spacing.sm }]}
-              >
+              <Text className="text-center font-bold text-red-400 text-xs p-3 bg-red-500/10 rounded-md mb-3">
                 ⚠️ Ad SDK not initialized. Ads may not work. Please wait for SDK to initialize.
-              </ThemedLanguageText>
+              </Text>
             )}
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="none"
-              style={[styles.sectionLabel, { color: theme.text.secondary, marginBottom: SIZES.spacing.sm }]}
-            >
+
+            <Text className="font-semibold text-neutral-400 text-sm mb-3">
               Full-Screen Ad Testing
-            </ThemedLanguageText>
+            </Text>
 
-            <ThemedButton
-              title="Reload All Ads"
-              onPress={initializeAds}
-              variant="outline"
-              disabled={loading || !adStatus.isInitialized}
-              icon={<MaterialIcons name="refresh" size={SIZES.icon.sm} color={theme.icon.primary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+            <View className="gap-2">
+              <Button
+                variant="outline"
+                onPress={initializeAds}
+                disabled={loading || !adStatus.isInitialized}
+                className="w-full border-neutral-600 rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="refresh" size={16} color="white" className="mr-2" />} />
+                <ButtonText className="text-white text-sm">Reload All Ads</ButtonText>
+              </Button>
 
-            <ThemedButton
-              title={interstitialLoaded ? "Test Interstitial Ad" : "Loading Interstitial..."}
-              onPress={handleTestInterstitialAd}
-              variant="primary"
-              disabled={!interstitialLoaded || loading}
-              icon={<MaterialIcons name="slideshow" size={SIZES.icon.sm} color={interstitialLoaded ? theme.text.primary : theme.text.secondary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+              <Button
+                onPress={handleTestInterstitialAd}
+                disabled={!interstitialLoaded || loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="slideshow" size={16} color={interstitialLoaded ? "black" : "#6b7280"} className="mr-2" />} />
+                <ButtonText className={interstitialLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                  {interstitialLoaded ? "Test Interstitial Ad" : "Loading Interstitial..."}
+                </ButtonText>
+              </Button>
 
-            <ThemedButton
-              title={rewardedLoaded ? "Test Rewarded Ad" : "Loading Rewarded..."}
-              onPress={handleTestRewardedAd}
-              variant="primary"
-              disabled={!rewardedLoaded || loading}
-              icon={<MaterialIcons name="monetization-on" size={SIZES.icon.sm} color={rewardedLoaded ? theme.text.primary : theme.text.secondary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+              <Button
+                onPress={handleTestRewardedAd}
+                disabled={!rewardedLoaded || loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="monetization-on" size={16} color={rewardedLoaded ? "black" : "#6b7280"} className="mr-2" />} />
+                <ButtonText className={rewardedLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                  {rewardedLoaded ? "Test Rewarded Ad" : "Loading Rewarded..."}
+                </ButtonText>
+              </Button>
 
-            <ThemedButton
-              title={rewardedInterstitialLoaded ? "Test Rewarded Interstitial Ad" : "Loading Rewarded Interstitial..."}
-              onPress={handleTestRewardedInterstitialAd}
-              variant="primary"
-              disabled={!rewardedInterstitialLoaded || loading}
-              icon={<MaterialIcons name="auto-awesome" size={SIZES.icon.sm} color={rewardedInterstitialLoaded ? theme.text.primary : theme.text.secondary} />}
-              style={{ ...styles.testButton, marginBottom: 0 }}
-              fullWidth
-            />
+              <Button
+                onPress={handleTestRewardedInterstitialAd}
+                disabled={!rewardedInterstitialLoaded || loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="auto-awesome" size={16} color={rewardedInterstitialLoaded ? "black" : "#6b7280"} className="mr-2" />} />
+                <ButtonText className={rewardedInterstitialLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                  {rewardedInterstitialLoaded ? "Test Rewarded Interstitial Ad" : "Loading Rewarded Interstitial..."}
+                </ButtonText>
+              </Button>
+            </View>
           </StatusCard>
 
           {/* Pro Management */}
           <StatusCard title="Pro Management">
-            <ThemedButton
-              title="Activate Pro (30 days)"
-              onPress={() => handleActivatePro(30)}
-              variant="primary"
-              disabled={loading}
-              icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.sm} color={theme.text.primary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+            <View className="gap-2">
+              <Button
+                onPress={() => handleActivatePro(30)}
+                disabled={loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
+                <ButtonText className="text-black text-sm">Activate Pro (30 days)</ButtonText>
+              </Button>
 
-            <ThemedButton
-              title="Activate Pro (7 days)"
-              onPress={() => handleActivatePro(7)}
-              variant="primary"
-              disabled={loading}
-              icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.sm} color={theme.text.primary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+              <Button
+                onPress={() => handleActivatePro(7)}
+                disabled={loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
+                <ButtonText className="text-black text-sm">Activate Pro (7 days)</ButtonText>
+              </Button>
 
-            <ThemedButton
-              title="Activate Pro (1 day)"
-              onPress={() => handleActivatePro(1)}
-              variant="primary"
-              disabled={loading}
-              icon={<MaterialIcons name="workspace-premium" size={SIZES.icon.sm} color={theme.text.primary} />}
-              style={styles.testButton}
-              fullWidth
-            />
+              <Button
+                onPress={() => handleActivatePro(1)}
+                disabled={loading}
+                className="w-full bg-white rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
+                <ButtonText className="text-black text-sm">Activate Pro (1 day)</ButtonText>
+              </Button>
 
-            <ThemedButton
-              title="Clear Pro Mode"
-              onPress={handleClearProMode}
-              variant="outline"
-              disabled={loading}
-              icon={<MaterialIcons name="delete" size={SIZES.icon.sm} color={theme.icon.primary} />}
-              style={{ ...styles.testButton, marginBottom: 0 }}
-              fullWidth
-            />
+              <Button
+                variant="outline"
+                onPress={handleClearProMode}
+                disabled={loading}
+                className="w-full border-neutral-600 rounded-xl"
+              >
+                <ButtonIcon as={() => <MaterialIcons name="delete" size={16} color="white" className="mr-2" />} />
+                <ButtonText className="text-white text-sm">Clear Pro Mode</ButtonText>
+              </Button>
+            </View>
           </StatusCard>
 
           {/* Developer Controls */}
-          <ThemedCard variant="card" style={styles.controlsCard} borderVariant="primary" pattern="mandala" patternOpacity={0.05}>
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={[statusCardStyles.cardTitle, { color: theme.text.primary }]}
-            >
+          <Box className="mb-4 p-4 rounded-xl bg-neutral-900 border border-white/20">
+            <Text className="mb-4 text-white font-semibold text-lg font-regional_secondary">
               Developer Controls
-            </ThemedLanguageText>
+            </Text>
 
             <SettingsToggle
               title={i18n.t('profile.developerMode')}
@@ -602,71 +502,20 @@ export const DeveloperPanelScreen: React.FC = () => {
               icon={
                 <MaterialIcons
                   name="code"
-                  size={SIZES.icon.md}
-                  color={theme.icon.primary}
+                  size={24}
+                  color="white"
                 />
               }
             />
-            <View style={{ height: SIZES.spacing.sm }} />
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="none"
-              style={[styles.infoText, { color: theme.text.secondary }]}
-            >
-              ℹ️ "Ads Enabled" status is automatically calculated based on developer mode, Pro status, and ad-free status
-            </ThemedLanguageText>
-          </ThemedCard>
 
-          <ThemedView style={styles.bottomSpacing} />
+            <View className="mt-4">
+              <Text className="text-center italic text-neutral-400 text-xs p-2 bg-white/5 rounded-md">
+                ℹ️ "Ads Enabled" status is automatically calculated based on developer mode, Pro status, and ad-free status
+              </Text>
+            </View>
+          </Box>
         </ScrollView>
-      </ThemedView>
+      </View>
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: SIZES.spacing.lg,
-  },
-  controlsCard: {
-    marginBottom: SIZES.spacing.md,
-    padding: SIZES.spacing.md,
-  },
-  buttonRow: {
-    marginBottom: SIZES.spacing.sm,
-  },
-  testButton: {
-    marginBottom: SIZES.spacing.sm,
-  },
-  sectionLabel: {
-    fontWeight: '500',
-  },
-  infoText: {
-    fontWeight: '500',
-    textAlign: 'center',
-    padding: SIZES.spacing.xs,
-    borderRadius: SIZES.radius.sm,
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    fontStyle: 'italic',
-  },
-  warningText: {
-    fontWeight: '600',
-    textAlign: 'center',
-    padding: SIZES.spacing.sm,
-    borderRadius: SIZES.radius.sm,
-    backgroundColor: 'rgba(255,0,0,0.1)',
-  },
-  bottomSpacing: {
-    height: SIZES.spacing.xl,
-  },
-});

@@ -1,13 +1,10 @@
 import { LockedCardOverlay, ProUpgradeModal } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { useDailyReadingStore } from '@/store/dailyReadingStore';
 import { Ionicons } from '@expo/vector-icons';
@@ -44,27 +41,25 @@ export const DailyReadingScreen: React.FC = () => {
   const weeklyStats = getWeeklyStats();
   const todayVerses = todayRecord?.versesRead || 0;
   const { isPro } = useProStatus();
-  const theme = useThemeColors();
   const insets = useSafeAreaInsets();
   const [showProModal, setShowProModal] = useState(false);
 
   return (
-    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+    <Box className="flex-1 bg-black">
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
-        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+        className="pb-4 px-4 border-b border-neutral-800 bg-black shadow-sm z-10"
+        style={{ paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70"
+            className="w-10 h-10 bg-neutral-900 border border-neutral-800 rounded-xl items-center justify-center active:opacity-70"
             onPress={() => router.back()}
           >
-            <Ionicons name="chevron-back" size={22} color={theme.text.primary} />
+            <Ionicons name="chevron-back" size={22} color="white" />
           </Pressable>
 
           <Text
-            className="flex-1 text-center text-xl font-bold"
-            style={{ color: theme.text.primary }}
+            className="flex-1 text-center text-xl font-bold text-white"
             numberOfLines={1}
           >
             {i18n.t('dailyReading.title')}
@@ -76,22 +71,14 @@ export const DailyReadingScreen: React.FC = () => {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <VStack className="px-4 pt-4 pb-12" space="md">
-          <ThemedCard variant="card">
-            <ThemedLanguageText
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-            >
+          <Box className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 mb-2">
+            <Text className="text-white text-lg font-bold font-regional_secondary mb-1">
               {i18n.t('dailyReading.subtitle')}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              fontFamily="regional_secondary"
-            >
+            </Text>
+            <Text className="text-neutral-400 text-base font-regional_secondary">
               {i18n.t('dailyReading.todayVerses')}: {todayVerses}
-            </ThemedLanguageText>
-          </ThemedCard>
+            </Text>
+          </Box>
 
           <QuickActionButtons />
 
@@ -101,30 +88,30 @@ export const DailyReadingScreen: React.FC = () => {
           />
 
           <VStack className="mt-2" space="sm">
-            <HStack className="items-center">
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-              >
+            <HStack className="items-center mb-2">
+              <Text className="text-white text-lg font-bold font-regional_secondary">
                 {i18n.t('dailyReading.statsTitle')}
-              </ThemedLanguageText>
+              </Text>
             </HStack>
 
             <HStack className="gap-4">
-              <StatsCard
-                title={i18n.t('dailyReading.todayVerses')}
-                value={todayVerses.toString()}
-                iconName="book-outline"
-              />
-              <StatsCard
-                title={i18n.t('dailyReading.totalDays')}
-                value={totalReadingDays.toString()}
-                iconName="calendar-outline"
-              />
+              <Box className="flex-1">
+                <StatsCard
+                  title={i18n.t('dailyReading.todayVerses')}
+                  value={todayVerses.toString()}
+                  iconName="book-outline"
+                />
+              </Box>
+              <Box className="flex-1">
+                <StatsCard
+                  title={i18n.t('dailyReading.totalDays')}
+                  value={totalReadingDays.toString()}
+                  iconName="calendar-outline"
+                />
+              </Box>
             </HStack>
 
-            <HStack className="gap-4">
+            <HStack className="gap-4 mt-2">
               <Box className="flex-1">
                 <LockedCardOverlay
                   isLocked={!isPro}
@@ -161,26 +148,18 @@ export const DailyReadingScreen: React.FC = () => {
             </LockedCardOverlay>
           )}
 
-          <ThemedCard variant="card">
-            <HStack className="items-center mb-4">
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-              >
+          <Box className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 mt-4">
+            <HStack className="items-center mb-3">
+              <Text className="text-white text-lg font-bold font-regional_secondary">
                 {i18n.t('dailyReading.motivationTitle')}
-              </ThemedLanguageText>
+              </Text>
             </HStack>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              fontFamily="regional_secondary"
-            >
+            <Text className="text-neutral-400 text-base leading-6 font-regional_secondary">
               {currentStreak > 0
                 ? i18n.t('dailyReading.streakMessage', { count: currentStreak })
                 : i18n.t('dailyReading.startMessage')}
-            </ThemedLanguageText>
-          </ThemedCard>
+            </Text>
+          </Box>
 
         </VStack>
       </ScrollView>

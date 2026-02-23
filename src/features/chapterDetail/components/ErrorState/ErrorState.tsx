@@ -1,23 +1,14 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import React from 'react';
-import { styles } from './ErrorState.styles';
 
 export const ErrorState: React.FC = () => {
-  const { theme } = useTheme();
-
   return (
-    <ThemedView variant="primary" style={styles.container}>
-      <ThemedLanguageText 
-        variant="error" 
-        size="medium"
-        fontFamily="regional_secondary"
-      >
+    <Box className="flex-1 justify-center items-center p-6 bg-black">
+      <Text className="text-red-500 text-base text-center font-regional_secondary">
         {i18n.t('chapter.notFound')}
-      </ThemedLanguageText>
-    </ThemedView>
+      </Text>
+    </Box>
   );
 };
-

@@ -21,7 +21,7 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
     ({ className, variant = 'solid', size = 'md', action = 'primary', ...props }, ref) => {
         return (
             <Root
-                ref={ref}
+                ref={ref as any}
                 {...props}
                 className={buttonStyle({ variant, size, action, class: className })}
                 context={{ variant, size, action }}

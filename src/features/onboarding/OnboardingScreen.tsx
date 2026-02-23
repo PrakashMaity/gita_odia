@@ -1,6 +1,6 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import React from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
@@ -8,10 +8,8 @@ import { OnboardingNavigation } from './components/OnboardingNavigation';
 import { OnboardingSlide } from './components/OnboardingSlide';
 import { useOnboardingData } from './hooks/useOnboardingData';
 import { useOnboardingNavigation } from './hooks/useOnboardingNavigation';
-import { styles } from './OnboardingScreen.styles';
 
 export const OnboardingScreen: React.FC = () => {
-  const theme = useThemeColors();
   const { slides } = useOnboardingData();
   const {
     currentSlide,
@@ -25,19 +23,19 @@ export const OnboardingScreen: React.FC = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <ThemedView style={[styles.container, { backgroundColor: theme.background.primary }]}>
-      <ThemedView style={styles.header}>
-        <TouchableOpacity onPress={handleSkip} style={styles.skipButton}>
-          <ThemedLanguageText variant="secondary" size="medium" fontFamily="regional_secondary">
+    <Box className="flex-1 bg-black">
+      <HStack className="justify-end items-center px-6 py-4">
+        <TouchableOpacity onPress={handleSkip} className="px-4 py-2">
+          <Text className="text-neutral-400 text-base font-regional_secondary">
             {i18n.t('onboarding.skip')}
-          </ThemedLanguageText>
+          </Text>
         </TouchableOpacity>
-      </ThemedView>
+      </HStack>
 
-      <ScrollView 
-        style={styles.scrollView}
+      <ScrollView
+        className="flex-1"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
+        contentContainerClassName="flex-grow pb-8"
       >
         <OnboardingSlide slide={currentSlideData} />
       </ScrollView>
@@ -50,6 +48,6 @@ export const OnboardingScreen: React.FC = () => {
         onPrevious={handlePrevious}
         onNext={handleNext}
       />
-    </ThemedView>
+    </Box>
   );
 };

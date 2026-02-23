@@ -1,16 +1,11 @@
 import { ProUpgradeModal } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
+import { Text } from '@/components/ui/text';
 import { useProStatus } from '@/hooks/useProStatus';
-import { useThemeColors } from '@/hooks/useTheme';
 import { useVerseTextToSpeech, VerseItem } from '@/hooks/useVerseTextToSpeech';
-import { getChapterColors, getVerseColors } from '@/lib/utils/chapterColors';
 import { getSpeakerImage } from '@/lib/utils/speakerUtils';
-import { SIZES } from '@/rootconstants/sizes';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
-import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
@@ -21,7 +16,6 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import { styles } from './AudioModal.styles';
 
 interface AudioModalProps {
   visible: boolean;
@@ -46,7 +40,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   title,
   chapterNumber,
 }) => {
-  const theme = useThemeColors();
   const screenData = Dimensions.get('screen');
   const { width, height } = screenData;
 
@@ -60,7 +53,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   const [showProModal, setShowProModal] = useState(false);
   const { speak, speakVerses, stop, isSpeaking, isPaused, pause, resume } = useVerseTextToSpeech({
     onFinish: () => {
-      // Automatically close modal when speech finishes
       setTimeout(() => {
         onClose();
       }, 300);
@@ -75,32 +67,26 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     onVerseStart: (verseIndex, total) => {
       setCurrentVerseIndex(verseIndex);
       setTotalVerses(total);
-      // Clear previous text when new verse starts
       setCurrentText('');
     },
     onVerseComplete: (verseIndex, total) => {
-      // Verse completed, next one will start automatically
       setCurrentVerseIndex(verseIndex);
     },
     onLanguageStart: (text, verseIndex) => {
       setCurrentText(text);
-      // Get speaker from current verse (verseIndex is 1-based)
       if (verses && verses.length > 0 && verseIndex > 0) {
-        const verseIdx = verseIndex - 1; // Convert to 0-based
+        const verseIdx = verseIndex - 1;
         if (verseIdx >= 0 && verseIdx < verses.length) {
           const currentVerse = verses[verseIdx];
           setCurrentSpeakerEnglish(currentVerse.speakerEnglish);
         }
       }
     },
-    onLanguageComplete: () => {
-      // Don't clear text immediately, wait for translation or next verse
-    },
+    onLanguageComplete: () => { },
     onTranslationStart: (text, verseIndex) => {
       setCurrentText(text);
-      // Get speaker from current verse (verseIndex is 1-based)
       if (verses && verses.length > 0 && verseIndex > 0) {
-        const verseIdx = verseIndex - 1; // Convert to 0-based
+        const verseIdx = verseIndex - 1;
         if (verseIdx >= 0 && verseIdx < verses.length) {
           const currentVerse = verses[verseIdx];
           setCurrentSpeakerEnglish(currentVerse.speakerEnglish);
@@ -108,7 +94,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       }
     },
     onTranslationComplete: () => {
-      // Clear text when translation completes
       setCurrentText('');
     },
   });
@@ -123,7 +108,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     Array.from({ length: 5 }, () => new Animated.Value(20))
   );
 
-  // Combined animated values for scale and opacity
   const combinedScale = useMemo(
     () => Animated.multiply(scaleAnim, scaleTransitionAnim),
     [scaleAnim, scaleTransitionAnim]
@@ -141,18 +125,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     [rotateAnim]
   );
 
-  // Get verse-based colors that change with each verse
-  const verseColors = useMemo(() => {
-    if (currentVerseIndex > 0) {
-      return getVerseColors(currentVerseIndex, chapterNumber);
-    }
-    // Fallback to chapter colors if no verse is playing yet
-    return chapterNumber ? getChapterColors(chapterNumber) : null;
-  }, [currentVerseIndex, chapterNumber]);
-
   useEffect(() => {
     if (visible) {
-      // Start animation
       Animated.parallel([
         Animated.spring(scaleAnim, {
           toValue: 1,
@@ -167,16 +141,13 @@ export const AudioModal: React.FC<AudioModalProps> = ({
         }),
       ]).start();
 
-      // Automatically start speaking when modal opens
       if (verses && verses.length > 0) {
-        // Play verses with speaker-specific voices
         setTotalVerses(verses.length);
         setCurrentVerseIndex(0);
         setTimeout(() => {
           speakVerses(verses);
         }, 300);
       } else if (text) {
-        // Play single text
         setTotalVerses(0);
         setCurrentVerseIndex(0);
         setTimeout(() => {
@@ -184,20 +155,18 @@ export const AudioModal: React.FC<AudioModalProps> = ({
         }, 300);
       }
     } else {
-      // Reset animation
       scaleAnim.setValue(0);
       fadeAnim.setValue(0);
       slideAnim.setValue(0);
       rotateAnim.setValue(0);
       scaleTransitionAnim.setValue(1);
       fadeTransitionAnim.setValue(1);
-      waveformAnims.forEach(anim => anim.setValue(20));
+      waveformAnims.forEach((anim) => anim.setValue(20));
       setCurrentVerseIndex(0);
       setTotalVerses(0);
       setCurrentText('');
       setCurrentSpeakerEnglish(undefined);
       prevVerseIndexRef.current = -1;
-      // Stop speaking when modal closes
       stop();
     }
 
@@ -207,18 +176,18 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible, text, verses, speakerEnglish]);
 
-  // Creative slide animation effect when verse completes
   useEffect(() => {
-    // Only animate if verse index changed and it's not the initial load
-    if (currentVerseIndex !== prevVerseIndexRef.current && prevVerseIndexRef.current >= 0 && verses && verses.length > 0) {
-      // Reset transition animations
+    if (
+      currentVerseIndex !== prevVerseIndexRef.current &&
+      prevVerseIndexRef.current >= 0 &&
+      verses &&
+      verses.length > 0
+    ) {
       scaleTransitionAnim.setValue(1);
       fadeTransitionAnim.setValue(1);
       rotateAnim.setValue(0);
 
-      // Creative animation: slide out with rotation and scale, then slide in with bounce
       Animated.sequence([
-        // Phase 1: Slide out to left with rotation, scale down, and fade
         Animated.parallel([
           Animated.timing(slideAnim, {
             toValue: -width * 0.5,
@@ -241,7 +210,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
             useNativeDriver: true,
           }),
         ]),
-        // Phase 2: Instantly reset to right side (invisible)
         Animated.parallel([
           Animated.timing(slideAnim, {
             toValue: width * 0.5,
@@ -264,7 +232,6 @@ export const AudioModal: React.FC<AudioModalProps> = ({
             useNativeDriver: true,
           }),
         ]),
-        // Phase 3: Slide in with elastic bounce, rotate back, scale up, and fade in
         Animated.parallel([
           Animated.spring(slideAnim, {
             toValue: 0,
@@ -296,10 +263,8 @@ export const AudioModal: React.FC<AudioModalProps> = ({
     prevVerseIndexRef.current = currentVerseIndex;
   }, [currentVerseIndex, verses, slideAnim, rotateAnim, scaleTransitionAnim, fadeTransitionAnim, width]);
 
-  // Waveform animation effect
   useEffect(() => {
     if (isSpeaking && !isPaused) {
-      // Start waveform animations
       const animations = waveformAnims.map((anim, index) =>
         Animated.loop(
           Animated.sequence([
@@ -321,14 +286,13 @@ export const AudioModal: React.FC<AudioModalProps> = ({
 
       return () => {
         parallelAnim.stop();
-        waveformAnims.forEach(anim => {
+        waveformAnims.forEach((anim) => {
           anim.stopAnimation();
           anim.setValue(20);
         });
       };
     } else {
-      // Reset waveform to base height
-      waveformAnims.forEach(anim => {
+      waveformAnims.forEach((anim) => {
         anim.stopAnimation();
         anim.setValue(20);
       });
@@ -363,200 +327,131 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       statusBarTranslucent
       onRequestClose={handleBackdropPress}
     >
-      <View style={[styles.backdrop, { width, height }]}>
+      <View style={{ flex: 1, width, height, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableWithoutFeedback onPress={handleBackdropPress}>
           <BlurView
             intensity={80}
             tint="dark"
-            style={[styles.backdropTouchable, { width, height }]}
+            style={{ position: 'absolute', width, height }}
           >
-            <View style={[styles.blurOverlay, { width, height, backgroundColor: 'rgba(0, 0, 0, 0.4)' }]} />
+            <View style={{ width, height, backgroundColor: 'rgba(0, 0, 0, 0.4)' }} />
           </BlurView>
         </TouchableWithoutFeedback>
 
         <TouchableWithoutFeedback>
           <Animated.View
-            style={[
-              styles.modalContainer,
-              {
-                backgroundColor: theme.background.secondary,
-                maxWidth: width * 0.9,
-                transform: [
-                  { scale: combinedScale },
-                  { translateX: slideAnim },
-                  { rotate: rotateInterpolated },
-                ],
-                opacity: combinedOpacity,
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: SIZES.shadow.xl,
-                },
-                shadowOpacity: 0.3,
-                shadowRadius: SIZES.shadow.lg,
-                elevation: 15,
-              },
-            ]}
+            style={{
+              backgroundColor: '#171717', // neutral-900
+              borderRadius: 32,
+              borderWidth: 1,
+              borderColor: '#262626', // neutral-800
+              width: '90%',
+              maxWidth: 400,
+              overflow: 'hidden',
+              transform: [
+                { scale: combinedScale },
+                { translateX: slideAnim },
+                { rotate: rotateInterpolated },
+              ],
+              opacity: combinedOpacity,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 20 },
+              shadowOpacity: 0.25,
+              shadowRadius: 24,
+              elevation: 15,
+            }}
           >
-            <ThemedCard
-              variant="card"
-              style={[
-                styles.card,
-                ...(verseColors
-                  ? [
-                    {
-                      borderColor: verseColors.primary,
-                      borderWidth: 2,
-                    },
-                  ]
-                  : []),
-              ]}
-              borderVariant="none"
-            >
-              {verseColors && verseColors.gradient.length >= 2 && (
-                <LinearGradient
-                  colors={verseColors.gradient as unknown as readonly [string, string, ...string[]]}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                  style={styles.gradientBackground}
-                />
-              )}
+            <View className="p-6">
               {/* Header */}
-              <View style={styles.header}>
+              <View className="flex-row items-center justify-between mb-8">
                 {speakerEnglish ? (
-                  <View style={styles.speakerContainer}>
+                  <View className="flex-row items-center flex-1">
                     <Image
                       source={getSpeakerImage(speakerEnglish)}
-                      style={styles.speakerAvatar}
+                      className="w-12 h-12 rounded-full border-2 border-neutral-800 bg-black mr-4"
                       resizeMode="cover"
                     />
-                    <View style={styles.speakerInfo}>
-                      <ThemedLanguageText
-                        variant="primary"
-                        size="medium"
-                        fontFamily="regional_secondary"
-                        style={styles.speakerName}
-                      >
+                    <View className="flex-1">
+                      <Text className="text-white text-lg font-bold font-regional_secondary">
                         {speaker || speakerEnglish}
-                      </ThemedLanguageText>
-                      <ThemedLanguageText
-                        variant="secondary"
-                        size="small"
-                        fontFamily="regional_secondary"
-                        style={styles.verseNumber}
-                      >
+                      </Text>
+                      <Text className="text-neutral-400 text-sm font-regional_secondary leading-5">
                         {verseNumber ? `Verse ${verseNumber}` : 'Chanting...'}
-                      </ThemedLanguageText>
+                      </Text>
                     </View>
                   </View>
                 ) : (
-                  <View style={styles.titleContainer}>
-                    <ThemedLanguageText
-                      variant="primary"
-                      size="large"
-                      fontFamily="regional_secondary"
-                      style={styles.title}
-                    >
+                  <View className="flex-1">
+                    <Text className="text-white text-xl font-bold font-regional_secondary">
                       {title || 'Audio Playback'}
-                    </ThemedLanguageText>
+                    </Text>
                     {totalVerses > 0 && currentVerseIndex > 0 && (
-                      <ThemedLanguageText
-                        variant="secondary"
-                        size="small"
-                        fontFamily="regional_secondary"
-                        style={styles.verseProgress}
-                      >
+                      <Text className="text-neutral-400 text-sm font-regional_secondary mt-1">
                         Verse {currentVerseIndex} of {totalVerses}
-                      </ThemedLanguageText>
+                      </Text>
                     )}
                   </View>
                 )}
                 <TouchableOpacity
                   onPress={handleBackdropPress}
-                  style={[
-                    styles.closeButton,
-                    {
-                      backgroundColor: verseColors
-                        ? `${verseColors.primary}20`
-                        : 'rgba(0, 0, 0, 0.05)',
-                    },
-                  ]}
+                  className="w-10 h-10 rounded-full items-center justify-center bg-black/20"
                 >
-                  <MaterialIcons
-                    name="close"
-                    size={20}
-                    color={verseColors ? verseColors.primary : theme.icon.primary}
-                  />
+                  <MaterialIcons name="close" size={20} color="white" />
                 </TouchableOpacity>
               </View>
 
               {/* Audio Waveform Animation */}
-              <View style={styles.waveformContainer}>
+              <View className="flex-row items-center justify-center h-16 mb-8 space-x-1.5">
                 {waveformAnims.map((anim, index) => (
                   <Animated.View
                     key={index}
-                    style={[
-                      styles.waveformBar,
-                      {
-                        backgroundColor: verseColors
-                          ? verseColors.primary
-                          : theme.icon.primary,
-                        height: anim,
-                        opacity: isSpeaking ? 0.8 : 0.3,
-                      },
-                    ]}
+                    style={{
+                      width: 4,
+                      borderRadius: 2,
+                      backgroundColor: 'white',
+                      height: anim,
+                      opacity: isSpeaking ? 0.8 : 0.3,
+                      marginHorizontal: 3,
+                    }}
                   />
                 ))}
               </View>
 
               {/* Current Text Display with Speaker Icon */}
-              <View style={styles.textContainer}>
+              <View className="min-h-[100px] justify-center mb-8 px-2">
                 {currentText ? (
-                  <View style={styles.currentTextContainer}>
+                  <View>
                     {currentSpeakerEnglish && (
                       <Image
                         source={getSpeakerImage(currentSpeakerEnglish)}
-                        style={styles.speakerIconSmall}
+                        className="w-6 h-6 rounded-full absolute -top-8 left-0 opacity-50"
                         resizeMode="cover"
                       />
                     )}
-                    <ThemedLanguageText
-                      variant="primary"
-                      size="large"
-                      fontFamily="regional_secondary"
-                      style={styles.currentText}
+                    <Text
+                      className="text-white text-2xl font-bold font-regional_secondary leading-relaxed text-center"
                       numberOfLines={4}
                     >
                       {currentText}
-                    </ThemedLanguageText>
+                    </Text>
                   </View>
                 ) : (
-                  <ThemedLanguageText
-                    variant="secondary"
-                    size="medium"
-                    fontFamily="regional_secondary"
-                    style={styles.textPreview}
-                  >
-                    {text || (verses && verses.length > 0 ? `${verses.length} verses loaded` : 'Preparing audio...')}
-                  </ThemedLanguageText>
+                  <Text className="text-neutral-400 text-base font-regional_secondary text-center leading-relaxed">
+                    {text ||
+                      (verses && verses.length > 0
+                        ? `${verses.length} verses loaded`
+                        : 'Preparing audio...')}
+                  </Text>
                 )}
               </View>
 
               {/* Controls */}
-              <View style={styles.controlsContainer}>
+              <View className="flex-row items-center justify-center space-x-8 mb-8">
                 <TouchableOpacity
                   onPress={handleStop}
-                  style={[
-                    styles.controlButton,
-                    styles.stopButton,
-                    { backgroundColor: 'rgba(239, 68, 68, 0.1)' },
-                  ]}
+                  className="w-14 h-14 rounded-full items-center justify-center bg-red-500/10 border border-red-500/20 mr-8"
                 >
-                  <MaterialIcons
-                    name="stop"
-                    size={24}
-                    color="#EF4444"
-                  />
+                  <MaterialIcons name="stop" size={24} color="#EF4444" />
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -564,19 +459,12 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
                     handlePauseResume();
                   }}
-                  style={[
-                    styles.controlButton,
-                    {
-                      backgroundColor: verseColors
-                        ? verseColors.primary
-                        : theme.button.primary.background,
-                    },
-                  ]}
+                  className="w-20 h-20 rounded-full items-center justify-center bg-white shadow-lg mx-2"
                 >
                   <MaterialIcons
                     name={isPaused || !isSpeaking ? 'play-arrow' : 'pause'}
                     size={40}
-                    color={theme.button.primary.text}
+                    color="black"
                   />
                 </TouchableOpacity>
 
@@ -585,70 +473,41 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                     // Add logic for next/prev if needed, but for now just a placeholder
                   }}
-                  style={[
-                    styles.controlButton,
-                    styles.stopButton,
-                    { backgroundColor: 'rgba(0, 0, 0, 0.05)' },
-                  ]}
+                  className="w-14 h-14 rounded-full items-center justify-center bg-white/5 border border-white/10 ml-8"
                 >
-                  <MaterialIcons
-                    name="skip-next"
-                    size={24}
-                    color={theme.icon.primary}
-                  />
+                  <MaterialIcons name="skip-next" size={24} color="white" />
                 </TouchableOpacity>
               </View>
 
               {/* Status and Progress */}
-              <View style={styles.statusContainer}>
+              <View className="items-center justify-center pt-6 border-t border-neutral-800">
                 {totalVerses > 0 && currentVerseIndex > 0 ? (
-                  <View style={styles.progressContainer}>
-                    <ThemedLanguageText
-                      variant="primary"
-                      size="medium"
-                      fontFamily="regional_secondary"
-                      style={styles.progressText}
-                    >
+                  <View className="w-full flex-row items-center justify-between">
+                    <Text className="text-white text-sm font-bold font-regional_secondary mb-2">
                       Playing {currentVerseIndex} of {totalVerses}
-                    </ThemedLanguageText>
-                    <View style={styles.progressBarContainer}>
+                    </Text>
+                    <View className="flex-1 h-1.5 bg-neutral-800 rounded-full ml-4 overflow-hidden relative">
                       <View
-                        style={[
-                          styles.progressBar,
-                          {
-                            width: `${(currentVerseIndex / totalVerses) * 100}%`,
-                            backgroundColor: verseColors
-                              ? verseColors.primary
-                              : theme.icon.primary,
-                          },
-                        ]}
+                        style={{
+                          width: `${(currentVerseIndex / totalVerses) * 100}%`,
+                          height: '100%',
+                          backgroundColor: 'white',
+                          borderRadius: 9999,
+                        }}
                       />
                     </View>
                   </View>
                 ) : (
-                  <ThemedLanguageText
-                    variant="secondary"
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.statusText}
-                  >
-                    {isSpeaking && !isPaused
-                      ? 'Chanting...'
-                      : isPaused
-                        ? 'Paused'
-                        : 'Ready'}
-                  </ThemedLanguageText>
+                  <Text className="text-neutral-400 text-xs font-regional_secondary tracking-wider uppercase">
+                    {isSpeaking && !isPaused ? 'Chanting...' : isPaused ? 'Paused' : 'Ready'}
+                  </Text>
                 )}
               </View>
-            </ThemedCard>
+            </View>
           </Animated.View>
         </TouchableWithoutFeedback>
       </View>
-      <ProUpgradeModal
-        visible={showProModal}
-        onClose={() => setShowProModal(false)}
-      />
+      <ProUpgradeModal visible={showProModal} onClose={() => setShowProModal(false)} />
     </Modal>
   );
 };
-

@@ -1,12 +1,9 @@
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Box } from '@/components/ui/box';
+import { Button, ButtonText } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+import { MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { Modal, StyleSheet, TextInput, View } from 'react-native';
+import { Modal, TextInput, View } from 'react-native';
 
 const DEVELOPER_PASSWORD = '9434341997';
 
@@ -21,7 +18,6 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
   onSuccess,
   onCancel,
 }) => {
-  const theme = useThemeColors();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
@@ -49,132 +45,61 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
       animationType="fade"
       onRequestClose={handleCancel}
     >
-      <ThemedView style={styles.overlay}>
-        <ThemedCard variant="card" style={styles.modalContainer} borderVariant="primary">
-          <View style={styles.header}>
-            <MaterialIcons 
-              name="lock" 
-              size={SIZES.icon.lg} 
-              color={theme.icon.primary} 
+      <View className="flex-1 justify-center items-center bg-black/50 p-6">
+        <Box className="w-full max-w-[400px] p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+          <View className="items-center mb-6">
+            <MaterialIcons
+              name="lock"
+              size={32}
+              color="white"
             />
-            <ThemedLanguageText
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.title}
-            >
+            <Text className="text-xl font-bold mt-4 mb-2 text-center text-white font-regional_secondary">
               Developer Access
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="none"
-              style={styles.subtitle}
-            >
+            </Text>
+            <Text className="text-sm text-center text-neutral-400">
               Enter password to access developer panel
-            </ThemedLanguageText>
+            </Text>
           </View>
 
-          <View style={styles.inputContainer}>
+          <View className="mb-6">
             <TextInput
-              style={[
-                styles.input,
-                {
-                  backgroundColor: theme.background.tertiary,
-                  color: theme.text.primary,
-                  borderColor: error ? theme.status.error : theme.border.primary,
-                },
-              ]}
+              className={`h-[50px] rounded-xl px-4 border text-base text-white ${error ? 'border-red-500 bg-red-500/10' : 'border-neutral-700 bg-black'
+                }`}
               value={password}
               onChangeText={(text) => {
                 setPassword(text);
                 setError(false);
               }}
               placeholder="Enter password"
-              placeholderTextColor={theme.text.secondary}
+              placeholderTextColor="#9ca3af" // neutral-400
               secureTextEntry
               autoFocus
               onSubmitEditing={handleSubmit}
             />
             {error && (
-              <ThemedLanguageText
-                variant="secondary"
-                size="small"
-                fontFamily="none"
-                style={[styles.errorText, { color: theme.status.error }]}
-              >
+              <Text className="text-sm mt-2 text-center text-red-500">
                 Incorrect password
-              </ThemedLanguageText>
+              </Text>
             )}
           </View>
 
-          <View style={styles.buttonContainer}>
-            <ThemedButton
-              title="Cancel"
-              onPress={handleCancel}
+          <View className="flex-row gap-4">
+            <Button
               variant="outline"
-              style={styles.cancelButton}
-            />
-            <ThemedButton
-              title="Submit"
+              className="flex-1 rounded-xl border-neutral-700"
+              onPress={handleCancel}
+            >
+              <ButtonText className="text-white font-medium">Cancel</ButtonText>
+            </Button>
+            <Button
+              className="flex-1 rounded-xl bg-white"
               onPress={handleSubmit}
-              variant="primary"
-              style={styles.submitButton}
-            />
+            >
+              <ButtonText className="text-black font-medium">Submit</ButtonText>
+            </Button>
           </View>
-        </ThemedCard>
-      </ThemedView>
+        </Box>
+      </View>
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: SIZES.spacing.lg,
-  },
-  modalContainer: {
-    width: '100%',
-    maxWidth: 400,
-    padding: SIZES.spacing.xl,
-  },
-  header: {
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
-  },
-  title: {
-    marginTop: SIZES.spacing.md,
-    marginBottom: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  subtitle: {
-    textAlign: 'center',
-  },
-  inputContainer: {
-    marginBottom: SIZES.spacing.lg,
-  },
-  input: {
-    height: 50,
-    borderRadius: SIZES.radius.md,
-    paddingHorizontal: SIZES.spacing.md,
-    borderWidth: 1,
-    fontSize: 16,
-  },
-  errorText: {
-    marginTop: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.md,
-  },
-  cancelButton: {
-    flex: 1,
-  },
-  submitButton: {
-    flex: 1,
-  },
-});

@@ -1,12 +1,9 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import { SearchResult } from '@/types/screen.interface';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native';
-import { styles } from './SearchResults.styles';
 
 interface SearchResultsProps {
   results: SearchResult[];
@@ -15,20 +12,18 @@ interface SearchResultsProps {
 }
 
 export const SearchResults: React.FC<SearchResultsProps> = ({ results, query, onResultPress }) => {
-  const { theme } = useTheme();
-
   const highlightText = (text: string, query: string) => {
     if (!query.trim()) return text;
-    
+
     const regex = new RegExp(`(${query})`, 'gi');
     const parts = text.split(regex);
-    
+
     return parts.map((part, index) => {
       if (regex.test(part)) {
         return (
-          <ThemedText key={index} style={{ backgroundColor: theme.status.warning, color: theme.text.primary }}>
+          <Text key={index} className="bg-white text-black font-bold">
             {part}
-          </ThemedText>
+          </Text>
         );
       }
       return part;
@@ -48,96 +43,103 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results, query, on
     }
   };
 
-  const getMatchTypeColor = (matchType: string) => {
+  const getMatchTypeClass = (matchType: string) => {
     switch (matchType) {
       case 'sanskrit':
-        return theme.button.primary.background;
+        return 'bg-white';
       case 'Language':
-        return theme.status.success;
+        return 'bg-neutral-200';
       case 'translation':
-        return theme.status.info;
+        return 'bg-neutral-800';
       default:
-        return theme.icon.secondary;
+        return 'bg-neutral-900 border border-neutral-700';
+    }
+  };
+
+  const getMatchTypeTextClass = (matchType: string) => {
+    switch (matchType) {
+      case 'sanskrit':
+      case 'Language':
+        return 'text-black';
+      default:
+        return 'text-white';
     }
   };
 
   if (results.length === 0) {
     return (
-      <ThemedView style={styles.emptyContainer}>
-        <Ionicons name="search-outline" size={64} color={theme.icon.tertiary} />
-        <ThemedText style={{ ...styles.emptyTitle, color: theme.text.primary }}>
+      <Box className="flex-1 justify-center items-center px-6">
+        <Ionicons name="search-outline" size={64} color="#6b7280" />
+        <Text className="text-xl font-bold mt-6 mb-2 text-center text-white">
           {i18n.t('search.noResults')}
-        </ThemedText>
-        <ThemedText style={{ ...styles.emptySubtitle, color: theme.text.secondary }}>
+        </Text>
+        <Text className="text-base text-center leading-6 text-neutral-400">
           {i18n.t('search.noResultsFor', { query })}
-        </ThemedText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <ThemedView style={styles.resultsHeader}>
-        <ThemedText style={{ ...styles.resultsCount, color: theme.text.secondary }}>
+    <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+      <Box className="px-6 py-2 pb-4">
+        <Text className="text-sm font-medium text-neutral-400">
           {i18n.t('searchResults.foundResults', { count: results.length })}
-        </ThemedText>
-      </ThemedView>
+        </Text>
+      </Box>
 
-      <ThemedView style={styles.resultsList}>
+      <Box className="px-6">
         {results.map((result, index) => (
           <TouchableOpacity
             key={`${result.chapterNumber}-${result.verseNumber}-${index}`}
             onPress={() => onResultPress(result.chapterNumber, result.verseNumber)}
-            style={styles.resultCardContainer}
+            className="mb-4"
+            activeOpacity={0.7}
           >
-            <ThemedCard style={styles.resultCard}>
-              <ThemedView style={styles.resultHeader}>
-                <ThemedView style={styles.chapterInfo}>
-                  <ThemedView style={[styles.chapterNumberContainer, { backgroundColor: theme.button.primary.background }]}>
-                    <ThemedText style={{ ...styles.chapterNumber, color: theme.button.primary.text }}>
+            <Box className="p-4 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-sm">
+              <Box className="flex-row justify-between items-center mb-4">
+                <Box className="flex-row items-center flex-1">
+                  <Box className="w-10 h-10 rounded-full justify-center items-center mr-4 bg-white">
+                    <Text className="text-base font-bold text-black font-regional_secondary">
                       {result.chapterNumber}
-                    </ThemedText>
-                  </ThemedView>
-                  <ThemedView style={styles.verseInfo}>
-                    <ThemedText style={{ ...styles.verseTitle, color: theme.text.primary }}>
+                    </Text>
+                  </Box>
+                  <Box className="flex-1">
+                    <Text className="text-base font-bold mb-1 text-white font-regional_secondary">
                       {i18n.t('chapter.chapter')} {result.chapterNumber} • {i18n.t('verse.verse')} {result.verseNumber}
-                    </ThemedText>
-                    <ThemedText style={{ ...styles.speaker, color: theme.text.tertiary }}>
+                    </Text>
+                    <Text className="text-xs text-neutral-500 font-regional_secondary">
                       - {result.speaker}
-                    </ThemedText>
-                  </ThemedView>
-                </ThemedView>
-                
-                <ThemedView style={[
-                  styles.matchTypeBadge,
-                  { backgroundColor: getMatchTypeColor(result.matchType) }
-                ]}>
-                  <ThemedText style={{ ...styles.matchTypeText, color: 'white' }}>
+                    </Text>
+                  </Box>
+                </Box>
+
+                <Box className={`px-2 py-1 rounded-md ${getMatchTypeClass(result.matchType)}`}>
+                  <Text className={`text-[10px] font-bold uppercase ${getMatchTypeTextClass(result.matchType)}`}>
                     {getMatchTypeText(result.matchType)}
-                  </ThemedText>
-                </ThemedView>
-              </ThemedView>
-              
-              <ThemedView style={styles.resultContent}>
-                <ThemedText style={{ ...styles.verseText, color: theme.text.primary }}>
+                  </Text>
+                </Box>
+              </Box>
+
+              <Box className="mb-4">
+                <Text className="text-sm leading-5 mb-2 text-white font-regional_primary">
                   {highlightText(result.verseText, query)}
-                </ThemedText>
-                
+                </Text>
+
                 {result.translation && (
-                  <ThemedText style={{ ...styles.translationText, color: theme.text.secondary }}>
+                  <Text className="text-[13px] leading-[18px] text-neutral-400 font-regional_secondary">
                     {highlightText(result.translation, query)}
-                  </ThemedText>
+                  </Text>
                 )}
-              </ThemedView>
-              
-              <ThemedView style={styles.resultFooter}>
-                <Ionicons name="chevron-forward" size={16} color={theme.icon.primary} />
-              </ThemedView>
-            </ThemedCard>
+              </Box>
+
+              <Box className="items-end">
+                <Ionicons name="chevron-forward" size={16} color="white" />
+              </Box>
+            </Box>
           </TouchableOpacity>
         ))}
-      </ThemedView>
+      </Box>
     </ScrollView>
   );
 };
-

@@ -1,16 +1,13 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
+import { ShareButton } from '@/features/chapterDetail/components';
+import { FavoriteButton } from '@/features/favorites/components';
+import { AudioModal } from '@/features/translationDetail/components/AudioModal';
 import i18n from '@/lib/i18n';
 import { getSpeakerImage } from '@/lib/utils/speakerUtils';
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { FavoriteButton } from '@/features/favorites/components';
-import { ShareButton } from '@/features/chapterDetail/components';
-import { AudioModal } from '@/features/translationDetail/components/AudioModal';
 import { MaterialIcons } from '@expo/vector-icons';
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import { Image, TouchableOpacity, View } from 'react-native';
 
 interface Verse {
   verseNumber: string;
@@ -42,7 +39,6 @@ export default function VerseReader({
   chapterNumber,
   onAlert,
 }: VerseReaderProps) {
-  const { theme } = useTheme();
   const verseCardRef = useRef<View | null>(null);
   const [hideShareButton, setHideShareButton] = useState(false);
   const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
@@ -57,115 +53,103 @@ export default function VerseReader({
   }, [showLanguage, showTranslation, verse.Language, verse.translation, verse.speaker_english]);
 
   return (
-    <ThemedView style={styles.container}>
+    <View className="flex-1">
       {/* Verse Display */}
       <View ref={verseCardRef} collapsable={false}>
-      <ThemedCard variant="primary" style={styles.verseCard}>
-        <ThemedView style={styles.verseHeader}>
-         
+        <Box className="mb-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-xl elevation-4">
+          <View className="flex-row items-center justify-between mb-6">
 
-          <ThemedView style={styles.speakerContainer}>
-            <ThemedView style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Image source={getSpeakerImage(verse.speaker_english)} style={{width: 80, height: 80, borderRadius: 40,borderWidth: 3,borderColor: theme.border.primary}} />
-            </ThemedView>
-            <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="medium" style={styles.speaker}>
-              {verse.speaker}
-            </ThemedLanguageText>
-          </ThemedView>
+            <View className="flex-col items-center">
+              <View className="items-center justify-center">
+                <Image
+                  source={getSpeakerImage(verse.speaker_english)}
+                  className="w-20 h-20 rounded-full border-[3px] border-neutral-700"
+                />
+              </View>
+              <Text className="ml-2 text-white/90 text-base mt-2 font-regional_secondary">
+                {verse.speaker}
+              </Text>
+            </View>
 
-          <ThemedView style={[styles.verseNumberContainer, ]}>
-            <ThemedLanguageText fontFamily='regional_secondary' size="xl">
-            {i18n.t('verse.verse')} - {verse.verseNumber}
-            </ThemedLanguageText>
-          
-          </ThemedView>
+            <View className="justify-center items-center">
+              <Text className="text-xl font-bold text-white font-regional_secondary">
+                {i18n.t('verse.verse')} - {verse.verseNumber}
+              </Text>
+            </View>
 
-           {/* Action Buttons Container */}
-           {chapterId && chapterNumber && (
-                <ThemedView style={styles.actionsContainer}>
-                  {/* Audio Button */}
-                  <TouchableOpacity
-                    onPress={() => setIsAudioModalVisible(true)}
-                    style={[
-                      styles.audioButton,
-                      { backgroundColor: theme.background.quaternary },
-                    ]}
-                  >
-                    <MaterialIcons
-                      name="volume-up"
-                      size={SIZES.icon.md}
-                      color={theme.icon.primary}
-                    />
-                  </TouchableOpacity>
+            {/* Action Buttons Container */}
+            {chapterId && chapterNumber && (
+              <View className="flex-row items-center justify-center gap-4 mt-2">
+                {/* Audio Button */}
+                <TouchableOpacity
+                  onPress={() => setIsAudioModalVisible(true)}
+                  className="w-10 h-10 rounded-full items-center justify-center border border-neutral-700 bg-neutral-800"
+                >
+                  <MaterialIcons
+                    name="volume-up"
+                    size={24}
+                    color="white"
+                  />
+                </TouchableOpacity>
 
-                  <ThemedView style={styles.favoriteContainer}>
-                    <FavoriteButton
+                <View>
+                  <FavoriteButton
+                    verseId={verse.id}
+                    chapterId={chapterId}
+                    chapterNumber={chapterNumber}
+                    verseNumber={verse.verseNumber}
+                    verseText={verse.Language}
+                    onAlert={onAlert}
+                  />
+                </View>
+                {!hideShareButton && (
+                  <View>
+                    <ShareButton
                       verseId={verse.id}
                       chapterId={chapterId}
                       chapterNumber={chapterNumber}
                       verseNumber={verse.verseNumber}
                       verseText={verse.Language}
+                      translation={verse.translation}
+                      speaker={verse.speaker}
                       onAlert={onAlert}
+                      verseViewRef={verseCardRef}
+                      onCaptureStart={() => setHideShareButton(true)}
+                      onCaptureEnd={() => setHideShareButton(false)}
                     />
-                  </ThemedView>
-                  {!hideShareButton && (
-                    <ThemedView style={styles.shareContainer}>
-                      <ShareButton
-                        verseId={verse.id}
-                        chapterId={chapterId}
-                        chapterNumber={chapterNumber}
-                        verseNumber={verse.verseNumber}
-                        verseText={verse.Language}
-                        translation={verse.translation}
-                        speaker={verse.speaker}
-                        onAlert={onAlert}
-                        verseViewRef={verseCardRef}
-                        onCaptureStart={() => setHideShareButton(true)}
-                        onCaptureEnd={() => setHideShareButton(false)}
-                      />
-                    </ThemedView>
-                  )}
-                </ThemedView>
-              )}
-        </ThemedView>
+                  </View>
+                )}
+              </View>
+            )}
+          </View>
 
-        {showLanguage && (
-          <ThemedView style={styles.verseSection}>
-            <ThemedView style={styles.LanguageContainer}>
-              <ThemedLanguageText 
-              fontFamily='regional_secondary' 
-              variant="primary" 
-              size="xxl" 
-              style={styles.LanguageText}
-            >
-                {verse.Language}
-              </ThemedLanguageText>
+          {showLanguage && (
+            <View className="mb-6">
+              <View className="items-center">
+                <Text
+                  className="text-center mb-6 text-3xl text-white font-regional_secondary self-center leading-10"
+                >
+                  {verse.Language}
+                </Text>
+              </View>
+            </View>
+          )}
 
-             
-            </ThemedView>
-
-
-          </ThemedView>
-        )}
-
-        {showTranslation && (
-          <ThemedView style={styles.verseSection}>
-            <ThemedView style={styles.sectionHeader}>
-              <ThemedLanguageText variant="primary" size="title" fontFamily='regional_secondary' style={styles.sectionTitle}>
-                {i18n.t('verse.translation')}
-              </ThemedLanguageText>
-            </ThemedView>
-            <ThemedLanguageText 
-              fontFamily='regional_secondary' 
-              variant="primary" 
-              size="large" 
-              style={styles.translationText}
-            >
-              {verse.translation}
-            </ThemedLanguageText>
-          </ThemedView>
-        )}
-      </ThemedCard>
+          {showTranslation && (
+            <View className="mb-6">
+              <View className="mb-4">
+                <Text className="text-center text-2xl font-bold text-white font-regional_secondary">
+                  {i18n.t('verse.translation')}
+                </Text>
+              </View>
+              <Text
+                className="text-center text-lg leading-7 mt-2 text-neutral-300 font-regional_secondary"
+              >
+                {verse.translation}
+              </Text>
+            </View>
+          )}
+        </Box>
       </View>
 
       {/* Audio Modal */}
@@ -178,93 +162,6 @@ export default function VerseReader({
         verseNumber={verse.verseNumber}
         chapterNumber={chapterNumber}
       />
-    </ThemedView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  verseCard: {
-    marginBottom: SIZES.spacing.xl,
-    padding: SIZES.spacing.xl,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  verseHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: SIZES.spacing.xl,
-  },
-  verseNumberContainer: {
-   
-    justifyContent: 'center',
-    alignItems: 'center',
-    
-  },
-  verseNumber: {
-    fontSize: SIZES.lg,
-    fontWeight: 'bold',
-  },
-  speakerContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  speaker: {
-    marginLeft: SIZES.spacing.sm,
-    opacity: 0.9,
-  },
-  verseSection: {
-    marginBottom: SIZES.spacing.xl,
-  },
-  sectionHeader: {
-    marginBottom: SIZES.spacing.md,
-  },
-  sectionTitle: {
-    textAlign: 'center',
-  },
-  LanguageContainer: {
-    alignItems: 'center',
-  },
-  LanguageText: {
-    textAlign: 'center',
-    marginBottom: SIZES.spacing.lg,
-    lineHeight: 36,
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  actionsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: SIZES.spacing.lg,
-    marginTop: SIZES.spacing.sm,
-  },
-  audioButton: {
-    width: SIZES.icon.lg + SIZES.spacing.sm,
-    height: SIZES.icon.lg + SIZES.spacing.sm,
-    borderRadius: SIZES.radius.round,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: SIZES.borderSize.xs,
-  },
-  favoriteContainer: {
-    // Container for favorite button
-  },
-  shareContainer: {
-    // Container for share button
-  },
-  translationText: {
-    textAlign: 'center',
-    lineHeight: 28,
-    marginTop: SIZES.spacing.sm,
-  },
-  
-});

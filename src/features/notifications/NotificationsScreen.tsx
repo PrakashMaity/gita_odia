@@ -1,14 +1,11 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useThemeColors } from '@/hooks/useTheme';
-import { Ionicons } from '@expo/vector-icons';
-import { ImageBackground, ScrollView, ActivityIndicator } from 'react-native';
 import { PageHeader } from '@/components/shared';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { LayoutImages } from '@/lib/utils/assets';
-import { SIZES } from '@/rootconstants/sizes';
-import { styles } from './NotificationsScreen.styles';
-import { useEffect, useState } from 'react';
 import { fetchNotifications, type NotificationItem } from '@/services/notificationService';
+import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, ImageBackground, ScrollView } from 'react-native';
 
 // Fallback static notification content (used when no notifications are available)
 const fallbackNotifications: NotificationItem[] = [
@@ -37,23 +34,22 @@ const getNotificationIcon = (type: NotificationItem['type']) => {
   }
 };
 
-const getNotificationColor = (type: NotificationItem['type'], theme: ReturnType<typeof useThemeColors>) => {
+const getNotificationColorClass = (type: NotificationItem['type']) => {
   switch (type) {
     case 'update':
-      return theme.icon.primary;
+      return 'text-white';
     case 'promotion':
-      return theme.icon.secondary;
+      return 'text-neutral-400';
     case 'reminder':
-      return theme.icon.tertiary;
+      return 'text-neutral-500';
     case 'info':
-      return theme.icon.primary;
+      return 'text-white';
     default:
-      return theme.icon.primary;
+      return 'text-white';
   }
 };
 
 export const NotificationsScreen: React.FC = () => {
-  const theme = useThemeColors();
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -65,7 +61,7 @@ export const NotificationsScreen: React.FC = () => {
         setLoading(true);
         setError(null);
         const fetchedNotifications = await fetchNotifications();
-        
+
         // Use fetched notifications or fallback if empty
         if (fetchedNotifications.length > 0) {
           setNotifications(fetchedNotifications);
@@ -87,129 +83,85 @@ export const NotificationsScreen: React.FC = () => {
 
   const renderNotificationItem = (item: NotificationItem) => {
     const iconName = getNotificationIcon(item.type);
-    const iconColor = getNotificationColor(item.type, theme);
 
     return (
-      <ThemedView
+      <Box
         key={item.id}
-        variant="card"
-        style={[
-          styles.notificationItem,
-          {
-            backgroundColor: item.isRead 
-              ? theme.background.card 
-              : theme.background.quaternary,
-            borderColor: item.isRead 
-              ? theme.border.secondary 
-              : theme.border.primary,
-            borderLeftWidth: item.isRead ? 1 : 4,
-          },
-        ]}
+        className={`mb-4 rounded-3xl p-6 border ${item.isRead
+            ? 'bg-neutral-900 border-neutral-800 border-l'
+            : 'bg-neutral-800 border-white border-l-4'
+          }`}
       >
-        <ThemedView style={styles.itemHeader}>
-          <ThemedView style={styles.iconContainer}>
+        <Box className="flex-row">
+          <Box className="w-12 h-12 rounded-full items-center justify-center mr-4 bg-neutral-800">
             <Ionicons
               name={iconName}
-              size={SIZES.icon.lg}
-              color={iconColor}
+              size={24}
+              color={item.isRead ? '#9ca3af' : 'white'}
             />
-          </ThemedView>
-          <ThemedView style={styles.contentContainer}>
-            <ThemedView style={styles.titleRow}>
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-                style={[
-                  styles.itemTitle,
-                  { fontWeight: item.isRead ? '500' : 'bold' },
-                ]}
+          </Box>
+          <Box className="flex-1">
+            <Box className="flex-row justify-between items-start mb-1">
+              <Text
+                className={`flex-1 text-lg font-regional_secondary ${item.isRead ? 'font-medium text-neutral-300' : 'font-bold text-white'
+                  }`}
               >
                 {item.title}
-              </ThemedLanguageText>
+              </Text>
               {!item.isRead && (
-                <ThemedView
-                  style={[
-                    styles.unreadDot,
-                    { backgroundColor: theme.background.tertiary },
-                  ]}
-                />
+                <Box className="w-2 h-2 rounded-full bg-white ml-2 mt-2" />
               )}
-            </ThemedView>
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.itemMessage}
-            >
+            </Box>
+            <Text className="text-sm leading-5 mb-2 font-regional_secondary text-neutral-400">
               {item.message}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant="secondary"
-              size="small"
-              fontFamily="regional_secondary"
-              style={styles.itemTime}
-            >
+            </Text>
+            <Text className="text-xs font-regional_secondary text-neutral-500">
               {item.time}
-            </ThemedLanguageText>
-          </ThemedView>
-        </ThemedView>
-      </ThemedView>
+            </Text>
+          </Box>
+        </Box>
+      </Box>
     );
   };
 
   return (
     <ImageBackground
       source={LayoutImages.background2}
-      style={styles.backgroundImage}
+      className="flex-1 w-full"
       resizeMode="cover"
       blurRadius={2.5}
     >
-      <ThemedView variant="transparent" style={styles.container}>
+      <Box className="flex-1 bg-black/50">
         <PageHeader title="Notifications" />
 
         <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
+          className="flex-1"
+          contentContainerClassName="px-4 pb-16"
           showsVerticalScrollIndicator={false}
-          refreshControl={
-            // Add pull-to-refresh functionality
-            undefined // Can be enhanced with RefreshControl if needed
-          }
         >
           {loading ? (
-            <ThemedView style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color={theme.icon.primary} />
-              <ThemedLanguageText
-                variant="secondary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.loadingText}
-              >
+            <Box className="flex-1 justify-center items-center py-20">
+              <ActivityIndicator size="large" color="white" />
+              <Text className="text-base mt-4 text-neutral-400 font-regional_secondary">
                 Loading notifications...
-              </ThemedLanguageText>
-            </ThemedView>
+              </Text>
+            </Box>
           ) : (
-            <ThemedView style={styles.notificationsList}>
+            <Box className="pt-4">
               {notifications.length > 0 ? (
                 notifications.map(renderNotificationItem)
               ) : (
-                <ThemedView style={styles.emptyContainer}>
-                  <Ionicons name="notifications-off" size={SIZES.icon.xl} color={theme.icon.secondary} />
-                  <ThemedLanguageText
-                    variant="secondary"
-                    size="medium"
-                    fontFamily="regional_secondary"
-                    style={styles.emptyText}
-                  >
+                <Box className="flex-1 justify-center items-center py-20">
+                  <Ionicons name="notifications-off" size={64} color="#6b7280" />
+                  <Text className="text-lg mt-4 text-neutral-400 font-regional_secondary text-center">
                     No notifications available
-                  </ThemedLanguageText>
-                </ThemedView>
+                  </Text>
+                </Box>
               )}
-            </ThemedView>
+            </Box>
           )}
         </ScrollView>
-      </ThemedView>
+      </Box>
     </ImageBackground>
   );
 };

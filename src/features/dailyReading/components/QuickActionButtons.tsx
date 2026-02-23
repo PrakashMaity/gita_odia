@@ -1,11 +1,9 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 interface QuickActionButtonProps {
   icon: keyof typeof Ionicons.glyphMap;
@@ -20,37 +18,33 @@ const QuickActionButton: React.FC<QuickActionButtonProps> = ({
   onPress,
   primary = false
 }) => {
-  const theme = useThemeColors();
-
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.7}
-      style={styles.buttonWrapper}
+      className="flex-1"
     >
-      <ThemedCard
-        variant="card"
-        style={[
-          styles.button,
-          ...(primary ? [{ backgroundColor: theme.status.success + '10' }] : [])
-        ]}
+      <Box
+        className={`items-center justify-center p-4 min-h-[100px] rounded-2xl border ${primary ? 'bg-white border-white' : 'bg-neutral-900 border-neutral-800'
+          }`}
       >
-        <View style={[styles.iconContainer, { backgroundColor: primary ? theme.status.success + '20' : theme.background.tertiary }]}>
+        <Box
+          className={`w-12 h-12 rounded-full items-center justify-center mb-2 ${primary ? 'bg-black/10' : 'bg-neutral-800'
+            }`}
+        >
           <Ionicons
             name={icon}
             size={24}
-            color={primary ? theme.status.success : theme.icon.primary}
+            color={primary ? 'black' : 'white'}
           />
-        </View>
-        <ThemedLanguageText
-          variant={primary ? "primary" : "secondary"}
-          size="small"
-          style={styles.label}
-          fontFamily="regional_secondary"
+        </Box>
+        <Text
+          className={`text-xs font-bold text-center font-regional_secondary ${primary ? 'text-black' : 'text-white'
+            }`}
         >
           {label}
-        </ThemedLanguageText>
-      </ThemedCard>
+        </Text>
+      </Box>
     </TouchableOpacity>
   );
 };
@@ -69,7 +63,7 @@ export const QuickActionButtons: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View className="flex-row gap-4 mt-6 mb-4">
       <QuickActionButton
         icon="book"
         label="পাঠ শুরু করুন"
@@ -89,34 +83,3 @@ export const QuickActionButtons: React.FC = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.md,
-    marginTop: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.md,
-  },
-  buttonWrapper: {
-    flex: 1,
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: SIZES.spacing.md,
-    minHeight: 100,
-  },
-  iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: SIZES.spacing.sm,
-  },
-  label: {
-    fontSize: 12,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-});

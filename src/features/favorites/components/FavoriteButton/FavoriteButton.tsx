@@ -1,13 +1,10 @@
-import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import { useFavoriteStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { styles } from './FavoriteButton.styles';
 
 interface FavoriteButtonProps {
   verseId: string;
@@ -28,12 +25,11 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   onFavoriteChange,
   onAlert,
 }) => {
-  const { theme } = useTheme();
-  const { 
-    isFavorite, 
-    addFavorite, 
-    removeFavorite, 
-    isLoading 
+  const {
+    isFavorite,
+    addFavorite,
+    removeFavorite,
+    isLoading
   } = useFavoriteStore();
 
   const [loading, setLoading] = useState(true);
@@ -65,22 +61,20 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
 
   if (loading || isLoading) {
     return (
-      <ThemedView style={styles.container}>
-        <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
+      <Box className="p-2">
+        <Text className="text-xs text-neutral-400">
           {i18n.t('common.loading')}
-        </ThemedText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
 
   return (
-    <TouchableOpacity
-      onPress={handleFavoriteToggle}
-    >
-      <Ionicons 
-        name={favoriteStatus ? "heart" : "heart-outline"} 
-        size={SIZES.icon.xxl} 
-        color={favoriteStatus ? theme.status.error : theme.icon.secondary} 
+    <TouchableOpacity onPress={handleFavoriteToggle}>
+      <Ionicons
+        name={favoriteStatus ? "heart" : "heart-outline"}
+        size={28}
+        color={favoriteStatus ? '#ef4444' : '#9ca3af'}
       />
     </TouchableOpacity>
   );

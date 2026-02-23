@@ -1,13 +1,10 @@
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import { useBookmarkStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { styles } from './BookmarkButton.styles';
 
 interface BookmarkButtonProps {
   verseId: string;
@@ -30,7 +27,6 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
   onBookmarkChange,
   onAlert,
 }) => {
-  const { theme } = useTheme();
   const {
     isBookmarked,
     addBookmark,
@@ -67,44 +63,41 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
 
   if (loading || isLoading) {
     return (
-      <ThemedView style={variant === 'icon' ? styles.iconOnly : styles.container}>
-        <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
+      <Box className={variant === 'icon' ? '' : 'p-2'}>
+        <Text className="text-xs text-neutral-400">
           {variant === 'icon' ? '...' : i18n.t('common.loading')}
-        </ThemedText>
-      </ThemedView>
+        </Text>
+      </Box>
     );
   }
+
+  const isIcon = variant === 'icon';
 
   return (
     <TouchableOpacity
       onPress={handleBookmarkToggle}
       activeOpacity={0.7}
-      style={[
-        styles.bookmarkButton,
-        variant === 'icon' && styles.iconOnly,
-        variant === 'full' && {
-          backgroundColor: bookmarkStatus ? theme.button.primary.background : theme.background.secondary,
-          borderColor: bookmarkStatus ? theme.button.primary.background : theme.border.primary,
-        }
-      ]}
+      className={
+        isIcon
+          ? ''
+          : `flex-row items-center px-4 py-2 rounded-xl border ${bookmarkStatus
+            ? 'bg-white border-white'
+            : 'bg-black border-neutral-800'
+          }`
+      }
     >
       <Ionicons
         name={bookmarkStatus ? "bookmark" : "bookmark-outline"}
-        size={variant === 'icon' ? 24 : 20}
-        color={bookmarkStatus ? (variant === 'icon' ? theme.icon.primary : theme.button.primary.text) : theme.icon.secondary}
+        size={isIcon ? 24 : 20}
+        color={bookmarkStatus ? (isIcon ? 'white' : 'black') : '#9ca3af'}
       />
-      {variant === 'full' && (
-        <ThemedLanguageText
-          fontFamily='regional_secondary'
-          variant='primary'
-          size='small'
-          style={{
-            ...styles.bookmarkText,
-            color: bookmarkStatus ? theme.button.primary.text : theme.text.primary
-          }}
+      {!isIcon && (
+        <Text
+          className={`text-sm font-medium ml-2 font-regional_secondary ${bookmarkStatus ? 'text-black' : 'text-white'
+            }`}
         >
           {bookmarkStatus ? i18n.t('bookmark.remove') : i18n.t('bookmark.add')}
-        </ThemedLanguageText>
+        </Text>
       )}
     </TouchableOpacity>
   );

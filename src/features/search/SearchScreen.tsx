@@ -1,36 +1,34 @@
-import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
-import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { PageHeader } from '@/components/shared';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
+import { LayoutImages } from '@/lib/utils/assets';
+import React from 'react';
+import { ImageBackground } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { SearchBar, SearchResults, SearchTips } from './components';
 import { useSearchNavigation } from './hooks/useSearchNavigation';
 import { useSearchOperations } from './hooks/useSearchOperations';
-import { PageHeader } from '@/components/shared';
-import { LayoutImages } from '@/lib/utils/assets';
-import { ImageBackground } from 'react-native';
-import { styles } from './SearchScreen.styles';
 
 export const SearchScreen: React.FC = () => {
-  const { theme } = useTheme();
-  const { 
-    searchQuery, 
-    searchResults, 
-    isSearching, 
-    handleSearch, 
-    handleClear 
+  const {
+    searchQuery,
+    searchResults,
+    isSearching,
+    handleSearch,
+    handleClear
   } = useSearchOperations();
   const { handleResultPress } = useSearchNavigation();
 
   return (
-    <ThemedSafeAreaView>
+    <SafeAreaView className="flex-1 bg-black" edges={['top', 'left', 'right']}>
       <ImageBackground
         source={LayoutImages.background3}
-        style={styles.backgroundImage}
+        className="flex-1 w-full"
         resizeMode="cover"
         blurRadius={2.5}
       >
-        <ThemedView variant="transparent" style={styles.container}>
+        <Box className="flex-1">
           <PageHeader
             title={i18n.t('common.search')}
             subtitle={i18n.t('search.searchTips')}
@@ -44,11 +42,11 @@ export const SearchScreen: React.FC = () => {
           />
 
           {isSearching ? (
-            <ThemedView style={styles.loadingContainer}>
-              <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
+            <Box className="flex-1 justify-center items-center">
+              <Text className="text-base text-neutral-400">
                 {i18n.t('search.searching')}
-              </ThemedText>
-            </ThemedView>
+              </Text>
+            </Box>
           ) : (
             <SearchResults
               results={searchResults}
@@ -58,10 +56,8 @@ export const SearchScreen: React.FC = () => {
           )}
 
           {searchQuery.length === 0 && <SearchTips />}
-        </ThemedView>
+        </Box>
       </ImageBackground>
-    </ThemedSafeAreaView>
+    </SafeAreaView>
   );
 };
-
-

@@ -1,10 +1,7 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
 interface StatsCardProps {
   title: string;
@@ -12,68 +9,26 @@ interface StatsCardProps {
   iconName: keyof typeof Ionicons.glyphMap;
 }
 
-export const StatsCard: React.FC<StatsCardProps> = ({ 
-  title, 
-  value, 
+export const StatsCard: React.FC<StatsCardProps> = ({
+  title,
+  value,
   iconName
 }) => {
-  const theme = useThemeColors();
-
   return (
-    <ThemedCard variant="card" style={styles.card} borderVariant="none">
-      <View style={[styles.iconContainer, { backgroundColor: theme.status.success + '15' }]}>
-        <Ionicons 
-          name={iconName} 
-          size={24} 
-          color={theme.status.success} 
+    <Box className="flex-1 items-center justify-center p-6 min-h-[130px] rounded-2xl bg-neutral-900 border border-neutral-800">
+      <Box className="w-12 h-12 rounded-full items-center justify-center mb-3 bg-neutral-800">
+        <Ionicons
+          name={iconName}
+          size={24}
+          color="white"
         />
-      </View>
-      <ThemedLanguageText
-        variant="primary"
-        size="title"
-        style={styles.value}
-        fontFamily="regional_secondary"
-      >
+      </Box>
+      <Text className="text-3xl font-bold mb-1 text-center font-regional_secondary text-white">
         {value}
-      </ThemedLanguageText>
-      <ThemedLanguageText
-        variant="secondary"
-        size="small"
-        style={styles.title}
-        fontFamily="regional_secondary"
-      >
+      </Text>
+      <Text className="text-xs font-medium text-center opacity-75 font-regional_secondary text-neutral-400">
         {title}
-      </ThemedLanguageText>
-    </ThemedCard>
+      </Text>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: SIZES.spacing.lg,
-    minHeight: 130,
-  },
-  iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: SIZES.spacing.sm,
-  },
-  value: {
-    fontSize: 28,
-    fontWeight: '700',
-    marginBottom: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  title: {
-    fontSize: 12,
-    fontWeight: '500',
-    textAlign: 'center',
-    opacity: 0.75,
-  },
-});

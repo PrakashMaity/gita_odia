@@ -3,7 +3,6 @@ import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { MangalacharanSectionCard } from '@/features/mangalacharan/components/MangalacharanSectionCard';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { useTranslationStore } from '@/store';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -17,7 +16,6 @@ import { useTranslationsOperations } from './hooks/useTranslationsOperations';
 export const TranslationsScreen: React.FC = () => {
   const { translations, isLoading, loadAllTranslations } = useTranslationStore();
   const { handleTranslationPress } = useTranslationsOperations();
-  const theme = useThemeColors();
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
@@ -26,30 +24,29 @@ export const TranslationsScreen: React.FC = () => {
 
   if (isLoading) {
     return (
-      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      <Box className="flex-1 bg-black">
         {/* Custom Modern Header */}
         <Box
-          className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
-          style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+          className="pb-4 px-4 border-b border-neutral-800 shadow-sm z-10 bg-black pt-4"
+          style={{ paddingTop: Math.max(insets.top, 20) }}
         >
           <HStack className="items-center justify-between">
             <TouchableOpacity
-              className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+              className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
               onPress={() => router.back()}
             >
-              <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+              <Ionicons name="chevron-back" size={24} color="white" />
             </TouchableOpacity>
 
             <Text
-              className="text-[20px] font-black tracking-tight flex-1 text-center"
-              style={{ fontWeight: 'bold', color: theme.text.primary }}
+              className="text-xl font-bold tracking-tight flex-1 text-center text-white"
               numberOfLines={1}
             >
               {i18n.t('menu.translations')}
             </Text>
 
             <Box className="w-10 h-10 items-center justify-center">
-              <MaterialIcons name="translate" size={24} color={theme.text.primary} />
+              <MaterialIcons name="translate" size={24} color="white" />
             </Box>
           </HStack>
         </Box>
@@ -59,44 +56,40 @@ export const TranslationsScreen: React.FC = () => {
   }
 
   return (
-    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+    <Box className="flex-1 bg-black">
       {/* Custom Modern Header */}
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
-        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+        className="pb-4 px-4 border-b border-neutral-800 shadow-sm z-10 bg-black pt-4"
+        style={{ paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <TouchableOpacity
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
             onPress={() => router.back()}
           >
-            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+            <Ionicons name="chevron-back" size={24} color="white" />
           </TouchableOpacity>
 
           <Text
-            className="text-[20px] font-black tracking-tight flex-1 text-center"
-            style={{ fontWeight: 'bold', color: theme.text.primary }}
+            className="text-xl font-bold tracking-tight flex-1 text-center text-white"
             numberOfLines={1}
           >
             {i18n.t('menu.translations')}
           </Text>
 
           <Box className="w-10 h-10 items-center justify-center">
-            <MaterialIcons name="translate" size={24} color={theme.text.primary} />
+            <MaterialIcons name="translate" size={24} color="white" />
           </Box>
         </HStack>
       </Box>
 
       <ScrollView
         className="flex-1 px-4 pt-6"
-        contentContainerStyle={{ paddingBottom: 64 }}
+        contentContainerClassName="pb-16"
         showsVerticalScrollIndicator={false}
       >
         {/* Intro Section */}
-        <Box
-          className="rounded-[24px] border border-amber-100/50 shadow-sm overflow-hidden mb-6"
-          style={{ backgroundColor: theme.background.primary }}
-        >
+        <Box className="rounded-2xl border border-neutral-800 shadow-sm overflow-hidden mb-6 bg-neutral-900">
           <MangalacharanSectionCard
             content={i18n.t('translations.intro')}
             variant="intro"
@@ -104,7 +97,7 @@ export const TranslationsScreen: React.FC = () => {
         </Box>
 
         {/* Translations List */}
-        <VStack className="mb-6">
+        <VStack className="mb-6 gap-4">
           {translations.map((translation) => (
             <TranslationCard
               key={translation.chapter.id}
@@ -115,30 +108,17 @@ export const TranslationsScreen: React.FC = () => {
         </VStack>
 
         {/* Motivational Message - Footer */}
-        <Box
-          className="rounded-[24px] border border-green-500/20 shadow-sm overflow-hidden mb-8 p-5"
-          style={{ backgroundColor: theme.background.primary }}
-        >
-          <HStack className="items-center mb-3">
-            <Box
-              className="w-1.5 h-6 rounded-[2px] mr-3"
-              style={{ backgroundColor: theme.status.success }}
-            />
-            <Text
-              className="text-[18px] font-black tracking-tight flex-1"
-              style={{ fontFamily: 'regional_secondary', color: theme.text.primary }}
-            >
+        <Box className="rounded-2xl border border-neutral-800 shadow-sm overflow-hidden mb-8 p-6 bg-neutral-900">
+          <HStack className="items-center mb-4">
+            <Box className="w-1.5 h-6 rounded-sm mr-4 bg-white" />
+            <Text className="text-lg font-bold tracking-tight flex-1 text-white font-regional_secondary">
               {i18n.t('translations.motivationTitle')}
             </Text>
           </HStack>
-          <Text
-            className="text-[15px] leading-relaxed opacity-80"
-            style={{ fontFamily: 'regional_secondary', color: theme.text.secondary }}
-          >
+          <Text className="text-base leading-6 opacity-80 text-neutral-400 font-regional_secondary">
             {i18n.t('translations.motivationText')}
           </Text>
         </Box>
-
       </ScrollView>
     </Box>
   );

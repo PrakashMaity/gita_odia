@@ -2,7 +2,6 @@ import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { ChapterImages } from '@/lib/utils/assets';
 import { TranslationData } from '@/store';
@@ -20,7 +19,6 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
   translation,
   onPress,
 }) => {
-  const theme = useThemeColors();
   const { chapter } = translation;
 
   const coverImage = useMemo(() => {
@@ -58,13 +56,10 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
       onPress={handlePress}
       className="mb-4"
     >
-      <Box
-        className="rounded-[24px] overflow-hidden border border-amber-100/40 p-3 shadow-sm"
-        style={{ backgroundColor: theme.background.primary }}
-      >
+      <Box className="rounded-auth overflow-hidden border border-neutral-800 p-3 shadow-sm bg-neutral-900">
         <HStack className="items-center">
           {/* Cover Image */}
-          <Box className="w-[72px] h-[72px] rounded-[16px] overflow-hidden bg-neutral-100 mr-4 shrink-0">
+          <Box className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-neutral-800 mr-4 shrink-0">
             <Image
               source={coverImage}
               style={{ width: '100%', height: '100%' }}
@@ -78,14 +73,14 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
           <VStack className="flex-1 justify-center">
             {chapter.subtitle && chapter.subtitle !== chapter.title && (
               <Text
-                className="text-[15px] font-bold text-neutral-800 leading-tight mb-1 tracking-tight"
+                className="text-base font-bold text-white leading-tight mb-1 tracking-tight"
                 numberOfLines={1}
               >
                 {chapter.subtitle} • {chapter.totalVerses} {i18n.t('verse.translation')}
               </Text>
             )}
             <Text
-              className="text-[13px] text-neutral-500 leading-tight"
+              className="text-sm text-neutral-400 leading-tight"
               numberOfLines={1}
             >
               {chapter.title}
@@ -93,14 +88,11 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
           </VStack>
 
           {/* Arrow */}
-          <Box
-            className="w-8 h-8 rounded-full items-center justify-center shrink-0 ml-3 border border-amber-100/50"
-            style={{ backgroundColor: theme.background.secondary }}
-          >
+          <Box className="w-8 h-8 rounded-full items-center justify-center shrink-0 ml-3 border border-neutral-800 bg-black">
             <MaterialIcons
               name="arrow-forward-ios"
               size={12}
-              color={theme.icon.primary}
+              color="white"
             />
           </Box>
         </HStack>

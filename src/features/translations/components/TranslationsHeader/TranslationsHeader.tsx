@@ -1,52 +1,36 @@
 import { ScreenHeader } from '@/components/shared/ScreenHeader';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { styles } from './TranslationsHeader.styles';
 
 export const TranslationsHeader: React.FC = () => {
-  const theme = useThemeColors();
-
   return (
     <ScreenHeader
-      containerStyle={{ backgroundColor: theme.background.secondary }}
+      containerClassName="bg-black"
       leftContent={
-        <ThemedView style={styles.leftContent}>
+        <Box className="flex-1 flex-row items-center">
           <TouchableOpacity
             onPress={() => router.back()}
-            style={[styles.backButton, { backgroundColor: theme.background.secondary }]}
+            className="w-10 h-10 rounded-full justify-center items-center mr-4 bg-black"
           >
-            <Ionicons name="arrow-back" size={SIZES.icon.sm} color={theme.icon.primary} />
+            <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
 
-          <ThemedLanguageText
-            variant="primary"
-            size="title"
-            fontFamily="regional_secondary"
-            style={styles.title}
+          <Text
+            className="flex-shrink text-white text-xl font-bold font-regional_secondary"
           >
             {i18n.t('menu.translations')}
-          </ThemedLanguageText>
-        </ThemedView>
+          </Text>
+        </Box>
       }
       rightContent={
-        <ThemedView
-          style={[
-            styles.actionButton,
-            {
-              backgroundColor: theme.background.secondary,
-              borderColor: theme.border.primary,
-            },
-          ]}
-        >
-          <MaterialIcons name="translate" size={SIZES.icon.sm} color={theme.icon.primary} />
-        </ThemedView>
+        <Box className="w-10 h-10 rounded-full justify-center items-center border border-neutral-800 bg-black">
+          <MaterialIcons name="translate" size={24} color="white" />
+        </Box>
       }
     />
   );

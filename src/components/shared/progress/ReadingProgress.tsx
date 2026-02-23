@@ -1,14 +1,11 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
-import { useProgressStore } from '@/store';
 import { formatLastReadDate } from '@/lib/utils/dateUtils';
+import { useProgressStore } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 interface ReadingProgressProps {
   chapterId: string;
@@ -25,13 +22,12 @@ export default function ReadingProgress({
   onProgressUpdate,
   onAlert,
 }: ReadingProgressProps) {
-  const { theme } = useTheme();
-  const { 
-    progress, 
-    isLoading, 
-    loadProgress, 
-    resetChapterProgress, 
-    getProgressPercentage 
+  const {
+    progress,
+    isLoading,
+    loadProgress,
+    resetChapterProgress,
+    getProgressPercentage
   } = useProgressStore();
 
   useEffect(() => {
@@ -57,123 +53,56 @@ export default function ReadingProgress({
 
   if (isLoading) {
     return (
-      <ThemedView style={styles.container}>
-        <ThemedLanguageText 
-          variant="secondary" 
-          size="small"
-          fontFamily="regional_secondary"
-        >
+      <View className="mb-6">
+        <Text className="text-sm text-center text-neutral-400 font-regional_secondary">
           {i18n.t('common.loading')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </View>
     );
   }
 
   if (!chapterProgress) {
     return (
-      <ThemedView style={styles.container}>
-        <ThemedLanguageText fontFamily='regional_secondary' variant="tertiary" size="small">
+      <View className="mb-6">
+        <Text className="text-sm text-center text-neutral-500 font-regional_secondary">
           {i18n.t('progress.notStarted')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </View>
     );
   }
 
   return (
-    <ThemedCard variant="primary" style={styles.container}>
-      <ThemedView style={styles.progressHeader}>
-        <ThemedLanguageText fontFamily='regional_secondary' variant="primary" size="xl" style={styles.progressTitle}>
+    <Box className="mb-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+      <View className="flex-row justify-between items-center mb-2">
+        <Text className="text-xl font-bold text-white font-regional_secondary">
           {i18n.t('progress.readingProgress')}
-        </ThemedLanguageText>
-        <TouchableOpacity onPress={resetProgress} style={styles.resetButton}>
-          <Ionicons name="refresh-outline" size={SIZES.icon.md} color={theme.icon.primary} />
+        </Text>
+        <TouchableOpacity onPress={resetProgress} className="p-1">
+          <Ionicons name="refresh-outline" size={24} color="white" />
         </TouchableOpacity>
-      </ThemedView>
+      </View>
 
-      <ThemedLanguageText variant="secondary" fontFamily='regional_secondary' size="medium" style={styles.progressSubtitle}>
+      <Text className="text-base text-neutral-400 mb-4 font-regional_secondary">
         {i18n.t('progress.lastRead', { date: chapterProgress ? formatLastReadDate(chapterProgress.lastReadDate) : '' })}
-      </ThemedLanguageText>
+      </Text>
 
-      <ThemedView style={styles.progressBarContainer}>
-        <ThemedView style={[styles.progressBar, { backgroundColor: theme.background.tertiary }]}>
-          <ThemedView style={[
-            styles.progressFill,
-            { 
-              backgroundColor: theme.button.primary.background,
-              width: `${getProgressPercentageValue()}%` 
-            }
-          ]} />
-        </ThemedView>
-        
-      
-      </ThemedView>
+      <View className="mb-2">
+        <View className="h-1.5 rounded-full overflow-hidden mb-2 bg-neutral-800">
+          <View
+            className="h-full rounded-full bg-white"
+            style={{ width: `${getProgressPercentageValue()}%` }}
+          />
+        </View>
+      </View>
 
       {chapterProgress.isCompleted && (
-        <ThemedView style={styles.completionBadge}>
-          <Ionicons name="checkmark-circle" size={SIZES.icon.sm} color={theme.icon.success} />
-          <ThemedLanguageText fontFamily='regional_secondary' variant="success" size="small" style={styles.completionText}>
-{i18n.t('progress.chapterComplete')}
-          </ThemedLanguageText>
-        </ThemedView>
+        <View className="flex-row items-center justify-center mt-2">
+          <Ionicons name="checkmark-circle" size={16} color="white" />
+          <Text className="text-sm font-bold ml-2 text-white font-regional_secondary">
+            {i18n.t('progress.chapterComplete')}
+          </Text>
+        </View>
       )}
-    </ThemedCard>
+    </Box>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: SIZES.spacing.lg,
-  },
-  loadingText: {
-    fontSize: SIZES.sm,
-    textAlign: 'center',
-  },
-  noProgressText: {
-    fontSize: SIZES.sm,
-    textAlign: 'center',
-  },
-  progressHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.sm,
-  },
-  progressTitle: {
-  
-  },
-  progressSubtitle: {
-    fontSize: SIZES.md,
-    marginBottom: SIZES.spacing.md,
-  },
-  resetButton: {
-    padding: SIZES.spacing.xs,
-  },
-  progressBarContainer: {
-    marginBottom: SIZES.spacing.sm,
-  },
-  progressBar: {
-    height: SIZES.spacing.xs,
-    borderRadius: SIZES.radius.xs,
-    overflow: 'hidden',
-    marginBottom: SIZES.spacing.sm,
-  },
-  progressFill: {
-    height: '100%',
-    borderRadius: SIZES.radius.xs,
-  },
-  progressText: {
-    fontSize: SIZES.sm,
-    textAlign: 'right',
-  },
-  completionBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: SIZES.spacing.sm,
-  },
-  completionText: {
-    fontSize: SIZES.sm,
-    fontWeight: 'bold',
-    marginLeft: SIZES.spacing.sm,
-  },
-});

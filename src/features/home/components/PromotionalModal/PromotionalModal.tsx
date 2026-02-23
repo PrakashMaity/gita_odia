@@ -1,356 +1,236 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, TouchableOpacity, TouchableWithoutFeedback, ScrollView, Dimensions, View, Image, ActivityIndicator } from 'react-native';
-import { BlurView } from 'expo-blur';
+import { Box } from '@/components/ui/box';
+import { Button, ButtonText } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router } from 'expo-router';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useThemeColors } from '@/hooks/useTheme';
-import { SIZES } from '@/rootconstants/sizes';
-import { Ionicons } from '@expo/vector-icons';
-import { fetchPromotions, type Promotion } from '@/services/promotionService';
-import { styles } from './PromotionalModal.styles';
+import React, { useEffect, useState } from 'react';
+import { Modal, ScrollView, TouchableOpacity } from 'react-native';
 
-interface PromotionalModalProps {
-  visible: boolean;
-  onClose: () => void;
+// Define the shape of promotional content
+interface PromotionContent {
+  id: string;
+  title: string;
+  subtitle: string;
+  features: string[];
+  ctaText: string;
+  ctaAction: () => void;
+  icon: keyof typeof Ionicons.glyphMap;
+  theme: 'primary' | 'secondary' | 'accent';
+  endDate?: Date;
 }
 
-const getItemIcon = (type: Promotion['type']) => {
-  switch (type) {
-    case 'promotion':
-      return 'gift';
-    case 'update':
-      return 'notifications';
-    default:
-      return 'information-circle';
-  }
-};
+const PROMO_SHOWN_KEY = '@promo_shown_status';
+const PROMO_LAST_SHOWN_KEY = '@promo_last_shown_date';
+const PROMO_COOLDOWN_DAYS = 3;
 
-const getItemColor = (type: Promotion['type'], theme: ReturnType<typeof useThemeColors>) => {
-  switch (type) {
-    case 'promotion':
-      return theme.icon.secondary;
-    case 'update':
-      return theme.icon.primary;
-    default:
-      return theme.icon.primary;
-  }
-};
+interface PromotionalModalProps {
+  isVisible: boolean;
+  onClose: () => void;
+  mockContent?: PromotionContent; // For testing/forcing specific content
+}
 
-/**
- * Handle navigation based on navigation URL
- */
-const handleNavigation = (navigationUrl?: string) => {
-  if (!navigationUrl) return;
-  
-  try {
-    // Remove leading slash if present
-    const path = navigationUrl.startsWith('/') ? navigationUrl.slice(1) : navigationUrl;
-    const normalizedPath = `/${path}`;
+export const PromotionalModal: React.FC<PromotionalModalProps> = ({
+  isVisible,
+  onClose,
+  mockContent,
+}) => {
+  const [shouldShow, setShouldShow] = useState(false);
+  const [currentPromo, setCurrentPromo] = useState<PromotionContent | null>(null);
 
-    // Handle different navigation patterns
-    if (path.startsWith('chapter/')) {
-      // Extract chapter number from path like "chapter/1" or "chapter/1?verse=5"
-      router.push(normalizedPath as never);
-    } else if (path.startsWith('translation/')) {
-      router.push(normalizedPath as never);
-    } else if (path.startsWith('(tabs)/')) {
-      // Handle tab routes
-      router.push(normalizedPath as never);
-    } else {
-      // Generic route
-      router.push(normalizedPath as never);
-    }
-  } catch (error) {
-    console.error('Error navigating:', error);
-  }
-};
-
-export const PromotionalModal: React.FC<PromotionalModalProps> = ({ visible, onClose }) => {
-  const theme = useThemeColors();
-  const screenData = Dimensions.get('screen');
-  const { width, height } = screenData;
-  const [promotions, setPromotions] = useState<Promotion[]>([]);
-  const [loading, setLoading] = useState(false);
+  // Default promotional content (e.g., Premium Subscription)
+  const defaultPromo: PromotionContent = {
+    id: 'premium_launch_v1',
+    title: 'Unlock Premium Features',
+    subtitle: 'Enhance your spiritual journey with exclusive features and ad-free experience.',
+    features: [
+      'Ad-free reading experience',
+      'Advanced search & filtering',
+      'Unlimited bookmarks & notes',
+      'Offline access to all translations',
+      'Priority support',
+    ],
+    ctaText: 'View Premium Plans',
+    ctaAction: () => {
+      onClose();
+      router.push('/subscription');
+    },
+    icon: 'star',
+    theme: 'primary',
+  };
 
   useEffect(() => {
-    if (visible) {
-      loadPromotions();
-    }
-  }, [visible]);
+    checkPromoEligibility();
+  }, [isVisible]);
 
-  const loadPromotions = async () => {
+  const checkPromoEligibility = async () => {
+    if (!isVisible) return;
+
     try {
-      setLoading(true);
-      const fetchedPromotions = await fetchPromotions();
-      setPromotions(fetchedPromotions);
-      
-      // If no promotions found after loading, close the modal
-      if (fetchedPromotions.length === 0) {
-        setTimeout(() => {
-          onClose();
-        }, 100);
+      // If mock content provided, always show
+      if (mockContent) {
+        setCurrentPromo(mockContent);
+        setShouldShow(true);
+        return;
+      }
+
+      const activePromo = defaultPromo;
+
+      // Check if we have an active promo
+      if (!activePromo) {
+        setShouldShow(false);
+        return;
+      }
+
+      // Check if promo has expired
+      if (activePromo.endDate && new Date() > activePromo.endDate) {
+        setShouldShow(false);
+        return;
+      }
+
+      const statusMapString = await AsyncStorage.getItem(PROMO_SHOWN_KEY);
+      const lastShownString = await AsyncStorage.getItem(PROMO_LAST_SHOWN_KEY);
+
+      const statusMap = statusMapString ? JSON.parse(statusMapString) : {};
+
+      // If user has permanently dismissed this specific promo
+      if (statusMap[activePromo.id] === 'dismissed') {
+        setShouldShow(false);
+        return;
+      }
+
+      // Check cooldown period
+      if (lastShownString) {
+        const lastShown = new Date(lastShownString);
+        const daysSinceLastShown = (new Date().getTime() - lastShown.getTime()) / (1000 * 3600 * 24);
+
+        if (daysSinceLastShown < PROMO_COOLDOWN_DAYS) {
+          setShouldShow(false);
+          return;
+        }
+      }
+
+      // If we passed all checks, show the promo
+      setCurrentPromo(activePromo);
+      setShouldShow(true);
+
+      // Record show time
+      await AsyncStorage.setItem(PROMO_LAST_SHOWN_KEY, new Date().toISOString());
+
+    } catch (error) {
+      console.error('Error checking promo eligibility:', error);
+      setShouldShow(false);
+    }
+  };
+
+  const handleDismiss = async (permanently: boolean = false) => {
+    try {
+      if (permanently && currentPromo) {
+        const statusMapString = await AsyncStorage.getItem(PROMO_SHOWN_KEY);
+        const statusMap = statusMapString ? JSON.parse(statusMapString) : {};
+
+        statusMap[currentPromo.id] = 'dismissed';
+        await AsyncStorage.setItem(PROMO_SHOWN_KEY, JSON.stringify(statusMap));
       }
     } catch (error) {
-      console.error('[PromotionalModal] Error loading promotions:', error);
-      setPromotions([]);
-      // Close modal on error
-      setTimeout(() => {
-        onClose();
-      }, 100);
+      console.error('Error recording promo dismissal:', error);
     } finally {
-      setLoading(false);
+      onClose();
     }
   };
 
-  const handleBackdropPress = () => {
-    onClose();
-  };
-
-  const handleItemPress = (promotion: Promotion) => {
-    if (promotion.navigationUrl) {
-      handleNavigation(promotion.navigationUrl);
-      onClose(); // Close modal after navigation
-    }
-  };
-
-  const renderItem = (item: Promotion) => {
-    const isPromotion = item.type === 'promotion';
-    const iconName = getItemIcon(item.type);
-    const iconColor = getItemColor(item.type, theme);
-    const hasNavigation = !!item.navigationUrl;
-    
-    const ItemWrapper = hasNavigation ? TouchableOpacity : ThemedView;
-    const wrapperProps = hasNavigation 
-      ? { onPress: () => handleItemPress(item), activeOpacity: 0.7 }
-      : {};
-    
-    return (
-      <ItemWrapper
-        key={item.id}
-        {...wrapperProps}
-      >
-        <ThemedView
-          variant="card"
-          style={[
-            styles.itemContainer,
-            {
-              backgroundColor: isPromotion 
-                ? theme.background.quaternary 
-                : theme.background.card,
-              borderColor: isPromotion 
-                ? theme.border.primary 
-                : theme.border.secondary,
-              borderLeftWidth: isPromotion ? 4 : 1,
-            },
-          ]}
-        >
-          {item.imageUrl && (
-            <Image
-              source={{ uri: item.imageUrl }}
-              style={styles.promotionImage}
-              resizeMode="cover"
-            />
-          )}
-          <ThemedView style={styles.itemHeader}>
-            <ThemedView
-              style={[
-                styles.iconContainer,
-                {
-                  backgroundColor: isPromotion 
-                    ? theme.background.tertiary 
-                    : theme.background.secondary,
-                },
-              ]}
-            >
-              <Ionicons
-                name={iconName}
-                size={SIZES.icon.lg}
-                color={iconColor}
-              />
-            </ThemedView>
-            <ThemedView style={styles.contentContainer}>
-              <ThemedView style={styles.titleRow}>
-                <ThemedLanguageText
-                  variant="primary"
-                  size="large"
-                  fontFamily="regional_secondary"
-                  style={[styles.itemTitle, { fontWeight: 'bold' }]}
-                >
-                  {item.title}
-                </ThemedLanguageText>
-              </ThemedView>
-              <ThemedLanguageText
-                variant="secondary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.itemDescription}
-              >
-                {item.description}
-              </ThemedLanguageText>
-              <ThemedView style={styles.badgeContainer}>
-                <ThemedView
-                  style={[
-                    styles.badge,
-                    {
-                      backgroundColor: isPromotion 
-                        ? theme.background.tertiary 
-                        : theme.background.secondary,
-                    },
-                  ]}
-                >
-                  <ThemedLanguageText
-                    variant={isPromotion ? 'primary' : 'secondary'}
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.badgeText}
-                  >
-                    {isPromotion ? 'Promotion' : 'Update'}
-                  </ThemedLanguageText>
-                </ThemedView>
-                {hasNavigation && (
-                  <Ionicons
-                    name="arrow-forward"
-                    size={SIZES.icon.sm}
-                    color={theme.icon.primary}
-                    style={styles.navigationIcon}
-                  />
-                )}
-              </ThemedView>
-            </ThemedView>
-          </ThemedView>
-        </ThemedView>
-      </ItemWrapper>
-    );
-  };
-
-  if (!visible) return null;
+  if (!shouldShow || !currentPromo) return null;
 
   return (
     <Modal
+      visible={isVisible && shouldShow}
       transparent
-      visible={visible}
       animationType="fade"
-      statusBarTranslucent
-      onRequestClose={onClose}
+      onRequestClose={() => handleDismiss(false)}
     >
-      <View style={[styles.backdrop, { width, height }]}>
-        <TouchableWithoutFeedback onPress={handleBackdropPress}>
-          <BlurView
-            intensity={80}
-            tint="dark"
-            style={[styles.backdropTouchable, { width, height }]}
-          >
-            <View style={[styles.blurOverlay, { width, height, backgroundColor: 'rgba(0, 0, 0, 0.3)' }]} />
-          </BlurView>
-        </TouchableWithoutFeedback>
-        
-        <TouchableWithoutFeedback>
-          <ThemedView
-            style={[
-              styles.modalContainer,
-              {
-                backgroundColor: theme.background.secondary,
-                maxWidth: width * 0.92,
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: SIZES.shadow.xl,
-                },
-                shadowOpacity: 0.3,
-                shadowRadius: SIZES.shadow.lg,
-                elevation: 15,
-                zIndex: 1000,
-                position: 'relative',
-              },
-            ]}
-          >
-              <ThemedView 
-                style={[
-                  styles.modalHeader,
-                  { borderBottomColor: theme.border.secondary },
-                ]}
-              >
-                <ThemedView style={styles.headerTitleContainer}>
-                  <ThemedView
-                    style={[
-                      styles.headerIconContainer,
-                      { backgroundColor: theme.background.tertiary },
-                    ]}
-                  >
-                    <Ionicons
-                      name="notifications"
-                      size={SIZES.icon.lg}
-                      color={theme.icon.primary}
-                    />
-                  </ThemedView>
-                  <ThemedLanguageText
-                    variant="primary"
-                    size="title"
-                    fontFamily="regional_secondary"
-                    style={styles.modalTitle}
-                  >
-                    Updates & Promotions
-                  </ThemedLanguageText>
-                </ThemedView>
-                <TouchableOpacity
-                  onPress={onClose}
-                  style={[
-                    styles.closeButton,
-                    { backgroundColor: theme.background.tertiary },
-                  ]}
-                >
-                  <Ionicons
-                    name="close"
-                    size={SIZES.icon.md}
-                    color={theme.icon.primary}
-                  />
-                </TouchableOpacity>
-              </ThemedView>
+      <Box className="flex-1 justify-center items-center bg-black/60 p-4">
+        {/* Backdrop overlay to close on tap outside */}
+        <TouchableOpacity
+          className="absolute inset-0 w-full h-full"
+          activeOpacity={1}
+          onPress={() => handleDismiss(false)}
+        />
 
-              <ScrollView
-                style={styles.scrollView}
-                contentContainerStyle={styles.scrollContent}
-                showsVerticalScrollIndicator={false}
+        <Box className="w-full max-w-md bg-neutral-900 rounded-[32px] overflow-hidden border border-neutral-800 shadow-xl m-4 z-10">
+          <ScrollView
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+            contentContainerClassName="pb-6"
+          >
+            {/* Header / Graphic Area */}
+            <Box className="pt-10 pb-6 px-6 items-center border-b border-neutral-800/50 relative">
+              <Box className="w-16 h-16 rounded-full bg-neutral-800 items-center justify-center mb-6 border border-neutral-700">
+                <Ionicons
+                  name={currentPromo.icon}
+                  size={32}
+                  color="white"
+                />
+              </Box>
+
+              <Text className="text-2xl font-bold text-center text-white mb-2 font-regional_secondary">
+                {currentPromo.title}
+              </Text>
+
+              <Text className="text-sm text-center text-neutral-400 font-regional_secondary leading-5">
+                {currentPromo.subtitle}
+              </Text>
+            </Box>
+
+            {/* Features List */}
+            <Box className="px-6 py-6 border-b border-neutral-800/50">
+              {currentPromo.features.map((feature, index) => (
+                <Box key={index} className="flex-row items-center mb-4">
+                  <MaterialIcons
+                    name="check-circle"
+                    size={20}
+                    color="white"
+                    style={{ marginRight: 16 }}
+                  />
+                  <Text className="flex-1 text-base text-neutral-300 font-regional_secondary">
+                    {feature}
+                  </Text>
+                </Box>
+              ))}
+            </Box>
+
+            {/* Footer / Actions */}
+            <Box className="px-6 pt-6 gap-3">
+              <Button
+                size="xl"
+                className="w-full bg-white rounded-2xl"
+                onPress={currentPromo.ctaAction}
               >
-                {loading ? (
-                  <ThemedView style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color={theme.icon.primary} />
-                    <ThemedLanguageText
-                      variant="secondary"
-                      size="medium"
-                      fontFamily="regional_secondary"
-                      style={styles.loadingText}
-                    >
-                      Loading promotions...
-                    </ThemedLanguageText>
-                  </ThemedView>
-                ) : promotions.length === 0 ? (
-                  <ThemedView style={styles.emptyContainer}>
-                    <Ionicons
-                      name="notifications-outline"
-                      size={SIZES.icon.xl}
-                      color={theme.icon.secondary}
-                    />
-                    <ThemedLanguageText
-                      variant="secondary"
-                      size="large"
-                      fontFamily="regional_secondary"
-                      style={styles.emptyText}
-                    >
-                      No promotions available
-                    </ThemedLanguageText>
-                  </ThemedView>
-                ) : (
-                  <ThemedView style={styles.itemsList}>
-                    {promotions.map(renderItem)}
-                  </ThemedView>
-                )}
-              </ScrollView>
-            </ThemedView>
-        </TouchableWithoutFeedback>
-      </View>
+                <ButtonText className="text-black font-bold text-base font-regional_secondary">
+                  {currentPromo.ctaText}
+                </ButtonText>
+              </Button>
+
+              <Button
+                variant="link"
+                className="w-full"
+                onPress={() => handleDismiss(true)}
+              >
+                <ButtonText className="text-neutral-400 text-sm font-regional_secondary">
+                  No thanks, maybe later
+                </ButtonText>
+              </Button>
+            </Box>
+          </ScrollView>
+
+          {/* Close Button (Top Right) */}
+          <TouchableOpacity
+            className="absolute top-4 right-4 w-10 h-10 items-center justify-center rounded-full bg-black/20"
+            onPress={() => handleDismiss(false)}
+          >
+            <Ionicons name="close" size={24} color="#9ca3af" />
+          </TouchableOpacity>
+        </Box>
+      </Box>
     </Modal>
   );
 };
-

@@ -1,11 +1,9 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
-import { SIZES } from '@/rootconstants/sizes';
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useRef } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, View } from 'react-native';
 
 interface StreakCardProps {
   currentStreak: number;
@@ -16,7 +14,6 @@ export const StreakCard: React.FC<StreakCardProps> = ({
   currentStreak,
   longestStreak,
 }) => {
-  const theme = useThemeColors();
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -33,100 +30,39 @@ export const StreakCard: React.FC<StreakCardProps> = ({
 
   return (
     <Animated.View style={animatedStyle}>
-      <ThemedCard variant="card" style={styles.card}>
-        <View style={styles.content}>
-          <View style={[styles.iconContainer, { backgroundColor: theme.status.warning + '15' }]}>
-            <Ionicons 
-              name="flame" 
-              size={40} 
-              color={theme.status.warning} 
+      <Box className="w-full mt-6 mb-4 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+        <View className="items-center justify-center">
+          <Box className="w-16 h-16 rounded-full items-center justify-center mb-4 border border-white bg-black">
+            <Ionicons
+              name="flame"
+              size={32}
+              color="white"
             />
-          </View>
-          
-          <ThemedLanguageText
-            variant="primary"
-            size="title"
-            style={styles.streakNumber}
-            fontFamily="regional_secondary"
-          >
+          </Box>
+
+          <Text className="text-[56px] font-bold mb-1 text-center font-regional_secondary text-white">
             {currentStreak}
-          </ThemedLanguageText>
-          
-          <ThemedLanguageText
-            variant="secondary"
-            size="medium"
-            style={styles.streakLabel}
-            fontFamily="regional_secondary"
-          >
+          </Text>
+
+          <Text className="text-base font-medium text-center mb-2 opacity-80 font-regional_secondary text-neutral-400">
             {i18n.t('dailyReading.streakLabel')}
-          </ThemedLanguageText>
-          
+          </Text>
+
           {longestStreak > currentStreak && (
-            <View style={styles.longestStreakContainer}>
-              <Ionicons 
-                name="trophy-outline" 
-                size={16} 
-                color={theme.icon.secondary} 
+            <View className="flex-row items-center mt-1 px-4 py-1.5 rounded-lg border border-neutral-800 bg-black">
+              <Ionicons
+                name="trophy-outline"
+                size={16}
+                color="white"
+                className="mr-2"
               />
-              <ThemedLanguageText
-                variant="secondary"
-                size="small"
-                style={styles.longestStreak}
-                fontFamily="regional_secondary"
-              >
+              <Text className="text-[13px] opacity-70 font-regional_secondary text-neutral-400 ml-1">
                 {i18n.t('dailyReading.longestStreakLabel', { count: longestStreak })}
-              </ThemedLanguageText>
+              </Text>
             </View>
           )}
         </View>
-      </ThemedCard>
+      </Box>
     </Animated.View>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    width: '100%',
-    marginTop: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.md,
-    padding: SIZES.spacing.xl,
-  },
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  iconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: SIZES.spacing.md,
-  },
-  streakNumber: {
-    fontSize: 56,
-    fontWeight: '700',
-    marginBottom: SIZES.spacing.xs,
-    textAlign: 'center',
-  },
-  streakLabel: {
-    fontSize: 16,
-    fontWeight: '500',
-    textAlign: 'center',
-    marginBottom: SIZES.spacing.sm,
-    opacity: 0.8,
-  },
-  longestStreakContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: SIZES.spacing.xs,
-    paddingHorizontal: SIZES.spacing.md,
-    paddingVertical: SIZES.spacing.xs,
-    borderRadius: SIZES.radius.md,
-    gap: SIZES.spacing.xs,
-  },
-  longestStreak: {
-    fontSize: 13,
-    opacity: 0.7,
-  },
-});

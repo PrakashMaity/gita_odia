@@ -1,9 +1,8 @@
-import { ThemedButton } from '@/components/ui/ThemedButton/ThemedButton';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Button, ButtonText } from '@/components/ui/button';
+import { HStack } from '@/components/ui/hstack';
 import i18n from '@/lib/i18n';
 import React from 'react';
-import { styles } from './OnboardingNavigation.styles';
 
 interface OnboardingNavigationProps {
   currentSlide: number;
@@ -22,47 +21,43 @@ export const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
   onPrevious,
   onNext,
 }) => {
-  const theme = useThemeColors();
-
   return (
-    <ThemedView style={styles.container}>
-      <ThemedView style={styles.pageIndicators}>
+    <Box className="px-6 py-6 pb-8">
+      <HStack className="justify-center items-center mb-8 gap-2">
         {Array.from({ length: totalSlides }).map((_, index) => (
-          <ThemedView
+          <Box
             key={index}
-            style={[
-              styles.indicator,
-              {
-                backgroundColor: index === currentSlide 
-                  ? theme.button.primary.background 
-                  : theme.border.tertiary,
-                width: index === currentSlide ? 24 : 8,
-              }
-            ]}
+            className={`h-2 rounded-full ${index === currentSlide ? 'bg-white w-6' : 'bg-neutral-800 w-2'
+              }`}
           />
         ))}
-      </ThemedView>
+      </HStack>
 
-      <ThemedView style={styles.navigationButtons}>
+      <HStack className="justify-between items-center gap-4">
         {!isFirstSlide && (
-          <ThemedButton
-            title={i18n.t('onboarding.previous')}
+          <Button
             onPress={onPrevious}
             variant="outline"
             size="md"
-            style={styles.navButton}
-          />
+            className="flex-1 bg-neutral-800 border border-neutral-700 rounded-xl py-4"
+          >
+            <ButtonText className="text-white font-semibold">
+              {i18n.t('onboarding.previous')}
+            </ButtonText>
+          </Button>
         )}
-        
-        <ThemedButton
-          title={isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
+
+        <Button
           onPress={onNext}
-          variant="primary"
           size="md"
-          style={styles.primaryButton}
-        />
-      </ThemedView>
-    </ThemedView>
+          className="flex-2 bg-white rounded-xl py-4"
+        >
+          <ButtonText className="text-black font-semibold">
+            {isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
+          </ButtonText>
+        </Button>
+      </HStack>
+    </Box>
   );
 };
 

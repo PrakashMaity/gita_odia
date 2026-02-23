@@ -1,18 +1,16 @@
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { AnimatedSplash } from '@/components/ui/AnimatedSplash';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
-import ThemedSafeAreaView from '@/components/ui/ThemedSafeAreaView/ThemedSafeAreaView';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { TRANSITION_ANIMATIONS } from '@/constants/navigationTransitions';
 import { useRatingPrompter } from '@/hooks/useRatingPrompter';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
+import { ClientFonts } from '@/lib/utils/assets';
 import { initializeAds } from '@/services/ads/initializeAds';
 import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
 import { initializeFirebase } from '@/services/firebase/initializeFirebase';
 import { fetchNotificationsWithRetry } from '@/services/notificationService';
 import { registerDeviceForPushNotifications, setupFCMNotificationHandlers } from '@/services/pushNotifications';
 import { useChapterStore } from '@/store';
-import { ClientFonts } from '@/lib/utils/assets';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -20,6 +18,7 @@ import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { PermissionsAndroid, Platform, StatusBar as RNStatusBar, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import '../global.css';
 
@@ -179,8 +178,8 @@ export default function RootLayout() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <GluestackUIProvider mode="light">
           <ThemeProvider>
-            <ThemedSafeAreaView variant='tertiary'>
-              <ThemedView variant='secondary' style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }} edges={['top', 'left', 'right']}>
+              <View style={{ flex: 1, backgroundColor: 'black' }}>
                 <ThemedStatusBar />
                 <Stack
                   screenOptions={{
@@ -314,8 +313,8 @@ export default function RootLayout() {
                     }}
                   />
                 </Stack>
-              </ThemedView>
-            </ThemedSafeAreaView>
+              </View>
+            </SafeAreaView>
           </ThemeProvider>
         </GluestackUIProvider>
       </GestureHandlerRootView>

@@ -1,11 +1,9 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { SIZES } from '@/rootconstants/sizes';
-import { useThemeColors } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { StyleSheet, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { View } from 'react-native';
 
 const PRO_BENEFITS = [
   'subscription.features.adFree',
@@ -15,87 +13,34 @@ const PRO_BENEFITS = [
 ];
 
 export const ProBenefitsSection: React.FC = () => {
-  const theme = useThemeColors();
-
   return (
-    <ThemedCard
-      variant="primary"
-      style={styles.container}
-      pattern="sacredGeometry"
-      patternOpacity={0.12}
-    >
-      <ThemedView style={styles.header}>
-        <MaterialIcons 
-          name="workspace-premium" 
-          size={SIZES.icon.xl} 
-          color={theme.icon.primary}
+    <Box className="mx-6 mb-8 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+      <View className="flex-row items-center justify-center mb-6 space-x-3">
+        <MaterialIcons
+          name="workspace-premium"
+          size={32}
+          color="white"
         />
-        <ThemedLanguageText
-          variant="primary"
-          size="xl"
-          fontFamily="regional_secondary"
-          style={styles.title}
-        >
+        <Text className="text-xl font-bold text-center text-white font-regional_secondary">
           {i18n.t('subscription.features.title')}
-        </ThemedLanguageText>
-      </ThemedView>
+        </Text>
+      </View>
 
-      <View style={styles.benefitsList}>
+      <View className="space-y-4">
         {PRO_BENEFITS.map((benefitKey, index) => (
-          <View key={index} style={styles.benefitItem}>
-            <MaterialIcons 
-              name="check-circle" 
-              size={SIZES.icon.lg} 
-              color={theme.button.primary.background}
-              style={styles.checkIcon}
+          <View key={index} className="flex-row items-center py-1">
+            <MaterialIcons
+              name="check-circle"
+              size={24}
+              color="white"
+              className="mr-4"
             />
-            <ThemedLanguageText
-              variant="secondary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.benefitText}
-            >
+            <Text className="flex-1 text-[15px] leading-6 text-neutral-400 font-regional_secondary">
               {i18n.t(benefitKey)}
-            </ThemedLanguageText>
+            </Text>
           </View>
         ))}
       </View>
-    </ThemedCard>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: SIZES.spacing.lg,
-    marginBottom: SIZES.spacing.xl,
-    padding: SIZES.spacing.xl,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: SIZES.spacing.lg,
-    gap: SIZES.spacing.md,
-  },
-  title: {
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  benefitsList: {
-    gap: SIZES.spacing.md,
-  },
-  benefitItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: SIZES.spacing.xs,
-  },
-  checkIcon: {
-    marginRight: SIZES.spacing.md,
-  },
-  benefitText: {
-    flex: 1,
-    fontSize: 15,
-    lineHeight: 22,
-  },
-});
-

@@ -1,40 +1,36 @@
-import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import i18n from '@/lib/i18n';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { styles } from './SearchTips.styles';
 
 export const SearchTips: React.FC = () => {
-  const { theme } = useTheme();
-
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText style={{ ...styles.tipsTitle, color: theme.text.primary }}>
+    <Box className="px-6 pt-8">
+      <Text className="text-lg font-semibold mb-4 text-white font-regional_secondary">
         {i18n.t('search.searchTips')}
-      </ThemedText>
-      <ThemedView style={styles.tipsList}>
-        <ThemedView style={styles.tipItem}>
-          <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
-          <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
+      </Text>
+      <Box className="gap-2">
+        <Box className="flex-row items-center gap-2">
+          <Ionicons name="checkmark-circle" size={16} color="white" />
+          <Text className="text-base flex-1 text-neutral-400 font-regional_secondary">
             {i18n.t('search.minCharacters')}
-          </ThemedText>
-        </ThemedView>
-        <ThemedView style={styles.tipItem}>
-          <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
-          <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
+          </Text>
+        </Box>
+        <Box className="flex-row items-center gap-2">
+          <Ionicons name="checkmark-circle" size={16} color="white" />
+          <Text className="text-base flex-1 text-neutral-400 font-regional_secondary">
             {i18n.t('search.searchIn')}
-          </ThemedText>
-        </ThemedView>
-        <ThemedView style={styles.tipItem}>
-          <Ionicons name="checkmark-circle" size={16} color={theme.icon.success} />
-          <ThemedText style={{ ...styles.tipText, color: theme.text.secondary }}>
+          </Text>
+        </Box>
+        <Box className="flex-row items-center gap-2">
+          <Ionicons name="checkmark-circle" size={16} color="white" />
+          <Text className="text-base flex-1 text-neutral-400 font-regional_secondary">
             {i18n.t('search.tapToGo')}
-          </ThemedText>
-        </ThemedView>
-      </ThemedView>
-    </ThemedView>
+          </Text>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,14 +1,11 @@
 import { ScreenHeader } from '@/components/shared/ScreenHeader';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { useThemeColors } from '@/hooks/useTheme';
-import { PageHeaderProps } from '@/types/screen.interface';
-import { SIZES } from '@/rootconstants/sizes';
+import { Text } from '@/components/ui/text';
 import { HomeImages } from '@/lib/utils/assets';
+import { PageHeaderProps } from '@/types/screen.interface';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { TouchableOpacity } from 'react-native';
-import { styles } from './PageHeader.styles';
+import React from 'react';
+import { TouchableOpacity, View } from 'react-native';
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
   title,
@@ -17,8 +14,6 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   rightAction,
   onBack,
 }) => {
-  const theme = useThemeColors();
-
   const handleBack = () => {
     if (onBack) {
       onBack();
@@ -31,60 +26,37 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     <ScreenHeader
       backgroundSource={HomeImages.hero}
       blurRadius={3}
-      containerStyle={[
-        styles.headerContainer,
-        { backgroundColor: theme.background.secondary },
-      ]}
-      contentStyle={styles.headerContent}
-      leftSectionStyle={styles.leftContent}
-      rightSectionStyle={styles.rightContent}
+      containerClassName="bg-black pb-4 border-b border-neutral-800"
       leftContent={
-        <ThemedView style={styles.leftContent}>
+        <View className="flex-row items-center flex-1">
           {showBackButton ? (
             <TouchableOpacity
               onPress={handleBack}
-              style={[
-                styles.backButton,
-                {
-                  backgroundColor: theme.background.secondary,
-                  borderColor: theme.border.primary,
-                },
-              ]}
+              className="w-10 h-10 bg-neutral-900 border border-neutral-800 rounded-xl items-center justify-center mr-4 active:opacity-70"
             >
-              <Ionicons name="arrow-back" size={SIZES.icon.sm} color={theme.icon.primary} />
+              <Ionicons name="arrow-back" size={20} color="white" />
             </TouchableOpacity>
           ) : null}
 
-          <ThemedView style={styles.textContainer}>
-            <ThemedLanguageText
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.title}
-            >
+          <View className="flex-1 justify-center">
+            <Text className="text-xl font-bold text-white font-regional_secondary">
               {title}
-            </ThemedLanguageText>
+            </Text>
             {subtitle ? (
-              <ThemedLanguageText
-                variant="secondary"
-                size="small"
-                fontFamily="regional_secondary"
-                style={styles.subtitle}
-              >
+              <Text className="text-sm font-medium text-neutral-400 mt-0.5 font-regional_secondary">
                 {subtitle}
-              </ThemedLanguageText>
+              </Text>
             ) : null}
-          </ThemedView>
-        </ThemedView>
+          </View>
+        </View>
       }
       rightContent={
         rightAction ? (
-          <ThemedView style={styles.rightContent}>
+          <View className="ml-4 justify-center items-center">
             {rightAction}
-          </ThemedView>
+          </View>
         ) : undefined
       }
     />
   );
 };
-

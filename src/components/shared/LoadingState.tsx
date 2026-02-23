@@ -1,24 +1,16 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { WavePattern } from '@/lib/illustration/cardBackground';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { LoadingStateProps } from '@/types/screen.interface';
-import { styles } from './LoadingState.styles';
+import React from 'react';
 
 export const LoadingState: React.FC<LoadingStateProps> = ({ message }) => {
   return (
-    <ThemedView style={styles.container}>
-      <WavePattern width={200} height={200} opacity={0.1} />
+    <Box className="flex-1 items-center justify-center bg-black">
       {message && (
-        <ThemedLanguageText
-          variant="secondary"
-          size="large"
-          fontFamily="regional_secondary"
-          style={styles.text}
-        >
+        <Text className="text-lg text-neutral-400 font-regional_secondary text-center max-w-[80%] mt-4">
           {message}
-        </ThemedLanguageText>
+        </Text>
       )}
-    </ThemedView>
+    </Box>
   );
 };
-

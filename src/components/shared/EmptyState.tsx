@@ -1,38 +1,24 @@
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { useTheme } from '@/hooks/useTheme';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
 import { EmptyStateProps } from '@/types/screen.interface';
-import { styles } from './EmptyState.styles';
+import React from 'react';
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   icon,
   title,
   subtitle,
 }) => {
-  const { theme } = useTheme();
-
   return (
-    <ThemedView style={styles.container}>
+    <Box className="flex-1 items-center justify-center p-6 bg-black">
       {icon}
-      <ThemedLanguageText 
-        variant="primary" 
-        size="xl" 
-        fontFamily="regional_secondary"
-        style={styles.title}
-      >
+      <Text className="text-xl font-bold mt-4 text-center text-white font-regional_secondary">
         {title}
-      </ThemedLanguageText>
+      </Text>
       {subtitle && (
-        <ThemedLanguageText 
-          variant="secondary" 
-          size="medium" 
-          fontFamily="regional_secondary"
-          style={styles.subtitle}
-        >
+        <Text className="text-base mt-2 text-center text-neutral-400 font-regional_secondary">
           {subtitle}
-        </ThemedLanguageText>
+        </Text>
       )}
-    </ThemedView>
+    </Box>
   );
 };
-

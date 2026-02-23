@@ -1,28 +1,20 @@
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
-import { SectionCard } from '@/features/gitaSummary/components/SectionCard';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
-import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { getBengaliTTSLanguage } from '@/lib/utils/ttsLanguageUtils';
-import { SIZES } from '@/rootconstants/sizes';
 import { useVerseOfTheDayStore } from '@/store/verseOfTheDayStore';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React, { useEffect } from 'react';
 import { ScrollView, Share, TouchableOpacity, View } from 'react-native';
-import { styles } from './VerseOfTheDayScreen.styles';
 
 export const VerseOfTheDayScreen: React.FC = () => {
   const { loadVerseOfTheDay, getTodaysVerse, shareVerse, isLoading } = useVerseOfTheDayStore();
-  const theme = useThemeColors();
   const verse = getTodaysVerse();
   const { speak, stop, isSpeaking } = useTextToSpeech({
-    language: getBengaliTTSLanguage(), // Bengali language for TTS (tries bn-IN first, falls back to bn-BD or bn)
+    language: getBengaliTTSLanguage(),
     rate: 0.85,
     pitch: 1.0,
   });
@@ -59,7 +51,6 @@ export const VerseOfTheDayScreen: React.FC = () => {
       await stop();
     } else {
       try {
-        // Read Bengali translation first (TTS works better with Bengali)
         const translation = verse.translation || '';
         const textToSpeak = `${verse.chapterNumber || ''} অধ্যায়, ${verse.verseNumber || ''} শ্লোক। ${translation}`;
         if (textToSpeak.trim()) {
@@ -73,23 +64,19 @@ export const VerseOfTheDayScreen: React.FC = () => {
 
   if (isLoading || !verse) {
     return (
-      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+      <Box className="flex-1 bg-black">
         {/* Custom Modern Header */}
-        <Box
-          className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
-          style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(20, 20) }}
-        >
+        <Box className="pb-4 px-4 border-b border-neutral-800 bg-black pt-12 shadow-sm z-10">
           <HStack className="items-center justify-between">
             <TouchableOpacity
-              className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+              className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
               onPress={() => router.back()}
             >
-              <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+              <Ionicons name="chevron-back" size={24} color="white" />
             </TouchableOpacity>
 
             <Text
-              className="text-[20px] font-black tracking-tight flex-1 text-center"
-              style={{ fontWeight: 'bold', color: theme.text.primary }}
+              className="text-xl font-bold tracking-tight flex-1 text-center text-white"
               numberOfLines={1}
             >
               {i18n.t('verseOfTheDay.title')}
@@ -99,37 +86,29 @@ export const VerseOfTheDayScreen: React.FC = () => {
           </HStack>
         </Box>
 
-        <View style={styles.loadingContainer}>
-          <ThemedLanguageText
-            variant="secondary"
-            size="medium"
-            fontFamily="regional_secondary"
-          >
+        <View className="flex-1 justify-center items-center">
+          <Text className="text-base text-neutral-400 font-regional_secondary">
             {i18n.t('common.loading')}
-          </ThemedLanguageText>
+          </Text>
         </View>
       </Box>
     );
   }
 
   return (
-    <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+    <Box className="flex-1 bg-black">
       {/* Custom Modern Header */}
-      <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
-        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(20, 20) }}
-      >
+      <Box className="pb-4 px-4 border-b border-neutral-800 bg-black pt-12 shadow-sm z-10">
         <HStack className="items-center justify-between">
           <TouchableOpacity
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
             onPress={() => router.back()}
           >
-            <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+            <Ionicons name="chevron-back" size={24} color="white" />
           </TouchableOpacity>
 
           <Text
-            className="text-[20px] font-black tracking-tight flex-1 text-center"
-            style={{ fontWeight: 'bold', color: theme.text.primary }}
+            className="text-xl font-bold tracking-tight flex-1 text-center text-white"
             numberOfLines={1}
           >
             {i18n.t('verseOfTheDay.title')}
@@ -140,20 +119,15 @@ export const VerseOfTheDayScreen: React.FC = () => {
       </Box>
 
       <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
+        className="flex-1"
+        contentContainerClassName="px-4 pb-16 pt-4 space-y-4"
         showsVerticalScrollIndicator={false}
       >
-        <ThemedCard variant="card" style={styles.introCard}>
-          <ThemedView style={styles.introHeader}>
-            <ThemedLanguageText
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.introTitle}
-            >
+        <Box className="p-5 rounded-3xl bg-neutral-900 border border-neutral-800 mb-4">
+          <Box className="flex-row justify-between items-center mb-4">
+            <Text className="text-lg font-bold text-white font-regional_secondary">
               {i18n.t('verseOfTheDay.introTitle')}
-            </ThemedLanguageText>
+            </Text>
             <TouchableOpacity
               onPress={async () => {
                 if (isSpeaking) {
@@ -162,154 +136,98 @@ export const VerseOfTheDayScreen: React.FC = () => {
                   await speak(i18n.t('verseOfTheDay.introText'));
                 }
               }}
-              style={[
-                styles.speakerButton,
-                { backgroundColor: theme.background.quaternary },
-                isSpeaking && styles.speakerButtonActive,
-              ]}
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-green-600' : 'bg-neutral-800'
+                }`}
             >
               <MaterialIcons
                 name="volume-up"
-                size={SIZES.icon.md}
-                color={isSpeaking ? theme.status.success : theme.icon.primary}
+                size={20}
+                color={isSpeaking ? 'white' : '#9ca3af'}
               />
             </TouchableOpacity>
-          </ThemedView>
-          <ThemedLanguageText
-            variant="secondary"
-            size="medium"
-            fontFamily="regional_secondary"
-            style={styles.introText}
-          >
+          </Box>
+          <Text className="text-base leading-6 text-neutral-300 font-regional_secondary">
             {i18n.t('verseOfTheDay.introText')}
-          </ThemedLanguageText>
-        </ThemedCard>
-
-        <SectionCard
-          titleKey="verseOfTheDay.significanceTitle"
-          content={i18n.t('verseOfTheDay.significanceText')}
-        />
+          </Text>
+        </Box>
 
         {/* Date Badge */}
-        <ThemedCard variant="card" style={styles.dateBadge}>
-          <ThemedLanguageText
-            variant="primary"
-            size="small"
-            style={styles.dateText}
-            fontFamily="regional_secondary"
-          >
+        <Box className="self-center px-4 py-2 rounded-full bg-neutral-900 border border-neutral-800 mb-4">
+          <Text className="text-sm font-bold text-white font-regional_secondary">
             {new Date().toLocaleDateString('bn-BD', {
               weekday: 'long',
               year: 'numeric',
               month: 'long',
               day: 'numeric',
             })}
-          </ThemedLanguageText>
-        </ThemedCard>
+          </Text>
+        </Box>
 
         {/* Verse Card */}
-        <ThemedCard variant="card" style={styles.verseCard} borderVariant="primary">
-          <View style={styles.verseHeader}>
-            <ThemedLanguageText
-              variant="primary"
-              size="large"
-              style={styles.chapterInfo}
-              fontFamily="regional_secondary"
-            >
+        <Box className="p-6 rounded-3xl bg-neutral-900 border-2 border-white mb-4">
+          <View className="flex-row justify-between items-center mb-6">
+            <Text className="text-lg font-bold text-white font-regional_secondary">
               {verse.chapterNumber} অধ্যায়, {verse.verseNumber} শ্লোক
-            </ThemedLanguageText>
+            </Text>
             <TouchableOpacity
               onPress={handleSpeakVerse}
-              style={[
-                styles.speakerButton,
-                { backgroundColor: theme.background.quaternary },
-                isSpeaking && styles.speakerButtonActive,
-              ]}
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-green-600' : 'bg-neutral-800'
+                }`}
             >
               <MaterialIcons
                 name="volume-up"
-                size={SIZES.icon.md}
-                color={isSpeaking ? theme.status.success : theme.icon.primary}
+                size={20}
+                color={isSpeaking ? 'white' : '#9ca3af'}
               />
             </TouchableOpacity>
           </View>
 
           {verse.verseText && (
-            <View style={styles.verseTextContainer}>
-              <ThemedLanguageText
-                variant="primary"
-                size="title"
-                style={styles.verseText}
-                fontFamily="regional_primary"
-              >
+            <View className="mb-6">
+              <Text className="text-2xl font-bold text-white leading-9 font-regional_primary text-center">
                 {verse.verseText}
-              </ThemedLanguageText>
+              </Text>
             </View>
           )}
 
           {verse.translation && (
-            <View style={styles.translationContainer}>
-              <ThemedLanguageText
-                variant="secondary"
-                size="medium"
-                style={styles.translation}
-                fontFamily="regional_secondary"
-              >
+            <View className="pt-4 border-t border-neutral-800">
+              <Text className="text-base text-neutral-300 leading-6 font-regional_secondary">
                 {verse.translation}
-              </ThemedLanguageText>
+              </Text>
             </View>
           )}
-        </ThemedCard>
+        </Box>
 
         {/* Action Buttons */}
-        <View style={styles.actionsContainer}>
+        <View className="flex-row gap-4 mb-4">
           <TouchableOpacity
-            style={[styles.actionButton, { backgroundColor: theme.background.secondary }]}
+            className="flex-1 py-4 bg-neutral-900 rounded-2xl flex-row justify-center items-center border border-neutral-800"
             onPress={handleShare}
           >
-            <Ionicons name="share-outline" size={SIZES.icon.md} color={theme.icon.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={styles.actionButtonText}
-              fontFamily="regional_secondary"
-            >
+            <Ionicons name="share-outline" size={20} color="white" className="mr-2" />
+            <Text className="text-sm font-bold text-white font-regional_secondary">
               {i18n.t('verseOfTheDay.share')}
-            </ThemedLanguageText>
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[styles.actionButton, { backgroundColor: theme.background.secondary }]}
+            className="flex-1 py-4 bg-neutral-900 rounded-2xl flex-row justify-center items-center border border-neutral-800"
             onPress={handleViewChapter}
           >
-            <Ionicons name="book-outline" size={SIZES.icon.md} color={theme.icon.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={styles.actionButtonText}
-              fontFamily="regional_secondary"
-            >
+            <Ionicons name="book-outline" size={20} color="white" className="mr-2" />
+            <Text className="text-sm font-bold text-white font-regional_secondary">
               {i18n.t('verseOfTheDay.viewChapter')}
-            </ThemedLanguageText>
+            </Text>
           </TouchableOpacity>
         </View>
 
         {/* Inspiration Message */}
-        <ThemedCard variant="card" style={styles.inspirationCard}>
-          <ThemedLanguageText
-            variant="primary"
-            size="medium"
-            style={styles.inspirationText}
-            fontFamily="regional_secondary"
-          >
+        <Box className="p-5 rounded-3xl bg-neutral-900 border border-neutral-800 mb-4 items-center">
+          <Text className="text-base leading-6 text-white text-center font-regional_secondary">
             {i18n.t('verseOfTheDay.inspirationMessage')}
-          </ThemedLanguageText>
-        </ThemedCard>
-
-        <SectionCard
-          titleKey="verseOfTheDay.benefitsTitle"
-          content={i18n.t('verseOfTheDay.benefitsText')}
-        />
+          </Text>
+        </Box>
       </ScrollView>
     </Box>
   );

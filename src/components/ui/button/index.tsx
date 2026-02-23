@@ -60,7 +60,7 @@ const ButtonText = React.forwardRef<
 
     return (
         <UIButton.Text
-            ref={ref}
+            ref={ref as any}
             {...props}
             className={buttonTextStyle({
                 parentVariants: {
@@ -85,8 +85,8 @@ const ButtonGroup = React.forwardRef<
 >(({ className, space, isAttached, flexDirection, ...props }, ref) => {
     return (
         <UIButton.Group
-            ref={ref}
-            {...props}
+            ref={ref as any}
+            {...(props as any)}
             className={buttonGroupStyle({
                 space,
                 isAttached,
@@ -116,10 +116,11 @@ const ButtonIcon = React.forwardRef<
     if (typeof size === 'number') {
         return (
             <UIButton.Icon
-                ref={ref}
+                ref={ref as any}
                 {...props}
                 className={buttonIconStyle({ class: className })}
-                size={size}
+                // @ts-ignore
+                size={size as any}
             />
         );
     } else if (
@@ -128,7 +129,7 @@ const ButtonIcon = React.forwardRef<
     ) {
         return (
             <UIButton.Icon
-                ref={ref}
+                ref={ref as any}
                 {...props}
                 className={buttonIconStyle({ class: className })}
             />
@@ -137,7 +138,7 @@ const ButtonIcon = React.forwardRef<
 
     return (
         <UIButton.Icon
-            ref={ref}
+            ref={ref as any}
             {...props}
             className={buttonIconStyle({
                 parentVariants: {
@@ -175,7 +176,7 @@ const ButtonSpinner = React.forwardRef<
 
     return (
         <UIButton.Spinner
-            ref={ref}
+            ref={ref as any}
             {...props}
             color={spinnerColor}
             className={buttonSpinnerStyle({ class: className })}
