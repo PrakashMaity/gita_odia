@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui/text';
+import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import { getLanguageFonts } from '@/types/font.interface';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -201,9 +202,9 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   centerSymbol: {
-    width: MALA_SIZE * 0.48,
-    height: MALA_SIZE * 0.48,
-    borderRadius: (MALA_SIZE * 0.48) / 2,
+    width: MALA_SIZE * 0.6,
+    height: MALA_SIZE * 0.6,
+    borderRadius: (MALA_SIZE * 0.6) / 2,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'visible',
@@ -216,13 +217,16 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
   omSymbol: {
-    fontSize: MALA_SIZE * 0.2,
+    fontFamily: TYPOGRAPHY.fontFamily.primary,
+    fontSize: MALA_SIZE * 0.4,
     color: '#3E2723',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
+    opacity: 0.1,
     textShadowColor: 'rgba(255, 255, 255, 0.4)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 3,
-    includeFontPadding: false,
-    textAlignVertical: 'center',
+    includeFontPadding: true,
+    textAlign: 'center',
+    lineHeight: MALA_SIZE * 0.6,
   },
 });

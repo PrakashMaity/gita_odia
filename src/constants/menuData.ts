@@ -51,7 +51,7 @@ export const getMenuSections = (): MenuSection[] => [
         image: rudrashaImage,
         description: i18n.t('menu.malaJapaDesc'),
         action: () => getNavigationHandler({ id: 'mala-japa' } as MenuItem)(),
-        isPremium: true,
+        isPremium: false,
       },
       {
         id: 'krishna-mantras',

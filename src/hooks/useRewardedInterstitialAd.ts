@@ -3,6 +3,7 @@ import {
   setupRewardedInterstitialListeners,
   showRewardedInterstitialAd,
 } from '@/components/ads';
+import { useProStatus } from '@/hooks/useProStatus';
 import { isAdsInitialized } from '@/services/ads/initializeAds';
 import { useEffect, useRef, useState } from 'react';
 
@@ -12,9 +13,16 @@ import { useEffect, useRef, useState } from 'react';
 export const useRewardedInterstitialAd = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const { isPro } = useProStatus();
   const rewardedInterstitialRef = useRef<any>(null);
 
   useEffect(() => {
+    // If user is Pro, don't initialize ads
+    if (isPro) {
+      setIsInitialized(false);
+      return;
+    }
+
     const checkInitialization = () => {
       const initialized = isAdsInitialized();
       setIsInitialized(initialized);
@@ -23,10 +31,11 @@ export const useRewardedInterstitialAd = () => {
       }
     };
     checkInitialization();
-  }, []);
+  }, [isPro]);
 
   useEffect(() => {
-    if (!isInitialized) {
+    // Wait for SDK initialization before creating ad
+    if (!isInitialized || isPro) {
       return;
     }
 
@@ -40,13 +49,13 @@ export const useRewardedInterstitialAd = () => {
       onClosed: () => {
         setIsLoaded(false);
         setTimeout(() => {
-          rewardedInterstitial.load();
+          if (!isPro) rewardedInterstitial.load();
         }, 1000);
       },
       onError: () => {
         setIsLoaded(false);
         setTimeout(() => {
-          rewardedInterstitial.load();
+          if (!isPro && rewardedInterstitial) rewardedInterstitial.load();
         }, 30000);
       },
     });
@@ -56,9 +65,14 @@ export const useRewardedInterstitialAd = () => {
     return () => {
       cleanup();
     };
-  }, [isInitialized]);
+  }, [isInitialized, isPro]);
 
   const showAd = async () => {
+    if (isPro) {
+      console.log('[useRewardedInterstitialAd] Ad suppressed for Pro user');
+      return;
+    }
+
     if (rewardedInterstitialRef.current && isLoaded) {
       await showRewardedInterstitialAd(rewardedInterstitialRef.current);
       setIsLoaded(false);
@@ -66,7 +80,7 @@ export const useRewardedInterstitialAd = () => {
   };
 
   return {
-    isLoaded,
+    isLoaded: isPro ? false : isLoaded,
     showAd,
   };
 };

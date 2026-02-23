@@ -1,20 +1,22 @@
 import { ANIMATION } from '@/constants/animation';
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
+import { MaterialIcons } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import React, { useEffect, useRef } from 'react';
 import {
-    Animated,
-    Modal,
-    StyleSheet,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
-    Platform,
+  Animated,
+  Modal,
+  Platform,
+  StyleSheet,
+  TouchableWithoutFeedback,
 } from 'react-native';
-import { ThemedButton } from '../ThemedButton/ThemedButton';
-import { ThemedCard } from '../ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '../ThemedLanguageText/ThemedLanguageText';
-import Feather from '@expo/vector-icons/Feather';
+import { Box } from '../box';
+import { Button, ButtonText } from '../button';
+import { Heading } from '../heading';
+import { Pressable } from '../pressable';
+import { Text } from '../text';
+import { VStack } from '../vstack';
 
 export interface AlertButton {
   text: string;
@@ -32,7 +34,6 @@ export interface CustomAlertProps {
   showCloseButton?: boolean;
 }
 
-
 export const CustomAlert: React.FC<CustomAlertProps> = ({
   visible,
   title,
@@ -44,7 +45,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
 }) => {
   const theme = useThemeColors();
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0.8)).current;
+  const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
   useEffect(() => {
     if (visible) {
@@ -69,7 +70,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
           useNativeDriver: true,
         }),
         Animated.timing(scaleAnim, {
-          toValue: 0.8,
+          toValue: 0.9,
           duration: ANIMATION.fast,
           useNativeDriver: true,
         }),
@@ -82,37 +83,37 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
       case 'success':
         return {
           iconColor: theme.status.success,
-          borderColor: theme.status.success,
-          backgroundColor: `${theme.status.success}15`,
-          iconBackground: `${theme.status.success}20`,
+          accentColor: theme.status.success,
+          iconName: 'check-circle' as const,
+          bgIcon: 'check-circle' as const,
         };
       case 'error':
         return {
           iconColor: theme.status.error,
-          borderColor: theme.status.error,
-          backgroundColor: `${theme.status.error}15`,
-          iconBackground: `${theme.status.error}20`,
+          accentColor: theme.status.error,
+          iconName: 'x-circle' as const,
+          bgIcon: 'error' as const,
         };
       case 'warning':
         return {
           iconColor: theme.status.warning,
-          borderColor: theme.status.warning,
-          backgroundColor: `${theme.status.warning}15`,
-          iconBackground: `${theme.status.warning}20`,
+          accentColor: theme.status.warning,
+          iconName: 'alert-triangle' as const,
+          bgIcon: 'warning' as const,
         };
       case 'info':
         return {
           iconColor: theme.status.info,
-          borderColor: theme.status.info,
-          backgroundColor: `${theme.status.info}15`,
-          iconBackground: `${theme.status.info}20`,
+          accentColor: theme.status.info,
+          iconName: 'info' as const,
+          bgIcon: 'info' as const,
         };
       default:
         return {
           iconColor: theme.icon.primary,
-          borderColor: theme.border.primary,
-          backgroundColor: `${theme.background.primary}30`,
-          iconBackground: `${theme.background.primary}20`,
+          accentColor: theme.border.primary,
+          iconName: 'alert-circle' as const,
+          bgIcon: 'help' as const,
         };
     }
   };
@@ -134,29 +135,14 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
     }
   };
 
-  const getButtonVariant = (buttonStyle: string) => {
-    switch (buttonStyle) {
-      case 'destructive':
-        return 'secondary';
+  const getButtonProps = (style: 'default' | 'cancel' | 'destructive') => {
+    switch (style) {
       case 'cancel':
-        return 'outline';
+        return { variant: 'outline' as const, action: 'secondary' as const };
+      case 'destructive':
+        return { variant: 'solid' as const, action: 'negative' as const };
       default:
-        return 'primary';
-    }
-  };
-
-  const getIcon = () => {
-    switch (type) {
-      case 'success':
-        return 'check-circle';
-      case 'error':
-        return 'x-circle';
-      case 'warning':
-        return 'alert-triangle';
-      case 'info':
-        return 'info';
-      default:
-        return 'alert-circle';
+        return { variant: 'solid' as const, action: 'primary' as const };
     }
   };
 
@@ -187,104 +173,104 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                 },
               ]}
             >
-              <ThemedCard
-                variant="card"
-                style={[
-                  styles.alertCard,
-                  {
-                    borderColor: typeStyles.borderColor,
-                    borderWidth: 2,
-                    backgroundColor: theme.background.card,
-                  },
-                ]}
+              <Box
+                className="w-full bg-white rounded-[32px] overflow-hidden shadow-2xl relative"
+                style={{ backgroundColor: theme.background.primary }}
               >
-                {/* Header with close button */}
-                {showCloseButton && (
-                  <View style={styles.headerContainer}>
-                    <TouchableOpacity
-                      onPress={onDismiss}
-                      style={styles.closeButton}
-                      hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                    >
-                      <Feather
-                        name="x"
-                        size={SIZES.icon.md}
-                        color={theme.text.secondary}
-                      />
-                    </TouchableOpacity>
-                  </View>
-                )}
+                {/* Top Accent Bar */}
+                <Box
+                  className="h-1.5 w-full"
+                  style={{ backgroundColor: typeStyles.accentColor }}
+                />
 
-                {/* Icon Container - Centered */}
-                {getIcon() && (
-                  <View style={[
-                    styles.iconContainer,
-                    { backgroundColor: typeStyles.iconBackground },
-                  ]}>
+                {/* Background Decorative Icon */}
+                <Box
+                  className="absolute -right-10 -top-10 opacity-[0.03]"
+                  pointerEvents="none"
+                >
+                  <MaterialIcons
+                    name={typeStyles.bgIcon}
+                    size={200}
+                    color="#000"
+                  />
+                </Box>
+
+                <VStack className="p-8 items-center">
+                  {/* Close Button */}
+                  {showCloseButton && (
+                    <Box className="absolute right-4 top-4">
+                      <Pressable
+                        onPress={onDismiss}
+                        className="w-10 h-10 rounded-full items-center justify-center bg-black/5 active:opacity-60"
+                      >
+                        <Feather
+                          name="x"
+                          size={20}
+                          color={theme.text.secondary}
+                        />
+                      </Pressable>
+                    </Box>
+                  )}
+
+                  {/* Icon Container */}
+                  <Box
+                    className="w-20 h-20 rounded-[24px] items-center justify-center mb-6"
+                    style={{ backgroundColor: typeStyles.accentColor + '15' }}
+                  >
                     <Feather
-                      name={getIcon() as any}
-                      size={SIZES.icon.xxl}
+                      name={typeStyles.iconName}
+                      size={40}
                       color={typeStyles.iconColor}
                     />
-                  </View>
-                )}
+                  </Box>
 
-                {/* Content Container */}
-                <View style={styles.contentContainer}>
                   {/* Title */}
                   {title && (
-                    <ThemedLanguageText
-                      fontFamily="regional_secondary"
-                      variant="primary"
-                      size="title"
-                      style={[
-                        styles.title,
-                        { color: theme.text.primary },
-                      ]}
+                    <Heading
+                      className="text-[24px] font-black text-center mb-3 tracking-tight"
+                      style={{ color: theme.text.primary }}
                     >
                       {title}
-                    </ThemedLanguageText>
+                    </Heading>
                   )}
 
                   {/* Message */}
                   {message && (
-                    <ThemedLanguageText
-                      fontFamily="regional_secondary"
-                      variant="secondary"
-                      size="large"
-                      style={[
-                        styles.message,
-                        { color: theme.text.secondary },
-                      ]}
+                    <Text
+                      className="text-[16px] font-medium text-center leading-6 mb-8 px-2"
+                      style={{ color: theme.text.secondary }}
                     >
                       {message}
-                    </ThemedLanguageText>
+                    </Text>
                   )}
-                </View>
 
-                {/* Buttons */}
-                {buttons.length > 0 && (
-                  <View style={[
-                    styles.buttonContainer,
-                    buttons.length > 1 && styles.buttonContainerMultiple,
-                  ]}>
-                    {buttons.map((button, index) => (
-                      <ThemedButton
-                        key={index}
-                        title={button.text}
-                        onPress={() => handleButtonPress(button)}
-                        variant={getButtonVariant(button.style || 'default')}
-                        size="md"
-                        style={StyleSheet.flatten([
-                          styles.button,
-                          buttons.length === 1 && styles.buttonFullWidth,
-                          buttons.length > 1 && index > 0 && styles.buttonSpacing,
-                        ])}
-                      />
-                    ))}
-                  </View>
-                )}
-              </ThemedCard>
+                  {/* Buttons */}
+                  <VStack
+                    className="w-full"
+                    space="md"
+                    style={{ alignSelf: 'stretch' }}
+                  >
+                    {buttons.map((button, index) => {
+                      const buttonProps = getButtonProps(
+                        button.style || 'default'
+                      );
+                      return (
+                        <Button
+                          key={index}
+                          size="lg"
+                          onPress={() => handleButtonPress(button)}
+                          className="w-full h-14"
+                          {...buttonProps}
+                        >
+                          <ButtonText className="font-semibold text-lg">
+                            {button.text}
+                          </ButtonText>
+                        </Button>
+                      );
+                    })}
+                  </VStack>
+                </VStack>
+              </Box>
             </Animated.View>
           </TouchableWithoutFeedback>
         </Animated.View>
@@ -321,90 +307,6 @@ const styles = StyleSheet.create({
         elevation: 16,
       },
     }),
-  },
-  alertCard: {
-    width: '100%',
-    paddingTop: SIZES.spacing.xl,
-    paddingBottom: SIZES.spacing.xxl,
-    paddingHorizontal: SIZES.spacing.xxl,
-    margin: 0,
-    borderRadius: SIZES.radius.xl,
-    position: 'relative',
-    alignItems: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.25,
-        shadowRadius: 12,
-      },
-      android: {
-        elevation: 10,
-      },
-    }),
-  },
-  headerContainer: {
-    width: '100%',
-    alignItems: 'flex-end',
-    marginBottom: SIZES.spacing.xs,
-  },
-  closeButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.06)',
-  },
-  iconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
-    marginTop: SIZES.spacing.xs,
-  },
-  contentContainer: {
-    width: '100%',
-    alignItems: 'center',
-    marginBottom: SIZES.spacing.lg,
-  },
-  title: {
-    fontSize: SIZES.title,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginBottom: SIZES.spacing.md,
-    lineHeight: 36,
-    letterSpacing: 0.3,
-    width: '100%',
-  },
-  message: {
-    fontSize: SIZES.lg,
-    textAlign: 'center',
-    lineHeight: 26,
-    width: '100%',
-    paddingHorizontal: SIZES.spacing.xs,
-  },
-  buttonContainer: {
-    width: '100%',
-    flexDirection: 'column',
-    gap: SIZES.spacing.md,
-    marginTop: SIZES.spacing.md,
-  },
-  buttonContainerMultiple: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: SIZES.spacing.md,
-  },
-  button: {
-    minHeight: 44,
-  },
-  buttonFullWidth: {
-    width: '100%',
-  },
-  buttonSpacing: {
-    marginLeft: 0,
   },
 });
 

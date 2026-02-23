@@ -1,5 +1,5 @@
-import { SIZES } from '@/rootconstants/sizes';
 import { useThemeColors } from '@/hooks/useTheme';
+import { SIZES } from '@/rootconstants/sizes';
 import React from 'react';
 import { TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 import { ThemedLanguageText } from '../ThemedLanguageText/ThemedLanguageText';
@@ -7,7 +7,7 @@ import { ThemedLanguageText } from '../ThemedLanguageText/ThemedLanguageText';
 export interface ThemedButtonProps {
   title: string;
   onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'outline'|'basic';
+  variant?: 'primary' | 'secondary' | 'outline' | 'basic';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
   disabled?: boolean;
@@ -67,13 +67,13 @@ export const ThemedButton: React.FC<ThemedButtonProps> = ({
         borderWidth: 1,
         borderColor: disabled ? theme.border.secondary : theme.border.primary,
       },
-      basic:{
-        backgroundColor:theme.background.tertiary,
-       
+      basic: {
+        backgroundColor: theme.background.tertiary,
+
       }
     };
 
-    const widthStyle: ViewStyle = fullWidth ? { flex: 1 } : {};
+    const widthStyle: ViewStyle = fullWidth ? { width: '100%' } : {};
 
     return {
       ...baseStyle,
@@ -84,7 +84,7 @@ export const ThemedButton: React.FC<ThemedButtonProps> = ({
   };
 
   const getTextStyle = (): TextStyle => {
-   const letterSpacing = size === 'sm' ? 0.5 : size === 'md' ? 2 : 2.5;
+    const letterSpacing = size === 'sm' ? 0.5 : size === 'md' ? 2 : 2.5;
 
     const sizeTextStyles: Record<string, TextStyle> = {
       sm: { fontSize: SIZES.md },
@@ -119,11 +119,11 @@ export const ThemedButton: React.FC<ThemedButtonProps> = ({
       activeOpacity={0.7}
     >
       {icon}
-      <ThemedLanguageText 
+      <ThemedLanguageText
         fontFamily='regional_secondary'
         variant='primary'
         size='medium'
-        style={{...getTextStyle(), ...textStyle}}
+        style={{ ...getTextStyle(), ...textStyle }}
       >
         {title}
       </ThemedLanguageText>

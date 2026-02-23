@@ -1,9 +1,10 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { SIZES } from '@/rootconstants/sizes';
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5 } from '@expo/vector-icons';
+import React from 'react';
 
 interface TimerDisplayProps {
   timeLeft: number;
@@ -17,71 +18,76 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
   formatTime,
 }) => {
   const theme = useThemeColors();
-  
+  const fonts = getLanguageFonts();
+
   const getDisplayColor = () => {
     switch (timerState) {
       case 'running':
-        return theme.status.success;
+        return '#d97706'; // amber-600
       case 'paused':
-        return theme.status.warning;
+        return '#f59e0b'; // amber-500
       case 'completed':
-        return theme.icon.tertiary;
+        return '#10b981'; // emerald-500
       default:
-        return theme.icon.disabled;
+        return '#D1D5DB'; // gray-300
+    }
+  };
+
+  const statusLabel = () => {
+    switch (timerState) {
+      case 'running': return 'চলছে...';
+      case 'paused': return 'বিরতি';
+      case 'completed': return 'সম্পন্ন';
+      default: return 'প্রস্তুত';
     }
   };
 
   return (
-    <View style={styles.container}>
-      <ThemedCard variant="card" style={[styles.circle, { borderColor: getDisplayColor(), borderWidth: 8 }]}>
-        <ThemedLanguageText
-          variant="primary"
-          size="title"
-          style={[styles.timeText, { color: getDisplayColor() }]}
-          fontFamily="regional_secondary"
-        >
-          {formatTime(timeLeft)}
-        </ThemedLanguageText>
-        <ThemedLanguageText
-          variant="secondary"
-          size="small"
-          style={styles.stateText}
-          fontFamily="regional_secondary"
-        >
-          {timerState === 'running' ? 'চলছে...' : 
-           timerState === 'paused' ? 'বিরতি' :
-           timerState === 'completed' ? 'সম্পন্ন' : 'প্রস্তুত'}
-        </ThemedLanguageText>
-      </ThemedCard>
-    </View>
+    <Box className="w-full items-center justify-center mt-6 mb-4">
+      <Box
+        className="w-[280px] h-[280px] rounded-full items-center justify-center relative shadow-xl"
+        style={{
+          backgroundColor: theme.background.primary,
+          borderWidth: 2,
+          borderColor: getDisplayColor() + '40'
+        }}
+      >
+        {/* Background Decorative Icon */}
+        <Box className="absolute opacity-[0.03]" pointerEvents="none">
+          <FontAwesome5 name="clock" size={160} color="#000" />
+        </Box>
+
+        {/* Inner Progress Border (Subtle) */}
+        <Box
+          className="absolute inset-4 rounded-full border-[8px]"
+          style={{
+            borderColor: getDisplayColor() + '15'
+          }}
+        />
+
+        <VStack className="items-center justify-center z-10" space="xs">
+          <Text
+            className="text-[64px] font-black tracking-tighter"
+            style={{
+              fontFamily: fonts.regional_secondary,
+              color: timerState === 'idle' ? theme.text.secondary : getDisplayColor(),
+              lineHeight: 80
+            }}
+          >
+            {formatTime(timeLeft)}
+          </Text>
+
+          <Box className={`px-4 py-1 rounded-full ${timerState === 'running' ? 'bg-amber-50' : 'bg-neutral-50'}`}>
+            <Text
+              className={`text-[14px] font-bold uppercase tracking-widest ${timerState === 'running' ? 'text-amber-800' : 'text-neutral-500'
+                }`}
+              style={{ fontFamily: fonts.regional_secondary }}
+            >
+              {statusLabel()}
+            </Text>
+          </Box>
+        </VStack>
+      </Box>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: SIZES.spacing.xl,
-    marginBottom: SIZES.spacing.lg,
-  },
-  circle: {
-    width: 280,
-    height: 280,
-    borderRadius: 140,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 0,
-    margin: 0,
-  },
-  timeText: {
-    fontSize: 64,
-    fontWeight: '800',
-    marginBottom: SIZES.spacing.xs,
-  },
-  stateText: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-});
-

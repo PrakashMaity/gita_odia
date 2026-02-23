@@ -1,4 +1,3 @@
-import { LoadingState } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
@@ -12,7 +11,7 @@ import { router } from 'expo-router';
 import React, { useEffect } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { TranslationCard } from './components/TranslationCard';
+import { TranslationCard, TranslationsLoadingSkeleton } from './components';
 import { useTranslationsOperations } from './hooks/useTranslationsOperations';
 
 export const TranslationsScreen: React.FC = () => {
@@ -26,7 +25,37 @@ export const TranslationsScreen: React.FC = () => {
   }, [loadAllTranslations]);
 
   if (isLoading) {
-    return <LoadingState message={i18n.t('translations.loading')} />;
+    return (
+      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+        {/* Custom Modern Header */}
+        <Box
+          className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+          style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+        >
+          <HStack className="items-center justify-between">
+            <TouchableOpacity
+              className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+              onPress={() => router.back()}
+            >
+              <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
+            </TouchableOpacity>
+
+            <Text
+              className="text-[20px] font-black tracking-tight flex-1 text-center"
+              style={{ fontWeight: 'bold', color: theme.text.primary }}
+              numberOfLines={1}
+            >
+              {i18n.t('menu.translations')}
+            </Text>
+
+            <Box className="w-10 h-10 items-center justify-center">
+              <MaterialIcons name="translate" size={24} color={theme.text.primary} />
+            </Box>
+          </HStack>
+        </Box>
+        <TranslationsLoadingSkeleton />
+      </Box>
+    );
   }
 
   return (

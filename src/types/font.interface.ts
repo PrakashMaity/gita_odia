@@ -5,8 +5,6 @@ export interface LanguageFonts {
   primary_english: string;
   regional_primary: string;
   regional_secondary: string;
-  regional_tertiary: string;
-  regional_quaternary: string;
 }
 
 /**
@@ -18,7 +16,5 @@ export const getLanguageFonts = (): LanguageFonts => {
     primary_english: TYPOGRAPHY.fontFamily.english,
     regional_primary: TYPOGRAPHY.fontFamily.primary,
     regional_secondary: TYPOGRAPHY.fontFamily.secondary,
-    regional_tertiary: TYPOGRAPHY.fontFamily.tertiary,
-    regional_quaternary: TYPOGRAPHY.fontFamily.quaternary,
   };
 };

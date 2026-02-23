@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { SIZES } from '@/rootconstants/sizes';
+import { Box } from '@/components/ui/box';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
+import React from 'react';
 
 type SoundType = 'none' | 'bell' | 'chime' | 'om';
 
@@ -25,95 +26,43 @@ export const SoundSelector: React.FC<SoundSelectorProps> = ({
   onSoundChange,
 }) => {
   const theme = useThemeColors();
-  
+  const fonts = getLanguageFonts();
+
   return (
-    <ThemedCard variant="card" style={styles.container}>
-      <ThemedLanguageText
-        variant="secondary"
-        size="medium"
-        style={styles.title}
-        fontFamily="regional_secondary"
+    <Box
+      className="w-full mt-8 p-6 rounded-[28px] border border-amber-100 shadow-sm"
+      style={{ backgroundColor: theme.background.primary }}
+    >
+      <Text
+        className="text-[16px] font-extrabold text-neutral-800 mb-6 text-center tracking-tight"
+        style={{ fontFamily: fonts.regional_secondary }}
       >
         {i18n.t('readingTimer.completionSound')}
-      </ThemedLanguageText>
-      <View style={styles.soundsGrid}>
-        {SOUNDS.map((sound) => (
-          <TouchableOpacity
-            key={sound.value}
-            style={[
-              styles.soundButton,
-              {
-                backgroundColor: selectedSound === sound.value 
-                  ? theme.button.primary.background 
-                  : theme.background.secondary,
-                borderColor: selectedSound === sound.value 
-                  ? theme.border.primary 
-                  : theme.border.tertiary,
-              },
-            ]}
-            onPress={() => onSoundChange(sound.value)}
-          >
-            <ThemedLanguageText
-              variant="primary"
-              size="title"
-              style={styles.soundIcon}
-              fontFamily="regional_secondary"
+      </Text>
+      <HStack space="sm" className="justify-center">
+        {SOUNDS.map((sound) => {
+          const isActive = selectedSound === sound.value;
+          return (
+            <Pressable
+              key={sound.value}
+              onPress={() => onSoundChange(sound.value)}
+              className={`flex-1 min-w-[70px] items-center p-4 rounded-[20px] border ${isActive ? 'border-amber-400 bg-amber-50' : 'border-neutral-100 bg-neutral-50'
+                }`}
             >
-              {sound.icon}
-            </ThemedLanguageText>
-            <ThemedLanguageText
-              variant={selectedSound === sound.value ? 'primary' : 'secondary'}
-              size="small"
-              style={[
-                styles.soundLabel,
-                selectedSound === sound.value && styles.soundLabelActive,
-              ]}
-              fontFamily="regional_secondary"
-            >
-              {sound.label}
-            </ThemedLanguageText>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </ThemedCard>
+              <Text className="text-2xl mb-2">
+                {sound.icon}
+              </Text>
+              <Text
+                className={`text-[11px] text-center font-bold ${isActive ? 'text-amber-800' : 'text-neutral-400'
+                  }`}
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                {sound.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </HStack>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginTop: SIZES.spacing.xl,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: SIZES.spacing.md,
-    textAlign: 'center',
-  },
-  soundsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: SIZES.spacing.sm,
-    justifyContent: 'center',
-  },
-  soundButton: {
-    flex: 1,
-    minWidth: 80,
-    alignItems: 'center',
-    padding: SIZES.spacing.md,
-    borderRadius: SIZES.radius.md,
-    borderWidth: 1,
-  },
-  soundIcon: {
-    fontSize: 32,
-    marginBottom: SIZES.spacing.xs,
-  },
-  soundLabel: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  soundLabelActive: {
-    fontWeight: '600',
-  },
-});
-

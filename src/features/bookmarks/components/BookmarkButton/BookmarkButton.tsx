@@ -1,7 +1,6 @@
+import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
 import { ThemedText } from '@/components/ui/ThemedText/ThemedText';
 import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
 import { useTheme } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { useBookmarkStore } from '@/store';
@@ -16,6 +15,7 @@ interface BookmarkButtonProps {
   chapterNumber: string;
   verseNumber: string;
   verseText: string;
+  variant?: 'icon' | 'full';
   onBookmarkChange?: (isBookmarked: boolean) => void;
   onAlert?: (title: string, message: string, type?: 'success' | 'error') => void;
 }
@@ -26,15 +26,16 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
   chapterNumber,
   verseNumber,
   verseText,
+  variant = 'full',
   onBookmarkChange,
   onAlert,
 }) => {
   const { theme } = useTheme();
-  const { 
-    isBookmarked, 
-    addBookmark, 
-    removeBookmark, 
-    isLoading 
+  const {
+    isBookmarked,
+    addBookmark,
+    removeBookmark,
+    isLoading
   } = useBookmarkStore();
 
   const [loading, setLoading] = useState(true);
@@ -66,9 +67,9 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
 
   if (loading || isLoading) {
     return (
-      <ThemedView style={styles.container}>
+      <ThemedView style={variant === 'icon' ? styles.iconOnly : styles.container}>
         <ThemedText style={{ ...styles.loadingText, color: theme.text.secondary }}>
-          {i18n.t('common.loading')}
+          {variant === 'icon' ? '...' : i18n.t('common.loading')}
         </ThemedText>
       </ThemedView>
     );
@@ -77,30 +78,34 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
   return (
     <TouchableOpacity
       onPress={handleBookmarkToggle}
+      activeOpacity={0.7}
       style={[
         styles.bookmarkButton,
-        {
+        variant === 'icon' && styles.iconOnly,
+        variant === 'full' && {
           backgroundColor: bookmarkStatus ? theme.button.primary.background : theme.background.secondary,
           borderColor: bookmarkStatus ? theme.button.primary.background : theme.border.primary,
         }
       ]}
     >
-      <Ionicons 
-        name={bookmarkStatus ? "checkmark" : "bookmark-outline"} 
-        size={20} 
-        color={bookmarkStatus ? theme.icon.success : theme.icon.secondary} 
+      <Ionicons
+        name={bookmarkStatus ? "bookmark" : "bookmark-outline"}
+        size={variant === 'icon' ? 24 : 20}
+        color={bookmarkStatus ? (variant === 'icon' ? theme.icon.primary : theme.button.primary.text) : theme.icon.secondary}
       />
-      <ThemedLanguageText 
-        fontFamily='regional_secondary'
-        variant='primary'
-        size='small'
-        style={{
-          ...styles.bookmarkText,
-          color: bookmarkStatus ? theme.button.primary.text : theme.text.primary
-        }}
-      >
-        {bookmarkStatus ? i18n.t('bookmark.remove') : i18n.t('bookmark.add')}
-      </ThemedLanguageText>
+      {variant === 'full' && (
+        <ThemedLanguageText
+          fontFamily='regional_secondary'
+          variant='primary'
+          size='small'
+          style={{
+            ...styles.bookmarkText,
+            color: bookmarkStatus ? theme.button.primary.text : theme.text.primary
+          }}
+        >
+          {bookmarkStatus ? i18n.t('bookmark.remove') : i18n.t('bookmark.add')}
+        </ThemedLanguageText>
+      )}
     </TouchableOpacity>
   );
 };

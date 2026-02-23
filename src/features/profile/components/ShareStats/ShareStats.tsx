@@ -35,13 +35,13 @@ const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highli
           <Feather name={icon as any} size={16} color={highlight ? theme.status.success : theme.icon.secondary} />
         )}
         <Text
-          className={`text-[24px] font-black tracking-tight ${highlight ? 'text-amber-600' : 'text-neutral-800'}`}
+          className={`text-[24px] font-normal tracking-tight ${highlight ? 'text-amber-600' : 'text-neutral-800'}`}
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {value}
         </Text>
         <Text
-          className="text-[12px] font-medium text-neutral-500 text-center"
+          className="text-[12px] font-normal text-neutral-500 text-center"
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {label}
@@ -77,7 +77,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
               <Feather name={icon as any} size={20} color={theme.status.success} />
             </Box>
             <Text
-              className="text-[16px] font-bold text-neutral-800"
+              className="text-[16px] font-normal text-neutral-800"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {title}
@@ -88,7 +88,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
               className="text-[13px] font-medium text-neutral-500"
               style={{ fontFamily: fonts.regional_secondary }}
             >
-              {i18n.t('profile.total')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: '700' }}>{stats.total}</Text>
+              {i18n.t('profile.total')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: 'normal' }}>{stats.total}</Text>
             </Text>
             <Feather
               name={isExpanded ? "chevron-up" : "chevron-down"}
@@ -212,7 +212,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
               </Box>
               <VStack className="flex-1 justify-center">
                 <Text
-                  className="text-[16px] font-bold text-neutral-800"
+                  className="text-[16px] font-normal text-neutral-800"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.shareStats')}
@@ -221,7 +221,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                   className="text-[12px] font-medium text-neutral-500"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
-                  {i18n.t('profile.allTime')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: '700' }}>{totalStats.total}</Text> {i18n.t('profile.totalShares')}
+                  {i18n.t('profile.allTime')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: 'normal' }}>{totalStats.total}</Text> {i18n.t('profile.totalShares')}
                 </Text>
               </VStack>
             </HStack>

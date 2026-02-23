@@ -22,6 +22,7 @@ import {
 } from 'react-native';
 import Purchases from 'react-native-purchases';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SubscriptionSuccessModal } from './components/SubscriptionSuccessModal';
 
 export const SubscriptionScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
@@ -32,6 +33,7 @@ export const SubscriptionScreen: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [purchasing, setPurchasing] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const skipSubscription = async () => {
     updateSetting('onboardingCompleted', true);
@@ -164,7 +166,7 @@ export const SubscriptionScreen: React.FC = () => {
       if (customerInfo.entitlements.active['premium']) {
         await refreshProStatus(); // Synchronize global state immediately
         await skipSubscription();
-        setTimeout(() => router.replace('/(tabs)'), 100);
+        setShowSuccessModal(true);
       }
     } catch (e: unknown) {
       const err = e as any;
@@ -174,6 +176,13 @@ export const SubscriptionScreen: React.FC = () => {
     } finally {
       setPurchasing(false);
     }
+  };
+
+  const handleModalClose = () => {
+    setShowSuccessModal(false);
+    setTimeout(() => {
+      router.replace('/(tabs)');
+    }, 100);
   };
 
   useEffect(() => {
@@ -412,6 +421,10 @@ export const SubscriptionScreen: React.FC = () => {
           </Pressable>
         </View>
       </ScrollView>
+      <SubscriptionSuccessModal
+        visible={showSuccessModal}
+        onClose={handleModalClose}
+      />
     </View>
   );
 };

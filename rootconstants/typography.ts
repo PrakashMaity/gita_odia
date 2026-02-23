@@ -6,11 +6,9 @@ export const typography = {
   fontFamily: {
     primary: 'primary',     // Elegant curved Bengali font for body
     secondary: 'secondary',      // Italic style for emphasis
-    tertiary: 'tertiary',      // Traditional Bengali for headings
-    quaternary: 'quaternary',    // Handwritten style for special text
     english: 'english',       // English fallback
   },
-  
+
   // Font Sizes (Bengali script needs good readability)
   fontSize: {
     xs: SIZES.xs,                       // 12
@@ -25,7 +23,7 @@ export const typography = {
     huge: SIZES.huge + 2,               // 50
     extraLargeTitle: SIZES.extraLargeTitle + 2, // 58
   },
-  
+
   // Line Heights (Bengali has vowel marks above/below, needs extra space)
   lineHeight: {
     xs: 16,
@@ -39,7 +37,7 @@ export const typography = {
     largeTitle: 48,
     huge: 56,
   },
-  
+
   // Font Weights
   fontWeight: {
     thin: '100',
@@ -51,7 +49,7 @@ export const typography = {
     extraBold: '800',
     black: '900',
   },
-  
+
   // Letter Spacing (Bengali benefits from normal to slightly wider spacing)
   letterSpacing: {
     tight: -0.3,

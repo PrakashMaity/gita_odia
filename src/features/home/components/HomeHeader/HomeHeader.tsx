@@ -11,7 +11,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const HomeHeader: React.FC = React.memo(() => {
@@ -67,7 +67,7 @@ export const HomeHeader: React.FC = React.memo(() => {
             className="text-[#3E2723]"
             style={{
               fontFamily: fonts.regional_secondary,
-              fontWeight: Platform.OS === 'ios' ? '900' : 'bold',
+              fontWeight: 'normal',
               fontSize: 21,
               letterSpacing: -0.3,
               textShadowColor: 'rgba(255,255,255,0.5)',

@@ -26,7 +26,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     console.error('ErrorBoundary caught an error:', error);
     console.error('Error Info:', errorInfo);
     console.error('Stack:', error.stack);
-    
+
     this.setState({ errorInfo });
   }
 
@@ -39,7 +39,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     if (this.state.hasError) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, backgroundColor: '#f5f5f5' }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10, color: '#d32f2f' }}>
+          <Text style={{ fontSize: 20, marginBottom: 10, color: '#d32f2f' }}>
             ଦୁଃଖିତ, କିଛି ଭୁଲ୍ ହୋଇଛି
           </Text>
           <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 10, color: '#333' }}>
@@ -59,7 +59,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             style={{ backgroundColor: '#FF6B35', paddingHorizontal: 24, paddingVertical: 12, borderRadius: 8, marginBottom: 10 }}
             onPress={this.handleReload}
           >
-            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ / Try Again</Text>
+            <Text style={{ color: 'white', fontSize: 16 }}>ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ / Try Again</Text>
           </TouchableOpacity>
           <Text style={{ textAlign: 'center', color: '#999', fontSize: 12, marginTop: 10 }}>
             If the problem persists, please reinstall the app

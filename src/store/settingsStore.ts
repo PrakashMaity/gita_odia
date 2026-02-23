@@ -6,7 +6,7 @@ export interface Settings {
   notificationsEnabled: boolean;
   autoPlayNext: boolean;
   fontSize: 'small' | 'medium' | 'large';
-  language: 'Language' | 'english' | 'hindi';
+  language: 'Language' | 'english';
   onboardingCompleted: boolean;
   developerMode: boolean; // Developer mode toggle for ads
 }
@@ -37,11 +37,11 @@ export const useSettingsStore = create<SettingsStore>()(
     (set, get) => ({
       settings: defaultSettings,
       _hasHydrated: false,
-      
+
       setHasHydrated: (state: boolean) => {
         set({ _hasHydrated: state });
       },
-      
+
       updateSetting: (key, value) => {
         try {
           set((state) => ({
@@ -54,12 +54,12 @@ export const useSettingsStore = create<SettingsStore>()(
           console.error('Error updating setting:', error);
         }
       },
-      
+
       resetSettings: () =>
         set(() => ({
           settings: defaultSettings,
         })),
-      
+
       resetOnboarding: () =>
         set((state) => ({
           settings: {
@@ -67,7 +67,7 @@ export const useSettingsStore = create<SettingsStore>()(
             onboardingCompleted: false,
           },
         })),
-      
+
       toggleNotifications: () =>
         set((state) => ({
           settings: {
@@ -75,7 +75,7 @@ export const useSettingsStore = create<SettingsStore>()(
             notificationsEnabled: !state.settings.notificationsEnabled,
           },
         })),
-      
+
       toggleAutoPlayNext: () =>
         set((state) => ({
           settings: {
@@ -83,7 +83,7 @@ export const useSettingsStore = create<SettingsStore>()(
             autoPlayNext: !state.settings.autoPlayNext,
           },
         })),
-      
+
       toggleDeveloperMode: () =>
         set((state) => ({
           settings: {

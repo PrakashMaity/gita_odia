@@ -1,6 +1,6 @@
-import { getLanguageFonts } from '@/types/font.interface';
-import { colors } from '@/rootconstants/tint';
 import { HomeImages } from '@/lib/utils/assets';
+import { colors } from '@/rootconstants/tint';
+import { getLanguageFonts } from '@/types/font.interface';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
@@ -75,7 +75,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
           }),
         ]),
       ]),
-      
+
       // App name animation
       Animated.sequence([
         Animated.delay(500),
@@ -207,7 +207,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
     inputRange: [0, 0.3, 0.7, 1],
     outputRange: [0, 0.8, 0.8, 0],
   });
-  
+
   const particle1TranslateY = particleAnim1.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -150],
@@ -222,7 +222,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
     inputRange: [0, 0.3, 0.7, 1],
     outputRange: [0, 0.7, 0.7, 0],
   });
-  
+
   const particle2TranslateY = particleAnim2.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -120],
@@ -237,7 +237,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
     inputRange: [0, 0.3, 0.7, 1],
     outputRange: [0, 0.6, 0.6, 0],
   });
-  
+
   const particle3TranslateY = particleAnim3.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -180],
@@ -247,7 +247,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
     inputRange: [0, 0.3, 0.7, 1],
     outputRange: [0, 0.5, 0.5, 0],
   });
-  
+
   const particle4TranslateY = particleAnim4.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -100],
@@ -262,7 +262,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
     inputRange: [0, 0.3, 0.7, 1],
     outputRange: [0, 0.6, 0.6, 0],
   });
-  
+
   const particle5TranslateY = particleAnim5.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -140],
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 48,
-    fontWeight: '700',
+    fontWeight: 'normal',
     color: colors.secondary50,
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.15)',

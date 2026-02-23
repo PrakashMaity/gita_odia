@@ -1,7 +1,7 @@
+import { useThemeColors } from '@/hooks/useTheme';
 import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import React from 'react';
 import { Animated, TextProps, TextStyle } from 'react-native';
-import { useThemeColors } from '@/hooks/useTheme';
 import { TextSize, TextVariant } from './types';
 
 interface AnimatedThemedTextProps extends TextProps {
@@ -30,7 +30,7 @@ export const AnimatedThemedText: React.FC<AnimatedThemedTextProps> = ({
     const baseStyle: TextStyle = {
       fontFamily: 'AnekBangla-Regular',
       fontSize: TYPOGRAPHY.fontSize[size],
-      fontWeight: TYPOGRAPHY.fontWeight[weight],
+      fontWeight: 'normal',
       letterSpacing: TYPOGRAPHY.letterSpacing.normal,
     };
 
@@ -64,8 +64,8 @@ export const AnimatedThemedText: React.FC<AnimatedThemedTextProps> = ({
   };
 
   return (
-    <Animated.Text 
-      style={[getTextStyle(), animatedStyle]} 
+    <Animated.Text
+      style={[getTextStyle(), animatedStyle]}
       {...props}
     >
       {children}

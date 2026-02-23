@@ -52,7 +52,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
         )}
         <VStack className="flex-1 justify-center">
           <Text
-            className="text-[16px] font-black tracking-tight mb-1"
+            className="text-[16px] font-bold tracking-normal mb-0.5"
             style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
           >
             {title}

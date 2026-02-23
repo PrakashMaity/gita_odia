@@ -14,29 +14,33 @@ export async function shouldShowAds(): Promise<boolean> {
       console.log('[shouldShowAds] Ads disabled: Developer mode is enabled');
       return false;
     }
-    
-    // Check Pro status - if user has free Pro, disable ads
+
+    // Check Pro status - if user has free Pro OR paid premium, disable ads
     try {
-      // Check free Pro status (1-day Pro)
+      // 1. Check free Pro status (1-day Pro)
       const hasFreePro = await isProActive();
-      
-      // If user has Pro status, don't show ads
-      if (hasFreePro) {
-        console.log('[shouldShowAds] Ads disabled: Pro status active', { hasFreePro });
+
+      // 2. Check paid premium status (RevenueCat)
+      const { isPremium } = await import('./revenuecat');
+      const hasPaidPremium = await isPremium();
+
+      // If user has either Pro status, don't show ads
+      if (hasFreePro || hasPaidPremium) {
+        console.log('[shouldShowAds] Ads disabled: Pro/Premium status active', { hasFreePro, hasPaidPremium });
         return false;
       }
     } catch (error) {
       console.error('[shouldShowAds] Error checking Pro status:', error);
       // If there's an error checking Pro status, continue with other checks
     }
-    
+
     // Check ad-free status
     const isAdFree = await isAdFreeActive();
     if (isAdFree) {
       console.log('[shouldShowAds] Ads disabled: Ad-free is active');
       return false;
     }
-    
+
     console.log('[shouldShowAds] Ads enabled: All checks passed');
     return true;
   } catch (error) {
@@ -56,9 +60,19 @@ export function shouldShowAdsSync(): boolean {
   if (developerMode) {
     return false;
   }
-  
-  // For sync version, we can't check ad-free status, so we only check developer mode
-  // For full check including ad-free, use shouldShowAds() async version
+
+  // Check global Pro store status (which is kept in sync)
+  try {
+    const { useProStore } = require('@/store/proStore');
+    const isPro = useProStore.getState().isPro;
+    if (isPro) {
+      return false;
+    }
+  } catch (error) {
+    // If we can't check store, continue
+  }
+
+  // For sync version, we can't check ad-free status accurately if not in store
   return true;
 }
 

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { SIZES } from '@/rootconstants/sizes';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,6 +20,14 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
     marginLeft: SIZES.spacing.xs,
+  },
+  iconOnly: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+    minWidth: 0,
+    minHeight: 0,
   },
 });
 

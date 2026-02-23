@@ -1,25 +1,25 @@
 import { ProUpgradeModal } from '@/components/shared';
 import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
 import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import { useVerseTextToSpeech, VerseItem } from '@/hooks/useVerseTextToSpeech';
-import { SIZES } from '@/rootconstants/sizes';
 import { getChapterColors, getVerseColors } from '@/lib/utils/chapterColors';
 import { getSpeakerImage } from '@/lib/utils/speakerUtils';
+import { SIZES } from '@/rootconstants/sizes';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
+import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-    Animated,
-    Dimensions,
-    Image,
-    Modal,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
+  Animated,
+  Dimensions,
+  Image,
+  Modal,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import { styles } from './AudioModal.styles';
 
@@ -49,7 +49,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   const theme = useThemeColors();
   const screenData = Dimensions.get('screen');
   const { width, height } = screenData;
-  
+
   const [currentVerseIndex, setCurrentVerseIndex] = useState<number>(0);
   const [totalVerses, setTotalVerses] = useState<number>(0);
   const [currentText, setCurrentText] = useState<string>('');
@@ -119,7 +119,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   const [rotateAnim] = useState(new Animated.Value(0));
   const [scaleTransitionAnim] = useState(new Animated.Value(1));
   const [fadeTransitionAnim] = useState(new Animated.Value(1));
-  const [waveformAnims] = useState(() => 
+  const [waveformAnims] = useState(() =>
     Array.from({ length: 5 }, () => new Animated.Value(20))
   );
 
@@ -215,7 +215,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       scaleTransitionAnim.setValue(1);
       fadeTransitionAnim.setValue(1);
       rotateAnim.setValue(0);
-      
+
       // Creative animation: slide out with rotation and scale, then slide in with bounce
       Animated.sequence([
         // Phase 1: Slide out to left with rotation, scale down, and fade
@@ -300,7 +300,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
   useEffect(() => {
     if (isSpeaking && !isPaused) {
       // Start waveform animations
-      const animations = waveformAnims.map((anim, index) => 
+      const animations = waveformAnims.map((anim, index) =>
         Animated.loop(
           Animated.sequence([
             Animated.timing(anim, {
@@ -318,7 +318,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
       );
       const parallelAnim = Animated.parallel(animations);
       parallelAnim.start();
-      
+
       return () => {
         parallelAnim.stop();
         waveformAnims.forEach(anim => {
@@ -404,11 +404,11 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                 styles.card,
                 ...(verseColors
                   ? [
-                      {
-                        borderColor: verseColors.primary,
-                        borderWidth: 2,
-                      },
-                    ]
+                    {
+                      borderColor: verseColors.primary,
+                      borderWidth: 2,
+                    },
+                  ]
                   : []),
               ]}
               borderVariant="none"
@@ -422,47 +422,42 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                 />
               )}
               {/* Header */}
-              <ThemedView style={styles.header}>
-                {speakerEnglish && (
+              <View style={styles.header}>
+                {speakerEnglish ? (
                   <View style={styles.speakerContainer}>
                     <Image
                       source={getSpeakerImage(speakerEnglish)}
                       style={styles.speakerAvatar}
                       resizeMode="cover"
                     />
-                    <ThemedView style={styles.speakerInfo}>
-                      {speaker && (
-                        <ThemedLanguageText
-                          variant="primary"
-                          size="medium"
-                          fontFamily="regional_secondary"
-                          style={styles.speakerName}
-                        >
-                          {speaker}
-                        </ThemedLanguageText>
-                      )}
-                      {verseNumber && (
-                        <ThemedLanguageText
-                          variant="secondary"
-                          size="small"
-                          fontFamily="regional_secondary"
-                          style={styles.verseNumber}
-                        >
-                          Verse {verseNumber}
-                        </ThemedLanguageText>
-                      )}
-                    </ThemedView>
+                    <View style={styles.speakerInfo}>
+                      <ThemedLanguageText
+                        variant="primary"
+                        size="medium"
+                        fontFamily="regional_secondary"
+                        style={styles.speakerName}
+                      >
+                        {speaker || speakerEnglish}
+                      </ThemedLanguageText>
+                      <ThemedLanguageText
+                        variant="secondary"
+                        size="small"
+                        fontFamily="regional_secondary"
+                        style={styles.verseNumber}
+                      >
+                        {verseNumber ? `Verse ${verseNumber}` : 'Chanting...'}
+                      </ThemedLanguageText>
+                    </View>
                   </View>
-                )}
-                {title && !speakerEnglish && (
-                  <ThemedView style={styles.titleContainer}>
+                ) : (
+                  <View style={styles.titleContainer}>
                     <ThemedLanguageText
                       variant="primary"
                       size="large"
                       fontFamily="regional_secondary"
                       style={styles.title}
                     >
-                      {title}
+                      {title || 'Audio Playback'}
                     </ThemedLanguageText>
                     {totalVerses > 0 && currentVerseIndex > 0 && (
                       <ThemedLanguageText
@@ -474,7 +469,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                         Verse {currentVerseIndex} of {totalVerses}
                       </ThemedLanguageText>
                     )}
-                  </ThemedView>
+                  </View>
                 )}
                 <TouchableOpacity
                   onPress={handleBackdropPress}
@@ -482,21 +477,21 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     styles.closeButton,
                     {
                       backgroundColor: verseColors
-                        ? verseColors.accent
-                        : theme.background.tertiary,
+                        ? `${verseColors.primary}20`
+                        : 'rgba(0, 0, 0, 0.05)',
                     },
                   ]}
                 >
                   <MaterialIcons
                     name="close"
-                    size={SIZES.icon.md}
-                    color={theme.icon.primary}
+                    size={20}
+                    color={verseColors ? verseColors.primary : theme.icon.primary}
                   />
                 </TouchableOpacity>
-              </ThemedView>
+              </View>
 
               {/* Audio Waveform Animation */}
-              <ThemedView style={styles.waveformContainer}>
+              <View style={styles.waveformContainer}>
                 {waveformAnims.map((anim, index) => (
                   <Animated.View
                     key={index}
@@ -507,16 +502,17 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                           ? verseColors.primary
                           : theme.icon.primary,
                         height: anim,
+                        opacity: isSpeaking ? 0.8 : 0.3,
                       },
                     ]}
                   />
                 ))}
-              </ThemedView>
+              </View>
 
               {/* Current Text Display with Speaker Icon */}
-              <ThemedView style={styles.textContainer}>
+              <View style={styles.textContainer}>
                 {currentText ? (
-                  <ThemedView style={styles.currentTextContainer}>
+                  <View style={styles.currentTextContainer}>
                     {currentSpeakerEnglish && (
                       <Image
                         source={getSpeakerImage(currentSpeakerEnglish)}
@@ -529,11 +525,11 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                       size="large"
                       fontFamily="regional_secondary"
                       style={styles.currentText}
-                      numberOfLines={5}
+                      numberOfLines={4}
                     >
                       {currentText}
                     </ThemedLanguageText>
-                  </ThemedView>
+                  </View>
                 ) : (
                   <ThemedLanguageText
                     variant="secondary"
@@ -541,121 +537,94 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     fontFamily="regional_secondary"
                     style={styles.textPreview}
                   >
-                    {text || (verses && verses.length > 0 ? `${verses.length} verses` : '')}
+                    {text || (verses && verses.length > 0 ? `${verses.length} verses loaded` : 'Preparing audio...')}
                   </ThemedLanguageText>
                 )}
-              </ThemedView>
+              </View>
 
               {/* Controls */}
-              <ThemedView style={styles.controlsContainer}>
-                {/* {isSpeaking && !isPaused && (
-                  <TouchableOpacity
-                    onPress={handlePauseResume}
-                    style={[
-                      styles.controlButton,
-                      {
-                        backgroundColor: verseColors
-                          ? verseColors.primary
-                          : theme.button.primary.background,
-                      },
-                    ]}
-                  >
-                    <MaterialIcons
-                      name="pause"
-                      size={SIZES.icon.xl}
-                      color={theme.button.primary.text}
-                    />
-                  </TouchableOpacity>
-                )} */}
-
-                {/* {isPaused && (
-                  <TouchableOpacity
-                    onPress={handlePauseResume}
-                    style={[
-                      styles.controlButton,
-                      {
-                        backgroundColor: verseColors
-                          ? verseColors.primary
-                          : theme.button.primary.background,
-                      },
-                    ]}
-                  >
-                    <MaterialIcons
-                      name="play-arrow"
-                      size={SIZES.icon.xl}
-                      color={theme.button.primary.text}
-                    />
-                  </TouchableOpacity>
-                )}
-
-                {!isSpeaking && !isPaused && (
-                  <TouchableOpacity
-                    onPress={() => {
-                      if (verses && verses.length > 0) {
-                        speakVerses(verses);
-                      } else if (text) {
-                        speak(text, speakerEnglish);
-                      }
-                    }}
-                    style={[
-                      styles.controlButton,
-                      {
-                        backgroundColor: verseColors
-                          ? verseColors.primary
-                          : theme.button.primary.background,
-                      },
-                    ]}
-                  >
-                    <MaterialIcons
-                      name="play-arrow"
-                      size={SIZES.icon.xl}
-                      color={theme.button.primary.text}
-                    />
-                  </TouchableOpacity>
-                )} */}
-
-                {/* <TouchableOpacity
+              <View style={styles.controlsContainer}>
+                <TouchableOpacity
                   onPress={handleStop}
                   style={[
                     styles.controlButton,
                     styles.stopButton,
-                    { backgroundColor: theme.status.error || theme.background.tertiary },
+                    { backgroundColor: 'rgba(239, 68, 68, 0.1)' },
                   ]}
                 >
                   <MaterialIcons
                     name="stop"
-                    size={SIZES.icon.lg}
-                    color={theme.icon.error || theme.icon.primary}
+                    size={24}
+                    color="#EF4444"
                   />
-                </TouchableOpacity> */}
-              </ThemedView>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                    handlePauseResume();
+                  }}
+                  style={[
+                    styles.controlButton,
+                    {
+                      backgroundColor: verseColors
+                        ? verseColors.primary
+                        : theme.button.primary.background,
+                    },
+                  ]}
+                >
+                  <MaterialIcons
+                    name={isPaused || !isSpeaking ? 'play-arrow' : 'pause'}
+                    size={40}
+                    color={theme.button.primary.text}
+                  />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={async () => {
+                    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                    // Add logic for next/prev if needed, but for now just a placeholder
+                  }}
+                  style={[
+                    styles.controlButton,
+                    styles.stopButton,
+                    { backgroundColor: 'rgba(0, 0, 0, 0.05)' },
+                  ]}
+                >
+                  <MaterialIcons
+                    name="skip-next"
+                    size={24}
+                    color={theme.icon.primary}
+                  />
+                </TouchableOpacity>
+              </View>
 
               {/* Status and Progress */}
-              <ThemedView style={styles.statusContainer}>
+              <View style={styles.statusContainer}>
                 {totalVerses > 0 && currentVerseIndex > 0 ? (
-                  <ThemedView style={styles.progressContainer}>
+                  <View style={styles.progressContainer}>
                     <ThemedLanguageText
                       variant="primary"
                       size="medium"
                       fontFamily="regional_secondary"
                       style={styles.progressText}
                     >
-                      Playing Verse {currentVerseIndex} of {totalVerses}
+                      Playing {currentVerseIndex} of {totalVerses}
                     </ThemedLanguageText>
-                    <ThemedView style={styles.progressBarContainer}>
-                      <ThemedView
-                    style={[
-                      styles.progressBar,
-                      {
-                        width: `${(currentVerseIndex / totalVerses) * 100}%`,
-                        backgroundColor: verseColors
-                          ? verseColors.primary
-                          : theme.icon.primary,
-                      },
-                    ]}
+                    <View style={styles.progressBarContainer}>
+                      <View
+                        style={[
+                          styles.progressBar,
+                          {
+                            width: `${(currentVerseIndex / totalVerses) * 100}%`,
+                            backgroundColor: verseColors
+                              ? verseColors.primary
+                              : theme.icon.primary,
+                          },
+                        ]}
                       />
-                    </ThemedView>
-                  </ThemedView>
+                    </View>
+                  </View>
                 ) : (
                   <ThemedLanguageText
                     variant="secondary"
@@ -664,13 +633,13 @@ export const AudioModal: React.FC<AudioModalProps> = ({
                     style={styles.statusText}
                   >
                     {isSpeaking && !isPaused
-                      ? 'Playing...'
+                      ? 'Chanting...'
                       : isPaused
-                      ? 'Paused'
-                      : 'Ready'}
+                        ? 'Paused'
+                        : 'Ready'}
                   </ThemedLanguageText>
                 )}
-              </ThemedView>
+              </View>
             </ThemedCard>
           </Animated.View>
         </TouchableWithoutFeedback>

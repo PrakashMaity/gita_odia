@@ -1,5 +1,6 @@
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
+import { VStack } from '@/components/ui/vstack';
 import { PasswordModal } from '@/features/developer/components/PasswordModal/PasswordModal';
 import { SettingsItem, SettingsSection } from '@/features/profile/components/settings';
 import { createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
@@ -13,7 +14,7 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
 import constants from 'expo-constants';
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { Pressable, ScrollView, Text } from 'react-native';
 import { PointsDisplay } from './components/PointsDisplay/PointsDisplay';
 import { ProfileHeader } from './components/ProfileHeader/ProfileHeader';
 import { ShareStats } from './components/ShareStats/ShareStats';
@@ -115,26 +116,37 @@ export const ProfileScreen: React.FC = () => {
           description={isPro ? "You are a Pro member. Thank you for your support!" : "Upgrade to Pro and unlock all premium features"}
         >
           {isPro && (
-            <Box className="bg-background-50 rounded-2xl p-5 mb-4 border border-outline-100">
-              <HStack className="justify-between items-center mb-2">
-                <Text className="text-typography-900 font-bold text-lg">
-                  {subscriptionDetails?.planName || 'Pro Member'}
-                </Text>
-                <Box className="bg-primary-600 px-3 py-1 rounded-lg">
-                  <Text className="text-white text-[10px] font-bold uppercase tracking-wider">Active</Text>
-                </Box>
-              </HStack>
-              {subscriptionDetails?.expirationDate && (
-                <Text className="text-typography-500 text-sm">
-                  {subscriptionDetails.willRenew ? 'Next renewal' : 'Expires'}: {subscriptionDetails.expirationDate}
-                </Text>
-              )}
-              {!subscriptionDetails && isPro && (
-                <Text className="text-typography-500 text-sm">
-                  Free Pro access active via points/rewards.
-                </Text>
-              )}
-            </Box>
+            <Pressable
+              onPress={() => router.push('/subscription-details')}
+              className="active:opacity-80"
+            >
+              <Box className="bg-background-50 rounded-2xl p-5 mb-4 border border-outline-100">
+                <HStack className="justify-between items-center mb-3">
+                  <Text className="text-typography-900 font-bold text-[17px]">
+                    {subscriptionDetails?.planName?.toLowerCase().includes('premioum') || subscriptionDetails?.planName?.toLowerCase().includes('premium') ? 'Premium' : (subscriptionDetails?.planName || 'Pro Member')}
+                  </Text>
+                  <Box className="bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+                    <Text className="text-emerald-700 text-[11px] font-bold">Active</Text>
+                  </Box>
+                </HStack>
+
+                <VStack space="xs">
+                  {subscriptionDetails?.expirationDate && (
+                    <HStack className="items-center" space="xs">
+                      <Feather name="calendar" size={12} color={theme.text.secondary} />
+                      <Text className="text-typography-500 text-[13px] font-medium">
+                        {subscriptionDetails.willRenew ? 'Next renewal' : 'Expires'}: {subscriptionDetails.expirationDate}
+                      </Text>
+                    </HStack>
+                  )}
+                  {!subscriptionDetails && isPro && (
+                    <Text className="text-typography-500 text-sm font-medium">
+                      Free Pro access active via points/rewards.
+                    </Text>
+                  )}
+                </VStack>
+              </Box>
+            </Pressable>
           )}
 
           {!isPro && (

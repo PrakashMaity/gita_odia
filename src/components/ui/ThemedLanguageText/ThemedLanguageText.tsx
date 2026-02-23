@@ -1,32 +1,30 @@
+import { useThemeColors } from '@/hooks/useTheme';
 import { getLanguageFonts } from '@/types/font.interface';
 import React from 'react';
 import { Text, TextProps, TextStyle } from 'react-native';
-import { useThemeColors } from '@/hooks/useTheme';
 
-export type LanguageTextVariant = 
-  | 'primary' 
-  | 'secondary' 
-  | 'tertiary' 
-  | 'accent' 
-  | 'error' 
+export type LanguageTextVariant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'accent'
+  | 'error'
   | 'success';
 
-export type LanguageTextSize = 
-  | 'xs' 
-  | 'small' 
-  | 'medium' 
-  | 'large' 
-  | 'xl' 
-  | 'xxl' 
+export type LanguageTextSize =
+  | 'xs'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xl'
+  | 'xxl'
   | 'title';
 
-export type LanguageFontFamily = 
-  | 'regional_primary' 
-  | 'regional_secondary' 
-  | 'regional_tertiary' 
-  | 'regional_quaternary'
+export type LanguageFontFamily =
+  | 'regional_primary'
+  | 'regional_secondary'
   | 'primary_english'
-  |'none'
+  | 'none';
 
 export interface ThemedLanguageTextProps extends TextProps {
   variant?: LanguageTextVariant;
@@ -102,15 +100,11 @@ export const ThemedLanguageText: React.FC<ThemedLanguageTextProps> = ({
     const fontFamilyStyles: Record<LanguageFontFamily, TextStyle> = {
       regional_primary: {
         fontFamily: languageFonts.regional_primary,
+        fontWeight: 'normal',
       },
       regional_secondary: {
         fontFamily: languageFonts.regional_secondary,
-      },
-      regional_tertiary: {
-        fontFamily: languageFonts.regional_tertiary,
-      },
-      regional_quaternary: {
-          fontFamily: languageFonts.regional_quaternary,
+        fontWeight: 'normal',
       },
       primary_english: {
         fontFamily: languageFonts.primary_english,
@@ -131,8 +125,8 @@ export const ThemedLanguageText: React.FC<ThemedLanguageTextProps> = ({
   const textStyle = getTextStyle();
 
   // Handle both single style and array of styles
-  const finalStyle = Array.isArray(style) 
-    ? [textStyle, ...style] 
+  const finalStyle = Array.isArray(style)
+    ? [textStyle, ...style]
     : { ...textStyle, ...(style as TextStyle) };
 
   return (

@@ -1,28 +1,34 @@
 import { PageHeader } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { Heading } from '@/components/ui/heading';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { LayoutImages } from '@/lib/utils/assets';
+import { getLanguageFonts } from '@/types/font.interface';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { createAudioPlayer, setAudioModeAsync } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ImageBackground, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ImageBackground, ScrollView } from 'react-native';
 import { SoundSelector } from './components/SoundSelector';
 import { TimerControls } from './components/TimerControls';
 import { TimerDisplay } from './components/TimerDisplay';
-import { styles } from './ReadingTimerScreen.styles';
 
 type TimerState = 'idle' | 'running' | 'paused' | 'completed';
 type SoundType = 'none' | 'bell' | 'chime' | 'om';
 
-const TIMER_PRESETS = [5, 10, 15, 20, 30, 45, 60]; // in minutes
+const TIMER_PRESETS = [5, 10, 15, 20, 30, 45, 60];
 
 export const ReadingTimerScreen: React.FC = () => {
+  const { width, height } = Dimensions.get('window');
   const theme = useThemeColors();
-  const [timeLeft, setTimeLeft] = useState(0); // in seconds
+  const fonts = getLanguageFonts();
+  const [timeLeft, setTimeLeft] = useState(0);
   const [timerState, setTimerState] = useState<TimerState>('idle');
   const [selectedSound, setSelectedSound] = useState<SoundType>('bell');
   const [selectedPreset, setSelectedPreset] = useState<number>(15);
@@ -30,7 +36,6 @@ export const ReadingTimerScreen: React.FC = () => {
   const soundInitialized = useRef(false);
   const { showAd } = useInterstitialAd();
 
-  // Initialize audio
   useEffect(() => {
     const setupAudio = async () => {
       try {
@@ -50,7 +55,6 @@ export const ReadingTimerScreen: React.FC = () => {
     setupAudio();
   }, []);
 
-  // Timer countdown
   useEffect(() => {
     if (timerState === 'running' && timeLeft > 0) {
       intervalRef.current = setInterval(() => {
@@ -68,53 +72,31 @@ export const ReadingTimerScreen: React.FC = () => {
         intervalRef.current = null;
       }
     }
-
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [timerState, timeLeft]);
 
   const handleTimerComplete = useCallback(async () => {
     setTimerState('completed');
     await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    
     if (selectedSound !== 'none' && soundInitialized.current) {
       playCompletionSound(selectedSound);
     }
-
-    // Show interstitial ad after timer completion
-    // Small delay to let user see completion state first
-    setTimeout(() => {
-      showAd();
-    }, 1000);
+    setTimeout(() => { showAd(); }, 1000);
   }, [selectedSound, showAd]);
 
   const playCompletionSound = (soundType: SoundType) => {
     if (!soundInitialized.current) return;
-
     try {
       let frequency = 800;
       let duration = 0.5;
-
       switch (soundType) {
-        case 'bell':
-          frequency = 1000;
-          duration = 0.8;
-          break;
-        case 'chime':
-          frequency = 1200;
-          duration = 0.6;
-          break;
-        case 'om':
-          frequency = 432; // Om frequency
-          duration = 1.0;
-          break;
-        default:
-          return;
+        case 'bell': frequency = 1000; duration = 0.8; break;
+        case 'chime': frequency = 1200; duration = 0.6; break;
+        case 'om': frequency = 432; duration = 1.0; break;
+        default: return;
       }
-
       const base64 = createToneBase64(frequency, duration);
       const player = createAudioPlayer(
         { uri: `data:audio/wav;base64,${base64}` },
@@ -123,15 +105,9 @@ export const ReadingTimerScreen: React.FC = () => {
       player.volume = 0.7;
       player.play();
       setTimeout(() => {
-        try {
-          player.remove();
-        } catch {
-          // ignore cleanup errors
-        }
+        try { player.remove(); } catch { }
       }, Math.ceil(duration * 1000) + 200);
-    } catch {
-      // ignore playback errors
-    }
+    } catch { }
   };
 
   const createToneBase64 = (frequency: number, duration: number) => {
@@ -139,13 +115,9 @@ export const ReadingTimerScreen: React.FC = () => {
     const numSamples = Math.floor(sampleRate * duration);
     const buffer = new ArrayBuffer(44 + numSamples * 2);
     const view = new DataView(buffer);
-
     const writeString = (offset: number, value: string) => {
-      for (let i = 0; i < value.length; i++) {
-        view.setUint8(offset + i, value.charCodeAt(i));
-      }
+      for (let i = 0; i < value.length; i++) view.setUint8(offset + i, value.charCodeAt(i));
     };
-
     writeString(0, 'RIFF');
     view.setUint32(4, 36 + numSamples * 2, true);
     writeString(8, 'WAVE');
@@ -159,25 +131,19 @@ export const ReadingTimerScreen: React.FC = () => {
     view.setUint16(34, 16, true);
     writeString(36, 'data');
     view.setUint32(40, numSamples * 2, true);
-
     for (let i = 0; i < numSamples; i++) {
       const sample = Math.sin((2 * Math.PI * frequency * i) / sampleRate) * 0.4;
       const intSample = Math.max(-1, Math.min(1, sample));
       view.setInt16(44 + i * 2, intSample * 0x7fff, true);
     }
-
     const bytes = new Uint8Array(buffer);
     let binary = '';
-    for (let i = 0; i < bytes.length; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
+    for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
     return btoa(binary);
   };
 
   const handleStart = () => {
-    if (timeLeft === 0) {
-      setTimeLeft(selectedPreset * 60);
-    }
+    if (timeLeft === 0) setTimeLeft(selectedPreset * 60);
     setTimerState('running');
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
@@ -193,11 +159,7 @@ export const ReadingTimerScreen: React.FC = () => {
   };
 
   const handleReset = () => {
-    if (timerState === 'completed') {
-      setTimeout(() => {
-        showAd();
-      }, 400);
-    }
+    if (timerState === 'completed') setTimeout(() => { showAd(); }, 400);
     setTimerState('idle');
     setTimeLeft(0);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -219,11 +181,11 @@ export const ReadingTimerScreen: React.FC = () => {
   return (
     <ImageBackground
       source={LayoutImages.background2}
-      style={styles.backgroundImage}
+      className="flex-1"
       resizeMode="cover"
-      blurRadius={2.5}
+      blurRadius={1.5}
     >
-      <ThemedView variant="transparent" style={styles.container}>
+      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary + '80' }}>
         <PageHeader
           title={i18n.t('readingTimer.title')}
           subtitle={i18n.t('readingTimer.subtitle')}
@@ -231,8 +193,8 @@ export const ReadingTimerScreen: React.FC = () => {
         />
 
         <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
+          className="flex-1"
+          contentContainerStyle={{ paddingBottom: 64, paddingHorizontal: 24, alignItems: 'center' }}
           showsVerticalScrollIndicator={false}
         >
           {/* Timer Display */}
@@ -242,57 +204,44 @@ export const ReadingTimerScreen: React.FC = () => {
             formatTime={formatTime}
           />
 
-          {/* Preset Buttons */}
+          {/* Preset Selection - Pills Style */}
           {timerState === 'idle' && (
-            <View style={styles.presetsContainer}>
-              <ThemedLanguageText
-                variant="secondary"
-                size="medium"
-                style={styles.presetsTitle}
-                fontFamily="regional_secondary"
+            <VStack className="w-full mt-4" space="md">
+              <Text
+                className="text-neutral-500 font-bold text-[14px] uppercase tracking-widest text-center"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('readingTimer.selectDuration')}
-              </ThemedLanguageText>
-              <View style={styles.presetsGrid}>
-                {TIMER_PRESETS.map((minutes) => (
-                  <TouchableOpacity
-                    key={minutes}
-                    style={[
-                      styles.presetButton,
-                      {
-                        backgroundColor: selectedPreset === minutes 
-                          ? theme.button.primary.background 
-                          : theme.background.secondary,
-                        borderColor: selectedPreset === minutes 
-                          ? theme.border.primary 
-                          : theme.border.tertiary,
-                      },
-                    ]}
-                    onPress={() => handlePresetSelect(minutes)}
-                  >
-                    <ThemedLanguageText
-                      variant={selectedPreset === minutes ? 'primary' : 'secondary'}
-                      size="medium"
-                      style={[
-                        styles.presetText,
-                        {
-                          color: selectedPreset === minutes 
-                            ? theme.button.primary.text 
-                            : theme.text.secondary,
-                        },
-                        selectedPreset === minutes && styles.presetTextActive,
-                      ]}
-                      fontFamily="regional_secondary"
-                    >
-                      {minutes} {i18n.t('readingTimer.minutes')}
-                    </ThemedLanguageText>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
+              </Text>
+              <Box className="bg-white p-2 rounded-[28px] border border-amber-100 shadow-sm">
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                  <HStack space="xs" className="px-1">
+                    {TIMER_PRESETS.map((minutes) => {
+                      const isActive = selectedPreset === minutes;
+                      return (
+                        <Pressable
+                          key={minutes}
+                          onPress={() => handlePresetSelect(minutes)}
+                          className={`px-6 py-3 rounded-[20px] ${isActive ? 'bg-black shadow-sm' : 'bg-transparent'
+                            }`}
+                        >
+                          <Text
+                            className={`text-[14px] font-bold ${isActive ? 'text-white' : 'text-neutral-400'
+                              }`}
+                            style={{ fontFamily: fonts.regional_secondary }}
+                          >
+                            {minutes} {i18n.t('readingTimer.minutes')}
+                          </Text>
+                        </Pressable>
+                      );
+                    })}
+                  </HStack>
+                </ScrollView>
+              </Box>
+            </VStack>
           )}
 
-          {/* Timer Controls */}
+          {/* Controls */}
           <TimerControls
             timerState={timerState}
             onStart={handleStart}
@@ -307,29 +256,34 @@ export const ReadingTimerScreen: React.FC = () => {
             onSoundChange={setSelectedSound}
           />
 
-          {/* Completion Message */}
+          {/* Completion Reward Style Banner */}
           {timerState === 'completed' && (
-            <ThemedCard variant="card" style={styles.completionCard}>
-              <ThemedLanguageText
-                variant="primary"
-                size="title"
-                style={styles.completionIcon}
-                fontFamily="regional_secondary"
-              >
-                ✨
-              </ThemedLanguageText>
-              <ThemedLanguageText
-                variant="primary"
-                size="large"
-                style={styles.completionText}
-                fontFamily="regional_secondary"
+            <Box
+              className="mt-8 w-full p-8 rounded-[32px] border border-amber-200 bg-amber-50 items-center overflow-hidden"
+              style={{ shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.1, shadowRadius: 10 }}
+            >
+              <Box className="absolute -right-6 -bottom-6 opacity-10">
+                <FontAwesome5 name="sparkles" size={100} color="#d97706" />
+              </Box>
+              <Text className="text-4xl mb-4">✨</Text>
+              <Heading
+                className="text-amber-900 text-2xl font-black text-center mb-2"
+                style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('readingTimer.completed')}
-              </ThemedLanguageText>
-            </ThemedCard>
+              </Heading>
+              <Text
+                className="text-amber-700/60 font-medium text-center"
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                সাধনা সফলভাবে সম্পন্ন হয়েছে
+              </Text>
+            </Box>
           )}
         </ScrollView>
-      </ThemedView>
+      </Box>
     </ImageBackground>
   );
 };
+
+export default ReadingTimerScreen;

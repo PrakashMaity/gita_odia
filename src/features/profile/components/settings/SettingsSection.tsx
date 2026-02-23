@@ -30,7 +30,7 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
           style={{ backgroundColor: theme.status.success + '60' }}
         />
         <Text
-          className="text-[20px] font-black tracking-tight flex-1"
+          className="text-[18px] font-bold tracking-tight flex-1"
           style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
         >
           {title}

@@ -63,8 +63,9 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
           </Text>
         </Pressable>
 
-        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/60 shadow-sm" style={{ backgroundColor: theme.background.primary }}>
+        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/60 shadow-sm overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
           <BookmarkButton
+            variant="icon"
             verseId={currentVerseData.id}
             chapterId={chapterId}
             chapterNumber={chapterNumber}

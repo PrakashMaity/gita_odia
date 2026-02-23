@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { SIZES } from '@/rootconstants/sizes';
-import { Ionicons } from '@expo/vector-icons';
+import { Box } from '@/components/ui/box';
+import { Button, ButtonIcon, ButtonText } from '@/components/ui/button';
+import { HStack } from '@/components/ui/hstack';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
 
 interface TimerControlsProps {
   timerState: 'idle' | 'running' | 'paused' | 'completed';
@@ -22,145 +23,105 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
   onReset,
 }) => {
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
 
   return (
-    <View style={styles.container}>
+    <Box className="w-full mt-8">
       {timerState === 'idle' && (
-        <TouchableOpacity
-          style={[styles.primaryButton, { backgroundColor: theme.button.primary.background }]}
+        <Button
+          size="lg"
           onPress={onStart}
+          className="w-full h-16 rounded-[20px] bg-black border-0"
         >
-          <Ionicons name="play" size={SIZES.icon.lg} color={theme.button.primary.text} />
-          <ThemedLanguageText
-            variant="primary"
-            size="large"
-            style={[styles.buttonText, { color: theme.button.primary.text }]}
-            fontFamily="regional_secondary"
+          <ButtonIcon as={props => <Ionicons name="play" {...props} />} className="text-white mr-2" />
+          <ButtonText
+            className="text-white text-lg font-black tracking-tight"
+            style={{ fontFamily: fonts.regional_secondary }}
           >
             {i18n.t('readingTimer.start')}
-          </ThemedLanguageText>
-        </TouchableOpacity>
+          </ButtonText>
+        </Button>
       )}
 
       {timerState === 'running' && (
-        <View style={styles.controlsRow}>
-          <TouchableOpacity
-            style={[styles.secondaryButton, { backgroundColor: theme.status.warning }]}
+        <HStack space="md">
+          <Button
+            size="lg"
             onPress={onPause}
+            className="flex-1 h-14 rounded-[20px] bg-amber-500 border-0"
           >
-            <Ionicons name="pause" size={SIZES.icon.md} color={theme.text.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={[styles.buttonText, { color: theme.text.primary }]}
-              fontFamily="regional_secondary"
+            <ButtonIcon as={props => <Ionicons name="pause" {...props} />} className="text-white mr-2" />
+            <ButtonText
+              className="text-white font-bold"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.pause')}
-            </ThemedLanguageText>
-          </TouchableOpacity>
+            </ButtonText>
+          </Button>
 
-          <TouchableOpacity
-            style={[styles.secondaryButton, { backgroundColor: theme.status.error }]}
+          <Button
+            size="lg"
             onPress={onReset}
+            className="flex-1 h-14 rounded-[20px] bg-neutral-100 border-0"
           >
-            <Ionicons name="stop" size={SIZES.icon.md} color={theme.text.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={[styles.buttonText, { color: theme.text.primary }]}
-              fontFamily="regional_secondary"
+            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-neutral-500 mr-2" />
+            <ButtonText
+              className="text-neutral-500 font-bold"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.reset')}
-            </ThemedLanguageText>
-          </TouchableOpacity>
-        </View>
+            </ButtonText>
+          </Button>
+        </HStack>
       )}
 
       {timerState === 'paused' && (
-        <View style={styles.controlsRow}>
-          <TouchableOpacity
-            style={[styles.secondaryButton, { backgroundColor: theme.status.success }]}
+        <HStack space="md">
+          <Button
+            size="lg"
             onPress={onResume}
+            className="flex-1 h-14 rounded-[20px] bg-emerald-600 border-0"
           >
-            <Ionicons name="play" size={SIZES.icon.md} color={theme.text.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={[styles.buttonText, { color: theme.text.primary }]}
-              fontFamily="regional_secondary"
+            <ButtonIcon as={props => <Ionicons name="play" {...props} />} className="text-white mr-2" />
+            <ButtonText
+              className="text-white font-bold"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.resume')}
-            </ThemedLanguageText>
-          </TouchableOpacity>
+            </ButtonText>
+          </Button>
 
-          <TouchableOpacity
-            style={[styles.secondaryButton, { backgroundColor: theme.status.error }]}
+          <Button
+            size="lg"
             onPress={onReset}
+            className="flex-1 h-14 rounded-[20px] bg-neutral-100 border-0"
           >
-            <Ionicons name="stop" size={SIZES.icon.md} color={theme.text.primary} />
-            <ThemedLanguageText
-              variant="primary"
-              size="medium"
-              style={[styles.buttonText, { color: theme.text.primary }]}
-              fontFamily="regional_secondary"
+            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-neutral-500 mr-2" />
+            <ButtonText
+              className="text-neutral-500 font-bold"
+              style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.reset')}
-            </ThemedLanguageText>
-          </TouchableOpacity>
-        </View>
+            </ButtonText>
+          </Button>
+        </HStack>
       )}
 
       {timerState === 'completed' && (
-        <TouchableOpacity
-          style={[styles.primaryButton, { backgroundColor: theme.button.secondary.background }]}
+        <Button
+          size="lg"
           onPress={onReset}
+          className="w-full h-16 rounded-[20px] bg-black border-0"
         >
-          <Ionicons name="refresh" size={SIZES.icon.lg} color={theme.button.secondary.text} />
-          <ThemedLanguageText
-            variant="primary"
-            size="large"
-            style={[styles.buttonText, { color: theme.button.secondary.text }]}
-            fontFamily="regional_secondary"
+          <ButtonIcon as={props => <Ionicons name="refresh" {...props} />} className="text-white mr-2" />
+          <ButtonText
+            className="text-white text-lg font-black tracking-tight"
+            style={{ fontFamily: fonts.regional_secondary }}
           >
             {i18n.t('readingTimer.restart')}
-          </ThemedLanguageText>
-        </TouchableOpacity>
+          </ButtonText>
+        </Button>
       )}
-    </View>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    marginTop: SIZES.spacing.xl,
-  },
-  primaryButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: SIZES.spacing.lg,
-    borderRadius: SIZES.radius.lg,
-    gap: SIZES.spacing.sm,
-    minHeight: 56,
-  },
-  controlsRow: {
-    flexDirection: 'row',
-    gap: SIZES.spacing.md,
-  },
-  secondaryButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: SIZES.spacing.md,
-    borderRadius: SIZES.radius.lg,
-    gap: SIZES.spacing.xs,
-    minHeight: 48,
-  },
-  buttonText: {
-    fontWeight: '600',
-    fontSize: 16,
-  },
-});
-

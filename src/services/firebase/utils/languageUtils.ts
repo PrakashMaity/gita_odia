@@ -6,12 +6,7 @@ import i18n from '@/lib/i18n';
 const languageCodeMap: Record<string, string> = {
   'Language': 'bn', // Default to Bengali
   'english': 'en',
-  'hindi': 'hi',
   'bengali': 'bn',
-  'odia': 'or',
-  'gujarati': 'gu',
-  'assamese': 'as',
-  'nepali': 'ne',
 };
 
 /**

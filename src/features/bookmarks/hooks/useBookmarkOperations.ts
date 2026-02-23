@@ -1,10 +1,10 @@
-import { createErrorAlert, createSuccessAlert, createConfirmAlert, useCustomAlert } from '@/hooks/useCustomAlert';
+import { createConfirmAlert, createErrorAlert, createSuccessAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import i18n from '@/lib/i18n';
 import { useBookmarkStore } from '@/store';
-import { convertLanguageToEnglish } from '../utils/bookmarkUtils';
 import { router } from 'expo-router';
 import { useCallback, useRef } from 'react';
+import { convertLanguageToEnglish } from '../utils/bookmarkUtils';
 
 /**
  * Custom hook for bookmark operations
@@ -16,14 +16,20 @@ export const useBookmarkOperations = () => {
   const { showAd, isLoaded } = useInterstitialAd();
   const openCountRef = useRef(0);
 
-  const handleRemoveBookmark = useCallback(async (verseId: string) => {
-    try {
-      await removeBookmark(verseId);
-      showAlert(createSuccessAlert(i18n.t('bookmark.removed'), i18n.t('bookmark.removed')));
-    } catch (error) {
-      console.error('Error removing bookmark:', error);
-      showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('bookmark.error')));
-    }
+  const handleRemoveBookmark = useCallback((verseId: string) => {
+    showAlert(createConfirmAlert(
+      i18n.t('bookmark.removeTitle') || i18n.t('common.confirm'),
+      i18n.t('bookmark.removeConfirm') || i18n.t('bookmark.deleteConfirm'),
+      async () => {
+        try {
+          await removeBookmark(verseId);
+          showAlert(createSuccessAlert(i18n.t('bookmark.removed'), i18n.t('bookmark.removed')));
+        } catch (error) {
+          console.error('Error removing bookmark:', error);
+          showAlert(createErrorAlert(i18n.t('common.error'), i18n.t('bookmark.error')));
+        }
+      }
+    ));
   }, [removeBookmark, showAlert]);
 
   const handleBookmarkPress = useCallback((chapterId: string, verseNumber: string) => {

@@ -8,6 +8,7 @@ import i18n from '@/lib/i18n';
 import { convertToLocalizedNumber } from '@/lib/utils/numberConverter';
 import { useFavoriteStore } from '@/store';
 import { getLanguageFonts } from '@/types/font.interface';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useCallback, useState } from 'react';
 import { ScrollView } from 'react-native';
@@ -60,28 +61,50 @@ export const FavoritesScreen: React.FC = () => {
         >
           {/* Stats Section */}
           <Box
-            className="flex-row items-center justify-between p-5 rounded-[24px] mb-6 shadow-sm border border-rose-100/50"
+            className="p-6 rounded-[28px] mb-8 shadow-sm border border-rose-100/50 relative overflow-hidden"
             style={{ backgroundColor: theme.background.primary }}
           >
-            <HStack className="items-center">
+            {/* Background Decorative Icon */}
+            <Box className="absolute -right-8 -bottom-8 opacity-[0.03]" pointerEvents="none">
+              <MaterialIcons name="favorite" size={160} color="#000" />
+            </Box>
+
+            <HStack className="items-center justify-between">
+              <HStack className="items-center">
+                <Box
+                  className="w-1.5 h-12 rounded-full mr-5"
+                  style={{ backgroundColor: theme.status.error }}
+                />
+                <VStack>
+                  <Text
+                    className="text-[14px] font-bold text-neutral-500 mb-1"
+                    style={{ fontFamily: fonts.regional_secondary }}
+                  >
+                    {i18n.t('favorite.yourFavorites').toUpperCase()}
+                  </Text>
+                  <HStack className="items-baseline">
+                    <Text
+                      className="text-[36px] font-black text-neutral-900 tracking-tighter"
+                      style={{ fontFamily: fonts.regional_secondary }}
+                    >
+                      {convertToLocalizedNumber(sortedFavorites.length.toString())}
+                    </Text>
+                    <Text
+                      className="text-[16px] font-bold text-neutral-400 ml-2"
+                      style={{ fontFamily: fonts.regional_secondary }}
+                    >
+                      {i18n.t('favorite.favorites')}
+                    </Text>
+                  </HStack>
+                </VStack>
+              </HStack>
+
               <Box
-                className="w-2.5 h-8 rounded-full mr-4"
-                style={{ backgroundColor: theme.status.error + '80' }}
-              />
-              <VStack>
-                <Text
-                  className="text-[14px] font-medium text-neutral-500 mb-0.5"
-                  style={{ fontFamily: fonts.regional_secondary }}
-                >
-                  {i18n.t('favorite.yourFavorites')}
-                </Text>
-                <Text
-                  className="text-[28px] font-black tracking-tight text-neutral-800"
-                  style={{ fontFamily: fonts.regional_secondary }}
-                >
-                  {convertToLocalizedNumber(sortedFavorites.length.toString())}
-                </Text>
-              </VStack>
+                className="w-14 h-14 rounded-2xl items-center justify-center"
+                style={{ backgroundColor: theme.status.error + '15' }}
+              >
+                <MaterialIcons name="favorite-border" size={28} color={theme.status.error} />
+              </Box>
             </HStack>
           </Box>
 

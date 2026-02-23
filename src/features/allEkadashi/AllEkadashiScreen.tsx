@@ -1,16 +1,20 @@
 import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
-import { ThemedCard } from '@/components/ui/ThemedCard/ThemedCard';
-import { ThemedLanguageText } from '@/components/ui/ThemedLanguageText';
-import { ThemedView } from '@/components/ui/ThemedView/ThemedView';
+import { Box } from '@/components/ui/box';
+import { Heading } from '@/components/ui/heading';
+import { HStack } from '@/components/ui/hstack';
+import { Pressable } from '@/components/ui/pressable';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { WavePattern } from '@/lib/illustration/cardBackground';
 import { LayoutImages } from '@/lib/utils/assets';
+import { getLanguageFonts } from '@/types/font.interface';
+import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useMemo, useState } from 'react';
-import { Dimensions, ImageBackground, ScrollView, TouchableOpacity, View } from 'react-native';
-import { styles } from './AllEkadashiScreen.styles';
+import React, { useMemo, useState } from 'react';
+import { Dimensions, ImageBackground, ScrollView } from 'react-native';
 
 type EkadashiItem = {
   name: string;
@@ -24,21 +28,20 @@ type EkadashiItem = {
 export const AllEkadashiScreen: React.FC = () => {
   const { width, height } = Dimensions.get('window');
   const theme = useThemeColors();
+  const fonts = getLanguageFonts();
   const params = useLocalSearchParams();
   const [selectedYear, setSelectedYear] = useState<string>(params.year as string || '1432');
   const { isPro } = useProStatus();
   const [showProModal, setShowProModal] = useState(false);
-  
+
   // Get ekadashi data for the selected year
   const getEkadashiDataForYear = (year: string): EkadashiItem[] => {
     try {
-      // Try to get the year-specific data
       const allEkadashiData = i18n.t('allEkadashi') as any;
       const yearsData = allEkadashiData?.years;
       if (yearsData && yearsData[year]) {
         return (yearsData[year].ekadashiList || []) as EkadashiItem[];
       }
-      // Fallback: try direct access
       const yearData = i18n.t(`allEkadashi.years.${year}`) as any;
       if (yearData && yearData.ekadashiList) {
         return yearData.ekadashiList as EkadashiItem[];
@@ -56,377 +59,272 @@ export const AllEkadashiScreen: React.FC = () => {
   // Calculate upcoming Ekadashi
   const { upcomingEkadashi, upcomingIndex } = useMemo(() => {
     const now = Date.now();
-    const upcoming = ekadashiList.find((ekadashi, index) => {
+    const upcoming = ekadashiList.find((ekadashi) => {
       if (!ekadashi.dateTimestamp) return false;
       return ekadashi.dateTimestamp >= now;
     });
-    
+
     if (upcoming) {
       const index = ekadashiList.findIndex(e => e.name === upcoming.name);
       return { upcomingEkadashi: upcoming, upcomingIndex: index };
     }
-    
-    // If no upcoming found, return the first one (next year)
+
     return { upcomingEkadashi: ekadashiList[0], upcomingIndex: 0 };
   }, [ekadashiList]);
 
   return (
     <ImageBackground
       source={LayoutImages.background3}
-      style={styles.backgroundImage}
+      className="flex-1"
       resizeMode="cover"
-      blurRadius={2.5}
+      blurRadius={1.5}
     >
-      <ThemedView variant="transparent" style={styles.container}>
+      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary + '80' }}>
         <WavePattern width={width} height={height} />
-        
-        <PageHeader title={`${i18n.t('menu.allEkadashi')} ${selectedYear}`} />
 
-        <ScrollView 
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
+        <PageHeader title={i18n.t('menu.allEkadashi')} />
+
+        <ScrollView
+          className="flex-1"
+          contentContainerStyle={{ paddingBottom: 64 }}
           showsVerticalScrollIndicator={false}
         >
-          {/* Year Selection Card */}
-          <ThemedCard style={styles.yearSelectorCard}>
-            <ThemedLanguageText 
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.yearLabel}
+          <VStack className="px-4" space="lg">
+
+            {/* Year Selection - Subtle & Professional */}
+            <Box
+              className="bg-white rounded-[28px] p-2 border border-amber-100 shadow-sm"
+              style={{ backgroundColor: theme.background.primary }}
             >
-              বছর নির্বাচন করুন:
-            </ThemedLanguageText>
-            <View style={styles.yearInputContainer}>
-             
-              <View style={styles.yearButtonsContainer}>
-                {['1432', '1433', '1434', '1435'].map((year) => (
-                  <TouchableOpacity
-                    key={year}
-                    onPress={() => {
-                      setSelectedYear(year);
-                      router.setParams({ year });
-                    }}
-                    style={[
-                      styles.yearButton,
-                      {
-                        backgroundColor: selectedYear === year 
-                          ? theme.background.tertiary 
-                          : theme.background.secondary,
-                        borderColor: selectedYear === year 
-                          ? theme.border.primary 
-                          : theme.border.secondary,
-                      }
-                    ]}
-                  >
-                    <ThemedLanguageText 
-                      variant={selectedYear === year ? 'primary' : 'secondary'}
-                      size="small"
-                      fontFamily="regional_secondary"
-                      style={styles.yearButtonText}
+              <HStack space="xs">
+                {['1432', '1433', '1434', '1435'].map((year) => {
+                  const isActive = selectedYear === year;
+                  return (
+                    <Pressable
+                      key={year}
+                      onPress={() => {
+                        setSelectedYear(year);
+                        router.setParams({ year });
+                      }}
+                      className={`flex-1 items-center justify-center py-2.5 rounded-[20px] ${isActive ? 'bg-amber-50' : 'bg-transparent'
+                        }`}
                     >
-                      {year}
-                    </ThemedLanguageText>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-          </ThemedCard>
+                      <Text
+                        className={`text-[14px] font-bold ${isActive ? 'text-amber-800' : 'text-neutral-400'
+                          }`}
+                        style={{ fontFamily: fonts.regional_secondary }}
+                      >
+                        {year}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </HStack>
+            </Box>
 
-          <ThemedCard style={styles.introCard}>
-            <ThemedLanguageText 
-              variant="primary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.introText}
-            >
-              {i18n.t('allEkadashi.intro')}
-            </ThemedLanguageText>
-          </ThemedCard>
+            {/* Premium Hero section for Upcoming Ekadashi */}
+            {upcomingEkadashi && (
+              <Box
+                className="rounded-[32px] p-6 border border-amber-200/50 shadow-md relative overflow-hidden"
+                style={{ backgroundColor: theme.background.primary }}
+              >
+                <Box className="absolute -bottom-6 -right-6 opacity-[0.04]" pointerEvents="none">
+                  <MaterialIcons name="event-available" size={140} color="#000" />
+                </Box>
 
-          {/* Upcoming Ekadashi Card */}
-          {upcomingEkadashi && (
-            <ThemedCard 
-              style={[
-                styles.upcomingCard, 
-                { 
-                  borderColor: theme.border.primary,
-                  backgroundColor: theme.background.quaternary,
-                }
-              ]}
-            >
-              <ThemedLanguageText 
-                variant="primary"
-                size="large"
-                fontFamily="regional_secondary"
-                style={styles.upcomingTitle}
-              >
-                {i18n.t('allEkadashi.upcomingTitle')}
-              </ThemedLanguageText>
-              <ThemedLanguageText 
-                variant="primary"
-                size="xl"
-                fontFamily="regional_secondary"
-                style={styles.upcomingName}
-              >
-                {upcomingEkadashi.name}
-              </ThemedLanguageText>
-              {upcomingEkadashi.englishDate && (
-                <View style={styles.dateRow}>
-                  <ThemedLanguageText 
-                    variant="secondary"
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.dateLabel}
+                <HStack className="items-center mb-4" space="sm">
+                  <Box className="w-10 h-10 bg-amber-50 rounded-[16px] items-center justify-center">
+                    <FontAwesome5 name="star" size={16} color="#d97706" />
+                  </Box>
+                  <Text
+                    className="text-amber-800 font-extrabold text-[12px] uppercase tracking-widest"
+                    style={{ fontFamily: fonts.regional_secondary }}
                   >
-                    {i18n.t('allEkadashi.englishDateLabel')}:
-                  </ThemedLanguageText>
-                  <ThemedLanguageText 
-                    variant="primary"
-                    size="medium"
-                    fontFamily="regional_secondary"
-                    style={styles.dateValue}
-                  >
-                    {upcomingEkadashi.englishDate}
-                  </ThemedLanguageText>
-                </View>
-              )}
-              {upcomingEkadashi.bengaliDate && (
-                <View style={styles.dateRow}>
-                  <ThemedLanguageText 
-                    variant="secondary"
-                    size="small"
-                    fontFamily="regional_secondary"
-                    style={styles.dateLabel}
-                  >
-                    {i18n.t('allEkadashi.bengaliDateLabel')}:
-                  </ThemedLanguageText>
-                  <ThemedLanguageText 
-                    variant="primary"
-                    size="medium"
-                    fontFamily="regional_secondary"
-                    style={styles.dateValue}
-                  >
-                    {upcomingEkadashi.bengaliDate}
-                  </ThemedLanguageText>
-                </View>
-              )}
-              {upcomingEkadashi.description && (
-                <ThemedLanguageText 
-                  variant="secondary"
-                  size="medium"
-                  fontFamily="regional_secondary"
-                  style={styles.upcomingDescription}
+                    {i18n.t('allEkadashi.upcomingTitle')}
+                  </Text>
+                </HStack>
+
+                <Heading
+                  className="text-neutral-900 text-3xl font-extrabold tracking-tight mb-4"
+                  style={{ fontFamily: fonts.regional_secondary }}
                 >
-                  {upcomingEkadashi.description}
-                </ThemedLanguageText>
-              )}
-            </ThemedCard>
-          )}
+                  {upcomingEkadashi.name}
+                </Heading>
 
-          <ThemedCard style={styles.significanceCard}>
-            <ThemedLanguageText 
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('allEkadashi.significanceTitle')}
-            </ThemedLanguageText>
-            <ThemedLanguageText 
-              variant="secondary"
-              size="medium"
-              fontFamily="regional_secondary"
-              style={styles.sectionText}
-            >
-              {i18n.t('allEkadashi.significanceText')}
-            </ThemedLanguageText>
-          </ThemedCard>
+                <VStack space="sm" className="mb-2">
+                  <HStack className="items-center" space="xs">
+                    <Feather name="calendar" size={14} color="#d97706" />
+                    <Text
+                      className="text-neutral-500 text-sm"
+                      style={{ fontFamily: fonts.regional_secondary }}
+                    >
+                      {upcomingEkadashi.englishDate}
+                    </Text>
+                  </HStack>
+                  <HStack className="items-center" space="xs">
+                    <Feather name="clock" size={14} color="#d97706" />
+                    <Text
+                      className="text-neutral-500 text-sm"
+                      style={{ fontFamily: fonts.regional_secondary }}
+                    >
+                      {upcomingEkadashi.bengaliDate}
+                    </Text>
+                  </HStack>
+                </VStack>
+              </Box>
+            )}
 
-          <ThemedCard style={styles.listCard}>
-            <ThemedLanguageText 
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.listTitle}
+            {/* Intro Text */}
+            <Box
+              className="rounded-[24px] p-5 border border-amber-100 shadow-sm"
+              style={{ backgroundColor: theme.background.primary }}
             >
-              {i18n.t('allEkadashi.listTitle')}
-            </ThemedLanguageText>
-            
-            <View style={styles.ekadashiList}>
+              <Text
+                className="text-neutral-600 text-[15px] leading-6 italic text-center"
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                {i18n.t('allEkadashi.intro')}
+              </Text>
+            </Box>
+
+            {/* List Heading */}
+            <HStack className="items-center justify-between mt-4 px-1">
+              <Heading
+                className="text-neutral-800 text-[20px] font-extrabold tracking-tight"
+                style={{ fontFamily: fonts.regional_secondary }}
+              >
+                {i18n.t('allEkadashi.listTitle')}
+              </Heading>
+              <Box className="flex-1 h-[1px] bg-amber-100 ml-4 opacity-50" />
+            </HStack>
+
+            {/* Ekadashi List Cards */}
+            <VStack space="sm">
               {ekadashiList.map((ekadashi, index) => {
                 const isUpcoming = index === upcomingIndex;
-                // Lock cards after the first 3 for non-PRO users
                 const isLocked = !isPro && index >= 3;
+
                 return (
                   <LockedCardOverlay
                     key={index}
                     isLocked={isLocked}
                     onPress={() => setShowProModal(true)}
                   >
-                    <ThemedCard 
-                      style={[
-                        styles.ekadashiItem, 
-                        { 
-                          borderColor: isUpcoming ? theme.border.primary : theme.border.secondary,
-                          borderWidth: isUpcoming ? 2 : 1,
-                          backgroundColor: isUpcoming ? theme.background.quaternary : undefined,
-                        }
-                      ]}
+                    <Box
+                      className={`rounded-[24px] p-4 border shadow-sm flex-row items-center relative overflow-hidden ${isUpcoming ? 'border-amber-400' : 'border-amber-100/50'
+                        }`}
+                      style={{ backgroundColor: theme.background.primary }}
                     >
-                    <View style={styles.ekadashiHeader}>
-                      <ThemedView 
-                        style={[
-                          styles.numberBadge, 
-                          { 
-                            backgroundColor: isUpcoming ? theme.background.tertiary : theme.background.tertiary,
-                          }
-                        ]}
+                      {isUpcoming && (
+                        <Box className="absolute top-0 right-0 px-3 py-1 bg-amber-500 rounded-bl-[12px]">
+                          <Text className="text-[10px] text-white font-black uppercase">
+                            {i18n.t('allEkadashi.upcomingSubtitle')}
+                          </Text>
+                        </Box>
+                      )}
+
+                      {/* Index Badge */}
+                      <Box
+                        className={`w-10 h-10 rounded-[14px] items-center justify-center mr-4 ${isUpcoming ? 'bg-amber-100' : 'bg-neutral-50'
+                          }`}
                       >
-                        <ThemedLanguageText 
-                          variant="primary"
-                          size="small"
-                          fontFamily="regional_secondary"
-                          style={styles.numberText}
+                        <Text
+                          className={`text-sm font-black ${isUpcoming ? 'text-amber-800' : 'text-neutral-400'
+                            }`}
                         >
                           {index + 1}
-                        </ThemedLanguageText>
-                      </ThemedView>
-                      <ThemedLanguageText 
-                        variant="primary"
-                        size="large"
-                        fontFamily="regional_secondary"
-                        style={styles.ekadashiName}
-                      >
-                        {ekadashi.name}
-                        {isUpcoming && (
-                          <ThemedLanguageText 
-                            variant="tertiary"
-                            size="small"
-                            fontFamily="regional_secondary"
-                            style={styles.upcomingBadge}
-                          >
-                            {' '}({i18n.t('allEkadashi.upcomingSubtitle')})
-                          </ThemedLanguageText>
-                        )}
-                      </ThemedLanguageText>
-                    </View>
-                    
-                    {/* Dates */}
-                    {(ekadashi.englishDate || ekadashi.bengaliDate) && (
-                      <View style={styles.datesContainer}>
-                        {ekadashi.englishDate && (
-                          <View style={styles.dateRow}>
-                            <ThemedLanguageText 
-                              variant="secondary"
-                              size="small"
-                              fontFamily="regional_secondary"
-                              style={styles.dateLabel}
-                            >
-                              {i18n.t('allEkadashi.englishDateLabel')}:
-                            </ThemedLanguageText>
-                            <ThemedLanguageText 
-                              variant="primary"
-                              size="small"
-                              fontFamily="regional_secondary"
-                              style={styles.dateValue}
-                            >
-                              {ekadashi.englishDate}
-                            </ThemedLanguageText>
-                          </View>
-                        )}
-                        {ekadashi.bengaliDate && (
-                          <View style={styles.dateRow}>
-                            <ThemedLanguageText 
-                              variant="secondary"
-                              size="small"
-                              fontFamily="regional_secondary"
-                              style={styles.dateLabel}
-                            >
-                              {i18n.t('allEkadashi.bengaliDateLabel')}:
-                            </ThemedLanguageText>
-                            <ThemedLanguageText 
-                              variant="primary"
-                              size="small"
-                              fontFamily="regional_secondary"
-                              style={styles.dateValue}
-                            >
-                              {ekadashi.bengaliDate}
-                            </ThemedLanguageText>
-                          </View>
-                        )}
-                      </View>
-                    )}
-                  
-                    {ekadashi.description && (
-                      <ThemedLanguageText 
-                        variant="secondary"
-                        size="medium"
-                        fontFamily="regional_secondary"
-                        style={styles.ekadashiDescription}
-                      >
-                        {ekadashi.description}
-                      </ThemedLanguageText>
-                    )}
-                  
-                  {ekadashi.benefits && ekadashi.benefits.length > 0 && (
-                    <View style={styles.benefitsContainer}>
-                      <ThemedLanguageText 
-                        variant="primary"
-                        size="small"
-                        fontFamily="regional_secondary"
-                        style={styles.benefitsTitle}
-                      >
-                        {i18n.t('allEkadashi.benefitsTitle')}:
-                      </ThemedLanguageText>
-                      {ekadashi.benefits.map((benefit: string, idx: number) => (
-                        <ThemedLanguageText 
-                          key={idx}
-                          variant="secondary"
-                          size="small"
-                          fontFamily="regional_secondary"
-                          style={styles.benefitItem}
+                        </Text>
+                      </Box>
+
+                      {/* Info */}
+                      <VStack className="flex-1 justify-center">
+                        <Text
+                          className="text-neutral-800 font-extrabold text-[16px] tracking-tight mb-1"
+                          style={{ fontFamily: fonts.regional_secondary }}
+                          numberOfLines={1}
                         >
-                          • {benefit}
-                        </ThemedLanguageText>
-                      ))}
-                    </View>
-                    )}
-                  </ThemedCard>
+                          {ekadashi.name}
+                        </Text>
+                        <Text
+                          className="text-neutral-500 text-[12px]"
+                          style={{ fontFamily: fonts.regional_secondary }}
+                        >
+                          {ekadashi.englishDate} • {ekadashi.bengaliDate}
+                        </Text>
+                      </VStack>
+
+                      {/* Action Icon */}
+                      <Box className="w-8 h-8 rounded-full items-center justify-center bg-amber-50/50">
+                        <MaterialIcons
+                          name="arrow-forward-ios"
+                          size={12}
+                          color={isUpcoming ? "#d97706" : "#D1D5DB"}
+                        />
+                      </Box>
+                    </Box>
                   </LockedCardOverlay>
                 );
               })}
-            </View>
-          </ThemedCard>
+            </VStack>
 
-          <ThemedCard style={styles.instructionsCard}>
-            <ThemedLanguageText 
-              variant="primary"
-              size="large"
-              fontFamily="regional_secondary"
-              style={styles.sectionTitle}
-            >
-              {i18n.t('allEkadashi.instructionsTitle')}
-            </ThemedLanguageText>
-            {(i18n.t('allEkadashi.instructions') as string[]).map((instruction, index) => (
-              <ThemedLanguageText 
-                key={index}
-                variant="secondary"
-                size="medium"
-                fontFamily="regional_secondary"
-                style={styles.instructionItem}
+            {/* Significance & Instructions */}
+            <VStack space="md" className="mt-6">
+              <Box
+                className="rounded-[28px] p-6 border border-amber-100 shadow-sm relative overflow-hidden"
+                style={{ backgroundColor: theme.background.primary }}
               >
-                {index + 1}. {instruction}
-              </ThemedLanguageText>
-            ))}
-          </ThemedCard>
+                <Box className="absolute -bottom-4 -right-4 opacity-[0.03]" pointerEvents="none">
+                  <FontAwesome5 name="info-circle" size={100} color="#000" />
+                </Box>
+                <Heading
+                  className="text-neutral-800 font-extrabold text-[18px] mb-3"
+                  style={{ fontFamily: fonts.regional_secondary }}
+                >
+                  {i18n.t('allEkadashi.significanceTitle')}
+                </Heading>
+                <Text
+                  className="text-neutral-500 text-[14px] leading-6"
+                  style={{ fontFamily: fonts.regional_secondary }}
+                >
+                  {i18n.t('allEkadashi.significanceText')}
+                </Text>
+              </Box>
+
+              <Box
+                className="rounded-[28px] p-6 border border-amber-100 shadow-sm relative overflow-hidden mb-8"
+                style={{ backgroundColor: theme.background.primary }}
+              >
+                <Heading
+                  className="text-neutral-800 font-extrabold text-[18px] mb-4"
+                  style={{ fontFamily: fonts.regional_secondary }}
+                >
+                  {i18n.t('allEkadashi.instructionsTitle')}
+                </Heading>
+                <VStack space="md">
+                  {(i18n.t('allEkadashi.instructions') as string[]).map((instruction, index) => (
+                    <HStack key={index} space="sm" className="items-start">
+                      <Text className="text-amber-600 font-black mt-1">•</Text>
+                      <Text
+                        className="flex-1 text-neutral-500 text-sm leading-6"
+                        style={{ fontFamily: fonts.regional_secondary }}
+                      >
+                        {instruction}
+                      </Text>
+                    </HStack>
+                  ))}
+                </VStack>
+              </Box>
+            </VStack>
+
+          </VStack>
         </ScrollView>
         <ProUpgradeModal
           visible={showProModal}
           onClose={() => setShowProModal(false)}
         />
-      </ThemedView>
+      </Box>
     </ImageBackground>
   );
 };
 
+export default AllEkadashiScreen;

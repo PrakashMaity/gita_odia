@@ -1,4 +1,3 @@
-import { LoadingState } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
@@ -11,7 +10,7 @@ import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { ChapterCard } from './components';
+import { ChapterCard, ChaptersLoadingSkeleton } from './components';
 import { ChaptersHeader } from './components/ChaptersHeader';
 import { useChapterProgress } from './hooks/useChapterProgress';
 import { useChaptersOperations } from './hooks/useChaptersOperations';
@@ -24,7 +23,12 @@ export const ChaptersScreen: React.FC = () => {
   const fonts = getLanguageFonts();
 
   if (isLoading || progressLoading) {
-    return <LoadingState message={i18n.t('chapter.chaptersLoading')} />;
+    return (
+      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
+        <ChaptersHeader />
+        <ChaptersLoadingSkeleton />
+      </Box>
+    );
   }
 
   return (

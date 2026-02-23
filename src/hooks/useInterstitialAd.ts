@@ -1,4 +1,5 @@
 import { createInterstitialAd, setupInterstitialListeners, showInterstitialAd } from '@/components/ads';
+import { useProStatus } from '@/hooks/useProStatus';
 import { isAdsInitialized } from '@/services/ads/initializeAds';
 import { useEffect, useRef, useState } from 'react';
 
@@ -10,10 +11,17 @@ import { useEffect, useRef, useState } from 'react';
 export const useInterstitialAd = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const { isPro } = useProStatus();
   const interstitialRef = useRef<any>(null);
 
   // Check SDK initialization
   useEffect(() => {
+    // If user is Pro, don't even initialize ads logic
+    if (isPro) {
+      setIsInitialized(false);
+      return;
+    }
+
     const checkInitialization = () => {
       const initialized = isAdsInitialized();
       setIsInitialized(initialized);
@@ -23,11 +31,12 @@ export const useInterstitialAd = () => {
       }
     };
     checkInitialization();
-  }, []);
+  }, [isPro]);
 
   useEffect(() => {
     // Wait for SDK initialization before creating ad
-    if (!isInitialized) {
+    // Also stop if user is Pro
+    if (!isInitialized || isPro) {
       return;
     }
 
@@ -46,7 +55,7 @@ export const useInterstitialAd = () => {
         setIsLoaded(false);
         console.log('[useInterstitialAd] Ad closed, reloading...');
         setTimeout(() => {
-          interstitial.load();
+          if (!isPro) interstitial.load();
         }, 1000);
       },
       onError: (error) => {
@@ -54,7 +63,7 @@ export const useInterstitialAd = () => {
         setIsLoaded(false);
         // Retry loading after a delay
         setTimeout(() => {
-          interstitial.load();
+          if (!isPro && interstitial) interstitial.load();
         }, 30000); // Retry after 30 seconds
       },
     });
@@ -66,9 +75,14 @@ export const useInterstitialAd = () => {
     return () => {
       cleanup();
     };
-  }, [isInitialized]);
+  }, [isInitialized, isPro]);
 
   const showAd = async () => {
+    if (isPro) {
+      console.log('[useInterstitialAd] Ad suppressed for Pro user');
+      return;
+    }
+
     if (interstitialRef.current && isLoaded) {
       await showInterstitialAd(interstitialRef.current);
       setIsLoaded(false); // Mark as not loaded after showing
@@ -78,7 +92,7 @@ export const useInterstitialAd = () => {
   };
 
   return {
-    isLoaded,
+    isLoaded: isPro ? false : isLoaded,
     showAd,
   };
 };
