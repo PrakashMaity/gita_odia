@@ -1,6 +1,7 @@
 import { Box } from '@/components/ui/box';
 import { VStack } from '@/components/ui/vstack';
 import { ProUpgradeModal } from '@/features/subscription/components/ProUpgradeModal';
+import { useProStatus } from '@/hooks/useProStatus';
 import { HomeImages } from '@/lib/utils/assets';
 import { ImageBackground, ScrollView } from 'react-native';
 import { HeroQuote, HomeHeader, MenuGrid, QuickActions } from './components';
@@ -11,6 +12,7 @@ import { useProActivationPopup } from './hooks/useProActivationPopup';
 
 export const HomeScreen: React.FC = () => {
   useHomeInitialization();
+  const { isPro } = useProStatus();
   const {
     handleMenuItemPress,
     isUpgradeModalVisible,
@@ -22,7 +24,8 @@ export const HomeScreen: React.FC = () => {
   return (
     <ImageBackground
       source={HomeImages.background}
-      style={{ flex: 1 }}
+      style={[{ flex: 1 }, !isPro && ({ filter: 'grayscale(100%)' } as any)]}
+      imageStyle={!isPro ? { tintColor: '#D1D5DB' } : undefined}
       resizeMode="cover"
       blurRadius={0.5}
     >

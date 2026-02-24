@@ -93,7 +93,7 @@ const FeaturedCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; theme: 
   const { colors } = useSemanticColors();
   return (
     <Pressable onPress={() => onPress(item)} className="w-full mb-4 active:opacity-80">
-      <Box className="w-full rounded-[28px] p-5 border border-primary-100/50 shadow-sm overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
+      <Box className={`w-full rounded-[28px] p-5 border shadow-sm overflow-hidden relative ${isPro ? 'border-primary-100/50' : 'border-neutral-200'}`} style={{ backgroundColor: isPro ? theme.background.secondary : '#F3F4F6' }}>
         <Box className="absolute -right-6 -top-6 opacity-[0.05]" pointerEvents="none">
           <MenuItemIcon item={item} color="#000" size={item.image ? 180 : 140} />
         </Box>
@@ -104,7 +104,7 @@ const FeaturedCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; theme: 
         )}
         <HStack className="items-center justify-between">
           <VStack className="flex-1 pr-4">
-            <Box className="w-11 h-11 bg-primary-50 rounded-[18px] items-center justify-center mb-3">
+            <Box className={`w-11 h-11 rounded-[18px] items-center justify-center mb-3 ${isPro ? 'bg-primary-50' : 'bg-neutral-200'}`}>
               <Box className="w-6 h-6 items-center justify-center">
                 <MenuItemIcon item={item} color={colors.primary600} size={22} />
               </Box>
@@ -128,7 +128,7 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
   const { colors } = useSemanticColors();
   return (
     <Pressable className="flex-1 active:opacity-80" onPress={() => onPress(item)}>
-      <Box className="rounded-[24px] p-4 border border-primary-100/50 shadow-sm items-start h-[130px] overflow-hidden relative" style={{ backgroundColor: theme.background.primary }}>
+      <Box className={`rounded-[24px] p-4 border shadow-sm items-start h-[130px] overflow-hidden relative ${isPro ? 'border-primary-100/50' : 'border-neutral-200'}`} style={{ backgroundColor: isPro ? theme.background.primary : '#F9FAFB' }}>
         <Box className="absolute -right-5 -bottom-5 opacity-[0.05]" pointerEvents="none">
           <MenuItemIcon item={item} color="#000" size={item.image ? 140 : 110} />
         </Box>
@@ -137,7 +137,7 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
             <PremiumBadge size="sm" />
           </Box>
         )}
-        <Box className="w-12 h-12 bg-primary-50/80 rounded-[18px] items-center justify-center mb-3">
+        <Box className={`w-12 h-12 rounded-[18px] items-center justify-center mb-3 ${isPro ? 'bg-primary-50/80' : 'bg-neutral-200/80'}`}>
           <Box className="w-7 h-7 overflow-hidden rounded-lg items-center justify-center">
             <MenuItemIcon item={item} color={colors.primary600} size={26} />
           </Box>
@@ -155,7 +155,7 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
   const { colors } = useSemanticColors();
   return (
     <Pressable className="flex-1 active:opacity-80" onPress={() => onPress(item)}>
-      <Box className="rounded-[26px] p-5 border border-primary-100/50 shadow-sm h-[200px] justify-between relative overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
+      <Box className={`rounded-[26px] p-5 border shadow-sm h-[200px] justify-between relative overflow-hidden ${isPro ? 'border-primary-100/50' : 'border-neutral-200'}`} style={{ backgroundColor: isPro ? theme.background.primary : '#F9FAFB' }}>
         <Box className="absolute -bottom-5 -right-5 opacity-[0.05]" pointerEvents="none">
           <MenuItemIcon item={item} color="#000" size={item.image ? 160 : 120} />
         </Box>
@@ -164,7 +164,7 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
             <PremiumBadge size="md" />
           </Box>
         )}
-        <Box className="w-14 h-14 bg-tertiary-50 rounded-[20px] items-center justify-center">
+        <Box className={`w-14 h-14 rounded-[20px] items-center justify-center ${isPro ? 'bg-tertiary-50' : 'bg-neutral-200'}`}>
           <Box className="w-8 h-8 items-center justify-center overflow-hidden rounded-lg">
             <MenuItemIcon item={item} color={colors.tertiary600} size={30} />
           </Box>
@@ -185,9 +185,9 @@ const MediumHorizontalCard: React.FC<{ item: MenuItem; onPress: any; fonts: any;
 const StackedSmallCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; theme: any; colorContext: 'rose' | 'orange' | 'amber'; isPro: boolean }> = ({ item, onPress, fonts, theme, colorContext, isPro }) => {
   const { colors } = useSemanticColors();
   const bgColors = {
-    rose: 'bg-tertiary-50',
-    orange: 'bg-primary-50',
-    amber: 'bg-primary-50'
+    rose: isPro ? 'bg-tertiary-50' : 'bg-neutral-200',
+    orange: isPro ? 'bg-primary-50' : 'bg-neutral-200',
+    amber: isPro ? 'bg-primary-50' : 'bg-neutral-200'
   };
   const iconColors = {
     rose: colors.tertiary600,
@@ -197,7 +197,7 @@ const StackedSmallCard: React.FC<{ item: MenuItem; onPress: any; fonts: any; the
 
   return (
     <Pressable onPress={() => onPress(item)} className="active:opacity-80 flex-1">
-      <Box className="rounded-[20px] p-3.5 border border-primary-100/50 shadow-sm flex-row items-center h-[92px] relative overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
+      <Box className={`rounded-[20px] p-3.5 border shadow-sm flex-row items-center h-[92px] relative overflow-hidden ${isPro ? 'border-primary-100/50' : 'border-neutral-200'}`} style={{ backgroundColor: isPro ? theme.background.primary : '#F9FAFB' }}>
         <Box className="absolute -right-4 -top-4 opacity-[0.05]" pointerEvents="none">
           <MenuItemIcon item={item} color="#000" size={item.image ? 110 : 80} />
         </Box>
@@ -271,8 +271,8 @@ export const MenuGrid: React.FC<MenuGridProps> = React.memo(({ onMenuItemPress }
               {prayers[5] ? (
                 <StackedSmallCard item={prayers[5]} onPress={handleItemPress} fonts={fonts} theme={theme} colorContext="orange" isPro={isPro} />
               ) : (
-                <Box className="rounded-[20px] border border-primary-100/50 flex-1 h-[92px] items-center justify-center overflow-hidden" style={{ backgroundColor: theme.background.quaternary }}>
-                  <Ionicons name="sparkles" size={24} color="#FBBF24" opacity={0.5} />
+                <Box className={`rounded-[20px] border flex-1 h-[92px] items-center justify-center overflow-hidden ${isPro ? 'border-primary-100/50' : 'border-neutral-200'}`} style={{ backgroundColor: isPro ? theme.background.quaternary : '#F3F4F6' }}>
+                  <Ionicons name="sparkles" size={24} color={isPro ? "#FBBF24" : "#9CA3AF"} opacity={0.5} />
                 </Box>
               )}
             </VStack>

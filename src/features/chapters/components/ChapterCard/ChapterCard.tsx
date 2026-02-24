@@ -1,10 +1,10 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { ChapterImages } from '@/lib/utils/assets';
