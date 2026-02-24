@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { initializeRevenueCat } from '@/services/revenuecat';
 import type { PackageType, SubscriptionDetailsDisplay } from '@/types/subscription';
@@ -42,6 +43,7 @@ function formatDate(isoString: string | null | undefined): string | null {
 }
 
 export const SubscriptionDetailsScreen: React.FC = () => {
+  const { colors } = useSemanticColors();
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const [details, setDetails] = useState<SubscriptionDetailsDisplay | null>(null);
@@ -138,7 +140,7 @@ export const SubscriptionDetailsScreen: React.FC = () => {
         className="flex-1 bg-white items-center justify-center px-6"
         style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
       >
-        <ActivityIndicator size="large" color="#d97706" />
+        <ActivityIndicator size="large" color={colors.primary600} />
         <Text className="text-typography-600 mt-4 text-sm font-medium">
           Loading details...
         </Text>
@@ -177,7 +179,7 @@ export const SubscriptionDetailsScreen: React.FC = () => {
             onPress={() => router.back()}
             className="flex-row items-center gap-1 mb-4 active:opacity-60"
           >
-            <Ionicons name="chevron-back" size={20} color="#92400e" />
+            <Ionicons name="chevron-back" size={20} color={colors.primary800} />
             <Text className="text-typography-600 font-medium">Back</Text>
           </Pressable>
           <View>
@@ -260,6 +262,7 @@ export const SubscriptionDetailsScreen: React.FC = () => {
 };
 
 function DetailRow({ label, value }: { label: string; value: string }) {
+  const { colors } = useSemanticColors();
   return (
     <View className="flex-row justify-between py-4 border-b border-outline-100">
       <Text className="text-typography-500 font-medium">{label}</Text>

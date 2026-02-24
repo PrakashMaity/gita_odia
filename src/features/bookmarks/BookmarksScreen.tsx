@@ -65,7 +65,7 @@ export const BookmarksScreen: React.FC = () => {
         >
           {/* Stats Section */}
           <Box
-            className="p-6 rounded-[28px] mb-8 shadow-sm border border-amber-100/50 relative overflow-hidden"
+            className="p-6 rounded-[28px] mb-8 shadow-sm border border-primary-100/50 relative overflow-hidden"
             style={{ backgroundColor: theme.background.primary }}
           >
             {/* Background Decorative Icon */}
@@ -142,7 +142,7 @@ export const BookmarksScreen: React.FC = () => {
 
           {/* Footer Message */}
           <Box
-            className="rounded-[24px] p-5 shadow-sm border border-amber-100/50 items-center justify-center flex-col mt-4 mb-6"
+            className="rounded-[24px] p-5 shadow-sm border border-primary-100/50 items-center justify-center flex-col mt-4 mb-6"
             style={{ backgroundColor: theme.background.primary }}
           >
             <Box

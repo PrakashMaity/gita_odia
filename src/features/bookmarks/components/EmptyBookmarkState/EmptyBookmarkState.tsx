@@ -66,7 +66,7 @@ export const EmptyBookmarkState: React.FC = () => {
 
         {/* Tips Card */}
         <Box
-          className="w-full bg-white rounded-[24px] p-5 shadow-sm border border-amber-100/50"
+          className="w-full bg-white rounded-[24px] p-5 shadow-sm border border-primary-100/50"
           style={{ backgroundColor: theme.background.primary }}
         >
           <HStack className="items-center mb-4">
@@ -128,7 +128,7 @@ export const EmptyBookmarkState: React.FC = () => {
 
         {/* Quote Card */}
         <Box
-          className="w-full rounded-[24px] p-6 shadow-sm border border-amber-100/50 mt-4 relative overflow-hidden items-center justify-center"
+          className="w-full rounded-[24px] p-6 shadow-sm border border-primary-100/50 mt-4 relative overflow-hidden items-center justify-center"
           style={{ backgroundColor: theme.background.primary }}
         >
           <Box className="absolute -top-4 -left-4 opacity-[0.05]" pointerEvents="none">

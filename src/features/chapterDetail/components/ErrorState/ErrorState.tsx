@@ -6,7 +6,7 @@ import React from 'react';
 export const ErrorState: React.FC = () => {
   return (
     <Box className="flex-1 justify-center items-center p-6 bg-black">
-      <Text className="text-red-500 text-base text-center font-regional_secondary">
+      <Text className="text-tertiary-500 text-base text-center font-regional_secondary">
         {i18n.t('chapter.notFound')}
       </Text>
     </Box>

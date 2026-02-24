@@ -136,7 +136,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
                   await speak(i18n.t('verseOfTheDay.introText'));
                 }
               }}
-              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-green-600' : 'bg-neutral-800'
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-neutral-800'
                 }`}
             >
               <MaterialIcons
@@ -171,7 +171,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
             </Text>
             <TouchableOpacity
               onPress={handleSpeakVerse}
-              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-green-600' : 'bg-neutral-800'
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-neutral-800'
                 }`}
             >
               <MaterialIcons

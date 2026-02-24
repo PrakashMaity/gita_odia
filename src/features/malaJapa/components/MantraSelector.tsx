@@ -38,7 +38,7 @@ export const MantraSelector: React.FC<MantraSelectorProps> = ({
   };
 
   return (
-    <Box className="w-full px-4 py-3 bg-amber-50/40 border-b border-amber-100/40">
+    <Box className="w-full px-4 py-3 bg-primary-50/40 border-b border-primary-100/40">
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -56,14 +56,14 @@ export const MantraSelector: React.FC<MantraSelectorProps> = ({
             >
               <Box
                 className={`px-4 py-2 rounded-full border items-center justify-center ${isSelected
-                    ? 'bg-amber-100 border-amber-300'
-                    : 'bg-white/70 border-amber-100/60'
+                    ? 'bg-primary-100 border-primary-300'
+                    : 'bg-white/70 border-primary-100/60'
                   }`}
               >
                 <HStack className="items-center gap-1.5">
                   <Text
                     className={`text-[13px] ${isSelected
-                        ? 'font-bold text-amber-900'
+                        ? 'font-bold text-primary-900'
                         : 'font-medium text-neutral-600'
                       }`}
                     style={{ fontFamily: fonts.regional_secondary }}

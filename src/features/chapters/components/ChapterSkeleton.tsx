@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native';
 
 const ChapterCardSkeleton = () => (
     <Box className="w-full mb-4 px-4">
-        <Box className="w-full rounded-[24px] p-3 border border-amber-50/50 bg-white shadow-sm flex-row items-center">
+        <Box className="w-full rounded-[24px] p-3 border border-primary-50/50 bg-white shadow-sm flex-row items-center">
             <Skeleton className="w-[84px] h-[84px] rounded-[18px] mr-4" />
             <VStack className="flex-1 justify-center py-1">
                 <Skeleton className="h-5 w-3/4 mb-2 rounded-md" />
@@ -23,7 +23,7 @@ const ChapterCardSkeleton = () => (
 
 const MangalacharanSkeleton = () => (
     <Box className="px-4 mb-4">
-        <Box className="bg-white rounded-[24px] border border-amber-50/50 p-6 shadow-sm overflow-hidden min-h-[140px]">
+        <Box className="bg-white rounded-[24px] border border-primary-50/50 p-6 shadow-sm overflow-hidden min-h-[140px]">
             <VStack space="md">
                 <Skeleton className="h-6 w-3/4 rounded-md" />
                 <VStack space="xs">
@@ -38,7 +38,7 @@ const MangalacharanSkeleton = () => (
 
 const MotivationSkeleton = () => (
     <Box className="px-4 mt-6 mb-8">
-        <Box className="bg-white rounded-[28px] p-6 border border-amber-50/50 shadow-sm min-h-[120px]">
+        <Box className="bg-white rounded-[28px] p-6 border border-primary-50/50 shadow-sm min-h-[120px]">
             <HStack className="items-center mb-3">
                 <Skeleton className="w-10 h-10 rounded-[16px] mr-3" />
                 <Skeleton className="h-6 flex-1 rounded-md" />

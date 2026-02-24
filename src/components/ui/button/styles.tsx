@@ -15,7 +15,7 @@ export const buttonStyle = tva({
             positive:
                 'bg-white data-[hover=true]:opacity-90 data-[active=true]:opacity-80',
             negative:
-                'bg-red-500 data-[hover=true]:bg-red-600 data-[active=true]:bg-red-700',
+                'bg-tertiary-500 data-[hover=true]:bg-tertiary-600 data-[active=true]:bg-tertiary-700',
             default:
                 'bg-transparent data-[hover=true]:bg-neutral-100 data-[active=true]:bg-transparent',
         },

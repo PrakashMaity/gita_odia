@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -27,6 +28,7 @@ type MantraType = 'hareKrishna' | 'omNamah' | 'gitaDhyana' | 'custom';
 type BeadCount = 27 | 54 | 108;
 
 export const MalaJapaScreen: React.FC = () => {
+  const { colors } = useSemanticColors();
   const [currentBead, setCurrentBead] = useState(0);
   const [beadCount, setBeadCount] = useState<BeadCount>(108);
   const [selectedMantra, setSelectedMantra] = useState<MantraType>('hareKrishna');
@@ -275,10 +277,10 @@ export const MalaJapaScreen: React.FC = () => {
             {/* Exit Focus Mode Button — top-right corner */}
             <Pressable
               onPress={() => setIsFocusMode(false)}
-              className="absolute right-5 bg-white/70 rounded-full w-10 h-10 items-center justify-center border border-amber-200/50 active:opacity-70 z-20"
+              className="absolute right-5 bg-white/70 rounded-full w-10 h-10 items-center justify-center border border-primary-200/50 active:opacity-70 z-20"
               style={{ top: insets.top + 8 }}
             >
-              <Ionicons name="close" size={22} color="#3E2723" />
+              <Ionicons name="close" size={22} color={colors.secondary800} />
             </Pressable>
 
             <MalaBeads
@@ -333,10 +335,10 @@ export const MalaJapaScreen: React.FC = () => {
                 onPress={handleReset}
                 className="flex-1 active:opacity-70"
               >
-                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-red-200/60 bg-white/80">
+                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-tertiary-200/60 bg-white/80">
                   <Ionicons name="refresh" size={18} color="#DC2626" />
                   <Text
-                    className="text-red-600 text-[14px] font-bold"
+                    className="text-tertiary-600 text-[14px] font-bold"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('malaJapa.reset')}
@@ -349,10 +351,10 @@ export const MalaJapaScreen: React.FC = () => {
                 onPress={() => setIsFocusMode(true)}
                 className="flex-1 active:opacity-70"
               >
-                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-amber-200/60 bg-white/80">
-                  <Ionicons name="eye-outline" size={18} color="#B45309" />
+                <Box className="flex-row items-center justify-center gap-2 py-3.5 rounded-2xl border border-primary-200/60 bg-white/80">
+                  <Ionicons name="eye-outline" size={18} color={colors.primary700} />
                   <Text
-                    className="text-amber-700 text-[14px] font-bold"
+                    className="text-primary-700 text-[14px] font-bold"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('malaJapa.focusMode')}

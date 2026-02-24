@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
@@ -17,15 +18,16 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
   timerState,
   formatTime,
 }) => {
+  const { colors } = useSemanticColors();
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
 
   const getDisplayColor = () => {
     switch (timerState) {
       case 'running':
-        return '#d97706'; // amber-600
+        return colors.primary600; // amber-600
       case 'paused':
-        return '#f59e0b'; // amber-500
+        return colors.primary500; // amber-500
       case 'completed':
         return '#10b981'; // emerald-500
       default:
@@ -77,9 +79,9 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
             {formatTime(timeLeft)}
           </Text>
 
-          <Box className={`px-4 py-1 rounded-full ${timerState === 'running' ? 'bg-amber-50' : 'bg-neutral-50'}`}>
+          <Box className={`px-4 py-1 rounded-full ${timerState === 'running' ? 'bg-primary-50' : 'bg-neutral-50'}`}>
             <Text
-              className={`text-[14px] font-bold uppercase tracking-widest ${timerState === 'running' ? 'text-amber-800' : 'text-neutral-500'
+              className={`text-[14px] font-bold uppercase tracking-widest ${timerState === 'running' ? 'text-primary-800' : 'text-neutral-500'
                 }`}
               style={{ fontFamily: fonts.regional_secondary }}
             >

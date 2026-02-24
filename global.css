@@ -1,3 +1,144 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Classic Mode Mappings (Monochrome for free users) */
+.theme-classic {
+  /* grayscale neutral scale mapping for Primary */
+  --color-primary-0: 250 250 250; /* neutral-50 */
+  --color-primary-50: 245 245 245; /* neutral-100 */
+  --color-primary-100: 229 229 229; /* neutral-200 */
+  --color-primary-200: 212 212 212; /* neutral-300 */
+  --color-primary-300: 163 163 163; /* neutral-400 */
+  --color-primary-400: 115 115 115; /* neutral-500 */
+  --color-primary-500: 82 82 82; /* neutral-600 */
+  --color-primary-600: 64 64 64; /* neutral-700 */
+  --color-primary-700: 38 38 38; /* neutral-800 */
+  --color-primary-800: 23 23 23; /* neutral-900 */
+  --color-primary-900: 10 10 10; /* neutral-950 */
+  --color-primary-950: 0 0 0; /* black */
+
+  /* grayscale neutral scale mapping for Secondary */
+  --color-secondary-0: 250 250 250;
+  --color-secondary-50: 245 245 245;
+  --color-secondary-100: 229 229 229;
+  --color-secondary-200: 212 212 212;
+  --color-secondary-300: 163 163 163;
+  --color-secondary-400: 115 115 115;
+  --color-secondary-500: 82 82 82;
+  --color-secondary-600: 64 64 64;
+  --color-secondary-700: 38 38 38;
+  --color-secondary-800: 23 23 23;
+  --color-secondary-900: 10 10 10;
+  --color-secondary-950: 0 0 0;
+
+  /* grayscale neutral scale mapping for Tertiary */
+  --color-tertiary-0: 250 250 250;
+  --color-tertiary-50: 245 245 245;
+  --color-tertiary-100: 229 229 229;
+  --color-tertiary-200: 212 212 212;
+  --color-tertiary-300: 163 163 163;
+  --color-tertiary-400: 115 115 115;
+  --color-tertiary-500: 82 82 82;
+  --color-tertiary-600: 64 64 64;
+  --color-tertiary-700: 38 38 38;
+  --color-tertiary-800: 23 23 23;
+  --color-tertiary-900: 10 10 10;
+  --color-tertiary-950: 0 0 0;
+
+  /* success mapped to dark grays */
+  --color-success-0: 250 250 250;
+  --color-success-50: 245 245 245;
+  --color-success-100: 229 229 229;
+  --color-success-200: 212 212 212;
+  --color-success-300: 163 163 163;
+  --color-success-400: 115 115 115;
+  --color-success-500: 82 82 82;
+  --color-success-600: 64 64 64;
+  --color-success-700: 38 38 38;
+  --color-success-800: 23 23 23;
+  --color-success-900: 10 10 10;
+  --color-success-950: 0 0 0;
+
+  /* error mapped to dark grays */
+  --color-error-0: 250 250 250;
+  --color-error-50: 245 245 245;
+  --color-error-100: 229 229 229;
+  --color-error-200: 212 212 212;
+  --color-error-300: 163 163 163;
+  --color-error-400: 115 115 115;
+  --color-error-500: 82 82 82;
+  --color-error-600: 64 64 64;
+  --color-error-700: 38 38 38;
+  --color-error-800: 23 23 23;
+  --color-error-900: 10 10 10;
+  --color-error-950: 0 0 0;
+}
+
+/* Classic Mode Mappings for Dark Mode (Inverted logic) */
+.dark .theme-classic {
+  --color-primary-0: 0 0 0;
+  --color-primary-50: 10 10 10;
+  --color-primary-100: 23 23 23;
+  --color-primary-200: 38 38 38;
+  --color-primary-300: 64 64 64;
+  --color-primary-400: 82 82 82;
+  --color-primary-500: 115 115 115;
+  --color-primary-600: 163 163 163;
+  --color-primary-700: 212 212 212;
+  --color-primary-800: 229 229 229;
+  --color-primary-900: 245 245 245;
+  --color-primary-950: 250 250 250;
+
+  --color-secondary-0: 0 0 0;
+  --color-secondary-50: 10 10 10;
+  --color-secondary-100: 23 23 23;
+  --color-secondary-200: 38 38 38;
+  --color-secondary-300: 64 64 64;
+  --color-secondary-400: 82 82 82;
+  --color-secondary-500: 115 115 115;
+  --color-secondary-600: 163 163 163;
+  --color-secondary-700: 212 212 212;
+  --color-secondary-800: 229 229 229;
+  --color-secondary-900: 245 245 245;
+  --color-secondary-950: 250 250 250;
+
+  --color-tertiary-0: 0 0 0;
+  --color-tertiary-50: 10 10 10;
+  --color-tertiary-100: 23 23 23;
+  --color-tertiary-200: 38 38 38;
+  --color-tertiary-300: 64 64 64;
+  --color-tertiary-400: 82 82 82;
+  --color-tertiary-500: 115 115 115;
+  --color-tertiary-600: 163 163 163;
+  --color-tertiary-700: 212 212 212;
+  --color-tertiary-800: 229 229 229;
+  --color-tertiary-900: 245 245 245;
+  --color-tertiary-950: 250 250 250;
+
+  --color-success-0: 0 0 0;
+  --color-success-50: 10 10 10;
+  --color-success-100: 23 23 23;
+  --color-success-200: 38 38 38;
+  --color-success-300: 64 64 64;
+  --color-success-400: 82 82 82;
+  --color-success-500: 115 115 115;
+  --color-success-600: 163 163 163;
+  --color-success-700: 212 212 212;
+  --color-success-800: 229 229 229;
+  --color-success-900: 245 245 245;
+  --color-success-950: 250 250 250;
+
+  --color-error-0: 0 0 0;
+  --color-error-50: 10 10 10;
+  --color-error-100: 23 23 23;
+  --color-error-200: 38 38 38;
+  --color-error-300: 64 64 64;
+  --color-error-400: 82 82 82;
+  --color-error-500: 115 115 115;
+  --color-error-600: 163 163 163;
+  --color-error-700: 212 212 212;
+  --color-error-800: 229 229 229;
+  --color-error-900: 245 245 245;
+  --color-error-950: 250 250 250;
+}

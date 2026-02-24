@@ -72,7 +72,7 @@ const badgeTextStyle = tva({
       true: 'italic',
     },
     highlight: {
-      true: 'bg-yellow-500',
+      true: 'bg-primary-500',
     },
   },
 });

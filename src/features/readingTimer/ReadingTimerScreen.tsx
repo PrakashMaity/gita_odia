@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { PageHeader } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/heading';
@@ -25,6 +26,7 @@ type SoundType = 'none' | 'bell' | 'chime' | 'om';
 const TIMER_PRESETS = [5, 10, 15, 20, 30, 45, 60];
 
 export const ReadingTimerScreen: React.FC = () => {
+  const { colors } = useSemanticColors();
   const { width, height } = Dimensions.get('window');
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
@@ -213,7 +215,7 @@ export const ReadingTimerScreen: React.FC = () => {
               >
                 {i18n.t('readingTimer.selectDuration')}
               </Text>
-              <Box className="bg-white p-2 rounded-[28px] border border-amber-100 shadow-sm">
+              <Box className="bg-white p-2 rounded-[28px] border border-primary-100 shadow-sm">
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                   <HStack space="xs" className="px-1">
                     {TIMER_PRESETS.map((minutes) => {
@@ -259,21 +261,21 @@ export const ReadingTimerScreen: React.FC = () => {
           {/* Completion Reward Style Banner */}
           {timerState === 'completed' && (
             <Box
-              className="mt-8 w-full p-8 rounded-[32px] border border-amber-200 bg-amber-50 items-center overflow-hidden"
+              className="mt-8 w-full p-8 rounded-[32px] border border-primary-200 bg-primary-50 items-center overflow-hidden"
               style={{ shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.1, shadowRadius: 10 }}
             >
               <Box className="absolute -right-6 -bottom-6 opacity-10">
-                <FontAwesome5 name="sparkles" size={100} color="#d97706" />
+                <FontAwesome5 name="sparkles" size={100} color={colors.primary600} />
               </Box>
               <Text className="text-4xl mb-4">✨</Text>
               <Heading
-                className="text-amber-900 text-2xl font-black text-center mb-2"
+                className="text-primary-900 text-2xl font-black text-center mb-2"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('readingTimer.completed')}
               </Heading>
               <Text
-                className="text-amber-700/60 font-medium text-center"
+                className="text-primary-700/60 font-medium text-center"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 সাধনা সফলভাবে সম্পন্ন হয়েছে

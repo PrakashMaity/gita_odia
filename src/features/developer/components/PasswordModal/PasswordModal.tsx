@@ -63,7 +63,7 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
 
           <View className="mb-6">
             <TextInput
-              className={`h-[50px] rounded-xl px-4 border text-base text-white ${error ? 'border-red-500 bg-red-500/10' : 'border-neutral-700 bg-black'
+              className={`h-[50px] rounded-xl px-4 border text-base text-white ${error ? 'border-tertiary-500 bg-tertiary-500/10' : 'border-neutral-700 bg-black'
                 }`}
               value={password}
               onChangeText={(text) => {
@@ -77,7 +77,7 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
               onSubmitEditing={handleSubmit}
             />
             {error && (
-              <Text className="text-sm mt-2 text-center text-red-500">
+              <Text className="text-sm mt-2 text-center text-tertiary-500">
                 Incorrect password
               </Text>
             )}

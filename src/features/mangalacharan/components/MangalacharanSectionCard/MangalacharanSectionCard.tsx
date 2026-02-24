@@ -98,17 +98,17 @@ export const MangalacharanSectionCard: React.FC<MangalacharanSectionCardProps> =
             const section = breakdownData[key];
             const sectionIsSpeaking = isSpeaking;
             return (
-              <Box key={key} className={`bg-white/40 p-4 rounded-[20px] shadow-sm border border-amber-900/5 ${index > 0 ? 'mt-2' : ''}`}>
+              <Box key={key} className={`bg-white/40 p-4 rounded-[20px] shadow-sm border border-primary-900/5 ${index > 0 ? 'mt-2' : ''}`}>
                 <HStack className="items-center justify-between mb-3">
                   <Text
-                    className="text-[18px] font-black text-amber-900 flex-1"
+                    className="text-[18px] font-black text-primary-900 flex-1"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {section.title}
                   </Text>
                   <Pressable
                     onPress={() => handleBreakdownSectionSpeak(section)}
-                    className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50 shadow-sm"
+                    className="w-10 h-10 rounded-full items-center justify-center border border-primary-100/50 shadow-sm"
                     style={{ backgroundColor: sectionIsSpeaking ? theme.status.success : theme.background.secondary }}
                   >
                     <MaterialIcons
@@ -172,7 +172,7 @@ export const MangalacharanSectionCard: React.FC<MangalacharanSectionCardProps> =
 
   return (
     <Box
-      className={`rounded-[24px] p-5 shadow-sm overflow-hidden mb-5 border ${isIntro ? 'border-amber-100/30' : 'border-amber-100/50'}`}
+      className={`rounded-[24px] p-5 shadow-sm overflow-hidden mb-5 border ${isIntro ? 'border-primary-100/30' : 'border-primary-100/50'}`}
       style={{ backgroundColor: isIntro ? 'transparent' : theme.background.primary }}
     >
       {isIntro ? (
@@ -182,7 +182,7 @@ export const MangalacharanSectionCard: React.FC<MangalacharanSectionCardProps> =
           </Box>
           <Pressable
             onPress={handleSpeak}
-            className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/50 shadow-sm shrink-0"
+            className="w-12 h-12 rounded-[16px] items-center justify-center border border-primary-100/50 shadow-sm shrink-0"
             style={{ backgroundColor: isSpeaking ? theme.status.success : theme.background.primary }}
           >
             <MaterialIcons
@@ -208,7 +208,7 @@ export const MangalacharanSectionCard: React.FC<MangalacharanSectionCardProps> =
               </Text>
               <Pressable
                 onPress={handleSpeak}
-                className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50 shadow-sm"
+                className="w-10 h-10 rounded-full items-center justify-center border border-primary-100/50 shadow-sm"
                 style={{ backgroundColor: isSpeaking ? theme.status.success : theme.background.secondary }}
               >
                 <MaterialIcons

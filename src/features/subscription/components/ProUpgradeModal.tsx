@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
@@ -16,6 +17,7 @@ interface ProUpgradeModalProps {
 }
 
 export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClose, featureName }) => {
+  const { colors } = useSemanticColors();
     const { width, height } = Dimensions.get('screen');
     const router = useRouter();
     const fonts = getLanguageFonts();
@@ -110,7 +112,7 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                         }}
                     >
                         <Box className="bg-white rounded-3xl overflow-hidden shadow-2xl">
-                            <Box className="h-1.5 w-full bg-amber-500" />
+                            <Box className="h-1.5 w-full bg-primary-500" />
 
                             <Pressable
                                 onPress={handleClose}
@@ -120,8 +122,8 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                             </Pressable>
 
                             <VStack className="items-center px-6 py-10 gap-6">
-                                <Box className="w-20 h-20 rounded-full bg-amber-50 items-center justify-center border border-amber-100">
-                                    <MaterialIcons name="workspace-premium" size={42} color="#f59e0b" />
+                                <Box className="w-20 h-20 rounded-full bg-primary-50 items-center justify-center border border-primary-100">
+                                    <MaterialIcons name="workspace-premium" size={42} color={colors.primary500} />
                                 </Box>
 
                                 <VStack className="gap-2">
@@ -144,7 +146,7 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                                 <VStack className="w-full gap-3 mt-2">
                                     <Pressable
                                         onPress={handleUpgrade}
-                                        className="bg-amber-500 h-14 rounded-2xl items-center justify-center shadow-lg active:bg-amber-600"
+                                        className="bg-primary-500 h-14 rounded-2xl items-center justify-center shadow-lg active:bg-primary-600"
                                     >
                                         <Text className="text-white font-bold text-lg">View Pro Plans</Text>
                                     </Pressable>

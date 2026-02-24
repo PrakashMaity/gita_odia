@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { initializeRevenueCat } from '@/services/revenuecat';
 import { useProStore } from '@/store/proStore';
 import { useSettingsStore } from '@/store/settingsStore';
@@ -25,6 +26,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SubscriptionSuccessModal } from './components/SubscriptionSuccessModal';
 
 export const SubscriptionScreen: React.FC = () => {
+  const { colors } = useSemanticColors();
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const updateSetting = useSettingsStore((state) => state.updateSetting);
@@ -195,7 +197,7 @@ export const SubscriptionScreen: React.FC = () => {
         className="flex-1 bg-white items-center justify-center p-6"
         style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
       >
-        <ActivityIndicator size="large" color="#d97706" />
+        <ActivityIndicator size="large" color={colors.primary600} />
         <Text className="text-typography-600 mt-4 text-base">
           Loading plans...
         </Text>
@@ -214,13 +216,13 @@ export const SubscriptionScreen: React.FC = () => {
             onPress={() => router.replace('/(tabs)')}
             className="w-10 h-10 rounded-full bg-background-50 justify-center items-center active:opacity-70"
           >
-            <Ionicons name="close" size={24} color="#92400e" />
+            <Ionicons name="close" size={24} color={colors.primary800} />
           </Pressable>
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
           <View className="items-center mb-8">
-            <Ionicons name="cloud-offline-outline" size={64} color="#d97706" />
+            <Ionicons name="cloud-offline-outline" size={64} color={colors.primary600} />
             <Text className="text-typography-900 font-bold text-center mt-4 text-xl">
               Unable to load plans
             </Text>
@@ -305,7 +307,7 @@ export const SubscriptionScreen: React.FC = () => {
             }}
             className="w-10 h-10 rounded-full bg-background-50 justify-center items-center active:opacity-70"
           >
-            <Ionicons name="close" size={24} color="#92400e" />
+            <Ionicons name="close" size={24} color={colors.primary800} />
           </Pressable>
         </View>
 
@@ -380,7 +382,7 @@ export const SubscriptionScreen: React.FC = () => {
                   <View className="items-end">
                     <Text className="text-typography-900 font-bold text-lg">{plan.price}</Text>
                     {plan.savings && (
-                      <Text className="text-green-600 text-xs font-bold mt-0.5">{plan.savings}</Text>
+                      <Text className="text-success-600 text-xs font-bold mt-0.5">{plan.savings}</Text>
                     )}
                   </View>
                 </View>

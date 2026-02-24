@@ -5,6 +5,7 @@ import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
@@ -28,6 +29,7 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
   listType = 'bullet',
   variant = 'default',
 }) => {
+  const { colors } = useSemanticColors();
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
   const { isPro } = useProStatus();
@@ -72,7 +74,7 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
               {listType === 'bullet' ? (
                 <Box
                   className="w-2 h-2 rounded-full mt-2 mr-3 shrink-0"
-                  style={{ backgroundColor: '#D97706' }}
+                  style={{ backgroundColor: colors.primary600 }}
                 />
               ) : (
                 <Box
@@ -81,7 +83,7 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
                 >
                   <Text
                     className="text-[11px] font-bold"
-                    style={{ color: '#D97706' }}
+                    style={{ color: colors.primary600 }}
                   >
                     {index + 1}
                   </Text>
@@ -111,14 +113,14 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
 
   return (
     <Box
-      className="rounded-[24px] p-5 mb-5 border border-amber-100/50 overflow-hidden"
+      className="rounded-[24px] p-5 mb-5 border border-primary-100/50 overflow-hidden"
       style={{ backgroundColor: theme.background.primary }}
     >
       {/* ─── Section Header ─── */}
       <HStack className="items-center mb-4">
         <Box
           className="w-1.5 h-7 rounded-full mr-3"
-          style={{ backgroundColor: '#D97706' }}
+          style={{ backgroundColor: colors.primary600 }}
         />
         <Text
           className="text-[19px] font-black text-neutral-800 tracking-tight flex-1"
@@ -128,7 +130,7 @@ export const DhyanaSectionCard: React.FC<DhyanaSectionCardProps> = ({
         </Text>
         <Pressable
           onPress={handleSpeak}
-          className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50"
+          className="w-10 h-10 rounded-full items-center justify-center border border-primary-100/50"
           style={{
             backgroundColor: isSpeaking
               ? theme.status.success

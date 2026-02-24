@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native';
 
 const TranslationCardSkeleton = () => (
     <Box className="mb-4">
-        <Box className="rounded-[24px] border border-amber-50/50 p-3 bg-white shadow-sm overflow-hidden">
+        <Box className="rounded-[24px] border border-primary-50/50 p-3 bg-white shadow-sm overflow-hidden">
             <HStack className="items-center">
                 <Skeleton className="w-[72px] h-[72px] rounded-[16px] mr-4" />
                 <VStack className="flex-1 justify-center space-y-2">
@@ -21,7 +21,7 @@ const TranslationCardSkeleton = () => (
 );
 
 const TranslationIntroSkeleton = () => (
-    <Box className="rounded-[24px] border border-amber-50/50 p-6 bg-white shadow-sm overflow-hidden mb-6 min-h-[120px]">
+    <Box className="rounded-[24px] border border-primary-50/50 p-6 bg-white shadow-sm overflow-hidden mb-6 min-h-[120px]">
         <VStack space="md">
             <Skeleton className="h-6 w-3/4 rounded-md" />
             <VStack space="xs">
@@ -34,7 +34,7 @@ const TranslationIntroSkeleton = () => (
 );
 
 const TranslationMotivationSkeleton = () => (
-    <Box className="rounded-[24px] border border-green-50/10 p-5 bg-white shadow-sm overflow-hidden mb-8 min-h-[100px]">
+    <Box className="rounded-[24px] border border-success-50/10 p-5 bg-white shadow-sm overflow-hidden mb-8 min-h-[100px]">
         <HStack className="items-center mb-3">
             <Skeleton className="w-1.5 h-6 rounded-[2px] mr-3" />
             <Skeleton className="h-6 w-1/2 rounded-md" />

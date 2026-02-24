@@ -63,12 +63,12 @@ export const GitaMahatmyaScreen: React.FC = () => {
 
       {/* Custom Modern Header */}
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
         style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
@@ -96,7 +96,7 @@ export const GitaMahatmyaScreen: React.FC = () => {
         scrollEventThrottle={400}
       >
         <Box
-          className="bg-white rounded-[24px] border border-amber-100/50 shadow-sm overflow-hidden mb-6"
+          className="bg-white rounded-[24px] border border-primary-100/50 shadow-sm overflow-hidden mb-6"
           style={{ backgroundColor: theme.background.primary }}
         >
           <MahatmyaSectionCard

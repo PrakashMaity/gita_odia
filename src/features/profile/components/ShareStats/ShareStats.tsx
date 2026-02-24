@@ -27,7 +27,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highli
   const fonts = getLanguageFonts();
   return (
     <Box
-      className={`flex-1 p-3 rounded-[16px] items-center justify-center min-h-[90px] border ${highlight ? 'border-amber-500/30' : 'border-amber-900/5'}`}
+      className={`flex-1 p-3 rounded-[16px] items-center justify-center min-h-[90px] border ${highlight ? 'border-primary-500/30' : 'border-primary-900/5'}`}
       style={{ backgroundColor: highlight ? theme.status.success + '10' : theme.background.secondary }}
     >
       <VStack space="sm" className="items-center">
@@ -35,7 +35,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highli
           <Feather name={icon as any} size={16} color={highlight ? theme.status.success : theme.icon.secondary} />
         )}
         <Text
-          className={`text-[24px] font-normal tracking-tight ${highlight ? 'text-amber-600' : 'text-neutral-800'}`}
+          className={`text-[24px] font-normal tracking-tight ${highlight ? 'text-primary-600' : 'text-neutral-800'}`}
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {value}
@@ -64,7 +64,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
   const fonts = getLanguageFonts();
   return (
     <Box
-      className="mb-4 bg-white rounded-[20px] shadow-sm border border-amber-100/50 overflow-hidden"
+      className="mb-4 bg-white rounded-[20px] shadow-sm border border-primary-100/50 overflow-hidden"
       style={{ backgroundColor: theme.background.primary }}
     >
       <Pressable onPress={onToggle} className="p-4 active:opacity-70">
@@ -100,7 +100,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
       </Pressable>
 
       {isExpanded && (
-        <Box className="px-4 pb-4 pt-2 border-t border-amber-900/5">
+        <Box className="px-4 pb-4 pt-2 border-t border-primary-900/5">
           <HStack space="sm" className="justify-between w-full">
             <StatsCard
               label={i18n.t('profile.today')}
@@ -195,7 +195,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
     <Box className="w-full flex-1 mb-2" style={style}>
       {/* Summary Section */}
       <Box
-        className="mb-4 bg-white rounded-[20px] shadow-sm border border-amber-100/50 overflow-hidden"
+        className="mb-4 bg-white rounded-[20px] shadow-sm border border-primary-100/50 overflow-hidden"
         style={{ backgroundColor: theme.background.primary }}
       >
         <Pressable
@@ -256,7 +256,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
         )}
 
         {expandedSections.summary && (
-          <Box className="px-4 pb-4 pt-2 border-t border-amber-900/5">
+          <Box className="px-4 pb-4 pt-2 border-t border-primary-900/5">
             {hasNoShares ? (
               <VStack space="md" className="items-center justify-center py-6 px-4">
                 <Box

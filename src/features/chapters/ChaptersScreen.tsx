@@ -43,7 +43,7 @@ export const ChaptersScreen: React.FC = () => {
         <VStack space="md" className="pt-4">
 
           <Box className="px-4">
-            <Box className="mb-4 bg-white rounded-[24px] border border-amber-100 shadow-sm overflow-hidden"
+            <Box className="mb-4 bg-white rounded-[24px] border border-primary-100 shadow-sm overflow-hidden"
               style={{ backgroundColor: theme.background.primary }}>
               <MangalacharanSectionCard
                 content={i18n.t('chapter.intro')}
@@ -65,7 +65,7 @@ export const ChaptersScreen: React.FC = () => {
 
           <Box className="px-4 mt-6">
             <Box
-              className="rounded-[28px] p-6 border border-amber-100 shadow-sm justify-between relative overflow-hidden"
+              className="rounded-[28px] p-6 border border-primary-100 shadow-sm justify-between relative overflow-hidden"
               style={{ backgroundColor: theme.background.primary }}
             >
               <Box className="absolute -bottom-4 -right-4 opacity-[0.05]" pointerEvents="none">
@@ -73,7 +73,7 @@ export const ChaptersScreen: React.FC = () => {
               </Box>
 
               <HStack className="items-center mb-3">
-                <Box className="w-10 h-10 bg-emerald-50 rounded-[16px] items-center justify-center mr-3 z-10">
+                <Box className="w-10 h-10 bg-success-50 rounded-[16px] items-center justify-center mr-3 z-10">
                   <Box className="w-6 h-6 items-center justify-center">
                     <FontAwesome5 name="seedling" size={20} color="#10b981" />
                   </Box>

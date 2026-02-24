@@ -44,14 +44,14 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
 
   return (
     <Box
-      className="px-4 py-4 border-t border-amber-900/10 shadow-sm"
+      className="px-4 py-4 border-t border-primary-900/10 shadow-sm"
       style={{ backgroundColor: theme.background.secondary }}
     >
       <HStack className="items-center justify-between">
         <Pressable
           onPress={onPrevious}
           disabled={isFirstVerse}
-          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-amber-100/60 shadow-sm active:opacity-70 ${isFirstVerse ? 'opacity-50' : ''}`}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-primary-100/60 shadow-sm active:opacity-70 ${isFirstVerse ? 'opacity-50' : ''}`}
           style={{ backgroundColor: theme.background.primary }}
         >
           <Ionicons name="chevron-back" size={20} color={theme.icon.primary} />
@@ -63,7 +63,7 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
           </Text>
         </Pressable>
 
-        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/60 shadow-sm overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
+        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-primary-100/60 shadow-sm overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
           <BookmarkButton
             variant="icon"
             verseId={currentVerseData.id}
@@ -77,7 +77,7 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
         <Pressable
           onPress={onNext}
           disabled={isLastVerse}
-          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-amber-100/60 shadow-sm active:opacity-70 ${isLastVerse ? 'opacity-50' : ''}`}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-primary-100/60 shadow-sm active:opacity-70 ${isLastVerse ? 'opacity-50' : ''}`}
           style={{ backgroundColor: theme.background.primary }}
         >
           <Text

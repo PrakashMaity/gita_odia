@@ -30,7 +30,7 @@ export const SoundSelector: React.FC<SoundSelectorProps> = ({
 
   return (
     <Box
-      className="w-full mt-8 p-6 rounded-[28px] border border-amber-100 shadow-sm"
+      className="w-full mt-8 p-6 rounded-[28px] border border-primary-100 shadow-sm"
       style={{ backgroundColor: theme.background.primary }}
     >
       <Text
@@ -46,14 +46,14 @@ export const SoundSelector: React.FC<SoundSelectorProps> = ({
             <Pressable
               key={sound.value}
               onPress={() => onSoundChange(sound.value)}
-              className={`flex-1 min-w-[70px] items-center p-4 rounded-[20px] border ${isActive ? 'border-amber-400 bg-amber-50' : 'border-neutral-100 bg-neutral-50'
+              className={`flex-1 min-w-[70px] items-center p-4 rounded-[20px] border ${isActive ? 'border-primary-400 bg-primary-50' : 'border-neutral-100 bg-neutral-50'
                 }`}
             >
               <Text className="text-2xl mb-2">
                 {sound.icon}
               </Text>
               <Text
-                className={`text-[11px] text-center font-bold ${isActive ? 'text-amber-800' : 'text-neutral-400'
+                className={`text-[11px] text-center font-bold ${isActive ? 'text-primary-800' : 'text-neutral-400'
                   }`}
                 style={{ fontFamily: fonts.regional_secondary }}
               >

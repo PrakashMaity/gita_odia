@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { LockedCardOverlay, ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -22,6 +23,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MangalacharanSectionCard } from '../mangalacharan/components/MangalacharanSectionCard';
 
 export const KrishnaMantrasScreen: React.FC = () => {
+  const { colors, rgba } = useSemanticColors();
   const mantras = i18n.t('krishnaMantras.mantras') as any;
   const { showAd, isLoaded } = useInterstitialAd();
   const { showAd: showRewardedInterstitialAd, isLoaded: isRewardedLoaded } = useRewardedInterstitialAd();
@@ -72,12 +74,12 @@ export const KrishnaMantrasScreen: React.FC = () => {
     <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
       {/* Custom Modern Header */}
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
         style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
@@ -105,7 +107,7 @@ export const KrishnaMantrasScreen: React.FC = () => {
       >
         {/* ─── Hero Intro Card ─── */}
         <Box
-          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-amber-100/40"
+          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-primary-100/40"
           style={{ backgroundColor: theme.background.primary }}
         >
           <Box className="absolute -right-8 -bottom-8 opacity-[0.04]" pointerEvents="none">
@@ -116,7 +118,7 @@ export const KrishnaMantrasScreen: React.FC = () => {
               className="w-10 h-10 rounded-[14px] items-center justify-center mr-3"
               style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}
             >
-              <FontAwesome5 name="hands" size={18} color="#D97706" />
+              <FontAwesome5 name="hands" size={18} color={colors.primary600} />
             </Box>
             <Text
               className="text-[20px] font-black text-neutral-800 tracking-tight flex-1"
@@ -145,14 +147,14 @@ export const KrishnaMantrasScreen: React.FC = () => {
               {/* ─── Mantra Divider ─── */}
               {mantraIndex > 0 && (
                 <HStack className="items-center my-5">
-                  <Box className="h-[1px] flex-1 bg-amber-900/10" />
+                  <Box className="h-[1px] flex-1 bg-primary-900/10" />
                   <Box
                     className="w-8 h-8 rounded-full items-center justify-center mx-3"
                     style={{ backgroundColor: 'rgba(217,119,6,0.08)' }}
                   >
-                    <FontAwesome5 name="om" size={12} color="#D97706" />
+                    <FontAwesome5 name="om" size={12} color={colors.primary600} />
                   </Box>
-                  <Box className="h-[1px] flex-1 bg-amber-900/10" />
+                  <Box className="h-[1px] flex-1 bg-primary-900/10" />
                 </HStack>
               )}
 

@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
@@ -17,6 +18,7 @@ interface ProActivationModalProps {
 }
 
 export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible, onClose }) => {
+  const { colors } = useSemanticColors();
   const { width, height } = Dimensions.get('screen');
   const { refreshStatus } = useProStatus();
   const fonts = getLanguageFonts();
@@ -140,7 +142,7 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
             }}
           >
             <Box className="bg-neutral-900 rounded-3xl overflow-hidden border border-neutral-700/50">
-              <Box className="h-1.5 w-full bg-amber-500" />
+              <Box className="h-1.5 w-full bg-primary-500" />
 
               <Pressable
                 onPress={handleClose}
@@ -163,7 +165,7 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
                     ],
                   }}
                 >
-                  <Box className="w-20 h-20 rounded-full bg-amber-500 items-center justify-center shadow-lg">
+                  <Box className="w-20 h-20 rounded-full bg-primary-500 items-center justify-center shadow-lg">
                     <Ionicons name="star" size={38} color="white" />
                   </Box>
                 </Animated.View>
@@ -185,10 +187,10 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
                   })}
                 </Text>
 
-                <HStack className="items-center px-5 py-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 gap-3 w-full justify-center mt-2">
-                  <Ionicons name="checkmark-circle" size={20} color="#f59e0b" />
+                <HStack className="items-center px-5 py-3 rounded-2xl bg-primary-500/10 border border-primary-500/30 gap-3 w-full justify-center mt-2">
+                  <Ionicons name="checkmark-circle" size={20} color={colors.primary500} />
                   <Text
-                    className="text-amber-500 text-sm font-bold shadow-sm"
+                    className="text-primary-500 text-sm font-bold shadow-sm"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('pro.badgePreview', {

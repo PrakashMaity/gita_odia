@@ -1,4 +1,5 @@
 import { Text } from '@/components/ui/text';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
 import { getLanguageFonts } from '@/types/font.interface';
 import React, { useEffect, useRef } from 'react';
@@ -26,6 +27,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
   onBeadTap,
   selectedMantra,
 }) => {
+  const { colors, rgba } = useSemanticColors();
   const rotationAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const fonts = getLanguageFonts();
@@ -114,6 +116,8 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
     extrapolate: 'extend',
   });
 
+  const styles = getStyles(colors);
+
   return (
     <View style={styles.outerContainer}>
       {/* Semi-transparent backdrop for bead visibility */}
@@ -154,7 +158,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (colors: any) => StyleSheet.create({
   outerContainer: {
     width: BACKDROP_SIZE,
     height: BACKDROP_SIZE,
@@ -219,7 +223,7 @@ const styles = StyleSheet.create({
   omSymbol: {
     fontFamily: TYPOGRAPHY.fontFamily.primary,
     fontSize: MALA_SIZE * 0.4,
-    color: '#3E2723',
+    color: colors.secondary800,
     fontWeight: 'normal',
     opacity: 0.1,
     textShadowColor: 'rgba(255, 255, 255, 0.4)',

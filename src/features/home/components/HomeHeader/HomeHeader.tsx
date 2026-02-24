@@ -4,6 +4,7 @@ import { Image } from '@/components/ui/image';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import i18n from '@/lib/i18n';
 import { HomeImages } from '@/lib/utils/assets';
 import { getLanguageFonts } from '@/types/font.interface';
@@ -15,6 +16,7 @@ import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const HomeHeader: React.FC = React.memo(() => {
+  const { colors, rgba } = useSemanticColors();
   const { isPro } = useProStatus();
   const headerIcons = HomeImages.headerIcons;
   const fonts = getLanguageFonts();
@@ -23,6 +25,8 @@ export const HomeHeader: React.FC = React.memo(() => {
   const handleNotificationPress = () => {
     router.push('/notifications');
   };
+
+  const styles = getStyles(colors);
 
   return (
     <HStack
@@ -34,7 +38,7 @@ export const HomeHeader: React.FC = React.memo(() => {
         {/* Logo with premium golden glow ring */}
         <Box style={styles.logoOuter}>
           <LinearGradient
-            colors={['#F59E0B', '#D97706', '#92400E', '#D97706', '#F59E0B']}
+            colors={[colors.primary500, colors.primary600, colors.primary800, colors.primary600, colors.primary500]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
             style={styles.logoGradientRing}
@@ -58,13 +62,13 @@ export const HomeHeader: React.FC = React.memo(() => {
           {isPro && (
             <View style={[styles.crownContainer, { zIndex: -1 }]}>
               <View style={styles.crownCircle}>
-                <FontAwesome5 name="crown" size={10} color="#FFD700" />
+                <FontAwesome5 name="crown" size={10} color={colors.primary400} />
               </View>
             </View>
           )}
 
           <Text
-            className="text-[#3E2723]"
+            className="text-secondary-800"
             style={{
               fontFamily: fonts.regional_secondary,
               fontWeight: 'normal',
@@ -88,7 +92,7 @@ export const HomeHeader: React.FC = React.memo(() => {
         style={styles.notificationOuter}
       >
         <LinearGradient
-          colors={['#3E2723', '#2C1810']}
+          colors={[colors.secondary800, colors.secondary900]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={styles.notificationButton}
@@ -98,17 +102,17 @@ export const HomeHeader: React.FC = React.memo(() => {
             alt="Notifications"
             className="w-[18px] h-[18px]"
             resizeMode="contain"
-            tintColor="#FFD700"
+            tintColor={colors.primary400}
           />
         </LinearGradient>
       </Pressable>
-    </HStack>
+    </HStack >
   );
 });
 
-const styles = StyleSheet.create({
+const getStyles = (colors: any) => StyleSheet.create({
   logoOuter: {
-    shadowColor: '#D97706',
+    shadowColor: colors.primary600,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.35,
     shadowRadius: 8,
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
   decorativeLine: {
     width: 1,
     height: 28,
-    backgroundColor: '#D97706',
+    backgroundColor: colors.primary600,
     opacity: 0.2,
     marginHorizontal: 12,
     borderRadius: 1,
@@ -141,12 +145,12 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 11,
-    backgroundColor: '#2C1810',
+    backgroundColor: colors.secondary900,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1.5,
-    borderColor: '#FFD700',
-    shadowColor: '#FFD700',
+    borderColor: colors.primary500,
+    shadowColor: colors.primary500,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.5,
     shadowRadius: 4,
@@ -167,7 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(78, 52, 46, 0.5)',
+    borderColor: 'rgba(#3E2723, 0.5)',
   },
 });
 

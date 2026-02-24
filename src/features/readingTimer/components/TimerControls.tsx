@@ -48,7 +48,7 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
           <Button
             size="lg"
             onPress={onPause}
-            className="flex-1 h-14 rounded-[20px] bg-amber-500 border-0"
+            className="flex-1 h-14 rounded-[20px] bg-primary-500 border-0"
           >
             <ButtonIcon as={props => <Ionicons name="pause" {...props} />} className="text-white mr-2" />
             <ButtonText
@@ -80,7 +80,7 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
           <Button
             size="lg"
             onPress={onResume}
-            className="flex-1 h-14 rounded-[20px] bg-emerald-600 border-0"
+            className="flex-1 h-14 rounded-[20px] bg-success-600 border-0"
           >
             <ButtonIcon as={props => <Ionicons name="play" {...props} />} className="text-white mr-2" />
             <ButtonText

@@ -61,7 +61,7 @@ export const FavoritesScreen: React.FC = () => {
         >
           {/* Stats Section */}
           <Box
-            className="p-6 rounded-[28px] mb-8 shadow-sm border border-rose-100/50 relative overflow-hidden"
+            className="p-6 rounded-[28px] mb-8 shadow-sm border border-tertiary-100/50 relative overflow-hidden"
             style={{ backgroundColor: theme.background.primary }}
           >
             {/* Background Decorative Icon */}

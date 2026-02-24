@@ -74,7 +74,7 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
               <TouchableWithoutFeedback>
                 <Animated.View style={{ width: '100%', transform: [{ translateY: translateYAnim }] }}>
                   <Box
-                    className="rounded-[28px] border border-amber-100/30 p-6"
+                    className="rounded-[28px] border border-primary-100/30 p-6"
                     style={{ backgroundColor: theme.background.secondary }}
                   >
                     <HStack className="items-start justify-between mb-4">

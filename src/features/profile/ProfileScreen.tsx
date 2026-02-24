@@ -125,8 +125,8 @@ export const ProfileScreen: React.FC = () => {
                   <Text className="text-typography-900 font-bold text-[17px]">
                     {subscriptionDetails?.planName?.toLowerCase().includes('premioum') || subscriptionDetails?.planName?.toLowerCase().includes('premium') ? 'Premium' : (subscriptionDetails?.planName || 'Pro Member')}
                   </Text>
-                  <Box className="bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-                    <Text className="text-emerald-700 text-[11px] font-bold">Active</Text>
+                  <Box className="bg-success-50 px-3 py-1 rounded-full border border-success-100">
+                    <Text className="text-success-700 text-[11px] font-bold">Active</Text>
                   </Box>
                 </HStack>
 

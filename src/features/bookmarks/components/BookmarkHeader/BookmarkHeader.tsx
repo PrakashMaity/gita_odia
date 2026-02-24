@@ -28,12 +28,12 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
   return (
     <>
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
         style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
@@ -51,7 +51,7 @@ export const BookmarkHeader: React.FC<BookmarkHeaderProps> = ({
             {bookmarkCount > 0 && (
               <Pressable
                 onPress={() => setMenuVisible(true)}
-                className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+                className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
               >
                 <Ionicons
                   name="ellipsis-vertical"

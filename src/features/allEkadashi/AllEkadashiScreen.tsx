@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/heading';
@@ -26,6 +27,7 @@ type EkadashiItem = {
 };
 
 export const AllEkadashiScreen: React.FC = () => {
+  const { colors } = useSemanticColors();
   const { width, height } = Dimensions.get('window');
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
@@ -93,7 +95,7 @@ export const AllEkadashiScreen: React.FC = () => {
 
             {/* Year Selection - Subtle & Professional */}
             <Box
-              className="bg-white rounded-[28px] p-2 border border-amber-100 shadow-sm"
+              className="bg-white rounded-[28px] p-2 border border-primary-100 shadow-sm"
               style={{ backgroundColor: theme.background.primary }}
             >
               <HStack space="xs">
@@ -106,11 +108,11 @@ export const AllEkadashiScreen: React.FC = () => {
                         setSelectedYear(year);
                         router.setParams({ year });
                       }}
-                      className={`flex-1 items-center justify-center py-2.5 rounded-[20px] ${isActive ? 'bg-amber-50' : 'bg-transparent'
+                      className={`flex-1 items-center justify-center py-2.5 rounded-[20px] ${isActive ? 'bg-primary-50' : 'bg-transparent'
                         }`}
                     >
                       <Text
-                        className={`text-[14px] font-bold ${isActive ? 'text-amber-800' : 'text-neutral-400'
+                        className={`text-[14px] font-bold ${isActive ? 'text-primary-800' : 'text-neutral-400'
                           }`}
                         style={{ fontFamily: fonts.regional_secondary }}
                       >
@@ -125,7 +127,7 @@ export const AllEkadashiScreen: React.FC = () => {
             {/* Premium Hero section for Upcoming Ekadashi */}
             {upcomingEkadashi && (
               <Box
-                className="rounded-[32px] p-6 border border-amber-200/50 shadow-md relative overflow-hidden"
+                className="rounded-[32px] p-6 border border-primary-200/50 shadow-md relative overflow-hidden"
                 style={{ backgroundColor: theme.background.primary }}
               >
                 <Box className="absolute -bottom-6 -right-6 opacity-[0.04]" pointerEvents="none">
@@ -133,11 +135,11 @@ export const AllEkadashiScreen: React.FC = () => {
                 </Box>
 
                 <HStack className="items-center mb-4" space="sm">
-                  <Box className="w-10 h-10 bg-amber-50 rounded-[16px] items-center justify-center">
-                    <FontAwesome5 name="star" size={16} color="#d97706" />
+                  <Box className="w-10 h-10 bg-primary-50 rounded-[16px] items-center justify-center">
+                    <FontAwesome5 name="star" size={16} color={colors.primary600} />
                   </Box>
                   <Text
-                    className="text-amber-800 font-extrabold text-[12px] uppercase tracking-widest"
+                    className="text-primary-800 font-extrabold text-[12px] uppercase tracking-widest"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('allEkadashi.upcomingTitle')}
@@ -153,7 +155,7 @@ export const AllEkadashiScreen: React.FC = () => {
 
                 <VStack space="sm" className="mb-2">
                   <HStack className="items-center" space="xs">
-                    <Feather name="calendar" size={14} color="#d97706" />
+                    <Feather name="calendar" size={14} color={colors.primary600} />
                     <Text
                       className="text-neutral-500 text-sm"
                       style={{ fontFamily: fonts.regional_secondary }}
@@ -162,7 +164,7 @@ export const AllEkadashiScreen: React.FC = () => {
                     </Text>
                   </HStack>
                   <HStack className="items-center" space="xs">
-                    <Feather name="clock" size={14} color="#d97706" />
+                    <Feather name="clock" size={14} color={colors.primary600} />
                     <Text
                       className="text-neutral-500 text-sm"
                       style={{ fontFamily: fonts.regional_secondary }}
@@ -176,7 +178,7 @@ export const AllEkadashiScreen: React.FC = () => {
 
             {/* Intro Text */}
             <Box
-              className="rounded-[24px] p-5 border border-amber-100 shadow-sm"
+              className="rounded-[24px] p-5 border border-primary-100 shadow-sm"
               style={{ backgroundColor: theme.background.primary }}
             >
               <Text
@@ -195,7 +197,7 @@ export const AllEkadashiScreen: React.FC = () => {
               >
                 {i18n.t('allEkadashi.listTitle')}
               </Heading>
-              <Box className="flex-1 h-[1px] bg-amber-100 ml-4 opacity-50" />
+              <Box className="flex-1 h-[1px] bg-primary-100 ml-4 opacity-50" />
             </HStack>
 
             {/* Ekadashi List Cards */}
@@ -211,12 +213,12 @@ export const AllEkadashiScreen: React.FC = () => {
                     onPress={() => setShowProModal(true)}
                   >
                     <Box
-                      className={`rounded-[24px] p-4 border shadow-sm flex-row items-center relative overflow-hidden ${isUpcoming ? 'border-amber-400' : 'border-amber-100/50'
+                      className={`rounded-[24px] p-4 border shadow-sm flex-row items-center relative overflow-hidden ${isUpcoming ? 'border-primary-400' : 'border-primary-100/50'
                         }`}
                       style={{ backgroundColor: theme.background.primary }}
                     >
                       {isUpcoming && (
-                        <Box className="absolute top-0 right-0 px-3 py-1 bg-amber-500 rounded-bl-[12px]">
+                        <Box className="absolute top-0 right-0 px-3 py-1 bg-primary-500 rounded-bl-[12px]">
                           <Text className="text-[10px] text-white font-black uppercase">
                             {i18n.t('allEkadashi.upcomingSubtitle')}
                           </Text>
@@ -225,11 +227,11 @@ export const AllEkadashiScreen: React.FC = () => {
 
                       {/* Index Badge */}
                       <Box
-                        className={`w-10 h-10 rounded-[14px] items-center justify-center mr-4 ${isUpcoming ? 'bg-amber-100' : 'bg-neutral-50'
+                        className={`w-10 h-10 rounded-[14px] items-center justify-center mr-4 ${isUpcoming ? 'bg-primary-100' : 'bg-neutral-50'
                           }`}
                       >
                         <Text
-                          className={`text-sm font-black ${isUpcoming ? 'text-amber-800' : 'text-neutral-400'
+                          className={`text-sm font-black ${isUpcoming ? 'text-primary-800' : 'text-neutral-400'
                             }`}
                         >
                           {index + 1}
@@ -254,11 +256,11 @@ export const AllEkadashiScreen: React.FC = () => {
                       </VStack>
 
                       {/* Action Icon */}
-                      <Box className="w-8 h-8 rounded-full items-center justify-center bg-amber-50/50">
+                      <Box className="w-8 h-8 rounded-full items-center justify-center bg-primary-50/50">
                         <MaterialIcons
                           name="arrow-forward-ios"
                           size={12}
-                          color={isUpcoming ? "#d97706" : "#D1D5DB"}
+                          color={isUpcoming ? colors.primary600 : "#D1D5DB"}
                         />
                       </Box>
                     </Box>
@@ -270,7 +272,7 @@ export const AllEkadashiScreen: React.FC = () => {
             {/* Significance & Instructions */}
             <VStack space="md" className="mt-6">
               <Box
-                className="rounded-[28px] p-6 border border-amber-100 shadow-sm relative overflow-hidden"
+                className="rounded-[28px] p-6 border border-primary-100 shadow-sm relative overflow-hidden"
                 style={{ backgroundColor: theme.background.primary }}
               >
                 <Box className="absolute -bottom-4 -right-4 opacity-[0.03]" pointerEvents="none">
@@ -291,7 +293,7 @@ export const AllEkadashiScreen: React.FC = () => {
               </Box>
 
               <Box
-                className="rounded-[28px] p-6 border border-amber-100 shadow-sm relative overflow-hidden mb-8"
+                className="rounded-[28px] p-6 border border-primary-100 shadow-sm relative overflow-hidden mb-8"
                 style={{ backgroundColor: theme.background.primary }}
               >
                 <Heading
@@ -303,7 +305,7 @@ export const AllEkadashiScreen: React.FC = () => {
                 <VStack space="md">
                   {(i18n.t('allEkadashi.instructions') as string[]).map((instruction, index) => (
                     <HStack key={index} space="sm" className="items-start">
-                      <Text className="text-amber-600 font-black mt-1">•</Text>
+                      <Text className="text-primary-600 font-black mt-1">•</Text>
                       <Text
                         className="flex-1 text-neutral-500 text-sm leading-6"
                         style={{ fontFamily: fonts.regional_secondary }}

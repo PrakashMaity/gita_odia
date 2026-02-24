@@ -46,7 +46,7 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
       {AlertComponent}
       <View ref={messageCardRef} collapsable={false}>
         <Box
-          className="rounded-[24px] p-5 shadow-sm border border-amber-900/10"
+          className="rounded-[24px] p-5 shadow-sm border border-primary-900/10"
           style={{ backgroundColor: theme.background.primary }}
         >
           {/* Header row: Speaker info & actions */}

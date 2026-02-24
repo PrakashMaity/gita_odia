@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
 import { ShareButton } from '@/features/chapterDetail/components';
@@ -39,6 +40,7 @@ export default function VerseReader({
   chapterNumber,
   onAlert,
 }: VerseReaderProps) {
+  const { colors } = useSemanticColors();
   const verseCardRef = useRef<View | null>(null);
   const [hideShareButton, setHideShareButton] = useState(false);
   const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
@@ -56,23 +58,23 @@ export default function VerseReader({
     <View className="flex-1">
       {/* Verse Display */}
       <View ref={verseCardRef} collapsable={false}>
-        <Box className="mb-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800 shadow-xl elevation-4">
+        <Box className="mb-6 px-4 py-8 rounded-2xl">
           <View className="flex-row items-center justify-between mb-6">
 
             <View className="flex-col items-center">
               <View className="items-center justify-center">
                 <Image
                   source={getSpeakerImage(verse.speaker_english)}
-                  className="w-20 h-20 rounded-full border-[3px] border-neutral-700"
+                  className="w-20 h-20 rounded-full border-[3px] border-primary-500"
                 />
               </View>
-              <Text className="ml-2 text-white/90 text-base mt-2 font-regional_secondary">
+              <Text className="ml-2 text-[15px] mt-2 font-regional_secondary font-bold text-secondary-600 dark:text-secondary-400">
                 {verse.speaker}
               </Text>
             </View>
 
             <View className="justify-center items-center">
-              <Text className="text-xl font-bold text-white font-regional_secondary">
+              <Text className="text-xl font-bold font-regional_secondary text-secondary-900 dark:text-secondary-100">
                 {i18n.t('verse.verse')} - {verse.verseNumber}
               </Text>
             </View>
@@ -83,12 +85,12 @@ export default function VerseReader({
                 {/* Audio Button */}
                 <TouchableOpacity
                   onPress={() => setIsAudioModalVisible(true)}
-                  className="w-10 h-10 rounded-full items-center justify-center border border-neutral-700 bg-neutral-800"
+                  className="w-10 h-10 rounded-full items-center justify-center border border-primary-200 dark:border-primary-800 bg-secondary-50 dark:bg-secondary-900"
                 >
                   <MaterialIcons
                     name="volume-up"
                     size={24}
-                    color="white"
+                    color={colors.primary600}
                   />
                 </TouchableOpacity>
 
@@ -127,7 +129,7 @@ export default function VerseReader({
             <View className="mb-6">
               <View className="items-center">
                 <Text
-                  className="text-center mb-6 text-3xl text-white font-regional_secondary self-center leading-10"
+                  className="text-center mb-6 text-3xl font-regional_secondary self-center leading-10 font-bold text-secondary-900 dark:text-secondary-100"
                 >
                   {verse.Language}
                 </Text>
@@ -138,12 +140,12 @@ export default function VerseReader({
           {showTranslation && (
             <View className="mb-6">
               <View className="mb-4">
-                <Text className="text-center text-2xl font-bold text-white font-regional_secondary">
+                <Text className="text-center text-[18px] font-bold font-regional_secondary text-secondary-600 dark:text-secondary-400">
                   {i18n.t('verse.translation')}
                 </Text>
               </View>
               <Text
-                className="text-center text-lg leading-7 mt-2 text-neutral-300 font-regional_secondary"
+                className="text-center text-xl leading-8 mt-2 font-regional_secondary text-secondary-900 dark:text-secondary-100"
               >
                 {verse.translation}
               </Text>

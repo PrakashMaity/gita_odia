@@ -25,7 +25,7 @@ export const ChapterStatsCard: React.FC<ChapterStatsCardProps> = ({
 
   return (
     <Box
-      className="flex-1 items-center justify-center min-h-[120px] py-4 rounded-[24px] border border-amber-100/50 shadow-sm overflow-hidden relative"
+      className="flex-1 items-center justify-center min-h-[120px] py-4 rounded-[24px] border border-primary-100/50 shadow-sm overflow-hidden relative"
       style={{ backgroundColor: theme.background.primary }}
     >
       <Box className="absolute -right-4 -bottom-4 opacity-[0.03]" pointerEvents="none">

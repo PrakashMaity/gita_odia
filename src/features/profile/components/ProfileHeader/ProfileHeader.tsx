@@ -64,7 +64,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 
   return (
     <Box
-      className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+      className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
       style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
     >
       <HStack className="items-center justify-between min-h-[48px]">

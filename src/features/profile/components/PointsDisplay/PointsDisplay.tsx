@@ -175,7 +175,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
     <Box className="w-full mb-2" style={style}>
       {AlertComponent}
       <Box
-        className="w-full bg-white rounded-[20px] shadow-sm border border-amber-100/50 p-5 overflow-hidden relative"
+        className="w-full bg-white rounded-[20px] shadow-sm border border-primary-100/50 p-5 overflow-hidden relative"
         style={{ backgroundColor: theme.background.primary }}
       >
         {/* Background icon */}
@@ -291,7 +291,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         {/* Redeem Button */}
         {pointsData.canRedeem && (
           <Pressable
-            className="flex-row items-center justify-center p-4 rounded-[16px] mb-4 active:opacity-80 border border-amber-900/10"
+            className="flex-row items-center justify-center p-4 rounded-[16px] mb-4 active:opacity-80 border border-primary-900/10"
             style={{ backgroundColor: theme.background.secondary }}
             onPress={handleRedeem}
             disabled={redeeming}
@@ -313,7 +313,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         )}
 
         {/* Points Details Row */}
-        <HStack space="md" className="pt-4 border-t border-amber-900/5 mb-4">
+        <HStack space="md" className="pt-4 border-t border-primary-900/5 mb-4">
           <Box
             className="flex-1 p-3 rounded-[12px] items-center"
             style={{ backgroundColor: theme.background.secondary }}
@@ -351,7 +351,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         </HStack>
 
         {/* Points Breakdown - Compact */}
-        <Box className="pt-4 border-t border-amber-900/5">
+        <Box className="pt-4 border-t border-primary-900/5">
           <HStack className="items-center justify-center space-x-4">
             <HStack space="xs" className="items-center">
               <Feather name="file-text" size={14} color={theme.icon.secondary} />
@@ -391,7 +391,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
           <TouchableOpacity
             activeOpacity={1}
             onPress={(e) => e.stopPropagation()}
-            className="w-full max-w-[500px] max-h-[85%] rounded-[24px] p-6 shadow-md border border-amber-100/50"
+            className="w-full max-w-[500px] max-h-[85%] rounded-[24px] p-6 shadow-md border border-primary-100/50"
             style={{ backgroundColor: theme.background.primary }}
           >
             <HStack className="justify-between items-center mb-6">
@@ -416,7 +416,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             >
               {/* Sharing Points Info */}
               <Box
-                className="mb-4 rounded-[16px] p-4 border border-amber-900/5"
+                className="mb-4 rounded-[16px] p-4 border border-primary-900/5"
                 style={{ backgroundColor: theme.background.secondary }}
               >
                 <HStack className="items-center mb-4 space-x-3">
@@ -462,7 +462,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
 
               {/* Redeem Conditions */}
               <Box
-                className="rounded-[16px] p-4 border border-amber-900/5"
+                className="rounded-[16px] p-4 border border-primary-900/5"
                 style={{ backgroundColor: theme.background.secondary }}
               >
                 <HStack className="items-center mb-4 space-x-3">

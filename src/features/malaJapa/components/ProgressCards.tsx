@@ -25,7 +25,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
     <HStack className="w-full px-4 gap-3 mt-4">
       {/* Current Japa Card */}
       <Box
-        className="flex-1 rounded-[22px] p-5 border border-amber-100/60 items-center justify-center shadow-sm"
+        className="flex-1 rounded-[22px] p-5 border border-primary-100/60 items-center justify-center shadow-sm"
         style={{ backgroundColor: theme.background.secondary, minHeight: 100 }}
       >
         <Text
@@ -44,7 +44,7 @@ export const ProgressCards: React.FC<ProgressCardsProps> = ({
 
       {/* Completed Malas Card */}
       <Box
-        className="flex-1 rounded-[22px] p-5 border border-amber-100/60 items-center justify-center shadow-sm"
+        className="flex-1 rounded-[22px] p-5 border border-primary-100/60 items-center justify-center shadow-sm"
         style={{ backgroundColor: theme.background.secondary, minHeight: 100 }}
       >
         <Text

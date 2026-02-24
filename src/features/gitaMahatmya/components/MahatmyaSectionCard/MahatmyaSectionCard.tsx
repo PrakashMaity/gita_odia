@@ -101,7 +101,7 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
 
   return (
     <Box
-      className={`rounded-[24px] p-5 shadow-sm overflow-hidden mb-5 border ${isIntro ? 'border-amber-100/30' : 'border-amber-100/50'}`}
+      className={`rounded-[24px] p-5 shadow-sm overflow-hidden mb-5 border ${isIntro ? 'border-primary-100/30' : 'border-primary-100/50'}`}
       style={{ backgroundColor: isIntro ? 'transparent' : theme.background.primary }}
     >
       {isIntro ? (
@@ -111,7 +111,7 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
           </Box>
           <Pressable
             onPress={handleSpeak}
-            className="w-12 h-12 rounded-[16px] items-center justify-center border border-amber-100/50 shadow-sm shrink-0"
+            className="w-12 h-12 rounded-[16px] items-center justify-center border border-primary-100/50 shadow-sm shrink-0"
             style={{ backgroundColor: isSpeaking ? theme.status.success : theme.background.primary }}
           >
             <MaterialIcons
@@ -137,7 +137,7 @@ export const MahatmyaSectionCard: React.FC<MahatmyaSectionCardProps> = ({
               </Text>
               <Pressable
                 onPress={handleSpeak}
-                className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50 shadow-sm"
+                className="w-10 h-10 rounded-full items-center justify-center border border-primary-100/50 shadow-sm"
                 style={{ backgroundColor: isSpeaking ? theme.status.success : theme.background.secondary }}
               >
                 <MaterialIcons

@@ -53,10 +53,10 @@ const StatusRow: React.FC<{
       </Text>
       {isBoolean ? (
         <View
-          className={`px-2 py-1 flex-row items-center justify-center rounded-md ${value ? 'bg-green-500/20' : 'bg-red-500/20'
+          className={`px-2 py-1 flex-row items-center justify-center rounded-md ${value ? 'bg-success-500/20' : 'bg-tertiary-500/20'
             }`}
         >
-          <Text className={`text-xs font-semibold ${value ? 'text-green-500' : 'text-red-500'} font-regional_secondary`}>
+          <Text className={`text-xs font-semibold ${value ? 'text-success-500' : 'text-tertiary-500'} font-regional_secondary`}>
             {value ? i18n.t('common.yes') : i18n.t('common.no')}
           </Text>
         </View>
@@ -391,7 +391,7 @@ export const DeveloperPanelScreen: React.FC = () => {
             </Text>
 
             {!adStatus.isInitialized && (
-              <Text className="text-center font-bold text-red-400 text-xs p-3 bg-red-500/10 rounded-md mb-3">
+              <Text className="text-center font-bold text-tertiary-400 text-xs p-3 bg-tertiary-500/10 rounded-md mb-3">
                 ⚠️ Ad SDK not initialized. Ads may not work. Please wait for SDK to initialize.
               </Text>
             )}

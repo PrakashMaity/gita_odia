@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
@@ -23,6 +24,7 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
   progressPercentage,
   onPress,
 }) => {
+  const { colors } = useSemanticColors();
   const theme = useThemeColors();
   const fonts = getLanguageFonts();
   const { chapter: chapterInfo } = chapter;
@@ -63,14 +65,14 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
       className="w-full mb-4 active:opacity-80"
     >
       <Box
-        className="w-full rounded-[24px] p-3 border border-amber-100/50 shadow-sm overflow-hidden relative flex-row items-center"
+        className="w-full rounded-[24px] p-3 border border-primary-100/50 shadow-sm overflow-hidden relative flex-row items-center"
         style={{ backgroundColor: theme.background.primary }}
       >
         <Box className="absolute -right-4 -bottom-4 opacity-[0.03]" pointerEvents="none">
           <FontAwesome5 name="book-open" size={90} color="#000" />
         </Box>
 
-        <Box className="w-[84px] h-[84px] rounded-[18px] mr-4 overflow-hidden border border-amber-100 shadow-sm">
+        <Box className="w-[84px] h-[84px] rounded-[18px] mr-4 overflow-hidden border border-primary-100 shadow-sm">
           <Image
             source={coverImage}
             alt={chapterInfo.title || 'Chapter cover'}
@@ -101,14 +103,14 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
           {progressPercentage > 0 && (
             <VStack className="mt-1 w-[90%]">
               <HStack className="justify-between mb-1.5 items-center">
-                <Text className="text-[10px] text-amber-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
+                <Text className="text-[10px] text-primary-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
                   {i18n.t('progress.readingProgress') || 'Progress'}
                 </Text>
-                <Text className="text-[10px] text-amber-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
+                <Text className="text-[10px] text-primary-600 font-bold" style={{ fontFamily: fonts.regional_secondary }}>
                   {Math.round(progressPercentage)}%
                 </Text>
               </HStack>
-              <Box className="h-1.5 w-full bg-amber-100 rounded-full overflow-hidden">
+              <Box className="h-1.5 w-full bg-primary-100 rounded-full overflow-hidden">
                 <Box
                   className="h-full rounded-full"
                   style={{ width: `${progressPercentage}%`, backgroundColor: theme.status.success || '#ea580c' }}
@@ -118,8 +120,8 @@ export const ChapterCard: React.FC<ChapterCardProps> = React.memo(({
           )}
         </VStack>
 
-        <Box className="w-8 h-8 rounded-full items-center justify-center bg-orange-50 mr-1 ml-2">
-          <MaterialIcons name="arrow-forward-ios" size={14} color="#d97706" />
+        <Box className="w-8 h-8 rounded-full items-center justify-center bg-primary-50 mr-1 ml-2">
+          <MaterialIcons name="arrow-forward-ios" size={14} color={colors.primary600} />
         </Box>
       </Box>
     </Pressable>

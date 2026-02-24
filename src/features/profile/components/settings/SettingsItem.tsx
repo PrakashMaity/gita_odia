@@ -32,13 +32,13 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
 
   const content = (
     <HStack
-      className={`items-center justify-between p-4 min-h-[80px] rounded-[20px] mb-2 border border-amber-900/5 ${disabled ? 'opacity-50' : ''}`}
+      className={`items-center justify-between p-4 min-h-[80px] rounded-[20px] mb-2 border border-primary-900/5 ${disabled ? 'opacity-50' : ''}`}
       style={{ backgroundColor: theme.background.secondary }}
     >
       <HStack className="items-center flex-1">
         {icon && (
           <Box
-            className="w-12 h-12 rounded-[16px] mr-4 items-center justify-center overflow-hidden border border-amber-100/50 shadow-sm"
+            className="w-12 h-12 rounded-[16px] mr-4 items-center justify-center overflow-hidden border border-primary-100/50 shadow-sm"
             style={{ backgroundColor: theme.background.primary }}
           >
             {typeof icon === 'string' ? (
@@ -80,7 +80,7 @@ export const SettingsItem: React.FC<SettingsItemProps> = ({
         {rightElement}
         {onPress && (
           <Box
-            className="w-7 h-7 rounded-full items-center justify-center ml-2 border border-amber-100/50 shadow-sm"
+            className="w-7 h-7 rounded-full items-center justify-center ml-2 border border-primary-100/50 shadow-sm"
             style={{ backgroundColor: theme.background.primary }}
           >
             <MaterialIcons

@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
@@ -19,6 +20,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DhyanaSectionCard } from './components/DhyanaSectionCard';
 
 export const DhyanaScreen: React.FC = () => {
+  const { colors, rgba } = useSemanticColors();
   const dhyanaText = i18n.t('dhyana.slokaText');
   const meaningText = i18n.t('dhyana.meaningText');
   const benefits = i18n.t('dhyana.benefits') as string[];
@@ -70,12 +72,12 @@ export const DhyanaScreen: React.FC = () => {
     <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
       {/* Custom Modern Header */}
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
         style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={24} color={theme.text.primary} />
@@ -103,7 +105,7 @@ export const DhyanaScreen: React.FC = () => {
       >
         {/* ─── Hero Intro Card ─── */}
         <Box
-          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-amber-100/40"
+          className="rounded-[28px] p-6 mb-5 overflow-hidden relative border border-primary-100/40"
           style={{ backgroundColor: theme.background.primary }}
         >
           <Box className="absolute -right-6 -top-6 opacity-[0.04]" pointerEvents="none">
@@ -114,7 +116,7 @@ export const DhyanaScreen: React.FC = () => {
               className="w-10 h-10 rounded-[14px] items-center justify-center mr-3"
               style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}
             >
-              <FontAwesome5 name="praying-hands" size={18} color="#D97706" />
+              <FontAwesome5 name="praying-hands" size={18} color={colors.primary600} />
             </Box>
             <Text
               className="text-[20px] font-black text-neutral-800 tracking-tight flex-1"

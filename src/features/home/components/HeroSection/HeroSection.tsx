@@ -45,7 +45,7 @@ export const HeroQuote: React.FC = React.memo(() => {
 
   return (
     <Box
-      className="mx-4 rounded-[28px] overflow-hidden border border-amber-100/60 shadow-sm justify-center relative"
+      className="mx-4 rounded-[28px] overflow-hidden border border-primary-100/60 shadow-sm justify-center relative"
       style={{ height: heroHeight, backgroundColor: theme.background.secondary }}
     >
       <Box className="absolute -left-4 -top-6 opacity-[0.05]" pointerEvents="none">

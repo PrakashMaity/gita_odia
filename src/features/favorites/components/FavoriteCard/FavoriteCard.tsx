@@ -31,7 +31,7 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
     <Pressable
       key={`${favorite.verseId}-${index}`}
       onPress={() => onPress(favorite.chapterId, favorite.verseNumber)}
-      className="bg-white rounded-[24px] shadow-sm mb-4 border border-rose-100/50 overflow-hidden active:opacity-80 flex-row"
+      className="bg-white rounded-[24px] shadow-sm mb-4 border border-tertiary-100/50 overflow-hidden active:opacity-80 flex-row"
       style={{ backgroundColor: theme.background.primary }}
     >
       <Box
@@ -80,7 +80,7 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
               e.stopPropagation();
               onDelete(favorite.verseId);
             }}
-            className="w-10 h-10 rounded-full items-center justify-center border border-red-100/30"
+            className="w-10 h-10 rounded-full items-center justify-center border border-tertiary-100/30"
             style={{ backgroundColor: theme.status.error + '10' }}
           >
             <Ionicons
@@ -99,7 +99,7 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
           {favorite.verseText}
         </Text>
 
-        <HStack className="items-center justify-between border-t border-rose-900/5 pt-4">
+        <HStack className="items-center justify-between border-t border-tertiary-900/5 pt-4">
           <HStack className="items-center">
             <MaterialIcons
               name="favorite"

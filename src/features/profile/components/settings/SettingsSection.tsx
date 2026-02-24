@@ -21,7 +21,7 @@ export const SettingsSection: React.FC<SettingsSectionProps> = ({
 
   return (
     <Box
-      className="w-full mb-6 p-5 rounded-[24px] shadow-sm border border-amber-100/50"
+      className="w-full mb-6 p-5 rounded-[24px] shadow-sm border border-primary-100/50"
       style={{ backgroundColor: theme.background.primary }}
     >
       <HStack className="items-center mb-2">

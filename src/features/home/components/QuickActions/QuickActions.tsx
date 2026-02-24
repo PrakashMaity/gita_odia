@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Grid, GridItem } from '@/components/ui/grid';
 import { Pressable } from '@/components/ui/pressable';
@@ -11,6 +12,7 @@ import React from 'react';
 import { getNavigationHandler } from '../../navigationHandlers';
 
 export const QuickActions: React.FC = React.memo(() => {
+  const { colors } = useSemanticColors();
   const fonts = getLanguageFonts();
   const theme = useThemeColors();
 
@@ -24,12 +26,12 @@ export const QuickActions: React.FC = React.memo(() => {
           onPress={() => getNavigationHandler({ id: 'gita-summary' } as MenuItem)()}
           className="active:opacity-80"
         >
-          <Box className="flex-row items-center justify-start rounded-[20px] border border-amber-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
+          <Box className="flex-row items-center justify-start rounded-[20px] border border-primary-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
             <Box className="absolute -right-3 -top-3 opacity-[0.04]" pointerEvents="none">
               <FontAwesome6 name="book-bookmark" size={70} color="#000" />
             </Box>
-            <Box className="w-11 h-11 bg-amber-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
-              <FontAwesome6 name="book-bookmark" size={18} color="#d97706" />
+            <Box className="w-11 h-11 bg-primary-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
+              <FontAwesome6 name="book-bookmark" size={18} color={colors.primary600} />
             </Box>
             <Text
               className="text-neutral-800 font-extrabold text-[14px] flex-1 tracking-tight"
@@ -47,12 +49,12 @@ export const QuickActions: React.FC = React.memo(() => {
           onPress={() => getNavigationHandler({ id: 'gita-mahatmya' } as MenuItem)()}
           className="active:opacity-80"
         >
-          <Box className="flex-row items-center justify-start rounded-[20px] border border-amber-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
+          <Box className="flex-row items-center justify-start rounded-[20px] border border-primary-100 shadow-sm p-3 h-[72px] overflow-hidden relative" style={{ backgroundColor: theme.background.secondary }}>
             <Box className="absolute -right-3 -top-3 opacity-[0.04]" pointerEvents="none">
               <FontAwesome5 name="book" size={70} color="#000" />
             </Box>
-            <Box className="w-11 h-11 bg-orange-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
-              <FontAwesome5 name="book" size={18} color="#d97706" />
+            <Box className="w-11 h-11 bg-primary-50 rounded-[16px] items-center justify-center mr-3 shrink-0">
+              <FontAwesome5 name="book" size={18} color={colors.primary600} />
             </Box>
             <Text
               className="text-neutral-800 font-extrabold text-[14px] flex-1 tracking-tight"

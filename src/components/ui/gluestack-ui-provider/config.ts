@@ -3,46 +3,47 @@ import { vars } from 'nativewind';
 
 export const config = {
   light: vars({
-    '--color-primary-0': '179 179 179',
-    '--color-primary-50': '153 153 153',
-    '--color-primary-100': '128 128 128',
-    '--color-primary-200': '115 115 115',
-    '--color-primary-300': '102 102 102',
-    '--color-primary-400': '82 82 82',
-    '--color-primary-500': '51 51 51',
-    '--color-primary-600': '41 41 41',
-    '--color-primary-700': '31 31 31',
-    '--color-primary-800': '13 13 13',
-    '--color-primary-900': '10 10 10',
-    '--color-primary-950': '8 8 8',
+    /* Primary (Amber/Gold Theme)  */
+    '--color-primary-0': '255 251 235', // amber-50
+    '--color-primary-50': '254 243 199', // amber-100
+    '--color-primary-100': '253 230 138', // amber-200
+    '--color-primary-200': '252 211 77', // amber-300
+    '--color-primary-300': '251 191 36', // amber-400
+    '--color-primary-400': '245 158 11', // amber-500
+    '--color-primary-500': '217 119 6', // amber-600
+    '--color-primary-600': '180 83 9', // amber-700
+    '--color-primary-700': '146 64 14', // amber-800
+    '--color-primary-800': '120 53 15', // amber-900
+    '--color-primary-900': '120 53 15', // amber-900
+    '--color-primary-950': '69 26 3', // amber-950
 
-    /* Secondary  */
-    '--color-secondary-0': '253 253 253',
-    '--color-secondary-50': '251 251 251',
-    '--color-secondary-100': '246 246 246',
-    '--color-secondary-200': '242 242 242',
-    '--color-secondary-300': '237 237 237',
-    '--color-secondary-400': '230 230 231',
-    '--color-secondary-500': '217 217 219',
-    '--color-secondary-600': '198 199 199',
-    '--color-secondary-700': '189 189 189',
-    '--color-secondary-800': '177 177 177',
-    '--color-secondary-900': '165 164 164',
-    '--color-secondary-950': '157 157 157',
+    /* Secondary (Brown Theme) */
+    '--color-secondary-0': '250 245 242', // brown-50 (stone/amber mix)
+    '--color-secondary-50': '245 235 229', // brown-100
+    '--color-secondary-100': '230 213 203', // brown-200
+    '--color-secondary-200': '212 184 169', // brown-300
+    '--color-secondary-300': '186 148 127', // brown-400
+    '--color-secondary-400': '158 111 88', // brown-500
+    '--color-secondary-500': '133 85 63', // brown-600
+    '--color-secondary-600': '107 63 46', // brown-700
+    '--color-secondary-700': '87 50 38', // brown-800
+    '--color-secondary-800': '74 41 33', // brown-900 
+    '--color-secondary-900': '62 39 35', // Material Brown 900
+    '--color-secondary-950': '44 24 16', // Deep Brown
 
-    /* Tertiary */
-    '--color-tertiary-0': '255 250 245',
-    '--color-tertiary-50': '255 242 229',
-    '--color-tertiary-100': '255 233 213',
-    '--color-tertiary-200': '254 209 170',
-    '--color-tertiary-300': '253 180 116',
-    '--color-tertiary-400': '251 157 75',
-    '--color-tertiary-500': '231 129 40',
-    '--color-tertiary-600': '215 117 31',
-    '--color-tertiary-700': '180 98 26',
-    '--color-tertiary-800': '130 73 23',
-    '--color-tertiary-900': '108 61 19',
-    '--color-tertiary-950': '84 49 18',
+    /* Tertiary (Rose/Red Theme) */
+    '--color-tertiary-0': '255 241 242', // rose-50
+    '--color-tertiary-50': '255 228 230', // rose-100
+    '--color-tertiary-100': '254 205 211', // rose-200
+    '--color-tertiary-200': '253 164 175', // rose-300
+    '--color-tertiary-300': '251 113 133', // rose-400
+    '--color-tertiary-400': '244 63 94', // rose-500
+    '--color-tertiary-500': '225 29 72', // rose-600
+    '--color-tertiary-600': '190 18 60', // rose-700
+    '--color-tertiary-700': '159 18 57', // rose-800
+    '--color-tertiary-800': '136 19 55', // rose-900
+    '--color-tertiary-900': '136 19 55', // rose-900
+    '--color-tertiary-950': '76 5 25', // rose-950
 
     /* Error */
     '--color-error-0': '254 233 233',
@@ -155,46 +156,47 @@ export const config = {
     '--color-indicator-error': '185 28 28',
   }),
   dark: vars({
-    '--color-primary-0': '166 166 166',
-    '--color-primary-50': '175 175 175',
-    '--color-primary-100': '186 186 186',
-    '--color-primary-200': '197 197 197',
-    '--color-primary-300': '212 212 212',
-    '--color-primary-400': '221 221 221',
-    '--color-primary-500': '230 230 230',
-    '--color-primary-600': '240 240 240',
-    '--color-primary-700': '250 250 250',
-    '--color-primary-800': '253 253 253',
-    '--color-primary-900': '254 249 249',
-    '--color-primary-950': '253 252 252',
+    /* Primary (Amber/Gold Theme) */
+    '--color-primary-0': '69 26 3',
+    '--color-primary-50': '120 53 15',
+    '--color-primary-100': '146 64 14',
+    '--color-primary-200': '180 83 9',
+    '--color-primary-300': '217 119 6',
+    '--color-primary-400': '245 158 11',
+    '--color-primary-500': '251 191 36',
+    '--color-primary-600': '252 211 77',
+    '--color-primary-700': '253 230 138',
+    '--color-primary-800': '254 243 199',
+    '--color-primary-900': '255 251 235',
+    '--color-primary-950': '255 251 235',
 
-    /* Secondary  */
-    '--color-secondary-0': '20 20 20',
-    '--color-secondary-50': '23 23 23',
-    '--color-secondary-100': '31 31 31',
-    '--color-secondary-200': '39 39 39',
-    '--color-secondary-300': '44 44 44',
-    '--color-secondary-400': '56 57 57',
-    '--color-secondary-500': '63 64 64',
-    '--color-secondary-600': '86 86 86',
-    '--color-secondary-700': '110 110 110',
-    '--color-secondary-800': '135 135 135',
-    '--color-secondary-900': '150 150 150',
-    '--color-secondary-950': '164 164 164',
+    /* Secondary (Brown Theme) */
+    '--color-secondary-0': '44 24 16',
+    '--color-secondary-50': '62 39 35',
+    '--color-secondary-100': '74 41 33',
+    '--color-secondary-200': '87 50 38',
+    '--color-secondary-300': '107 63 46',
+    '--color-secondary-400': '133 85 63',
+    '--color-secondary-500': '158 111 88',
+    '--color-secondary-600': '186 148 127',
+    '--color-secondary-700': '212 184 169',
+    '--color-secondary-800': '230 213 203',
+    '--color-secondary-900': '245 235 229',
+    '--color-secondary-950': '250 245 242',
 
-    /* Tertiary */
-    '--color-tertiary-0': '84 49 18',
-    '--color-tertiary-50': '108 61 19',
-    '--color-tertiary-100': '130 73 23',
-    '--color-tertiary-200': '180 98 26',
-    '--color-tertiary-300': '215 117 31',
-    '--color-tertiary-400': '231 129 40',
-    '--color-tertiary-500': '251 157 75',
-    '--color-tertiary-600': '253 180 116',
-    '--color-tertiary-700': '254 209 170',
-    '--color-tertiary-800': '255 233 213',
-    '--color-tertiary-900': '255 242 229',
-    '--color-tertiary-950': '255 250 245',
+    /* Tertiary (Rose/Red Theme) */
+    '--color-tertiary-0': '76 5 25',
+    '--color-tertiary-50': '136 19 55',
+    '--color-tertiary-100': '159 18 57',
+    '--color-tertiary-200': '190 18 60',
+    '--color-tertiary-300': '225 29 72',
+    '--color-tertiary-400': '244 63 94',
+    '--color-tertiary-500': '251 113 133',
+    '--color-tertiary-600': '253 164 175',
+    '--color-tertiary-700': '254 205 211',
+    '--color-tertiary-800': '255 228 230',
+    '--color-tertiary-900': '255 241 242',
+    '--color-tertiary-950': '255 245 246',
 
     /* Error */
     '--color-error-0': '83 19 19',

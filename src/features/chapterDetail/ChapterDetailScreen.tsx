@@ -102,12 +102,12 @@ export const ChapterDetailScreen: React.FC = () => {
 
       {/* Modern Saffron Light Header */}
       <Box
-        className="pb-4 px-4 border-b border-amber-900/10 shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
         style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100/50"
+            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
             onPress={() => {
               router.back();
               showAd();
@@ -136,7 +136,7 @@ export const ChapterDetailScreen: React.FC = () => {
           </VStack>
 
           <Pressable
-            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70 border border-amber-100 shadow-sm"
+            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100 shadow-sm"
             style={{ backgroundColor: theme.background.quaternary }}
             onPress={() => setIsFullChapterAudioModalVisible(true)}
           >
@@ -152,7 +152,7 @@ export const ChapterDetailScreen: React.FC = () => {
         contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 16, paddingBottom: 32 }}
       >
         <Box
-          className="rounded-[28px] p-2 border border-amber-100 shadow-sm overflow-hidden mb-6 relative"
+          className="rounded-[28px] p-2 border border-primary-100 shadow-sm overflow-hidden mb-6 relative"
           style={{ backgroundColor: theme.background.primary }}
         >
           {/* subtle watermark for verse card */}

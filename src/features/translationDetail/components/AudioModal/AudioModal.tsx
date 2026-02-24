@@ -449,7 +449,7 @@ export const AudioModal: React.FC<AudioModalProps> = ({
               <View className="flex-row items-center justify-center space-x-8 mb-8">
                 <TouchableOpacity
                   onPress={handleStop}
-                  className="w-14 h-14 rounded-full items-center justify-center bg-red-500/10 border border-red-500/20 mr-8"
+                  className="w-14 h-14 rounded-full items-center justify-center bg-tertiary-500/10 border border-tertiary-500/20 mr-8"
                 >
                   <MaterialIcons name="stop" size={24} color="#EF4444" />
                 </TouchableOpacity>

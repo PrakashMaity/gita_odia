@@ -53,17 +53,17 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
 
   return (
     <Box
-      className="bg-white rounded-[24px] p-5 shadow-sm overflow-hidden mb-4 border border-amber-100/50"
+      className="bg-white rounded-[24px] p-5 shadow-sm overflow-hidden mb-4 border border-primary-100/50"
       style={{ backgroundColor: theme.background.primary }}
     >
       <VStack>
         <HStack className="items-center mb-3">
           <Box
-            className="px-3 py-1 rounded-full mr-3 border border-amber-100/80 shadow-sm"
+            className="px-3 py-1 rounded-full mr-3 border border-primary-100/80 shadow-sm"
             style={{ backgroundColor: theme.background.secondary }}
           >
             <Text
-              className="text-[12px] font-bold text-amber-700"
+              className="text-[12px] font-bold text-primary-700"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {chapter}
@@ -78,7 +78,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
           </Text>
           <Pressable
             onPress={handleSpeak}
-            className="w-10 h-10 rounded-full items-center justify-center border border-amber-100/50 shadow-sm shrink-0 ml-2"
+            className="w-10 h-10 rounded-full items-center justify-center border border-primary-100/50 shadow-sm shrink-0 ml-2"
             style={{ backgroundColor: isSpeaking ? theme.status.success : theme.background.secondary }}
           >
             <MaterialIcons

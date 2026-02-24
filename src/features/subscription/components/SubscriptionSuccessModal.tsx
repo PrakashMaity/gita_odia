@@ -1,3 +1,4 @@
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
@@ -14,6 +15,7 @@ interface SubscriptionSuccessModalProps {
 }
 
 export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> = ({ visible, onClose }) => {
+  const { colors } = useSemanticColors();
     const { width, height } = Dimensions.get('screen');
     const fonts = getLanguageFonts();
 
@@ -79,14 +81,14 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
                 >
                     <Box className="bg-white rounded-[40px] overflow-hidden shadow-2xl">
                         {/* Premium Gradient bar */}
-                        <Box className="h-2 w-full bg-amber-500" />
+                        <Box className="h-2 w-full bg-primary-500" />
 
                         <VStack className="items-center px-8 py-12" space="xl">
                             {/* Success Icon with glowing effect */}
                             <Box className="relative mb-4">
                                 <Animated.View style={{ opacity: contentFadeAnim }}>
-                                    <Box className="w-24 h-24 rounded-full bg-amber-50 items-center justify-center border border-amber-100 shadow-sm">
-                                        <MaterialIcons name="workspace-premium" size={56} color="#d97706" />
+                                    <Box className="w-24 h-24 rounded-full bg-primary-50 items-center justify-center border border-primary-100 shadow-sm">
+                                        <MaterialIcons name="workspace-premium" size={56} color={colors.primary600} />
                                     </Box>
                                 </Animated.View>
                                 <Box className="absolute -top-4 -right-4">

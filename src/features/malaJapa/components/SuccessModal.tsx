@@ -88,9 +88,9 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
             },
           ]}
         >
-          <Box className="bg-white rounded-[28px] border border-amber-200/60 overflow-hidden">
+          <Box className="bg-white rounded-[28px] border border-primary-200/60 overflow-hidden">
             {/* Top Accent */}
-            <Box className="h-1.5 w-full bg-amber-500/80" />
+            <Box className="h-1.5 w-full bg-primary-500/80" />
 
             <VStack className="items-center px-8 py-10 gap-4">
               {/* Emoji */}
@@ -115,7 +115,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
               {/* Close Button */}
               <Pressable
                 onPress={onClose}
-                className="mt-3 bg-amber-600 rounded-2xl px-10 py-3 items-center justify-center active:opacity-80 shadow-sm"
+                className="mt-3 bg-primary-600 rounded-2xl px-10 py-3 items-center justify-center active:opacity-80 shadow-sm"
               >
                 <Text
                   className="text-white text-[15px] font-bold"
