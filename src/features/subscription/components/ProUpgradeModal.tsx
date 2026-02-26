@@ -1,14 +1,13 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
-import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Modal, TouchableWithoutFeedback } from 'react-native';
+import { Animated, Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
 interface ProUpgradeModalProps {
     visible: boolean;
@@ -17,7 +16,7 @@ interface ProUpgradeModalProps {
 }
 
 export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClose, featureName }) => {
-  const { colors } = useSemanticColors();
+    const { colors } = useSemanticColors();
     const { width, height } = Dimensions.get('screen');
     const router = useRouter();
     const fonts = getLanguageFonts();
@@ -114,12 +113,13 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                         <Box className="bg-white rounded-3xl overflow-hidden shadow-2xl">
                             <Box className="h-1.5 w-full bg-primary-500" />
 
-                            <Pressable
+                            <TouchableOpacity
                                 onPress={handleClose}
                                 className="absolute top-4 right-4 w-9 h-9 rounded-full bg-neutral-100 items-center justify-center z-10"
+                                activeOpacity={0.7}
                             >
                                 <Ionicons name="close" size={20} color="#666" />
-                            </Pressable>
+                            </TouchableOpacity>
 
                             <VStack className="items-center px-6 py-10 gap-6">
                                 <Box className="w-20 h-20 rounded-full bg-primary-50 items-center justify-center border border-primary-100">
@@ -144,19 +144,21 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                                 </VStack>
 
                                 <VStack className="w-full gap-3 mt-2">
-                                    <Pressable
+                                    <TouchableOpacity
                                         onPress={handleUpgrade}
-                                        className="bg-primary-500 h-14 rounded-2xl items-center justify-center shadow-lg active:bg-primary-600"
+                                        className="bg-primary-500 h-14 rounded-2xl items-center justify-center shadow-lg"
+                                        activeOpacity={0.8}
                                     >
                                         <Text className="text-white font-bold text-lg">View Pro Plans</Text>
-                                    </Pressable>
+                                    </TouchableOpacity>
 
-                                    <Pressable
+                                    <TouchableOpacity
                                         onPress={handleClose}
-                                        className="h-12 items-center justify-center active:opacity-60"
+                                        className="h-12 items-center justify-center"
+                                        activeOpacity={0.6}
                                     >
                                         <Text className="text-neutral-500 font-semibold">Maybe Later</Text>
-                                    </Pressable>
+                                    </TouchableOpacity>
                                 </VStack>
                             </VStack>
                         </Box>

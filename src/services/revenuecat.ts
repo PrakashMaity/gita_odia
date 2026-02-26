@@ -1,4 +1,5 @@
 import { PackageType, SubscriptionDetailsDisplay, getPackageDisplayName } from '@/types/subscription';
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import Purchases, { LOG_LEVEL } from 'react-native-purchases';
 
@@ -29,11 +30,10 @@ function formatDate(isoString: string | null | undefined): string | null {
 }
 
 const REVENUECAT_API_KEYS = {
-  android: __DEV__
-    ? 'test_FBQtPMQntYcFvZHIQATXQUBRPDW' : 'goog_pJDbZEpNaWXfRLUADBqEJbBJpDs',
-  ios: __DEV__
-    ? 'test_FBQtPMQntYcFvZHIQATXQUBRPDW'
-    : 'test_FBQtPMQntYcFvZHIQATXQUBRPDW',
+  android: Constants.expoConfig?.extra?.REVENUECAT_ANDROID_API_KEY
+    || (__DEV__ ? 'test_FBQtPMQntYcFvZHIQATXQUBRPDW' : 'goog_pJDbZEpNaWXfRLUADBqEJbBJpDs'),
+  ios: Constants.expoConfig?.extra?.REVENUECAT_IOS_API_KEY
+    || 'test_FBQtPMQntYcFvZHIQATXQUBRPDW',
 };
 
 const getApiKey = () => (Platform.OS === 'android'

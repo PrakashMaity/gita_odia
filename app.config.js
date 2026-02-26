@@ -1,6 +1,20 @@
-import { existsSync } from 'fs';
-import { join } from 'path';
+const { existsSync } = require('fs');
+const { join } = require('path');
+const { config: loadEnv } = require('dotenv');
 
+// ----- Multi-client env loading -----
+const APP_LANG = process.env.APP_LANG || 'bn';
+const APP_ENV = process.env.APP_ENV || 'development';
+const envFile = `.env.${APP_LANG}.${APP_ENV}`;
+const envPath = join(__dirname, envFile);
+
+if (existsSync(envPath)) {
+  loadEnv({ path: envPath });
+} else {
+  console.warn(`⚠️  Env file not found: ${envFile}. Using defaults or process.env.`);
+}
+
+// ----- Google Services -----
 const GOOGLE_SERVICE_FILES = {
   json: 'google-services.json',
   plist: 'GoogleService-Info.plist',
@@ -20,6 +34,7 @@ const COLORS = {
   splashBackground: '#FFE0B2', // Light saffron - matches theme
 };
 
+// ----- Keys for expo extra config -----
 const EXTRA_KEYS = {
   language: 'LANGUAGE',
   primaryColor: 'PRIMARY_COLOR',
@@ -29,29 +44,31 @@ const EXTRA_KEYS = {
   rewardedInterstitialAdUnitId: 'REWARDED_INTERSTITIAL_AD_UNIT_ID',
 };
 
+// ----- Ad Unit IDs (from env) -----
 const AD_UNIT_IDS = {
-  banner: 'ca-app-pub-3406043589920136/4136707352',
-  interstitial: 'ca-app-pub-3406043589920136/2823625684',
-  rewarded: 'ca-app-pub-3406043589920136/5062776214',
-  rewardedInterstitial: 'ca-app-pub-3406043589920136/3167278602',
+  banner: process.env.BANNER_AD_UNIT_ID || 'ca-app-pub-3406043589920136/4136707352',
+  interstitial: process.env.INTERSTITIAL_AD_UNIT_ID || 'ca-app-pub-3406043589920136/2823625684',
+  rewarded: process.env.REWARDED_AD_UNIT_ID || 'ca-app-pub-3406043589920136/5062776214',
+  rewardedInterstitial: process.env.REWARDED_INTERSTITIAL_AD_UNIT_ID || 'ca-app-pub-3406043589920136/3167278602',
 };
 
+// ----- Mobile Ads Config (from env) -----
 const MOBILE_ADS_CONFIG = {
-  androidAppId: 'ca-app-pub-3406043589920136~3347511713',
-  iosAppId: 'ca-app-pub-3940256099942544~1458002511',
+  androidAppId: process.env.ADMOB_ANDROID_APP_ID || 'ca-app-pub-3406043589920136~3347511713',
+  iosAppId: process.env.ADMOB_IOS_APP_ID || 'ca-app-pub-3940256099942544~1458002511',
 };
 
-
+// ----- App Info (from env) -----
 const APP_INFO = {
-  name: 'গীতা বাংলা',
+  name: process.env.APP_NAME || 'গীতা বাংলা',
   slug: 'bhagavad_gita',
   version: '2.0.0',
-  package: 'com.proninja.bhagavad_gita',
-  bundleIdentifier: 'com.proninja.bhagavad-gita',
+  package: process.env.APP_PACKAGE || 'com.proninja.bhagavad_gita',
+  bundleIdentifier: process.env.APP_BUNDLE_ID || 'com.proninja.bhagavad-gita',
   scheme: 'gita',
 };
 
-export default function ({ config = {} }) {
+module.exports = function ({ config = {} }) {
   const projectRoot = process.cwd();
   const googleServicesJsonExists = existsSync(join(projectRoot, GOOGLE_SERVICE_FILES.json));
   const googleServicesPlistExists = existsSync(join(projectRoot, GOOGLE_SERVICE_FILES.plist));
@@ -75,17 +92,14 @@ export default function ({ config = {} }) {
   ];
 
   if (googleServicesJsonExists || googleServicesPlistExists) {
-    plugins.push([
-      '@react-native-firebase/app',
-      {
-        android: googleServicesJsonExists
-          ? { googleServicesFile: PATHS.googleServicesJson }
-          : undefined,
-        ios: googleServicesPlistExists
-          ? { googleServicesFile: PATHS.googleServicesPlist }
-          : undefined,
-      },
-    ]);
+    const firebaseConfig = {};
+    if (googleServicesJsonExists) {
+      firebaseConfig.android = { googleServicesFile: PATHS.googleServicesJson };
+    }
+    if (googleServicesPlistExists) {
+      firebaseConfig.ios = { googleServicesFile: PATHS.googleServicesPlist };
+    }
+    plugins.push(['@react-native-firebase/app', firebaseConfig]);
   }
 
   plugins.push('expo-secure-store');
@@ -116,14 +130,22 @@ export default function ({ config = {} }) {
     iosConfig.googleServicesFile = PATHS.googleServicesPlist;
   }
 
+  const easProjectId = process.env.EAS_PROJECT_ID || '4276c4fa-4062-4c56-9fb4-26fabacd8a23';
+
   const extra = {
-    [EXTRA_KEYS.language]: 'bn',
+    [EXTRA_KEYS.language]: APP_LANG,
     [EXTRA_KEYS.primaryColor]: COLORS.primary,
-    eas: { projectId: '4276c4fa-4062-4c56-9fb4-26fabacd8a23' },
+    eas: { projectId: easProjectId },
     [EXTRA_KEYS.bannerAdUnitId]: AD_UNIT_IDS.banner,
     [EXTRA_KEYS.interstitialAdUnitId]: AD_UNIT_IDS.interstitial,
     [EXTRA_KEYS.rewardedAdUnitId]: AD_UNIT_IDS.rewarded,
     [EXTRA_KEYS.rewardedInterstitialAdUnitId]: AD_UNIT_IDS.rewardedInterstitial,
+    // Supabase (read by services at runtime via Constants)
+    SUPABASE_URL: process.env.SUPABASE_URL || 'https://bxcjjqyalflohwjyxdze.supabase.co',
+    SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || '',
+    // RevenueCat
+    REVENUECAT_ANDROID_API_KEY: process.env.REVENUECAT_ANDROID_API_KEY || '',
+    REVENUECAT_IOS_API_KEY: process.env.REVENUECAT_IOS_API_KEY || '',
   };
 
   return {
@@ -143,7 +165,7 @@ export default function ({ config = {} }) {
     newArchEnabled: true,
     runtimeVersion: '1.0.0',
     updates: {
-      url: 'https://u.expo.dev/4276c4fa-4062-4c56-9fb4-26fabacd8a23',
+      url: `https://u.expo.dev/${easProjectId}`,
     },
     ios: iosConfig,
     android: androidConfig,
@@ -158,4 +180,4 @@ export default function ({ config = {} }) {
       reactCompiler: true,
     },
   };
-}
+};

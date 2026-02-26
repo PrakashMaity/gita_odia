@@ -1,13 +1,12 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
-import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Modal, TouchableWithoutFeedback } from 'react-native';
+import { Animated, Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
 interface SubscriptionSuccessModalProps {
     visible: boolean;
@@ -15,7 +14,7 @@ interface SubscriptionSuccessModalProps {
 }
 
 export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> = ({ visible, onClose }) => {
-  const { colors } = useSemanticColors();
+    const { colors } = useSemanticColors();
     const { width, height } = Dimensions.get('screen');
     const fonts = getLanguageFonts();
 
@@ -122,14 +121,15 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
                                     Thank you for supporting our mission to spread Gita's wisdom. All premium features are now unlocked for you.
                                 </Text>
 
-                                <Pressable
+                                <TouchableOpacity
                                     onPress={onClose}
-                                    className="bg-black h-16 rounded-[24px] items-center justify-center mt-10 active:opacity-80 shadow-lg"
+                                    className="bg-black h-16 rounded-[24px] items-center justify-center mt-10 shadow-lg"
+                                    activeOpacity={0.8}
                                 >
                                     <Text className="text-white font-black text-lg tracking-tight">
                                         Start Exploring
                                     </Text>
-                                </Pressable>
+                                </TouchableOpacity>
                             </Animated.View>
                         </VStack>
                     </Box>

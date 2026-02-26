@@ -1,15 +1,27 @@
+import Constants from 'expo-constants';
 import { I18n } from 'i18n-js';
 
-import translation from './translation.json';
+// Per-language UI translations
+// Add new language imports here when available:
+import bn from './translations/bn.json';
+// import hi from './translations/hi.json';
+// import en from './translations/en.json';
 
-const i18n = new I18n({ bn: translation });
+const translations: Record<string, any> = {
+    bn,
+    // hi,
+    // en,
+};
 
-// Set the locale once at the beginning of your app.
-i18n.locale = 'bn';
+const lang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';
 
-// When a value is missing from a language it'll fall back to another language with the key present.
+const i18n = new I18n(translations);
+
+// Set the locale to the active client's language
+i18n.locale = lang;
+
+// When a value is missing from a language it'll fall back to Bengali
 i18n.enableFallback = true;
-// To see the fallback mechanism uncomment the line below to force the app to use the Japanese language.
-// i18n.locale = 'ja';
+i18n.defaultLocale = 'bn';
 
 export default i18n;

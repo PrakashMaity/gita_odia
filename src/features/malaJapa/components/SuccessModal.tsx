@@ -1,5 +1,4 @@
 import { Box } from '@/components/ui/box';
-import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import i18n from '@/lib/i18n';
@@ -113,9 +112,10 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
               </Text>
 
               {/* Close Button */}
-              <Pressable
+              <TouchableOpacity
                 onPress={onClose}
-                className="mt-3 bg-primary-600 rounded-2xl px-10 py-3 items-center justify-center active:opacity-80 shadow-sm"
+                className="mt-3 bg-primary-600 rounded-2xl px-10 py-3 items-center justify-center shadow-sm"
+                activeOpacity={0.8}
               >
                 <Text
                   className="text-white text-[15px] font-bold"
@@ -123,7 +123,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
                 >
                   {i18n.t('common.ok')}
                 </Text>
-              </Pressable>
+              </TouchableOpacity>
             </VStack>
           </Box>
         </Animated.View>

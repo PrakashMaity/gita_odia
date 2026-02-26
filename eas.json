@@ -29,7 +29,8 @@
     "bn": {
       "extends": "production",
       "env": {
-        "APP_LANG": "bn"
+        "APP_LANG": "bn",
+        "APP_ENV": "production"
       },
       "channel": "bn",
       "android": {
@@ -39,7 +40,8 @@
     "or": {
       "extends": "production",
       "env": {
-        "APP_LANG": "or"
+        "APP_LANG": "or",
+        "APP_ENV": "production"
       },
       "channel": "or",
       "android": {
@@ -49,7 +51,8 @@
     "hi": {
       "extends": "production",
       "env": {
-        "APP_LANG": "hi"
+        "APP_LANG": "hi",
+        "APP_ENV": "production"
       },
       "channel": "hi",
       "android": {
@@ -59,7 +62,8 @@
     "as": {
       "extends": "production",
       "env": {
-        "APP_LANG": "as"
+        "APP_LANG": "as",
+        "APP_ENV": "production"
       },
       "channel": "as",
       "android": {

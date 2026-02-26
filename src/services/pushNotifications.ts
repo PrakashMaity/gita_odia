@@ -91,21 +91,21 @@ export async function registerDeviceForPushNotifications(): Promise<void> {
       );
 
       if (expoError) {
-        console.error('Error registering device FCM token with Supabase:', expoError);
-        throw expoError;
+        console.error('Error registering device FCM token with Supabase fallback:', JSON.stringify(expoError, null, 2));
+        // Don't throw to avoid crashing app
       } else {
         console.log('Successfully registered FCM token (using expo_push_token column)');
         console.warn('⚠️ Please add fcm_token column to your devices table.');
         console.warn('   Run the SQL migration: supabase_migration_add_fcm_token.sql');
       }
     } else if (fcmError) {
-      console.error('Error registering device FCM token with Supabase:', fcmError);
-      throw fcmError;
+      console.error('Error registering device FCM token with Supabase (primary attempt):', JSON.stringify(fcmError, null, 2));
+      // Don't throw to avoid crashing app
     } else {
       console.log('Successfully registered FCM token');
     }
   } catch (error) {
-    console.error('Failed to register device for push notifications:', error);
+    console.error('Failed to register device for push notifications:', error instanceof Error ? error.message : JSON.stringify(error, null, 2));
   }
 }
 
