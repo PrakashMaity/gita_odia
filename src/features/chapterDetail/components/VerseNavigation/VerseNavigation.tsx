@@ -1,11 +1,10 @@
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
-import { Text } from '@/components/ui/text';
 import { BookmarkButton } from '@/features/bookmarks/components';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 
@@ -33,7 +32,6 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
   onNext,
 }) => {
   const theme = useThemeColors();
-  const fonts = getLanguageFonts();
 
   const isFirstVerse = currentVerse <= 0;
   const isLastVerse = currentVerse >= totalVerses - 1;
@@ -44,26 +42,43 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
 
   return (
     <Box
-      className="px-4 py-4 border-t border-primary-900/10 shadow-sm"
-      style={{ backgroundColor: theme.background.secondary }}
+      className="px-4 py-4 shadow-sm"
+      style={{
+        backgroundColor: theme.background.secondary,
+        borderTopWidth: 1,
+        borderTopColor: theme.border.primary + '20',
+      }}
     >
       <HStack className="items-center justify-between">
         <Pressable
           onPress={onPrevious}
           disabled={isFirstVerse}
-          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-primary-100/60 shadow-sm active:opacity-70 ${isFirstVerse ? 'opacity-50' : ''}`}
-          style={{ backgroundColor: theme.background.primary }}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] shadow-sm active:opacity-70 ${isFirstVerse ? 'opacity-50' : ''}`}
+          style={{
+            backgroundColor: theme.background.primary,
+            borderWidth: 1,
+            borderColor: theme.border.primary + '30',
+          }}
         >
           <Ionicons name="chevron-back" size={20} color={theme.icon.primary} />
-          <Text
-            className="ml-2 font-bold text-[14px]"
-            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+          <AppText
+            variant="secondary"
+            bold
+            className="ml-2"
+            style={{ color: theme.text.primary }}
           >
             {i18n.t('common.previous')}
-          </Text>
+          </AppText>
         </Pressable>
 
-        <Box className="w-12 h-12 rounded-[16px] items-center justify-center border border-primary-100/60 shadow-sm overflow-hidden" style={{ backgroundColor: theme.background.primary }}>
+        <Box
+          className="w-12 h-12 rounded-[16px] items-center justify-center shadow-sm overflow-hidden"
+          style={{
+            backgroundColor: theme.background.primary,
+            borderWidth: 1,
+            borderColor: theme.border.primary + '30',
+          }}
+        >
           <BookmarkButton
             variant="icon"
             verseId={currentVerseData.id}
@@ -77,15 +92,21 @@ export const VerseNavigation: React.FC<VerseNavigationProps> = ({
         <Pressable
           onPress={onNext}
           disabled={isLastVerse}
-          className={`flex-row items-center px-4 py-2.5 rounded-[16px] border border-primary-100/60 shadow-sm active:opacity-70 ${isLastVerse ? 'opacity-50' : ''}`}
-          style={{ backgroundColor: theme.background.primary }}
+          className={`flex-row items-center px-4 py-2.5 rounded-[16px] shadow-sm active:opacity-70 ${isLastVerse ? 'opacity-50' : ''}`}
+          style={{
+            backgroundColor: theme.background.primary,
+            borderWidth: 1,
+            borderColor: theme.border.primary + '30',
+          }}
         >
-          <Text
-            className="mr-2 font-bold text-[14px]"
-            style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+          <AppText
+            variant="secondary"
+            bold
+            className="mr-2"
+            style={{ color: theme.text.primary }}
           >
             {i18n.t('common.next')}
-          </Text>
+          </AppText>
           <Ionicons name="chevron-forward" size={20} color={theme.icon.primary} />
         </Pressable>
       </HStack>

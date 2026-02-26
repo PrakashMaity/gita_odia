@@ -1,12 +1,11 @@
-import { Box } from '@/components/ui/box';
-import { Text } from '@/components/ui/text';
+import { AppHeading } from '@/components/ui/AppHeading';
+import { AppText } from '@/components/ui/AppText';
 import { VStack } from '@/components/ui/vstack';
-import { useSemanticColors } from '@/hooks/useSemanticColors';
-import { getLanguageFonts } from '@/types/font.interface';
+import { useThemeColors } from '@/hooks/useTheme';
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Animated, Dimensions, Modal, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
 interface SubscriptionSuccessModalProps {
     visible: boolean;
@@ -14,9 +13,8 @@ interface SubscriptionSuccessModalProps {
 }
 
 export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> = ({ visible, onClose }) => {
-    const { colors } = useSemanticColors();
+    const theme = useThemeColors();
     const { width, height } = Dimensions.get('screen');
-    const fonts = getLanguageFonts();
 
     const scaleAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -60,15 +58,17 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
             animationType="none"
             statusBarTranslucent
         >
-            <Box className="flex-1 justify-center items-center">
+            <View className="flex-1 justify-center items-center">
                 <TouchableWithoutFeedback>
-                    <BlurView
-                        intensity={100}
-                        tint="dark"
-                        style={{ position: 'absolute', width, height }}
-                    >
-                        <Box className="absolute bg-black/40" style={{ width, height }} />
-                    </BlurView>
+                    <Animated.View style={{ position: 'absolute', width, height, opacity: fadeAnim }}>
+                        <BlurView
+                            intensity={80}
+                            tint="dark"
+                            style={{ flex: 1 }}
+                        >
+                            <View className="flex-1 bg-black/40" />
+                        </BlurView>
+                    </Animated.View>
                 </TouchableWithoutFeedback>
 
                 <Animated.View
@@ -78,63 +78,73 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
                         transform: [{ scale: scaleAnim }],
                     }}
                 >
-                    <Box className="bg-white rounded-[40px] overflow-hidden shadow-2xl">
+                    <View
+                        className="rounded-[40px] overflow-hidden shadow-2xl"
+                        style={{ backgroundColor: theme.background.primary }}
+                    >
                         {/* Premium Gradient bar */}
-                        <Box className="h-2 w-full bg-primary-500" />
+                        <View className="h-2 w-full" style={{ backgroundColor: theme.icon.primary }} />
 
                         <VStack className="items-center px-8 py-12" space="xl">
                             {/* Success Icon with glowing effect */}
-                            <Box className="relative mb-4">
+                            <View className="relative mb-4">
                                 <Animated.View style={{ opacity: contentFadeAnim }}>
-                                    <Box className="w-24 h-24 rounded-full bg-primary-50 items-center justify-center border border-primary-100 shadow-sm">
-                                        <MaterialIcons name="workspace-premium" size={56} color={colors.primary600} />
-                                    </Box>
+                                    <View
+                                        className="w-24 h-24 rounded-full items-center justify-center border shadow-sm"
+                                        style={{
+                                            backgroundColor: theme.background.quaternary,
+                                            borderColor: theme.border.primary + '50'
+                                        }}
+                                    >
+                                        <MaterialIcons name="workspace-premium" size={56} color={theme.icon.primary} />
+                                    </View>
                                 </Animated.View>
-                                <Box className="absolute -top-4 -right-4">
+                                <View className="absolute -top-4 -right-4">
                                     <FontAwesome5 name="sparkles" size={24} color="#fcd34d" />
-                                </Box>
-                                <Box className="absolute -bottom-2 -left-4">
+                                </View>
+                                <View className="absolute -bottom-2 -left-4">
                                     <FontAwesome5 name="heart" size={18} color="#fcd34d" />
-                                </Box>
-                            </Box>
+                                </View>
+                            </View>
 
                             <Animated.View style={{ opacity: contentFadeAnim, width: '100%' }}>
                                 <VStack space="sm" className="items-center">
-                                    <Text
-                                        className="text-neutral-900 text-3xl font-black text-center tracking-tight"
-                                        style={{ fontFamily: fonts.regional_secondary }}
-                                    >
+                                    <AppHeading variant="section" className="text-center font-bold" style={{ color: theme.text.primary }}>
                                         You're Pro!
-                                    </Text>
-                                    <Text
-                                        className="text-neutral-500 text-lg text-center font-medium"
-                                        style={{ fontFamily: fonts.regional_secondary }}
-                                    >
+                                    </AppHeading>
+                                    <AppHeading variant="card" className="text-center" style={{ color: theme.text.secondary }}>
                                         স্বাগতম প্রিমিয়াম সদস্যপদে
-                                    </Text>
+                                    </AppHeading>
                                 </VStack>
 
-                                <Text
-                                    className="text-neutral-400 text-center mt-6 leading-6 text-[15px]"
-                                    style={{ fontFamily: fonts.regional_secondary }}
+                                <AppText
+                                    variant="body"
+                                    className="text-center mt-6 leading-6"
+                                    style={{ color: theme.text.disabled }}
                                 >
                                     Thank you for supporting our mission to spread Gita's wisdom. All premium features are now unlocked for you.
-                                </Text>
+                                </AppText>
 
                                 <TouchableOpacity
                                     onPress={onClose}
-                                    className="bg-black h-16 rounded-[24px] items-center justify-center mt-10 shadow-lg"
+                                    className="h-14 rounded-[24px] items-center justify-center mt-10 shadow-sm"
                                     activeOpacity={0.8}
+                                    style={{
+                                        backgroundColor: theme.background.tertiary || theme.border.primary, // Button background
+                                        borderWidth: 1,
+                                        borderColor: theme.border.primary + '30'
+                                    }}
                                 >
-                                    <Text className="text-white font-black text-lg tracking-tight">
+                                    <AppText variant="secondary" bold style={{ color: theme.background.primary || '#FFFFFF' }}>
                                         Start Exploring
-                                    </Text>
+                                    </AppText>
                                 </TouchableOpacity>
                             </Animated.View>
                         </VStack>
-                    </Box>
+                    </View>
                 </Animated.View>
-            </Box>
+            </View>
         </Modal>
     );
 };
+

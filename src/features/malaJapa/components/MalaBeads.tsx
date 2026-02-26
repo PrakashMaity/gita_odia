@@ -1,6 +1,6 @@
 import { Text } from '@/components/ui/text';
 import { useSemanticColors } from '@/hooks/useSemanticColors';
-import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
+
 import { getLanguageFonts } from '@/types/font.interface';
 import React, { useEffect, useRef } from 'react';
 import { Animated, Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -116,7 +116,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
     extrapolate: 'extend',
   });
 
-  const styles = getStyles(colors);
+  const styles = getStyles(colors, fonts);
 
   return (
     <View style={styles.outerContainer}>
@@ -158,7 +158,7 @@ export const MalaBeads: React.FC<MalaBeadsProps> = ({
   );
 };
 
-const getStyles = (colors: any) => StyleSheet.create({
+const getStyles = (colors: any, fonts: any) => StyleSheet.create({
   outerContainer: {
     width: BACKDROP_SIZE,
     height: BACKDROP_SIZE,
@@ -221,7 +221,7 @@ const getStyles = (colors: any) => StyleSheet.create({
     overflow: 'visible',
   },
   omSymbol: {
-    fontFamily: TYPOGRAPHY.fontFamily.primary,
+    fontFamily: fonts.regional_primary,
     fontSize: MALA_SIZE * 0.4,
     color: colors.secondary800,
     fontWeight: 'normal',

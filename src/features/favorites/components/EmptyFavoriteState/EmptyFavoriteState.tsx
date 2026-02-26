@@ -1,11 +1,12 @@
+import { AppHeading } from '@/components/ui/AppHeading';
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
-import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
-import { getLanguageFonts } from '@/types/font.interface';
+
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
@@ -13,7 +14,7 @@ import { ScrollView } from 'react-native';
 
 export const EmptyFavoriteState: React.FC = () => {
   const theme = useThemeColors();
-  const fonts = getLanguageFonts();
+
 
   const handleBrowseChapters = () => {
     router.push('/(tabs)/chapters');
@@ -50,18 +51,20 @@ export const EmptyFavoriteState: React.FC = () => {
 
         {/* Text Headers */}
         <VStack space="sm" className="items-center w-full mb-2">
-          <Text
-            className="text-[28px] font-black tracking-tight text-neutral-800 text-center"
-            style={{ fontFamily: fonts.regional_secondary }}
+          <AppHeading
+            variant="page"
+            center
+            className="text-neutral-800"
           >
             {i18n.t('favorite.emptyState.title')}
-          </Text>
-          <Text
-            className="text-[16px] font-medium text-neutral-500 text-center px-4 leading-6"
-            style={{ fontFamily: fonts.regional_secondary }}
+          </AppHeading>
+          <AppText
+            variant="body"
+            center
+            className="text-neutral-500 px-4"
           >
             {i18n.t('favorite.emptyState.subtitle')}
-          </Text>
+          </AppText>
         </VStack>
 
         {/* Tips Card */}
@@ -74,12 +77,12 @@ export const EmptyFavoriteState: React.FC = () => {
               className="w-1.5 h-6 rounded-full mr-3"
               style={{ backgroundColor: theme.status.error }}
             />
-            <Text
-              className="text-[18px] font-black tracking-tight text-neutral-800"
-              style={{ fontFamily: fonts.regional_secondary }}
+            <AppText
+              variant="card-title"
+              className="text-neutral-800"
             >
               {i18n.t('favorite.emptyState.tipsTitle')}
-            </Text>
+            </AppText>
           </HStack>
 
           <VStack space="md">
@@ -95,12 +98,12 @@ export const EmptyFavoriteState: React.FC = () => {
                 >
                   <Ionicons name="heart" size={12} color={theme.status.error} />
                 </Box>
-                <Text
-                  className="flex-1 text-[15px] leading-6 text-neutral-600"
-                  style={{ fontFamily: fonts.regional_secondary }}
+                <AppText
+                  variant="body"
+                  className="flex-1 text-neutral-600"
                 >
                   {tip}
-                </Text>
+                </AppText>
               </HStack>
             ))}
           </VStack>
@@ -114,12 +117,12 @@ export const EmptyFavoriteState: React.FC = () => {
         >
           <HStack space="md" className="items-center">
             <Ionicons name="book-outline" size={24} color="#fff" />
-            <Text
-              className="text-[18px] font-black tracking-tight text-white"
-              style={{ fontFamily: fonts.regional_secondary }}
+            <AppText
+              variant="card-title"
+              className="text-white"
             >
               {i18n.t('favorite.emptyState.browseButton')}
-            </Text>
+            </AppText>
           </HStack>
           <Box className="w-8 h-8 rounded-full bg-white/20 items-center justify-center">
             <Ionicons name="arrow-forward" size={16} color="#fff" />
@@ -134,12 +137,12 @@ export const EmptyFavoriteState: React.FC = () => {
           <Box className="absolute -top-4 -left-4 opacity-[0.05]" pointerEvents="none">
             <MaterialIcons name="format-quote" size={120} color="#000" />
           </Box>
-          <Text
-            className="text-[16px] font-medium leading-7 text-neutral-700 text-center italic"
-            style={{ fontFamily: fonts.regional_secondary }}
+          <AppText
+            variant="body"
+            className="text-neutral-700 italic text-center"
           >
             "{i18n.t('favorite.emptyState.quote')}"
-          </Text>
+          </AppText>
         </Box>
 
       </VStack>

@@ -23,8 +23,7 @@ const getCurrentLanguage = (): string => {
  * Gets the locale string for the current language or falls back to English
  */
 export const getLocale = (): string => {
-  const currentLang = getCurrentLanguage();
-  return localeMap[currentLang] || 'en-US';
+  return 'en-US';
 };
 
 /**

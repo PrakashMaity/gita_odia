@@ -1,8 +1,8 @@
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Pressable } from '@/components/ui/pressable';
-import { Text } from '@/components/ui/text';
 import { useProStatus } from '@/hooks/useProStatus';
 import i18n from '@/lib/i18n';
 import { HomeImages } from '@/lib/utils/assets';
@@ -97,23 +97,20 @@ export const HomeHeader: React.FC = React.memo(() => {
             </Box>
 
             <View style={styles.titleContainer}>
-              <Text
-                className="text-neutral-800"
+              <AppText
+                className="text-neutral-800 pr-2.5 z-10"
+                font="regional-secondary"
+                variant="card-title"
                 style={{
-                  fontFamily: fonts.regional_secondary,
-                  fontWeight: '900',
-                  fontSize: 17,
                   letterSpacing: -0.3,
                   textShadowColor: 'rgba(255,255,255,0.7)',
                   textShadowOffset: { width: 0, height: 1 },
                   textShadowRadius: 4,
-                  zIndex: 1,
-                  paddingRight: 10,
                 }}
                 numberOfLines={1}
               >
                 {i18n.t('home.headerTitle')}
-              </Text>
+              </AppText>
 
               {/* ─── PRO Crown: Absolute top right ─── */}
               {isPro && (

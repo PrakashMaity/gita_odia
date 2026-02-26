@@ -1,5 +1,6 @@
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
-import { Text } from '@/components/ui/text';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { formatLastReadDate } from '@/lib/utils/dateUtils';
 import { useProgressStore } from '@/store';
@@ -22,6 +23,7 @@ export default function ReadingProgress({
   onProgressUpdate,
   onAlert,
 }: ReadingProgressProps) {
+  const theme = useThemeColors();
   const {
     progress,
     isLoading,
@@ -54,9 +56,13 @@ export default function ReadingProgress({
   if (isLoading) {
     return (
       <View className="mb-6">
-        <Text className="text-sm text-center text-neutral-400 font-regional_secondary">
+        <AppText
+          variant="secondary"
+          className="text-center"
+          style={{ color: theme.text.disabled }}
+        >
           {i18n.t('common.loading')}
-        </Text>
+        </AppText>
       </View>
     );
   }
@@ -64,43 +70,72 @@ export default function ReadingProgress({
   if (!chapterProgress) {
     return (
       <View className="mb-6">
-        <Text className="text-sm text-center text-neutral-500 font-regional_secondary">
+        <AppText
+          variant="secondary"
+          className="text-center"
+          style={{ color: theme.text.secondary }}
+        >
           {i18n.t('progress.notStarted')}
-        </Text>
+        </AppText>
       </View>
     );
   }
 
   return (
-    <Box className="mb-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+    <Box
+      className="mb-6 p-6 rounded-2xl"
+      style={{
+        backgroundColor: theme.background.primary,
+        borderWidth: 1,
+        borderColor: theme.border.primary + '30',
+      }}
+    >
       <View className="flex-row justify-between items-center mb-2">
-        <Text className="text-xl font-bold text-white font-regional_secondary">
+        <AppText
+          variant="card-title"
+          style={{ color: theme.text.primary }}
+        >
           {i18n.t('progress.readingProgress')}
-        </Text>
+        </AppText>
         <TouchableOpacity onPress={resetProgress} className="p-1">
-          <Ionicons name="refresh-outline" size={24} color="white" />
+          <Ionicons name="refresh-outline" size={24} color={theme.icon.primary} />
         </TouchableOpacity>
       </View>
 
-      <Text className="text-base text-neutral-400 mb-4 font-regional_secondary">
+      <AppText
+        variant="secondary"
+        className="mb-4"
+        style={{ color: theme.text.secondary }}
+      >
         {i18n.t('progress.lastRead', { date: chapterProgress ? formatLastReadDate(chapterProgress.lastReadDate) : '' })}
-      </Text>
+      </AppText>
 
       <View className="mb-2">
-        <View className="h-1.5 rounded-full overflow-hidden mb-2 bg-neutral-800">
+        <View
+          className="h-1.5 rounded-full overflow-hidden mb-2"
+          style={{ backgroundColor: theme.border.primary + '20' }}
+        >
           <View
-            className="h-full rounded-full bg-white"
-            style={{ width: `${getProgressPercentageValue()}%` }}
+            className="h-full rounded-full"
+            style={{
+              width: `${getProgressPercentageValue()}%`,
+              backgroundColor: theme.icon.primary,
+            }}
           />
         </View>
       </View>
 
       {chapterProgress.isCompleted && (
         <View className="flex-row items-center justify-center mt-2">
-          <Ionicons name="checkmark-circle" size={16} color="white" />
-          <Text className="text-sm font-bold ml-2 text-white font-regional_secondary">
+          <Ionicons name="checkmark-circle" size={16} color={theme.status.success} />
+          <AppText
+            variant="secondary"
+            bold
+            className="ml-2"
+            style={{ color: theme.status.success }}
+          >
             {i18n.t('progress.chapterComplete')}
-          </Text>
+          </AppText>
         </View>
       )}
     </Box>

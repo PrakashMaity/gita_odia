@@ -19,7 +19,7 @@ function formatDate(isoString: string | null | undefined): string | null {
   if (!isoString) return null;
   try {
     const d = new Date(isoString);
-    return d.toLocaleDateString(undefined, {
+    return d.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',

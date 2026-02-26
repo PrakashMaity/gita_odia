@@ -9,10 +9,11 @@ import {
   Modal,
   Platform,
   StyleSheet,
+  TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
+import { AppText } from '../AppText';
 import { Box } from '../box';
-import { Button, ButtonText } from '../button';
 import { Heading } from '../heading';
 import { Pressable } from '../pressable';
 import { Text } from '../text';
@@ -135,17 +136,6 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
     }
   };
 
-  const getButtonProps = (style: 'default' | 'cancel' | 'destructive') => {
-    switch (style) {
-      case 'cancel':
-        return { variant: 'outline' as const, action: 'secondary' as const };
-      case 'destructive':
-        return { variant: 'solid' as const, action: 'negative' as const };
-      default:
-        return { variant: 'solid' as const, action: 'primary' as const };
-    }
-  };
-
   if (!visible) return null;
 
   return (
@@ -174,7 +164,7 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
               ]}
             >
               <Box
-                className="w-full bg-white rounded-[32px] overflow-hidden shadow-2xl relative"
+                className="w-full rounded-[32px] overflow-hidden shadow-2xl relative"
                 style={{ backgroundColor: theme.background.primary }}
               >
                 {/* Top Accent Bar */}
@@ -251,21 +241,33 @@ export const CustomAlert: React.FC<CustomAlertProps> = ({
                     style={{ alignSelf: 'stretch' }}
                   >
                     {buttons.map((button, index) => {
-                      const buttonProps = getButtonProps(
-                        button.style || 'default'
-                      );
+                      const isCancel = button.style === 'cancel';
+                      const isDestructive = button.style === 'destructive';
+                      const bgColor = isCancel
+                        ? 'transparent'
+                        : (isDestructive ? theme.status.error : typeStyles.accentColor);
+                      const bColor = isCancel ? theme.border.primary + '30' : 'transparent';
+
                       return (
-                        <Button
+                        <TouchableOpacity
                           key={index}
-                          size="lg"
+                          activeOpacity={0.8}
                           onPress={() => handleButtonPress(button)}
-                          className="w-full h-14"
-                          {...buttonProps}
+                          className="w-full h-14 rounded-[20px] items-center justify-center"
+                          style={{
+                            backgroundColor: bgColor,
+                            borderWidth: 1,
+                            borderColor: bColor,
+                          }}
                         >
-                          <ButtonText className="font-semibold text-lg">
+                          <AppText
+                            variant="secondary"
+                            className="font-bold text-lg"
+                            style={{ color: isCancel ? theme.text.secondary : '#FFFFFF' }}
+                          >
                             {button.text}
-                          </ButtonText>
-                        </Button>
+                          </AppText>
+                        </TouchableOpacity>
                       );
                     })}
                   </VStack>

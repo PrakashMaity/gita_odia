@@ -1,5 +1,5 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { initializeRevenueCat } from '@/services/revenuecat';
 import type { PackageType, SubscriptionDetailsDisplay } from '@/types/subscription';
 import { getPackageDisplayName } from '@/types/subscription';
@@ -32,7 +32,7 @@ function formatDate(isoString: string | null | undefined): string | null {
   if (!isoString) return null;
   try {
     const d = new Date(isoString);
-    return d.toLocaleDateString(undefined, {
+    return d.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',

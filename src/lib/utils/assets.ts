@@ -25,8 +25,6 @@ const assets = {
     'english': require('../../../assets/fonts/english.ttf'),
     'primary': require('../../../assets/fonts/primary.ttf'),
     'secondary': require('../../../assets/fonts/secondary.ttf'),
-    'tertiary': require('../../../assets/fonts/tertiary.ttf'),
-    'quaternary': require('../../../assets/fonts/quaternary.ttf'),
   },
   layoutBackground1: require('../../../assets/images/layoutBackground1.png'),
   layoutBackground2: require('../../../assets/images/layoutBackground2.png'),

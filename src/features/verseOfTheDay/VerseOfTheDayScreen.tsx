@@ -154,7 +154,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
         {/* Date Badge */}
         <Box className="self-center px-4 py-2 rounded-full bg-neutral-900 border border-neutral-800 mb-4">
           <Text className="text-sm font-bold text-white font-regional_secondary">
-            {new Date().toLocaleDateString('bn-BD', {
+            {new Date().toLocaleDateString('en-US', {
               weekday: 'long',
               year: 'numeric',
               month: 'long',

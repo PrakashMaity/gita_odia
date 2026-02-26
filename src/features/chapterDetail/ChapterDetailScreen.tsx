@@ -1,9 +1,10 @@
 import { ReadingProgress } from '@/components/progress';
 import { LoadingState } from '@/components/shared';
+import { AppHeading } from '@/components/ui/AppHeading';
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
-import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { VerseReader } from '@/components/verseReader';
 import { AudioModal } from '@/features/translationDetail/components/AudioModal';
@@ -12,7 +13,6 @@ import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { useChapterStore } from '@/store';
-import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -28,7 +28,6 @@ export const ChapterDetailScreen: React.FC = () => {
   const { isLoading } = useChapterStore();
   const { showAlert, AlertComponent } = useCustomAlert();
   const theme = useThemeColors();
-  const fonts = getLanguageFonts();
   const insets = useSafeAreaInsets();
 
   const [showTranslation, setShowTranslation] = useState(true);
@@ -100,14 +99,24 @@ export const ChapterDetailScreen: React.FC = () => {
     <Box className="flex-1" style={{ backgroundColor: theme.background.secondary }}>
       {AlertComponent}
 
-      {/* Modern Saffron Light Header */}
+      {/* Header */}
       <Box
-        className="pb-4 px-4 border-b border-primary-900/10 shadow-sm z-10"
-        style={{ backgroundColor: theme.background.secondary, paddingTop: Math.max(insets.top, 20) }}
+        className="pb-4 px-4 shadow-sm z-10"
+        style={{
+          backgroundColor: theme.background.secondary,
+          paddingTop: Math.max(insets.top, 20),
+          borderBottomWidth: 1,
+          borderBottomColor: theme.border.primary + '20',
+        }}
       >
-        <HStack className="items-center justify-between">
+        <HStack className="items-center justify-between mt-2">
           <Pressable
-            className="w-10 h-10 bg-white/50 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100/50"
+            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70"
+            style={{
+              backgroundColor: theme.background.primary,
+              borderWidth: 1,
+              borderColor: theme.border.primary + '30',
+            }}
             onPress={() => {
               router.back();
               showAd();
@@ -117,27 +126,32 @@ export const ChapterDetailScreen: React.FC = () => {
           </Pressable>
 
           <VStack className="items-center flex-1 px-4">
-            <Text
-              className="text-[18px] font-black tracking-tight text-center"
-              style={{ fontFamily: fonts.regional_secondary, color: theme.text.primary }}
+            <AppHeading
+              variant="section"
               numberOfLines={1}
+              style={{ color: theme.text.primary }}
             >
               {chapter.title}
-            </Text>
+            </AppHeading>
             {chapter.subtitle && chapter.subtitle !== chapter.title && (
-              <Text
-                className="text-[11px] mt-0.5 opacity-80"
-                style={{ fontFamily: fonts.regional_secondary, color: theme.text.secondary }}
+              <AppText
+                variant="caption"
+                className="text-center mt-1"
                 numberOfLines={1}
+                style={{ color: theme.text.secondary }}
               >
                 {chapter.subtitle}
-              </Text>
+              </AppText>
             )}
           </VStack>
 
           <Pressable
-            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70 border border-primary-100 shadow-sm"
-            style={{ backgroundColor: theme.background.quaternary }}
+            className="w-10 h-10 rounded-[14px] items-center justify-center active:opacity-70 shadow-sm"
+            style={{
+              backgroundColor: theme.background.quaternary,
+              borderWidth: 1,
+              borderColor: theme.border.primary + '30',
+            }}
             onPress={() => setIsFullChapterAudioModalVisible(true)}
           >
             <MaterialIcons name="volume-up" size={24} color={theme.icon.primary} />
@@ -152,12 +166,16 @@ export const ChapterDetailScreen: React.FC = () => {
         contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 16, paddingBottom: 32 }}
       >
         <Box
-          className="rounded-[28px] p-2 border border-primary-100 shadow-sm overflow-hidden mb-6 relative"
-          style={{ backgroundColor: theme.background.primary }}
+          className="rounded-[28px] p-2 shadow-sm overflow-hidden mb-6 relative"
+          style={{
+            backgroundColor: theme.background.primary,
+            borderWidth: 1,
+            borderColor: theme.border.primary + '30',
+          }}
         >
           {/* subtle watermark for verse card */}
           <Box className="absolute -left-6 -bottom-6 opacity-[0.03]" pointerEvents="none">
-            <FontAwesome5 name="book-open" size={160} color="#000" />
+            <FontAwesome5 name="book-open" size={160} color={theme.text.disabled} />
           </Box>
 
           <VerseReader

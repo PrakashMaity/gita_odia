@@ -1,5 +1,3 @@
-import { typography as TYPOGRAPHY } from '@/rootconstants/typography';
-
 // Font configuration type
 export interface LanguageFonts {
   primary_english: string;
@@ -13,8 +11,8 @@ export interface LanguageFonts {
  */
 export const getLanguageFonts = (): LanguageFonts => {
   return {
-    primary_english: TYPOGRAPHY.fontFamily.english,
-    regional_primary: TYPOGRAPHY.fontFamily.primary,
-    regional_secondary: TYPOGRAPHY.fontFamily.secondary,
+    primary_english: 'english',
+    regional_primary: 'primary',
+    regional_secondary: 'secondary',
   };
 };

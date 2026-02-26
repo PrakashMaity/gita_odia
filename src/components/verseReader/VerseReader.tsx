@@ -1,9 +1,10 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
+import { AppHeading } from '@/components/ui/AppHeading';
+import { AppText } from '@/components/ui/AppText';
 import { Box } from '@/components/ui/box';
-import { Text } from '@/components/ui/text';
 import { ShareButton } from '@/features/chapterDetail/components';
 import { FavoriteButton } from '@/features/favorites/components';
 import { AudioModal } from '@/features/translationDetail/components/AudioModal';
+import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { getSpeakerImage } from '@/lib/utils/speakerUtils';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -40,7 +41,7 @@ export default function VerseReader({
   chapterNumber,
   onAlert,
 }: VerseReaderProps) {
-  const { colors } = useSemanticColors();
+  const theme = useThemeColors();
   const verseCardRef = useRef<View | null>(null);
   const [hideShareButton, setHideShareButton] = useState(false);
   const [isAudioModalVisible, setIsAudioModalVisible] = useState(false);
@@ -59,42 +60,76 @@ export default function VerseReader({
       {/* Verse Display */}
       <View ref={verseCardRef} collapsable={false}>
         <Box className="mb-6 px-4 py-8 rounded-2xl">
-          <View className="flex-row items-center justify-between mb-6">
-
-            <View className="flex-col items-center">
-              <View className="items-center justify-center">
+          {/* Header Row: Speaker + Verse Number + Actions */}
+          <View
+            className="flex-row items-center justify-between mb-8 pb-4"
+            style={{ borderBottomWidth: 1, borderBottomColor: theme.border.primary + '30' }}
+          >
+            {/* Left: Speaker Info */}
+            <View className="flex-row items-center" style={{ gap: 12 }}>
+              <View
+                className="p-1 rounded-full"
+                style={{ backgroundColor: theme.background.quaternary }}
+              >
                 <Image
                   source={getSpeakerImage(verse.speaker_english)}
-                  className="w-20 h-20 rounded-full border-[3px] border-primary-500"
+                  className="w-12 h-12 rounded-full"
+                  style={{ borderWidth: 2, borderColor: theme.border.primary + '50' }}
                 />
               </View>
-              <Text className="ml-2 text-[15px] mt-2 font-regional_secondary font-bold text-secondary-600 dark:text-secondary-400">
-                {verse.speaker}
-              </Text>
-            </View>
-
-            <View className="justify-center items-center">
-              <Text className="text-xl font-bold font-regional_secondary text-secondary-900 dark:text-secondary-100">
-                {i18n.t('verse.verse')} - {verse.verseNumber}
-              </Text>
-            </View>
-
-            {/* Action Buttons Container */}
-            {chapterId && chapterNumber && (
-              <View className="flex-row items-center justify-center gap-4 mt-2">
-                {/* Audio Button */}
-                <TouchableOpacity
-                  onPress={() => setIsAudioModalVisible(true)}
-                  className="w-10 h-10 rounded-full items-center justify-center border border-primary-200 dark:border-primary-800 bg-secondary-50 dark:bg-secondary-900"
+              <View>
+                <AppText
+                  variant="caption"
+                  className="uppercase tracking-wider mb-0.5"
+                  style={{ color: theme.text.secondary }}
                 >
-                  <MaterialIcons
-                    name="volume-up"
-                    size={24}
-                    color={colors.primary600}
-                  />
-                </TouchableOpacity>
+                  Speaker
+                </AppText>
+                <AppText
+                  variant="card-title"
+                  style={{ color: theme.text.primary }}
+                >
+                  {verse.speaker}
+                </AppText>
+              </View>
+            </View>
 
-                <View>
+            {/* Right: Verse Number & Actions */}
+            <View className="items-end">
+              <AppText
+                variant="caption"
+                className="uppercase tracking-wider mb-0.5"
+                style={{ color: theme.text.secondary }}
+              >
+                {i18n.t('verse.verse')}
+              </AppText>
+              <AppHeading
+                variant="card"
+                className="mb-2"
+                style={{ color: theme.text.primary }}
+              >
+                {verse.verseNumber}
+              </AppHeading>
+
+              {chapterId && chapterNumber && (
+                <View className="flex-row items-center" style={{ gap: 10 }}>
+                  {/* Audio Button */}
+                  <TouchableOpacity
+                    onPress={() => setIsAudioModalVisible(true)}
+                    className="w-9 h-9 rounded-full items-center justify-center"
+                    style={{
+                      backgroundColor: theme.background.quaternary,
+                      borderWidth: 1,
+                      borderColor: theme.border.primary + '40',
+                    }}
+                  >
+                    <MaterialIcons
+                      name="volume-up"
+                      size={18}
+                      color={theme.icon.primary}
+                    />
+                  </TouchableOpacity>
+
                   <FavoriteButton
                     verseId={verse.id}
                     chapterId={chapterId}
@@ -103,9 +138,8 @@ export default function VerseReader({
                     verseText={verse.Language}
                     onAlert={onAlert}
                   />
-                </View>
-                {!hideShareButton && (
-                  <View>
+
+                  {!hideShareButton && (
                     <ShareButton
                       verseId={verse.id}
                       chapterId={chapterId}
@@ -119,36 +153,47 @@ export default function VerseReader({
                       onCaptureStart={() => setHideShareButton(true)}
                       onCaptureEnd={() => setHideShareButton(false)}
                     />
-                  </View>
-                )}
-              </View>
-            )}
+                  )}
+                </View>
+              )}
+            </View>
           </View>
 
+          {/* Verse Text (Original Language) */}
           {showLanguage && (
-            <View className="mb-6">
-              <View className="items-center">
-                <Text
-                  className="text-center mb-6 text-3xl font-regional_secondary self-center leading-10 font-bold text-secondary-900 dark:text-secondary-100"
-                >
-                  {verse.Language}
-                </Text>
-              </View>
+            <View className="mb-8">
+              <AppText
+                variant="page-title"
+                className="text-center font-bold"
+                style={{ color: theme.text.primary, fontSize: 26, lineHeight: 42 }}
+              >
+                {verse.Language}
+              </AppText>
             </View>
           )}
 
+          {/* Translation */}
           {showTranslation && (
-            <View className="mb-6">
-              <View className="mb-4">
-                <Text className="text-center text-[18px] font-bold font-regional_secondary text-secondary-600 dark:text-secondary-400">
+            <View className="mb-4">
+              <View
+                className="mb-4 pb-2"
+                style={{ borderBottomWidth: 1, borderBottomColor: theme.border.primary + '30' }}
+              >
+                <AppText
+                  variant="card-title"
+                  className="text-center"
+                  style={{ color: theme.text.secondary }}
+                >
                   {i18n.t('verse.translation')}
-                </Text>
+                </AppText>
               </View>
-              <Text
-                className="text-center text-xl leading-8 mt-2 font-regional_secondary text-secondary-900 dark:text-secondary-100"
+              <AppText
+                variant="body"
+                className="text-center"
+                style={{ color: theme.text.primary, fontSize: 18, lineHeight: 30 }}
               >
                 {verse.translation}
-              </Text>
+              </AppText>
             </View>
           )}
         </Box>
