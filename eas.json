@@ -69,6 +69,28 @@
       "android": {
         "buildType": "apk"
       }
+    },
+    "gu": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "gu",
+        "APP_ENV": "production"
+      },
+      "channel": "gu",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "ne": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "ne",
+        "APP_ENV": "production"
+      },
+      "channel": "ne",
+      "android": {
+        "buildType": "apk"
+      }
     }
   },
   "submit": {

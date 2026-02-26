@@ -1,0 +1,67 @@
+{
+    "home": {
+        "headerTitle": "Srimad Bhagavad Gita",
+        "heroQuote": "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
+        "heroQuotes": [
+            "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
+            "Whenever there is a decline in righteousness and a rise in unrighteousness,\nO Bharata, at that time I manifest myself.",
+            "With mind and intellect established in Me,\nyou shall undoubtedly come to Me."
+        ],
+        "quickActions": "Quick Actions",
+        "menu": "Menu",
+        "pro": "Pro"
+    },
+    "tabs": {
+        "home": "Home",
+        "chapters": "Chapters",
+        "bookmarks": "Bookmarks",
+        "profile": "Profile"
+    },
+    "common": {
+        "back": "Back",
+        "next": "Next",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "share": "Share",
+        "search": "Search",
+        "loading": "Loading...",
+        "error": "Error",
+        "retry": "Retry",
+        "ok": "OK",
+        "yes": "Yes",
+        "no": "No",
+        "close": "Close"
+    },
+    "chapter": {
+        "title": "Chapter",
+        "verses": "Verses",
+        "summary": "Summary",
+        "readNow": "Read Now"
+    },
+    "verse": {
+        "translation": "Translation",
+        "speaker": "Speaker"
+    },
+    "bookmark": {
+        "title": "Bookmarks",
+        "empty": "No bookmarks yet",
+        "added": "Bookmark added",
+        "removed": "Bookmark removed"
+    },
+    "favorite": {
+        "title": "Favorites",
+        "empty": "No favorites yet",
+        "added": "Added to favorites",
+        "removed": "Removed from favorites"
+    },
+    "profile": {
+        "title": "Profile",
+        "settings": "Settings",
+        "theme": "Theme",
+        "language": "Language",
+        "about": "About Us",
+        "rateApp": "Rate App",
+        "shareApp": "Share App"
+    }
+}

@@ -2,15 +2,22 @@ import Constants from 'expo-constants';
 import { I18n } from 'i18n-js';
 
 // Per-language UI translations
-// Add new language imports here when available:
+import as_ from './translations/as.json'; // 'as' is a reserved keyword
 import bn from './translations/bn.json';
-// import hi from './translations/hi.json';
-// import en from './translations/en.json';
+import en from './translations/en.json';
+import gu from './translations/gu.json';
+import hi from './translations/hi.json';
+import ne from './translations/ne.json';
+import or from './translations/or.json';
 
 const translations: Record<string, any> = {
     bn,
-    // hi,
-    // en,
+    hi,
+    en,
+    or,
+    as: as_,
+    gu,
+    ne,
 };
 
 const lang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';

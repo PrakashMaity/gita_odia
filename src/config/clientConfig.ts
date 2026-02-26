@@ -43,6 +43,18 @@ const CLIENTS: Record<string, ClientConfig> = {
         fontFamily: 'NotoSerifBengali', // Assamese uses Bengali script
         scriptDirection: 'ltr',
     },
+    gu: {
+        lang: 'gu',
+        appName: 'ગીતા ગુજરાતી',
+        fontFamily: 'NotoSerifGujarati',
+        scriptDirection: 'ltr',
+    },
+    ne: {
+        lang: 'ne',
+        appName: 'गीता नेपाली',
+        fontFamily: 'NotoSerifDevanagari', // Nepali uses Devanagari script
+        scriptDirection: 'ltr',
+    },
 };
 
 /**
