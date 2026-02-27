@@ -1,4 +1,58 @@
-// Bengali assets only
+import { getActiveLang } from '@/config/clientConfig';
+
+// ----- Per-language font map -----
+// Each language folder under assets/fonts/{lang}/ has: primary.ttf, secondary.ttf, english.ttf
+// Font names registered with expo-font remain 'primary', 'secondary', 'english'
+// so all consuming components (50+ files) need zero changes.
+type FontMap = Record<string, number>; // number = require() return type in RN
+
+const LANGUAGE_FONTS: Record<string, FontMap> = {
+  bn: {
+    english: require('../../../assets/fonts/bn/english.ttf'),
+    primary: require('../../../assets/fonts/bn/primary.ttf'),
+    secondary: require('../../../assets/fonts/bn/secondary.ttf'),
+  },
+  hi: {
+    english: require('../../../assets/fonts/hi/english.ttf'),
+    primary: require('../../../assets/fonts/hi/primary.ttf'),
+    secondary: require('../../../assets/fonts/hi/secondary.ttf'),
+  },
+  en: {
+    english: require('../../../assets/fonts/en/english.ttf'),
+    primary: require('../../../assets/fonts/en/primary.ttf'),
+    secondary: require('../../../assets/fonts/en/secondary.ttf'),
+  },
+  or: {
+    english: require('../../../assets/fonts/or/english.ttf'),
+    primary: require('../../../assets/fonts/or/primary.ttf'),
+    secondary: require('../../../assets/fonts/or/secondary.ttf'),
+  },
+  as: {
+    english: require('../../../assets/fonts/as/english.ttf'),
+    primary: require('../../../assets/fonts/as/primary.ttf'),
+    secondary: require('../../../assets/fonts/as/secondary.ttf'),
+  },
+  gu: {
+    english: require('../../../assets/fonts/gu/english.ttf'),
+    primary: require('../../../assets/fonts/gu/primary.ttf'),
+    secondary: require('../../../assets/fonts/gu/secondary.ttf'),
+  },
+  ne: {
+    english: require('../../../assets/fonts/ne/english.ttf'),
+    primary: require('../../../assets/fonts/ne/primary.ttf'),
+    secondary: require('../../../assets/fonts/ne/secondary.ttf'),
+  },
+};
+
+/**
+ * Returns the font map for the active client language.
+ * Falls back to Bengali if the language is unknown.
+ */
+const getFontsForLanguage = (): FontMap => {
+  const lang = getActiveLang();
+  return LANGUAGE_FONTS[lang] ?? LANGUAGE_FONTS.bn;
+};
+
 const assets = {
   icon: require('../../../assets/images/icon.png'),
   splash: require('../../../assets/images/splash-icon.png'),
@@ -21,11 +75,7 @@ const assets = {
   arjuna: require('../../../assets/images/speaker/arjuna.png'),
   shreekrishna: require('../../../assets/images/speaker/shreekrishna.png'),
   duryadhona: require('../../../assets/images/speaker/duryadhona.png'),
-  fonts: {
-    'english': require('../../../assets/fonts/english.ttf'),
-    'primary': require('../../../assets/fonts/primary.ttf'),
-    'secondary': require('../../../assets/fonts/secondary.ttf'),
-  },
+  fonts: getFontsForLanguage(),
   layoutBackground1: require('../../../assets/images/layoutBackground1.png'),
   layoutBackground2: require('../../../assets/images/layoutBackground2.png'),
   layoutBackground3: require('../../../assets/images/layoutBackground3.png'),
