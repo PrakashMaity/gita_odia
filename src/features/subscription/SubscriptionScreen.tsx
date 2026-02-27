@@ -129,7 +129,7 @@ export const SubscriptionScreen: React.FC = () => {
         }
       }
     } catch (e: any) {
-      console.error('Error loading offerings:', e);
+      console.warn('Error loading offerings:', e);
 
       // Determine more specific error messages
       let errorTitle = 'Error';

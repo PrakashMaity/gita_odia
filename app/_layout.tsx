@@ -15,8 +15,8 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { useCallback, useEffect, useState } from 'react';
-import { PermissionsAndroid, Platform, StatusBar as RNStatusBar, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Animated, PermissionsAndroid, Platform, StatusBar as RNStatusBar, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -148,28 +148,27 @@ export default function RootLayout() {
     }
   }, [appIsReady, showAnimatedSplash]);
 
-  // Handle animated splash completion
+  // Fade-out animation for splash → app transition
+  const splashFadeOut = useRef(new Animated.Value(1)).current;
+
+  // Handle animated splash completion with smooth fade-out
   const handleAnimatedSplashComplete = useCallback(() => {
-    setShowAnimatedSplash(false);
-  }, []);
+    Animated.timing(splashFadeOut, {
+      toValue: 0,
+      duration: 400,
+      useNativeDriver: true,
+    }).start(() => {
+      setShowAnimatedSplash(false);
+    });
+  }, [splashFadeOut]);
 
   // Show loading placeholder with splash background color while app is loading
   // This prevents white screen flash between native splash and animated splash
   if (!appIsReady) {
     return (
-      <View style={{ flex: 1, backgroundColor: '#FFE0B2' }}>
+      <View style={{ flex: 1, backgroundColor: '#FFFBF0' }}>
         {/* Keep native splash visible while loading */}
       </View>
-    );
-  }
-
-  // Show animated splash screen first
-  if (showAnimatedSplash) {
-    return (
-      <AnimatedSplash
-        onAnimationComplete={handleAnimatedSplashComplete}
-        duration={2500}
-      />
     );
   }
 
@@ -178,8 +177,8 @@ export default function RootLayout() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <GluestackUIProvider mode="light">
           <ThemeProvider>
-            <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }} edges={['top', 'left', 'right']}>
-              <View style={{ flex: 1, backgroundColor: 'black' }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFBF0' }} edges={['top', 'left', 'right']}>
+              <View style={{ flex: 1, backgroundColor: '#FFFBF0' }}>
                 <ThemedStatusBar />
                 <Stack
                   screenOptions={{
@@ -315,6 +314,27 @@ export default function RootLayout() {
                 </Stack>
               </View>
             </SafeAreaView>
+
+            {/* Splash fade-out overlay — renders on top while fading out */}
+            {showAnimatedSplash && (
+              <Animated.View
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  zIndex: 999,
+                  opacity: splashFadeOut,
+                }}
+                pointerEvents={showAnimatedSplash ? 'auto' : 'none'}
+              >
+                <AnimatedSplash
+                  onAnimationComplete={handleAnimatedSplashComplete}
+                  duration={2500}
+                />
+              </Animated.View>
+            )}
           </ThemeProvider>
         </GluestackUIProvider>
       </GestureHandlerRootView>

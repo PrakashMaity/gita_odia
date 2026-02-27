@@ -44,12 +44,12 @@ export const initializeRevenueCat = (): boolean => {
   if (initialized) return true;
 
   try {
-    Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
+    Purchases.setLogLevel(LOG_LEVEL.WARN);
     Purchases.configure({ apiKey: getApiKey() });
     initialized = true;
     return true;
   } catch (error) {
-    console.error('RevenueCat initialization failed:', error);
+    console.warn('RevenueCat initialization failed:', error);
     return false;
   }
 };
@@ -60,7 +60,7 @@ export const isPremium = async (): Promise<boolean> => {
     const customerInfo = await Purchases.getCustomerInfo();
     return !!customerInfo.entitlements.active['premium'];
   } catch (e) {
-    console.error('[RevenueCat] Error checking premium status:', e);
+    console.warn('[RevenueCat] Error checking premium status:', e);
     return false;
   }
 };
@@ -93,7 +93,7 @@ export const getSubscriptionDetails = async (): Promise<SubscriptionDetailsDispl
       willRenew: premium.willRenew ?? false,
     };
   } catch (e) {
-    console.error('[RevenueCat] Error fetching subscription details:', e);
+    console.warn('[RevenueCat] Error fetching subscription details:', e);
     return null;
   }
 };

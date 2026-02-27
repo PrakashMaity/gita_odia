@@ -78,6 +78,20 @@ EAS_PROJECT_ID=xxxx-xxxx-xxxx
 
 ---
 
+## Step 1B — Add Branding Assets (Icons & Splash)
+
+Create the folder `assets/images/<lang>/` with the following 5 required image files:
+
+- `icon.png` (1024x1024) — App icon (with translated "Gita" text)
+- `adaptive-icon.png` (1024x1024) — Android adaptive icon (foreground)
+- `splash-icon.png` (1024x1024) — Splash screen center image
+- `logo.png` — In-app logo (used in AnimatedSplash)
+- `favicon.png` (48x48) — Web favicon
+
+The build system (`app.config.js`) will automatically use the correct images for your language based on `APP_LANG`.
+
+---
+
 ## Step 2 — Add Chapter Data (18 JSON files)
 
 Create the folder `assets/Data/<lang>/` with 18 chapter files:
@@ -346,15 +360,16 @@ eas build --profile hi --platform android
 |---|------|--------|----------|
 | 1 | `.env.<lang>.development` | CREATE | ✅ |
 | 2 | `.env.<lang>.production` | CREATE | ✅ |
-| 3 | `assets/Data/<lang>/chapter1.json` ... `chapter18.json` | CREATE (18 files) | ✅ |
-| 4 | `assets/Data/index.ts` | MODIFY — add chapter imports | ✅ |
-| 5 | `src/lib/i18n/translations/<lang>.json` | CREATE | ✅ |
-| 6 | `src/lib/i18n/index.ts` | MODIFY — import & register | ✅ |
-| 7 | `src/config/clientConfig.ts` | MODIFY — add to CLIENTS map | ✅ |
-| 8 | `eas.json` | MODIFY — add build profile | ✅ |
-| 9 | `package.json` | MODIFY — add npm scripts | Optional |
-| 10 | `assets/fonts/<font>.ttf` | CREATE (if new script) | If needed |
-| 11 | `google-services.json` | REPLACE (if separate Firebase) | If needed |
+| 3 | `assets/images/<lang>/*` | CREATE (5 branding images) | ✅ |
+| 4 | `assets/Data/<lang>/chapter1.json` ... `chapter18.json` | CREATE (18 files) | ✅ |
+| 5 | `assets/Data/index.ts` | MODIFY — add chapter imports | ✅ |
+| 6 | `src/lib/i18n/translations/<lang>.json` | CREATE | ✅ |
+| 7 | `src/lib/i18n/index.ts` | MODIFY — import & register | ✅ |
+| 8 | `src/config/clientConfig.ts` | MODIFY — add to CLIENTS map | ✅ |
+| 9 | `eas.json` | MODIFY — add build profile | ✅ |
+| 10 | `package.json` | MODIFY — add npm scripts | Optional |
+| 11 | `assets/fonts/<font>.ttf` | CREATE (if new script) | If needed |
+| 12 | `google-services.json` | REPLACE (if separate Firebase) | If needed |
 
 ---
 

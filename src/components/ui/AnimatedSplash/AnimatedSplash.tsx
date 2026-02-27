@@ -1,12 +1,31 @@
 import i18n from '@/lib/i18n';
 import { HomeImages } from '@/lib/utils/assets';
-import { colors } from '@/rootconstants/tint';
 import { getLanguageFonts } from '@/types/font.interface';
+import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Animated, Dimensions, Image, StyleSheet, View } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+const fonts = getLanguageFonts();
+
+// Premium golden color tokens
+const COLORS = {
+  gradientStart: '#FFFBF0',
+  gradientMid1: '#FFF3D6',
+  gradientMid2: '#FFE4A8',
+  gradientEnd: '#FFD06B',
+  title: '#1A0E0A',
+  tagline: '#5D4037',
+  amber: '#D97706',
+  amberLight: '#F59E0B',
+  amberGlow: '#FBBF24',
+  ring: 'rgba(217,119,6,0.25)',
+  ringOuter: 'rgba(251,191,36,0.12)',
+  particleGold: 'rgba(251,191,36,0.35)',
+  particleAmber: 'rgba(217,119,6,0.25)',
+  divider: '#B45309',
+};
 
 interface AnimatedSplashProps {
   onAnimationComplete?: () => void;
@@ -15,622 +34,567 @@ interface AnimatedSplashProps {
 
 export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
   onAnimationComplete,
-  duration = 2000,
+  duration = 2800,
 }) => {
-  // Animation values
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0.5)).current;
-  const rotateAnim = useRef(new Animated.Value(0)).current;
-  const textFadeAnim = useRef(new Animated.Value(0)).current;
-  const textSlideAnim = useRef(new Animated.Value(50)).current;
-  const taglineFadeAnim = useRef(new Animated.Value(0)).current;
-  const shimmerAnim = useRef(new Animated.Value(0)).current;
-  const particleAnim1 = useRef(new Animated.Value(0)).current;
-  const particleAnim2 = useRef(new Animated.Value(0)).current;
-  const particleAnim3 = useRef(new Animated.Value(0)).current;
-  const particleAnim4 = useRef(new Animated.Value(0)).current;
-  const particleAnim5 = useRef(new Animated.Value(0)).current;
-  const circleScaleAnim = useRef(new Animated.Value(0)).current;
-  const circleRotateAnim = useRef(new Animated.Value(0)).current;
+  // ─── Animation values ───
+  // Logo
+  const logoScale = useRef(new Animated.Value(0.3)).current;
+  const logoOpacity = useRef(new Animated.Value(0)).current;
+  const logoRotate = useRef(new Animated.Value(0)).current;
+  // Ring pulse
+  const ringScale = useRef(new Animated.Value(0.5)).current;
+  const ringOpacity = useRef(new Animated.Value(0)).current;
+  const outerRingScale = useRef(new Animated.Value(0.3)).current;
+  const outerRingOpacity = useRef(new Animated.Value(0)).current;
+  // Title
+  const titleOpacity = useRef(new Animated.Value(0)).current;
+  const titleSlide = useRef(new Animated.Value(40)).current;
+  // Tagline
+  const taglineOpacity = useRef(new Animated.Value(0)).current;
+  const taglineSlide = useRef(new Animated.Value(20)).current;
+  // Divider lines
+  const dividerWidth = useRef(new Animated.Value(0)).current;
+  // Bottom Om icon
+  const omScale = useRef(new Animated.Value(0)).current;
+  const omOpacity = useRef(new Animated.Value(0)).current;
+  // Floating particles (6 golden particles)
+  const particles = useRef(
+    Array.from({ length: 6 }, () => ({
+      opacity: new Animated.Value(0),
+      translateY: new Animated.Value(0),
+      translateX: new Animated.Value(0),
+      scale: new Animated.Value(0.5),
+    }))
+  ).current;
+  // Shimmer
+  const shimmerPos = useRef(new Animated.Value(-width)).current;
+  // Background glow
+  const glowScale = useRef(new Animated.Value(0.8)).current;
+  const glowOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Background circle animation
-    Animated.parallel([
-      Animated.spring(circleScaleAnim, {
+    // ─── Phase 1: Background glow + ring pulse ───
+    const phase1 = Animated.parallel([
+      Animated.timing(glowOpacity, {
         toValue: 1,
-        tension: 20,
-        friction: 5,
+        duration: 600,
         useNativeDriver: true,
       }),
-      Animated.loop(
-        Animated.timing(circleRotateAnim, {
+      Animated.spring(glowScale, {
+        toValue: 1,
+        tension: 30,
+        friction: 6,
+        useNativeDriver: true,
+      }),
+      // Outer ring expand
+      Animated.parallel([
+        Animated.spring(outerRingScale, {
           toValue: 1,
-          duration: 20000,
+          tension: 25,
+          friction: 5,
           useNativeDriver: true,
-        })
-      ),
-    ]).start();
-
-    // Main animation sequence
-    const animationSequence = Animated.parallel([
-      // Logo animations with rotation
-      Animated.sequence([
-        Animated.parallel([
-          Animated.timing(fadeAnim, {
-            toValue: 1,
-            duration: 800,
-            useNativeDriver: true,
-          }),
-          Animated.spring(scaleAnim, {
-            toValue: 1,
-            tension: 50,
-            friction: 7,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.parallel([
-          Animated.timing(rotateAnim, {
-            toValue: 1,
-            duration: 1000,
-            useNativeDriver: true,
-          }),
-        ]),
-      ]),
-
-      // App name animation
-      Animated.sequence([
-        Animated.delay(500),
-        Animated.parallel([
-          Animated.timing(textFadeAnim, {
-            toValue: 1,
-            duration: 700,
-            useNativeDriver: true,
-          }),
-          Animated.spring(textSlideAnim, {
-            toValue: 0,
-            tension: 40,
-            friction: 8,
-            useNativeDriver: true,
-          }),
-        ]),
-      ]),
-
-      // Tagline animation (delayed after app name)
-      Animated.sequence([
-        Animated.delay(900),
-        Animated.timing(taglineFadeAnim, {
-          toValue: 1,
-          duration: 600,
+        }),
+        Animated.timing(outerRingOpacity, {
+          toValue: 0.6,
+          duration: 700,
           useNativeDriver: true,
         }),
       ]),
+    ]);
 
-      // Particle animations (staggered)
+    // ─── Phase 2: Logo entrance ───
+    const phase2 = Animated.parallel([
+      Animated.spring(logoScale, {
+        toValue: 1,
+        tension: 50,
+        friction: 6,
+        useNativeDriver: true,
+      }),
+      Animated.timing(logoOpacity, {
+        toValue: 1,
+        duration: 600,
+        useNativeDriver: true,
+      }),
+      // Inner ring
       Animated.parallel([
-        Animated.sequence([
-          Animated.delay(300),
-          Animated.timing(particleAnim1, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.sequence([
-          Animated.delay(450),
-          Animated.timing(particleAnim2, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.sequence([
-          Animated.delay(600),
-          Animated.timing(particleAnim3, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.sequence([
-          Animated.delay(750),
-          Animated.timing(particleAnim4, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.sequence([
-          Animated.delay(900),
-          Animated.timing(particleAnim5, {
-            toValue: 1,
-            duration: 1200,
-            useNativeDriver: true,
-          }),
-        ]),
-      ]),
-
-      // Shimmer effect
-      Animated.sequence([
-        Animated.delay(800),
-        Animated.loop(
-          Animated.sequence([
-            Animated.timing(shimmerAnim, {
-              toValue: 1,
-              duration: 2000,
-              useNativeDriver: true,
-            }),
-            Animated.timing(shimmerAnim, {
-              toValue: 0,
-              duration: 2000,
-              useNativeDriver: true,
-            }),
-          ])
-        ),
+        Animated.spring(ringScale, {
+          toValue: 1,
+          tension: 40,
+          friction: 7,
+          useNativeDriver: true,
+        }),
+        Animated.timing(ringOpacity, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
       ]),
     ]);
 
-    animationSequence.start();
+    // ─── Phase 3: Title + subtle rotate ───
+    const phase3 = Animated.parallel([
+      Animated.spring(titleSlide, {
+        toValue: 0,
+        tension: 40,
+        friction: 8,
+        useNativeDriver: true,
+      }),
+      Animated.timing(titleOpacity, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      // Logo subtle rotation
+      Animated.timing(logoRotate, {
+        toValue: 1,
+        duration: 1200,
+        useNativeDriver: true,
+      }),
+    ]);
 
-    // Complete animation and callback
+    // ─── Phase 4: Tagline + divider ───
+    const phase4 = Animated.parallel([
+      Animated.spring(taglineSlide, {
+        toValue: 0,
+        tension: 40,
+        friction: 8,
+        useNativeDriver: true,
+      }),
+      Animated.timing(taglineOpacity, {
+        toValue: 1,
+        duration: 450,
+        useNativeDriver: true,
+      }),
+      Animated.spring(dividerWidth, {
+        toValue: 1,
+        tension: 40,
+        friction: 8,
+        useNativeDriver: true,
+      }),
+    ]);
+
+    // ─── Phase 5: Om icon + particles ───
+    const phase5 = Animated.parallel([
+      // Om icon bounce
+      Animated.spring(omScale, {
+        toValue: 1,
+        tension: 80,
+        friction: 5,
+        useNativeDriver: true,
+      }),
+      Animated.timing(omOpacity, {
+        toValue: 0.7,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+      // Particles — staggered float-up
+      ...particles.map((p, i) =>
+        Animated.sequence([
+          Animated.delay(i * 80),
+          Animated.parallel([
+            Animated.timing(p.opacity, {
+              toValue: 0.7,
+              duration: 500,
+              useNativeDriver: true,
+            }),
+            Animated.spring(p.scale, {
+              toValue: 1,
+              tension: 40,
+              friction: 6,
+              useNativeDriver: true,
+            }),
+            Animated.timing(p.translateY, {
+              toValue: -(60 + Math.random() * 80),
+              duration: 1200,
+              useNativeDriver: true,
+            }),
+            Animated.timing(p.translateX, {
+              toValue: (Math.random() - 0.5) * 80,
+              duration: 1200,
+              useNativeDriver: true,
+            }),
+          ]),
+          // Fade out
+          Animated.timing(p.opacity, {
+            toValue: 0,
+            duration: 400,
+            useNativeDriver: true,
+          }),
+        ])
+      ),
+    ]);
+
+    // ─── Shimmer sweep ───
+    const shimmerAnim = Animated.sequence([
+      Animated.delay(600),
+      Animated.timing(shimmerPos, {
+        toValue: width * 2,
+        duration: 1800,
+        useNativeDriver: true,
+      }),
+    ]);
+
+    // ─── Run all phases sequentially ───
+    const mainSequence = Animated.sequence([
+      phase1,
+      phase2,
+      Animated.delay(100),
+      phase3,
+      Animated.delay(50),
+      phase4,
+      phase5,
+    ]);
+
+    Animated.parallel([mainSequence, shimmerAnim]).start();
+
+    // Complete callback
     const timer = setTimeout(() => {
-      if (onAnimationComplete) {
-        onAnimationComplete();
-      }
+      onAnimationComplete?.();
     }, duration);
 
     return () => {
       clearTimeout(timer);
-      animationSequence.stop();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration, onAnimationComplete]);
 
-  // Logo rotation interpolation (subtle rotation)
-  const rotate = rotateAnim.interpolate({
+  // ─── Interpolations ───
+  const rotate = logoRotate.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: ['0deg', '5deg', '0deg'],
+    outputRange: ['0deg', '4deg', '0deg'],
   });
 
-  // Circle rotation interpolation
-  const circleRotate = circleRotateAnim.interpolate({
+  const dividerScaleX = dividerWidth.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+    outputRange: [0, 1],
   });
 
-  // Shimmer interpolation
-  const shimmerTranslateX = shimmerAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-width * 1.5, width * 1.5],
-  });
-
-  // Particle animations with varied paths
-  const particle1Opacity = particleAnim1.interpolate({
-    inputRange: [0, 0.3, 0.7, 1],
-    outputRange: [0, 0.8, 0.8, 0],
-  });
-
-  const particle1TranslateY = particleAnim1.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -150],
-  });
-
-  const particle1TranslateX = particleAnim1.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -30],
-  });
-
-  const particle2Opacity = particleAnim2.interpolate({
-    inputRange: [0, 0.3, 0.7, 1],
-    outputRange: [0, 0.7, 0.7, 0],
-  });
-
-  const particle2TranslateY = particleAnim2.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -120],
-  });
-
-  const particle2TranslateX = particleAnim2.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 40],
-  });
-
-  const particle3Opacity = particleAnim3.interpolate({
-    inputRange: [0, 0.3, 0.7, 1],
-    outputRange: [0, 0.6, 0.6, 0],
-  });
-
-  const particle3TranslateY = particleAnim3.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -180],
-  });
-
-  const particle4Opacity = particleAnim4.interpolate({
-    inputRange: [0, 0.3, 0.7, 1],
-    outputRange: [0, 0.5, 0.5, 0],
-  });
-
-  const particle4TranslateY = particleAnim4.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -100],
-  });
-
-  const particle4TranslateX = particleAnim4.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -50],
-  });
-
-  const particle5Opacity = particleAnim5.interpolate({
-    inputRange: [0, 0.3, 0.7, 1],
-    outputRange: [0, 0.6, 0.6, 0],
-  });
-
-  const particle5TranslateY = particleAnim5.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -140],
-  });
-
-  const particle5TranslateX = particleAnim5.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 35],
-  });
+  // Particle config positions (radial around logo)
+  const PARTICLE_POSITIONS = [
+    { top: '30%', left: '15%', size: 10 },
+    { top: '25%', right: '18%', size: 14 },
+    { top: '38%', left: '22%', size: 8 },
+    { top: '20%', left: '50%', size: 12 },
+    { top: '35%', right: '12%', size: 9 },
+    { top: '28%', left: '8%', size: 11 },
+  ];
 
   return (
     <LinearGradient
-      colors={[
-        colors.primary600,  // Saffron cream
-        colors.primary500,  // Light saffron
-        colors.primary400,  // Golden saffron
-        colors.primary300,  // Bright orange
-      ]}
+      colors={[COLORS.gradientStart, COLORS.gradientMid1, COLORS.gradientMid2, COLORS.gradientEnd]}
       start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      end={{ x: 0.3, y: 1 }}
       style={styles.container}
     >
-      {/* Animated background circle */}
+      {/* ─── Background glow circle ─── */}
       <Animated.View
         style={[
-          styles.backgroundCircle,
+          styles.glowCircle,
           {
-            transform: [
-              { scale: circleScaleAnim },
-              { rotate: circleRotate },
-            ],
+            opacity: glowOpacity,
+            transform: [{ scale: glowScale }],
           },
         ]}
       />
 
-      {/* Decorative floating particles */}
-      <Animated.View
-        style={[
-          styles.particle,
-          styles.particle1,
-          {
-            opacity: particle1Opacity,
-            transform: [
-              { translateY: particle1TranslateY },
-              { translateX: particle1TranslateX },
-            ],
-          },
-        ]}
-      />
-      <Animated.View
-        style={[
-          styles.particle,
-          styles.particle2,
-          {
-            opacity: particle2Opacity,
-            transform: [
-              { translateY: particle2TranslateY },
-              { translateX: particle2TranslateX },
-            ],
-          },
-        ]}
-      />
-      <Animated.View
-        style={[
-          styles.particle,
-          styles.particle3,
-          {
-            opacity: particle3Opacity,
-            transform: [{ translateY: particle3TranslateY }],
-          },
-        ]}
-      />
-      <Animated.View
-        style={[
-          styles.particle,
-          styles.particle4,
-          {
-            opacity: particle4Opacity,
-            transform: [
-              { translateY: particle4TranslateY },
-              { translateX: particle4TranslateX },
-            ],
-          },
-        ]}
-      />
-      <Animated.View
-        style={[
-          styles.particle,
-          styles.particle5,
-          {
-            opacity: particle5Opacity,
-            transform: [
-              { translateY: particle5TranslateY },
-              { translateX: particle5TranslateX },
-            ],
-          },
-        ]}
-      />
-
-      {/* Shimmer overlay */}
+      {/* ─── Shimmer sweep ─── */}
       <Animated.View
         style={[
           styles.shimmer,
-          {
-            transform: [{ translateX: shimmerTranslateX }],
-          },
+          { transform: [{ translateX: shimmerPos }, { skewX: '-20deg' }] },
         ]}
       />
 
-      {/* Main content container */}
+      {/* ─── Floating particles ─── */}
+      {particles.map((p, i) => {
+        const pos = PARTICLE_POSITIONS[i];
+        return (
+          <Animated.View
+            key={i}
+            style={[
+              styles.particle,
+              {
+                top: pos.top,
+                ...(pos.left !== undefined ? { left: pos.left } : {}),
+                ...(pos.right !== undefined ? { right: pos.right } : {}),
+                width: pos.size,
+                height: pos.size,
+                borderRadius: pos.size / 2,
+                opacity: p.opacity,
+                transform: [
+                  { translateY: p.translateY },
+                  { translateX: p.translateX },
+                  { scale: p.scale },
+                ],
+              } as any,
+            ]}
+          />
+        );
+      })}
+
+      {/* ─── Main Content ─── */}
       <View style={styles.content}>
-        {/* Logo section with enhanced animations */}
+        {/* Outer pulsing ring */}
         <Animated.View
           style={[
-            styles.logoSection,
+            styles.outerRing,
             {
-              opacity: fadeAnim,
-              transform: [
-                { scale: scaleAnim },
-                { rotate: rotate },
-              ],
+              opacity: outerRingOpacity,
+              transform: [{ scale: outerRingScale }],
+            },
+          ]}
+        />
+
+        {/* Inner golden ring */}
+        <Animated.View
+          style={[
+            styles.innerRing,
+            {
+              opacity: ringOpacity,
+              transform: [{ scale: ringScale }],
+            },
+          ]}
+        />
+
+        {/* Logo */}
+        <Animated.View
+          style={[
+            styles.logoWrapper,
+            {
+              opacity: logoOpacity,
+              transform: [{ scale: logoScale }, { rotate }],
             },
           ]}
         >
-          <View style={styles.logoContainer}>
-            <Image
-              source={HomeImages.logo}
-              style={styles.logo}
-              resizeMode="contain"
-            />
-            {/* Glow effect behind logo */}
-            <View style={styles.logoGlow} />
-          </View>
+          <LinearGradient
+            colors={[COLORS.amberGlow, COLORS.amberLight, COLORS.amber]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.logoGradientRing}
+          >
+            <View style={styles.logoInner}>
+              <Image
+                source={HomeImages.logo}
+                style={styles.logo}
+                resizeMode="contain"
+              />
+            </View>
+          </LinearGradient>
         </Animated.View>
 
-        {/* Text section with organized hierarchy */}
-        <View style={styles.textSection}>
-          <Animated.View
-            style={[
-              styles.appNameContainer,
-              {
-                opacity: textFadeAnim,
-                transform: [{ translateY: textSlideAnim }],
-              },
-            ]}
-          >
-            <Text style={styles.appName}>
-              {i18n.t('home.headerTitle')}
-            </Text>
-          </Animated.View>
+        {/* Title */}
+        <Animated.Text
+          style={[
+            styles.title,
+            {
+              opacity: titleOpacity,
+              transform: [{ translateY: titleSlide }],
+            },
+          ]}
+        >
+          {i18n.t('home.headerTitle')}
+        </Animated.Text>
 
-          <Animated.View
-            style={[
-              styles.taglineContainer,
-              {
-                opacity: taglineFadeAnim,
-              },
-            ]}
-          >
-            <View style={styles.taglineDivider} />
-            <Text style={styles.tagline}>
-              {i18n.t('splash.tagline')}
-            </Text>
-            <View style={styles.taglineDivider} />
-          </Animated.View>
-        </View>
+        {/* Divider */}
+        <Animated.View
+          style={[
+            styles.dividerContainer,
+            { transform: [{ scaleX: dividerScaleX }] },
+          ]}
+        >
+          <LinearGradient
+            colors={['transparent', COLORS.amber, COLORS.amberGlow, COLORS.amber, 'transparent']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.dividerGradient}
+          />
+        </Animated.View>
 
-        {/* Bottom decorative elements */}
-        <View style={styles.decorativeContainer}>
-          <View style={[styles.decorativeDot, styles.decorativeDot1]} />
-          <View style={[styles.decorativeDot, styles.decorativeDot2]} />
-          <View style={[styles.decorativeDot, styles.decorativeDot3]} />
-        </View>
+        {/* Tagline */}
+        <Animated.Text
+          style={[
+            styles.tagline,
+            {
+              opacity: taglineOpacity,
+              transform: [{ translateY: taglineSlide }],
+            },
+          ]}
+        >
+          {i18n.t('splash.tagline')}
+        </Animated.Text>
+      </View>
+
+      {/* ─── Bottom Om decorative icon ─── */}
+      <Animated.View
+        style={[
+          styles.omContainer,
+          {
+            opacity: omOpacity,
+            transform: [{ scale: omScale }],
+          },
+        ]}
+      >
+        <MaterialIcons name="self-improvement" size={28} color={COLORS.amber} />
+      </Animated.View>
+
+      {/* ─── Bottom decorative dots ─── */}
+      <View style={styles.dotsRow}>
+        <View style={[styles.dot, { width: 6, height: 6 }]} />
+        <View style={[styles.dot, { width: 8, height: 8, opacity: 0.8 }]} />
+        <View style={[styles.dot, { width: 10, height: 10 }]} />
+        <View style={[styles.dot, { width: 8, height: 8, opacity: 0.8 }]} />
+        <View style={[styles.dot, { width: 6, height: 6 }]} />
       </View>
     </LinearGradient>
   );
 };
 
-// Get font family for Bengali text
-const languageFonts = getLanguageFonts();
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative',
     overflow: 'hidden',
   },
-  backgroundCircle: {
+  // ─── Background ───
+  glowCircle: {
     position: 'absolute',
-    width: width * 1.5,
-    height: width * 1.5,
-    borderRadius: (width * 1.5) / 2,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    top: -width * 0.3,
-    right: -width * 0.3,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.08)',
-  },
-  content: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 2,
-    width: '100%',
-    paddingHorizontal: 40,
-  },
-  logoSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 50,
-  },
-  logoContainer: {
-    position: 'relative',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: colors.secondary50,
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.4,
-    shadowRadius: 20,
-    elevation: 15,
-  },
-  logoGlow: {
-    position: 'absolute',
-    width: 160,
-    height: 160,
-    borderRadius: 80,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    zIndex: -1,
-    top: -20,
-    left: -20,
-  },
-  logo: {
-    width: 140,
-    height: 140,
-    zIndex: 1,
-  },
-  textSection: {
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 20,
-  },
-  appNameContainer: {
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  appName: {
-    fontSize: 48,
-    fontWeight: 'normal',
-    color: colors.secondary50,
-    textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.15)',
-    textShadowOffset: { width: 0, height: 3 },
-    textShadowRadius: 6,
-    letterSpacing: 2,
-    fontFamily: languageFonts.regional_secondary,
-    lineHeight: 58,
-  },
-  taglineContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    paddingHorizontal: 20,
-  },
-  taglineDivider: {
-    width: 30,
-    height: 1,
-    backgroundColor: colors.secondary200,
-    opacity: 0.5,
-    marginHorizontal: 12,
-  },
-  tagline: {
-    fontSize: 20,
-    color: colors.secondary100,
-    textAlign: 'center',
-    opacity: 0.95,
-    fontFamily: languageFonts.regional_secondary,
-    letterSpacing: 1,
-    textShadowColor: 'rgba(0, 0, 0, 0.1)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
-  },
-  particle: {
-    position: 'absolute',
-    borderRadius: 50,
-    backgroundColor: colors.primary200,
-  },
-  particle1: {
-    width: 50,
-    height: 50,
-    top: '15%',
-    left: '10%',
-    borderRadius: 25,
-  },
-  particle2: {
-    width: 40,
-    height: 40,
-    top: '25%',
-    right: '15%',
-    borderRadius: 20,
-  },
-  particle3: {
-    width: 65,
-    height: 65,
-    top: '20%',
-    left: '45%',
-    borderRadius: 32.5,
-  },
-  particle4: {
-    width: 35,
-    height: 35,
-    top: '35%',
-    left: '20%',
-    borderRadius: 17.5,
-  },
-  particle5: {
-    width: 45,
-    height: 45,
-    top: '30%',
-    right: '25%',
-    borderRadius: 22.5,
+    width: width * 1.2,
+    height: width * 1.2,
+    borderRadius: (width * 1.2) / 2,
+    backgroundColor: 'rgba(251,191,36,0.08)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(251,191,36,0.1)',
   },
   shimmer: {
     position: 'absolute',
     top: 0,
-    left: 0,
-    right: 0,
     bottom: 0,
-    width: width * 0.4,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    width: width * 0.35,
+    backgroundColor: 'rgba(255,255,255,0.12)',
     zIndex: 1,
-    transform: [{ skewX: '-20deg' }],
   },
-  decorativeContainer: {
+  particle: {
     position: 'absolute',
-    bottom: 100,
+    backgroundColor: COLORS.particleGold,
+    zIndex: 0,
+  },
+  // ─── Main content ───
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 2,
+  },
+  // ─── Rings ───
+  outerRing: {
+    position: 'absolute',
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    borderWidth: 1.5,
+    borderColor: COLORS.ringOuter,
+    backgroundColor: 'transparent',
+  },
+  innerRing: {
+    position: 'absolute',
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    borderWidth: 2,
+    borderColor: COLORS.ring,
+    backgroundColor: 'transparent',
+  },
+  // ─── Logo ───
+  logoWrapper: {
+    marginBottom: 36,
+    shadowColor: '#B45309',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 15,
+  },
+  logoGradientRing: {
+    width: 130,
+    height: 130,
+    borderRadius: 65,
+    padding: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoInner: {
+    width: 124,
+    height: 124,
+    borderRadius: 62,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  logo: {
+    width: 118,
+    height: 118,
+    borderRadius: 59,
+  },
+  // ─── Typography ───
+  title: {
+    fontSize: 42,
+    fontWeight: '800',
+    color: COLORS.title,
+    textAlign: 'center',
+    fontFamily: fonts.regional_secondary,
+    letterSpacing: 1,
+    lineHeight: 52,
+    textShadowColor: 'rgba(180,83,9,0.12)',
+    textShadowOffset: { width: 0, height: 3 },
+    textShadowRadius: 8,
+    marginBottom: 16,
+    paddingHorizontal: 32,
+  },
+  dividerContainer: {
+    width: 120,
+    height: 3,
+    marginBottom: 16,
+  },
+  dividerGradient: {
+    flex: 1,
+    borderRadius: 2,
+  },
+  tagline: {
+    fontSize: 18,
+    color: COLORS.tagline,
+    textAlign: 'center',
+    fontFamily: fonts.regional_secondary,
+    letterSpacing: 0.5,
+    opacity: 0.9,
+    textShadowColor: 'rgba(0,0,0,0.06)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+    paddingHorizontal: 48,
+  },
+  // ─── Bottom decorative ───
+  omContainer: {
+    position: 'absolute',
+    bottom: height * 0.12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: 'rgba(251,191,36,0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(217,119,6,0.2)',
+  },
+  dotsRow: {
+    position: 'absolute',
+    bottom: height * 0.06,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 16,
-    zIndex: 2,
+    gap: 10,
   },
-  decorativeDot: {
+  dot: {
     borderRadius: 50,
-    backgroundColor: colors.secondary200,
-    opacity: 0.7,
-  },
-  decorativeDot1: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-  },
-  decorativeDot2: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-  },
-  decorativeDot3: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    backgroundColor: COLORS.amber,
+    opacity: 0.5,
   },
 });
-

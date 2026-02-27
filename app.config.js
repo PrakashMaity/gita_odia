@@ -23,10 +23,10 @@ const GOOGLE_SERVICE_FILES = {
 const PATHS = {
   googleServicesJson: `./${GOOGLE_SERVICE_FILES.json}`,
   googleServicesPlist: `./${GOOGLE_SERVICE_FILES.plist}`,
-  icon: './assets/images/icon.png',
-  adaptiveIcon: './assets/images/adaptive-icon.png',
-  splash: './assets/images/splash-icon.png',
-  favicon: './assets/images/favicon.png',
+  icon: `./assets/images/${APP_LANG}/icon.png`,
+  adaptiveIcon: `./assets/images/${APP_LANG}/adaptive-icon.png`,
+  splash: `./assets/images/${APP_LANG}/splash-icon.png`,
+  favicon: `./assets/images/${APP_LANG}/favicon.png`,
 };
 
 const COLORS = {

@@ -43,6 +43,13 @@ Use this checklist when adding a new language client. Replace `<lang>` with your
 - [ ] `.env.<lang>.development` created with all keys
 - [ ] `.env.<lang>.production` created with all keys
 
+### Branding Assets
+- [ ] `assets/images/<lang>/icon.png` (1024x1024)
+- [ ] `assets/images/<lang>/adaptive-icon.png` (1024x1024)
+- [ ] `assets/images/<lang>/splash-icon.png` (1024x1024)
+- [ ] `assets/images/<lang>/logo.png`
+- [ ] `assets/images/<lang>/favicon.png` (48x48)
+
 ### Chapter Data
 - [ ] `assets/Data/<lang>/` folder created
 - [ ] `chapter1.json` through `chapter18.json` added

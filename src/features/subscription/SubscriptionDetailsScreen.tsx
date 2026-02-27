@@ -97,7 +97,7 @@ export const SubscriptionDetailsScreen: React.FC = () => {
         willRenew: premium.willRenew ?? false,
       });
     } catch (e: any) {
-      console.error('Subscription details error:', e);
+      console.warn('Subscription details error:', e);
       let msg = 'Could not load subscription details.';
 
       if (e.code === Purchases.PURCHASES_ERROR_CODE.BILLING_UNAVAILABLE_ERROR ||

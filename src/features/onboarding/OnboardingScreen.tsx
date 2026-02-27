@@ -1,5 +1,4 @@
 import i18n from '@/lib/i18n';
-import { colors } from '@/rootconstants/tint';
 import { useSettingsStore } from '@/store';
 import { getLanguageFonts } from '@/types/font.interface';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -19,7 +18,17 @@ import { OnboardingSlide } from './components/OnboardingSlide';
 import { useOnboardingData } from './hooks/useOnboardingData';
 
 const { width } = Dimensions.get('window');
-const languageFonts = getLanguageFonts();
+const fonts = getLanguageFonts();
+
+// Premium golden gradient palette
+const COLORS = {
+  gradientStart: '#FFFBF0',    // Warm cream white
+  gradientMid1: '#FFF3D6',     // Light golden
+  gradientMid2: '#FFE4A8',     // Warm amber
+  gradientEnd: '#FFD06B',      // Rich golden
+  skipBg: 'rgba(146,64,14,0.12)',
+  skipText: '#92400E',         // Deep amber brown
+};
 
 export const OnboardingScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
@@ -39,7 +48,7 @@ export const OnboardingScreen: React.FC = () => {
   const handleComplete = async () => {
     try {
       updateSetting('onboardingCompleted', true);
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 300));
       router.replace('/(tabs)');
     } catch (error) {
       console.error('Error completing onboarding:', error);
@@ -47,9 +56,7 @@ export const OnboardingScreen: React.FC = () => {
     }
   };
 
-  const skip = () => {
-    handleComplete();
-  };
+  const skip = () => handleComplete();
 
   const next = () => {
     if (currentIndex < slides.length - 1) {
@@ -67,18 +74,21 @@ export const OnboardingScreen: React.FC = () => {
 
   return (
     <LinearGradient
-      colors={['#FFF8E1', '#FFECB3', '#FFE0B2', '#FFCC80']}
+      colors={[COLORS.gradientStart, COLORS.gradientMid1, COLORS.gradientMid2, COLORS.gradientEnd]}
       start={{ x: 0, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
+      end={{ x: 0.3, y: 1 }}
       style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}
     >
+      {/* Decorative top circle glow */}
+      <View style={styles.glowCircle} />
+
       {/* Skip button */}
       <View style={styles.header}>
         <Pressable
           onPress={skip}
           style={({ pressed }) => [
             styles.skipButton,
-            pressed && { opacity: 0.6 },
+            pressed && { opacity: 0.6, transform: [{ scale: 0.95 }] },
           ]}
         >
           <Text style={styles.skipText}>
@@ -87,15 +97,15 @@ export const OnboardingScreen: React.FC = () => {
         </Pressable>
       </View>
 
-      {/* Main content with FlatList */}
+      {/* Main content */}
       <View style={styles.content}>
         <FlatList
           ref={flatListRef}
           data={slides}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <View style={{ width }}>
-              <OnboardingSlide slide={item} />
+              <OnboardingSlide slide={item} slideIndex={index} />
             </View>
           )}
           horizontal
@@ -108,7 +118,7 @@ export const OnboardingScreen: React.FC = () => {
         />
       </View>
 
-      {/* Navigation — always visible at bottom */}
+      {/* Navigation */}
       <OnboardingNavigation
         currentSlide={currentIndex}
         totalSlides={slides.length}
@@ -125,24 +135,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  glowCircle: {
+    position: 'absolute',
+    top: -120,
+    right: -80,
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    backgroundColor: 'rgba(251,191,36,0.15)',
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingVertical: 10,
   },
   skipButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255,255,255,0.5)',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 24,
+    backgroundColor: COLORS.skipBg,
+    borderWidth: 1,
+    borderColor: 'rgba(146,64,14,0.15)',
   },
   skipText: {
-    fontSize: 15,
-    color: colors.secondary200,
-    fontFamily: languageFonts.regional_secondary,
-    fontWeight: '600',
+    fontSize: 14,
+    color: COLORS.skipText,
+    fontFamily: fonts.regional_secondary,
+    fontWeight: '700',
+    letterSpacing: 0.3,
   },
   content: {
     flex: 1,

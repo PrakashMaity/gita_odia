@@ -53,12 +53,74 @@ const getFontsForLanguage = (): FontMap => {
   return LANGUAGE_FONTS[lang] ?? LANGUAGE_FONTS.bn;
 };
 
+// ----- Per-language branding images -----
+type BrandingImages = {
+  icon: any;
+  splash: any;
+  adaptiveIcon: any;
+  favicon: any;
+  logo: any;
+};
+
+const LANGUAGE_IMAGES: Record<string, BrandingImages> = {
+  bn: {
+    icon: require('../../../assets/images/bn/icon.png'),
+    splash: require('../../../assets/images/bn/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/bn/adaptive-icon.png'),
+    favicon: require('../../../assets/images/bn/favicon.png'),
+    logo: require('../../../assets/images/bn/logo.png'),
+  },
+  hi: {
+    icon: require('../../../assets/images/hi/icon.png'),
+    splash: require('../../../assets/images/hi/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/hi/adaptive-icon.png'),
+    favicon: require('../../../assets/images/hi/favicon.png'),
+    logo: require('../../../assets/images/hi/logo.png'),
+  },
+  en: {
+    icon: require('../../../assets/images/en/icon.png'),
+    splash: require('../../../assets/images/en/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/en/adaptive-icon.png'),
+    favicon: require('../../../assets/images/en/favicon.png'),
+    logo: require('../../../assets/images/en/logo.png'),
+  },
+  or: {
+    icon: require('../../../assets/images/or/icon.png'),
+    splash: require('../../../assets/images/or/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/or/adaptive-icon.png'),
+    favicon: require('../../../assets/images/or/favicon.png'),
+    logo: require('../../../assets/images/or/logo.png'),
+  },
+  as: {
+    icon: require('../../../assets/images/as/icon.png'),
+    splash: require('../../../assets/images/as/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/as/adaptive-icon.png'),
+    favicon: require('../../../assets/images/as/favicon.png'),
+    logo: require('../../../assets/images/as/logo.png'),
+  },
+  gu: {
+    icon: require('../../../assets/images/gu/icon.png'),
+    splash: require('../../../assets/images/gu/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/gu/adaptive-icon.png'),
+    favicon: require('../../../assets/images/gu/favicon.png'),
+    logo: require('../../../assets/images/gu/logo.png'),
+  },
+  ne: {
+    icon: require('../../../assets/images/ne/icon.png'),
+    splash: require('../../../assets/images/ne/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/ne/adaptive-icon.png'),
+    favicon: require('../../../assets/images/ne/favicon.png'),
+    logo: require('../../../assets/images/ne/logo.png'),
+  },
+};
+
+const getBrandingImages = () => {
+  const lang = getActiveLang();
+  return LANGUAGE_IMAGES[lang] ?? LANGUAGE_IMAGES.bn;
+};
+
 const assets = {
-  icon: require('../../../assets/images/icon.png'),
-  splash: require('../../../assets/images/splash-icon.png'),
-  adaptiveIcon: require('../../../assets/images/adaptive-icon.png'),
-  favicon: require('../../../assets/images/favicon.png'),
-  logo: require('../../../assets/images/Home/logo.png'),
+  ...getBrandingImages(),
   header: require('../../../assets/images/Home/header.png'),
   hero: require('../../../assets/images/Home/hero.png'),
   headerIcons: {
