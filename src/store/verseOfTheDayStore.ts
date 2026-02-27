@@ -1,3 +1,4 @@
+import i18n from '@/lib/i18n';
 import * as SecureStore from 'expo-secure-store';
 import { create } from 'zustand';
 import { useChapterStore } from './chapterStore';
@@ -137,7 +138,7 @@ export const useVerseOfTheDayStore = create<VerseOfTheDayStore>()((set, get) => 
     const verse = get().currentVerse;
     if (!verse) return null;
 
-    return `📖 ${verse.chapterNumber} অধ্যায়, ${verse.verseNumber} শ্লোক\n\n${verse.verseText}\n\n${verse.translation}\n\n- শ্রীমদ্ভগবদ গীতা`;
+    return `📖 ${verse.chapterNumber} ${i18n.t('share.chapter')}, ${verse.verseNumber} ${i18n.t('share.verse')}\n\n${verse.verseText}\n\n${verse.translation}\n\n- ${i18n.t('share.appTitle')}`;
   },
 }));
 

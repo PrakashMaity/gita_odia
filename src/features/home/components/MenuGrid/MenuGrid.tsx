@@ -7,6 +7,7 @@ import { MenuItem, getMenuSections } from '@/constants/menuData';
 import { useProStatus } from '@/hooks/useProStatus';
 import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/lib/i18n';
 import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5, FontAwesome6, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -288,7 +289,7 @@ export const MenuGrid: React.FC<MenuGridProps> = React.memo(({ onMenuItemPress }
               className="text-neutral-900 text-[22px] font-black tracking-tighter"
               style={{ fontFamily: fonts.regional_secondary }}
             >
-              অধ্যায়
+              {i18n.t('menu.chapters')}
             </Text>
             <Box className="h-[1px] flex-1 bg-secondary-900/10 ml-4" />
           </HStack>

@@ -263,7 +263,8 @@
     "reset": "ৰিছেট কৰক",
     "restart": "অব্যাহত ৰাখক",
     "completed": "কৰা হ’ল!",
-    "completionSound": "সম্পূৰ্ণ শব্দ"
+    "completionSound": "সম্পূৰ্ণ শব্দ",
+    "completionSubtitle": "সাধনা সফলতাৰে সমাপ্ত"
   },
   "weekdays": {
     "sun": "Sun",
@@ -290,7 +291,16 @@
     "statsTitle": "পৰিসংখ্যা",
     "streakLabel": "দিনটোৰ ধাৰাবাহিকতা",
     "longestStreakLabel": "সৰ্বোচ্চ: {গণনা} দিন",
-    "motivationTitle": "প্ৰেৰণা"
+    "motivationTitle": "প্ৰেৰণা",
+    "days": {
+      "sun": "ৰবি",
+      "mon": "সোম",
+      "tue": "মংগল গ্ৰহ",
+      "wed": "বুধবাৰ",
+      "thu": "বৃহস্পতি",
+      "fri": "শুক্ৰ গ্ৰহ",
+      "sat": "বহিছিল"
+    }
   },
   "subscription": {
     "supportMission": "Support Our Mission",

@@ -52,7 +52,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
     } else {
       try {
         const translation = verse.translation || '';
-        const textToSpeak = `${verse.chapterNumber || ''} অধ্যায়, ${verse.verseNumber || ''} শ্লোক। ${translation}`;
+        const textToSpeak = `${verse.chapterNumber || ''} ${i18n.t('share.chapter')}, ${verse.verseNumber || ''} ${i18n.t('share.verse')}. ${translation}`;
         if (textToSpeak.trim()) {
           await speak(textToSpeak);
         }
@@ -167,7 +167,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
         <Box className="p-6 rounded-3xl bg-neutral-900 border-2 border-white mb-4">
           <View className="flex-row justify-between items-center mb-6">
             <Text className="text-lg font-bold text-white font-regional_secondary">
-              {verse.chapterNumber} অধ্যায়, {verse.verseNumber} শ্লোক
+              {verse.chapterNumber} {i18n.t('share.chapter')}, {verse.verseNumber} {i18n.t('share.verse')}
             </Text>
             <TouchableOpacity
               onPress={handleSpeakVerse}

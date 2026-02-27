@@ -278,7 +278,7 @@ export const ReadingTimerScreen: React.FC = () => {
                 className="text-primary-700/60 font-medium text-center"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
-                সাধনা সফলভাবে সম্পন্ন হয়েছে
+                {i18n.t('readingTimer.completionSubtitle')}
               </Text>
             </Box>
           )}

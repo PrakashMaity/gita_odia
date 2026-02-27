@@ -263,7 +263,8 @@
     "reset": "रिसेट",
     "restart": "पुन: सुरु गर्नुहोस्",
     "completed": "सकियो!",
-    "completionSound": "पूरा शब्द"
+    "completionSound": "पूरा शब्द",
+    "completionSubtitle": "साधना सफलतापूर्वक सम्पन्न भयो"
   },
   "weekdays": {
     "sun": "Sun",
@@ -290,7 +291,16 @@
     "statsTitle": "तथ्याङ्क",
     "streakLabel": "दिनको निरन्तरता",
     "longestStreakLabel": "अधिकतम: {count} दिन",
-    "motivationTitle": "प्रेरणा"
+    "motivationTitle": "प्रेरणा",
+    "days": {
+      "sun": "रवि",
+      "mon": "सोम",
+      "tue": "मंगल",
+      "wed": "बुधबार",
+      "thu": "बृहस्पति",
+      "fri": "शुक्र",
+      "sat": "शनि"
+    }
   },
   "subscription": {
     "supportMission": "Support Our Mission",

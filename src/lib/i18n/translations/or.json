@@ -263,7 +263,8 @@
     "reset": "ପୁନ et ସେଟ୍ କରନ୍ତୁ |",
     "restart": "ପୁନ ume କାର୍ଯ୍ୟ ଆରମ୍ଭ କରନ୍ତୁ |",
     "completed": "ସମାପ୍ତ!",
-    "completionSound": "ସଂପୂର୍ଣ୍ଣ ଶବ୍ଦ |"
+    "completionSound": "ସଂପୂର୍ଣ୍ଣ ଶବ୍ଦ |",
+    "completionSubtitle": "ସାଧନା ସଫଳତାର ସହିତ ସମାପ୍ତ ହୋଇଛି |"
   },
   "weekdays": {
     "sun": "Sun",
@@ -290,7 +291,16 @@
     "statsTitle": "ପରିସଂଖ୍ୟାନ",
     "streakLabel": "ଦିନର ନିରନ୍ତରତା |",
     "longestStreakLabel": "ସର୍ବାଧିକ: {ଗଣନା} ଦିନ |",
-    "motivationTitle": "ପ୍ରେରଣା"
+    "motivationTitle": "ପ୍ରେରଣା",
+    "days": {
+      "sun": "ରବି",
+      "mon": "ସୋମ",
+      "tue": "ମଙ୍ଗଳ",
+      "wed": "ବୁଧବାର",
+      "thu": "ବୃହସ୍ପତି",
+      "fri": "ଶୁକ୍ର",
+      "sat": "ଶନି"
+    }
   },
   "subscription": {
     "supportMission": "Support Our Mission",

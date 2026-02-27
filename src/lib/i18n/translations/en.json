@@ -265,7 +265,8 @@
     "reset": "reset",
     "restart": "resume",
     "completed": "Done!",
-    "completionSound": "complete word"
+    "completionSound": "complete word",
+    "completionSubtitle": "Sadhana is successfully completed"
   },
   "weekdays": {
     "sun": "Sun",
@@ -292,7 +293,16 @@
     "statsTitle": "Statistics",
     "streakLabel": "Continuity of the day",
     "longestStreakLabel": "Max: {count} days",
-    "motivationTitle": "inspiration"
+    "motivationTitle": "inspiration",
+    "days": {
+      "sun": "ravi",
+      "mon": "Mon",
+      "tue": "Mars",
+      "wed": "Wednesday",
+      "thu": "Jupiter",
+      "fri": "Venus",
+      "sat": "Sat"
+    }
   },
   "subscription": {
     "supportMission": "Support Our Mission",

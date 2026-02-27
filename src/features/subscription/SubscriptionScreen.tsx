@@ -1,4 +1,5 @@
 import { useSemanticColors } from '@/hooks/useSemanticColors';
+import i18n from '@/lib/i18n';
 import { initializeRevenueCat } from '@/services/revenuecat';
 import { useProStore } from '@/store/proStore';
 import { useSettingsStore } from '@/store/settingsStore';
@@ -323,7 +324,7 @@ export const SubscriptionScreen: React.FC = () => {
             Support Our Mission
           </Text>
           <Text className="text-typography-900 text-center font-medium text-lg mb-1">
-            আমাদের মিশনকে সমর্থন করুন
+            {i18n.t('subscription.supportMission')}
           </Text>
           <Text className="text-typography-500 text-center text-sm leading-6 max-w-[280px]">
             Help us spread the wisdom of the Bhagavad Gita freely to the world.
@@ -402,7 +403,7 @@ export const SubscriptionScreen: React.FC = () => {
             ) : (
               <View className="items-center">
                 <Text className="text-white font-bold text-base">Start Membership</Text>
-                <Text className="text-typography-300 text-[10px] font-medium mt-0.5 tracking-wider uppercase">সদস্যপদ শুরু করুন</Text>
+                <Text className="text-typography-300 text-[10px] font-medium mt-0.5 tracking-wider uppercase">{i18n.t('subscription.startMembership')}</Text>
               </View>
             )}
           </Pressable>

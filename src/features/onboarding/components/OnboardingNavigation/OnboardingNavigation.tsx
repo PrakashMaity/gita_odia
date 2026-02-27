@@ -1,8 +1,17 @@
-import { Box } from '@/components/ui/box';
-import { Button, ButtonText } from '@/components/ui/button';
-import { HStack } from '@/components/ui/hstack';
 import i18n from '@/lib/i18n';
-import React from 'react';
+import { colors } from '@/rootconstants/tint';
+import { getLanguageFonts } from '@/types/font.interface';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useEffect, useRef } from 'react';
+import {
+  Animated,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+const languageFonts = getLanguageFonts();
 
 interface OnboardingNavigationProps {
   currentSlide: number;
@@ -22,42 +31,153 @@ export const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
   onNext,
 }) => {
   return (
-    <Box className="px-6 py-6 pb-8">
-      <HStack className="justify-center items-center mb-8 gap-2">
+    <View style={styles.container}>
+      {/* Dot Indicators */}
+      <View style={styles.dotsContainer}>
         {Array.from({ length: totalSlides }).map((_, index) => (
-          <Box
-            key={index}
-            className={`h-2 rounded-full ${index === currentSlide ? 'bg-white w-6' : 'bg-neutral-800 w-2'
-              }`}
-          />
+          <DotIndicator key={index} active={index === currentSlide} />
         ))}
-      </HStack>
+      </View>
 
-      <HStack className="justify-between items-center gap-4">
+      {/* Buttons */}
+      <View style={styles.buttonsContainer}>
         {!isFirstSlide && (
-          <Button
+          <Pressable
             onPress={onPrevious}
-            variant="outline"
-            size="md"
-            className="flex-1 bg-neutral-800 border border-neutral-700 rounded-xl py-4"
+            style={({ pressed }) => [
+              styles.secondaryButton,
+              pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] },
+            ]}
           >
-            <ButtonText className="text-white font-semibold">
+            <Text style={styles.secondaryButtonText}>
               {i18n.t('onboarding.previous')}
-            </ButtonText>
-          </Button>
+            </Text>
+          </Pressable>
         )}
 
-        <Button
+        <Pressable
           onPress={onNext}
-          size="md"
-          className="flex-2 bg-white rounded-xl py-4"
+          style={({ pressed }) => [
+            styles.primaryButtonWrapper,
+            !isFirstSlide ? { flex: 2 } : { flex: 1 },
+            pressed && { opacity: 0.85, transform: [{ scale: 0.97 }] },
+          ]}
         >
-          <ButtonText className="text-black font-semibold">
-            {isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
-          </ButtonText>
-        </Button>
-      </HStack>
-    </Box>
+          <LinearGradient
+            colors={[colors.primary100, colors.primary50]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.primaryButton}
+          >
+            <Text style={styles.primaryButtonText}>
+              {isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
+            </Text>
+          </LinearGradient>
+        </Pressable>
+      </View>
+    </View>
   );
 };
 
+/** Animated dot indicator */
+const DotIndicator: React.FC<{ active: boolean }> = ({ active }) => {
+  const widthAnim = useRef(new Animated.Value(active ? 24 : 8)).current;
+  const opacityAnim = useRef(new Animated.Value(active ? 1 : 0.4)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.spring(widthAnim, {
+        toValue: active ? 24 : 8,
+        tension: 80,
+        friction: 10,
+        useNativeDriver: false,
+      }),
+      Animated.timing(opacityAnim, {
+        toValue: active ? 1 : 0.4,
+        duration: 200,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  }, [active]);
+
+  return (
+    <Animated.View
+      style={[
+        styles.dot,
+        {
+          width: widthAnim,
+          opacity: opacityAnim,
+          backgroundColor: active ? colors.primary50 : colors.secondary300,
+        },
+      ]}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 24,
+    paddingTop: 16,
+    paddingBottom: 24,
+  },
+  dotsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
+    gap: 8,
+  },
+  dot: {
+    height: 8,
+    borderRadius: 4,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  secondaryButton: {
+    flex: 1,
+    height: 56,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.6)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: colors.secondary200,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  secondaryButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.secondary200,
+    fontFamily: languageFonts.regional_secondary,
+  },
+  primaryButtonWrapper: {
+    height: 56,
+    borderRadius: 16,
+    overflow: 'hidden',
+    shadowColor: colors.primary50,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+  primaryButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 16,
+  },
+  primaryButtonText: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    fontFamily: languageFonts.regional_secondary,
+    letterSpacing: 0.5,
+  },
+});

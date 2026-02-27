@@ -829,7 +829,16 @@
     "statsTitle": "পরিসংখ্যান",
     "streakLabel": "দিনের ধারাবাহিকতা",
     "longestStreakLabel": "সর্বোচ্চ: {count} দিন",
-    "motivationTitle": "অনুপ্রেরণা"
+    "motivationTitle": "অনুপ্রেরণা",
+    "days": {
+      "sun": "রবি",
+      "mon": "সোম",
+      "tue": "মঙ্গল",
+      "wed": "বুধ",
+      "thu": "বৃহস্পতি",
+      "fri": "শুক্র",
+      "sat": "শনি"
+    }
   },
   "verseOfTheDay": {
     "title": "আজকের শ্লোক",
@@ -869,7 +878,8 @@
     "reset": "রিসেট",
     "restart": "পুনরায় শুরু",
     "completed": "সম্পন্ন!",
-    "completionSound": "সম্পন্ন শব্দ"
+    "completionSound": "সম্পন্ন শব্দ",
+    "completionSubtitle": "সাধনা সফলভাবে সম্পন্ন হয়েছে"
   },
   "allEkadashi": {
     "title": "সকল একাদশী",

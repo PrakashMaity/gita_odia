@@ -3,6 +3,7 @@ import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/lib/i18n';
 import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
@@ -37,10 +38,10 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
 
   const statusLabel = () => {
     switch (timerState) {
-      case 'running': return 'চলছে...';
-      case 'paused': return 'বিরতি';
-      case 'completed': return 'সম্পন্ন';
-      default: return 'প্রস্তুত';
+      case 'running': return i18n.t('readingTimer.status.running');
+      case 'paused': return i18n.t('readingTimer.status.paused');
+      case 'completed': return i18n.t('readingTimer.status.completed');
+      default: return i18n.t('readingTimer.status.ready');
     }
   };
 

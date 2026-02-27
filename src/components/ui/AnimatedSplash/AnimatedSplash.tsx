@@ -1,3 +1,4 @@
+import i18n from '@/lib/i18n';
 import { HomeImages } from '@/lib/utils/assets';
 import { colors } from '@/rootconstants/tint';
 import { getLanguageFonts } from '@/types/font.interface';
@@ -410,7 +411,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
             ]}
           >
             <Text style={styles.appName}>
-              গীতা বাংলা
+              {i18n.t('home.headerTitle')}
             </Text>
           </Animated.View>
 
@@ -424,7 +425,7 @@ export const AnimatedSplash: React.FC<AnimatedSplashProps> = ({
           >
             <View style={styles.taglineDivider} />
             <Text style={styles.tagline}>
-              শ্রীকৃষ্ণের বাণী
+              {i18n.t('splash.tagline')}
             </Text>
             <View style={styles.taglineDivider} />
           </Animated.View>

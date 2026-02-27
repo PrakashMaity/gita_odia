@@ -1,5 +1,6 @@
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
+import i18n from '@/lib/i18n';
 import React from 'react';
 import { View } from 'react-native';
 
@@ -14,7 +15,15 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
 
   const getDayLabel = (date: string) => {
     const d = new Date(date);
-    const days = ['রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহস্পতি', 'শুক্র', 'শনি'];
+    const days = [
+      i18n.t('dailyReading.days.sun'),
+      i18n.t('dailyReading.days.mon'),
+      i18n.t('dailyReading.days.tue'),
+      i18n.t('dailyReading.days.wed'),
+      i18n.t('dailyReading.days.thu'),
+      i18n.t('dailyReading.days.fri'),
+      i18n.t('dailyReading.days.sat'),
+    ];
     return days[d.getDay()];
   };
 
@@ -22,7 +31,7 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
     <Box className="mt-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
       <View className="flex-row items-center mb-6">
         <Text className="flex-1 text-lg font-bold text-white font-regional_secondary">
-          সপ্তাহের পরিসংখ্যান
+          {i18n.t('dailyReading.weeklyStats')}
         </Text>
       </View>
       <View className="flex-row justify-around items-end h-[160px] px-1">

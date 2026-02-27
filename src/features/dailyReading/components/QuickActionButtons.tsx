@@ -1,5 +1,6 @@
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
+import i18n from '@/lib/i18n';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
@@ -66,18 +67,18 @@ export const QuickActionButtons: React.FC = () => {
     <View className="flex-row gap-4 mt-6 mb-4">
       <QuickActionButton
         icon="book"
-        label="পাঠ শুরু করুন"
+        label={i18n.t('dailyReading.startReading')}
         onPress={handleStartReading}
         primary={true}
       />
       <QuickActionButton
         icon="stats-chart"
-        label="অগ্রগতি"
+        label={i18n.t('dailyReading.progress')}
         onPress={handleViewProgress}
       />
       <QuickActionButton
         icon="sparkles"
-        label="আজকের শ্লোক"
+        label={i18n.t('dailyReading.todaysVerse')}
         onPress={handleVerseOfDay}
       />
     </View>

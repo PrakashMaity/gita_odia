@@ -14,11 +14,11 @@ interface SoundSelectorProps {
   onSoundChange: (sound: SoundType) => void;
 }
 
-const SOUNDS: { value: SoundType; label: string; icon: string }[] = [
-  { value: 'none', label: 'কোন শব্দ নেই', icon: '🔇' },
-  { value: 'bell', label: 'ঘণ্টা', icon: '🔔' },
-  { value: 'chime', label: 'ঝংকার', icon: '🎵' },
-  { value: 'om', label: 'ওম', icon: 'ॐ' },
+const SOUNDS: { value: SoundType; labelKey: string; icon: string }[] = [
+  { value: 'none', labelKey: 'readingTimer.sounds.none', icon: '🔇' },
+  { value: 'bell', labelKey: 'readingTimer.sounds.bell', icon: '🔔' },
+  { value: 'chime', labelKey: 'readingTimer.sounds.chime', icon: '🎵' },
+  { value: 'om', labelKey: 'readingTimer.sounds.om', icon: 'ॐ' },
 ];
 
 export const SoundSelector: React.FC<SoundSelectorProps> = ({
@@ -57,7 +57,7 @@ export const SoundSelector: React.FC<SoundSelectorProps> = ({
                   }`}
                 style={{ fontFamily: fonts.regional_secondary }}
               >
-                {sound.label}
+                {i18n.t(sound.labelKey)}
               </Text>
             </Pressable>
           );

@@ -2,6 +2,7 @@ import { AppHeading } from '@/components/ui/AppHeading';
 import { AppText } from '@/components/ui/AppText';
 import { VStack } from '@/components/ui/vstack';
 import { useThemeColors } from '@/hooks/useTheme';
+import i18n from '@/lib/i18n';
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import React, { useEffect, useRef } from 'react';
@@ -113,7 +114,7 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
                                         You're Pro!
                                     </AppHeading>
                                     <AppHeading variant="card" className="text-center" style={{ color: theme.text.secondary }}>
-                                        স্বাগতম প্রিমিয়াম সদস্যপদে
+                                        {i18n.t('subscription.welcomePremium')}
                                     </AppHeading>
                                 </VStack>
 
