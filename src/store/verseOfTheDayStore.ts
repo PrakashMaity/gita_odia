@@ -24,7 +24,7 @@ interface VerseOfTheDayActions {
   shareVerse: () => string | null;
 }
 
-interface VerseOfTheDayStore extends VerseOfTheDayState, VerseOfTheDayActions {}
+interface VerseOfTheDayStore extends VerseOfTheDayState, VerseOfTheDayActions { }
 
 const getTodayDate = (): string => {
   const today = new Date();
@@ -35,14 +35,14 @@ const getTodayDate = (): string => {
 const generateVerseForDate = async (date: string): Promise<VerseOfTheDay | null> => {
   try {
     const chapterStore = useChapterStore.getState();
-    
+
     // Ensure chapters are loaded
     if (!chapterStore.isInitialized) {
       await chapterStore.loadAllChapters();
     }
-    
+
     const chapters = chapterStore.getAllChapters();
-    
+
     if (chapters.length === 0) return null;
 
     // Use date as seed for deterministic selection
@@ -103,7 +103,7 @@ export const useVerseOfTheDayStore = create<VerseOfTheDayStore>()((set, get) => 
 
     try {
       const today = getTodayDate();
-      
+
       // Check if we have a cached verse for today
       const cachedJson = await secureStorage.getItem('verse-of-the-day');
       if (cachedJson) {
@@ -116,7 +116,7 @@ export const useVerseOfTheDayStore = create<VerseOfTheDayStore>()((set, get) => 
 
       // Generate new verse for today
       const newVerse = await generateVerseForDate(today);
-      
+
       if (newVerse) {
         await secureStorage.setItem('verse-of-the-day', JSON.stringify(newVerse));
         set({ currentVerse: newVerse, isLoading: false });

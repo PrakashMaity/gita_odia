@@ -1,4 +1,3 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
@@ -7,6 +6,7 @@ import { Text } from '@/components/ui/text';
 import { createConfirmAlert, useCustomAlert } from '@/hooks/useCustomAlert';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useTextToSpeech } from '@/hooks/useTextToSpeech';
 import i18n from '@/lib/i18n';
 import { HomeImages } from '@/lib/utils/assets';

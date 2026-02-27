@@ -1,4 +1,3 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { PageHeader } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/heading';
@@ -7,6 +6,7 @@ import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useThemeColors } from '@/hooks/useTheme';
 import i18n from '@/lib/i18n';
 import { LayoutImages } from '@/lib/utils/assets';

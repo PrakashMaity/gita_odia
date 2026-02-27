@@ -9,7 +9,7 @@
  * @returns The number in English numerals
  */
 export const convertLanguageToEnglish = (localizedNum: string): string => {
-  return localizedNum.replace(/[০-৯]/g, (match) => 
+  return localizedNum.replace(/[০-৯]/g, (match) =>
     String.fromCharCode(match.charCodeAt(0) - '০'.charCodeAt(0) + '0'.charCodeAt(0))
   );
 };

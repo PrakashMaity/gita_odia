@@ -1,7 +1,7 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { useThemeColors } from '@/hooks/useTheme';
 import { getLanguageFonts } from '@/types/font.interface';
 import { FontAwesome5 } from '@expo/vector-icons';

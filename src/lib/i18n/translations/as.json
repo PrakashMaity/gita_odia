@@ -1,65 +1,119 @@
 {
-    "home": {
-        "headerTitle": "শ্ৰীমদ্ভগবদ গীতা",
-        "heroQuote": "কৰ্মণ্যেৱাধিকাৰস্তে মা ফলেষু কদাচন।\nমা কৰ্মফলহেতুৰ্ভূৰ্মা তে সঙ্গোস্ত্ৱকৰ্মণি॥",
-        "heroQuotes": [
-            "কৰ্মণ্যেৱাধিকাৰস্তে মা ফলেষু কদাচন।\nমা কৰ্মফলহেতুৰ্ভূৰ্মা তে সঙ্গোস্ত্ৱকৰ্মণি॥"
-        ],
-        "quickActions": "দ্ৰুত কাৰ্য",
-        "menu": "মেনু",
-        "pro": "প্ৰো"
+  "home": {
+    "headerTitle": "শ্ৰীমদ্ভগবদ গীতা",
+    "heroQuote": "কৰ্মণ্যেৱাধিকাৰস্তে মা ফলেষু কদাচন।\nমা কৰ্মফলহেতুৰ্ভূৰ্মা তে সঙ্গোস্ত্ৱকৰ্মণি॥",
+    "heroQuotes": [
+      "কৰ্মণ্যেৱাধিকাৰস্তে মা ফলেষু কদাচন।\nমা কৰ্মফলহেতুৰ্ভূৰ্মা তে সঙ্গোস্ত্ৱকৰ্মণি॥"
+    ],
+    "quickActions": "দ্ৰুত কাৰ্য",
+    "menu": "মেনু",
+    "pro": "প্ৰো"
+  },
+  "tabs": {
+    "home": "হোম",
+    "chapters": "অধ্যায়",
+    "bookmarks": "বুকমাৰ্ক",
+    "profile": "প্ৰ'ফাইল"
+  },
+  "common": {
+    "back": "পিছলৈ",
+    "next": "পৰৱৰ্তী",
+    "save": "সংৰক্ষণ",
+    "cancel": "বাতিল",
+    "delete": "মচি পেলাওক",
+    "share": "শ্বেয়াৰ",
+    "search": "সন্ধান",
+    "loading": "ল'ড হৈ আছে...",
+    "error": "ত্ৰুটি",
+    "retry": "পুনৰ চেষ্টা",
+    "ok": "ঠিক আছে",
+    "yes": "হয়",
+    "no": "নহয়",
+    "close": "বন্ধ"
+  },
+  "chapter": {
+    "title": "অধ্যায়",
+    "verses": "শ্লোক",
+    "summary": "সাৰাংশ",
+    "readNow": "এতিয়া পঢ়ক"
+  },
+  "verse": {
+    "translation": "অনুবাদ",
+    "speaker": "বক্তা"
+  },
+  "bookmark": {
+    "title": "বুকমাৰ্ক",
+    "empty": "কোনো বুকমাৰ্ক নাই",
+    "added": "বুকমাৰ্ক যোগ কৰা হ'ল",
+    "removed": "বুকমাৰ্ক আঁতৰোৱা হ'ল"
+  },
+  "favorite": {
+    "title": "প্ৰিয়",
+    "empty": "কোনো প্ৰিয় নাই",
+    "added": "প্ৰিয়ত যোগ কৰা হ'ল",
+    "removed": "প্ৰিয়ৰ পৰা আঁতৰোৱা হ'ল"
+  },
+  "profile": {
+    "title": "প্ৰ'ফাইল",
+    "settings": "ছেটিংছ",
+    "theme": "থিম",
+    "language": "ভাষা",
+    "about": "আমাৰ বিষয়ে",
+    "rateApp": "এপ ৰেট কৰক",
+    "shareApp": "এপ শ্বেয়াৰ কৰক"
+  },
+  "share": {
+    "appTitle": "Srimad Bhagavad Gita",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "speaker": "Speaker",
+    "translation": "Translation",
+    "verseText": "Verse Text",
+    "downloadApp": "Download App",
+    "sharedFrom": "Shared from Gita App",
+    "appDescription": "Srimad Bhagavad Gita - Guide to Life",
+    "appFeatures": "App Features:",
+    "feature1": "• Complete Bhagavad Gita",
+    "feature2": "• Translations for all chapters",
+    "feature3": "• Meaning for all verses",
+    "feature4": "• Meditation & Prayers"
+  },
+  "splash": {
+    "tagline": "Words of Lord Krishna"
+  },
+  "readingTimer": {
+    "status": {
+      "running": "Running...",
+      "paused": "Paused",
+      "completed": "Completed",
+      "ready": "Ready"
     },
-    "tabs": {
-        "home": "হোম",
-        "chapters": "অধ্যায়",
-        "bookmarks": "বুকমাৰ্ক",
-        "profile": "প্ৰ'ফাইল"
+    "sounds": {
+      "none": "No Sound",
+      "bell": "Bell",
+      "chime": "Chime",
+      "om": "Om"
     },
-    "common": {
-        "back": "পিছলৈ",
-        "next": "পৰৱৰ্তী",
-        "save": "সংৰক্ষণ",
-        "cancel": "বাতিল",
-        "delete": "মচি পেলাওক",
-        "share": "শ্বেয়াৰ",
-        "search": "সন্ধান",
-        "loading": "ল'ড হৈ আছে...",
-        "error": "ত্ৰুটি",
-        "retry": "পুনৰ চেষ্টা",
-        "ok": "ঠিক আছে",
-        "yes": "হয়",
-        "no": "নহয়",
-        "close": "বন্ধ"
-    },
-    "chapter": {
-        "title": "অধ্যায়",
-        "verses": "শ্লোক",
-        "summary": "সাৰাংশ",
-        "readNow": "এতিয়া পঢ়ক"
-    },
-    "verse": {
-        "translation": "অনুবাদ",
-        "speaker": "বক্তা"
-    },
-    "bookmark": {
-        "title": "বুকমাৰ্ক",
-        "empty": "কোনো বুকমাৰ্ক নাই",
-        "added": "বুকমাৰ্ক যোগ কৰা হ'ল",
-        "removed": "বুকমাৰ্ক আঁতৰোৱা হ'ল"
-    },
-    "favorite": {
-        "title": "প্ৰিয়",
-        "empty": "কোনো প্ৰিয় নাই",
-        "added": "প্ৰিয়ত যোগ কৰা হ'ল",
-        "removed": "প্ৰিয়ৰ পৰা আঁতৰোৱা হ'ল"
-    },
-    "profile": {
-        "title": "প্ৰ'ফাইল",
-        "settings": "ছেটিংছ",
-        "theme": "থিম",
-        "language": "ভাষা",
-        "about": "আমাৰ বিষয়ে",
-        "rateApp": "এপ ৰেট কৰক",
-        "shareApp": "এপ শ্বেয়াৰ কৰক"
-    }
+    "completedMessage": "Sadhana completed successfully"
+  },
+  "weekdays": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dailyReading": {
+    "weeklyStats": "Weekly Stats",
+    "startReading": "Start Reading",
+    "progress": "Progress",
+    "todaysVerse": "Today's Verse"
+  },
+  "subscription": {
+    "supportMission": "Support Our Mission",
+    "startMembership": "Start Membership",
+    "welcomePremium": "Welcome to Premium Membership"
+  }
 }

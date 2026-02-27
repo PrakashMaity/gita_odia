@@ -28,7 +28,7 @@ interface BookmarkActions {
   getBookmarksSortedByDate: () => Bookmark[];
 }
 
-interface BookmarkStore extends BookmarkState, BookmarkActions {}
+interface BookmarkStore extends BookmarkState, BookmarkActions { }
 
 // Custom storage adapter for Zustand persistence
 const secureStorage = {
@@ -65,20 +65,20 @@ export const useBookmarkStore = create<BookmarkStore>()(
       // Actions
       addBookmark: async (verseId: string, chapterId: string, chapterNumber: string, verseNumber: string, verseText: string) => {
         set({ isLoading: true });
-        
+
         const { bookmarks } = get();
         const bookmarkId = `${chapterNumber}-${verseNumber}`;
-        
+
         // Check if bookmark already exists
         const existingBookmark = bookmarks.find(
           (bookmark) => bookmark.verseId === verseId
         );
-        
+
         if (existingBookmark) {
           set({ isLoading: false });
           return;
         }
-        
+
         const newBookmark: Bookmark = {
           id: bookmarkId,
           verseId,
@@ -88,24 +88,24 @@ export const useBookmarkStore = create<BookmarkStore>()(
           verseText,
           timestamp: Date.now(),
         };
-        
-        set({ 
+
+        set({
           bookmarks: [...bookmarks, newBookmark],
-          isLoading: false 
+          isLoading: false
         });
       },
 
       removeBookmark: async (verseId: string) => {
         set({ isLoading: true });
-        
+
         const { bookmarks } = get();
         const updatedBookmarks = bookmarks.filter(
           (bookmark) => bookmark.verseId !== verseId
         );
-        
-        set({ 
+
+        set({
           bookmarks: updatedBookmarks,
-          isLoading: false 
+          isLoading: false
         });
       },
 
@@ -122,10 +122,10 @@ export const useBookmarkStore = create<BookmarkStore>()(
           .filter((bookmark) => bookmark.chapterId === chapterId)
           .sort((a, b) => {
             // Convert Language numerals to numbers for sorting
-            const aNum = parseInt(a.verseNumber.replace(/[০-৯]/g, (match) => 
+            const aNum = parseInt(a.verseNumber.replace(/[০-৯]/g, (match) =>
               String.fromCharCode(match.charCodeAt(0) - '০'.charCodeAt(0) + '0'.charCodeAt(0))
             ));
-            const bNum = parseInt(b.verseNumber.replace(/[০-৯]/g, (match) => 
+            const bNum = parseInt(b.verseNumber.replace(/[০-৯]/g, (match) =>
               String.fromCharCode(match.charCodeAt(0) - '০'.charCodeAt(0) + '0'.charCodeAt(0))
             ));
             return aNum - bNum;
@@ -134,9 +134,9 @@ export const useBookmarkStore = create<BookmarkStore>()(
 
       clearAllBookmarks: async () => {
         set({ isLoading: true });
-        set({ 
+        set({
           bookmarks: [],
-          isLoading: false 
+          isLoading: false
         });
       },
 

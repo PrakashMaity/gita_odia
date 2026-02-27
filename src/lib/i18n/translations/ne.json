@@ -1,65 +1,119 @@
 {
-    "home": {
-        "headerTitle": "श्रीमद्भागवत गीता",
-        "heroQuote": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
-        "heroQuotes": [
-            "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥"
-        ],
-        "quickActions": "द्रुत कार्य",
-        "menu": "मेनु",
-        "pro": "प्रो"
+  "home": {
+    "headerTitle": "श्रीमद्भागवत गीता",
+    "heroQuote": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
+    "heroQuotes": [
+      "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥"
+    ],
+    "quickActions": "द्रुत कार्य",
+    "menu": "मेनु",
+    "pro": "प्रो"
+  },
+  "tabs": {
+    "home": "होम",
+    "chapters": "अध्याय",
+    "bookmarks": "बुकमार्क",
+    "profile": "प्रोफाइल"
+  },
+  "common": {
+    "back": "पछाडि",
+    "next": "अर्को",
+    "save": "सुरक्षित गर्नुहोस्",
+    "cancel": "रद्द गर्नुहोस्",
+    "delete": "मेटाउनुहोस्",
+    "share": "साझा गर्नुहोस्",
+    "search": "खोज्नुहोस्",
+    "loading": "लोड हुँदैछ...",
+    "error": "त्रुटि",
+    "retry": "पुन: प्रयास",
+    "ok": "ठीक छ",
+    "yes": "हो",
+    "no": "होइन",
+    "close": "बन्द गर्नुहोस्"
+  },
+  "chapter": {
+    "title": "अध्याय",
+    "verses": "श्लोक",
+    "summary": "सारांश",
+    "readNow": "अहिले पढ्नुहोस्"
+  },
+  "verse": {
+    "translation": "अनुवाद",
+    "speaker": "वक्ता"
+  },
+  "bookmark": {
+    "title": "बुकमार्क",
+    "empty": "कुनै बुकमार्क छैन",
+    "added": "बुकमार्क थपियो",
+    "removed": "बुकमार्क हटाइयो"
+  },
+  "favorite": {
+    "title": "मनपर्ने",
+    "empty": "कुनै मनपर्ने छैन",
+    "added": "मनपर्नेमा थपियो",
+    "removed": "मनपर्नेबाट हटाइयो"
+  },
+  "profile": {
+    "title": "प्रोफाइल",
+    "settings": "सेटिङ्स",
+    "theme": "थिम",
+    "language": "भाषा",
+    "about": "हाम्रो बारेमा",
+    "rateApp": "एप रेट गर्नुहोस्",
+    "shareApp": "एप साझा गर्नुहोस्"
+  },
+  "share": {
+    "appTitle": "Srimad Bhagavad Gita",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "speaker": "Speaker",
+    "translation": "Translation",
+    "verseText": "Verse Text",
+    "downloadApp": "Download App",
+    "sharedFrom": "Shared from Gita App",
+    "appDescription": "Srimad Bhagavad Gita - Guide to Life",
+    "appFeatures": "App Features:",
+    "feature1": "• Complete Bhagavad Gita",
+    "feature2": "• Translations for all chapters",
+    "feature3": "• Meaning for all verses",
+    "feature4": "• Meditation & Prayers"
+  },
+  "splash": {
+    "tagline": "Words of Lord Krishna"
+  },
+  "readingTimer": {
+    "status": {
+      "running": "Running...",
+      "paused": "Paused",
+      "completed": "Completed",
+      "ready": "Ready"
     },
-    "tabs": {
-        "home": "होम",
-        "chapters": "अध्याय",
-        "bookmarks": "बुकमार्क",
-        "profile": "प्रोफाइल"
+    "sounds": {
+      "none": "No Sound",
+      "bell": "Bell",
+      "chime": "Chime",
+      "om": "Om"
     },
-    "common": {
-        "back": "पछाडि",
-        "next": "अर्को",
-        "save": "सुरक्षित गर्नुहोस्",
-        "cancel": "रद्द गर्नुहोस्",
-        "delete": "मेटाउनुहोस्",
-        "share": "साझा गर्नुहोस्",
-        "search": "खोज्नुहोस्",
-        "loading": "लोड हुँदैछ...",
-        "error": "त्रुटि",
-        "retry": "पुन: प्रयास",
-        "ok": "ठीक छ",
-        "yes": "हो",
-        "no": "होइन",
-        "close": "बन्द गर्नुहोस्"
-    },
-    "chapter": {
-        "title": "अध्याय",
-        "verses": "श्लोक",
-        "summary": "सारांश",
-        "readNow": "अहिले पढ्नुहोस्"
-    },
-    "verse": {
-        "translation": "अनुवाद",
-        "speaker": "वक्ता"
-    },
-    "bookmark": {
-        "title": "बुकमार्क",
-        "empty": "कुनै बुकमार्क छैन",
-        "added": "बुकमार्क थपियो",
-        "removed": "बुकमार्क हटाइयो"
-    },
-    "favorite": {
-        "title": "मनपर्ने",
-        "empty": "कुनै मनपर्ने छैन",
-        "added": "मनपर्नेमा थपियो",
-        "removed": "मनपर्नेबाट हटाइयो"
-    },
-    "profile": {
-        "title": "प्रोफाइल",
-        "settings": "सेटिङ्स",
-        "theme": "थिम",
-        "language": "भाषा",
-        "about": "हाम्रो बारेमा",
-        "rateApp": "एप रेट गर्नुहोस्",
-        "shareApp": "एप साझा गर्नुहोस्"
-    }
+    "completedMessage": "Sadhana completed successfully"
+  },
+  "weekdays": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dailyReading": {
+    "weeklyStats": "Weekly Stats",
+    "startReading": "Start Reading",
+    "progress": "Progress",
+    "todaysVerse": "Today's Verse"
+  },
+  "subscription": {
+    "supportMission": "Support Our Mission",
+    "startMembership": "Start Membership",
+    "welcomePremium": "Welcome to Premium Membership"
+  }
 }

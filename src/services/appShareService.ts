@@ -19,21 +19,21 @@ function formatAppShareMessage(): string {
 export async function shareAppToWhatsApp(): Promise<boolean> {
   try {
     const formattedText = formatAppShareMessage();
-    
+
     // WhatsApp URL scheme
     const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(formattedText)}`;
-    
+
     // Try to open WhatsApp
     const canOpen = await Linking.canOpenURL(whatsappUrl);
-    
+
     if (canOpen) {
       await Linking.openURL(whatsappUrl);
-      
+
       // Track app share
       storeAppShareAnalytics().catch(error => {
         console.error('Error storing app share analytics:', error);
       });
-      
+
       return true;
     } else {
       // Fallback to general sharing using React Native Share
@@ -42,14 +42,14 @@ export async function shareAppToWhatsApp(): Promise<boolean> {
           message: formattedText,
           title: 'Share App',
         });
-        
+
         if (result.action !== Share.dismissedAction) {
           // Track app share
           storeAppShareAnalytics().catch(error => {
             console.error('Error storing app share analytics:', error);
           });
         }
-        
+
         return result.action !== Share.dismissedAction;
       } catch (shareError) {
         console.error('Error with Share API:', shareError);
@@ -68,20 +68,20 @@ export async function shareAppToWhatsApp(): Promise<boolean> {
 export async function shareApp(): Promise<boolean> {
   try {
     const formattedText = formatAppShareMessage();
-    
+
     try {
       const result = await Share.share({
         message: formattedText,
         title: 'Share App',
       });
-      
+
       if (result.action !== Share.dismissedAction) {
         // Track app share
         storeAppShareAnalytics().catch(error => {
           console.error('Error storing app share analytics:', error);
         });
       }
-      
+
       return result.action !== Share.dismissedAction;
     } catch (shareError) {
       console.error('Error with Share API:', shareError);

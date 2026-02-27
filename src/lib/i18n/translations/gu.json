@@ -1,65 +1,119 @@
 {
-    "home": {
-        "headerTitle": "શ્રીમદ્ ભગવદ્ ગીતા",
-        "heroQuote": "કર્મણ્યેવાધિકારસ્તે મા ફલેષુ કદાચન।\nમા કર્મફલહેતુર્ભૂર્મા તે સઙ્ગોસ્ત્વકર્મણિ॥",
-        "heroQuotes": [
-            "કર્મણ્યેવાધિકારસ્તે મા ફલેષુ કદાચન।\nમા કર્મફલહેતુર્ભૂર્મા તે સઙ્ગોસ્ત્વકર્મણિ॥"
-        ],
-        "quickActions": "ઝડપી ક્રિયાઓ",
-        "menu": "મેનું",
-        "pro": "પ્રો"
+  "home": {
+    "headerTitle": "શ્રીમદ્ ભગવદ્ ગીતા",
+    "heroQuote": "કર્મણ્યેવાધિકારસ્તે મા ફલેષુ કદાચન।\nમા કર્મફલહેતુર્ભૂર્મા તે સઙ્ગોસ્ત્વકર્મણિ॥",
+    "heroQuotes": [
+      "કર્મણ્યેવાધિકારસ્તે મા ફલેષુ કદાચન।\nમા કર્મફલહેતુર્ભૂર્મા તે સઙ્ગોસ્ત્વકર્મણિ॥"
+    ],
+    "quickActions": "ઝડપી ક્રિયાઓ",
+    "menu": "મેનું",
+    "pro": "પ્રો"
+  },
+  "tabs": {
+    "home": "હોમ",
+    "chapters": "અધ્યાય",
+    "bookmarks": "બુકમાર્ક",
+    "profile": "પ્રોફાઇલ"
+  },
+  "common": {
+    "back": "પાછા",
+    "next": "આગળ",
+    "save": "સેવ",
+    "cancel": "રદ કરો",
+    "delete": "કાઢી નાખો",
+    "share": "શેર કરો",
+    "search": "શોધ",
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "error": "ભૂલ",
+    "retry": "ફરી પ્રયાસ કરો",
+    "ok": "ઠીક છે",
+    "yes": "હા",
+    "no": "ના",
+    "close": "બંધ કરો"
+  },
+  "chapter": {
+    "title": "અધ્યાય",
+    "verses": "શ્લોક",
+    "summary": "સારાંશ",
+    "readNow": "હવે વાંચો"
+  },
+  "verse": {
+    "translation": "અનુવાદ",
+    "speaker": "વક્તા"
+  },
+  "bookmark": {
+    "title": "બુકમાર્ક",
+    "empty": "કોઈ બુકમાર્ક નથી",
+    "added": "બુકમાર્ક ઉમેરાયું",
+    "removed": "બુકમાર્ક દૂર કરાયું"
+  },
+  "favorite": {
+    "title": "મનપસંદ",
+    "empty": "કોઈ મનપસંદ નથી",
+    "added": "મનપસંદમાં ઉમેરાયું",
+    "removed": "મનપસંદમાંથી દૂર કરાયું"
+  },
+  "profile": {
+    "title": "પ્રોફાઇલ",
+    "settings": "સેટિંગ્સ",
+    "theme": "થીમ",
+    "language": "ભાષા",
+    "about": "અમારા વિશે",
+    "rateApp": "એપ રેટ કરો",
+    "shareApp": "એપ શેર કરો"
+  },
+  "share": {
+    "appTitle": "Srimad Bhagavad Gita",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "speaker": "Speaker",
+    "translation": "Translation",
+    "verseText": "Verse Text",
+    "downloadApp": "Download App",
+    "sharedFrom": "Shared from Gita App",
+    "appDescription": "Srimad Bhagavad Gita - Guide to Life",
+    "appFeatures": "App Features:",
+    "feature1": "• Complete Bhagavad Gita",
+    "feature2": "• Translations for all chapters",
+    "feature3": "• Meaning for all verses",
+    "feature4": "• Meditation & Prayers"
+  },
+  "splash": {
+    "tagline": "Words of Lord Krishna"
+  },
+  "readingTimer": {
+    "status": {
+      "running": "Running...",
+      "paused": "Paused",
+      "completed": "Completed",
+      "ready": "Ready"
     },
-    "tabs": {
-        "home": "હોમ",
-        "chapters": "અધ્યાય",
-        "bookmarks": "બુકમાર્ક",
-        "profile": "પ્રોફાઇલ"
+    "sounds": {
+      "none": "No Sound",
+      "bell": "Bell",
+      "chime": "Chime",
+      "om": "Om"
     },
-    "common": {
-        "back": "પાછા",
-        "next": "આગળ",
-        "save": "સેવ",
-        "cancel": "રદ કરો",
-        "delete": "કાઢી નાખો",
-        "share": "શેર કરો",
-        "search": "શોધ",
-        "loading": "લોડ થઈ રહ્યું છે...",
-        "error": "ભૂલ",
-        "retry": "ફરી પ્રયાસ કરો",
-        "ok": "ઠીક છે",
-        "yes": "હા",
-        "no": "ના",
-        "close": "બંધ કરો"
-    },
-    "chapter": {
-        "title": "અધ્યાય",
-        "verses": "શ્લોક",
-        "summary": "સારાંશ",
-        "readNow": "હવે વાંચો"
-    },
-    "verse": {
-        "translation": "અનુવાદ",
-        "speaker": "વક્તા"
-    },
-    "bookmark": {
-        "title": "બુકમાર્ક",
-        "empty": "કોઈ બુકમાર્ક નથી",
-        "added": "બુકમાર્ક ઉમેરાયું",
-        "removed": "બુકમાર્ક દૂર કરાયું"
-    },
-    "favorite": {
-        "title": "મનપસંદ",
-        "empty": "કોઈ મનપસંદ નથી",
-        "added": "મનપસંદમાં ઉમેરાયું",
-        "removed": "મનપસંદમાંથી દૂર કરાયું"
-    },
-    "profile": {
-        "title": "પ્રોફાઇલ",
-        "settings": "સેટિંગ્સ",
-        "theme": "થીમ",
-        "language": "ભાષા",
-        "about": "અમારા વિશે",
-        "rateApp": "એપ રેટ કરો",
-        "shareApp": "એપ શેર કરો"
-    }
+    "completedMessage": "Sadhana completed successfully"
+  },
+  "weekdays": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dailyReading": {
+    "weeklyStats": "Weekly Stats",
+    "startReading": "Start Reading",
+    "progress": "Progress",
+    "todaysVerse": "Today's Verse"
+  },
+  "subscription": {
+    "supportMission": "Support Our Mission",
+    "startMembership": "Start Membership",
+    "welcomePremium": "Welcome to Premium Membership"
+  }
 }

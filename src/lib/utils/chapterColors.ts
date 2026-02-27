@@ -14,7 +14,7 @@ const CHAPTER_COLORS = [
   { primary: '#A67C7C', secondary: '#C49A9A', accent: '#8A5F5F', gradient: ['#A67C7C', '#C49A9A'] }, // Muted rose
   { primary: '#7A8B9F', secondary: '#9AA8B8', accent: '#5A6B7F', gradient: ['#7A8B9F', '#9AA8B8'] }, // Slate blue
   { primary: '#B88A6B', secondary: '#D4A689', accent: '#9A6A4A', gradient: ['#B88A6B', '#D4A689'] }, // Golden brown
-  
+
   // Chapter 7-12 - Cool, serene tones
   { primary: '#6B9F8F', secondary: '#8FB8A8', accent: '#4A7F6F', gradient: ['#6B9F8F', '#8FB8A8'] }, // Sage green
   { primary: '#8B7A9F', secondary: '#A89AB8', accent: '#6B5A7F', gradient: ['#8B7A9F', '#A89AB8'] }, // Lavender gray
@@ -22,7 +22,7 @@ const CHAPTER_COLORS = [
   { primary: '#9F8B7A', secondary: '#B8A89A', accent: '#7F6B5A', gradient: ['#9F8B7A', '#B8A89A'] }, // Beige
   { primary: '#8B9F7A', secondary: '#A8B89A', accent: '#6B7F5A', gradient: ['#8B9F7A', '#A8B89A'] }, // Olive
   { primary: '#9F7A8B', secondary: '#B89AA8', accent: '#7F5A6B', gradient: ['#9F7A8B', '#B89AA8'] }, // Dusty rose
-  
+
   // Chapter 13-18 - Rich, deep tones
   { primary: '#7A6B9F', secondary: '#9A8AB8', accent: '#5A4A7F', gradient: ['#7A6B9F', '#9A8AB8'] }, // Soft purple
   { primary: '#9F7A6B', secondary: '#B89A8A', accent: '#7F5A4A', gradient: ['#9F7A6B', '#B89A8A'] }, // Terracotta
@@ -50,21 +50,21 @@ const normalizeChapterNumber = (chapterNumber: string | number | undefined): num
   const hindiDigits = '०१२३४५६७८९';
   // Odia digits
   const odiaDigits = '୦୧୨୩୪୫୬୭୮୯';
-  
+
   let normalizedString = `${chapterNumber}`;
-  
+
   // Replace Bengali digits
   normalizedString = normalizedString.replace(/[০-৯]/g, (digit) => {
     const index = banglaDigits.indexOf(digit);
     return index >= 0 ? `${index}` : digit;
   });
-  
+
   // Replace Hindi digits
   normalizedString = normalizedString.replace(/[०-९]/g, (digit) => {
     const index = hindiDigits.indexOf(digit);
     return index >= 0 ? `${index}` : digit;
   });
-  
+
   // Replace Odia digits
   normalizedString = normalizedString.replace(/[୦-୯]/g, (digit) => {
     const index = odiaDigits.indexOf(digit);
@@ -96,11 +96,11 @@ export const getVerseColors = (verseIndex: number, baseChapterNumber?: string | 
   // Use verse index to cycle through colors
   // Add chapter number offset for more variation if provided
   let colorIndex = (verseIndex - 1) % CHAPTER_COLORS.length;
-  
+
   if (baseChapterNumber) {
     const chapterOffset = normalizeChapterNumber(baseChapterNumber);
     colorIndex = (colorIndex + chapterOffset) % CHAPTER_COLORS.length;
   }
-  
+
   return CHAPTER_COLORS[colorIndex];
 };

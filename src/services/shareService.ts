@@ -46,13 +46,13 @@ export async function storeShareData(shareData: ShareData, shareType: 'text' | '
     // Store locally
     const existingData = await AsyncStorage.getItem(SHARE_DATA_KEY);
     const shares: ShareData[] = existingData ? JSON.parse(existingData) : [];
-    
+
     // Add new share data
     shares.unshift(shareData);
-    
+
     // Keep only the most recent shares
     const trimmedShares = shares.slice(0, MAX_STORED_SHARES);
-    
+
     await AsyncStorage.setItem(SHARE_DATA_KEY, JSON.stringify(trimmedShares));
 
     // Store in analytics (async, don't wait)
@@ -138,13 +138,13 @@ export async function shareVerseAsText(
       chapterNumber,
       speaker
     );
-    
+
     // WhatsApp URL scheme
     const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(formattedText)}`;
-    
+
     // Try to open WhatsApp
     const canOpen = await Linking.canOpenURL(whatsappUrl);
-    
+
     if (canOpen) {
       await Linking.openURL(whatsappUrl);
       return true;
@@ -183,13 +183,13 @@ export async function shareTranslationVerseAsText(
       chapterNumber,
       speaker
     );
-    
+
     // WhatsApp URL scheme
     const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(formattedText)}`;
-    
+
     // Try to open WhatsApp
     const canOpen = await Linking.canOpenURL(whatsappUrl);
-    
+
     if (canOpen) {
       await Linking.openURL(whatsappUrl);
       return true;
@@ -236,17 +236,17 @@ export async function shareTranslationVerseAsImage(
       result: 'tmpfile',
     });
 
-      // Store share data
-      await storeShareData({
-        verseId,
-        chapterId,
-        chapterNumber,
-        verseNumber,
-        translation,
-        speaker,
-        timestamp: Date.now(),
-        isTranslationOnly: true,
-      }, 'image');
+    // Store share data
+    await storeShareData({
+      verseId,
+      chapterId,
+      chapterNumber,
+      verseNumber,
+      translation,
+      speaker,
+      timestamp: Date.now(),
+      isTranslationOnly: true,
+    }, 'image');
 
     // Format message with download link
     const shareMessage = `*শ্রীমদ্ভগবদগীতা*\n*অধ্যায় ${chapterNumber} - শ্লোক ${verseNumber}*\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;

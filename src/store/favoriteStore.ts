@@ -28,7 +28,7 @@ interface FavoriteActions {
   getFavoritesSortedByDate: () => FavoriteVerse[];
 }
 
-interface FavoriteStore extends FavoriteState, FavoriteActions {}
+interface FavoriteStore extends FavoriteState, FavoriteActions { }
 
 // Custom storage adapter for Zustand persistence
 const secureStorage = {
@@ -65,20 +65,20 @@ export const useFavoriteStore = create<FavoriteStore>()(
       // Actions
       addFavorite: async (verseId: string, chapterId: string, chapterNumber: string, verseNumber: string, verseText: string) => {
         set({ isLoading: true });
-        
+
         const { favorites } = get();
         const favoriteId = `${chapterNumber}-${verseNumber}`;
-        
+
         // Check if favorite already exists
         const existingFavorite = favorites.find(
           (favorite) => favorite.verseId === verseId
         );
-        
+
         if (existingFavorite) {
           set({ isLoading: false });
           return;
         }
-        
+
         const newFavorite: FavoriteVerse = {
           id: favoriteId,
           verseId,
@@ -88,24 +88,24 @@ export const useFavoriteStore = create<FavoriteStore>()(
           verseText,
           timestamp: Date.now(),
         };
-        
-        set({ 
+
+        set({
           favorites: [...favorites, newFavorite],
-          isLoading: false 
+          isLoading: false
         });
       },
 
       removeFavorite: async (verseId: string) => {
         set({ isLoading: true });
-        
+
         const { favorites } = get();
         const updatedFavorites = favorites.filter(
           (favorite) => favorite.verseId !== verseId
         );
-        
-        set({ 
+
+        set({
           favorites: updatedFavorites,
-          isLoading: false 
+          isLoading: false
         });
       },
 
@@ -122,10 +122,10 @@ export const useFavoriteStore = create<FavoriteStore>()(
           .filter((favorite) => favorite.chapterId === chapterId)
           .sort((a, b) => {
             // Convert Language numerals to numbers for sorting
-            const aNum = parseInt(a.verseNumber.replace(/[০-৯]/g, (match) => 
+            const aNum = parseInt(a.verseNumber.replace(/[০-৯]/g, (match) =>
               String.fromCharCode(match.charCodeAt(0) - '০'.charCodeAt(0) + '0'.charCodeAt(0))
             ));
-            const bNum = parseInt(b.verseNumber.replace(/[০-৯]/g, (match) => 
+            const bNum = parseInt(b.verseNumber.replace(/[০-৯]/g, (match) =>
               String.fromCharCode(match.charCodeAt(0) - '০'.charCodeAt(0) + '0'.charCodeAt(0))
             ));
             return aNum - bNum;
@@ -134,9 +134,9 @@ export const useFavoriteStore = create<FavoriteStore>()(
 
       clearAllFavorites: async () => {
         set({ isLoading: true });
-        set({ 
+        set({
           favorites: [],
-          isLoading: false 
+          isLoading: false
         });
       },
 

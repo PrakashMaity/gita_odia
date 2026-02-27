@@ -1,67 +1,121 @@
 {
-    "home": {
-        "headerTitle": "Srimad Bhagavad Gita",
-        "heroQuote": "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
-        "heroQuotes": [
-            "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
-            "Whenever there is a decline in righteousness and a rise in unrighteousness,\nO Bharata, at that time I manifest myself.",
-            "With mind and intellect established in Me,\nyou shall undoubtedly come to Me."
-        ],
-        "quickActions": "Quick Actions",
-        "menu": "Menu",
-        "pro": "Pro"
+  "home": {
+    "headerTitle": "Srimad Bhagavad Gita",
+    "heroQuote": "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
+    "heroQuotes": [
+      "You have the right to perform your duty, but never to the fruits of your actions.\nNever consider yourself the cause of the results, nor be attached to inaction.",
+      "Whenever there is a decline in righteousness and a rise in unrighteousness,\nO Bharata, at that time I manifest myself.",
+      "With mind and intellect established in Me,\nyou shall undoubtedly come to Me."
+    ],
+    "quickActions": "Quick Actions",
+    "menu": "Menu",
+    "pro": "Pro"
+  },
+  "tabs": {
+    "home": "Home",
+    "chapters": "Chapters",
+    "bookmarks": "Bookmarks",
+    "profile": "Profile"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "share": "Share",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close"
+  },
+  "chapter": {
+    "title": "Chapter",
+    "verses": "Verses",
+    "summary": "Summary",
+    "readNow": "Read Now"
+  },
+  "verse": {
+    "translation": "Translation",
+    "speaker": "Speaker"
+  },
+  "bookmark": {
+    "title": "Bookmarks",
+    "empty": "No bookmarks yet",
+    "added": "Bookmark added",
+    "removed": "Bookmark removed"
+  },
+  "favorite": {
+    "title": "Favorites",
+    "empty": "No favorites yet",
+    "added": "Added to favorites",
+    "removed": "Removed from favorites"
+  },
+  "profile": {
+    "title": "Profile",
+    "settings": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "about": "About Us",
+    "rateApp": "Rate App",
+    "shareApp": "Share App"
+  },
+  "share": {
+    "appTitle": "Srimad Bhagavad Gita",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "speaker": "Speaker",
+    "translation": "Translation",
+    "verseText": "Verse Text",
+    "downloadApp": "Download App",
+    "sharedFrom": "Shared from Gita App",
+    "appDescription": "Srimad Bhagavad Gita - Guide to Life",
+    "appFeatures": "App Features:",
+    "feature1": "• Complete Bhagavad Gita",
+    "feature2": "• Translations for all chapters",
+    "feature3": "• Meaning for all verses",
+    "feature4": "• Meditation & Prayers"
+  },
+  "splash": {
+    "tagline": "Words of Lord Krishna"
+  },
+  "readingTimer": {
+    "status": {
+      "running": "Running...",
+      "paused": "Paused",
+      "completed": "Completed",
+      "ready": "Ready"
     },
-    "tabs": {
-        "home": "Home",
-        "chapters": "Chapters",
-        "bookmarks": "Bookmarks",
-        "profile": "Profile"
+    "sounds": {
+      "none": "No Sound",
+      "bell": "Bell",
+      "chime": "Chime",
+      "om": "Om"
     },
-    "common": {
-        "back": "Back",
-        "next": "Next",
-        "save": "Save",
-        "cancel": "Cancel",
-        "delete": "Delete",
-        "share": "Share",
-        "search": "Search",
-        "loading": "Loading...",
-        "error": "Error",
-        "retry": "Retry",
-        "ok": "OK",
-        "yes": "Yes",
-        "no": "No",
-        "close": "Close"
-    },
-    "chapter": {
-        "title": "Chapter",
-        "verses": "Verses",
-        "summary": "Summary",
-        "readNow": "Read Now"
-    },
-    "verse": {
-        "translation": "Translation",
-        "speaker": "Speaker"
-    },
-    "bookmark": {
-        "title": "Bookmarks",
-        "empty": "No bookmarks yet",
-        "added": "Bookmark added",
-        "removed": "Bookmark removed"
-    },
-    "favorite": {
-        "title": "Favorites",
-        "empty": "No favorites yet",
-        "added": "Added to favorites",
-        "removed": "Removed from favorites"
-    },
-    "profile": {
-        "title": "Profile",
-        "settings": "Settings",
-        "theme": "Theme",
-        "language": "Language",
-        "about": "About Us",
-        "rateApp": "Rate App",
-        "shareApp": "Share App"
-    }
+    "completedMessage": "Sadhana completed successfully"
+  },
+  "weekdays": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dailyReading": {
+    "weeklyStats": "Weekly Stats",
+    "startReading": "Start Reading",
+    "progress": "Progress",
+    "todaysVerse": "Today's Verse"
+  },
+  "subscription": {
+    "supportMission": "Support Our Mission",
+    "startMembership": "Start Membership",
+    "welcomePremium": "Welcome to Premium Membership"
+  }
 }

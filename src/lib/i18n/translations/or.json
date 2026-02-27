@@ -1,65 +1,119 @@
 {
-    "home": {
-        "headerTitle": "ଶ୍ରୀମଦ୍ ଭଗବଦ୍ ଗୀତା",
-        "heroQuote": "କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଳେଷୁ କଦାଚନ।\nମା କର୍ମଫଳହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥",
-        "heroQuotes": [
-            "କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଳେଷୁ କଦାଚନ।\nମା କର୍ମଫଳହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥"
-        ],
-        "quickActions": "ଦ୍ରୁତ କାର୍ଯ୍ୟ",
-        "menu": "ମେନୁ",
-        "pro": "ପ୍ରୋ"
+  "home": {
+    "headerTitle": "ଶ୍ରୀମଦ୍ ଭଗବଦ୍ ଗୀତା",
+    "heroQuote": "କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଳେଷୁ କଦାଚନ।\nମା କର୍ମଫଳହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥",
+    "heroQuotes": [
+      "କର୍ମଣ୍ୟେବାଧିକାରସ୍ତେ ମା ଫଳେଷୁ କଦାଚନ।\nମା କର୍ମଫଳହେତୁର୍ଭୂର୍ମା ତେ ସଙ୍ଗୋସ୍ତ୍ୱକର୍ମଣି॥"
+    ],
+    "quickActions": "ଦ୍ରୁତ କାର୍ଯ୍ୟ",
+    "menu": "ମେନୁ",
+    "pro": "ପ୍ରୋ"
+  },
+  "tabs": {
+    "home": "ହୋମ",
+    "chapters": "ଅଧ୍ୟାୟ",
+    "bookmarks": "ବୁକମାର୍କ",
+    "profile": "ପ୍ରୋଫାଇଲ"
+  },
+  "common": {
+    "back": "ପଛକୁ",
+    "next": "ପରବର୍ତ୍ତୀ",
+    "save": "ସଞ୍ଚୟ",
+    "cancel": "ବାତିଲ",
+    "delete": "ଡିଲିଟ",
+    "share": "ସେୟାର",
+    "search": "ସନ୍ଧାନ",
+    "loading": "ଲୋଡ ହେଉଛି...",
+    "error": "ତ୍ରୁଟି",
+    "retry": "ପୁନଃଚେଷ୍ଟା",
+    "ok": "ଠିକ ଅଛି",
+    "yes": "ହଁ",
+    "no": "ନା",
+    "close": "ବନ୍ଦ"
+  },
+  "chapter": {
+    "title": "ଅଧ୍ୟାୟ",
+    "verses": "ଶ୍ଳୋକ",
+    "summary": "ସାରାଂଶ",
+    "readNow": "ବର୍ତ୍ତମାନ ପଢ଼ନ୍ତୁ"
+  },
+  "verse": {
+    "translation": "ଅନୁବାଦ",
+    "speaker": "ବକ୍ତା"
+  },
+  "bookmark": {
+    "title": "ବୁକମାର୍କ",
+    "empty": "କୌଣସି ବୁକମାର୍କ ନାହିଁ",
+    "added": "ବୁକମାର୍କ ଯୋଡ଼ାଗଲା",
+    "removed": "ବୁକମାର୍କ ହଟାଗଲା"
+  },
+  "favorite": {
+    "title": "ପସନ୍ଦ",
+    "empty": "କୌଣସି ପସନ୍ଦ ନାହିଁ",
+    "added": "ପସନ୍ଦରେ ଯୋଡ଼ାଗଲା",
+    "removed": "ପସନ୍ଦରୁ ହଟାଗଲା"
+  },
+  "profile": {
+    "title": "ପ୍ରୋଫାଇଲ",
+    "settings": "ସେଟିଂସ",
+    "theme": "ଥିମ",
+    "language": "ଭାଷା",
+    "about": "ଆମ ବିଷୟରେ",
+    "rateApp": "ଆପ ରେଟ କରନ୍ତୁ",
+    "shareApp": "ଆପ ସେୟାର କରନ୍ତୁ"
+  },
+  "share": {
+    "appTitle": "Srimad Bhagavad Gita",
+    "chapter": "Chapter",
+    "verse": "Verse",
+    "speaker": "Speaker",
+    "translation": "Translation",
+    "verseText": "Verse Text",
+    "downloadApp": "Download App",
+    "sharedFrom": "Shared from Gita App",
+    "appDescription": "Srimad Bhagavad Gita - Guide to Life",
+    "appFeatures": "App Features:",
+    "feature1": "• Complete Bhagavad Gita",
+    "feature2": "• Translations for all chapters",
+    "feature3": "• Meaning for all verses",
+    "feature4": "• Meditation & Prayers"
+  },
+  "splash": {
+    "tagline": "Words of Lord Krishna"
+  },
+  "readingTimer": {
+    "status": {
+      "running": "Running...",
+      "paused": "Paused",
+      "completed": "Completed",
+      "ready": "Ready"
     },
-    "tabs": {
-        "home": "ହୋମ",
-        "chapters": "ଅଧ୍ୟାୟ",
-        "bookmarks": "ବୁକମାର୍କ",
-        "profile": "ପ୍ରୋଫାଇଲ"
+    "sounds": {
+      "none": "No Sound",
+      "bell": "Bell",
+      "chime": "Chime",
+      "om": "Om"
     },
-    "common": {
-        "back": "ପଛକୁ",
-        "next": "ପରବର୍ତ୍ତୀ",
-        "save": "ସଞ୍ଚୟ",
-        "cancel": "ବାତିଲ",
-        "delete": "ଡିଲିଟ",
-        "share": "ସେୟାର",
-        "search": "ସନ୍ଧାନ",
-        "loading": "ଲୋଡ ହେଉଛି...",
-        "error": "ତ୍ରୁଟି",
-        "retry": "ପୁନଃଚେଷ୍ଟା",
-        "ok": "ଠିକ ଅଛି",
-        "yes": "ହଁ",
-        "no": "ନା",
-        "close": "ବନ୍ଦ"
-    },
-    "chapter": {
-        "title": "ଅଧ୍ୟାୟ",
-        "verses": "ଶ୍ଳୋକ",
-        "summary": "ସାରାଂଶ",
-        "readNow": "ବର୍ତ୍ତମାନ ପଢ଼ନ୍ତୁ"
-    },
-    "verse": {
-        "translation": "ଅନୁବାଦ",
-        "speaker": "ବକ୍ତା"
-    },
-    "bookmark": {
-        "title": "ବୁକମାର୍କ",
-        "empty": "କୌଣସି ବୁକମାର୍କ ନାହିଁ",
-        "added": "ବୁକମାର୍କ ଯୋଡ଼ାଗଲା",
-        "removed": "ବୁକମାର୍କ ହଟାଗଲା"
-    },
-    "favorite": {
-        "title": "ପସନ୍ଦ",
-        "empty": "କୌଣସି ପସନ୍ଦ ନାହିଁ",
-        "added": "ପସନ୍ଦରେ ଯୋଡ଼ାଗଲା",
-        "removed": "ପସନ୍ଦରୁ ହଟାଗଲା"
-    },
-    "profile": {
-        "title": "ପ୍ରୋଫାଇଲ",
-        "settings": "ସେଟିଂସ",
-        "theme": "ଥିମ",
-        "language": "ଭାଷା",
-        "about": "ଆମ ବିଷୟରେ",
-        "rateApp": "ଆପ ରେଟ କରନ୍ତୁ",
-        "shareApp": "ଆପ ସେୟାର କରନ୍ତୁ"
-    }
+    "completedMessage": "Sadhana completed successfully"
+  },
+  "weekdays": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "dailyReading": {
+    "weeklyStats": "Weekly Stats",
+    "startReading": "Start Reading",
+    "progress": "Progress",
+    "todaysVerse": "Today's Verse"
+  },
+  "subscription": {
+    "supportMission": "Support Our Mission",
+    "startMembership": "Start Membership",
+    "welcomePremium": "Welcome to Premium Membership"
+  }
 }
