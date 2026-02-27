@@ -3,6 +3,7 @@ import * as Linking from 'expo-linking';
 import * as Sharing from 'expo-sharing';
 import { Share } from 'react-native';
 import { captureRef } from 'react-native-view-shot';
+import i18n from '../lib/i18n';
 import { storeShareAnalytics } from './shareAnalyticsService';
 
 export interface ShareData {
@@ -35,7 +36,7 @@ export function getPlayStoreUrl(): string {
  * Get formatted download link text
  */
 export function getDownloadLinkText(): string {
-  return `📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;
+  return `📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}`;
 }
 
 /**
@@ -105,7 +106,7 @@ export function formatVerseForWhatsApp(
   chapterNumber: string,
   speaker: string
 ): string {
-  return `*শ্রীমদ্ভগবদগীতা*\n*অধ্যায় ${chapterNumber} - শ্লোক ${verseNumber}*\n\n*বক্তা:* ${speaker}\n\n*শ্লোক:*\n${verseText}\n\n*অনুবাদ:*\n${translation}\n\n_গীতা অ্যাপ থেকে শেয়ার করা হয়েছে_\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;
+  return `*${i18n.t('share.appTitle')}*\n*${i18n.t('share.chapter')} ${chapterNumber} - ${i18n.t('share.verse')} ${verseNumber}*\n\n*${i18n.t('share.speaker')}:* ${speaker}\n\n*${i18n.t('share.verseText')}:*\n${verseText}\n\n*${i18n.t('share.translation')}:*\n${translation}\n\n_${i18n.t('share.sharedFrom')}_\n\n📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}`;
 }
 
 /**
@@ -117,7 +118,7 @@ export function formatTranslationVerseForWhatsApp(
   chapterNumber: string,
   speaker: string
 ): string {
-  return `*শ্রীমদ্ভগবদগীতা*\n*অধ্যায় ${chapterNumber} - শ্লোক ${verseNumber}*\n\n*বক্তা:* ${speaker}\n\n*অনুবাদ:*\n${translation}\n\n_গীতা অ্যাপ থেকে শেয়ার করা হয়েছে_\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;
+  return `*${i18n.t('share.appTitle')}*\n*${i18n.t('share.chapter')} ${chapterNumber} - ${i18n.t('share.verse')} ${verseNumber}*\n\n*${i18n.t('share.speaker')}:* ${speaker}\n\n*${i18n.t('share.translation')}:*\n${translation}\n\n_${i18n.t('share.sharedFrom')}_\n\n📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}`;
 }
 
 /**
@@ -153,7 +154,7 @@ export async function shareVerseAsText(
       try {
         await Share.share({
           message: formattedText,
-          title: 'Share verse',
+          title: i18n.t('common.share'),
         });
         return true;
       } catch (shareError) {
@@ -198,7 +199,7 @@ export async function shareTranslationVerseAsText(
       try {
         await Share.share({
           message: formattedText,
-          title: 'Share translation',
+          title: i18n.t('common.share'),
         });
         return true;
       } catch (shareError) {
@@ -249,7 +250,7 @@ export async function shareTranslationVerseAsImage(
     }, 'image');
 
     // Format message with download link
-    const shareMessage = `*শ্রীমদ্ভগবদগীতা*\n*অধ্যায় ${chapterNumber} - শ্লোক ${verseNumber}*\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;
+    const shareMessage = `*${i18n.t('share.appTitle')}*\n*${i18n.t('share.chapter')} ${chapterNumber} - ${i18n.t('share.verse')} ${verseNumber}*\n\n📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}`;
 
     // Try using expo-sharing first (requires native module, app needs rebuild)
     try {
@@ -257,7 +258,7 @@ export async function shareTranslationVerseAsImage(
       if (isAvailable) {
         await Sharing.shareAsync(uri, {
           mimeType: 'image/png',
-          dialogTitle: 'Share translation as image',
+          dialogTitle: i18n.t('common.share'),
           UTI: 'public.png',
         });
         return true;
@@ -270,7 +271,7 @@ export async function shareTranslationVerseAsImage(
     try {
       const result = await Share.share({
         message: shareMessage,
-        title: 'Share translation',
+        title: i18n.t('common.share'),
       });
       return result.action !== Share.dismissedAction;
     } catch (shareError: any) {
@@ -321,7 +322,7 @@ export async function shareVerseAsImage(
     }, 'image');
 
     // Format message with download link
-    const shareMessage = `*শ্রীমদ্ভগবদগীতা*\n*অধ্যায় ${chapterNumber} - শ্লোক ${verseNumber}*\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}`;
+    const shareMessage = `*${i18n.t('share.appTitle')}*\n*${i18n.t('share.chapter')} ${chapterNumber} - ${i18n.t('share.verse')} ${verseNumber}*\n\n📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}`;
 
     // Try using expo-sharing first (requires native module, app needs rebuild)
     try {
@@ -329,7 +330,7 @@ export async function shareVerseAsImage(
       if (isAvailable) {
         await Sharing.shareAsync(uri, {
           mimeType: 'image/png',
-          dialogTitle: 'Share verse as image',
+          dialogTitle: i18n.t('common.share'),
           UTI: 'public.png',
         });
         return true;
@@ -344,7 +345,7 @@ export async function shareVerseAsImage(
     try {
       const result = await Share.share({
         message: shareMessage,
-        title: 'Share verse',
+        title: i18n.t('common.share'),
       });
       // Return true if shared successfully (not dismissed)
       return result.action !== Share.dismissedAction;

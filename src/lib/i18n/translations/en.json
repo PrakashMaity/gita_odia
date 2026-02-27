@@ -15,7 +15,8 @@
     "home": "Home",
     "chapters": "Chapters",
     "bookmarks": "Bookmarks",
-    "profile": "Profile"
+    "profile": "Profile",
+    "malaJapa": "Malajap"
   },
   "common": {
     "back": "Back",
@@ -31,29 +32,114 @@
     "ok": "OK",
     "yes": "Yes",
     "no": "No",
-    "close": "Close"
+    "close": "Close",
+    "previous": "previous",
+    "skip": "skip",
+    "start": "get started",
+    "continue": "continue",
+    "finish": "finished",
+    "edit": "editing",
+    "settings": "settings",
+    "profile": "profile",
+    "bookmarks": "Bookmark",
+    "favorites": "beloved",
+    "play": "run",
+    "pause": "pause",
+    "stop": "stop it",
+    "volume": "Vol",
+    "progress": "progress",
+    "success": "successful",
+    "warning": "warning",
+    "info": "Information",
+    "noResults": "No results found",
+    "noData": "No data"
   },
   "chapter": {
     "title": "Chapter",
     "verses": "Verses",
     "summary": "Summary",
-    "readNow": "Read Now"
+    "readNow": "Read Now",
+    "loading": "Chapter Loading...",
+    "notFound": "I didn't get the chapter",
+    "chapters": "Chapters",
+    "chaptersLoading": "Loading chapters...",
+    "chapterTitle": "Bhagavad Gita chapters",
+    "chapter": "chapter",
+    "intro": "The Srimad Bhagavad Gita is divided into 18 chapters, containing a total of 700 verses. Each chapter deals with different aspects of life and spiritual teachings. By reading these chapters you will gain deep knowledge of Gita and find the right path in various situations of life.",
+    "statsTitle": "Statistics",
+    "totalChapters": "Total chapter",
+    "totalVerses": "Total verse",
+    "chaptersRead": "Read chapters",
+    "overallProgress": "overall progress",
+    "motivationTitle": "your journey",
+    "motivationText": "By reading each chapter you are gaining deeper knowledge of Gita. Regular reading will take you on the path of spiritual growth.",
+    "startReading": "Start reading",
+    "continueReading": "Continue reading"
   },
   "verse": {
     "translation": "Translation",
-    "speaker": "Speaker"
+    "speaker": "Speaker",
+    "verse": "verse",
+    "chapter": "chapter",
+    "verseNumber": "verse %{number}"
   },
   "bookmark": {
     "title": "Bookmarks",
     "empty": "No bookmarks yet",
     "added": "Bookmark added",
-    "removed": "Bookmark removed"
+    "removed": "Bookmark removed",
+    "add": "Bookmark",
+    "removeTitle": "Remove bookmark",
+    "removeConfirm": "Are you sure you want to remove this verse from bookmarks?",
+    "error": "Problems changing bookmarks",
+    "clearAll": "Remove all bookmarks",
+    "clearAllConfirm": "Are you sure you want to remove all bookmarks?",
+    "clearAllSuccess": "All bookmarks have been removed successfully",
+    "bookmarks": "Bookmark",
+    "totalBookmarks": "Total %{count} bookmarks",
+    "noBookmarks": "No bookmarks",
+    "bookmarkHint": "Bookmark verses while reading chapters",
+    "yourBookmarks": "Your bookmarks",
+    "recentBookmarks": "Recent bookmarks",
+    "keepReading": "Continue reading",
+    "footerMessage": "Read your bookmarked verses regularly and apply the teachings of Gita in your life.",
+    "emptyState": {
+      "title": "No bookmarks",
+      "subtitle": "Bookmark your favorite verses for easy reference later.",
+      "tipsTitle": "How to bookmark",
+      "tip1": "Open any chapter and read the verse",
+      "tip2": "Tap the bookmark icon next to the verse",
+      "tip3": "Bookmarked verses will be saved here",
+      "browseButton": "Browse the chapter",
+      "quote": "Every verse of Gita is a lesson of life. Bookmark your favorite verses and read them regularly."
+    }
   },
   "favorite": {
     "title": "Favorites",
     "empty": "No favorites yet",
     "added": "Added to favorites",
-    "removed": "Removed from favorites"
+    "removed": "Removed from favorites",
+    "add": "beloved",
+    "removeTitle": "Remove from Favorites",
+    "removeConfirm": "Are you sure you want to remove this verse from the favorites list?",
+    "error": "Problem changing favorite verse",
+    "clearAll": "Remove all favorite verses",
+    "clearAllConfirm": "Are you sure you want to remove all favorite verses?",
+    "clearAllSuccess": "All favorite verses have been successfully removed",
+    "favorites": "favorite verse",
+    "totalFavorites": "Total %{count} favorite verses",
+    "noFavorites": "No favorite verse",
+    "favoriteHint": "Favorite the verse while reading the chapter",
+    "emptyState": {
+      "title": "No favorite verse",
+      "subtitle": "Save your favorite verses to heart so you can easily find them and read them regularly.",
+      "tipsTitle": "How to love",
+      "tip1": "Open any chapter and read the verse",
+      "tip2": "Tap the heart icon next to the verse",
+      "tip3": "Favorite verses will be saved here",
+      "browseButton": "Browse the chapter",
+      "quote": "Every verse of the Gita is meant to be memorized. Save your favorite verses and read them regularly so that they bring light into your life."
+    }
   },
   "profile": {
     "title": "Profile",
@@ -62,7 +148,69 @@
     "language": "Language",
     "about": "About Us",
     "rateApp": "Rate App",
-    "shareApp": "Share App"
+    "shareApp": "Share App",
+    "customizeExperience": "Customize your Bhagavad Gita experience",
+    "appearance": "Viewing style",
+    "appearanceDesc": "Customize the look and feel of the app",
+    "darkMode": "Dark mode",
+    "darkModeDesc": "Switch between light and dark themes",
+    "aboutDesc": "App information and help",
+    "appVersion": "App version",
+    "appVersionDesc": "Bhagavad Gita app current version",
+    "sharing": "sharing",
+    "sharingDesc": "View your sharing statistics",
+    "shareStats": "Sharing statistics",
+    "verseShares": "Share the verse",
+    "appShares": "App share",
+    "totalShares": "Total shares",
+    "today": "today",
+    "thisWeek": "this week",
+    "thisMonth": "this month",
+    "shareAppDesc": "Share the app with your friends",
+    "loading": "Loading...",
+    "noShares": "No shares",
+    "total": "total",
+    "refresh": "refresh",
+    "pointsEarned": "points earned",
+    "pointsDesc": "Earn points by sharing and get ad-free experience",
+    "allTime": "forever",
+    "currentPoints": "current point",
+    "expiredPoints": "Expiration point",
+    "totalPointsEarned": "Total points earned",
+    "pointsBreakdown": "Point analysis",
+    "fromVerseShares": "From the verse share",
+    "fromAppShares": "From app share",
+    "pointsWindow": "10 day window",
+    "pointsExpireIn": "Points will expire",
+    "days": "day",
+    "hours": "hours",
+    "points": "point",
+    "redeem": "Redeem",
+    "redeemButton": "redeem",
+    "redeemSuccess": "Successfully redeemed",
+    "redeemError": "Failed to redeem",
+    "redeemInfo": "Point Redeem Information",
+    "redeemConditions": "Redemption Terms",
+    "redeemConditionsDesc": "• 1000 points required to redeem\n• 100 points = 1 day ad-free\n• Points are valid for a 10 day window\n• First day points expire on 11th day",
+    "sharingPointsInfo": "Sharing point information",
+    "sharingPointsDesc": "• 1 verse share = 2 points\n• 1 app share = 10 points\n• Points are valid for 10 days\n• Expiration points are not counted",
+    "adFreeActive": "Activate ad-free",
+    "adFreeRemaining": "remaining time",
+    "adFreeDays": "day",
+    "adFreeHours": "hours",
+    "info": "Information",
+    "rateAppDesc": "Rate our app and share your opinion",
+    "developerMode": "Developer mode",
+    "developerModeDesc": "Turn on/off ads (for developers only)",
+    "developer": "developer",
+    "developerDesc": "Developer settings and tools",
+    "adsStatus": "Ad status",
+    "adsInitialized": "SDK is started",
+    "adsEnabled": "Ads are enabled",
+    "subscription": "subscription",
+    "subscriptionDesc": "Upgrade to Pro mode and unlock all features",
+    "goToPro": "Go Pro",
+    "goToProDesc": "Unlock premium features"
   },
   "share": {
     "appTitle": "Srimad Bhagavad Gita",
@@ -78,7 +226,17 @@
     "feature1": "• Complete Bhagavad Gita",
     "feature2": "• Translations for all chapters",
     "feature3": "• Meaning for all verses",
-    "feature4": "• Meditation & Prayers"
+    "feature4": "• Meditation & Prayers",
+    "title": "Share it",
+    "chooseOption": "Select the sharing method",
+    "asText": "Share as text",
+    "asImage": "Share as picture",
+    "success": "successful",
+    "error": "error",
+    "textShared": "Verses are shared as text",
+    "imageShared": "Verses are shared as images",
+    "shareFailed": "There was a problem sharing",
+    "imageCaptureFailed": "There was a problem capturing the image"
   },
   "splash": {
     "tagline": "Words of Lord Krishna"
@@ -96,7 +254,18 @@
       "chime": "Chime",
       "om": "Om"
     },
-    "completedMessage": "Sadhana completed successfully"
+    "completedMessage": "Sadhana completed successfully",
+    "title": "Lesson timer",
+    "subtitle": "Timer for meditation and reading",
+    "selectDuration": "Select the duration",
+    "minutes": "minutes",
+    "start": "start",
+    "pause": "pause",
+    "resume": "resume",
+    "reset": "reset",
+    "restart": "resume",
+    "completed": "Done!",
+    "completionSound": "complete word"
   },
   "weekdays": {
     "sun": "Sun",
@@ -111,11 +280,1826 @@
     "weeklyStats": "Weekly Stats",
     "startReading": "Start Reading",
     "progress": "Progress",
-    "todaysVerse": "Today's Verse"
+    "todaysVerse": "Today's Verse",
+    "title": "Daily lesson",
+    "subtitle": "Track your lesson progress",
+    "todayVerses": "Today's verse",
+    "totalDays": "total day",
+    "totalVerses": "Total verse",
+    "longestStreak": "longest streak",
+    "streakMessage": "Your {count} days are continuing!",
+    "startMessage": "Start your learning journey today",
+    "statsTitle": "Statistics",
+    "streakLabel": "Continuity of the day",
+    "longestStreakLabel": "Max: {count} days",
+    "motivationTitle": "inspiration"
   },
   "subscription": {
     "supportMission": "Support Our Mission",
     "startMembership": "Start Membership",
-    "welcomePremium": "Welcome to Premium Membership"
+    "welcomePremium": "Welcome to Premium Membership",
+    "title": "Upgrade to Pro",
+    "subtitle": "Unlock all premium features",
+    "monthly": "monthly",
+    "quarterly": "Quarterly",
+    "yearly": "Annually",
+    "lifetime": "whole life",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribe to...",
+    "purchaseSuccess": "Success!",
+    "purchaseSuccessMessage": "You have successfully upgraded to Pro mode",
+    "purchaseError": "Purchase failed",
+    "purchaseErrorMessage": "There was a problem completing the purchase",
+    "testFailure": "Test mode",
+    "testFailureMessage": "This is a simulated purchase failure from the test store. In production, it will be an original purchase.",
+    "purchaseCancelled": "Cancel purchase",
+    "purchaseCancelledMessage": "You have canceled the purchase",
+    "restorePurchases": "Restore purchase",
+    "restoring": "Retrieving...",
+    "restoreSuccess": "successful",
+    "restoreSuccessMessage": "Your purchase has been successfully retrieved",
+    "restoreError": "Recovery failed",
+    "restoreErrorMessage": "There was a problem retrieving the purchase",
+    "alreadyPro": "You're already a pro!",
+    "loading": "Loading...",
+    "bestValue": "Best value",
+    "perMonth": "/month",
+    "perQuarter": "/ quarter",
+    "perYear": "/ year",
+    "choosePlan": "Select the subscription plan",
+    "features": {
+      "title": "Pro features",
+      "adFree": "Ad-free experience",
+      "allFeatures": "All premium features",
+      "prioritySupport": "Priority support",
+      "unlimitedAccess": "Unlimited access"
+    },
+    "plan": "the plan",
+    "status": "status",
+    "active": "active",
+    "inactive": "inactive",
+    "expired": "Expired",
+    "expiresOn": "will expire",
+    "trial": "trial",
+    "renewal": "Renewal",
+    "autoRenewOn": "Auto-renew is enabled",
+    "autoRenewOff": "Turn off auto-renewal",
+    "lifetimeAccess": "Lifetime access",
+    "cancelSubscription": "Cancel subscription",
+    "cancelling": "Canceling...",
+    "managementOpened": "successful",
+    "managementOpenedMessage": "The Subscription Management page opens",
+    "managementUnavailable": "Subscription Management",
+    "cancelError": "the problem",
+    "iosCancelInstructions": "To cancel your subscription, go to Settings > [your name] > Subscriptions",
+    "androidCancelInstructions": "To cancel your subscription, go to Google Play Store > Payments & subscriptions > Subscriptions"
+  },
+  "onboarding": {
+    "skip": "skip",
+    "previous": "previous",
+    "next": "next",
+    "start": "get started",
+    "slides": {
+      "slide1": {
+        "title": "Srimad Bhagavad Gita",
+        "subtitle": "Guide to life",
+        "description": "Srimad Bhagavad Gita occupies a unique place among ancient Hindu scriptures. It is not just a scripture, but a solution to all the problems of life."
+      },
+      "slide2": {
+        "title": "Meditation and thinking",
+        "subtitle": "Repository of spiritual knowledge",
+        "description": "Each verse of the Gita expresses the deeper meaning of life. Here you will find all the essentials for meditation, contemplation and spiritual growth."
+      },
+      "slide3": {
+        "title": "get started",
+        "subtitle": "Your spiritual journey",
+        "description": "Start your spiritual journey now. Be enlightened by the wisdom of Gita and make every moment of life meaningful."
+      }
+    }
+  },
+  "mangalacharan": {
+    "title": "Mangalacharan",
+    "intro": "Mangalacharanas are sacred mantras chanted before reading the Gita. It calms our mind and prepares it for knowledge. The word Mangalacharan is derived from the words 'Mangal' (auspicious) and 'Acharan' (behaviour/manner), which symbolizes auspicious beginnings. Since ancient times, this Mangalacharan is recited before reciting Hindu scriptures, so that the recitation is successful and fruitful.",
+    "significanceTitle": "Importance of Mangalacharan",
+    "significanceText": "Mangalacharana is an essential part of Gita recitation. It marks the auspicious beginning of our spiritual journey. Through these mantras we:\n\n• Pray for God's blessings\n• Calms and settles our mind\n• Pray for wisdom and understanding\n• Prepare yourself for the lesson\n• Pray for the removal of all obstacles\n\nAncient sages believed that no scripture reading is complete without Mangalacharana. It ensures sanctity and success of lessons.",
+    "mantraTitle": "Mangalacharan mantra",
+    "mantraText": "Oh Purnamad: Purnamidang Purnaat Purnamudchyate.\nPurnasya Purnamada Purnamevabashisha.\n\nO peace: peace: peace:\n\nOh Narayanang Namaskritya Narang Chaiva Narottamam.\nDebing Saraswating Vyasong Tato Joymudiroyet.\n\nOm Bhadrang Karnevi: Srinuam Deva:\nBhadrang Pashyamakshaviryajatra:\nSatiyarangaistushtubamsastanuvhi:\nVyashem devahitang yadayu: ॥\n\nO peace: peace: peace:",
+    "mantraBreakdownTitle": "Detailed explanation of the mantra",
+    "mantraBreakdown": {
+      "section1": {
+        "title": "Purnamad: Mantra",
+        "mantra": "Oh Purnamad: Purnamidang Purnaat Purnamudchyate.\nPurnasya Purnamada Purnamevabashisha.",
+        "meaning": "This mantra speaks of the fullness of God. This means:\n\n'Om' - Symbol of Supreme Being\n'Purnmadh' - God is full\n'Purnmidang' - This world is also full\n'purnat purnamudchyate' - origin of purna from purna\n'Purnasya Purnamadaye' - even after taking Purna from Purna\n'Purnmebavashishyate' - remains full\n\nThrough this mantra we understand that God is full, His creation is also full, and He remains full even after something is taken from Him. It symbolizes God's infinity and omnipresence."
+      },
+      "section2": {
+        "title": "Peace Mantra",
+        "mantra": "O peace: peace: peace:",
+        "meaning": "This mantra chants 'Shaanti' three times. The three peaces symbolize the three levels:\n\n• First Shanti – Physical peace (freedom from bodily ailments and sorrows)\n• Second Shanti – Peace of mind (Freedom from mental worries)\n• Third Peace – Spiritual Peace (Peace of soul and union with God)\n\nBy reciting this mantra we pray for peace on all levels."
+      },
+      "section3": {
+        "title": "Narayana Namaskar Mantra",
+        "mantra": "Oh Narayanang Namaskritya Narang Chaiva Narottamam.\nDebing Saraswating Vyasong Tato Joymudiroyet.",
+        "meaning": "We salute the three with this mantra:\n\n'Narayanang Namaskritya' - Salutation to Lord Narayana first\n'Narang Chaiva Narottamam' - then salutations to Narottama (Shri Krishna).\n'Debing Saraswating' - Salutation to Goddess Saraswati (Goddess of Knowledge)\n'Vyasong' - Salute to Maharishi Vedavyas (composer of Gita)\n'Tato Jayamudiroyet' - Then I started reciting the Gita\n\nThrough this mantra we invoke the blessings of all who are required to recite the Gita."
+      },
+      "section4": {
+        "title": "Bhadrang Karnevi: Mantra",
+        "mantra": "Om Bhadrang Karnevi: Srinuam Deva:\nBhadrang Pashyamakshaviryajatra:\nSatiyarangaistushtubamsastanuvhi:\nVyashem devahitang yadayu: ॥",
+        "meaning": "This mantra is taken from the Rigveda. This means:\n\n'Bhadrang karnevih srinuyam' - O gods, we hear auspicious words through our ears.\n'Bhadrang pashyamakshaviryajatra' - we see auspicious sight with our eyes\n'Sthirairangaistustubamsastanuvhi' - we praise you with steady limbs.\n'Vyashem devahitang yadayu' - we get long life which is beneficial to the gods\n\nThrough this mantra we pray for proper use of our senses and long life and good luck."
+      }
+    },
+    "meaningTitle": "summary",
+    "meaningText": "Through Mangalacharana we pray to God that our knowledge, intelligence and strength increase and we can walk on the path of truth. These mantras calm our mind, create a spiritual atmosphere and prepare us for reading the Gita. Each mantra has its own significance and together they form a complete prayer that auspiciously initiates our spiritual journey.",
+    "benefitsTitle": "Benefits of reading Mangalacharana",
+    "benefits": [
+      "Mind calms and settles – By reciting Mangalacharana our mind calms and prepares for Gita recitation",
+      "Spiritual atmosphere is created - A holy and spiritual atmosphere is created by reciting these mantras",
+      "Increases Knowledge and Wisdom - By salutations to Goddess Saraswati and Maharishi Vyasa we pray for knowledge and wisdom.",
+      "Get God's Blessings - By Narayana and Krishna's Namaskar we seek God's blessings.",
+      "Physical and Mental Peace - Through Shanti Mantra we pray for peace on all levels",
+      "Recitation success is assured - Mangalacharan recitation makes Gita recitation successful and fruitful",
+      "Obstacles are removed – By reciting these mantras all obstacles are removed",
+      "Spiritual Upliftment – ​​Spiritual upliftment occurs through regular Mangalacharana readings"
+    ],
+    "instructionsTitle": "Lesson guidance",
+    "instructions": [
+      "Choose a quiet and secluded place - Sit in a quiet, clean and secluded place where you can study undisturbed.",
+      "Sit properly – Sit in Padmasana, Sukhasana or any comfortable asana, keeping your spine straight",
+      "Close your eyes - Close your eyes and take deep breaths and calm yourself down",
+      "Recite carefully - chant each mantra carefully, slowly and clearly",
+      "Meditate on the meaning of the mantra – While reciting each mantra meditate on its meaning and offer devotion to God",
+      "Recite the Shanti Mantra three times – Recite the mantra 'Om Shanti: Shanti: Shanti:' three times, thinking one level of peace each time.",
+      "Recite the complete Mangalacharana - Recite all the mantras completely, do not skip any mantra",
+      "Start Gita recitation after Mangalacharana - After completing Mangalacharana, meditate for a while, then start Gita recitation.",
+      "Recite regularly – Practice reciting Mangalacharan daily before reciting Gita",
+      "Recite with devotion and respect – Maintain devotion, respect and humility while reciting Mangalacharana"
+    ],
+    "historicalContextTitle": "Historical context",
+    "historicalContextText": "The historical context of Mangalacharan is very rich. Mangalacharan is recited before reciting Hindu scriptures since ancient times.\n\n• Vedic Age – Prayers like Mangalacharana were performed even before the recitation of Vedas\n• Epic Age – Mangalacharana was recited before reading Ramayana, Mahabharata\n• Puranic Age – Mangalacharana was recited even before various Puranic texts\n• Modern Age – Mangalacharana is still recited before the reading of Gita, Upanishads and other scriptures.\n\nMaharshi Vedavyas, who composed the Gita, also performed Mangalacharana before his composition. This practice continues today and is an important part of Hinduism.",
+    "spiritualSignificanceTitle": "Spiritual significance",
+    "spiritualSignificanceText": "The spiritual significance of Mangalacharan is immense. It is not just a ritual, but a deep spiritual practice:\n\n• Connection with God – Through Mangalacharan we establish direct connection with God\n• Atmashuddhi – By reciting these mantras our soul is purified\n• Mind concentration – our mind is concentrated by reciting Mangalacharana\n• Expression of Devotion – Through these mantras we express our devotion to God\n• PRAYER OF KNOWLEDGE - By bowing to Goddess Saraswati and Maharishi Vyasa we pray for wisdom\n• Auspicious Beginning – Mangalacharana gives an auspicious beginning to our spiritual journey\n\nFor all these reasons, Mangalacharana is an essential part of Gita recitation and plays an important role in our spiritual growth."
+  },
+  "dhyana": {
+    "title": "meditation",
+    "introTitle": "Meditation and thinking",
+    "introText": "Meditation is an important means of spiritual growth. It calms our mind and helps us connect with the soul. The word dhyana comes from the Sanskrit 'dhyai' dhatu, meaning 'to think' or 'to concentrate'. Meditation is deep concentration on the Supreme, through which we can reconcile our soul with the Supreme. Meditation has been used as a major method of spiritual development since ancient times.",
+    "significanceTitle": "The importance of meditation",
+    "significanceText": "The importance of meditation is immense. It provides multifaceted benefits in our life:\n\n• Spiritual Development – Through meditation we can reconcile the soul with the Supreme Being\n• Peace of Mind – Meditation keeps our mind calm and still\n• Physical fitness – Meditation increases our body's immune system\n• Mental Health – Meditation helps us reduce stress, anxiety and depression\n• Increase concentration – Meditation concentrates our mind and increases efficiency at work\n• Confidence – Meditation increases our confidence and helps us face all the challenges of life\n\nMeditation is not only a spiritual practice, but an essential part of our daily life.",
+    "slokaTitle": "Verses on meditation",
+    "slokaText": "Dhyanang Paramang Brahmani Satchidanandrupini.\nTasmin dhyatrdhyevain vedo nasti kadachan.\n\nDhyanang Monsi Sanstapya Paramatmani Chetsa.\nSarvabhuteshu Chaitanya Samang Pasyati Yogi.\n\nDhyanyogen Monsi Pashanti te Yuganuyugong.\nTasmin dhyatrdhyevain vedo nasti kadachan.",
+    "slokaMeaningTitle": "Detailed explanation of the verse",
+    "slokaMeaningText": "These verses describe the deeper meaning of meditation:\n\n• First verse - Nature of meditation: Meditation is concentration on the Supreme Brahman, who is Satchidanandrupi (the form of Truth, Mind and Joy). When we focus on the Supreme in meditation, there is no distinction between dhyata (the one who meditates) and dheya (the one who is meditated upon).\n\n• Second verse - Results of meditation: When we fix our mind on the Supreme, we see the same consciousness in all living beings. The Yogi sees the same Supreme Being in all beings.\n\n• Third sloka - Vision through meditation: Through meditation we see the Supreme Being in our mind for ages. In meditation there is no distinction between the mind and the mind, we become one with the Supreme.\n\nThese verses convey the deep philosophical significance of meditation.",
+    "meaningTitle": "Synopsis of meditation",
+    "meaningText": "Meditation is concentration on the Supreme Being. When we sit in meditation, our mind calms down and we feel oneness with God. Through meditation we can reconcile our soul with the divine. It is not only a spiritual practice but it is an essential part of our daily life which improves us physically, mentally and spiritually.",
+    "benefitsTitle": "Benefits of Meditation",
+    "benefits": [
+      "Mind calms and settles – Through meditation our mind calms down and we find solutions to all problems in life",
+      "Slows down thinking – Meditation slows down our thinking and focuses our mind",
+      "Increases confidence – Meditation increases our confidence and we can face all the challenges of life",
+      "Reduces stress and anxiety – Meditation helps us reduce stress and anxiety and improves our mental health",
+      "Creativity increases – Meditation increases our creativity and we find new ideas",
+      "Spiritual Elevation Occurs – Through meditation we can unite the soul with the Supreme Being and attain spiritual elevation",
+      "Physical Fitness – Meditation boosts our body's immune system and improves our physical health",
+      "Increases concentration – Meditation concentrates our mind and increases efficiency at work"
+    ],
+    "typesTitle": "Types of meditation",
+    "typesText": "There are different types of meditation, each with its own characteristics and benefits:\n\n• Saguna Dhyana – In this meditation we meditate on specific forms or attributes of God. For example - Krishna meditation, Rama meditation etc.\n\n• Nirguna Dhyana - In this meditation we meditate only on the Supreme Being, without any specific form of God. This is a higher level of meditation.\n\n• Breathing Meditation – In this meditation we focus on our breath. It is a simple and effective method of meditation.\n\n• Mantra Meditation – In this meditation we chant a mantra and concentrate on that mantra.\n\n• Chakra Meditation – In this meditation we focus on the different chakras in our body.\n\nEach type of meditation has its own importance and we can follow any method according to our needs.",
+    "stepsTitle": "Method of meditation",
+    "steps": [
+      "Choose a quiet and secluded place - Sit in a quiet, clean and secluded place where you can meditate undisturbed.",
+      "Sit properly – Sit in Padmasana, Sukhasana or any comfortable asana, keeping your spine straight",
+      "Close your eyes - Close your eyes and take deep breaths and calm yourself down",
+      "Focus the mind on the breath - Focus your mind on the breath and feel the movement of the breath",
+      "When the mind wanders, return to the breath - If your mind wanders, patiently focus on the breath again",
+      "Meditate 10-15 minutes daily - Meditate regularly, start with 5-10 minutes and gradually increase the time.",
+      "End slowly - As you end the meditation, slowly open your eyes and sit quietly for a while",
+      "Practice Regularly – Regular practice is essential to get the benefits of meditation"
+    ],
+    "tipsTitle": "Tips for meditation",
+    "tipsText": "Some important tips for meditation:\n\n• Time Selection – It is best to meditate in the morning or evening, when the environment is calm\n• Location Selection – Select a quiet and secluded location where you can meditate undisturbed\n• Regularity – Regular practice is essential to reap the benefits of meditation\n• Patience – Mastering meditation takes time, so practice patiently\n• Start slowly - Start with 5-10 minutes in the beginning and gradually increase the time\n• Comfortable Seat – Choose a comfortable seat so you can sit for long periods of time\n• Mind wandering - If your mind wanders, consider it normal and patiently refocus\n\nFollowing these tips will help you master meditation.",
+    "historicalContextTitle": "Historical context of meditation",
+    "historicalContextText": "The historical context of meditation is very rich. Meditation has been used as a major method of spiritual development since ancient times:\n\n• Vedic Age – Meditation is mentioned in the Vedas and was considered a major method of spiritual development\n• Upanishad Age – Meditation is described in detail in the Upanishads and was considered a major method of attaining salvation.\n• Gita Yuga – Dhyana Yoga is described in detail in the Gita and was considered a major method of spiritual development.\n• Buddhist Age – Meditation is an essential part of Buddhism and was considered a major method of attaining nirvana\n• Modern Age – Meditation is still used today as a major method of spiritual development and scientific studies have proven its benefits\n\nMeditation is not only an ancient practice, but it is still relevant today and brings positive changes in our lives.",
+    "spiritualSignificanceTitle": "Spiritual significance of meditation",
+    "spiritualSignificanceText": "The spiritual significance of meditation is immense. It is not just a mental exercise, but a deep spiritual process:\n\n• Reconciliation with the Supreme Soul – Through meditation we can reconcile our soul with the Supreme Soul\n• Atmajnana – Through meditation we come to know the true nature of our soul\n• Mokshalava – Through meditation we can be liberated from the cycle of birth and death and attain Mokshalava.\n• Vision of God – Through meditation we can gain vision of God\n• Self-Purification – Through meditation our soul is purified and we get rid of sins\n• Enlightenment – Through meditation we can gain deep knowledge and understand the true meaning of life\n\nFor all these reasons, meditation is an essential means of spiritual growth and an important part of our lives."
+  },
+  "gitaMahatmya": {
+    "title": "Gita-Mahatmya",
+    "intro": "Gita is the essence of all Vedas. It shows the solution to all the problems of life and the path to spiritual progress. Gita-Mahatmya is a description of the greatness and importance of Gita. It tells us about the infinite power and spiritual value of Gita. Ancient scriptures say that by reading, listening and thinking about the Gita, we can get rid of sin, gain merit and salvation.",
+    "significanceTitle": "Importance of Gita-Mahatma",
+    "significanceText": "Gita-Mahatmya is a detailed description of the glories of Gita. This tells us:\n\n• What benefits can we get from reading Gita?\n• What changes come in our lives by listening to Gita\n• How our spiritual growth takes place through Gita meditation\n• How we can get rid of sin and merit by reading Gita\n• How the path to salvation is paved by reading the Gita\n\nGita-Mahatmya informs us about the infinite power of Gita and motivates us to read Gita.",
+    "mahatmyaTitle": "The glory of Gita",
+    "mahatmyaText": "Srikrishnaarjunasambada in Gitasupanisatsu Brahmavidyayang Yogashastra.\nName of Arjunvishadyoga Prothomohadhyaya:\n\nGitashastramidang Punyang Yah Pathettang Narottam.\nGnanabairagyasiddharthang Bhakting Kurban Govinde.\n\nGitaya: Shravanenaiva Samranenaiva or Narah.\nMuchyate sarvapapevyo Vishnulokong sa gachti ॥",
+    "mahatmyaMeaningTitle": "Meaning of Mahima Shloka",
+    "mahatmyaMeaningText": "The glories of Gita are described in these verses:\n\n• First verse - Introduction to Gita: This is the essence of the Upanishads, Brahmavidya and Yoga Shastra, where the dialogue between Krishna and Arjuna takes place.\n\n• Second sloka - Result of reading the Gita: One who reads this holy Gita Shastra and devotes himself to Lord Govinda for knowledge, Vairagya and Siddhi, becomes Narottam (the best man).\n\n• Third verse - Results of hearing and remembering the Gita: One who only hears or remembers the Gita, is freed from all sins and moves to Vishnu.\n\nThese verses reveal the infinite power and importance of Gita.",
+    "benefitsTitle": "Benefits of reading Gita",
+    "benefits": [
+      "Absolution and Merit - By reciting the Gita we are freed from all sins and gain merit",
+      "Enhancement of Knowledge and Intelligence – Reading the Gita enhances our knowledge and intelligence and helps us understand the true meaning of life",
+      "Mind calms and settles - By reciting Gita our mind calms and we find solutions to all problems of life",
+      "Spiritual growth takes place - Reading the Gita guides us to spiritual growth and we come closer to God",
+      "Solution to all the problems of life - Gita gives us the solution to all the problems of life and helps us to follow the right path",
+      "The Path to Salvation is Smooth - By reciting the Gita the path to salvation is smooth and we can be freed from the cycle of birth and death.",
+      "Removes fear and anxiety - Reading the Gita removes our fear and anxiety and increases our confidence",
+      "Shows the Right Path of Karma - The Gita teaches us Niskam Karma and shows the right path of Karma"
+    ],
+    "readingBenefitsTitle": "Special benefits of reading Gita",
+    "readingBenefitsText": "Special Benefits of Gita Reading:\n\n• Daily Recitation – Recitation of Gita daily calms our mind and we find solutions to all problems in life\n• Listening - Listening to the Gita concentrates our mind and we can take the teachings of the Gita to heart.\n• Contemplation – Contemplating the Gita sharpens our intellect and we understand the deeper meaning of life\n• Remembrance – Remembrance of Gita keeps the teachings of Gita alive in our mind and we can take right decisions in all situations of life\n\nIn all these ways Gita brings positive changes in our lives.",
+    "historicalContextTitle": "Historical context",
+    "historicalContextText": "The historical context of Gita-Mahatma is very rich. Since ancient times the glories of Gita have been described in various scriptures:\n\n• Narration in Puranas – The glories of Gita are described in detail in various Puranas\n• References in the Mahabharata – The origin of the Gita and its importance are described in the Mahabharata\n• Support in the Upanishads - Upanishads support the teachings of the Gita\n• Modern Age – Even today millions of people are getting spiritual progress through reading Gita\n\nThe Gita-Mahatmya tells us that the Gita is not just a scripture, but a complete philosophy of life that is relevant to all ages.",
+    "spiritualSignificanceTitle": "Spiritual significance",
+    "spiritualSignificanceText": "The spiritual significance of Gita-Mahatma is immense. This tells us:\n\n• Infinite Power of Gita - By reading, listening and meditating on Gita we can get rid of sin, gain merit and salvation.\n• Elevation of soul – Reading Gita improves our soul and we come closer to the Supreme Soul\n• Meaning of Life – Gita helps us understand the true meaning of life and teaches us to follow the right path\n• Philosophy of Karma – The Gita teaches us Niskam Karma and shows the right path of Karma\n• The Path of Bhakti – The Gita teaches us Bhakti Yoga and shows the path of attaining God through Bhakti\n• The Path of Knowledge – The Gita teaches us about Jnanyoga and shows the path to salvation through knowledge\n\nFor all these reasons, Gita-Mahatmya informs us about the infinite power of Gita and motivates us to read Gita."
+  },
+  "gitaSummary": {
+    "title": "Summary of the Gita",
+    "intro": "Gita is a holy book divided into 18 chapters. Each chapter contains deep teachings about different aspects of life. Here is a brief description of the main content of each chapter. The Srimad Bhagavad Gita is a part of the Mahabharata, in which Lord Krishna answers life's deepest questions to Arjuna. It is not just a scripture, but a complete philosophy of life that guides us to spiritual progress through action, meditation, knowledge and devotion.",
+    "significanceTitle": "Importance of Gita",
+    "significanceText": "Srimad Bhagavad Gita is one of the most important scriptures of Hinduism. It provides solutions to all problems of life:\n\n• Karma Yoga – Spiritual advancement through selfless action\n• Jnanyoga - salvation through knowledge\n• Bhaktiyoga - Attainment of God through devotion\n• Dhyanayoga – self-restraint through meditation\n\nThe Gita teaches us what our duty is in every situation of life and how we should walk the right path. It is not only for spiritual development but also guides us in all aspects of daily life.",
+    "structureTitle": "Composition of Gita",
+    "structureText": "The Gita is divided into 18 chapters, each dealing with a particular topic:\n\n• First 6 Chapters - Karma Yoga and Importance of Karma\n• Next 6 Chapters - Bhakti Yoga and Nature of God\n• Last 6 Chapters - Path to Enlightenment and Salvation\n\nIn total 700 verses Gita answers all the questions of our life. Each chapter contains deep philosophical thoughts that help us understand the meaning of life.",
+    "importanceTitle": "Importance of reading Gita",
+    "importanceText": "The importance of reading the Gita is immense. This is our:\n\n• Helps to understand the true meaning of life\n• Teaches proper balance between actions and results\n• Speaks of the immortality of the soul and the omnipresence of God\n• Teaches observance of religion in all circumstances\n• Shows the way to salvation\n• Helps keep the mind calm and steady\n\nDaily reading of Gita calms our mind, sharpens our intellect and we find solutions to all problems of life.",
+    "chapters": {
+      "1": {
+        "title": "Arjun Bishad Yoga",
+        "summary": "Arjuna's anguish on the eve of the Kurukshetra battle and Krishna's advice begins."
+      },
+      "2": {
+        "title": "numerology",
+        "summary": "Basic teachings about karma yoga, jnana yoga and immortality of soul."
+      },
+      "3": {
+        "title": "karma yoga",
+        "summary": "Path of spiritual progress through selfless action."
+      },
+      "4": {
+        "title": "Jnankarma Sannyasyoga",
+        "summary": "Combination of knowledge and action and various methods of yoga."
+      },
+      "5": {
+        "title": "Karma Sannyasyoga",
+        "summary": "Difference and Synthesis between Karmaatya and Karmayoga."
+      },
+      "6": {
+        "title": "meditation",
+        "summary": "Teaching self-control through meditation and yoga."
+      },
+      "7": {
+        "title": "Knowledge",
+        "summary": "God's nature and path to Godliness through devotion."
+      },
+      "8": {
+        "title": "Akshara Brahma Yoga",
+        "summary": "Meditation on God and remembrance of God at the time of death."
+      },
+      "9": {
+        "title": "Rajvidyarajaguhyoga",
+        "summary": "The glory of God's omnipresence and devotion."
+      },
+      "10": {
+        "title": "Vibhutioga",
+        "summary": "Description of God's riches and majesty."
+      },
+      "11": {
+        "title": "Worldview",
+        "summary": "Krishna's universal vision and Arjuna's fear."
+      },
+      "12": {
+        "title": "Bhakti Yoga",
+        "summary": "Excellence of Bhakti Yoga and Qualities of Devotees."
+      },
+      "13": {
+        "title": "Kshetrakshetra knowledge",
+        "summary": "Difference between kshetra and kshetrajna and quality of nature."
+      },
+      "14": {
+        "title": "Gunatrayavibhagayoga",
+        "summary": "Description of sattva, rajah and tama qualities and path to liberation."
+      },
+      "15": {
+        "title": "Purushottam Yoga",
+        "summary": "Ashwaththa is the metaphor of the tree and the embodiment of the Supreme Being."
+      },
+      "16": {
+        "title": "Daily Assets Division",
+        "summary": "Difference between divine and demonic nature."
+      },
+      "17": {
+        "title": "Respect",
+        "summary": "Description of three types of reverence and penance."
+      },
+      "18": {
+        "title": "Mokshasannyasyoga",
+        "summary": "Synopsis of Gita and means of salvation."
+      }
+    },
+    "teachingsTitle": "Basic teachings of Gita",
+    "teachings": [
+      "Spiritual progress through selfless action",
+      "Attainment of God through Bhakti Yoga",
+      "Immortality of soul and omnipresence of God",
+      "Practicing religion in all situations of life"
+    ]
+  },
+  "menu": {
+    "prayers": "prayer",
+    "chapters": "chapter",
+    "features": "characteristics",
+    "extra": "other",
+    "mangalacharan": "Mangalacharan",
+    "mangalacharanDesc": "Mangalacharan before reading Gita",
+    "dhyana": "meditation",
+    "dhyanaDesc": "Meditation and thinking",
+    "malaJapa": "Malajap",
+    "malaJapaDesc": "Chant with digital mala",
+    "krishnaMantras": "Krishna Mantra",
+    "krishnaMantrasDesc": "All Krishna mantras, rules and procedures",
+    "allChapters": "All chapters",
+    "allChaptersDesc": "All 18 chapters",
+    "translations": "Bengali translation",
+    "translationsDesc": "Bengali translation of all chapters",
+    "favorites": "favorite verse",
+    "favoritesDesc": "Your favorite verses",
+    "dailyReading": "Daily lesson",
+    "dailyReadingDesc": "Track your lesson progress",
+    "verseOfTheDay": "Today's verse",
+    "verseOfTheDayDesc": "An inspirational verse every day",
+    "readingTimer": "Lesson timer",
+    "readingTimerDesc": "Timer for meditation and reading",
+    "allEkadashi": "Ekadashi",
+    "allEkadashiDesc": "Detailed information of 24 Ekadashi"
+  },
+  "search": {
+    "placeholder": "Search for...",
+    "searching": "Searching for...",
+    "searchTips": "Search Tips",
+    "minCharacters": "Enter at least 2 characters",
+    "searchIn": "Search in Sanskrit, Bengali or Translation",
+    "tapToGo": "Go directly to the verse by tapping on the result",
+    "sanskrit": "sanskrit",
+    "bengali": "Bangla",
+    "translation": "Translation",
+    "noResults": "No results found",
+    "noResultsFor": "No query found for \"%{query}\".",
+    "foundResults": "%{count} results found"
+  },
+  "progress": {
+    "reset": "Reset progress",
+    "resetSuccess": "This chapter's reading progress has been reset",
+    "resetError": "Problem resetting progress",
+    "loading": "Loading...",
+    "notStarted": "Currently reading has not started",
+    "readingProgress": "reading progress",
+    "lastRead": "Last read: %{date}",
+    "chapterComplete": "Chapter complete"
+  },
+  "theme": {
+    "theme": "theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "pro": {
+    "activationTitle": "Pro Activated!",
+    "activationMessage": "Congratulations! Your 1 Day Pro membership is now active. Enjoy all the pro features!",
+    "badgePreview": "Check out the PRO badge on your home screen!",
+    "upgradeTitle": "Upgrade to PRO",
+    "upgradeMessage": "This content is only available to PRO users. Upgrade to PRO to unlock all premium features and exclusive content!",
+    "benefitsTitle": "PRO Features:",
+    "benefit1": "Access to all premium content",
+    "benefit2": "Ad-free experience",
+    "benefit3": "Unlimited access to all features",
+    "upgradeButton": "Upgrade to PRO"
+  },
+  "translations": {
+    "loading": "Loading translation...",
+    "sectionTitle": "Translations of the Bhagavad Gita",
+    "intro": "Bengali translation of every chapter of Bhagavad Gita is available here. These translations present the deep teachings of the Gita and the meaning of each verse in plain language. By reading the translation of each chapter you will understand the depth of knowledge of Gita and apply it in various situations of life.",
+    "motivationTitle": "your journey",
+    "motivationText": "By reading the translation of each chapter you are gaining a deeper understanding of the Gita. The Bengali translation will help you understand the core teachings of the Gita and lead you on the path of spiritual growth."
+  },
+  "searchResults": {
+    "foundResults": "%{count} results found"
+  },
+  "speakers": {
+    "dhritarystra": "Dhritarashtra",
+    "sanjay": "Sanjay",
+    "arjuna": "Arjuna",
+    "parameshwar": "the supreme",
+    "shreebhagwan": "Shri Bhagwan",
+    "duryadhona": "Duryodhana",
+    "shreekrishna": "Shri Krishna"
+  },
+  "malaJapa": {
+    "title": "Malajap",
+    "subtitle": "Chant daily to keep the mind calm.",
+    "currentJapa": "chant",
+    "completedMalas": "complete",
+    "selectMantra": "Select the mantra",
+    "mantras": {
+      "hareKrishna": "Hare Krishna Mahamantra",
+      "hareKrishnaText": "Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Ram Hare Ram Ram Ram Hare Hare",
+      "omNamah": "Om Namo Bhagavata Vasudeva",
+      "omNamahText": "Om Namo Bhagavata Vasudeva",
+      "gitaDhyana": "Gita meditation verse",
+      "gitaDhyanaText": "Om Paramatmane Namah",
+      "custom": "Custom spells",
+      "customText": "omg"
+    },
+    "beadCount": {
+      "27": "27",
+      "54": "54",
+      "108": "108"
+    },
+    "settings": {
+      "title": "settings",
+      "beadSound": "bid word",
+      "mantraAudio": "Mantra Audio",
+      "vibration": "vibration",
+      "backgroundMusic": "Background music"
+    },
+    "reset": "reset",
+    "resetConfirm": "Are you sure you want to reset the chant?",
+    "completeMala": "The garland is complete!",
+    "startJapa": "Start chanting",
+    "focusMode": "Meditation mode"
+  },
+  "krishnaMantras": {
+    "title": "Krishna Mantra",
+    "intro": "Krishna mantras are sacred mantras used to worship Lord Krishna. These mantras are very important for spiritual upliftment, peace of mind and connection with God. Each mantra has its own niyama (niyam) and system (methodology) which if followed correctly will yield maximum results.",
+    "meaningTitle": "Meaning of mantra",
+    "niyomTitle": "rules (rules)",
+    "podhotiTitle": "method (method)",
+    "benefitsTitle": "benefits",
+    "mantras": {
+      "hareKrishna": {
+        "name": "Hare Krishna Mahamantra",
+        "mantraText": "Hare Krishna Hare Krishna\nKrishna Krishna Hare Hare\nHare Ram Hare Ram\nRam Ram Hare Hare",
+        "meaning": "Hare Krishna Mahamantra is the most powerful and popular Krishna mantra. In this mantra the word 'Hare' is an invocation to the power of God, 'Krishna' is the giver of supreme bliss and 'Rama' is supreme bliss. Through this mantra we invoke the grace of Lord Krishna by chanting his name.",
+        "niyom": [
+          "Take a bath every morning and wear clean clothes and chant the mantra",
+          "Before chanting the mantra, sit in front of a picture or idol of Lord Krishna",
+          "Use garlands while chanting mantras (108 chants)",
+          "Do not think about anything else while chanting the mantra, just concentrate on the mantra",
+          "You can chant the mantra out loud or in your mind while chanting",
+          "Maintain devotion and reverence while chanting the mantra",
+          "Do not eat meat, fish, egg, onion, garlic while chanting the mantra",
+          "Do not smoke and drink alcohol while chanting the mantra",
+          "Maintain cleanliness while chanting mantras",
+          "Chant the mantra regularly at the same time every day"
+        ],
+        "podhoti": [
+          "In the morning take a clean bath and take asana",
+          "Sit in front of a picture or idol of Lord Krishna",
+          "Close your eyes and take deep breaths and calm yourself down",
+          "Start chanting the 'Hare Krishna' mantra with the garland in hand",
+          "Touch one mala bead with each chant",
+          "Chant the mantra 108 times (a garland).",
+          "Contemplate the form of Lord Krishna while chanting the mantra",
+          "After chanting the mantra meditate for a while",
+          "Pray to Lord Krishna after chanting the mantra",
+          "After chanting the mantra take prasad"
+        ],
+        "benefits": [
+          "The mind becomes calm and steady",
+          "Spiritual growth takes place",
+          "The grace of Lord Krishna is obtained",
+          "There is freedom from sin",
+          "Happiness and peace come in life",
+          "Reduces stress",
+          "Confidence increases"
+        ]
+      },
+      "omNamah": {
+        "name": "Om Namo Bhagavata Vasudeva",
+        "mantraText": "Om Namo Bhagavata Vasudeva",
+        "meaning": "In this mantra 'Om' symbolizes the Supreme Being, 'Namo' means salutation, 'Bhagvate' means to the Lord and 'Vasudevaya' is a name of Lord Krishna which means 'Dweller of all'. Through this mantra we salute Lord Krishna who resides in all.",
+        "niyom": [
+          "Chant the mantra every morning or evening",
+          "Take a bath and sit clean before chanting the mantra",
+          "Maintain cleanliness while chanting mantras",
+          "Maintain devotion and reverence while chanting the mantra",
+          "Do not think about anything else while chanting the mantra",
+          "You can chant the mantra out loud or in your mind while chanting",
+          "Mala can be used while chanting mantras",
+          "Consume sattvic food during mantra chanting",
+          "Do not smoke and drink alcohol while chanting the mantra",
+          "Chant the mantra regularly every day"
+        ],
+        "podhoti": [
+          "Cleanse yourself by bathing in the morning or evening and take asana",
+          "Sit in front of a picture or idol of Lord Krishna",
+          "Close your eyes and take a deep breath",
+          "Start chanting the mantra 'Om Namo Bhagavate Vasudeva'",
+          "Touch the beads of the mala with each chant",
+          "Chant the mantra 108 times or 1008 times",
+          "Contemplate the form of Lord Krishna while chanting the mantra",
+          "After chanting the mantra meditate for a while",
+          "Pray to Lord Krishna after chanting the mantra",
+          "After chanting the mantra take prasad"
+        ],
+        "benefits": [
+          "The grace of Lord Krishna is obtained",
+          "The mind becomes calm and steady",
+          "Spiritual growth takes place",
+          "Happiness and peace come in life",
+          "There is freedom from sin",
+          "Reduces stress"
+        ]
+      },
+      "krishnaAshtakam": {
+        "name": "Krishna Ashtakam",
+        "mantraText": "Mardanam of Vasudeva Sutang Devang Kansa Chanu.\nDevaki Parmanandang Krishnang Vande Jagadgurum.\n\nAtsi Pushpa Sankashang Har Nupur Shovitham.\nRatna Kankan Keyurang Krishnang Vande Jagadgurum.\n\nKundlang Charu Hasong Charu Bakhsh: Sthal Sovitham.\nVani Peeth Krita Basang Krishnam Vande Jagadgurum.",
+        "meaning": "Krishna Ashtakam is a hymn consisting of eight verses describing the attributes of Lord Krishna. This hymn praises Lord Krishna as the Guru of the world and describes his form, qualities and pastimes.",
+        "niyom": [
+          "Recite the hymn every morning or evening",
+          "Take a bath and sit clean before reciting the hymns",
+          "Maintain devotion and respect while reciting hymns",
+          "You can recite the hymns aloud or by heart while reciting them",
+          "Contemplate the form of Lord Krishna while reciting the hymns",
+          "Don't think about anything else while reciting the hymns",
+          "Maintain cleanliness while reciting hymns",
+          "Take sattvic food while reciting hymns",
+          "Do not smoke or drink alcohol while reciting hymns",
+          "Recite Stotra regularly every day"
+        ],
+        "podhoti": [
+          "Cleanse yourself by bathing in the morning or evening and take asana",
+          "Sit in front of a picture or idol of Lord Krishna",
+          "Close your eyes and take a deep breath",
+          "Start reciting Krishna Ashtakam Stotra",
+          "Read each verse carefully",
+          "Contemplate the form of Lord Krishna while reciting the hymns",
+          "Meditate for a while after reciting the hymn",
+          "Pray to Lord Krishna after reciting the hymn",
+          "After reciting the hymns, take Prasad",
+          "After the recitation of the hymn observe a moment of silence"
+        ],
+        "benefits": [
+          "The grace of Lord Krishna is obtained",
+          "The mind becomes calm and steady",
+          "Spiritual growth takes place",
+          "Happiness and peace come in life",
+          "One gets knowledge about the qualities of Lord Krishna",
+          "Bhakti increases"
+        ]
+      },
+      "govindam": {
+        "name": "Govindam Adi Purusham",
+        "mantraText": "Govindam Adi Purusham Tamhang Bhajami\nGovindam Adi Purusham Tamhang Bhajami",
+        "meaning": "In this mantra 'Govinda' is a name of Lord Krishna meaning 'protector of cow (cow) and earth' and 'adi purusham' means 'first man'. Through this mantra we worship Lord Krishna as the first man.",
+        "niyom": [
+          "Chant the mantra every morning or evening",
+          "Take a bath and sit clean before chanting the mantra",
+          "Maintain devotion and reverence while chanting the mantra",
+          "Do not think about anything else while chanting the mantra",
+          "You can chant the mantra out loud or in your mind while chanting",
+          "Mala can be used while chanting mantras",
+          "Maintain cleanliness while chanting mantras",
+          "Consume sattvic food during mantra chanting",
+          "Do not smoke and drink alcohol while chanting the mantra",
+          "Chant the mantra regularly every day"
+        ],
+        "podhoti": [
+          "Cleanse yourself by bathing in the morning or evening and take asana",
+          "Sit in front of a picture or idol of Lord Krishna",
+          "Close your eyes and take a deep breath",
+          "Start chanting the mantra 'Govindam Adi Purusham Tamhang Bhajami'",
+          "Touch the beads of the mala with each chant",
+          "Chant the mantra 108 times or 1008 times",
+          "Contemplate the form of Lord Krishna while chanting the mantra",
+          "After chanting the mantra meditate for a while",
+          "Pray to Lord Krishna after chanting the mantra",
+          "After chanting the mantra take prasad"
+        ],
+        "benefits": [
+          "The grace of Lord Krishna is obtained",
+          "The mind becomes calm and steady",
+          "Spiritual growth takes place",
+          "Happiness and peace come in life",
+          "There is freedom from sin",
+          "Reduces stress"
+        ]
+      }
+    }
+  },
+  "verseOfTheDay": {
+    "title": "Today's verse",
+    "subtitle": "An inspirational verse every day",
+    "introTitle": "About today's verse",
+    "introText": "Today's Shloka is a special feature of Gita which brings you a new and inspirational verse every day. A different verse is selected each day, which helps you learn about the deeper teachings of the Gita. These verses will guide you in various situations of life and help in spiritual growth.",
+    "significanceTitle": "Importance of today's verse",
+    "significanceText": "The importance of today's verse is immense. This is our:\n\n• Keeps connected with Gita daily - By reading a new verse every day we stay connected with Gita regularly\n• Guides Life – Each verse guides us in different situations of life\n• Leads to spiritual growth - By regularly reciting shlokas we gain spiritual growth\n• Keeps Mind Calm - Reciting one verse daily keeps our mind calm and still\n• Increases knowledge – Each verse gives us new knowledge\n• Motivates – Each verse gives inspiration in our life and helps us to move on the right path\n\nFor all these reasons, today's verse is an important part of our daily life.",
+    "benefitsTitle": "Benefits of regular reading",
+    "benefitsText": "Benefits of reading today's verse daily:\n\n• Regular Practice – By reciting the Shloka daily we develop the habit of regular practice\n• Connection with Geeta – By reciting shlokas daily we are constantly connected with Geeta\n• Increase in knowledge – Each verse gives us new knowledge and sharpens our intellect\n• Keeping the mind calm - Reciting shloka daily keeps our mind calm and still\n• Spiritual Upliftment – By regularly reciting shlokas we get spiritual upliftment\n• Life Guidance – Each verse guides us through different situations in life\n• Inspiration – Each verse gives inspiration in our life and helps us to move on the right path\n\nPractice reading today's verse regularly to get all these benefits.",
+    "share": "Share it",
+    "shareTitle": "Today's verse",
+    "viewChapter": "See section",
+    "inspirationMessage": "Motivate yourself by reading a verse of Gita every day. Each verse will help you understand the deeper meaning of life and guide you to spiritual growth."
+  },
+  "allEkadashi": {
+    "title": "All Ekadashi",
+    "intro": "Ekadashi is a holy day in the Hindu calendar that falls twice every month - on Krishna Paksha and Shukla Paksha. A total of 24 Ekadashis are celebrated in a year. Each Ekadashi has its own importance and significance. Lord Vishnu is worshiped and fast observed on this day.",
+    "significanceTitle": "Importance of Ekadashi",
+    "significanceText": "Ekadashi is a very important day in Hinduism. On this day:\n\n• Lord Vishnu is specially worshipped\n• Spiritual purification is achieved by fasting\n• Get rid of sin\n• Spiritual growth takes place\n• The mind remains calm and steady\n• Improves health\n\nEach Ekadashi has its own name and significance and each has different results.",
+    "listTitle": "List of 24 Ekadashis",
+    "upcomingTitle": "Upcoming Ekadashi",
+    "upcomingSubtitle": "Next Ekadashi",
+    "benefitsTitle": "benefits",
+    "dateLabel": "the date",
+    "englishDateLabel": "English date",
+    "bengaliDateLabel": "Bengali date",
+    "years": {
+      "1432": {
+        "ekadashiList": [
+          {
+            "name": "পুত্রদা একাদশী",
+            "description": "পৌষ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "10 Jan 2025",
+            "bengaliDate": "২৬ পৌষ ১৪৩১",
+            "dateTimestamp": 1736484540000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          },
+          {
+            "name": "ষষ্ঠীলা একাদশী",
+            "description": "মাঘ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে তিল দান করা হয় এবং সত্যবাদিতা বৃদ্ধি পায়।",
+            "englishDate": "25 Jan 2025",
+            "bengaliDate": "১১ মাঘ ১৪৩১",
+            "dateTimestamp": 1737817260000,
+            "benefits": [
+              "সত্যবাদিতা",
+              "মিথ্যা থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "জয়া একাদশী",
+            "description": "মাঘ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে জয় লাভ হয় এবং ভগবান বিষ্ণুর বিশেষ আশীর্বাদ লাভ হয়।",
+            "englishDate": "8 Feb 2025",
+            "bengaliDate": "২৫ মাঘ ১৪৩১",
+            "dateTimestamp": 1739025900000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "আধ্যাত্মিক শান্তি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "বিজয়া একাদশী",
+            "description": "ফাল্গুন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে বিজয় লাভ হয় এবং সমস্ত বাধা দূর হয়।",
+            "englishDate": "24 Feb 2025",
+            "bengaliDate": "১১ ফাল্গুন ১৪৩১",
+            "dateTimestamp": 1740384840000,
+            "benefits": [
+              "বিজয় লাভ",
+              "বাধা দূর",
+              "সাফল্য"
+            ]
+          },
+          {
+            "name": "আমলকী একাদশী",
+            "description": "ফাল্গুন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে আমলকী গাছের পূজা করা হয় এবং উপবাস পালন করলে দীর্ঘায়ু লাভ হয়।",
+            "englishDate": "10 Mar 2025",
+            "bengaliDate": "২৫ ফাল্গুন ১৪৩১",
+            "dateTimestamp": 1741572840000,
+            "benefits": [
+              "দীর্ঘায়ু",
+              "স্বাস্থ্য উন্নতি",
+              "রোগ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "পাপমোচনী একাদশী",
+            "description": "চৈত্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সমস্ত পাপ থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "26 Mar 2025",
+            "bengaliDate": "১২ চৈত্র ১৪৩১",
+            "dateTimestamp": 1742940900000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক শুদ্ধি",
+              "মোক্ষ লাভ"
+            ]
+          },
+          {
+            "name": "কামদা একাদশী",
+            "description": "চৈত্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইচ্ছা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "8 Apr 2025",
+            "bengaliDate": "২৫ চৈত্র ১৪৩১",
+            "dateTimestamp": 1744126920000,
+            "benefits": [
+              "ইচ্ছা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ লাভ"
+            ]
+          },
+          {
+            "name": "ভারুথিনী একাদশী",
+            "description": "বৈশাখ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে স্বর্গ লাভ হয় এবং দেবতাদের আশীর্বাদ পাওয়া যায়।",
+            "englishDate": "24 Apr 2025",
+            "bengaliDate": "১১ বৈশাখ ১৪৩২",
+            "dateTimestamp": 1745485320000,
+            "benefits": [
+              "স্বর্গ লাভ",
+              "দেবতাদের আশীর্বাদ",
+              "পুণ্য লাভ"
+            ]
+          },
+          {
+            "name": "মোহিনী একাদশী",
+            "description": "বৈশাখ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ এবং উপবাস পালন করলে সমস্ত ইচ্ছা পূরণ হয় এবং মোহ থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "8 May 2025",
+            "bengaliDate": "২৫ বৈশাখ ১৪৩২",
+            "dateTimestamp": 1746687540000,
+            "benefits": [
+              "সমস্ত ইচ্ছা পূরণ",
+              "মহা ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "অপরা একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "23 May 2025",
+            "bengaliDate": "৯ জ্যৈষ্ঠ ১৪৩২",
+            "dateTimestamp": 1748019540000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি",
+              "শান্তি লাভ"
+            ]
+          },
+          {
+            "name": "নির্জলা একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে জল ছাড়াই উপবাস পালন করা হয় এবং এটি অত্যন্ত ফলপ্রসূ।",
+            "englishDate": "7 Jun 2025",
+            "bengaliDate": "২৪ জ্যৈষ্ঠ ১৪৩২",
+            "dateTimestamp": 1749251820000,
+            "benefits": [
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক শুদ্ধি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "যোগিনী একাদশী",
+            "description": "আষাঢ় মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রোগ থেকে মুক্তি পাওয়া যায় এবং স্বাস্থ্যের উন্নতি হয়।",
+            "englishDate": "22 Jun 2025",
+            "bengaliDate": "৮ আষাঢ় ১৪৩২",
+            "dateTimestamp": 1750546620000,
+            "benefits": [
+              "রোগ থেকে মুক্তি",
+              "স্বাস্থ্য উন্নতি",
+              "দীর্ঘায়ু"
+            ]
+          },
+          {
+            "name": "দেবশয়নী একাদশী",
+            "description": "আষাঢ় মাসের শুক্লপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু চার মাসের জন্য নিদ্রা যান। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "6 Jul 2025",
+            "bengaliDate": "২২ আষাঢ় ১৪৩২",
+            "dateTimestamp": 1751816640000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "কামিকা একাদশী",
+            "description": "শ্রাবণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে কামনা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "21 Jul 2025",
+            "bengaliDate": "৬ শ্রাবণ ১৪৩২",
+            "dateTimestamp": 1753070880000,
+            "benefits": [
+              "কামনা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ"
+            ]
+          },
+          {
+            "name": "শ্রাবণ পুত্রদা একাদশী",
+            "description": "শ্রাবণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "5 Aug 2025",
+            "bengaliDate": "২০ শ্রাবণ ১৪৩২",
+            "dateTimestamp": 1754379720000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          },
+          {
+            "name": "আজা একাদশী",
+            "description": "ভাদ্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে অন্নদা (খাদ্য প্রদানকারী) হওয়ার আশীর্বাদ লাভ হয়।",
+            "englishDate": "19 Aug 2025",
+            "bengaliDate": "৪ ভাদ্র ১৪৩২",
+            "dateTimestamp": 1755597720000,
+            "benefits": [
+              "অন্নদা হওয়া",
+              "খাদ্যের অভাব নেই",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "পার্শ্ব একাদশী",
+            "description": "ভাদ্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পার্শ্ব (পার্শ্ববর্তী) সুখ লাভ হয়।",
+            "englishDate": "4 Sep 2025",
+            "bengaliDate": "১৯ ভাদ্র ১৪৩২",
+            "dateTimestamp": 1756939860000,
+            "benefits": [
+              "পার্শ্ব সুখ",
+              "আধ্যাত্মিক শান্তি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "ইন্দিরা একাদশী",
+            "description": "আশ্বিন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইন্দ্রিয় নিয়ন্ত্রণ হয় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "17 Sep 2025",
+            "bengaliDate": "১ আশ্বিন ১৪৩২",
+            "dateTimestamp": 1758132540000,
+            "benefits": [
+              "ইন্দ্রিয় নিয়ন্ত্রণ",
+              "আধ্যাত্মিক উন্নতি",
+              "মন শান্তি"
+            ]
+          },
+          {
+            "name": "পাপনকুশা একাদশী",
+            "description": "আশ্বিন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং মোক্ষ লাভ হয়।",
+            "englishDate": "3 Oct 2025",
+            "bengaliDate": "১৭ আশ্বিন ১৪৩২",
+            "dateTimestamp": 1759496520000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "মোক্ষ লাভ",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "রমা একাদশী",
+            "description": "কার্তিক মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রমা (লক্ষ্মী) দেবীর আশীর্বাদ লাভ হয়।",
+            "englishDate": "17 Oct 2025",
+            "bengaliDate": "১ কার্তিক ১৪৩২",
+            "dateTimestamp": 1760679720000,
+            "benefits": [
+              "লক্ষ্মী দেবীর আশীর্বাদ",
+              "ধন-সম্পদ",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "দেবুথানী একাদশী",
+            "description": "কার্তিক মাসের শুক্লপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু নিদ্রা থেকে জাগ্রত হন। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "2 Nov 2025",
+            "bengaliDate": "১৭ কার্তিক ১৪৩২",
+            "dateTimestamp": 1762048860000,
+            "benefits": [
+              "ভগবানের জাগরণ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "উত্তাপনা একাদশী",
+            "description": "অগ্রহায়ণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে উতপন্না (উৎপন্ন) ফলাফল লাভ হয়।",
+            "englishDate": "16 Nov 2025",
+            "bengaliDate": "১ অগ্রহায়ণ ১৪৩২",
+            "dateTimestamp": 1763240820000,
+            "benefits": [
+              "উৎপন্ন ফলাফল",
+              "আধ্যাত্মিক উন্নতি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "মোক্ষদা একাদশী",
+            "description": "অগ্রহায়ণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে মোক্ষ (মুক্তি) লাভ হয়। এটি অত্যন্ত গুরুত্বপূর্ণ একাদশী।",
+            "englishDate": "1 Dec 2025",
+            "bengaliDate": "১৬ অগ্রহায়ণ ১৪৩২",
+            "dateTimestamp": 1764595860000,
+            "benefits": [
+              "মোক্ষ লাভ",
+              "মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "সাফলা একাদশী",
+            "description": "পৌষ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সাফলা (ফলপ্রসূ) ফলাফল লাভ হয়।",
+            "englishDate": "15 Dec 2025",
+            "bengaliDate": "৩০ অগ্রহায়ণ ১৪৩২",
+            "dateTimestamp": 1765813740000,
+            "benefits": [
+              "ফলপ্রসূ ফলাফল",
+              "সাফল্য",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "পুত্রদা একাদশী (পৌষ)",
+            "description": "পৌষ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতেও সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "31 Dec 2025",
+            "bengaliDate": "১৬ পৌষ ১৪৩২",
+            "dateTimestamp": 1767137400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          }
+        ]
+      },
+      "1433": {
+        "ekadashiList": [
+          {
+            "name": "পুত্রদা একাদশী",
+            "description": "মাঘ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "3 Feb 2026",
+            "bengaliDate": "২ মাঘ ১৪৩২",
+            "dateTimestamp": 1768502400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          },
+          {
+            "name": "সত্য একাদশী",
+            "description": "মাঘ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সত্যবাদিতা বৃদ্ধি পায় এবং মিথ্যা কথা থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "18 Feb 2026",
+            "bengaliDate": "১৭ মাঘ ১৪৩২",
+            "dateTimestamp": 1769798400000,
+            "benefits": [
+              "সত্যবাদিতা",
+              "মিথ্যা থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "ভৈমী একাদশী",
+            "description": "ফাল্গুন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ভগবান বিষ্ণুর বিশেষ আশীর্বাদ লাভ হয়।",
+            "englishDate": "4 Mar 2026",
+            "bengaliDate": "১ ফাল্গুন ১৪৩২",
+            "dateTimestamp": 1771008000000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "আধ্যাত্মিক শান্তি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "আমলকী একাদশী",
+            "description": "ফাল্গুন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে আমলকী গাছের পূজা করা হয় এবং উপবাস পালন করলে দীর্ঘায়ু লাভ হয়।",
+            "englishDate": "19 Mar 2026",
+            "bengaliDate": "১৬ ফাল্গুন ১৪৩২",
+            "dateTimestamp": 1772304000000,
+            "benefits": [
+              "দীর্ঘায়ু",
+              "স্বাস্থ্য উন্নতি",
+              "রোগ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "পাপমোচনী একাদশী",
+            "description": "চৈত্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সমস্ত পাপ থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "4 Apr 2026",
+            "bengaliDate": "১ চৈত্র ১৪৩২",
+            "dateTimestamp": 1773686400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক শুদ্ধি",
+              "মোক্ষ লাভ"
+            ]
+          },
+          {
+            "name": "কামদা একাদশী",
+            "description": "চৈত্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইচ্ছা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "19 Apr 2026",
+            "bengaliDate": "১৬ চৈত্র ১৪৩২",
+            "dateTimestamp": 1774982400000,
+            "benefits": [
+              "ইচ্ছা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ লাভ"
+            ]
+          },
+          {
+            "name": "বরুথিনী একাদশী",
+            "description": "বৈশাখ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে স্বর্গ লাভ হয় এবং দেবতাদের আশীর্বাদ পাওয়া যায়।",
+            "englishDate": "3 May 2026",
+            "bengaliDate": "১ বৈশাখ ১৪৩৩",
+            "dateTimestamp": 1776278400000,
+            "benefits": [
+              "স্বর্গ লাভ",
+              "দেবতাদের আশীর্বাদ",
+              "পুণ্য লাভ"
+            ]
+          },
+          {
+            "name": "মহা একাদশী",
+            "description": "বৈশাখ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ এবং উপবাস পালন করলে সমস্ত ইচ্ছা পূরণ হয়।",
+            "englishDate": "18 May 2026",
+            "bengaliDate": "১৬ বৈশাখ ১৪৩৩",
+            "dateTimestamp": 1777574400000,
+            "benefits": [
+              "সমস্ত ইচ্ছা পূরণ",
+              "মহা ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "অপর একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "2 Jun 2026",
+            "bengaliDate": "৩০ বৈশাখ ১৪৩৩",
+            "dateTimestamp": 1778870400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি",
+              "শান্তি লাভ"
+            ]
+          },
+          {
+            "name": "নিরjala একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে জল ছাড়াই উপবাস পালন করা হয় এবং এটি অত্যন্ত ফলপ্রসূ।",
+            "englishDate": "17 Jun 2026",
+            "bengaliDate": "১৫ জ্যৈষ্ঠ ১৪৩৩",
+            "dateTimestamp": 1780166400000,
+            "benefits": [
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক শুদ্ধি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "যোগিনী একাদশী",
+            "description": "আষাঢ় মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রোগ থেকে মুক্তি পাওয়া যায় এবং স্বাস্থ্যের উন্নতি হয়।",
+            "englishDate": "1 Jul 2026",
+            "bengaliDate": "২৯ জ্যৈষ্ঠ ১৪৩৩",
+            "dateTimestamp": 1781462400000,
+            "benefits": [
+              "রোগ থেকে মুক্তি",
+              "স্বাস্থ্য উন্নতি",
+              "দীর্ঘায়ু"
+            ]
+          },
+          {
+            "name": "দেবশয়নী একাদশী",
+            "description": "আষাঢ় মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু চার মাসের জন্য নিদ্রা যান। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "16 Jul 2026",
+            "bengaliDate": "১৩ আষাঢ় ১৪৩৩",
+            "dateTimestamp": 1782758400000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "কামিকা একাদশী",
+            "description": "শ্রাবণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে কামনা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "31 Jul 2026",
+            "bengaliDate": "২৭ আষাঢ় ১৪৩৩",
+            "dateTimestamp": 1784054400000,
+            "benefits": [
+              "কামনা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ"
+            ]
+          },
+          {
+            "name": "পবিত্রোপনা একাদশী",
+            "description": "শ্রাবণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পবিত্রতা লাভ হয় এবং আধ্যাত্মিক শুদ্ধি ঘটে।",
+            "englishDate": "15 Aug 2026",
+            "bengaliDate": "১১ শ্রাবণ ১৪৩৩",
+            "dateTimestamp": 1785350400000,
+            "benefits": [
+              "পবিত্রতা",
+              "আধ্যাত্মিক শুদ্ধি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "অন্নদা একাদশী",
+            "description": "ভাদ্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে অন্নদা (খাদ্য প্রদানকারী) হওয়ার আশীর্বাদ লাভ হয়।",
+            "englishDate": "29 Aug 2026",
+            "bengaliDate": "২৬ শ্রাবণ ১৪৩৩",
+            "dateTimestamp": 1786646400000,
+            "benefits": [
+              "অন্নদা হওয়া",
+              "খাদ্যের অভাব নেই",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "পার্শ্ব একাদশী",
+            "description": "ভাদ্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পার্শ্ব (পার্শ্ববর্তী) সুখ লাভ হয়।",
+            "englishDate": "13 Sep 2026",
+            "bengaliDate": "১০ ভাদ্র ১৪৩৩",
+            "dateTimestamp": 1787942400000,
+            "benefits": [
+              "পার্শ্ব সুখ",
+              "আধ্যাত্মিক শান্তি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "ইন্দ্রিরা একাদশী",
+            "description": "আশ্বিন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইন্দ্রিয় নিয়ন্ত্রণ হয় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "28 Sep 2026",
+            "bengaliDate": "২৪ ভাদ্র ১৪৩৩",
+            "dateTimestamp": 1789238400000,
+            "benefits": [
+              "ইন্দ্রিয় নিয়ন্ত্রণ",
+              "আধ্যাত্মিক উন্নতি",
+              "মন শান্তি"
+            ]
+          },
+          {
+            "name": "পাশাঙ্কুশা একাদশী",
+            "description": "আশ্বিন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং মোক্ষ লাভ হয়।",
+            "englishDate": "12 Oct 2026",
+            "bengaliDate": "৭ আশ্বিন ১৪৩৩",
+            "dateTimestamp": 1790534400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "মোক্ষ লাভ",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "রমা একাদশী",
+            "description": "কার্তিক মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রমা (লক্ষ্মী) দেবীর আশীর্বাদ লাভ হয়।",
+            "englishDate": "27 Oct 2026",
+            "bengaliDate": "২২ আশ্বিন ১৪৩৩",
+            "dateTimestamp": 1791830400000,
+            "benefits": [
+              "লক্ষ্মী দেবীর আশীর্বাদ",
+              "ধন-সম্পদ",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "প্রবোধিনী একাদশী",
+            "description": "কার্তিক মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু নিদ্রা থেকে জাগ্রত হন। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "11 Nov 2026",
+            "bengaliDate": "৬ কার্তিক ১৪৩৩",
+            "dateTimestamp": 1793126400000,
+            "benefits": [
+              "ভগবানের জাগরণ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "উতপন্না একাদশী",
+            "description": "অগ্রহায়ণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে উতপন্না (উৎপন্ন) ফলাফল লাভ হয়।",
+            "englishDate": "25 Nov 2026",
+            "bengaliDate": "২১ কার্তিক ১৪৩৩",
+            "dateTimestamp": 1794422400000,
+            "benefits": [
+              "উৎপন্ন ফলাফল",
+              "আধ্যাত্মিক উন্নতি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "মোক্ষদা একাদশী",
+            "description": "অগ্রহায়ণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে মোক্ষ (মুক্তি) লাভ হয়। এটি অত্যন্ত গুরুত্বপূর্ণ একাদশী।",
+            "englishDate": "10 Dec 2026",
+            "bengaliDate": "৬ অগ্রহায়ণ ১৪৩৩",
+            "dateTimestamp": 1795718400000,
+            "benefits": [
+              "মোক্ষ লাভ",
+              "মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "সাফলা একাদশী",
+            "description": "পৌষ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সাফলা (ফলপ্রসূ) ফলাফল লাভ হয়।",
+            "englishDate": "25 Dec 2026",
+            "bengaliDate": "২১ অগ্রহায়ণ ১৪৩৩",
+            "dateTimestamp": 1797014400000,
+            "benefits": [
+              "ফলপ্রসূ ফলাফল",
+              "সাফল্য",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "পুত্রদা একাদশী (পৌষ)",
+            "description": "পৌষ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতেও সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "9 Jan 2027",
+            "bengaliDate": "৬ পৌষ ১৪৩৩",
+            "dateTimestamp": 1798310400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          }
+        ]
+      },
+      "1434": {
+        "ekadashiList": [
+          {
+            "name": "পুত্রদা একাদশী",
+            "description": "মাঘ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "23 Jan 2027",
+            "bengaliDate": "২ মাঘ ১৪৩৩",
+            "dateTimestamp": 1799606400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          },
+          {
+            "name": "সত্য একাদশী",
+            "description": "মাঘ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সত্যবাদিতা বৃদ্ধি পায় এবং মিথ্যা কথা থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "7 Feb 2027",
+            "bengaliDate": "১৭ মাঘ ১৪৩৩",
+            "dateTimestamp": 1800902400000,
+            "benefits": [
+              "সত্যবাদিতা",
+              "মিথ্যা থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "ভৈমী একাদশী",
+            "description": "ফাল্গুন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ভগবান বিষ্ণুর বিশেষ আশীর্বাদ লাভ হয়।",
+            "englishDate": "22 Feb 2027",
+            "bengaliDate": "১ ফাল্গুন ১৪৩৩",
+            "dateTimestamp": 1802198400000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "আধ্যাত্মিক শান্তি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "আমলকী একাদশী",
+            "description": "ফাল্গুন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে আমলকী গাছের পূজা করা হয় এবং উপবাস পালন করলে দীর্ঘায়ু লাভ হয়।",
+            "englishDate": "9 Mar 2027",
+            "bengaliDate": "১৬ ফাল্গুন ১৪৩৩",
+            "dateTimestamp": 1803494400000,
+            "benefits": [
+              "দীর্ঘায়ু",
+              "স্বাস্থ্য উন্নতি",
+              "রোগ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "পাপমোচনী একাদশী",
+            "description": "চৈত্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সমস্ত পাপ থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "24 Mar 2027",
+            "bengaliDate": "১ চৈত্র ১৪৩৩",
+            "dateTimestamp": 1804790400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক শুদ্ধি",
+              "মোক্ষ লাভ"
+            ]
+          },
+          {
+            "name": "কামদা একাদশী",
+            "description": "চৈত্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইচ্ছা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "8 Apr 2027",
+            "bengaliDate": "১৬ চৈত্র ১৪৩৩",
+            "dateTimestamp": 1806086400000,
+            "benefits": [
+              "ইচ্ছা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ লাভ"
+            ]
+          },
+          {
+            "name": "বরুথিনী একাদশী",
+            "description": "বৈশাখ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে স্বর্গ লাভ হয় এবং দেবতাদের আশীর্বাদ পাওয়া যায়।",
+            "englishDate": "23 Apr 2027",
+            "bengaliDate": "১ বৈশাখ ১৪৩৪",
+            "dateTimestamp": 1807382400000,
+            "benefits": [
+              "স্বর্গ লাভ",
+              "দেবতাদের আশীর্বাদ",
+              "পুণ্য লাভ"
+            ]
+          },
+          {
+            "name": "মহা একাদশী",
+            "description": "বৈশাখ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ এবং উপবাস পালন করলে সমস্ত ইচ্ছা পূরণ হয়।",
+            "englishDate": "7 May 2027",
+            "bengaliDate": "১৬ বৈশাখ ১৪৩৪",
+            "dateTimestamp": 1808678400000,
+            "benefits": [
+              "সমস্ত ইচ্ছা পূরণ",
+              "মহা ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "অপর একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "22 May 2027",
+            "bengaliDate": "৩০ বৈশাখ ১৪৩৪",
+            "dateTimestamp": 1809974400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি",
+              "শান্তি লাভ"
+            ]
+          },
+          {
+            "name": "নিরjala একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে জল ছাড়াই উপবাস পালন করা হয় এবং এটি অত্যন্ত ফলপ্রসূ।",
+            "englishDate": "6 Jun 2027",
+            "bengaliDate": "১৫ জ্যৈষ্ঠ ১৪৩৪",
+            "dateTimestamp": 1811270400000,
+            "benefits": [
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক শুদ্ধি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "যোগিনী একাদশী",
+            "description": "আষাঢ় মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রোগ থেকে মুক্তি পাওয়া যায় এবং স্বাস্থ্যের উন্নতি হয়।",
+            "englishDate": "21 Jun 2027",
+            "bengaliDate": "২৯ জ্যৈষ্ঠ ১৪৩৪",
+            "dateTimestamp": 1812566400000,
+            "benefits": [
+              "রোগ থেকে মুক্তি",
+              "স্বাস্থ্য উন্নতি",
+              "দীর্ঘায়ু"
+            ]
+          },
+          {
+            "name": "দেবশয়নী একাদশী",
+            "description": "আষাঢ় মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু চার মাসের জন্য নিদ্রা যান। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "5 Jul 2027",
+            "bengaliDate": "১৩ আষাঢ় ১৪৩৪",
+            "dateTimestamp": 1813862400000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "কামিকা একাদশী",
+            "description": "শ্রাবণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে কামনা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "20 Jul 2027",
+            "bengaliDate": "২৭ আষাঢ় ১৪৩৪",
+            "dateTimestamp": 1815158400000,
+            "benefits": [
+              "কামনা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ"
+            ]
+          },
+          {
+            "name": "পবিত্রোপনা একাদশী",
+            "description": "শ্রাবণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পবিত্রতা লাভ হয় এবং আধ্যাত্মিক শুদ্ধি ঘটে।",
+            "englishDate": "4 Aug 2027",
+            "bengaliDate": "১১ শ্রাবণ ১৪৩৪",
+            "dateTimestamp": 1816454400000,
+            "benefits": [
+              "পবিত্রতা",
+              "আধ্যাত্মিক শুদ্ধি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "অন্নদা একাদশী",
+            "description": "ভাদ্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে অন্নদা (খাদ্য প্রদানকারী) হওয়ার আশীর্বাদ লাভ হয়।",
+            "englishDate": "18 Aug 2027",
+            "bengaliDate": "২৬ শ্রাবণ ১৪৩৪",
+            "dateTimestamp": 1817750400000,
+            "benefits": [
+              "অন্নদা হওয়া",
+              "খাদ্যের অভাব নেই",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "পার্শ্ব একাদশী",
+            "description": "ভাদ্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পার্শ্ব (পার্শ্ববর্তী) সুখ লাভ হয়।",
+            "englishDate": "2 Sep 2027",
+            "bengaliDate": "১০ ভাদ্র ১৪৩৪",
+            "dateTimestamp": 1819046400000,
+            "benefits": [
+              "পার্শ্ব সুখ",
+              "আধ্যাত্মিক শান্তি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "ইন্দ্রিরা একাদশী",
+            "description": "আশ্বিন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইন্দ্রিয় নিয়ন্ত্রণ হয় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "17 Sep 2027",
+            "bengaliDate": "২৪ ভাদ্র ১৪৩৪",
+            "dateTimestamp": 1820342400000,
+            "benefits": [
+              "ইন্দ্রিয় নিয়ন্ত্রণ",
+              "আধ্যাত্মিক উন্নতি",
+              "মন শান্তি"
+            ]
+          },
+          {
+            "name": "পাশাঙ্কুশা একাদশী",
+            "description": "আশ্বিন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং মোক্ষ লাভ হয়।",
+            "englishDate": "1 Oct 2027",
+            "bengaliDate": "৭ আশ্বিন ১৪৩৪",
+            "dateTimestamp": 1821638400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "মোক্ষ লাভ",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "রমা একাদশী",
+            "description": "কার্তিক মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রমা (লক্ষ্মী) দেবীর আশীর্বাদ লাভ হয়।",
+            "englishDate": "16 Oct 2027",
+            "bengaliDate": "২২ আশ্বিন ১৪৩৪",
+            "dateTimestamp": 1822934400000,
+            "benefits": [
+              "লক্ষ্মী দেবীর আশীর্বাদ",
+              "ধন-সম্পদ",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "প্রবোধিনী একাদশী",
+            "description": "কার্তিক মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু নিদ্রা থেকে জাগ্রত হন। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "31 Oct 2027",
+            "bengaliDate": "৬ কার্তিক ১৪৩৪",
+            "dateTimestamp": 1824230400000,
+            "benefits": [
+              "ভগবানের জাগরণ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "উতপন্না একাদশী",
+            "description": "অগ্রহায়ণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে উতপন্না (উৎপন্ন) ফলাফল লাভ হয়।",
+            "englishDate": "14 Nov 2027",
+            "bengaliDate": "২১ কার্তিক ১৪৩৪",
+            "dateTimestamp": 1825526400000,
+            "benefits": [
+              "উৎপন্ন ফলাফল",
+              "আধ্যাত্মিক উন্নতি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "মোক্ষদা একাদশী",
+            "description": "অগ্রহায়ণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে মোক্ষ (মুক্তি) লাভ হয়। এটি অত্যন্ত গুরুত্বপূর্ণ একাদশী।",
+            "englishDate": "29 Nov 2027",
+            "bengaliDate": "৬ অগ্রহায়ণ ১৪৩৪",
+            "dateTimestamp": 1826822400000,
+            "benefits": [
+              "মোক্ষ লাভ",
+              "মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "সাফলা একাদশী",
+            "description": "পৌষ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সাফলা (ফলপ্রসূ) ফলাফল লাভ হয়।",
+            "englishDate": "14 Dec 2027",
+            "bengaliDate": "২১ অগ্রহায়ণ ১৪৩৪",
+            "dateTimestamp": 1828118400000,
+            "benefits": [
+              "ফলপ্রসূ ফলাফল",
+              "সাফল্য",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "পুত্রদা একাদশী (পৌষ)",
+            "description": "পৌষ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতেও সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "28 Dec 2027",
+            "bengaliDate": "৬ পৌষ ১৪৩৪",
+            "dateTimestamp": 1829414400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          }
+        ]
+      },
+      "1435": {
+        "ekadashiList": [
+          {
+            "name": "পুত্রদা একাদশী",
+            "description": "মাঘ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "12 Jan 2028",
+            "bengaliDate": "২ মাঘ ১৪৩৪",
+            "dateTimestamp": 1830710400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          },
+          {
+            "name": "সত্য একাদশী",
+            "description": "মাঘ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সত্যবাদিতা বৃদ্ধি পায় এবং মিথ্যা কথা থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "27 Jan 2028",
+            "bengaliDate": "১৭ মাঘ ১৪৩৪",
+            "dateTimestamp": 1832006400000,
+            "benefits": [
+              "সত্যবাদিতা",
+              "মিথ্যা থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "ভৈমী একাদশী",
+            "description": "ফাল্গুন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ভগবান বিষ্ণুর বিশেষ আশীর্বাদ লাভ হয়।",
+            "englishDate": "11 Feb 2028",
+            "bengaliDate": "১ ফাল্গুন ১৪৩৪",
+            "dateTimestamp": 1833302400000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "আধ্যাত্মিক শান্তি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "আমলকী একাদশী",
+            "description": "ফাল্গুন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে আমলকী গাছের পূজা করা হয় এবং উপবাস পালন করলে দীর্ঘায়ু লাভ হয়।",
+            "englishDate": "26 Feb 2028",
+            "bengaliDate": "১৬ ফাল্গুন ১৪৩৪",
+            "dateTimestamp": 1834598400000,
+            "benefits": [
+              "দীর্ঘায়ু",
+              "স্বাস্থ্য উন্নতি",
+              "রোগ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "পাপমোচনী একাদশী",
+            "description": "চৈত্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সমস্ত পাপ থেকে মুক্তি পাওয়া যায়।",
+            "englishDate": "12 Mar 2028",
+            "bengaliDate": "১ চৈত্র ১৪৩৪",
+            "dateTimestamp": 1835894400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক শুদ্ধি",
+              "মোক্ষ লাভ"
+            ]
+          },
+          {
+            "name": "কামদা একাদশী",
+            "description": "চৈত্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইচ্ছা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "27 Mar 2028",
+            "bengaliDate": "১৬ চৈত্র ১৪৩৪",
+            "dateTimestamp": 1837190400000,
+            "benefits": [
+              "ইচ্ছা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ লাভ"
+            ]
+          },
+          {
+            "name": "বরুথিনী একাদশী",
+            "description": "বৈশাখ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে স্বর্গ লাভ হয় এবং দেবতাদের আশীর্বাদ পাওয়া যায়।",
+            "englishDate": "11 Apr 2028",
+            "bengaliDate": "১ বৈশাখ ১৪৩৫",
+            "dateTimestamp": 1838486400000,
+            "benefits": [
+              "স্বর্গ লাভ",
+              "দেবতাদের আশীর্বাদ",
+              "পুণ্য লাভ"
+            ]
+          },
+          {
+            "name": "মহা একাদশী",
+            "description": "বৈশাখ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ এবং উপবাস পালন করলে সমস্ত ইচ্ছা পূরণ হয়।",
+            "englishDate": "26 Apr 2028",
+            "bengaliDate": "১৬ বৈশাখ ১৪৩৫",
+            "dateTimestamp": 1839782400000,
+            "benefits": [
+              "সমস্ত ইচ্ছা পূরণ",
+              "মহা ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "অপর একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "10 May 2028",
+            "bengaliDate": "৩০ বৈশাখ ১৪৩৫",
+            "dateTimestamp": 1841078400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "আধ্যাত্মিক উন্নতি",
+              "শান্তি লাভ"
+            ]
+          },
+          {
+            "name": "নিরjala একাদশী",
+            "description": "জ্যৈষ্ঠ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে জল ছাড়াই উপবাস পালন করা হয় এবং এটি অত্যন্ত ফলপ্রসূ।",
+            "englishDate": "25 May 2028",
+            "bengaliDate": "১৫ জ্যৈষ্ঠ ১৪৩৫",
+            "dateTimestamp": 1842374400000,
+            "benefits": [
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক শুদ্ধি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "যোগিনী একাদশী",
+            "description": "আষাঢ় মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রোগ থেকে মুক্তি পাওয়া যায় এবং স্বাস্থ্যের উন্নতি হয়।",
+            "englishDate": "9 Jun 2028",
+            "bengaliDate": "২৯ জ্যৈষ্ঠ ১৪৩৫",
+            "dateTimestamp": 1843670400000,
+            "benefits": [
+              "রোগ থেকে মুক্তি",
+              "স্বাস্থ্য উন্নতি",
+              "দীর্ঘায়ু"
+            ]
+          },
+          {
+            "name": "দেবশয়নী একাদশী",
+            "description": "আষাঢ় মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু চার মাসের জন্য নিদ্রা যান। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "24 Jun 2028",
+            "bengaliDate": "১৩ আষাঢ় ১৪৩৫",
+            "dateTimestamp": 1844966400000,
+            "benefits": [
+              "ভগবানের আশীর্বাদ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "কামিকা একাদশী",
+            "description": "শ্রাবণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে কামনা পূরণ হয় এবং সুখ-সমৃদ্ধি লাভ হয়।",
+            "englishDate": "8 Jul 2028",
+            "bengaliDate": "২৭ আষাঢ় ১৪৩৫",
+            "dateTimestamp": 1846262400000,
+            "benefits": [
+              "কামনা পূরণ",
+              "সুখ-সমৃদ্ধি",
+              "ধন-সম্পদ"
+            ]
+          },
+          {
+            "name": "পবিত্রোপনা একাদশী",
+            "description": "শ্রাবণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পবিত্রতা লাভ হয় এবং আধ্যাত্মিক শুদ্ধি ঘটে।",
+            "englishDate": "23 Jul 2028",
+            "bengaliDate": "১১ শ্রাবণ ১৪৩৫",
+            "dateTimestamp": 1847558400000,
+            "benefits": [
+              "পবিত্রতা",
+              "আধ্যাত্মিক শুদ্ধি",
+              "পাপ থেকে মুক্তি"
+            ]
+          },
+          {
+            "name": "অন্নদা একাদশী",
+            "description": "ভাদ্র মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে অন্নদা (খাদ্য প্রদানকারী) হওয়ার আশীর্বাদ লাভ হয়।",
+            "englishDate": "7 Aug 2028",
+            "bengaliDate": "২৬ শ্রাবণ ১৪৩৫",
+            "dateTimestamp": 1848854400000,
+            "benefits": [
+              "অন্নদা হওয়া",
+              "খাদ্যের অভাব নেই",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "পার্শ্ব একাদশী",
+            "description": "ভাদ্র মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পার্শ্ব (পার্শ্ববর্তী) সুখ লাভ হয়।",
+            "englishDate": "21 Aug 2028",
+            "bengaliDate": "১০ ভাদ্র ১৪৩৫",
+            "dateTimestamp": 1850150400000,
+            "benefits": [
+              "পার্শ্ব সুখ",
+              "আধ্যাত্মিক শান্তি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "ইন্দ্রিরা একাদশী",
+            "description": "আশ্বিন মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে ইন্দ্রিয় নিয়ন্ত্রণ হয় এবং আধ্যাত্মিক উন্নতি ঘটে।",
+            "englishDate": "5 Sep 2028",
+            "bengaliDate": "২৪ ভাদ্র ১৪৩৫",
+            "dateTimestamp": 1851446400000,
+            "benefits": [
+              "ইন্দ্রিয় নিয়ন্ত্রণ",
+              "আধ্যাত্মিক উন্নতি",
+              "মন শান্তি"
+            ]
+          },
+          {
+            "name": "পাশাঙ্কুশা একাদশী",
+            "description": "আশ্বিন মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে পাপ থেকে মুক্তি পাওয়া যায় এবং মোক্ষ লাভ হয়।",
+            "englishDate": "20 Sep 2028",
+            "bengaliDate": "৭ আশ্বিন ১৪৩৫",
+            "dateTimestamp": 1852742400000,
+            "benefits": [
+              "পাপ থেকে মুক্তি",
+              "মোক্ষ লাভ",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "রমা একাদশী",
+            "description": "কার্তিক মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে রমা (লক্ষ্মী) দেবীর আশীর্বাদ লাভ হয়।",
+            "englishDate": "4 Oct 2028",
+            "bengaliDate": "২২ আশ্বিন ১৪৩৫",
+            "dateTimestamp": 1854038400000,
+            "benefits": [
+              "লক্ষ্মী দেবীর আশীর্বাদ",
+              "ধন-সম্পদ",
+              "সমৃদ্ধি"
+            ]
+          },
+          {
+            "name": "প্রবোধিনী একাদশী",
+            "description": "কার্তিক মাসের কৃষ্ণপক্ষে পালিত হয়। এই দিনে ভগবান বিষ্ণু নিদ্রা থেকে জাগ্রত হন। এই একাদশী অত্যন্ত গুরুত্বপূর্ণ।",
+            "englishDate": "19 Oct 2028",
+            "bengaliDate": "৬ কার্তিক ১৪৩৫",
+            "dateTimestamp": 1855334400000,
+            "benefits": [
+              "ভগবানের জাগরণ",
+              "বিশেষ ফলাফল",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "উতপন্না একাদশী",
+            "description": "অগ্রহায়ণ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে উতপন্না (উৎপন্ন) ফলাফল লাভ হয়।",
+            "englishDate": "3 Nov 2028",
+            "bengaliDate": "২১ কার্তিক ১৪৩৫",
+            "dateTimestamp": 1856630400000,
+            "benefits": [
+              "উৎপন্ন ফলাফল",
+              "আধ্যাত্মিক উন্নতি",
+              "ভগবানের আশীর্বাদ"
+            ]
+          },
+          {
+            "name": "মোক্ষদা একাদশী",
+            "description": "অগ্রহায়ণ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে মোক্ষ (মুক্তি) লাভ হয়। এটি অত্যন্ত গুরুত্বপূর্ণ একাদশী।",
+            "englishDate": "18 Nov 2028",
+            "bengaliDate": "৬ অগ্রহায়ণ ১৪৩৫",
+            "dateTimestamp": 1857926400000,
+            "benefits": [
+              "মোক্ষ লাভ",
+              "মুক্তি",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "সাফলা একাদশী",
+            "description": "পৌষ মাসের শুক্লপক্ষে পালিত হয়। এই একাদশীতে উপবাস পালন করলে সাফলা (ফলপ্রসূ) ফলাফল লাভ হয়।",
+            "englishDate": "2 Dec 2028",
+            "bengaliDate": "২১ অগ্রহায়ণ ১৪৩৫",
+            "dateTimestamp": 1859222400000,
+            "benefits": [
+              "ফলপ্রসূ ফলাফল",
+              "সাফল্য",
+              "আধ্যাত্মিক উন্নতি"
+            ]
+          },
+          {
+            "name": "পুত্রদা একাদশী (পৌষ)",
+            "description": "পৌষ মাসের কৃষ্ণপক্ষে পালিত হয়। এই একাদশীতেও সন্তান লাভ হয় এবং সন্তানের মঙ্গল হয়।",
+            "englishDate": "17 Dec 2028",
+            "bengaliDate": "৬ পৌষ ১৪৩৫",
+            "dateTimestamp": 1860518400000,
+            "benefits": [
+              "সন্তান লাভ",
+              "সন্তানের মঙ্গল",
+              "পারিবারিক সুখ"
+            ]
+          }
+        ]
+      }
+    },
+    "instructionsTitle": "Guidelines for Ekadashi Fasting",
+    "instructions": [
+      "Have a light meal in the evening before Ekadashi (Dashmi).",
+      "On Ekadashi morning take bath and wear clean clothes",
+      "Worship Lord Vishnu and chant the mantra",
+      "Observe a complete fast (some people take fruit or milk)",
+      "Avoid lying, anger, greed etc",
+      "Spend time in meditation and prayer",
+      "Read the Gita or chant the Lord's name",
+      "On the next day of Ekadashi (Dwadashi) in the morning perform puja and donate to Brahmins",
+      "Then take sattvic food",
+      "Observe Ekadashi regularly for spiritual upliftment"
+    ]
   }
 }

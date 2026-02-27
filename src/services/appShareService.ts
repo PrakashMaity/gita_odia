@@ -1,16 +1,16 @@
 import * as Linking from 'expo-linking';
 import { Share } from 'react-native';
+import i18n from '../lib/i18n';
 import { storeAppShareAnalytics } from './shareAnalyticsService';
 
 // Play Store download link
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.proninja.bhagavad_gita';
-const APP_STORE_URL = 'https://apps.apple.com/app/id[APP_ID]'; // Update with actual App Store ID when available
 
 /**
  * Format app share message
  */
 function formatAppShareMessage(): string {
-  return `*শ্রীমদ্ভগবদগীতা*\n\nগীতা অ্যাপে আপনি পাবেন:\n\n✨ ১৮টি অধ্যায়ের সম্পূর্ণ পাঠ\n📖 বাংলা অনুবাদ সহ\n🎧 অডিও পাঠ\n📱 সুন্দর ও সহজ ইন্টারফেস\n\n📱 *অ্যাপ ডাউনলোড করুন:*\n${PLAY_STORE_URL}\n\n_গীতা অ্যাপ থেকে শেয়ার করা হয়েছে_`;
+  return `*${i18n.t('share.appTitle')}*\n\n${i18n.t('share.appFeatures')}\n\n✨ ${i18n.t('share.feature1').replace('• ', '')}\n📖 ${i18n.t('share.feature2').replace('• ', '')}\n🎧 ${i18n.t('share.feature3').replace('• ', '')}\n📱 ${i18n.t('share.feature4').replace('• ', '')}\n\n📱 *${i18n.t('share.downloadApp')}:*\n${PLAY_STORE_URL}\n\n_${i18n.t('share.sharedFrom')}_`;
 }
 
 /**
@@ -40,7 +40,7 @@ export async function shareAppToWhatsApp(): Promise<boolean> {
       try {
         const result = await Share.share({
           message: formattedText,
-          title: 'Share App',
+          title: i18n.t('share.title'),
         });
 
         if (result.action !== Share.dismissedAction) {
@@ -72,7 +72,7 @@ export async function shareApp(): Promise<boolean> {
     try {
       const result = await Share.share({
         message: formattedText,
-        title: 'Share App',
+        title: i18n.t('share.title'),
       });
 
       if (result.action !== Share.dismissedAction) {
