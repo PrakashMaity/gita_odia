@@ -1,7 +1,6 @@
 import { useInterstitialAd } from '@/hooks/useInterstitialAd';
-import { useRef } from 'react';
 import { router } from 'expo-router';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 /**
  * Custom hook for chapters operations
@@ -15,7 +14,7 @@ export const useChaptersOperations = () => {
     router.push(`/chapter/${chapterId}`);
 
     chapterOpenCountRef.current += 1;
-    if (chapterOpenCountRef.current % 2 === 0 && isLoaded) {
+    if (isLoaded) {
       showAd();
     }
   }, [isLoaded, showAd]);

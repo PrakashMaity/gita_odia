@@ -36,7 +36,7 @@ export const useFavoriteOperations = () => {
     const englishVerse = convertLanguageToEnglish(verseNumber);
     router.push(`/chapter/${chapterId}?verse=${englishVerse}`);
     openCountRef.current += 1;
-    if (openCountRef.current % 2 === 0 && isLoaded) {
+    if (isLoaded) {
       showAd();
     }
   }, [isLoaded, showAd]);

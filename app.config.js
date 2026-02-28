@@ -61,7 +61,7 @@ const MOBILE_ADS_CONFIG = {
 // ----- App Info (from env) -----
 const APP_INFO = {
   name: process.env.APP_NAME || 'গীতা বাংলা',
-  slug: 'bhagavad_gita',
+  slug: process.env.APP_SLUG || 'bhagavad_gita',
   version: '2.0.0',
   package: process.env.APP_PACKAGE || 'com.proninja.bhagavad_gita',
   bundleIdentifier: process.env.APP_BUNDLE_ID || 'com.proninja.bhagavad-gita',

@@ -63,8 +63,8 @@ export const ChapterDetailScreen: React.FC = () => {
   useEffect(() => {
     if (!chapterData?.verses || currentVerse < 0) return;
 
-    // Show ad after reading 2nd, 4th, 6th verse, etc. (indices 1, 3, 5, ...)
-    const shouldShowAd = (currentVerse + 1) % 2 === 0 && currentVerse >= 1;
+    // Show ad after every verse read (starting from 2nd verse, index 1)
+    const shouldShowAd = currentVerse >= 1;
 
     if (shouldShowAd && !adsShownRef.current.has(currentVerse)) {
       adsShownRef.current.add(currentVerse);

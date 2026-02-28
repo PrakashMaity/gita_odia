@@ -33,12 +33,12 @@ export const useHomeNavigation = () => {
     const currentCount = navigationCountRef.current;
 
     // Increase full-screen ad frequency for non-pro users while navigating from home.
-    if (currentCount % 4 === 0 && isRewardedLoaded) {
+    if (currentCount % 2 === 0 && isRewardedLoaded) {
       showRewardedInterstitialAd();
       return;
     }
 
-    if (currentCount % 2 === 0 && isLoaded) {
+    if (isLoaded) {
       showAd();
     }
   }, [isPro, isLoaded, isRewardedLoaded, showAd, showRewardedInterstitialAd]);
