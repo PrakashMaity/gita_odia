@@ -49,10 +49,10 @@ read -p "Enter choice [1]: " BUILD_TYPE
 BUILD_TYPE=${BUILD_TYPE:-1}
 
 if [ "$BUILD_TYPE" = "1" ]; then
-    BUILD_PROFILE="production"
+    BUILD_PROFILE="${LANG}-production"
     echo -e "${GREEN}Building AAB for Play Store...${NC}"
 elif [ "$BUILD_TYPE" = "2" ]; then
-    BUILD_PROFILE="production-apk"
+    BUILD_PROFILE="${LANG}-apk"
     echo -e "${GREEN}Building APK...${NC}"
 else
     echo -e "${RED}Invalid choice${NC}"
@@ -66,7 +66,7 @@ echo "Profile: $BUILD_PROFILE"
 echo ""
 
 # Run the build
-APP_LANG=$LANG eas build --platform android --profile production
+APP_LANG=$LANG eas build --platform android --profile "$BUILD_PROFILE"
 
 echo ""
 echo -e "${GREEN}✅ Build submitted successfully!${NC}"

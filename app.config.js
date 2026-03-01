@@ -150,6 +150,7 @@ module.exports = function ({ config = {} }) {
 
   return {
     ...config,
+    owner: 'proninja',
     name: APP_INFO.name,
     slug: APP_INFO.slug,
     version: APP_INFO.version,

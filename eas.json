@@ -26,71 +26,138 @@
       },
       "channel": "production"
     },
-    "bn": {
+    "bn-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "bn",
         "APP_ENV": "production"
       },
-      "channel": "bn",
+      "channel": "bn-production",
       "android": {
         "buildType": "apk"
       }
     },
-    "or": {
+    "bn-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "bn",
+        "APP_ENV": "production"
+      },
+      "channel": "bn-production"
+    },
+    "or-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "or",
         "APP_ENV": "production"
       },
-      "channel": "or",
+      "channel": "or-production",
       "android": {
         "buildType": "apk"
       }
     },
-    "hi": {
+    "or-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "or",
+        "APP_ENV": "production"
+      },
+      "channel": "or-production"
+    },
+    "hi-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "hi",
         "APP_ENV": "production"
       },
-      "channel": "hi",
+      "channel": "hi-production",
       "android": {
         "buildType": "apk"
       }
     },
-    "as": {
+    "hi-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "hi",
+        "APP_ENV": "production"
+      },
+      "channel": "hi-production"
+    },
+    "as-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "as",
         "APP_ENV": "production"
       },
-      "channel": "as",
+      "channel": "as-production",
       "android": {
         "buildType": "apk"
       }
     },
-    "gu": {
+    "as-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "as",
+        "APP_ENV": "production"
+      },
+      "channel": "as-production"
+    },
+    "gu-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "gu",
         "APP_ENV": "production"
       },
-      "channel": "gu",
+      "channel": "gu-production",
       "android": {
         "buildType": "apk"
       }
     },
-    "ne": {
+    "gu-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "gu",
+        "APP_ENV": "production"
+      },
+      "channel": "gu-production"
+    },
+    "ne-apk": {
       "extends": "production",
       "env": {
         "APP_LANG": "ne",
         "APP_ENV": "production"
       },
-      "channel": "ne",
+      "channel": "ne-production",
       "android": {
         "buildType": "apk"
       }
+    },
+    "ne-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "ne",
+        "APP_ENV": "production"
+      },
+      "channel": "ne-production"
+    },
+    "en-apk": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "en",
+        "APP_ENV": "production"
+      },
+      "channel": "en-production",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "en-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "en",
+        "APP_ENV": "production"
+      },
+      "channel": "en-production"
     }
   },
   "submit": {
