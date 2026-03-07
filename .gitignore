@@ -50,3 +50,6 @@ android/app/.cxx/
 android/build/
 android/.gradle/
 ios/build/
+
+# Build artifacts
+src/lib/utils/activeClientAssets.ts

@@ -61,6 +61,12 @@ const CLIENTS: Record<string, ClientConfig> = {
         fontFamily: 'NotoSerifTamil',
         scriptDirection: 'ltr',
     },
+    pa: {
+        lang: 'pa',
+        appName: 'Gita Pa',
+        fontFamily: 'NotoSerifGurmukhi',
+        scriptDirection: 'ltr',
+    },
 };
 
 /**

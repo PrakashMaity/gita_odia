@@ -31,7 +31,6 @@ const PATHS = {
     assetsFonts: path.join(ROOT, 'assets/fonts'),
     assetsData: path.join(ROOT, 'assets/Data'),
     dataIndex: path.join(ROOT, 'assets/Data/index.ts'),
-    assetsTs: path.join(ROOT, 'src/lib/utils/assets.ts'),
     i18nDir: path.join(ROOT, 'src/lib/i18n/translations'),
     i18nIndex: path.join(ROOT, 'src/lib/i18n/index.ts'),
     clientConfig: path.join(ROOT, 'src/config/clientConfig.ts'),
@@ -144,7 +143,7 @@ async function collectInput(): Promise<string> {
     if (hasTranslation) console.log(`    🌐 src/lib/i18n/translations/${lang}.json`);
     console.log(`    📄 .env.${lang}.development`);
     console.log(`    📄 .env.${lang}.production`);
-    console.log('    🔧 Entries in: Data/index.ts, i18n/index.ts, assets.ts, clientConfig.ts, eas.json, package.json');
+    console.log('    🔧 Entries in: Data/index.ts, i18n/index.ts, clientConfig.ts, eas.json, package.json');
 
     console.log('');
     const confirm = await ask('⚠️  This is DESTRUCTIVE and cannot be undone. Proceed? (y/N)', 'N');
@@ -249,35 +248,6 @@ function unpatchI18nIndex(lang: string) {
 
     writeText(PATHS.i18nIndex, content);
     console.log('  ✅ Removed import and translations entry');
-}
-
-function unpatchAssetsTs(lang: string) {
-    console.log('\n🔧 Unpatching src/lib/utils/assets.ts...');
-
-    let content = readText(PATHS.assetsTs);
-
-    if (!content.includes(`assets/fonts/${lang}/`)) {
-        console.log(`  ⚠️  Language "${lang}" not found. Skipping.`);
-        return;
-    }
-
-    // Remove LANGUAGE_FONTS entry block
-    const fontsEntryRegex = new RegExp(
-        `\\s*${lang}:\\s*\\{[^}]*assets/fonts/${lang}/[^}]*\\},?\\n`,
-        's'
-    );
-    content = content.replace(fontsEntryRegex, '\n');
-    console.log('  ✅ Removed LANGUAGE_FONTS entry');
-
-    // Remove LANGUAGE_IMAGES entry block
-    const imagesEntryRegex = new RegExp(
-        `\\s*${lang}:\\s*\\{[^}]*assets/images/${lang}/[^}]*\\},?\\n`,
-        's'
-    );
-    content = content.replace(imagesEntryRegex, '\n');
-    console.log('  ✅ Removed LANGUAGE_IMAGES entry');
-
-    writeText(PATHS.assetsTs, content);
 }
 
 function unpatchClientConfig(lang: string) {
@@ -430,7 +400,6 @@ function printSummary(lang: string) {
     console.log('  Unpatched:');
     console.log('    🔧 assets/Data/index.ts');
     console.log('    🔧 src/lib/i18n/index.ts');
-    console.log('    🔧 src/lib/utils/assets.ts');
     console.log('    🔧 src/config/clientConfig.ts');
     console.log('    🔧 eas.json');
     console.log('    🔧 package.json');
@@ -454,7 +423,6 @@ async function main() {
         // Unpatch source files
         unpatchDataIndex(lang);
         unpatchI18nIndex(lang);
-        unpatchAssetsTs(lang);
         unpatchClientConfig(lang);
         unpatchEasJson(lang);
         unpatchPackageJson(lang);

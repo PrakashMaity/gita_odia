@@ -1,0 +1,196 @@
+{
+  "chapter": {
+    "number": "12",
+    "title": "ਅਧਿਆਇ XII",
+    "subtitle": "ਭਗਤੀ-ਯੋਗਾ",
+    "englishTitle": "Bhakti Yoga",
+    "totalVerses": "20",
+    "description": "ਬਾਰ੍ਹਵੇਂ ਅਧਿਆਏ ਵਿੱਚ ਭਗਤੀ-ਯੋਗ ਸਿਖਾਇਆ ਗਿਆ ਹੈ। ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਭਗਵਾਨ ਕ੍ਰਿਸ਼ਨ ਨੇ ਭਗਤੀ ਦੇ ਵੱਖ-ਵੱਖ ਪੱਧਰਾਂ ਅਤੇ ਭਗਤਾਂ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦਾ ਵਰਣਨ ਕੀਤਾ ਹੈ।",
+    "id": "BhaktiYoga12"
+  },
+  "dedication": {
+    "Language": "ਅਭਯਚਰਣਰਬਿਨ੍ਦਾ ਭਕ੍ਤਿਵਿਦਾਨਨ੍ਦ ਸੇਵਾਮੀ",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "And satatyukta that bhaktastvang paryupaste.\nThat Chapyaksharamvyaktang Teshang Ke Yogavittama..1..",
+      "translation": "ਅਰਜੁਨ ਨੇ ਪੁਛਿਆ - ਸਾਰੇ ਭਗਤਾਂ ਵਿਚੋਂ ਸਭ ਤੋਂ ਉੱਤਮ ਯੋਗੀ ਕੌਣ ਹੈ ਜੋ ਤੁਹਾਡੀ ਨਿਰੰਤਰ ਭਗਤੀ ਕਰਦਾ ਹੈ ਅਤੇ ਜੋ ਅਵਿਨਾਸ਼ੀ ਬ੍ਰਾਹਮਣ ਦੀ ਪੂਜਾ ਕਰਦਾ ਹੈ?",
+      "speaker": "ਅਰਜੁਨ",
+      "id": "v1Bhakti12",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Mayabeshya mano that mang nityayukta upasate.\n2.",
+      "translation": "ਸ੍ਰੀ ਭਗਵਾਨ ਨੇ ਕਿਹਾ - ਜੋ ਮੇਰੇ ਵਿਸ਼ੇਸ਼ ਸਰੂਪ 'ਤੇ ਆਪਣਾ ਮਨ ਟਿਕਾਉਂਦੇ ਹਨ ਅਤੇ ਅਸੁਭਾਵਿਕ ਸ਼ਰਧਾ ਨਾਲ ਨਿਰੰਤਰ ਮੇਰੀ ਪੂਜਾ ਕਰਦੇ ਹਨ, ਮੇਰੇ ਵਿਚਾਰ ਵਿੱਚ ਉਹ ਸਭ ਤੋਂ ਮਹਾਨ ਯੋਗੀ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v2Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "That taksharampadhyamvyaktang paryupaste.\n3.",
+      "translation": "ਜੋ, ਸਾਰੀਆਂ ਇੰਦਰੀਆਂ ਨੂੰ ਰੋਕ ਕੇ, ਸਭਨਾਂ ਲਈ ਬਰਾਬਰ ਅਤੇ ਸਭ ਜੀਵਾਂ ਲਈ ਪਰਉਪਕਾਰੀ ਹੋ ਕੇ, ਮੇਰੇ ਚਰਿੱਤਰ ਰਹਿਤ, ਅਨਿਯਮਤ, ਅਵਿਵਹਾਰਕ, ਸਰਵ ਵਿਆਪਕ, ਅਚਨਚੇਤ, ਅਟੱਲ, ਅਚੱਲ, ਅਟੱਲ ਅਤੇ ਅਭੇਦ ਰੂਪ ਦੀ ਉਪਾਸਨਾ ਕਰਦੇ ਹਨ, ਅੰਤ ਵਿੱਚ ਮੈਨੂੰ ਪਾ ਲੈਂਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v3Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Sannyamyendriyagramang Sambuddhaya everywhere.\n4.",
+      "translation": "ਜੋ, ਸਾਰੀਆਂ ਇੰਦਰੀਆਂ ਨੂੰ ਰੋਕ ਕੇ, ਸਭਨਾਂ ਲਈ ਬਰਾਬਰ ਅਤੇ ਸਭ ਜੀਵਾਂ ਲਈ ਪਰਉਪਕਾਰੀ ਹੋ ਕੇ, ਮੇਰੇ ਚਰਿੱਤਰ ਰਹਿਤ, ਅਨਿਯਮਤ, ਅਵਿਵਹਾਰਕ, ਸਰਵ ਵਿਆਪਕ, ਅਚਨਚੇਤ, ਅਟੱਲ, ਅਚੱਲ, ਅਟੱਲ ਅਤੇ ਅਭੇਦ ਰੂਪ ਦੀ ਉਪਾਸਨਾ ਕਰਦੇ ਹਨ, ਅੰਤ ਵਿੱਚ ਮੈਨੂੰ ਪਾ ਲੈਂਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v4Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Kleshohadhiktarestheshampersonsakthachetsam.\nAvyakta hi gati: Dukhang dehvadvirabapyate..5..",
+      "translation": "ਜਿਨ੍ਹਾਂ ਦਾ ਮਨ ਪਰਮਾਤਮਾ ਦੇ ਅਬਿਨਾਸੀ ਸਰੂਪ ਨਾਲ ਜੁੜਿਆ ਹੋਇਆ ਹੈ, ਉਹਨਾਂ ਦਾ ਦੁੱਖ ਵੱਡਾ ਹੈ। ਕਿਉਂਕਿ ਅਵਿਨਾਸ਼ੀ ਦੀ ਪੂਜਾ ਕਰਨ ਨਾਲ ਸਰੀਰਾਂ ਵਾਲੇ ਜੀਵਾਂ ਨੂੰ ਦੁੱਖ ਹੀ ਮਿਲਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v5Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Je tu sarvani karmani moi sannyasya matparah.\n6.",
+      "translation": "ਜੋ ਸਾਰੇ ਕਰਮ ਮੈਨੂੰ ਸਮਰਪਣ ਕਰਦੇ ਹਨ, ਉਹ ਮੇਰਾ ਸਿਮਰਨ ਕਰਦੇ ਹਨ ਅਤੇ ਸ਼ਰਧਾ ਅਤੇ ਸ਼ਰਧਾ ਨਾਲ ਮੇਰੀ ਪੂਜਾ ਕਰਦੇ ਹਨ, ਹੇ ਪਾਰਥ! ਮੈਂ ਛੇਤੀ ਹੀ ਉਹਨਾਂ ਸਾਰੇ ਭਗਤਾਂ ਨੂੰ ਮੌਤ ਦੇ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਛੁਡਾ ਲੈਂਦਾ ਹਾਂ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v6Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Teshamhong Samuddharta Mrutya Samsarsagarat.\nBhabami na chirat partha mayabeshitachetsam..7..",
+      "translation": "ਜੋ ਸਾਰੇ ਕਰਮ ਮੈਨੂੰ ਸਮਰਪਣ ਕਰਦੇ ਹਨ, ਉਹ ਮੇਰਾ ਸਿਮਰਨ ਕਰਦੇ ਹਨ ਅਤੇ ਸ਼ਰਧਾ ਅਤੇ ਸ਼ਰਧਾ ਨਾਲ ਮੇਰੀ ਪੂਜਾ ਕਰਦੇ ਹਨ, ਹੇ ਪਾਰਥ! ਮੈਂ ਛੇਤੀ ਹੀ ਉਹਨਾਂ ਸਾਰੇ ਭਗਤਾਂ ਨੂੰ ਮੌਤ ਦੇ ਸੰਸਾਰ-ਸਮੁੰਦਰ ਤੋਂ ਛੁਡਾ ਲੈਂਦਾ ਹਾਂ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v7Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Mayyeva man adhatswa mzy buddhing niveshay.\n8.",
+      "translation": "ਇਸ ਲਈ ਮੇਰੇ ਵਿੱਚ ਤੁਸੀਂ ਆਪਣਾ ਮਨ ਦੱਬਦੇ ਹੋ ਅਤੇ ਮੇਰੇ ਵਿੱਚ ਤੁਸੀਂ ਆਪਣੀ ਬੁੱਧੀ ਸੌਂਪਦੇ ਹੋ। ਨਤੀਜੇ ਵਜੋਂ ਤੁਸੀਂ ਹਮੇਸ਼ਾਂ ਮੇਰੇ ਨੇੜੇ ਰਹੋਗੇ, ਇਸ ਵਿੱਚ ਕੋਈ ਸ਼ੱਕ ਨਹੀਂ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v8Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Or chittang samadhatung na shaknoshi mzhi stitam.\nअभियोगेजेगेन तथो मामिचापटुग द्णानजयो ..9..",
+      "translation": "ਹੇ ਧਨੰਜੈ! ਜੇਕਰ ਤੁਸੀਂ ਆਪਣੇ ਮਨ ਨੂੰ ਮੇਰੇ ਅੰਦਰ ਸਥਿਰ ਨਹੀਂ ਕਰ ਸਕਦੇ, ਤਾਂ ਅਭਿਆਸ ਦੁਆਰਾ ਮੈਨੂੰ ਪ੍ਰਾਪਤ ਕਰਨ ਦੀ ਇੱਛਾ ਕਰੋ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v9Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Habyayehepyasamarthohasi matkarmaparamo bhava.\nMadarthampi Karmani Kurban Siddhimbapsiasi..10..",
+      "translation": "ਜੇ ਤੁਸੀਂ ਅਭਿਆਸ ਕਰਨ ਤੋਂ ਵੀ ਅਸਮਰੱਥ ਹੋ, ਤਾਂ ਮੇਰੀ ਆਗਿਆਕਾਰੀ ਬਣੋ। ਮੇਰੇ ਲਈ ਕੰਮ ਕਰਨ ਨਾਲ ਵੀ ਤੁਸੀਂ ਸਿੱਧੀ ਪ੍ਰਾਪਤ ਕਰੋਗੇ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v10Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Athaitdapyashaktohsi kartung madyogamashritah.\n11.",
+      "translation": "ਅਤੇ ਜੇਕਰ ਤੁਸੀਂ ਅਜਿਹਾ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ ਹੋ, ਤਾਂ ਸਾਰੇ ਕਰਮ ਮੈਨੂੰ ਸੌਂਪ ਦਿਓ ਅਤੇ ਸੰਜਮ ਨਾਲ ਕਰਮਾਂ ਦੇ ਨਤੀਜੇ ਛੱਡ ਦਿਓ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v11Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Shreyo hi Gnanamavyasajjnaadhyanang speciality.\n12.",
+      "translation": "ਜੇਕਰ ਤੁਸੀਂ ਇਸ ਦਾ ਅਭਿਆਸ ਕਰਨ ਦੇ ਯੋਗ ਨਹੀਂ ਹੋ, ਤਾਂ ਗਿਆਨ ਦਾ ਅਭਿਆਸ ਕਰੋ। ਧਿਆਨ ਗਿਆਨ ਨਾਲੋਂ ਚੰਗਾ ਹੈ ਅਤੇ ਕਰਮ ਛੱਡਣਾ ਸਿਮਰਨ ਨਾਲੋਂ ਬਿਹਤਰ ਹੈ, ਕਿਉਂਕਿ ਇਸ ਤਰ੍ਹਾਂ ਦੇ ਕਰਮ ਛੱਡਣ ਨਾਲ ਸ਼ਾਂਤੀ ਮਿਲਦੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v12Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Advesta sarvabhutanaang Maitra: Karuna and f.\n13.",
+      "translation": "ਜੋ ਸਾਰੇ ਜੀਵਾਂ ਨਾਲ ਵੈਰ-ਵਿਰੋਧ ਤੋਂ ਰਹਿਤ, ਮਿੱਤਰ, ਦਇਆਵਾਨ, ਦਇਆ ਤੋਂ ਰਹਿਤ, ਨਿਰਲੇਪ, ਸੁਖ-ਦੁੱਖ ਵਿੱਚ ਬਰਾਬਰ, ਮੁਆਫ਼ ਕਰਨ ਵਾਲਾ, ਸਦਾ ਸੰਤੁਸ਼ਟ, ਸਦਾ ਭਗਤੀ ਨਾਲ ਜੁੜਿਆ, ਸੁਭਾਅ ਵਿੱਚ ਸੰਜਮ ਵਾਲਾ, ਸੰਕਲਪ ਵਿੱਚ ਦ੍ਰਿੜ੍ਹ ਅਤੇ ਜਿਸ ਦਾ ਮਨ ਅਤੇ ਬੁੱਧੀ ਸਦਾ ਮੇਰੇ ਵਿੱਚ ਸਮਰਪਤ ਹੈ, ਉਹ ਮੇਰਾ ਪਿਆਰਾ ਭਗਤ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v13Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Satisfied: Sattang Yogi Jatatma is determined.\n14.",
+      "translation": "ਜੋ ਸੰਤੁਸ਼ਟ, ਅਡੋਲ ਯੋਗੀ, ਜਾਤਮਾ, ਦ੍ਰਿੜ੍ਹ ਹੈ ਅਤੇ ਜੋ ਆਪਣਾ ਮਨ ਅਤੇ ਬੁੱਧੀ ਮੇਰੇ ਵਿੱਚ ਸਮਰਪਣ ਕਰਦਾ ਹੈ, ਉਹ ਮੇਰਾ ਭਗਤ ਹੈ, ਉਹ ਮੇਰਾ ਪਿਆਰਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v14Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Jasmannodwijte loko lokannodwijte f Jah.\n15.",
+      "translation": "ਜੋ ਕਿਸੇ ਤੋਂ ਦੁਖੀ ਨਹੀਂ ਹੈ, ਜੋ ਕਿਸੇ ਤੋਂ ਦੁਖੀ ਨਹੀਂ ਹੈ ਅਤੇ ਜੋ ਕ੍ਰੋਧ, ਕ੍ਰੋਧ, ਡਰ ਅਤੇ ਚਿੰਤਾ ਤੋਂ ਰਹਿਤ ਹੈ, ਉਹ ਮੈਨੂੰ ਪਿਆਰਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v15Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Anapeksha: Chichirdaksha Udasino Gatvyath:\n16.",
+      "translation": "ਜੋ ਨਿਰਪੱਖ, ਪਵਿਤ੍ਰ, ਨਿਪੁੰਨ, ਨਿਰਲੇਪ, ਬੇ-ਫਿਕਰ ਅਤੇ ਸਾਰੇ ਕਰਮਾਂ ਦੇ ਫਲ ਦਾ ਤਿਆਗ ਕਰਨ ਵਾਲਾ ਹੈ, ਉਹ ਮੇਰਾ ਪਿਆਰਾ ਭਗਤ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v16Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "No jealousy, no desire, no pity, no desire.\n17.",
+      "translation": "ਜਿਸ ਨੂੰ ਪਿਆਰੀਆਂ ਵਸਤੂਆਂ ਦੀ ਪ੍ਰਾਪਤੀ ਦਾ ਦੁੱਖ ਨਹੀਂ ਹੁੰਦਾ ਅਤੇ ਨਾ ਹੀ ਪਿਆਰੀਆਂ ਵਸਤੂਆਂ ਦੀ ਪ੍ਰਾਪਤੀ ਦਾ ਦੁੱਖ ਨਹੀਂ ਹੁੰਦਾ, ਜੋ ਪਿਆਰੀਆਂ ਵਸਤੂਆਂ ਦੇ ਗੁਆਚਣ ਦਾ ਸੋਗ ਨਹੀਂ ਕਰਦਾ, ਅਪ੍ਰਾਪਤ ਚੰਗੀਆਂ ਵਸਤੂਆਂ ਦੀ ਕਾਮਨਾ ਨਹੀਂ ਕਰਦਾ ਅਤੇ ਸਾਰੇ ਚੰਗੇ ਮਾੜੇ ਕਰਮਾਂ ਦਾ ਤਿਆਗ ਕਰਦਾ ਹੈ ਅਤੇ ਜੋ ਭਗਤੀ ਕਰਦਾ ਹੈ, ਉਹ ਮੇਰਾ ਪਿਆਰਾ ਭਗਤ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v17Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Samah Shatrau Ch Mitre Ch Tatha Manapamanyo:\n18.",
+      "translation": "ਜੋ ਮਿੱਤਰ ਅਤੇ ਦੁਸ਼ਮਣ ਬਰਾਬਰ ਹੈ, ਇੱਜ਼ਤ ਅਤੇ ਬੇਇੱਜ਼ਤੀ ਵਿੱਚ ਬਰਾਬਰ ਹੈ, ਠੰਡਾ ਅਤੇ ਗਰਮ, ਖੁਸ਼ ਅਤੇ ਦੁਖੀ ਅਤੇ ਨਿੰਦਿਆ ਅਤੇ ਪ੍ਰਸ਼ੰਸਾਯੋਗ ਹੈ, ਇੱਕ ਵਿਕਾਰ ਤੋਂ ਰਹਿਤ, ਬੋਲਣ ਵਿੱਚ ਸੰਜਮੀ, ਥੋੜ੍ਹੇ ਜਿਹੇ ਲਾਭ ਵਿੱਚ ਸੰਤੁਸ਼ਟ, ਗ੍ਰਹਿਸਥੀ ਤੋਂ ਰਹਿਤ, ਅਤੇ ਜੋ ਅਡੋਲ-ਚਿੱਤ ਅਤੇ ਮੇਰੀ ਪ੍ਰੇਮਮਈ ਸੇਵਾ ਵਿੱਚ ਜੁੜਿਆ ਹੋਇਆ ਹੈ, ਉਹੀ ਮਨੁੱਖ ਮੈਨੂੰ ਪਿਆਰਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v18Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tulyindastutirmauni is satisfied as if kenchit.\n19",
+      "translation": "ਜੋ ਨਿੰਦਿਆ ਅਤੇ ਸਿਫ਼ਤ-ਸਾਲਾਹ ਦੇ ਬਰਾਬਰ ਹੈ, ਮੌਨੀ, ਮਾਨੋ ਸਦਾ ਸੰਤੁਸ਼ਟ, ਅਨਿਕੇਤ, ਅਡੋਲ ਅਤੇ ਸਮਰਪਤ, ਮੇਰਾ ਪਿਆਰਾ ਨਾਰਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v19Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Je tu dharmamritamidang yathoktang paryupasate.\nShraddhana matparama bhaktastehatib me priya:..20..",
+      "translation": "ਮੇਰੇ ਦੁਆਰਾ ਦੱਸੇ ਗਏ ਇਸ ਸ਼ਹੀਦ ਨੂੰ ਪੂਜਣ ਵਾਲੇ ਸਾਰੇ ਸ਼ਰਧਾਲੂ ਅਤੇ ਸੁਹਿਰਦ ਸ਼ਰਧਾਲੂ ਮੈਨੂੰ ਬਹੁਤ ਪਿਆਰੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v20Bhakti12",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "ਅਧਿਆਇ XII - ਭਗਤੀ-ਯੋਗ",
+    "description": "ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਭਗਤੀ-ਯੋਗ ਸਿਖਾਇਆ ਗਿਆ ਹੈ। ਭਗਵਾਨ ਕ੍ਰਿਸ਼ਨ ਨੇ ਭਗਤੀ ਦੇ ਵੱਖ-ਵੱਖ ਪੱਧਰਾਂ ਅਤੇ ਭਗਤਾਂ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦਾ ਵਰਣਨ ਕੀਤਾ ਹੈ। ਉਨ੍ਹਾਂ ਦੱਸਿਆ ਕਿ ਭਗਤੀ ਯੋਗ ਰਾਹੀਂ ਹੀ ਵਿਅਕਤੀ ਪਰਮਾਤਮਾ ਦੀ ਨੇੜਤਾ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦਾ ਹੈ।",
+    "keyThemes": [
+      "ਭਗਤੀ ਯੋਗ ਦੀ ਉੱਤਮਤਾ",
+      "ਭਗਤਾਂ ਦੇ ਗੁਣ",
+      "ਸ਼ਰਧਾ ਦੇ ਵੱਖ ਵੱਖ ਪੱਧਰ",
+      "ਪਰਮਾਤਮਾ ਦਾ ਪਿਆਰਾ ਭਗਤ",
+      "ਭਗਤੀ ਯੋਗ ਦਾ ਫਲ"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita.html",
+    "language": "ਪੰਜਾਬੀ",
+    "scripture": "ਸ਼੍ਰੀਮਦ ਭਗਵਦ ਗੀਤਾ",
+    "chapterType": "ਜੋੜਿਆ ਗਿਆ",
+    "totalWords": "ਲਗਭਗ 1500+ ਸ਼ਬਦ",
+    "lastUpdated": "2024"
+  }
+}

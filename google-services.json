@@ -156,6 +156,25 @@
           "other_platform_oauth_client": []
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421350567277:android:a3fc0840d887bd8c5dfe64",
+        "android_client_info": {
+          "package_name": "com.proninja.bhagavad_gita_pa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtvjx7HSF1k5Bic6_0G2Rt0iIY2cik-7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
     }
   ],
   "configuration_version": "1"

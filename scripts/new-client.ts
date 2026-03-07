@@ -41,7 +41,6 @@ const PATHS = {
     assetsFonts: path.join(ROOT, 'assets/fonts'),
     assetsData: path.join(ROOT, 'assets/Data'),
     dataIndex: path.join(ROOT, 'assets/Data/index.ts'),
-    assetsTs: path.join(ROOT, 'src/lib/utils/assets.ts'),
     i18nDir: path.join(ROOT, 'src/lib/i18n/translations'),
     i18nIndex: path.join(ROOT, 'src/lib/i18n/index.ts'),
     clientConfig: path.join(ROOT, 'src/config/clientConfig.ts'),
@@ -417,8 +416,8 @@ async function translateChapterData(input: ClientInput) {
             verse.verseNumber = await translateText(verse.verseNumber, input.lang);
             verse.translation = await translateText(verse.translation, input.lang);
             verse.speaker = await translateText(verse.speaker, input.lang);
+            verse.Language = await translateText(verse.Language, input.lang);
 
-            // Keep: Language (Sanskrit verse — NOT translated)
             // Keep: id, speaker_english
 
             // Rate limit
@@ -561,94 +560,6 @@ function patchI18nIndex(input: ClientInput) {
 
     writeText(PATHS.i18nIndex, content);
     console.log('  ✅ Added import and translations entry');
-}
-
-function patchAssetsTs(input: ClientInput) {
-    console.log('\n🔧 Patching src/lib/utils/assets.ts...');
-
-    let content = readText(PATHS.assetsTs);
-
-    // Check if already patched
-    if (content.includes(`'../../../assets/fonts/${input.lang}/primary.ttf'`)) {
-        console.log(`  ⚠️  Language "${input.lang}" already present. Skipping.`);
-        return;
-    }
-
-    // ── Patch LANGUAGE_FONTS map ──
-    // Find the closing `};` of the LANGUAGE_FONTS object
-    const fontsMapStart = content.indexOf('const LANGUAGE_FONTS');
-    if (fontsMapStart === -1) {
-        console.error('  ❌ Could not find LANGUAGE_FONTS in assets.ts');
-        return;
-    }
-
-    // Find the correct closing `};` by counting braces
-    let braceCount = 0;
-    let fontsCloseBrace = -1;
-    const fontsOpenBrace = content.indexOf('{', fontsMapStart);
-    for (let i = fontsOpenBrace; i < content.length; i++) {
-        if (content[i] === '{') braceCount++;
-        if (content[i] === '}') {
-            braceCount--;
-            if (braceCount === 0) {
-                fontsCloseBrace = i;
-                break;
-            }
-        }
-    }
-
-    if (fontsCloseBrace === -1) {
-        console.error('  ❌ Could not find closing of LANGUAGE_FONTS map');
-        return;
-    }
-
-    const fontsEntry = `  ${input.lang}: {
-    english: require('../../../assets/fonts/${input.lang}/english.ttf'),
-    primary: require('../../../assets/fonts/${input.lang}/primary.ttf'),
-    secondary: require('../../../assets/fonts/${input.lang}/secondary.ttf'),
-  },\n`;
-
-    content = content.slice(0, fontsCloseBrace) + fontsEntry + content.slice(fontsCloseBrace);
-    console.log('  ✅ Added LANGUAGE_FONTS entry');
-
-    // ── Patch LANGUAGE_IMAGES map ──
-    const imagesMapStart = content.indexOf('const LANGUAGE_IMAGES');
-    if (imagesMapStart === -1) {
-        console.error('  ❌ Could not find LANGUAGE_IMAGES in assets.ts');
-        return;
-    }
-
-    braceCount = 0;
-    let imagesCloseBrace = -1;
-    const imagesOpenBrace = content.indexOf('{', imagesMapStart);
-    for (let i = imagesOpenBrace; i < content.length; i++) {
-        if (content[i] === '{') braceCount++;
-        if (content[i] === '}') {
-            braceCount--;
-            if (braceCount === 0) {
-                imagesCloseBrace = i;
-                break;
-            }
-        }
-    }
-
-    if (imagesCloseBrace === -1) {
-        console.error('  ❌ Could not find closing of LANGUAGE_IMAGES map');
-        return;
-    }
-
-    const imagesEntry = `  ${input.lang}: {
-    icon: require('../../../assets/images/${input.lang}/icon.png'),
-    splash: require('../../../assets/images/${input.lang}/splash-icon.png'),
-    adaptiveIcon: require('../../../assets/images/${input.lang}/adaptive-icon.png'),
-    favicon: require('../../../assets/images/${input.lang}/favicon.png'),
-    logo: require('../../../assets/images/${input.lang}/logo.png'),
-  },\n`;
-
-    content = content.slice(0, imagesCloseBrace) + imagesEntry + content.slice(imagesCloseBrace);
-    console.log('  ✅ Added LANGUAGE_IMAGES entry');
-
-    writeText(PATHS.assetsTs, content);
 }
 
 function patchClientConfig(input: ClientInput) {
@@ -870,7 +781,6 @@ async function main() {
         // Patch source files (fast)
         patchDataIndex(input);
         patchI18nIndex(input);
-        patchAssetsTs(input);
         patchClientConfig(input);
         patchEasJson(input);
         patchPackageJson(input);

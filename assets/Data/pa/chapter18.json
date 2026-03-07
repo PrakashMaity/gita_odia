@@ -1,0 +1,660 @@
+{
+  "chapter": {
+    "number": "18",
+    "title": "ਅਧਿਆਇ ਅਠਾਰਵਾਂ",
+    "subtitle": "ਮੋਕਸ਼-ਸੰਨਿਆਸਯੋਗ",
+    "englishTitle": "Moksha Sannyasa Yoga",
+    "totalVerses": "78",
+    "description": "ਮੋਕਸ਼-ਸੰਨਿਆਸਯੋਗ ਅਠਾਰਵੇਂ ਅਧਿਆਏ ਵਿੱਚ ਸਿਖਾਇਆ ਗਿਆ ਹੈ। ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਭਗਵਾਨ ਕ੍ਰਿਸ਼ਨ ਸੰਨਿਆਸ ਅਤੇ ਤਿਆਗ ਦੇ ਸਹੀ ਅਰਥ ਅਤੇ ਕਿਰਿਆ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਦਾ ਵਰਣਨ ਕਰਦੇ ਹਨ।",
+    "id": "MokshaSannyasa18"
+  },
+  "dedication": {
+    "Language": "ਅਭਯਚਰਣਰਬਿਨ੍ਦਾ ਭਕ੍ਤਿਵਿਦਾਨਨ੍ਦ ਸੇਵਾਮੀ",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Arjun Ubach\nSannyasasya Mahabaho Tattamichchami Vedatum.\n1.",
+      "translation": "ਅਰਜੁਨ ਨੇ ਕਿਹਾ - ਹੇ ਮਹਾਬਾਹੋ ! ਹੇ ਹਰੀਸ਼ੀਕੇਸ਼! ਹੇ ਕੇਸ਼ਿਨਿਸੁਦਾਨਾ! ਮੈਂ ਸੰਨਿਆਸ ਅਤੇ ਤਿਆਗ ਦੇ ਸਿਧਾਂਤ ਨੂੰ ਵੱਖਰੇ ਤੌਰ 'ਤੇ ਜਾਣਨਾ ਚਾਹੁੰਦਾ ਹਾਂ।",
+      "speaker": "ਅਰਜੁਨ",
+      "id": "v1Moksha18",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Shri Bhagwanubach\nKamanang Karmanang Nyasong Sannyasong Kabayo Viduh.\n2.",
+      "translation": "ਪਰਮ ਪ੍ਰਭੂ ਨੇ ਕਿਹਾ- ਪੰਡਿਤ ਮਨਭਾਉਂਦੇ ਕਰਮਾਂ ਦੇ ਤਿਆਗ ਨੂੰ ਸਨਾਤਨ ਜਾਣਦੇ ਹਨ ਅਤੇ ਸਿਆਣੇ ਲੋਕ ਸਾਰੇ ਕਰਮਾਂ ਦੇ ਤਿਆਗ ਨੂੰ ਸੰਨਿਆਸ ਕਹਿੰਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v2Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Thus the action of guilt is prahurmanishin.\n3.",
+      "translation": "ਚਿੰਤਕਾਂ ਦੀ ਇੱਕ ਜਮਾਤ ਦਾ ਕਹਿਣਾ ਹੈ ਕਿ ਕਰਮ ਪਾਪ ਹੈ ਇਸ ਲਈ ਇਸ ਨੂੰ ਛੱਡ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ। ਵਿਦਵਾਨਾਂ ਦੀ ਇੱਕ ਹੋਰ ਸ਼੍ਰੇਣੀ ਨੇ ਇਹ ਫੈਸਲਾ ਕੀਤਾ ਹੈ ਕਿ ਤਿਆਗ, ਦਾਨ, ਤਪੱਸਿਆ ਆਦਿ ਵਰਜਿਤ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v3Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Surely Srinu Me Tatra is Bharatasattam.\nTyago hi Purushabyagra Trividh Samprakirtita..4..",
+      "translation": "ਹੇ ਭਾਰਤਸੱਤਮ! ਕੁਰਬਾਨੀ ਬਾਰੇ ਮੇਰਾ ਪੱਕਾ ਫੈਸਲਾ ਸੁਣੋ। ਹੇ ਨਰ ਬਾਘ! ਸ਼ਾਸਤਰਾਂ ਵਿੱਚ ਬਲੀ ਨੂੰ ਵੀ ਤਿੰਨ ਪ੍ਰਕਾਰ ਦੇ ਦੱਸਿਆ ਗਿਆ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v4Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Yajnadatapakarma na tyajyong karameva tat.\nYajno Danang Tapaschaiva Pabnani Manishinam..5..",
+      "translation": "ਯੱਗ, ਦਾਨ ਅਤੇ ਤਪੱਸਿਆ ਵਰਜਿਤ ਨਹੀਂ ਹਨ, ਇਹਨਾਂ ਨੂੰ ਜ਼ਰੂਰ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ। ਯੱਗ, ਦਾਨ ਅਤੇ ਤਪੱਸਿਆ ਬੁੱਧੀਮਾਨ ਨੂੰ ਵੀ ਪਵਿੱਤਰ ਕਰਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v5Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Atanyapi Tu Karmani Sangang Tyaktba Falani f.\n6.",
+      "translation": "ਹੇ ਪਾਰਥ! ਇਹ ਸਾਰੇ ਕਰਮ ਕਰਤੱਵ ਦੀ ਭਾਵਨਾ ਨਾਲ ਕੀਤੇ ਜਾਣੇ ਚਾਹੀਦੇ ਹਨ, ਮੋਹ ਨੂੰ ਤਿਆਗ ਕੇ ਅਤੇ ਨਤੀਜਿਆਂ ਦੀ ਉਮੀਦ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ। ਇਹ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਮੇਰੀ ਸਭ ਤੋਂ ਵਧੀਆ ਰਾਏ ਹੈ.",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v6Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Niyamatsya tu Sannyasa: Karmano Noppadya.\nMohattasya Parityagastams: Parikirtit:..7..",
+      "translation": "ਪਰ ਰੁਟੀਨ ਨੂੰ ਛੱਡਿਆ ਨਹੀਂ ਜਾਣਾ ਚਾਹੀਦਾ। ਜੇਕਰ ਉਸ ਦਾ ਤਿਆਗ ਭੁਲੇਖੇ ਕਾਰਨ ਹੋਵੇ ਤਾਂ ਇਸ ਨੂੰ ਤਾਮਸਿਕ ਤਿਆਗ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v7Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Dukhamityeva yat karma kayaklesbhayatyajet.\nSa kirtba rajsong tyagang naiva tyagaphlong levet..8..",
+      "translation": "ਜਿਹੜਾ ਮਨੁੱਖ ਸਰੀਰਕ ਦੁੱਖਾਂ ਦੇ ਡਰੋਂ ਨਿੱਤ ਦੇ ਕੰਮਾਂ ਨੂੰ ਦੁਖੀ ਸਮਝ ਕੇ ਤਿਆਗ ਦਿੰਦਾ ਹੈ, ਉਸ ਰਾਜਸਿਕ ਨੂੰ ਤਿਆਗ ਕੇ ਨਿਸ਼ਚੇ ਹੀ ਤਿਆਗ ਦਾ ਫਲ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੁੰਦਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v8Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Karmamityeva jat karma niytang kriyateharjuna.\n9.",
+      "translation": "ਹੇ ਅਰਜੁਨ! ਮੇਰੇ ਵਿਚਾਰ ਵਿੱਚ, ਨਸ਼ੇ ਛੱਡ ਕੇ ਫਰਜ਼ ਦੀ ਭਾਵਨਾ ਨਾਲ ਕੀਤੇ ਜਾਣ ਵਾਲੇ ਰੋਜ਼ਾਨਾ ਦੇ ਕੰਮ ਅਤੇ ਨਤੀਜੇ ਸਾਤਵਿਕ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v9Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "No Dvestyakuslang Karma Kushale Nanushajte.\nTyagi sattsamavishto meritorious fragmentation:..10..",
+      "translation": "ਸਤਗੁਣ ਨਾਲ ਰੰਗਿਆ ਹੋਇਆ, ਹੁਸ਼ਿਆਰ ਅਤੇ ਸਾਰੇ ਸੰਦੇਹ ਦਾ ਤਿਆਗ ਕਰਨ ਵਾਲਾ, ਮਾੜੇ ਕੰਮਾਂ ਤੋਂ ਘਿਣ ਨਹੀਂ ਕਰਦਾ ਅਤੇ ਚੰਗੇ ਕੰਮਾਂ ਦਾ ਆਦੀ ਨਹੀਂ ਹੁੰਦਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v10Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Na hi deh bhrita shakyang tyaktung karmanyashatah.\n11.",
+      "translation": "ਬੇਸ਼ੱਕ ਇੱਕ ਸਰੂਪ ਵਾਲੇ ਜੀਵ ਲਈ ਸਾਰੇ ਕਰਮ ਤਿਆਗਣਾ ਸੰਭਵ ਨਹੀਂ ਹੈ, ਪਰ ਜੋ ਸਾਰੇ ਕਰਮਾਂ ਨੂੰ ਤਿਆਗ ਦਿੰਦਾ ਹੈ ਉਸਨੂੰ ਅਸਲ ਤਿਆਗੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v11Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Anishtamishtang mishrang f trividhang karman: Falam.\nBhavatyatyaginang pretya na tu sannyasinang kakchit..12..",
+      "translation": "ਜਿਨ੍ਹਾਂ ਨੇ ਆਪਣੇ ਕਰਮ ਨਹੀਂ ਛੱਡੇ ਉਹ ਪਰਲੋਕ ਵਿੱਚ ਬੁਰੇ, ਚੰਗੇ ਅਤੇ ਮਿਸ਼ਰਤ ਕਰਮ ਭੋਗਣਗੇ। ਪਰ ਭਿਕਸ਼ੂਆਂ ਨੂੰ ਕਦੇ ਵੀ ਫਲ ਨਹੀਂ ਖਾਣੇ ਪੈਂਦੇ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v12Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Panchaitani Mahabaho Karani Nibodh May.\nSankhya Kritante Proktani Siddhaye Sarvakarnamam..13..",
+      "translation": "ਹੇ ਮਹਾਬਾਹੋ! ਵੇਦਾਂਤ ਸ਼ਾਸਤਰ ਸਿਧਾਂਤ ਵਿੱਚ ਸਾਰੀਆਂ ਕਿਰਿਆਵਾਂ ਦੀ ਪੂਰਤੀ ਲਈ ਇਹ ਪੰਜ ਕਾਰਕ ਦੱਸੇ ਗਏ ਹਨ, ਮੇਰੇ ਤੋਂ ਜਾਣੋ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v13Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Adhisthanang and Karta Karanang f Prithagvidham.\nVibidhashch separate effort Daibang Chaivatra panchammam..14..",
+      "translation": "ਅਧੀਸਥਾਨ ਦਾ ਅਰਥ ਹੈ ਸਰੀਰ, ਕਰਤਾ, ਕਈ ਪ੍ਰਕਾਰ ਦੇ ਕਾਰਨ ਭਾਵ ਇੰਦਰੀਆਂ, ਵਿਭਿੰਨ ਯਤਨ ਅਤੇ ਦੈਵ ਦਾ ਅਰਥ ਹੈ ਪਰਮਾਤਮਾ ਇਹ ਪੰਜ ਕਾਰਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v14Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Karma prarabhate Narah.\n15.",
+      "translation": "ਉਹ ਕਿਰਿਆਵਾਂ ਜੋ ਮਨੁੱਖ ਸਰੀਰ, ਬਾਣੀ ਅਤੇ ਮਨ ਨਾਲ ਅਰੰਭਦਾ ਹੈ, ਭਾਵੇਂ ਨਿਆਂਪੂਰਨ ਜਾਂ ਬੇਇਨਸਾਫ਼ੀ, ਪੰਜ ਕਾਰਨ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v15Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Tatraibong sati kartarmatmanang kebelang tu yah.\n16.",
+      "translation": "ਇਸ ਲਈ ਕਰਮ ਦੇ ਪੰਜਾਂ ਕਾਰਨਾਂ ਦੀ ਪਰਵਾਹ ਕੀਤੇ ਬਿਨਾਂ, ਜੋ ਵਿਅਕਤੀ ਆਪਣੇ ਆਪ ਨੂੰ ਮਾਲਕ ਸਮਝਦਾ ਹੈ, ਅਕਲ ਦੀ ਘਾਟ ਕਾਰਨ, ਉਸ ਬੁਰਾਈ ਨੂੰ ਚੰਗੀ ਤਰ੍ਹਾਂ ਨਹੀਂ ਦੇਖ ਸਕਦਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v16Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Yasya Nahankrito Bhabo Budhiryasya Na Lipyate.\n17.",
+      "translation": "ਜਿਸ ਦੇ ਅੰਦਰ ਹੰਕਾਰ ਦੀ ਸੋਝੀ ਨਹੀਂ ਹੈ ਅਤੇ ਜਿਸ ਦਾ ਮਨ ਕਰਮ-ਕਾਂਡ ਵਿਚ ਨਹੀਂ ਲੱਗਾ ਹੋਇਆ, ਉਹ ਇਨ੍ਹਾਂ ਸਾਰੇ ਜੀਵਾਂ ਨੂੰ ਮਾਰ ਕੇ ਵੀ ਮਾਰਦਾ ਨਹੀਂ ਅਤੇ ਮਾਰਨ ਦੇ ਕਰਮ ਵਿਚ ਬੱਝਾ ਨਹੀਂ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v17Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Gyanang Gneyang Parijnata Trividha Karmachodana.\n18.",
+      "translation": "ਗਿਆਨ, ਗਿਆਨ ਅਤੇ ਪਰਿਜਨਨਾਥ- ਇਨ੍ਹਾਂ ਤਿੰਨਾਂ ਕਿਰਿਆਵਾਂ ਦੀ ਪ੍ਰੇਰਣਾ, ਕਰਣ, ਕਰਮ ਅਤੇ ਕਰਤਾ- ਇਨ੍ਹਾਂ ਤਿੰਨਾਂ ਕਿਰਿਆਵਾਂ ਦਾ ਆਸਰਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v18Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Jnanang Karma f Karta f Tridhiva Gunabhedatah.\nProchya is as varied as the number of gunas. 19.",
+      "translation": "ਕੁਦਰਤ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਅਨੁਸਾਰ ਗਿਆਨ, ਕਰਮ ਅਤੇ ਕਰਮ ਤਿੰਨ ਪ੍ਰਕਾਰ ਦੇ ਦੱਸੇ ਗਏ ਹਨ। ਇਹ ਸਭ ਚੰਗੀ ਤਰ੍ਹਾਂ ਸੁਣੋ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v19Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Sarvabhutesu is in the mood.\nAbibhaktang bhagateshu tajjnanang vidhi satvikam..20..",
+      "translation": "ਉਹ ਗਿਆਨ ਜਿਸ ਦੁਆਰਾ ਸਾਰੇ ਜੀਵਾਂ ਵਿੱਚ ਇੱਕ ਅਵਿਭਾਜਿਤ ਚੀਨੀ ਤੱਤ ਦਿਖਾਈ ਦਿੰਦਾ ਹੈ, ਭਾਵੇਂ ਕਿ ਬਹੁਤ ਸਾਰੇ ਜੀਵ ਇੱਕ ਦੂਜੇ ਤੋਂ ਵੱਖਰੇ ਹਨ ਪਰ ਤੱਤ ਵਿੱਚ ਇੱਕ ਹਨ, ਉਸ ਗਿਆਨ ਨੂੰ ਸਾਤਵਿਕ ਵਜੋਂ ਜਾਣੇਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v20Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Vaartten tu yajjnanang nanabhavan prithagvidhan.\nBetti Sarveshu Bhuteshu Tajjnanang Viddhi Rajasam..21..",
+      "translation": "ਉਹ ਗਿਆਨ ਜਿਸ ਦੁਆਰਾ ਕੋਈ ਇਹ ਸਮਝਦਾ ਹੈ ਕਿ ਸਾਰੇ ਜੀਵਾਂ ਵਿੱਚ ਵੱਖੋ ਵੱਖਰੀਆਂ ਕਿਸਮਾਂ ਦੀਆਂ ਰੂਹਾਂ ਹਨ, ਨੂੰ ਰਾਜਸਿਕਾ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v21Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Jattu krishnavadeksmin kaya saktamahitaukam.\nAtattvarthavadlpang ch tattamasmudhahritam..22..",
+      "translation": "ਅਤੇ ਜਿਸ ਗਿਆਨ ਦੁਆਰਾ, ਅਸਲ ਸਿਧਾਂਤ ਨੂੰ ਜਾਣੇ ਬਿਨਾਂ, ਮੋਹ ਪੈਦਾ ਹੁੰਦਾ ਹੈ ਜਿਵੇਂ ਕਿ ਇਹ ਕਿਸੇ ਖਾਸ ਕੰਮ ਵਿੱਚ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਉਸ ਮਾਮੂਲੀ ਗਿਆਨ ਨੂੰ ਤਾਮਸਿਕ ਗਿਆਨ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v22Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Niytang Sangarhitmaragadveshat: Kritam.\n23.",
+      "translation": "ਸਾਤਵਿਕ ਕਰਮ, ਜੋ ਫਲ ਦੀ ਇੱਛਾ ਅਤੇ ਮੋਹ ਤੋਂ ਬਿਨਾਂ, ਕ੍ਰੋਧ ਅਤੇ ਨਫ਼ਰਤ ਤੋਂ ਬਿਨਾਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v23Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Jattu Kamepsuna Karma Sahankaren or Re.\nKriyate Bahulayasong Tdrajasamudahritam..24..",
+      "translation": "ਪਰ ਜੋ ਕਰਮ ਫਲ ਦੀ ਕਾਮਨਾ ਵਿੱਚ ਬਹੁਤ ਦੁੱਖ ਭੋਗਦਾ ਹੈ ਅਤੇ ਅਹੰਕਾਰੀ ਹੁੰਦਾ ਹੈ, ਉਸ ਨੂੰ ਰਾਜਸਿਕਾ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v24Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Anubandhang kasrang Hingsamanbekshya f Purusham.\n25.",
+      "translation": "ਭਵਿੱਖ ਦੇ ਸਬੰਧਾਂ, ਧਾਰਮਿਕ ਗਿਆਨ ਦੀ ਘਾਟ, ਈਰਖਾ ਅਤੇ ਸਵੈ-ਪ੍ਰਭਾਵ ਦੇ ਨਤੀਜਿਆਂ ਨੂੰ ਵਿਚਾਰੇ ਬਿਨਾਂ ਵਾਸਨਾ ਤੋਂ ਕੀਤੇ ਗਏ ਕਰਮ ਨੂੰ ਤਾਮਸਿਕ ਕਿਰਿਆਵਾਂ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v25Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Muktasangohanhongvadi dhrityutsahsambinita:\nSiddhyasiddhyornirbikar: Karta Sattvik Uchyate..26..",
+      "translation": "ਉਹ ਕਰਤਾ ਜੋ ਸਾਰੇ ਪਦਾਰਥਾਂ ਦੇ ਮੋਹ ਤੋਂ ਮੁਕਤ, ਹਉਮੈ ਤੋਂ ਰਹਿਤ, ਧ੍ਰਿਤ ਅਤੇ ਉਤਸ਼ਾਹ ਨਾਲ ਰਚਿਆ ਹੋਇਆ ਅਤੇ ਸਿੱਧੀਆਂ ਅਤੇ ਸਿਧੀਆਂ ਤੋਂ ਨਿਰਲੇਪ ਹੈ, ਨੂੰ ਸਾਤਵਿਕ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v26Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Rahi Karmaphalprepsurulubdho Hinsatkatohosuchi:\nHarshashokanvita: Karta Rajas: Parikirtita: ..27..",
+      "translation": "ਕਰਮ ਦਾ ਆਦੀ, ਕਰਮ ਦਾ ਚਾਹਵਾਨ, ਲੋਭੀ, ਹਿੰਸਕ, ਅਪਵਿੱਤਰ, ਹਰਸ਼ ਅਤੇ ਦੁਖੀ ਕਰਤਾ ਨੂੰ ਰਾਜਸਿਕ ਕਰਤਾ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v27Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Auyuga: Prakrit: Stabdha: Satho Naishkritikaholas:\nBishadee Lashsutri Ch Karta Tamas Uchyate..28..",
+      "translation": "ਇੱਕ ਕਰਤਾ ਜੋ ਅਚਨਚੇਤ ਕਿਰਿਆਸ਼ੀਲ, ਨਿਮਰ, ਨਿਮਰ, ਕਠੋਰ, ਅਪਮਾਨਜਨਕ, ਆਲਸੀ, ਉਦਾਸੀ ਅਤੇ ਲੰਮੀ ਹਵਾ ਵਾਲਾ ਹੈ, ਨੂੰ ਤਾਮਸਿਕ ਕਰਤਾ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v28Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Budvervedang dhriteschaiva gunatantrividhang srinu.\n29.",
+      "translation": "ਹੇ ਧਨੰਜੈ! ਸੁਣੋ, ਮੈਂ ਤੁਹਾਨੂੰ ਭੌਤਿਕ ਪ੍ਰਕਿਰਤੀ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਦੇ ਅਨੁਸਾਰ ਬੁੱਧੀ ਅਤੇ ਧਾਰਨਾ ਵਿੱਚ ਤਿੰਨ ਗੁਣਾ ਅੰਤਰ ਵਿਸਤਾਰ ਨਾਲ ਅਤੇ ਵੱਖਰੇ ਤੌਰ 'ਤੇ ਦੱਸ ਰਿਹਾ ਹਾਂ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v29Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Encouraging f Inhibiting f Fear of action.\nBandhang Mokshang Ch Ja Betti Buddhi: Sa Partha Satviki..30..",
+      "translation": "ਹੇ ਪਾਰਥ! ਉਹ ਬੁੱਧੀ ਜਿਸ ਨਾਲ ਵਿਅਕਤੀ ਪ੍ਰਵਿਰਤੀ ਅਤੇ ਨਿਵਰਤੀ, ਕਰਮ ਅਤੇ ਅਕਰਮ, ਡਰ ਅਤੇ ਅਭਯ, ਮੋਹ ਅਤੇ ਮੁਕਤੀ ਵਿੱਚ ਅੰਤਰ ਜਾਣ ਸਕਦਾ ਹੈ, ਉਹ ਸਾਤਵਿਕੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v30Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Yaya dharmamadharmang chakarang chakaryameva f.\nInappropriate Prajanati Buddhi: Sa Partha Rajasi..31..",
+      "translation": "ਜਿਸ ਬੁੱਧੀ ਦੁਆਰਾ ਧਰਮ ਅਤੇ ਅਧਰਮ, ਕਰਮ ਅਤੇ ਅਕਰਮ ਵਿੱਚ ਅੰਤਰ ਨੂੰ ਨਿਰਪੱਖ ਰੂਪ ਵਿੱਚ ਸਮਝਿਆ ਜਾ ਸਕਦਾ ਹੈ, ਉਹ ਬੁੱਧੀ ਰਾਜਸੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v31Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Adharmang dharmamiti which is tamasavrita in mind.\nSarvarthan Vratranscha Buddhi: Sa Partha Tamsi..32..",
+      "translation": "ਹੇ ਪਾਰਥ! ਜਿਹੜਾ ਮਨ ਅਧਰਮ ਨੂੰ ਧਰਮ ਅਤੇ ਸਾਰੀਆਂ ਚੀਜ਼ਾਂ ਨੂੰ ਉਲਟ ਸਮਝਦਾ ਹੈ, ਉਹ ਮਨ ਤਾਮਸਿਕ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v32Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Dhritya yaya dharayat manahpranendriyakriya:\nYogenavyavicharinya Dhritti: Sa Partha Satviki..33..",
+      "translation": "ਹੇ ਪਾਰਥ! ਅਬਵਿਚਾਰਿਣੀ ਧ੍ਰਿਤੀ, ਜੋ ਯੋਗ ਅਭਿਆਸ ਦੁਆਰਾ ਮਨ, ਆਤਮਾ ਅਤੇ ਇੰਦਰੀਆਂ ਦੇ ਸਾਰੇ ਕਾਰਜਾਂ ਨੂੰ ਰੱਖਦੀ ਹੈ, ਸਾਤਵਿਕੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v33Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Yaya tu dharmakamarthan dhritya dharayateharjuna.\nContext: Falakangkshi Dhrithi: Sa Partha Rajasi..34..",
+      "translation": "ਹੇ ਅਰਜੁਨ! ਹੇ ਪਾਰਥ! ਜਿਸ ਧਰਤੀ ਵਿੱਚ ਫਲਾਂ ਦੀ ਇੱਛਾ ਸਮੇਤ ਧਰਮ, ਅਰਥ ਅਤੇ ਕਾਮ ਸ਼ਾਮਲ ਹਨ, ਉਹ ਰਾਜਸੀ ਦੀ ਧਰਤੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v34Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Yaya swapnang voyong shokong vishadang madameb f.\nNa Bimunchati Durmedha Dhriti: Sa Partha Tamsi..35..",
+      "translation": "ਹੇ ਪਾਰਥ! ਉਹ ਮਨ ਜੋ ਸੁਪਨੇ, ਡਰ, ਗ਼ਮ, ਗ਼ਮ, ਸ਼ਰਾਬ ਨਹੀਂ ਛੱਡਦਾ, ਉਹ ਮਨ-ਰਹਿਤ ਮਨ ਤਾਮਸੀ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v35Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Sukhang tvidanimtrividhang shrnu me bharatarshav.\n36.",
+      "translation": "ਹੇ ਭਰਤਰ੍ਸ਼ਵ! ਹੁਣ ਤੀਹਰੇ ਸੁਖ ਦੀ ਗੱਲ ਸੁਣੋ। ਬੰਦ ਜੀਵ ਬਾਰ ਬਾਰ ਅਭਿਆਸ ਦੁਆਰਾ ਉਸ ਸੁਖ ਨੂੰ ਮਾਣਦਾ ਹੈ ਅਤੇ ਜਿਸ ਦੁਆਰਾ ਸਾਰੇ ਦੁੱਖਾਂ ਤੋਂ ਬਚਿਆ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v36Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Jattadgre bishamiva parinamehamritopamam.\n37.",
+      "translation": "ਅਨੰਦ ਜੋ ਪਹਿਲਾਂ ਜ਼ਹਿਰ ਵਰਗਾ ਹੁੰਦਾ ਹੈ ਪਰ ਅੰਤ ਵਿੱਚ ਅੰਮ੍ਰਿਤ ਵਰਗਾ ਹੋ ਜਾਂਦਾ ਹੈ ਅਤੇ ਨਿਰਸਵਾਰਥ ਬੁੱਧੀ ਦੀ ਸ਼ੁੱਧਤਾ ਤੋਂ ਪੈਦਾ ਹੁੰਦਾ ਹੈ, ਉਸ ਆਨੰਦ ਨੂੰ ਸਾਤਵਿਕ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v37Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Subject matter\nFinally Bishamiva Tatsukhang Rajasong Smritam..38..",
+      "translation": "ਪਦਾਰਥ ਅਤੇ ਇੰਦਰੀਆਂ ਦੇ ਮੇਲ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੀ ਖੁਸ਼ੀ, ਜੋ ਪਹਿਲਾਂ ਅੰਮ੍ਰਿਤ ਅਤੇ ਅੰਤ ਵਿੱਚ ਜ਼ਹਿਰ ਵਰਗੀ ਮਹਿਸੂਸ ਹੁੰਦੀ ਹੈ, ਨੂੰ ਰਾਜਸੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v38Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Jadgre Chanubandhe Cha Sukhang Mohanmatman:\nNidralasyapramadotthang tattamsmudahritam.",
+      "translation": "ਉਹ ਸੁਖ ਜੋ ਆਤਮਾ ਦਾ ਪਹਿਲਾ ਅਤੇ ਅੰਤਮ ਅਨੰਦ ਹੈ ਅਤੇ ਜੋ ਨੀਂਦ, ਆਲਸ ਅਤੇ ਆਲਸ ਤੋਂ ਪੈਦਾ ਹੁੰਦਾ ਹੈ, ਉਸ ਨੂੰ ਤਾਮਸਿਕ ਸੁਖ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v39Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "No tadasti prithibang or dibi deveshu or re.\n40.",
+      "translation": "ਇਸ ਸੰਸਾਰ ਵਿੱਚ, ਮਨੁੱਖਾਂ ਵਿੱਚ, ਜਾਂ ਸਵਰਗ ਵਿੱਚ ਦੇਵਤਿਆਂ ਵਿੱਚ ਕੋਈ ਵੀ ਜੀਵ ਨਹੀਂ ਹੈ, ਜੋ ਇਸ ਤ੍ਰਿਗੁਣੀ ਸੁਭਾਅ ਤੋਂ ਮੁਕਤ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v40Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Brahmin Kshatriya Bishang Shudranang Ch Parantap.\n41.",
+      "translation": "ਹੇ ਪਰਤਾਪ! ਬ੍ਰਾਹਮਣਾਂ, ਕਸ਼ੱਤਰੀਆਂ, ਵੈਸ਼ੀਆਂ ਅਤੇ ਸ਼ੂਦਰਾਂ ਦੀਆਂ ਕਿਰਿਆਵਾਂ ਉਹਨਾਂ ਦੇ ਅੰਦਰਲੇ ਗੁਣਾਂ ਅਨੁਸਾਰ ਵੰਡੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v41Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Shamo Damstap: Shouchong Khantirjabmeb f.\nGnanang Vigyanmastikyong Brahmakarma Swabhavajam..42..",
+      "translation": "ਸਮਾ, ਦਮ, ਤਪ, ਸ਼ੌਚਾ, ਸ਼ਾਂਤਿ, ਸਾਦਗੀ, ਗਿਆਨ, ਵਿਗਿਆਨ ਅਤੇ ਅਸਤਿਕਯ - ਇਹ ਬ੍ਰਾਹਮਣਾਂ ਦੀਆਂ ਕੁਦਰਤੀ ਕਿਰਿਆਵਾਂ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v42Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "Shauryang Tejo Dhritirdakshyong was defeated in battle.\nDanmishvarabhavscha kshatrang karma svabhavajam..43..",
+      "translation": "ਬਹਾਦਰੀ, ਪ੍ਰਤਿਭਾ, ਨਿਪੁੰਨਤਾ, ਕੁਸ਼ਲਤਾ, ਯੁੱਧ ਵਿੱਚ ਉੱਡਣਾ, ਦਾਨ ਅਤੇ ਸ਼ਾਸਨ-ਇਹ ਇੱਕ ਖੱਤਰੀ ਦੀਆਂ ਕੁਦਰਤੀ ਕਿਰਿਆਵਾਂ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v43Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "44",
+      "Language": "Agriculture and cattle trade is the nature of business.\n44.",
+      "translation": "ਖੇਤੀਬਾੜੀ, ਪਸ਼ੂ ਪਾਲਣ ਅਤੇ ਵਪਾਰ ਵੈਸ਼ੀਆਂ ਦੀਆਂ ਕੁਝ ਕੁਦਰਤੀ ਗਤੀਵਿਧੀਆਂ ਹਨ ਅਤੇ ਦੇਖਭਾਲ ਦੀਆਂ ਗਤੀਵਿਧੀਆਂ ਸ਼ੂਦਰਾਂ ਦੀਆਂ ਕੁਦਰਤੀ ਗਤੀਵਿਧੀਆਂ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v44Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "45",
+      "Language": "Sway sway karmanyaviratah Samsiddhing lavte narah.\nSwakarmanirat: Siddhing ie Vindati Tacchrinu..45..",
+      "translation": "ਲੋਕ ਹਮੇਸ਼ਾ ਆਪਣੇ ਕੰਮਾਂ ਵਿੱਚ ਸਫਲਤਾ ਪ੍ਰਾਪਤ ਕਰਦੇ ਹਨ। ਸੁਣੋ ਕਿ ਉਹ ਲੋਕ ਜੋ ਆਪਣੇ ਕੰਮਾਂ ਵਿੱਚ ਰੁੱਝੇ ਰਹਿੰਦੇ ਹਨ ਉਹ ਕਿਵੇਂ ਸਫ਼ਲਤਾ ਪ੍ਰਾਪਤ ਕਰਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v45Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "46",
+      "Language": "Yaya pravrtivirbhutanaang as if sarvamidang tatam.\nSwakarmana Tambhurchya Siddhing Bindati Manav:..46..",
+      "translation": "ਮਨੁੱਖ ਆਪਣੇ ਕਰਮਾਂ ਰਾਹੀਂ ਉਸ ਦੀ ਭਗਤੀ ਕਰਦਾ ਹੈ, ਜੋ ਇਸ ਸਾਰੇ ਸੰਸਾਰ ਵਿਚ ਵਿਆਪਕ ਹੈ, ਜਿਸ ਤੋਂ ਸਾਰੇ ਜੀਵਾਂ ਨੂੰ ਪੂਰਵ-ਇੱਛਤ ਸੁਭਾਉ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v46Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "47",
+      "Language": "Shreyan svadharmao viguna paradharmaat svanusthitat.\nSwabhavaniyatang Karma Kurbannapnoti Kilbisham..47..",
+      "translation": "ਸਹੀ ਢੰਗ ਨਾਲ ਕੀਤੇ ਪਰਧਰਮ ਨਾਲੋਂ ਗਲਤ ਤਰੀਕੇ ਨਾਲ ਕੀਤਾ ਸਵਧਰਮ ਬਿਹਤਰ ਹੈ। ਕੁਦਰਤ ਦੁਆਰਾ ਦੱਸੇ ਕਰਮ ਕਰਨ ਨਾਲ ਮਨੁੱਖ ਨੂੰ ਕੋਈ ਪਾਪ ਨਹੀਂ ਮਿਲਦਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v47Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "48",
+      "Language": "Sahsang karma kaunteya sadoshampi na tyajet.\n48",
+      "translation": "ਹੇ ਕੌਂਤੀਆ! ਸੁਭਾਵਕ ਕਾਰਵਾਈਆਂ ਨੂੰ ਨਹੀਂ ਛੱਡਣਾ ਚਾਹੀਦਾ ਭਾਵੇਂ ਉਹ ਦੋਸ਼ੀ ਕਿਉਂ ਨਾ ਹੋਵੇ। ਜਿਵੇਂ ਅੱਗ ਧੂੰਏਂ ਨਾਲ ਢੱਕੀ ਹੋਈ ਹੈ, ਉਸੇ ਤਰ੍ਹਾਂ ਸਾਰੇ ਕਰਮ ਦੋਸ਼ ਨਾਲ ਢੱਕੇ ਹੋਏ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v48Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "49",
+      "Language": "Asaktabuddhi: everywhere jitatma pastripha:\nNaishkarmyasiddhing Paramang Sannyasenadhigachti..49..",
+      "translation": "ਭੌਤਿਕ ਵਸਤੂਆਂ ਦੇ ਮੋਹ ਤੋਂ ਰਹਿਤ ਬੁੱਧੀ ਵਾਲਾ, ਸੰਜਮੀ ਮਨ ਅਤੇ ਭੋਗਾਂ ਦੀ ਇੱਛਾ ਵਾਲਾ ਵਿਅਕਤੀ ਕਰਮ ਦੇ ਰੂਪ ਨੂੰ ਤਿਆਗ ਕੇ ਨਿਸ਼ਕਰਮ ਦੇ ਰੂਪ ਵਿੱਚ ਪਰਮ ਸਿੱਧ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v49Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "50",
+      "Language": "Attainment of siddhing is Brahman, Tathapanoti Nibodha Me.\nSamasenaiva kaunteya nishtha jnanasya which wears..50..",
+      "translation": "ਹੇ ਕੌਂਤੀਆ! ਮੈਨੂੰ ਸੰਖੇਪ ਵਿੱਚ ਸੁਣੋ ਕਿ ਕਿਵੇਂ ਜੀਵ ਨਿਸ਼ਕਰਮ ਸਿੱਧੀ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਕੇ ਬ੍ਰਾਹਮਣ, ਗਿਆਨ ਦੇ ਭਗਤੀ ਰੂਪ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v50Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "51",
+      "Language": "Buddhya Visudhya Yukto Dhrityatmanang Nimya f.\nशबदादिन्विशांस्त्यक्ट्व रागद्वेशु व्युदस्य f..51..",
+      "translation": "ਪਵਿਤ੍ਰ-ਚਿੱਤ ਹੋਣ ਕਰਕੇ ਮਨ ਨੂੰ ਧ੍ਰਿਤੀ ਦੁਆਰਾ ਕਾਬੂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਸ਼ਬਦ ਮੂਲ ਭਾਵ-ਵਿਕਾਰਾਂ, ਕ੍ਰੋਧ ਅਤੇ ਨਫ਼ਰਤ ਨੂੰ ਤਿਆਗ ਦਿੰਦੇ ਹਨ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v51Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "52",
+      "Language": "Viviktasevi Laghvashi Jatbakkayamanas:\nDhyanayogaparo nityang vairagyang samupasrit:..52..",
+      "translation": "ਇਕਾਂਤ ਵਿਚ ਰਹਿੰਦਾ ਹੈ, ਥੋੜਾ ਭੋਜਨ ਖਾਂਦਾ ਹੈ, ਤਨ, ਮਨ ਅਤੇ ਬਾਣੀ ਨੂੰ ਰੋਕਦਾ ਹੈ, ਸਦਾ ਸਿਮਰਨ ਦੇ ਨਾਲ ਵੈਰਾਗਿਆ ਦੀ ਸ਼ਰਨ ਲੈਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v52Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "53",
+      "Language": "Ahankarang balang darpong kamang krodhang parigraham.\nVimuchya Nirmam: Shanto Brahmabhuaya Kalpate..53..",
+      "translation": "ਹੰਕਾਰ, ਬਲ, ਇੱਛਾ, ਕਾਮ, ਕ੍ਰੋਧ, ਮੋਹ ਤੋਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮੁਕਤ ਹੋ ਕੇ ਰਹਿਮ ਤੋਂ ਰਹਿਤ ਸ਼ਾਂਤ ਮਨੁੱਖ ਬ੍ਰਾਹਮਣ-ਬੋਧ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰ ਲੈਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v53Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "54",
+      "Language": "Brahmabhuta: Prasannatma neither sorrow nor longing.\nSamah sarveshu bhuteshu madbhakting lavte param..54..",
+      "translation": "ਬ੍ਰਾਹਮਣ ਨਾਲ ਸੰਤੁਸ਼ਟ ਰਹਿਣ ਵਾਲਾ ਵਿਅਕਤੀ ਕਿਸੇ ਚੀਜ਼ ਲਈ ਉਦਾਸ ਜਾਂ ਤਰਸਦਾ ਨਹੀਂ ਹੈ। ਉਸ ਨੇ ਸਾਰੇ ਜੀਵਾਂ ਨੂੰ ਵੇਖ ਕੇ ਮੇਰੀ ਭਗਤੀ ਪ੍ਰਾਪਤ ਕੀਤੀ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v54Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "55",
+      "Language": "Bhaktya Mamvijanati Yavanyashasmi Tatvatah.\nThato mang tatto jnatva bishte tadnantaram..55..",
+      "translation": "ਕੇਵਲ ਭਗਤੀ ਦੁਆਰਾ ਹੀ ਕੋਈ ਮੈਨੂੰ ਸਿਧਾਂਤਕ ਤੌਰ 'ਤੇ ਜਾਣ ਸਕਦਾ ਹੈ ਜਿਵੇਂ ਮੈਂ ਹਾਂ। ਇਸ ਤਰ੍ਹਾਂ ਦੀ ਭਗਤੀ ਰਾਹੀਂ ਮੈਨੂੰ ਜਾਣ ਕੇ, ਉਹ ਮੇਰੇ ਨਿਵਾਸ ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕਰ ਸਕਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v55Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "56",
+      "Language": "Sarvakarmanyapi Sada Kurbano Madvyapashray:\nMatprasadadvapnoti shasvatang padamvyam..56..",
+      "translation": "ਮੇਰਾ ਸ਼ੁੱਧ ਭਗਤ ਸਾਰੇ ਕਰਮ ਕਰਨ ਦੇ ਬਾਵਜੂਦ ਮੇਰੇ ਪ੍ਰਸਾਦਿ ਵਿੱਚ ਸਦਾ ਨਿਤਯ ਅਬਯਾ ਧਾਮ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v56Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "57",
+      "Language": "Chetsa sarvakarmani moi sannyasya matparah.\n57.",
+      "translation": "ਬੁੱਧੀ ਦੁਆਰਾ ਸਾਰੀਆਂ ਕਿਰਿਆਵਾਂ ਮੈਨੂੰ ਸੌਂਪ ਕੇ, ਸੰਜੀਦਾ ਹੋ ਕੇ, ਬੁੱਧ-ਯੋਗ ਦੀ ਸ਼ਰਨ ਲੈ ਕੇ, ਸਦਾ ਸ਼ਰਾਬੀ ਹੋਵੋ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v57Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "58",
+      "Language": "Macchitta: Sarvadurgani Matprasadattarishyasi.\nAtha Chettamahankaranna Sroshyasi Vinakshyasi..58..",
+      "translation": "ਜੇਕਰ ਤੁਸੀਂ ਇਸ ਤਰ੍ਹਾਂ ਨਸ਼ਾ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਮੇਰੇ ਪ੍ਰਸਾਦਮ ਦੀਆਂ ਸਾਰੀਆਂ ਰੁਕਾਵਟਾਂ ਨੂੰ ਪਾਰ ਕਰ ਲਓਗੇ। ਪਰ ਜੇ ਤੁਸੀਂ ਹੰਕਾਰ ਨਾਲ ਮੇਰੀ ਗੱਲ ਨਹੀਂ ਸੁਣੋਗੇ, ਤਾਂ ਤੁਸੀਂ ਨਾਸ਼ ਹੋ ਜਾਵੋਗੇ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v58Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "59",
+      "Language": "Yadahankara masritya na yotsya iti manyase.\n59. Nature-based employment in fake business.",
+      "translation": "ਜੇਕਰ ਤੁਸੀਂ ਹੰਕਾਰ ਨੂੰ ਪਾਲਦੇ ਹੋ ਅਤੇ ਸੋਚਦੇ ਹੋ ਕਿ 'ਮੈਂ ਨਹੀਂ ਲੜਾਂਗਾ', ਤਾਂ ਤੁਹਾਡਾ ਸੰਕਲਪ ਝੂਠਾ ਹੋਵੇਗਾ। ਕਿਉਂਕਿ ਤੁਹਾਡਾ ਸੁਭਾਅ ਤੁਹਾਨੂੰ ਯੁੱਧ ਵੱਲ ਝੁਕਾਏਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v59Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "60",
+      "Language": "Svabhavajen kaunteya focused: sven karmana.\n60",
+      "translation": "ਹੇ ਕੌਂਤੀਆ! ਬੇਸ਼ੱਕ ਤੁਸੀਂ ਹੁਣ ਲੜਨਾ ਨਹੀਂ ਚਾਹੁੰਦੇ ਹੋ, ਪਰ ਤੁਸੀਂ ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਤੁਹਾਡੇ ਆਪਣੇ ਕੁਦਰਤੀ ਕੰਮਾਂ ਦੇ ਕਾਰਨ ਅਜਿਹਾ ਕਰਨ ਲਈ ਝੁਕੇ ਹੋਵੋਗੇ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v60Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "61",
+      "Language": "Ishwar: Sarvabhuthanang Hriddesheharjun Tishti.\nVhramayan sarvabhutani yantrarudhani maya..61..",
+      "translation": "ਹੇ ਅਰਜੁਨ! ਪਰਮ ਪ੍ਰਭੂ ਸਾਰੇ ਜੀਵਾਂ ਦੇ ਹਿਰਦੇ ਵਿੱਚ ਵੱਸਦਾ ਹੈ ਅਤੇ ਸਾਰੇ ਜੀਵਾਂ ਨੂੰ ਭੌਤਿਕ ਸਰੀਰ ਵਿੱਚ ਚੜ੍ਹ ਕੇ ਮਾਇਆ ਦੁਆਰਾ ਯਾਤਰਾ ਕਰਵਾਉਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v61Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "62",
+      "Language": "Tameb Sharanang Gachch Sarvabhaben Bharat.\n62.",
+      "translation": "ਹੇ ਭਾਰਤ! ਉਸ ਦੀ ਪੂਰੀ ਸ਼ਰਨ ਲੈ। ਉਸ ਦੇ ਪ੍ਰਸਾਦਿ ਵਿੱਚ ਤੁਹਾਨੂੰ ਸ਼ਾਂਤੀ ਅਤੇ ਸਦੀਵੀ ਨਿਵਾਸ ਪ੍ਰਾਪਤ ਹੋਵੇਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v62Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "63",
+      "Language": "Iti te Gnanamakhitang Guhyad Guhyatarang Maya.\n63.",
+      "translation": "ਇਸ ਤਰ੍ਹਾਂ ਮੈਂ ਤੁਹਾਨੂੰ ਸਭ ਤੋਂ ਡੂੰਘੇ ਗਿਆਨ ਦੀ ਵਿਆਖਿਆ ਕੀਤੀ ਹੈ। ਤੁਸੀਂ ਇਸਦਾ ਪੂਰੀ ਤਰ੍ਹਾਂ ਨਿਰਣਾ ਕਰੋ ਅਤੇ ਉਹ ਕਰੋ ਜੋ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ.",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v63Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "64",
+      "Language": "Sarvaguhyatamang Bhuyah Shrnu May Paramang Bachah.\nIshtohsi me thammiti tato bakshyami te hitam..64..",
+      "translation": "ਤੁਸੀਂ ਮੇਰੇ ਕੋਲੋਂ ਸਭ ਤੋਂ ਗੁਪਤ ਪਰਮ ਸਲਾਹ ਸੁਣਦੇ ਹੋ। ਕਿਉਂਕਿ ਤੁਸੀਂ ਮੈਨੂੰ ਬਹੁਤ ਪਿਆਰੇ ਹੋ, ਮੈਂ ਤੁਹਾਡੇ ਲਈ ਬੋਲ ਰਿਹਾ ਹਾਂ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v64Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "65",
+      "Language": "Manmana bhava madbhakto madyaji mang namaskuru.\nMamevaishyasi satyang te pratijane priyohsi me..65..",
+      "translation": "ਤੂੰ ਮੈਨੂੰ ਆਪਣਾ ਹਿਰਦਾ ਲਗਾ, ਮੇਰਾ ਭਗਤ ਬਣ, ਮੇਰੀ ਭਗਤੀ ਕਰ ਅਤੇ ਮੈਨੂੰ ਨਮਸਕਾਰ ਕਰ। ਫਿਰ ਤੂੰ ਮੈਨੂੰ ਬਹੁਤ ਪਿਆਰਾ ਹੋਵੇਂਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v65Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "66",
+      "Language": "Renunciation of all religions\nAhang thang sarvapapevyo mokshayyyami ma shuch:..66..",
+      "translation": "ਸਾਰੇ ਧਰਮਾਂ ਨੂੰ ਤਿਆਗ ਕੇ ਕੇਵਲ ਮੇਰੀ ਹੀ ਸ਼ਰਨ ਲੈ। ਮੈਂ ਤੁਹਾਨੂੰ ਸਾਰੇ ਪਾਪਾਂ ਤੋਂ ਮੁਕਤ ਕਰ ਦਿਆਂਗਾ। ਤੁਸੀਂ ਸੋਗ ਨਾ ਕਰੋ",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v66Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "67",
+      "Language": "Idong te Natapskaya Nabhaktaye Kadachan.\nNo chashushrushbe bachyong no cha mang johavyasuati..67..",
+      "translation": "ਜੋ ਲੋਕ ਅਸੰਤੁਸ਼ਟ, ਬੇਪਰਵਾਹ, ਬੇਪਰਵਾਹ ਅਤੇ ਮੇਰੇ ਪ੍ਰਤੀ ਨਫ਼ਰਤ ਕਰਨ ਵਾਲੇ ਹਨ, ਉਨ੍ਹਾਂ ਨੂੰ ਇਹ ਗੁਪਤ ਗਿਆਨ ਕਦੇ ਨਹੀਂ ਦੱਸਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v67Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "68",
+      "Language": "Ya idang paramang guhyang madbhaktesvabhidasati.\nBhakting moi parang kirtba mamevaishyatsamshay:..68..",
+      "translation": "ਜੋ ਮੇਰੇ ਸ਼ਰਧਾਲੂਆਂ ਵਿੱਚ ਇਸ ਪਰਮ ਗੁਪਤ ਭਜਨ ਦਾ ਪ੍ਰਚਾਰ ਕਰਦਾ ਹੈ, ਉਹ ਨਿਰਸੰਦੇਹ ਪਰਾ ਦੀ ਸ਼ਰਧਾ ਨਾਲ ਮੇਰੇ ਕੋਲ ਵਾਪਸ ਆ ਜਾਵੇਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v68Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "69",
+      "Language": "No Ch Tasmanmanusyeshu Kaschinme Priyakrittam:\nBhabita na cha me tasmadanya: Priyataro Bhubi..69..",
+      "translation": "ਇਸ ਸੰਸਾਰ ਵਿੱਚ ਲੋਕਾਂ ਵਿੱਚ ਮੇਰੇ ਲਈ ਉਸ ਤੋਂ ਵੱਧ ਪਿਆਰਾ ਕੋਈ ਨਹੀਂ ਹੈ ਅਤੇ ਮੇਰੇ ਲਈ ਉਸ ਤੋਂ ਵੱਧ ਕੋਈ ਪਿਆਰਾ ਨਹੀਂ ਹੋਵੇਗਾ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v69Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "70",
+      "Language": "Presided over by Ch Ya Imang Dharmyang Sangambayo:\nGnanyajnen Tenahmishta: Samiti Me Mati:..70..",
+      "translation": "ਅਤੇ ਜੋ ਕੋਈ ਸਾਡੇ ਵਿਚਕਾਰ ਇਸ ਪਵਿੱਤਰ ਸੰਵਾਦ ਦਾ ਅਧਿਐਨ ਕਰਦਾ ਹੈ, ਮੈਂ ਉਸ ਗਿਆਨ ਬਲੀ ਦੁਆਰਾ ਪੂਜਿਆ ਜਾਵਾਂਗਾ। ਇਹ ਮੇਰਾ ਵਿਚਾਰ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v70Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "71",
+      "Language": "Shraddhabanasuyasch shrinuadapi yo narah.\nSohpi mukta: shubhallokan prapnuatpunyakarmanam..71..",
+      "translation": "ਜੋ ਮਨੁੱਖ ਗੀਤਾ ਨੂੰ ਆਦਰ ਅਤੇ ਈਰਖਾ ਰਹਿਤ ਸੁਣਦਾ ਹੈ, ਉਹ ਵੀ ਪਾਪਾਂ ਤੋਂ ਮੁਕਤ ਹੋ ਜਾਂਦਾ ਹੈ ਅਤੇ ਨੇਕੀ ਕਰਨ ਵਾਲਿਆਂ ਦੇ ਸ਼ੁਭ ਲੋਕ ਪ੍ਰਾਪਤ ਕਰ ਲੈਂਦਾ ਹੈ।",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v71Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "72",
+      "Language": "Kacchidetat sratanga partha tvaikagrena chetsa.\nKacchidjnanasammoha: Pranastaste Dhananjaya..72..",
+      "translation": "ਹੇ ਪਾਰਥ! ਹੇ ਧਨੰਜੈ! ਕੀ ਤੁਸੀਂ ਇਸ ਗੀਤਾ ਨੂੰ ਇਕਾਗਰਤਾ ਨਾਲ ਸੁਣਿਆ ਹੈ? ਕੀ ਤੁਹਾਡਾ ਅਚੇਤ ਮੋਹ ਦੂਰ ਹੋ ਗਿਆ ਹੈ?",
+      "speaker": "ਸਰਵਉੱਚ",
+      "id": "v72Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "73",
+      "Language": "Arjun Ubach\nNasto moha: Smritirlabdha Tattprasadamanayachyuta.\n73.",
+      "translation": "ਅਰਜੁਨ ਨੇ ਕਿਹਾ- ਹੇ ਅਚਯੁਤਾ! ਮੇਰੇ ਸਾਰੇ ਸੰਦੇਹ ਦੂਰ ਹੋ ਗਏ ਹਨ ਅਤੇ ਬੁੱਧੀ ਵਿੱਚ ਨਿਪਟ ਗਏ ਹਨ। ਹੁਣ ਮੈਂ ਤੇਰਾ ਹੁਕਮ ਮੰਨਾਂਗਾ।",
+      "speaker": "ਅਰਜੁਨ",
+      "id": "v73Moksha18",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "74",
+      "Language": "Sanjay Ubach\nItyahang Vasudevasya Parthasya c Mahatmanah.\nSangammimamshroumadbhutang romharshanam..74..",
+      "translation": "ਸੰਜੇ ਨੇ ਕਿਹਾ- ਇਸ ਤਰ੍ਹਾਂ ਮੈਂ ਕ੍ਰਿਸ਼ਨ ਅਤੇ ਅਰਜੁਨ ਦੀ ਇਹ ਅਜੀਬ ਅਤੇ ਰੋਮਾਂਚਕ ਖਬਰ ਸੁਣੀ।",
+      "speaker": "ਸੰਜੇ",
+      "id": "v74Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "75",
+      "Language": "Vyasaprasadachrutbanetd guhyamhang param.\nYoga Yogeswarat Krishnatsakshatkathayat: Swayam..75..",
+      "translation": "ਵਿਆਸਦੇਵ ਦੀ ਕਿਰਪਾ ਨਾਲ, ਮੈਂ ਇਸ ਪਰਮ ਗੁਪਤ ਯੋਗ ਮੁਲਾਕਾਤ ਦਾ ਕਥਾਵਾਚਕ ਖੁਦ ਯੋਗੇਸ਼ਵਰ ਸ਼੍ਰੀ ਕ੍ਰਿਸ਼ਨ ਤੋਂ ਸੁਣਿਆ ਹੈ।",
+      "speaker": "ਸੰਜੇ",
+      "id": "v75Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "76",
+      "Language": "Rajan Samsmritya Samsmritya Sangammimamadbhutam.\nKeshbarjunyo: Punyang Hrishyami Ch Muhurmuhu:..76..",
+      "translation": "ਹੇ ਰਾਜਾ! ਬਾਰ ਬਾਰ ਕ੍ਰਿਸ਼ਨ ਅਤੇ ਅਰਜੁਨ ਦੀ ਇਸ ਸ਼ੁਭ ਅਜੀਬ ਖਬਰ ਨੂੰ ਯਾਦ ਕਰਕੇ ਮੈਨੂੰ ਬਹੁਤ ਖੁਸ਼ੀ ਹੁੰਦੀ ਹੈ।",
+      "speaker": "ਸੰਜੇ",
+      "id": "v76Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "77",
+      "Language": "Tacha Samsmritya Samsmritya Rupamatyadbhutang Hare:\nBishmayo May Mahan Rajan Hrishyami Ch Repeat Repeat..77..",
+      "translation": "ਹੇ ਰਾਜਾ! ਭਗਵਾਨ ਕ੍ਰਿਸ਼ਨ ਦੇ ਉਸ ਬਹੁਤ ਹੀ ਅਜੀਬ ਰੂਪ ਨੂੰ ਯਾਦ ਕਰਕੇ, ਮੈਂ ਬਾਰ ਬਾਰ ਬਹੁਤ ਹੈਰਾਨ ਅਤੇ ਰੋਮਾਂਚਿਤ ਹੁੰਦਾ ਹਾਂ।",
+      "speaker": "ਸੰਜੇ",
+      "id": "v77Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "78",
+      "Language": "Jatra Yogeswara: Krishna Jatra Partho Dhanurdhar:\nTatra Srirvijayo Bhutirdhruva Nitirmatirmam..78..",
+      "translation": "ਜਿੱਥੇ ਯੋਗੇਸ਼ਵਰ ਸ਼੍ਰੀ ਕ੍ਰਿਸ਼ਨ ਹਨ ਅਤੇ ਜਿੱਥੇ ਧਨੁਰਧਰ ਪਾਰਥ ਹਨ, ਉੱਥੇ ਜ਼ਰੂਰ ਸ਼੍ਰੀ, ਜਿੱਤ, ਅਥਾਹ ਸ਼ਕਤੀ ਅਤੇ ਸਿਧਾਂਤ ਮੌਜੂਦ ਹਨ। ਇਹ ਮੇਰਾ ਵਿਚਾਰ ਹੈ।",
+      "speaker": "ਸੰਜੇ",
+      "id": "v78Moksha18",
+      "speaker_english": "Sanjay"
+    }
+  ],
+  "summary": {
+    "title": "ਅਠਾਰਵਾਂ ਅਧਿਆਇ - ਮੋਕਸ਼-ਸਮਨਿਆਸਯੋਗ",
+    "description": "ਇਸ ਅਧਿਆਇ ਵਿੱਚ ਮੋਕਸ਼-ਸੰਨਿਆਸਯੋਗ ਸਿਖਾਇਆ ਗਿਆ ਹੈ। ਭਗਵਾਨ ਕ੍ਰਿਸ਼ਨ ਸੰਨਿਆਸ ਅਤੇ ਤਿਆਗ ਦੇ ਸਹੀ ਅਰਥ ਅਤੇ ਕਿਰਿਆ ਦੇ ਤਿੰਨ ਗੁਣਾਂ ਦਾ ਵਰਣਨ ਕਰਦੇ ਹਨ। ਉਨ੍ਹਾਂ ਦੱਸਿਆ ਕਿ ਭਗਤੀ ਯੋਗ ਰਾਹੀਂ ਮਨੁੱਖ ਪਰਮਾਤਮਾ ਦੀ ਸ਼ਰਨ ਲੈ ਕੇ ਪਰਮ ਮੁਕਤੀ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦਾ ਹੈ।",
+    "keyThemes": [
+      "ਤਪੱਸਿਆ ਅਤੇ ਤਿਆਗ ਦਾ ਸਿਧਾਂਤ",
+      "ਕਾਰਵਾਈ ਦੀ ਤਿੰਨ ਗੁਣਾ ਕੁਦਰਤ",
+      "ਸਾਤਵਿਕ, ਰਾਜਸਿਕ ਅਤੇ ਤਾਮਸਿਕ ਕਰਮ",
+      "ਭਗਤੀ ਯੋਗ ਦੀ ਉੱਤਮਤਾ",
+      "ਜਾਰੀ ਕਰਨ ਦਾ ਤਰੀਕਾ"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_30.html",
+    "language": "ਪੰਜਾਬੀ",
+    "scripture": "ਸ਼੍ਰੀਮਦ ਭਗਵਦ ਗੀਤਾ",
+    "chapterType": "ਜੋੜਿਆ ਗਿਆ",
+    "totalWords": "ਲਗਭਗ 3000+ ਸ਼ਬਦ",
+    "lastUpdated": "2024"
+  }
+}
