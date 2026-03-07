@@ -35,13 +35,13 @@ const StatsCard: React.FC<StatsCardProps> = ({ label, value, theme, icon, highli
           <Feather name={icon as any} size={16} color={highlight ? theme.status.success : theme.icon.secondary} />
         )}
         <Text
-          className={`text-[24px] font-normal tracking-tight ${highlight ? 'text-primary-600' : 'text-neutral-800'}`}
+          className={`text-[24px] font-normal tracking-tight ${highlight ? 'text-primary-600' : 'text-primary-950'}`}
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {value}
         </Text>
         <Text
-          className="text-[12px] font-normal text-neutral-500 text-center"
+          className="text-[12px] font-normal text-primary-600 text-center"
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {label}
@@ -77,7 +77,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
               <Feather name={icon as any} size={20} color={theme.status.success} />
             </Box>
             <Text
-              className="text-[16px] font-normal text-neutral-800"
+              className="text-[16px] font-normal text-primary-950"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {title}
@@ -85,7 +85,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ title, icon, stats, t
           </HStack>
           <HStack className="items-center" space="md">
             <Text
-              className="text-[13px] font-medium text-neutral-500"
+              className="text-[13px] font-medium text-primary-600"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.total')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: 'normal' }}>{stats.total}</Text>
@@ -180,7 +180,7 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
       <Box className="items-center justify-center min-h-[200px]" style={style}>
         <ActivityIndicator size="large" color={theme.status.success} />
         <Text
-          className="mt-4 text-[14px] font-medium text-neutral-500 text-center"
+          className="mt-4 text-[14px] font-medium text-primary-600 text-center"
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {i18n.t('profile.loading')}
@@ -212,13 +212,13 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
               </Box>
               <VStack className="flex-1 justify-center">
                 <Text
-                  className="text-[16px] font-normal text-neutral-800"
+                  className="text-[16px] font-normal text-primary-950"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.shareStats')}
                 </Text>
                 <Text
-                  className="text-[12px] font-medium text-neutral-500"
+                  className="text-[12px] font-medium text-primary-600"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.allTime')}: <Text style={{ fontFamily: fonts.regional_primary, fontWeight: 'normal' }}>{totalStats.total}</Text> {i18n.t('profile.totalShares')}
@@ -266,13 +266,13 @@ export const ShareStats: React.FC<ShareStatsProps> = ({ style }) => {
                   <Feather name="share-2" size={24} color={theme.icon.secondary} />
                 </Box>
                 <Text
-                  className="text-[16px] font-medium text-neutral-600 text-center"
+                  className="text-[16px] font-medium text-primary-700 text-center"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.noShares')}
                 </Text>
                 <Text
-                  className="text-[13px] text-neutral-400 text-center leading-5"
+                  className="text-[13px] text-primary-600 text-center leading-5"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.shareAppDesc')}

@@ -1,10 +1,10 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { Box } from '@/components/ui/box';
 import { HStack } from '@/components/ui/hstack';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import i18n from '@/lib/i18n';
 import { getLanguageFonts } from '@/types/font.interface';
 import { Ionicons } from '@expo/vector-icons';
@@ -120,11 +120,11 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
         <TouchableWithoutFeedback onPress={() => { }}>
           <BlurView
             intensity={80}
-            tint="dark"
+            tint="light"
             style={{ position: 'absolute', width, height }}
           >
             <Box
-              className="absolute bg-black/60"
+              className="absolute bg-primary-950/60"
               style={{ width, height }}
             />
           </BlurView>
@@ -141,14 +141,14 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
               opacity: fadeAnim,
             }}
           >
-            <Box className="bg-neutral-900 rounded-3xl overflow-hidden border border-neutral-700/50">
+            <Box className="bg-white rounded-3xl overflow-hidden border border-primary-200/50 shadow-xl">
               <Box className="h-1.5 w-full bg-primary-500" />
 
               <Pressable
                 onPress={handleClose}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-neutral-800 items-center justify-center z-10 border border-neutral-700"
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-primary-100 items-center justify-center z-10 border border-primary-200"
               >
-                <Ionicons name="close" size={20} color="white" />
+                <Ionicons name="close" size={20} color="#0f172a" />
               </Pressable>
 
               <VStack className="items-center px-6 py-10 gap-5">
@@ -171,14 +171,14 @@ export const ProActivationModal: React.FC<ProActivationModalProps> = ({ visible,
                 </Animated.View>
 
                 <Text
-                  className="text-white text-2xl font-black text-center shadow-sm"
+                  className="text-primary-950 text-2xl font-black text-center shadow-sm"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('pro.activationTitle', { defaultValue: 'Pro Activated!' })}
                 </Text>
 
                 <Text
-                  className="text-neutral-300 text-base text-center leading-6"
+                  className="text-primary-600 text-base text-center leading-6"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('pro.activationMessage', {

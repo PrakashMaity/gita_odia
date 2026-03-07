@@ -67,7 +67,7 @@ export const SubscriptionSuccessModal: React.FC<SubscriptionSuccessModalProps> =
                             tint="dark"
                             style={{ flex: 1 }}
                         >
-                            <View className="flex-1 bg-black/40" />
+                            <View className="flex-1 bg-primary-950/40" />
                         </BlurView>
                     </Animated.View>
                 </TouchableWithoutFeedback>

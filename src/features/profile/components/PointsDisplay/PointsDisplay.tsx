@@ -158,7 +158,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
       <Box className="items-center justify-center p-4 min-h-[120px]" style={style}>
         <ActivityIndicator size="small" color={theme.status.success} />
         <Text
-          className="mt-2 text-[14px] font-medium text-neutral-500 text-center"
+          className="mt-2 text-[14px] font-medium text-primary-600 text-center"
           style={{ fontFamily: fonts.regional_secondary }}
         >
           {i18n.t('profile.loading')}
@@ -194,13 +194,13 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             </Box>
             <VStack className="flex-1">
               <Text
-                className="text-[16px] font-bold tracking-tight text-neutral-800"
+                className="text-[16px] font-bold tracking-tight text-primary-950"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.currentPoints')}
               </Text>
               <Text
-                className="text-[13px] font-medium text-neutral-500"
+                className="text-[13px] font-medium text-primary-600"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.pointsWindow')}
@@ -302,7 +302,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
               <HStack space="sm" className="items-center">
                 <Feather name="gift" size={18} color={theme.icon.primary} />
                 <Text
-                  className="text-[16px] font-bold tracking-tight text-neutral-800"
+                  className="text-[16px] font-bold tracking-tight text-primary-950"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('profile.redeemButton')}
@@ -319,13 +319,13 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             style={{ backgroundColor: theme.background.secondary }}
           >
             <Text
-              className="text-[12px] font-medium text-neutral-500 mb-1 text-center"
+              className="text-[12px] font-medium text-primary-600 mb-1 text-center"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.expiredPoints')}
             </Text>
             <Text
-              className="text-[18px] font-bold text-neutral-800 text-center"
+              className="text-[18px] font-bold text-primary-950 text-center"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {pointsData.expiredPoints}
@@ -336,13 +336,13 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             style={{ backgroundColor: theme.background.secondary }}
           >
             <Text
-              className="text-[12px] font-medium text-neutral-500 mb-1 text-center"
+              className="text-[12px] font-medium text-primary-600 mb-1 text-center"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.totalPointsEarned')}
             </Text>
             <Text
-              className="text-[18px] font-bold text-neutral-800 text-center"
+              className="text-[18px] font-bold text-primary-950 text-center"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {pointsData.totalEarned}
@@ -356,7 +356,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             <HStack space="xs" className="items-center">
               <Feather name="file-text" size={14} color={theme.icon.secondary} />
               <Text
-                className="text-[12px] font-medium text-neutral-500"
+                className="text-[12px] font-medium text-primary-600"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {pointsData.pointsBreakdown.verseShares} {i18n.t('profile.points')}
@@ -366,7 +366,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
             <HStack space="xs" className="items-center">
               <Feather name="users" size={14} color={theme.icon.secondary} />
               <Text
-                className="text-[12px] font-medium text-neutral-500"
+                className="text-[12px] font-medium text-primary-600"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {pointsData.pointsBreakdown.appShares} {i18n.t('profile.points')}
@@ -384,7 +384,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
         onRequestClose={() => setInfoModalVisible(false)}
       >
         <TouchableOpacity
-          className="flex-1 bg-black/50 justify-center items-center p-6"
+          className="flex-1 bg-primary-950/50 justify-center items-center p-6"
           activeOpacity={1}
           onPress={() => setInfoModalVisible(false)}
         >
@@ -396,7 +396,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
           >
             <HStack className="justify-between items-center mb-6">
               <Text
-                className="text-[20px] font-black tracking-tight flex-1 text-neutral-800"
+                className="text-[20px] font-black tracking-tight flex-1 text-primary-950"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('profile.redeemInfo')}
@@ -427,7 +427,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                     <Feather name="share-2" size={20} color={theme.status.warning} />
                   </Box>
                   <Text
-                    className="text-[16px] font-bold text-neutral-800 flex-1 ml-3"
+                    className="text-[16px] font-bold text-primary-900 flex-1 ml-3"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('profile.sharingPointsInfo')}
@@ -449,7 +449,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                             style={{ marginTop: 2 }}
                           />
                           <Text
-                            className="text-[13px] leading-5 text-neutral-600 flex-1 ml-3"
+                            className="text-[13px] leading-5 text-primary-600 flex-1 ml-3"
                             style={{ fontFamily: fonts.regional_secondary }}
                           >
                             {cleanText}
@@ -473,7 +473,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                     <Feather name="gift" size={20} color={theme.status.success} />
                   </Box>
                   <Text
-                    className="text-[16px] font-bold text-neutral-800 flex-1 ml-3"
+                    className="text-[16px] font-bold text-primary-900 flex-1 ml-3"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('profile.redeemConditions')}
@@ -495,7 +495,7 @@ export const PointsDisplay: React.FC<PointsDisplayProps> = ({ style }) => {
                             style={{ marginTop: 2 }}
                           />
                           <Text
-                            className="text-[13px] leading-5 text-neutral-600 flex-1 ml-3"
+                            className="text-[13px] leading-5 text-primary-600 flex-1 ml-3"
                             style={{ fontFamily: fonts.regional_secondary }}
                           >
                             {cleanText}

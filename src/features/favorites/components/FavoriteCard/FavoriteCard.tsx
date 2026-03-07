@@ -60,7 +60,7 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
 
             <VStack className="flex-1">
               <Text
-                className="text-[16px] font-black tracking-tight text-neutral-800"
+                className="text-[16px] font-black tracking-tight text-primary-950"
                 style={{ fontFamily: fonts.regional_secondary }}
                 numberOfLines={1}
               >
@@ -92,7 +92,7 @@ export const FavoriteCard: React.FC<FavoriteCardProps> = ({
         </HStack>
 
         <Text
-          className="text-[15px] font-medium leading-6 text-neutral-600 mb-5"
+          className="text-[15px] font-medium leading-6 text-primary-600 mb-5"
           style={{ fontFamily: fonts.regional_secondary }}
           numberOfLines={4}
         >

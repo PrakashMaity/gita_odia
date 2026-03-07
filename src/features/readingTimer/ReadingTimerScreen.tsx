@@ -210,7 +210,7 @@ export const ReadingTimerScreen: React.FC = () => {
           {timerState === 'idle' && (
             <VStack className="w-full mt-4" space="md">
               <Text
-                className="text-neutral-500 font-bold text-[14px] uppercase tracking-widest text-center"
+                className="text-primary-600 font-bold text-[14px] uppercase tracking-widest text-center"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('readingTimer.selectDuration')}
@@ -224,11 +224,11 @@ export const ReadingTimerScreen: React.FC = () => {
                         <Pressable
                           key={minutes}
                           onPress={() => handlePresetSelect(minutes)}
-                          className={`px-6 py-3 rounded-[20px] ${isActive ? 'bg-black shadow-sm' : 'bg-transparent'
+                          className={`px-6 py-3 rounded-[20px] ${isActive ? 'bg-primary-950 shadow-sm' : 'bg-transparent'
                             }`}
                         >
                           <Text
-                            className={`text-[14px] font-bold ${isActive ? 'text-white' : 'text-neutral-400'
+                            className={`text-[14px] font-bold ${isActive ? 'text-white' : 'text-primary-500'
                               }`}
                             style={{ fontFamily: fonts.regional_secondary }}
                           >

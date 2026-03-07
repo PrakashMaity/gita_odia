@@ -33,28 +33,28 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
       onPress={handlePress}
       disabled={isPurchasing}
       activeOpacity={0.9}
-      className={`mb-4 w-full rounded-3xl border ${showBestValue ? 'border-white bg-black' : 'border-neutral-800 bg-neutral-900'
+      className={`mb-4 w-full rounded-3xl border ${showBestValue ? 'border-primary-500 bg-primary-50' : 'border-primary-200 bg-white'
         } overflow-hidden`}
     >
       <Box className="relative p-6 pt-8">
         {showBestValue && (
-          <Box className="absolute top-0 right-6 bg-white flex-row items-center px-3 py-1.5 rounded-b-xl shadow-sm z-10">
-            <MaterialIcons name="star" size={12} color="black" />
-            <Text className="text-[10px] font-bold text-black ml-1 uppercase font-regional_secondary tracking-wider">
+          <Box className="absolute top-0 right-6 bg-primary-500 flex-row items-center px-3 py-1.5 rounded-b-xl shadow-sm z-10">
+            <MaterialIcons name="star" size={12} color="white" />
+            <Text className="text-[10px] font-bold text-white ml-1 uppercase font-regional_secondary tracking-wider">
               {i18n.t('subscription.bestValue')}
             </Text>
           </Box>
         )}
 
-        <Text className="text-xl font-bold mb-4 font-regional_secondary text-white">
+        <Text className="text-xl font-bold mb-4 font-regional_secondary text-primary-950">
           {title}
         </Text>
 
         <Box className="mb-6 flex-row items-baseline">
-          <Text className={`text-4xl font-bold font-regional_secondary ${showBestValue ? 'text-white' : 'text-neutral-200'}`}>
+          <Text className={`text-4xl font-bold font-regional_secondary ${showBestValue ? 'text-primary-900' : 'text-primary-950'}`}>
             {price}
           </Text>
-          <Text className="text-base text-neutral-400 font-regional_secondary ml-2">
+          <Text className="text-base text-primary-600 font-regional_secondary ml-2">
             {period}
           </Text>
         </Box>
@@ -66,10 +66,10 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
                 <MaterialIcons
                   name="check-circle"
                   size={20}
-                  color={showBestValue ? 'white' : '#9ca3af'}
+                  color={showBestValue ? '#0ea5e9' : '#64748b'}
                   style={{ marginTop: 2, marginRight: 12 }}
                 />
-                <Text className="text-sm leading-6 text-neutral-300 font-regional_secondary flex-1">
+                <Text className="text-sm leading-6 text-primary-700 font-regional_secondary flex-1">
                   {feature}
                 </Text>
               </Box>
@@ -82,12 +82,12 @@ export const SubscriptionPlanCard: React.FC<SubscriptionPlanCardProps> = ({
           style={{ width: '100%' }}
           onPress={handlePress}
           disabled={isPurchasing}
-          className={`${showBestValue ? 'bg-white' : 'bg-neutral-800'}`}
+          className={`${showBestValue ? 'bg-primary-500' : 'bg-primary-900'}`}
         >
           {isPurchasing ? (
-            <ButtonSpinner color={showBestValue ? 'black' : 'white'} />
+            <ButtonSpinner color="white" />
           ) : (
-            <ButtonText className={`font-bold ${showBestValue ? 'text-black' : 'text-white'}`}>
+            <ButtonText className="font-bold text-white">
               {i18n.t('subscription.subscribe')}
             </ButtonText>
           )}

@@ -24,8 +24,7 @@ export const HomeScreen: React.FC = () => {
   return (
     <ImageBackground
       source={HomeImages.background}
-      style={[{ flex: 1 }, !isPro && ({ filter: 'grayscale(100%)' } as any)]}
-      imageStyle={!isPro ? { tintColor: '#D1D5DB' } : undefined}
+      style={{ flex: 1 }}
       resizeMode="cover"
       blurRadius={0.5}
     >

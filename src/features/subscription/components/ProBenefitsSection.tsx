@@ -14,14 +14,14 @@ const PRO_BENEFITS = [
 
 export const ProBenefitsSection: React.FC = () => {
   return (
-    <Box className="mx-6 mb-8 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+    <Box className="mx-6 mb-8 p-6 rounded-2xl bg-white border border-primary-200 shadow-sm">
       <View className="flex-row items-center justify-center mb-6 space-x-3">
         <MaterialIcons
           name="workspace-premium"
           size={32}
-          color="white"
+          color="#0f172a"
         />
-        <Text className="text-xl font-bold text-center text-white font-regional_secondary">
+        <Text className="text-xl font-bold text-center text-primary-950 font-regional_secondary">
           {i18n.t('subscription.features.title')}
         </Text>
       </View>
@@ -32,10 +32,10 @@ export const ProBenefitsSection: React.FC = () => {
             <MaterialIcons
               name="check-circle"
               size={24}
-              color="white"
+              color="#0ea5e9"
               className="mr-4"
             />
-            <Text className="flex-1 text-[15px] leading-6 text-neutral-400 font-regional_secondary">
+            <Text className="flex-1 text-[15px] leading-6 text-primary-700 font-regional_secondary">
               {i18n.t(benefitKey)}
             </Text>
           </View>

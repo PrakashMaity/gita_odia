@@ -64,7 +64,7 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
   if (loading || isLoading) {
     return (
       <Box className={variant === 'icon' ? '' : 'p-2'}>
-        <Text className="text-xs text-neutral-400">
+        <Text className="text-xs text-primary-600">
           {variant === 'icon' ? '...' : i18n.t('common.loading')}
         </Text>
       </Box>
@@ -81,19 +81,19 @@ export const BookmarkButton: React.FC<BookmarkButtonProps> = ({
         isIcon
           ? ''
           : `flex-row items-center px-4 py-2 rounded-xl border ${bookmarkStatus
-            ? 'bg-white border-white'
-            : 'bg-black border-neutral-800'
+            ? 'bg-primary-500 border-primary-500'
+            : 'bg-white border-primary-200'
           }`
       }
     >
       <Ionicons
         name={bookmarkStatus ? "bookmark" : "bookmark-outline"}
         size={isIcon ? 24 : 20}
-        color={bookmarkStatus ? (isIcon ? 'white' : 'black') : '#9ca3af'}
+        color={bookmarkStatus ? (isIcon ? '#0f172a' : 'white') : '#64748b'}
       />
       {!isIcon && (
         <Text
-          className={`text-sm font-medium ml-2 font-regional_secondary ${bookmarkStatus ? 'text-black' : 'text-white'
+          className={`text-sm font-medium ml-2 font-regional_secondary ${bookmarkStatus ? 'text-white' : 'text-primary-950'
             }`}
         >
           {bookmarkStatus ? i18n.t('bookmark.remove') : i18n.t('bookmark.add')}

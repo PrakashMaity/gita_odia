@@ -31,7 +31,7 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
         <Button
           size="lg"
           onPress={onStart}
-          className="w-full h-16 rounded-[20px] bg-black border-0"
+          className="w-full h-16 rounded-[20px] bg-primary-900 border-0"
         >
           <ButtonIcon as={props => <Ionicons name="play" {...props} />} className="text-white mr-2" />
           <ButtonText
@@ -62,11 +62,11 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
           <Button
             size="lg"
             onPress={onReset}
-            className="flex-1 h-14 rounded-[20px] bg-neutral-100 border-0"
+            className="flex-1 h-14 rounded-[20px] bg-primary-100 border-0"
           >
-            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-neutral-500 mr-2" />
+            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-primary-700 mr-2" />
             <ButtonText
-              className="text-neutral-500 font-bold"
+              className="text-primary-700 font-bold"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.reset')}
@@ -94,11 +94,11 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
           <Button
             size="lg"
             onPress={onReset}
-            className="flex-1 h-14 rounded-[20px] bg-neutral-100 border-0"
+            className="flex-1 h-14 rounded-[20px] bg-primary-100 border-0"
           >
-            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-neutral-500 mr-2" />
+            <ButtonIcon as={props => <Ionicons name="stop" {...props} />} className="text-primary-700 mr-2" />
             <ButtonText
-              className="text-neutral-500 font-bold"
+              className="text-primary-700 font-bold"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('readingTimer.reset')}
@@ -111,7 +111,7 @@ export const TimerControls: React.FC<TimerControlsProps> = ({
         <Button
           size="lg"
           onPress={onReset}
-          className="w-full h-16 rounded-[20px] bg-black border-0"
+          className="w-full h-16 rounded-[20px] bg-primary-900 border-0"
         >
           <ButtonIcon as={props => <Ionicons name="refresh" {...props} />} className="text-white mr-2" />
           <ButtonText

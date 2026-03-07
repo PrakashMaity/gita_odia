@@ -62,7 +62,7 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   if (loading || isLoading) {
     return (
       <Box className="p-2">
-        <Text className="text-xs text-neutral-400">
+        <Text className="text-xs text-primary-600">
           {i18n.t('common.loading')}
         </Text>
       </Box>

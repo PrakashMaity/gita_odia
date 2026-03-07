@@ -81,20 +81,20 @@ export const BookmarksScreen: React.FC = () => {
                 />
                 <VStack>
                   <Text
-                    className="text-[14px] font-bold text-neutral-500 mb-1"
+                    className="text-[14px] font-bold text-primary-600 mb-1"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('bookmark.yourBookmarks').toUpperCase()}
                   </Text>
                   <HStack className="items-baseline">
                     <Text
-                      className="text-[36px] font-black text-neutral-900 tracking-tighter"
+                      className="text-[36px] font-black text-primary-950 tracking-tighter"
                       style={{ fontFamily: fonts.regional_secondary }}
                     >
                       {convertToLocalizedNumber(sortedBookmarks.length.toString())}
                     </Text>
                     <Text
-                      className="text-[16px] font-bold text-neutral-400 ml-2"
+                      className="text-[16px] font-bold text-primary-600 ml-2"
                       style={{ fontFamily: fonts.regional_secondary }}
                     >
                       {i18n.t('bookmark.bookmarks')}
@@ -120,7 +120,7 @@ export const BookmarksScreen: React.FC = () => {
                 style={{ backgroundColor: theme.status.success + '60' }}
               />
               <Text
-                className="text-[20px] font-black tracking-tight text-neutral-800"
+                className="text-[20px] font-black tracking-tight text-primary-900"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('bookmark.recentBookmarks')}
@@ -157,7 +157,7 @@ export const BookmarksScreen: React.FC = () => {
               </Text>
             </Box>
             <Text
-              className="text-[15px] font-medium text-center text-neutral-600 leading-6"
+              className="text-[15px] font-medium text-center text-primary-600 leading-6"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('bookmark.footerMessage')}

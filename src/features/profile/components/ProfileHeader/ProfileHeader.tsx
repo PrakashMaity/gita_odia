@@ -75,7 +75,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           <VStack>
             <HStack className="items-center space-x-2">
               <Text
-                className="text-[28px] font-black tracking-tight text-neutral-800"
+                className="text-[28px] font-black tracking-tight text-primary-950"
                 style={{ fontFamily: fonts.primary_english }}
               >
                 Settings
@@ -95,7 +95,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               )}
             </HStack>
             <Text
-              className="text-[13px] font-medium text-neutral-500 mt-0.5"
+              className="text-[13px] font-medium text-primary-600 mt-0.5"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('profile.customizeExperience')}

@@ -214,16 +214,16 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
           <View className="w-full justify-center items-center z-50">
             <TouchableWithoutFeedback>
               <Box
-                className="bg-neutral-900 rounded-3xl p-6 w-[85%] max-w-[400px] shadow-2xl elevation-15 border border-neutral-800"
+                className="bg-white rounded-3xl p-6 w-[85%] max-w-[400px] shadow-2xl elevation-15 border border-primary-200"
               >
                 <Text
-                  className="text-white text-2xl font-bold text-center mb-2 font-regional_secondary"
+                  className="text-primary-950 text-2xl font-bold text-center mb-2 font-regional_secondary"
                 >
                   {i18n.t('share.title')}
                 </Text>
 
                 <Text
-                  className="text-neutral-400 text-base text-center mb-6 font-regional_secondary"
+                  className="text-primary-600 text-base text-center mb-6 font-regional_secondary"
                 >
                   {i18n.t('share.chooseOption')}
                 </Text>
@@ -231,22 +231,22 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 <View className="gap-4 mb-6">
                   <Button
                     onPress={handleShareAsText}
-                    className="w-full h-14 rounded-xl bg-white"
+                    className="w-full h-14 rounded-xl bg-primary-950"
                     disabled={isSharing}
                   >
-                    <ButtonIcon as={() => <Ionicons name="text-outline" size={24} color="black" className="mr-2" />} />
-                    <ButtonText className="text-black font-semibold text-base font-regional_secondary">
+                    <ButtonIcon as={() => <Ionicons name="text-outline" size={24} color="white" className="mr-2" />} />
+                    <ButtonText className="text-white font-semibold text-base font-regional_secondary">
                       {i18n.t('share.asText')}
                     </ButtonText>
                   </Button>
 
                   <Button
                     onPress={handleShareAsImage}
-                    className="w-full h-14 rounded-xl bg-neutral-800 border-0"
+                    className="w-full h-14 rounded-xl bg-primary-50 border border-primary-200"
                     disabled={isSharing}
                   >
-                    <ButtonIcon as={() => <Ionicons name="image-outline" size={24} color="white" className="mr-2" />} />
-                    <ButtonText className="text-white font-semibold text-base font-regional_secondary">
+                    <ButtonIcon as={() => <Ionicons name="image-outline" size={24} color="#0f172a" className="mr-2" />} />
+                    <ButtonText className="text-primary-950 font-semibold text-base font-regional_secondary">
                       {i18n.t('share.asImage')}
                     </ButtonText>
                   </Button>
@@ -255,10 +255,10 @@ export const ShareButton: React.FC<ShareButtonProps> = ({
                 <Button
                   onPress={() => setShowShareModal(false)}
                   variant="outline"
-                  className="w-full h-12 rounded-xl border border-neutral-700 bg-transparent"
+                  className="w-full h-12 rounded-xl border border-primary-200 bg-transparent"
                   disabled={isSharing}
                 >
-                  <ButtonText className="text-white font-semibold font-regional_secondary">
+                  <ButtonText className="text-primary-950 font-semibold font-regional_secondary">
                     {i18n.t('common.cancel')}
                   </ButtonText>
                 </Button>

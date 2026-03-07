@@ -54,7 +54,7 @@ export default function ReadingProgress({
   if (isLoading) {
     return (
       <View className="mb-6">
-        <Text className="text-sm text-center text-neutral-400 font-regional_secondary">
+        <Text className="text-sm text-center text-primary-600 font-regional_secondary">
           {i18n.t('common.loading')}
         </Text>
       </View>
@@ -64,7 +64,7 @@ export default function ReadingProgress({
   if (!chapterProgress) {
     return (
       <View className="mb-6">
-        <Text className="text-sm text-center text-neutral-500 font-regional_secondary">
+        <Text className="text-sm text-center text-primary-600 font-regional_secondary">
           {i18n.t('progress.notStarted')}
         </Text>
       </View>
@@ -72,24 +72,24 @@ export default function ReadingProgress({
   }
 
   return (
-    <Box className="mb-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+    <Box className="mb-6 p-6 rounded-2xl bg-white border border-primary-200 shadow-sm">
       <View className="flex-row justify-between items-center mb-2">
-        <Text className="text-xl font-bold text-white font-regional_secondary">
+        <Text className="text-xl font-bold text-primary-950 font-regional_secondary">
           {i18n.t('progress.readingProgress')}
         </Text>
         <TouchableOpacity onPress={resetProgress} className="p-1">
-          <Ionicons name="refresh-outline" size={24} color="white" />
+          <Ionicons name="refresh-outline" size={24} color="#0f172a" />
         </TouchableOpacity>
       </View>
 
-      <Text className="text-base text-neutral-400 mb-4 font-regional_secondary">
+      <Text className="text-base text-primary-600 mb-4 font-regional_secondary">
         {i18n.t('progress.lastRead', { date: chapterProgress ? formatLastReadDate(chapterProgress.lastReadDate) : '' })}
       </Text>
 
       <View className="mb-2">
-        <View className="h-1.5 rounded-full overflow-hidden mb-2 bg-neutral-800">
+        <View className="h-1.5 rounded-full overflow-hidden mb-2 bg-primary-100">
           <View
-            className="h-full rounded-full bg-white"
+            className="h-full rounded-full bg-primary-500"
             style={{ width: `${getProgressPercentageValue()}%` }}
           />
         </View>
@@ -97,8 +97,8 @@ export default function ReadingProgress({
 
       {chapterProgress.isCompleted && (
         <View className="flex-row items-center justify-center mt-2">
-          <Ionicons name="checkmark-circle" size={16} color="white" />
-          <Text className="text-sm font-bold ml-2 text-white font-regional_secondary">
+          <Ionicons name="checkmark-circle" size={16} color="#10b981" />
+          <Text className="text-sm font-bold ml-2 text-primary-950 font-regional_secondary">
             {i18n.t('progress.chapterComplete')}
           </Text>
         </View>

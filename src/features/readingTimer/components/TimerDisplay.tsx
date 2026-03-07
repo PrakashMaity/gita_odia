@@ -80,9 +80,9 @@ export const TimerDisplay: React.FC<TimerDisplayProps> = ({
             {formatTime(timeLeft)}
           </Text>
 
-          <Box className={`px-4 py-1 rounded-full ${timerState === 'running' ? 'bg-primary-50' : 'bg-neutral-50'}`}>
+          <Box className={`px-4 py-1 rounded-full ${timerState === 'running' ? 'bg-primary-50' : 'bg-white'}`}>
             <Text
-              className={`text-[14px] font-bold uppercase tracking-widest ${timerState === 'running' ? 'text-primary-800' : 'text-neutral-500'
+              className={`text-[14px] font-bold uppercase tracking-widest ${timerState === 'running' ? 'text-primary-800' : 'text-primary-600'
                 }`}
               style={{ fontFamily: fonts.regional_secondary }}
             >

@@ -45,25 +45,25 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
       animationType="fade"
       onRequestClose={handleCancel}
     >
-      <View className="flex-1 justify-center items-center bg-black/50 p-6">
-        <Box className="w-full max-w-[400px] p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+      <View className="flex-1 justify-center items-center bg-primary-950/50 p-6">
+        <Box className="w-full max-w-[400px] p-6 rounded-2xl bg-white border border-primary-200 shadow-sm">
           <View className="items-center mb-6">
             <MaterialIcons
               name="lock"
               size={32}
-              color="white"
+              color="#0f172a"
             />
-            <Text className="text-xl font-bold mt-4 mb-2 text-center text-white font-regional_secondary">
+            <Text className="text-xl font-bold mt-4 mb-2 text-center text-primary-950 font-regional_secondary">
               Developer Access
             </Text>
-            <Text className="text-sm text-center text-neutral-400">
+            <Text className="text-sm text-center text-primary-600">
               Enter password to access developer panel
             </Text>
           </View>
 
           <View className="mb-6">
             <TextInput
-              className={`h-[50px] rounded-xl px-4 border text-base text-white ${error ? 'border-tertiary-500 bg-tertiary-500/10' : 'border-neutral-700 bg-black'
+              className={`h-[50px] rounded-xl px-4 border text-base text-primary-950 ${error ? 'border-tertiary-500 bg-tertiary-500/10' : 'border-primary-200 bg-primary-50'
                 }`}
               value={password}
               onChangeText={(text) => {
@@ -86,16 +86,16 @@ export const PasswordModal: React.FC<PasswordModalProps> = ({
           <View className="flex-row gap-4">
             <Button
               variant="outline"
-              className="flex-1 rounded-xl border-neutral-700"
+              className="flex-1 rounded-xl border-primary-200"
               onPress={handleCancel}
             >
-              <ButtonText className="text-white font-medium">Cancel</ButtonText>
+              <ButtonText className="text-primary-950 font-medium">Cancel</ButtonText>
             </Button>
             <Button
-              className="flex-1 rounded-xl bg-white"
+              className="flex-1 rounded-xl bg-primary-950"
               onPress={handleSubmit}
             >
-              <ButtonText className="text-black font-medium">Submit</ButtonText>
+              <ButtonText className="text-white font-medium">Submit</ButtonText>
             </Button>
           </View>
         </Box>

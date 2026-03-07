@@ -39,7 +39,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   imageStyle,
   testID,
 }) => {
-  const headerOverlayColor = '#000000'; // Pure black from theme
+  const headerOverlayColor = '#ffffff'; // White overlay for light theme
 
   const renderDefaultText = () => {
     if (!title && !subtitle) {
@@ -50,7 +50,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
       <Box className="flex-shrink">
         {title ? (
           <Text
-            className="text-white text-lg font-bold font-regional_secondary mb-1"
+            className="text-primary-950 text-lg font-bold font-regional_secondary mb-1"
           >
             {title}
           </Text>
@@ -58,7 +58,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
 
         {subtitle ? (
           <Text
-            className="text-neutral-400 text-sm font-regional_secondary"
+            className="text-primary-600 text-sm font-regional_secondary"
           >
             {subtitle}
           </Text>

@@ -31,7 +31,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <Box className="px-6 py-4">
-      <Box className="flex-row items-center rounded-2xl border border-neutral-800 bg-neutral-900 px-4 py-2">
+      <Box className="flex-row items-center rounded-2xl border border-primary-200 bg-white shadow-sm px-4 py-2">
         <Ionicons
           name="search-outline"
           size={20}
@@ -40,7 +40,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         />
 
         <TextInput
-          className="flex-1 text-base py-2 text-white bg-transparent"
+          className="flex-1 text-base py-2 text-primary-950 bg-transparent"
           placeholder={placeholder}
           placeholderTextColor="#6b7280" // neutral-500
           value={searchQuery}

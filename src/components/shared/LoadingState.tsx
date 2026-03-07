@@ -5,9 +5,9 @@ import React from 'react';
 
 export const LoadingState: React.FC<LoadingStateProps> = ({ message }) => {
   return (
-    <Box className="flex-1 items-center justify-center bg-black">
+    <Box className="flex-1 items-center justify-center bg-primary-50">
       {message && (
-        <Text className="text-lg text-neutral-400 font-regional_secondary text-center max-w-[80%] mt-4">
+        <Text className="text-lg text-primary-600 font-regional_secondary text-center max-w-[80%] mt-4">
           {message}
         </Text>
       )}

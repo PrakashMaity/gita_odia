@@ -31,9 +31,9 @@ export const FavoriteMenu: React.FC<FavoriteMenuProps> = ({
       onRequestClose={onClose}
     >
       <TouchableWithoutFeedback onPress={onClose}>
-        <Box className="flex-1 justify-center items-center bg-black/60">
+        <Box className="flex-1 justify-center items-center bg-primary-950/60">
           <TouchableWithoutFeedback>
-            <Box className="rounded-2xl p-2 min-w-[180px] bg-neutral-900 border border-neutral-800">
+            <Box className="rounded-2xl p-2 min-w-[180px] bg-white border border-primary-200 shadow-sm">
               <TouchableOpacity
                 className="flex-row items-center p-4 rounded-xl"
                 onPress={handleDelete}
@@ -46,7 +46,7 @@ export const FavoriteMenu: React.FC<FavoriteMenuProps> = ({
                   className="mr-4"
                 />
                 <Text
-                  className="flex-1 text-white text-base font-regional_secondary ml-4"
+                  className="flex-1 text-primary-950 text-base font-regional_secondary ml-4"
                 >
                   {isHeaderMenu ? i18n.t('favorite.clearAll') : i18n.t('favorite.remove')}
                 </Text>

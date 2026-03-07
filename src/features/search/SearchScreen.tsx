@@ -21,7 +21,7 @@ export const SearchScreen: React.FC = () => {
   const { handleResultPress } = useSearchNavigation();
 
   return (
-    <SafeAreaView className="flex-1 bg-black" edges={['top', 'left', 'right']}>
+    <SafeAreaView className="flex-1 bg-primary-50" edges={['top', 'left', 'right']}>
       <ImageBackground
         source={LayoutImages.background3}
         className="flex-1 w-full"
@@ -43,7 +43,7 @@ export const SearchScreen: React.FC = () => {
 
           {isSearching ? (
             <Box className="flex-1 justify-center items-center">
-              <Text className="text-base text-neutral-400">
+              <Text className="text-base text-primary-600">
                 {i18n.t('search.searching')}
               </Text>
             </Box>

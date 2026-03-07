@@ -26,21 +26,21 @@ const QuickActionButton: React.FC<QuickActionButtonProps> = ({
       className="flex-1"
     >
       <Box
-        className={`items-center justify-center p-4 min-h-[100px] rounded-2xl border ${primary ? 'bg-white border-white' : 'bg-neutral-900 border-neutral-800'
+        className={`items-center justify-center p-4 min-h-[100px] rounded-2xl border ${primary ? 'bg-primary-500 border-primary-500 shadow-md' : 'bg-white border-primary-200 shadow-sm'
           }`}
       >
         <Box
-          className={`w-12 h-12 rounded-full items-center justify-center mb-2 ${primary ? 'bg-black/10' : 'bg-neutral-800'
+          className={`w-12 h-12 rounded-full items-center justify-center mb-2 ${primary ? 'bg-white/20' : 'bg-primary-100'
             }`}
         >
           <Ionicons
             name={icon}
             size={24}
-            color={primary ? 'black' : 'white'}
+            color={primary ? 'white' : '#0f172a'}
           />
         </Box>
         <Text
-          className={`text-xs font-bold text-center font-regional_secondary ${primary ? 'text-black' : 'text-white'
+          className={`text-xs font-bold text-center font-regional_secondary ${primary ? 'text-white' : 'text-primary-950'
             }`}
         >
           {label}

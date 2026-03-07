@@ -28,9 +28,9 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
   };
 
   return (
-    <Box className="mt-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+    <Box className="mt-6 p-6 rounded-2xl bg-white border border-primary-200 shadow-sm">
       <View className="flex-row items-center mb-6">
-        <Text className="flex-1 text-lg font-bold text-white font-regional_secondary">
+        <Text className="flex-1 text-lg font-bold text-primary-950 font-regional_secondary">
           {i18n.t('dailyReading.weeklyStats')}
         </Text>
       </View>
@@ -43,16 +43,16 @@ export const WeeklyChart: React.FC<WeeklyChartProps> = ({ data }) => {
             <View key={index} className="flex-1 items-center justify-end">
               <View className="w-4/5 h-[100px] justify-end items-center mb-1">
                 <View
-                  className={`w-full min-h-[4px] rounded-sm ${hasValue ? 'bg-white' : 'bg-neutral-800'}`}
+                  className={`w-full min-h-[4px] rounded-sm ${hasValue ? 'bg-primary-500' : 'bg-primary-100'}`}
                   style={{
                     height: hasValue ? Math.max(barHeight, 4) : 4,
                   }}
                 />
               </View>
-              <Text className="text-[11px] mt-1 text-center font-medium text-neutral-400 font-regional_secondary">
+              <Text className="text-[11px] mt-1 text-center font-medium text-primary-600 font-regional_secondary">
                 {getDayLabel(item.date)}
               </Text>
-              <Text className="text-[10px] mt-0.5 font-bold opacity-80 text-white font-regional_secondary">
+              <Text className="text-[10px] mt-0.5 font-bold opacity-80 text-primary-950 font-regional_secondary">
                 {item.versesRead}
               </Text>
             </View>

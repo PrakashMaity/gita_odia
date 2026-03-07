@@ -64,19 +64,19 @@ export const VerseOfTheDayScreen: React.FC = () => {
 
   if (isLoading || !verse) {
     return (
-      <Box className="flex-1 bg-black">
+      <Box className="flex-1 bg-primary-50">
         {/* Custom Modern Header */}
-        <Box className="pb-4 px-4 border-b border-neutral-800 bg-black pt-12 shadow-sm z-10">
+        <Box className="pb-4 px-4 border-b border-primary-200 bg-primary-50 pt-12 shadow-sm z-10">
           <HStack className="items-center justify-between">
             <TouchableOpacity
-              className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
+              className="w-10 h-10 bg-white rounded-xl items-center justify-center active:opacity-70 border border-primary-200"
               onPress={() => router.back()}
             >
-              <Ionicons name="chevron-back" size={24} color="white" />
+              <Ionicons name="chevron-back" size={24} color="#0f172a" />
             </TouchableOpacity>
 
             <Text
-              className="text-xl font-bold tracking-tight flex-1 text-center text-white"
+              className="text-xl font-bold tracking-tight flex-1 text-center text-primary-950"
               numberOfLines={1}
             >
               {i18n.t('verseOfTheDay.title')}
@@ -87,7 +87,7 @@ export const VerseOfTheDayScreen: React.FC = () => {
         </Box>
 
         <View className="flex-1 justify-center items-center">
-          <Text className="text-base text-neutral-400 font-regional_secondary">
+          <Text className="text-base text-primary-600 font-regional_secondary">
             {i18n.t('common.loading')}
           </Text>
         </View>
@@ -96,19 +96,19 @@ export const VerseOfTheDayScreen: React.FC = () => {
   }
 
   return (
-    <Box className="flex-1 bg-black">
+    <Box className="flex-1 bg-primary-50">
       {/* Custom Modern Header */}
-      <Box className="pb-4 px-4 border-b border-neutral-800 bg-black pt-12 shadow-sm z-10">
+      <Box className="pb-4 px-4 border-b border-primary-200 bg-primary-50 pt-12 shadow-sm z-10">
         <HStack className="items-center justify-between">
           <TouchableOpacity
-            className="w-10 h-10 bg-neutral-900 rounded-xl items-center justify-center active:opacity-70 border border-neutral-800"
+            className="w-10 h-10 bg-white rounded-xl items-center justify-center active:opacity-70 border border-primary-200"
             onPress={() => router.back()}
           >
-            <Ionicons name="chevron-back" size={24} color="white" />
+            <Ionicons name="chevron-back" size={24} color="#0f172a" />
           </TouchableOpacity>
 
           <Text
-            className="text-xl font-bold tracking-tight flex-1 text-center text-white"
+            className="text-xl font-bold tracking-tight flex-1 text-center text-primary-950"
             numberOfLines={1}
           >
             {i18n.t('verseOfTheDay.title')}
@@ -123,9 +123,9 @@ export const VerseOfTheDayScreen: React.FC = () => {
         contentContainerClassName="px-4 pb-16 pt-4 space-y-4"
         showsVerticalScrollIndicator={false}
       >
-        <Box className="p-5 rounded-3xl bg-neutral-900 border border-neutral-800 mb-4">
+        <Box className="p-5 rounded-3xl bg-white border border-primary-200 mb-4 shadow-sm">
           <Box className="flex-row justify-between items-center mb-4">
-            <Text className="text-lg font-bold text-white font-regional_secondary">
+            <Text className="text-lg font-bold text-primary-950 font-regional_secondary">
               {i18n.t('verseOfTheDay.introTitle')}
             </Text>
             <TouchableOpacity
@@ -136,24 +136,24 @@ export const VerseOfTheDayScreen: React.FC = () => {
                   await speak(i18n.t('verseOfTheDay.introText'));
                 }
               }}
-              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-neutral-800'
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-primary-100'
                 }`}
             >
               <MaterialIcons
                 name="volume-up"
                 size={20}
-                color={isSpeaking ? 'white' : '#9ca3af'}
+                color={isSpeaking ? 'white' : '#64748b'}
               />
             </TouchableOpacity>
           </Box>
-          <Text className="text-base leading-6 text-neutral-300 font-regional_secondary">
+          <Text className="text-base leading-6 text-primary-600 font-regional_secondary">
             {i18n.t('verseOfTheDay.introText')}
           </Text>
         </Box>
 
         {/* Date Badge */}
-        <Box className="self-center px-4 py-2 rounded-full bg-neutral-900 border border-neutral-800 mb-4">
-          <Text className="text-sm font-bold text-white font-regional_secondary">
+        <Box className="self-center px-4 py-2 rounded-full bg-white border border-primary-200 mb-4 shadow-sm">
+          <Text className="text-sm font-bold text-primary-950 font-regional_secondary">
             {new Date().toLocaleDateString('en-US', {
               weekday: 'long',
               year: 'numeric',
@@ -164,35 +164,35 @@ export const VerseOfTheDayScreen: React.FC = () => {
         </Box>
 
         {/* Verse Card */}
-        <Box className="p-6 rounded-3xl bg-neutral-900 border-2 border-white mb-4">
+        <Box className="p-6 rounded-3xl bg-white border-2 border-primary-200 mb-4 shadow-sm">
           <View className="flex-row justify-between items-center mb-6">
-            <Text className="text-lg font-bold text-white font-regional_secondary">
+            <Text className="text-lg font-bold text-primary-950 font-regional_secondary">
               {verse.chapterNumber} {i18n.t('share.chapter')}, {verse.verseNumber} {i18n.t('share.verse')}
             </Text>
             <TouchableOpacity
               onPress={handleSpeakVerse}
-              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-neutral-800'
+              className={`w-10 h-10 rounded-full items-center justify-center ${isSpeaking ? 'bg-success-600' : 'bg-primary-100'
                 }`}
             >
               <MaterialIcons
                 name="volume-up"
                 size={20}
-                color={isSpeaking ? 'white' : '#9ca3af'}
+                color={isSpeaking ? 'white' : '#64748b'}
               />
             </TouchableOpacity>
           </View>
 
           {verse.verseText && (
             <View className="mb-6">
-              <Text className="text-2xl font-bold text-white leading-9 font-regional_primary text-center">
+              <Text className="text-2xl font-bold text-primary-950 leading-9 font-regional_primary text-center">
                 {verse.verseText}
               </Text>
             </View>
           )}
 
           {verse.translation && (
-            <View className="pt-4 border-t border-neutral-800">
-              <Text className="text-base text-neutral-300 leading-6 font-regional_secondary">
+            <View className="pt-4 border-t border-primary-100">
+              <Text className="text-base text-primary-600 leading-6 font-regional_secondary">
                 {verse.translation}
               </Text>
             </View>
@@ -202,29 +202,29 @@ export const VerseOfTheDayScreen: React.FC = () => {
         {/* Action Buttons */}
         <View className="flex-row gap-4 mb-4">
           <TouchableOpacity
-            className="flex-1 py-4 bg-neutral-900 rounded-2xl flex-row justify-center items-center border border-neutral-800"
+            className="flex-1 py-4 bg-white rounded-2xl flex-row justify-center items-center border border-primary-200 shadow-sm"
             onPress={handleShare}
           >
-            <Ionicons name="share-outline" size={20} color="white" className="mr-2" />
-            <Text className="text-sm font-bold text-white font-regional_secondary">
+            <Ionicons name="share-outline" size={20} color="#0f172a" className="mr-2" />
+            <Text className="text-sm font-bold text-primary-950 font-regional_secondary">
               {i18n.t('verseOfTheDay.share')}
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            className="flex-1 py-4 bg-neutral-900 rounded-2xl flex-row justify-center items-center border border-neutral-800"
+            className="flex-1 py-4 bg-white rounded-2xl flex-row justify-center items-center border border-primary-200 shadow-sm"
             onPress={handleViewChapter}
           >
-            <Ionicons name="book-outline" size={20} color="white" className="mr-2" />
-            <Text className="text-sm font-bold text-white font-regional_secondary">
+            <Ionicons name="book-outline" size={20} color="#0f172a" className="mr-2" />
+            <Text className="text-sm font-bold text-primary-950 font-regional_secondary">
               {i18n.t('verseOfTheDay.viewChapter')}
             </Text>
           </TouchableOpacity>
         </View>
 
         {/* Inspiration Message */}
-        <Box className="p-5 rounded-3xl bg-neutral-900 border border-neutral-800 mb-4 items-center">
-          <Text className="text-base leading-6 text-white text-center font-regional_secondary">
+        <Box className="p-5 rounded-3xl bg-white border border-primary-200 mb-4 items-center shadow-sm">
+          <Text className="text-base leading-6 text-primary-700 text-center font-regional_secondary">
             {i18n.t('verseOfTheDay.inspirationMessage')}
           </Text>
         </Box>

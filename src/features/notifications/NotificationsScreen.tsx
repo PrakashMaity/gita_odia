@@ -37,15 +37,15 @@ const getNotificationIcon = (type: NotificationItem['type']) => {
 const getNotificationColorClass = (type: NotificationItem['type']) => {
   switch (type) {
     case 'update':
-      return 'text-white';
+      return 'text-primary-950';
     case 'promotion':
-      return 'text-neutral-400';
+      return 'text-primary-600';
     case 'reminder':
-      return 'text-neutral-500';
+      return 'text-primary-500';
     case 'info':
-      return 'text-white';
+      return 'text-primary-950';
     default:
-      return 'text-white';
+      return 'text-primary-950';
   }
 };
 
@@ -88,34 +88,34 @@ export const NotificationsScreen: React.FC = () => {
       <Box
         key={item.id}
         className={`mb-4 rounded-3xl p-6 border ${item.isRead
-            ? 'bg-neutral-900 border-neutral-800 border-l'
-            : 'bg-neutral-800 border-white border-l-4'
+          ? 'bg-white border-primary-200 shadow-sm'
+          : 'bg-primary-50 border-primary-200 border-l-4 shadow-sm'
           }`}
       >
         <Box className="flex-row">
-          <Box className="w-12 h-12 rounded-full items-center justify-center mr-4 bg-neutral-800">
+          <Box className="w-12 h-12 rounded-full items-center justify-center mr-4 bg-primary-100">
             <Ionicons
               name={iconName}
               size={24}
-              color={item.isRead ? '#9ca3af' : 'white'}
+              color={item.isRead ? '#9ca3af' : '#0f172a'}
             />
           </Box>
           <Box className="flex-1">
             <Box className="flex-row justify-between items-start mb-1">
               <Text
-                className={`flex-1 text-lg font-regional_secondary ${item.isRead ? 'font-medium text-neutral-300' : 'font-bold text-white'
+                className={`flex-1 text-lg font-regional_secondary ${item.isRead ? 'font-medium text-primary-600' : 'font-bold text-primary-950'
                   }`}
               >
                 {item.title}
               </Text>
               {!item.isRead && (
-                <Box className="w-2 h-2 rounded-full bg-white ml-2 mt-2" />
+                <Box className="w-2 h-2 rounded-full bg-primary-950 ml-2 mt-2" />
               )}
             </Box>
-            <Text className="text-sm leading-5 mb-2 font-regional_secondary text-neutral-400">
+            <Text className="text-sm leading-5 mb-2 font-regional_secondary text-primary-600">
               {item.message}
             </Text>
-            <Text className="text-xs font-regional_secondary text-neutral-500">
+            <Text className="text-xs font-regional_secondary text-primary-500">
               {item.time}
             </Text>
           </Box>
@@ -131,7 +131,7 @@ export const NotificationsScreen: React.FC = () => {
       resizeMode="cover"
       blurRadius={2.5}
     >
-      <Box className="flex-1 bg-black/50">
+      <Box className="flex-1 bg-white/80">
         <PageHeader title="Notifications" />
 
         <ScrollView
@@ -141,8 +141,8 @@ export const NotificationsScreen: React.FC = () => {
         >
           {loading ? (
             <Box className="flex-1 justify-center items-center py-20">
-              <ActivityIndicator size="large" color="white" />
-              <Text className="text-base mt-4 text-neutral-400 font-regional_secondary">
+              <ActivityIndicator size="large" color="#0ea5e9" />
+              <Text className="text-base mt-4 text-primary-600 font-regional_secondary">
                 Loading notifications...
               </Text>
             </Box>
@@ -152,8 +152,8 @@ export const NotificationsScreen: React.FC = () => {
                 notifications.map(renderNotificationItem)
               ) : (
                 <Box className="flex-1 justify-center items-center py-20">
-                  <Ionicons name="notifications-off" size={64} color="#6b7280" />
-                  <Text className="text-lg mt-4 text-neutral-400 font-regional_secondary text-center">
+                  <Ionicons name="notifications-off" size={64} color="#94a3b8" />
+                  <Text className="text-lg mt-4 text-primary-600 font-regional_secondary text-center">
                     No notifications available
                   </Text>
                 </Box>

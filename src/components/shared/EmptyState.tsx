@@ -9,13 +9,13 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   subtitle,
 }) => {
   return (
-    <Box className="flex-1 items-center justify-center p-6 bg-black">
+    <Box className="flex-1 items-center justify-center p-6 bg-primary-50">
       {icon}
-      <Text className="text-xl font-bold mt-4 text-center text-white font-regional_secondary">
+      <Text className="text-xl font-bold mt-4 text-center text-primary-950 font-regional_secondary">
         {title}
       </Text>
       {subtitle && (
-        <Text className="text-base mt-2 text-center text-neutral-400 font-regional_secondary">
+        <Text className="text-base mt-2 text-center text-primary-600 font-regional_secondary">
           {subtitle}
         </Text>
       )}

@@ -54,14 +54,14 @@ export const EmptyBookmarkState: React.FC = () => {
           <AppHeading
             variant="page"
             center
-            className="text-neutral-800"
+            className="text-primary-900"
           >
             {i18n.t('bookmark.emptyState.title')}
           </AppHeading>
           <AppText
             variant="body"
             center
-            className="text-neutral-500 px-4"
+            className="text-primary-600 px-4"
           >
             {i18n.t('bookmark.emptyState.subtitle')}
           </AppText>
@@ -79,7 +79,7 @@ export const EmptyBookmarkState: React.FC = () => {
             />
             <AppText
               variant="card-title"
-              className="text-neutral-800"
+              className="text-primary-900"
             >
               {i18n.t('bookmark.emptyState.tipsTitle')}
             </AppText>
@@ -100,7 +100,7 @@ export const EmptyBookmarkState: React.FC = () => {
                 </Box>
                 <AppText
                   variant="body"
-                  className="flex-1 text-neutral-600"
+                  className="flex-1 text-primary-600"
                 >
                   {tip}
                 </AppText>
@@ -139,7 +139,7 @@ export const EmptyBookmarkState: React.FC = () => {
           </Box>
           <AppText
             variant="body"
-            className="text-neutral-700 italic text-center"
+            className="text-primary-700 italic text-center"
           >
             "{i18n.t('bookmark.emptyState.quote')}"
           </AppText>

@@ -30,8 +30,8 @@ const StatusCard: React.FC<{
   children: React.ReactNode;
 }> = ({ title, children }) => {
   return (
-    <Box className="mb-4 p-4 rounded-xl bg-neutral-900 border border-white/20">
-      <Text className="mb-4 text-white font-semibold text-lg font-regional_secondary">
+    <Box className="mb-4 p-4 rounded-xl bg-white border border-primary-200 shadow-sm">
+      <Text className="mb-4 text-primary-950 font-semibold text-lg font-regional_secondary">
         {title}
       </Text>
       {children}
@@ -47,8 +47,8 @@ const StatusRow: React.FC<{
   const isBoolean = typeof value === 'boolean';
 
   return (
-    <View className={`flex-row justify-between items-center py-2 ${!isLast ? 'border-b border-white/10' : ''}`}>
-      <Text className="text-neutral-400 text-sm flex-1 font-regional_secondary">
+    <View className={`flex-row justify-between items-center py-2 ${!isLast ? 'border-b border-primary-200/50' : ''}`}>
+      <Text className="text-primary-600 text-sm flex-1 font-regional_secondary">
         {label}
       </Text>
       {isBoolean ? (
@@ -61,7 +61,7 @@ const StatusRow: React.FC<{
           </Text>
         </View>
       ) : (
-        <Text className="text-neutral-400 text-sm font-regional_secondary">
+        <Text className="text-primary-600 text-sm font-regional_secondary">
           {value}
         </Text>
       )}
@@ -329,16 +329,16 @@ export const DeveloperPanelScreen: React.FC = () => {
   return (
     <ImageBackground
       source={LayoutImages.background1}
-      className="flex-1 bg-black"
+      className="flex-1 bg-primary-50"
       resizeMode="cover"
       blurRadius={1.5}
     >
-      <View className="flex-1 bg-black/60">
+      <View className="flex-1 bg-white/80">
         {AlertComponent}
         <ScreenHeader
           title="Developer Panel"
           subtitle="Monitor critical app features and status"
-          containerClassName="bg-black/90 pb-4 border-b border-white/10"
+          containerClassName="bg-white/90 pb-4 border-b border-primary-200"
         />
 
         <ScrollView
@@ -386,17 +386,17 @@ export const DeveloperPanelScreen: React.FC = () => {
 
           {/* Ad Testing */}
           <StatusCard title="Test Ads">
-            <Text className="text-center italic text-neutral-400 text-xs p-2 bg-white/5 rounded-md mb-3">
+            <Text className="text-center italic text-primary-600 text-xs p-2 bg-primary-50 rounded-md mb-3">
               ℹ️ Test ads bypass all checks (developer mode, Pro, ad-free) for testing purposes
             </Text>
 
             {!adStatus.isInitialized && (
-              <Text className="text-center font-bold text-tertiary-400 text-xs p-3 bg-tertiary-500/10 rounded-md mb-3">
+              <Text className="text-center font-bold text-tertiary-500 text-xs p-3 bg-tertiary-50 rounded-md mb-3">
                 ⚠️ Ad SDK not initialized. Ads may not work. Please wait for SDK to initialize.
               </Text>
             )}
 
-            <Text className="font-semibold text-neutral-400 text-sm mb-3">
+            <Text className="font-semibold text-primary-600 text-sm mb-3">
               Full-Screen Ad Testing
             </Text>
 
@@ -405,19 +405,19 @@ export const DeveloperPanelScreen: React.FC = () => {
                 variant="outline"
                 onPress={initializeAds}
                 disabled={loading || !adStatus.isInitialized}
-                className="w-full border-neutral-600 rounded-xl"
+                className="w-full border-primary-200 rounded-xl bg-white"
               >
-                <ButtonIcon as={() => <MaterialIcons name="refresh" size={16} color="white" className="mr-2" />} />
-                <ButtonText className="text-white text-sm">Reload All Ads</ButtonText>
+                <ButtonIcon as={() => <MaterialIcons name="refresh" size={16} color="#0f172a" className="mr-2" />} />
+                <ButtonText className="text-primary-950 text-sm">Reload All Ads</ButtonText>
               </Button>
 
               <Button
                 onPress={handleTestInterstitialAd}
                 disabled={!interstitialLoaded || loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="slideshow" size={16} color={interstitialLoaded ? "black" : "#6b7280"} className="mr-2" />} />
-                <ButtonText className={interstitialLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                <ButtonIcon as={() => <MaterialIcons name="slideshow" size={16} color={interstitialLoaded ? "white" : "#9ca3af"} className="mr-2" />} />
+                <ButtonText className={interstitialLoaded ? "text-white text-sm" : "text-primary-400 text-sm"}>
                   {interstitialLoaded ? "Test Interstitial Ad" : "Loading Interstitial..."}
                 </ButtonText>
               </Button>
@@ -425,10 +425,10 @@ export const DeveloperPanelScreen: React.FC = () => {
               <Button
                 onPress={handleTestRewardedAd}
                 disabled={!rewardedLoaded || loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="monetization-on" size={16} color={rewardedLoaded ? "black" : "#6b7280"} className="mr-2" />} />
-                <ButtonText className={rewardedLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                <ButtonIcon as={() => <MaterialIcons name="monetization-on" size={16} color={rewardedLoaded ? "white" : "#9ca3af"} className="mr-2" />} />
+                <ButtonText className={rewardedLoaded ? "text-white text-sm" : "text-primary-400 text-sm"}>
                   {rewardedLoaded ? "Test Rewarded Ad" : "Loading Rewarded..."}
                 </ButtonText>
               </Button>
@@ -436,10 +436,10 @@ export const DeveloperPanelScreen: React.FC = () => {
               <Button
                 onPress={handleTestRewardedInterstitialAd}
                 disabled={!rewardedInterstitialLoaded || loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="auto-awesome" size={16} color={rewardedInterstitialLoaded ? "black" : "#6b7280"} className="mr-2" />} />
-                <ButtonText className={rewardedInterstitialLoaded ? "text-black text-sm" : "text-gray-500 text-sm"}>
+                <ButtonIcon as={() => <MaterialIcons name="auto-awesome" size={16} color={rewardedInterstitialLoaded ? "white" : "#9ca3af"} className="mr-2" />} />
+                <ButtonText className={rewardedInterstitialLoaded ? "text-white text-sm" : "text-primary-400 text-sm"}>
                   {rewardedInterstitialLoaded ? "Test Rewarded Interstitial Ad" : "Loading Rewarded Interstitial..."}
                 </ButtonText>
               </Button>
@@ -452,45 +452,45 @@ export const DeveloperPanelScreen: React.FC = () => {
               <Button
                 onPress={() => handleActivatePro(30)}
                 disabled={loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
-                <ButtonText className="text-black text-sm">Activate Pro (30 days)</ButtonText>
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="white" className="mr-2" />} />
+                <ButtonText className="text-white text-sm">Activate Pro (30 days)</ButtonText>
               </Button>
 
               <Button
                 onPress={() => handleActivatePro(7)}
                 disabled={loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
-                <ButtonText className="text-black text-sm">Activate Pro (7 days)</ButtonText>
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="white" className="mr-2" />} />
+                <ButtonText className="text-white text-sm">Activate Pro (7 days)</ButtonText>
               </Button>
 
               <Button
                 onPress={() => handleActivatePro(1)}
                 disabled={loading}
-                className="w-full bg-white rounded-xl"
+                className="w-full bg-primary-950 rounded-xl"
               >
-                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="black" className="mr-2" />} />
-                <ButtonText className="text-black text-sm">Activate Pro (1 day)</ButtonText>
+                <ButtonIcon as={() => <MaterialIcons name="workspace-premium" size={16} color="white" className="mr-2" />} />
+                <ButtonText className="text-white text-sm">Activate Pro (1 day)</ButtonText>
               </Button>
 
               <Button
                 variant="outline"
                 onPress={handleClearProMode}
                 disabled={loading}
-                className="w-full border-neutral-600 rounded-xl"
+                className="w-full border-primary-200 rounded-xl bg-white"
               >
-                <ButtonIcon as={() => <MaterialIcons name="delete" size={16} color="white" className="mr-2" />} />
-                <ButtonText className="text-white text-sm">Clear Pro Mode</ButtonText>
+                <ButtonIcon as={() => <MaterialIcons name="delete" size={16} color="#0f172a" className="mr-2" />} />
+                <ButtonText className="text-primary-950 text-sm">Clear Pro Mode</ButtonText>
               </Button>
             </View>
           </StatusCard>
 
           {/* Developer Controls */}
-          <Box className="mb-4 p-4 rounded-xl bg-neutral-900 border border-white/20">
-            <Text className="mb-4 text-white font-semibold text-lg font-regional_secondary">
+          <Box className="mb-4 p-4 rounded-xl bg-white border border-primary-200 shadow-sm">
+            <Text className="mb-4 text-primary-950 font-semibold text-lg font-regional_secondary">
               Developer Controls
             </Text>
 
@@ -503,13 +503,13 @@ export const DeveloperPanelScreen: React.FC = () => {
                 <MaterialIcons
                   name="code"
                   size={24}
-                  color="white"
+                  color="#0f172a"
                 />
               }
             />
 
             <View className="mt-4">
-              <Text className="text-center italic text-neutral-400 text-xs p-2 bg-white/5 rounded-md">
+              <Text className="text-center italic text-primary-600 text-xs p-2 bg-primary-50 rounded-md">
                 ℹ️ "Ads Enabled" status is automatically calculated based on developer mode, Pro status, and ad-free status
               </Text>
             </View>

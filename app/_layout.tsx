@@ -40,7 +40,7 @@ const ThemedStatusBar = () => {
   }, [backgroundColor]);
 
   return (
-    <ExpoStatusBar style="light" backgroundColor={backgroundColor} translucent={false} />
+    <ExpoStatusBar style="dark" translucent={false} />
   );
 };
 

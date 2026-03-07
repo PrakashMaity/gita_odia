@@ -148,7 +148,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({
       animationType="fade"
       onRequestClose={() => handleDismiss(false)}
     >
-      <Box className="flex-1 justify-center items-center bg-black/60 p-4">
+      <Box className="flex-1 justify-center items-center bg-primary-950/60 p-4">
         {/* Backdrop overlay to close on tap outside */}
         <TouchableOpacity
           className="absolute inset-0 w-full h-full"
@@ -156,42 +156,42 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({
           onPress={() => handleDismiss(false)}
         />
 
-        <Box className="w-full max-w-md bg-neutral-900 rounded-[32px] overflow-hidden border border-neutral-800 shadow-xl m-4 z-10">
+        <Box className="w-full max-w-md bg-white rounded-[32px] overflow-hidden border border-primary-200 shadow-xl m-4 z-10">
           <ScrollView
             bounces={false}
             showsVerticalScrollIndicator={false}
             contentContainerClassName="pb-6"
           >
             {/* Header / Graphic Area */}
-            <Box className="pt-10 pb-6 px-6 items-center border-b border-neutral-800/50 relative">
-              <Box className="w-16 h-16 rounded-full bg-neutral-800 items-center justify-center mb-6 border border-neutral-700">
+            <Box className="pt-10 pb-6 px-6 items-center border-b border-primary-200/50 relative">
+              <Box className="w-16 h-16 rounded-full bg-primary-100 items-center justify-center mb-6 border border-primary-200">
                 <Ionicons
                   name={currentPromo.icon}
                   size={32}
-                  color="white"
+                  color="#0ea5e9"
                 />
               </Box>
 
-              <Text className="text-2xl font-bold text-center text-white mb-2 font-regional_secondary">
+              <Text className="text-2xl font-bold text-center text-primary-950 mb-2 font-regional_secondary">
                 {currentPromo.title}
               </Text>
 
-              <Text className="text-sm text-center text-neutral-400 font-regional_secondary leading-5">
+              <Text className="text-sm text-center text-primary-600 font-regional_secondary leading-5">
                 {currentPromo.subtitle}
               </Text>
             </Box>
 
             {/* Features List */}
-            <Box className="px-6 py-6 border-b border-neutral-800/50">
+            <Box className="px-6 py-6 border-b border-primary-200/50">
               {currentPromo.features.map((feature, index) => (
                 <Box key={index} className="flex-row items-center mb-4">
                   <MaterialIcons
                     name="check-circle"
                     size={20}
-                    color="white"
+                    color="#10b981"
                     style={{ marginRight: 16 }}
                   />
-                  <Text className="flex-1 text-base text-neutral-300 font-regional_secondary">
+                  <Text className="flex-1 text-base text-primary-800 font-regional_secondary">
                     {feature}
                   </Text>
                 </Box>
@@ -202,10 +202,10 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({
             <Box className="px-6 pt-6 gap-3">
               <Button
                 size="xl"
-                className="w-full bg-white rounded-2xl"
+                className="w-full bg-primary-950 rounded-2xl"
                 onPress={currentPromo.ctaAction}
               >
-                <ButtonText className="text-black font-bold text-base font-regional_secondary">
+                <ButtonText className="text-white font-bold text-base font-regional_secondary">
                   {currentPromo.ctaText}
                 </ButtonText>
               </Button>
@@ -215,7 +215,7 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({
                 className="w-full"
                 onPress={() => handleDismiss(true)}
               >
-                <ButtonText className="text-neutral-400 text-sm font-regional_secondary">
+                <ButtonText className="text-primary-600 text-sm font-regional_secondary">
                   No thanks, maybe later
                 </ButtonText>
               </Button>
@@ -224,10 +224,10 @@ export const PromotionalModal: React.FC<PromotionalModalProps> = ({
 
           {/* Close Button (Top Right) */}
           <TouchableOpacity
-            className="absolute top-4 right-4 w-10 h-10 items-center justify-center rounded-full bg-black/20"
+            className="absolute top-4 right-4 w-10 h-10 items-center justify-center rounded-full bg-primary-950/10"
             onPress={() => handleDismiss(false)}
           >
-            <Ionicons name="close" size={24} color="#9ca3af" />
+            <Ionicons name="close" size={24} color="#0f172a" />
           </TouchableOpacity>
         </Box>
       </Box>

@@ -36,10 +36,10 @@ export const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
         {!isFirstSlide && (
           <Pressable
             onPress={onPrevious}
-            className="flex-1 bg-neutral-800 border border-neutral-700 rounded-xl py-4 items-center justify-center active:opacity-80"
+            className="flex-1 bg-primary-50 border border-primary-200 rounded-xl py-4 items-center justify-center active:opacity-80"
           >
             <Text
-              className="text-white text-base font-semibold"
+              className="text-primary-950 text-base font-semibold"
               style={{ fontFamily: fonts.regional_secondary }}
             >
               {i18n.t('onboarding.previous')}
@@ -49,10 +49,10 @@ export const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
 
         <Pressable
           onPress={onNext}
-          className={`bg-white rounded-xl py-4 items-center justify-center active:opacity-80 ${!isFirstSlide ? 'flex-[2]' : 'flex-1'}`}
+          className={`bg-primary-950 rounded-xl py-4 items-center justify-center active:opacity-80 ${!isFirstSlide ? 'flex-[2]' : 'flex-1'}`}
         >
           <Text
-            className="text-black text-base font-semibold"
+            className="text-white text-base font-semibold"
             style={{ fontFamily: fonts.regional_secondary }}
           >
             {isLastSlide ? i18n.t('onboarding.start') : i18n.t('onboarding.next')}
@@ -66,7 +66,7 @@ export const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
 const DotIndicator: React.FC<{ active: boolean }> = ({ active }) => {
   return (
     <View
-      className={`h-2 rounded-full ${active ? 'w-6 bg-white' : 'w-2 bg-neutral-800'}`}
+      className={`h-2 rounded-full ${active ? 'w-6 bg-primary-950' : 'w-2 bg-primary-200'}`}
     />
   );
 };

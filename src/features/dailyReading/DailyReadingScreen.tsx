@@ -45,21 +45,21 @@ export const DailyReadingScreen: React.FC = () => {
   const [showProModal, setShowProModal] = useState(false);
 
   return (
-    <Box className="flex-1 bg-black">
+    <Box className="flex-1 bg-primary-50">
       <Box
-        className="pb-4 px-4 border-b border-neutral-800 bg-black shadow-sm z-10"
+        className="pb-4 px-4 border-b border-primary-200 bg-primary-50 shadow-sm z-10"
         style={{ paddingTop: Math.max(insets.top, 20) }}
       >
         <HStack className="items-center justify-between">
           <Pressable
-            className="w-10 h-10 bg-neutral-900 border border-neutral-800 rounded-xl items-center justify-center active:opacity-70"
+            className="w-10 h-10 bg-white border border-primary-200 rounded-xl items-center justify-center active:opacity-70"
             onPress={() => router.back()}
           >
-            <Ionicons name="chevron-back" size={22} color="white" />
+            <Ionicons name="chevron-back" size={22} color="#0f172a" />
           </Pressable>
 
           <Text
-            className="flex-1 text-center text-xl font-bold text-white"
+            className="flex-1 text-center text-xl font-bold text-primary-950"
             numberOfLines={1}
           >
             {i18n.t('dailyReading.title')}
@@ -71,11 +71,11 @@ export const DailyReadingScreen: React.FC = () => {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <VStack className="px-4 pt-4 pb-12" space="md">
-          <Box className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 mb-2">
-            <Text className="text-white text-lg font-bold font-regional_secondary mb-1">
+          <Box className="bg-white border border-primary-200 rounded-2xl p-5 mb-2 shadow-sm">
+            <Text className="text-primary-950 text-lg font-bold font-regional_secondary mb-1">
               {i18n.t('dailyReading.subtitle')}
             </Text>
-            <Text className="text-neutral-400 text-base font-regional_secondary">
+            <Text className="text-primary-600 text-base font-regional_secondary">
               {i18n.t('dailyReading.todayVerses')}: {todayVerses}
             </Text>
           </Box>
@@ -89,7 +89,7 @@ export const DailyReadingScreen: React.FC = () => {
 
           <VStack className="mt-2" space="sm">
             <HStack className="items-center mb-2">
-              <Text className="text-white text-lg font-bold font-regional_secondary">
+              <Text className="text-primary-950 text-lg font-bold font-regional_secondary">
                 {i18n.t('dailyReading.statsTitle')}
               </Text>
             </HStack>
@@ -148,13 +148,13 @@ export const DailyReadingScreen: React.FC = () => {
             </LockedCardOverlay>
           )}
 
-          <Box className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 mt-4">
+          <Box className="bg-white border border-primary-200 rounded-2xl p-5 mt-4 shadow-sm">
             <HStack className="items-center mb-3">
-              <Text className="text-white text-lg font-bold font-regional_secondary">
+              <Text className="text-primary-950 text-lg font-bold font-regional_secondary">
                 {i18n.t('dailyReading.motivationTitle')}
               </Text>
             </HStack>
-            <Text className="text-neutral-400 text-base leading-6 font-regional_secondary">
+            <Text className="text-primary-600 text-base leading-6 font-regional_secondary">
               {currentStreak > 0
                 ? i18n.t('dailyReading.streakMessage', { count: currentStreak })
                 : i18n.t('dailyReading.startMessage')}

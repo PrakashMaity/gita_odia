@@ -93,7 +93,7 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                         style={{ position: 'absolute', width, height }}
                     >
                         <Box
-                            className="absolute bg-black/60"
+                            className="absolute bg-primary-950/60"
                             style={{ width, height }}
                         />
                     </BlurView>
@@ -128,13 +128,13 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
 
                                 <VStack className="gap-2">
                                     <Text
-                                        className="text-neutral-900 text-2xl font-black text-center"
+                                        className="text-primary-950 text-2xl font-black text-center"
                                         style={{ fontFamily: fonts.regional_secondary }}
                                     >
                                         Upgrade to Pro
                                     </Text>
                                     <Text
-                                        className="text-neutral-500 text-base text-center leading-6"
+                                        className="text-primary-600 text-base text-center leading-6"
                                         style={{ fontFamily: fonts.regional_secondary }}
                                     >
                                         {featureName
@@ -157,7 +157,7 @@ export const ProUpgradeModal: React.FC<ProUpgradeModalProps> = ({ visible, onClo
                                         className="h-12 items-center justify-center"
                                         activeOpacity={0.6}
                                     >
-                                        <Text className="text-neutral-500 font-semibold">Maybe Later</Text>
+                                        <Text className="text-primary-600 font-semibold">Maybe Later</Text>
                                     </TouchableOpacity>
                                 </VStack>
                             </VStack>

@@ -56,10 +56,10 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
       onPress={handlePress}
       className="mb-4"
     >
-      <Box className="rounded-auth overflow-hidden border border-neutral-800 p-3 shadow-sm bg-neutral-900">
+      <Box className="rounded-auth overflow-hidden border border-primary-200 p-3 shadow-sm bg-white">
         <HStack className="items-center">
           {/* Cover Image */}
-          <Box className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-neutral-800 mr-4 shrink-0">
+          <Box className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-primary-50 mr-4 shrink-0">
             <Image
               source={coverImage}
               style={{ width: '100%', height: '100%' }}
@@ -73,14 +73,14 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
           <VStack className="flex-1 justify-center">
             {chapter.subtitle && chapter.subtitle !== chapter.title && (
               <Text
-                className="text-base font-bold text-white leading-tight mb-1 tracking-tight"
+                className="text-base font-bold text-primary-950 leading-tight mb-1 tracking-tight"
                 numberOfLines={1}
               >
                 {chapter.subtitle} • {chapter.totalVerses} {i18n.t('verse.translation')}
               </Text>
             )}
             <Text
-              className="text-sm text-neutral-400 leading-tight"
+              className="text-sm text-primary-600 leading-tight"
               numberOfLines={1}
             >
               {chapter.title}
@@ -88,11 +88,11 @@ export const TranslationCard: React.FC<TranslationCardProps> = React.memo(({
           </VStack>
 
           {/* Arrow */}
-          <Box className="w-8 h-8 rounded-full items-center justify-center shrink-0 ml-3 border border-neutral-800 bg-black">
+          <Box className="w-8 h-8 rounded-full items-center justify-center shrink-0 ml-3 border border-primary-200 bg-primary-50">
             <MaterialIcons
               name="arrow-forward-ios"
               size={12}
-              color="white"
+              color="#64748b"
             />
           </Box>
         </HStack>

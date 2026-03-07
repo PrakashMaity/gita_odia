@@ -52,7 +52,7 @@ export const TranslationMessage: React.FC<TranslationMessageProps> = ({
           {/* Header row: Speaker info & actions */}
           <HStack className="items-center justify-between mb-4">
             <HStack className="items-center flex-1 pr-3">
-              <Box className="w-12 h-12 rounded-full overflow-hidden mr-3 bg-neutral-100 shrink-0">
+              <Box className="w-12 h-12 rounded-full overflow-hidden mr-3 bg-primary-100 shrink-0">
                 <Image
                   source={getSpeakerImage(verse.speaker_english)}
                   style={{ width: '100%', height: '100%', resizeMode: 'cover' }}
