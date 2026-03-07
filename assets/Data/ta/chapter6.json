@@ -1,0 +1,415 @@
+{
+  "chapter": {
+    "number": "6",
+    "title": "அத்தியாயம் ஆறு",
+    "subtitle": "தியானம்",
+    "englishTitle": "Dhyana Yoga",
+    "totalVerses": "47",
+    "description": "ஆறாவது அத்தியாயத்தில் தியானம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர் அர்ஜுனனுக்கு தியானத்தின் மூலம் சுய அறிவை அடைய அறிவுறுத்துகிறார் மற்றும் யோகா பயிற்சியை விவரிக்கிறார். யோகாவின் உண்மையான தன்மை, யோகியின் குணங்கள், யோகப் பயிற்சியின் முறைகள் மற்றும் யோகாவின் முடிவுகள் ஆகியவை விரிவாக விவாதிக்கப்படுகின்றன.",
+    "id": "U9PFZzMc"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Unashrit: Karmaphalang karyyang Karma Karoti Yah.\nS Sannyasi C Yogi C N Nirgunirn Chakriya:..1..",
+      "translation": "பகவான் கூறினார் - அக்னிஹோத்ர கர்மாவைத் துறந்தவர் மற்றும் உடல் உழைப்பு இல்லாதவர் சந்நியாசியோ அல்லது யோகியோ இல்லை. கர்ம பலன்களில் பற்று இல்லாமல் தன் கடமைகளைச் செய்பவனே சரியான துறவி அல்லது யோகி.",
+      "speaker": "உச்ச",
+      "id": "ssNj8urA",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Jang Sannyasamiti Prahuryogang Tang Viddhi Pandava.\nNo hysannyasthasankalpo yogi bhavati kashan..2..",
+      "translation": "ஓ பாண்டவர்களே! சந்நியாசம் என்று அழைக்கப்படுவதை யோகம் என்று அழைக்கலாம், ஏனென்றால் சிற்றின்பத்தின் மீதான ஆசையைத் துறந்தவரை ஒருவன் ஒருபோதும் யோகி ஆக முடியாது.",
+      "speaker": "உச்ச",
+      "id": "3SwtRvrq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Arurukshormuneryogang karma is due.\n3.",
+      "translation": "புதிதாக அஷ்டாங்க யோகத்தில் ஈடுபடுபவர்களுக்கு, கர்மா செய்வது சிறந்த பயிற்சியாகும், ஏற்கனவே யோகப் பயிற்சியில் இருப்பவர்களுக்கு, அனைத்து கர்மாக்களிலிருந்தும் விலகி இருப்பது சிறந்த பயிற்சியாகும்.",
+      "speaker": "உச்ச",
+      "id": "UZKrRC6a",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Jada hi Nendriyartheshu na karmasvanushajjate.\n4.",
+      "translation": "யோகி பௌதிக இன்பங்களின் மீதான அனைத்துப் பற்றுதலையும் விட்டுவிட்டு, புலன்கள் மற்றும் சாகம் கர்மத்தின் மீதான பற்றுதலிலிருந்து விடுபட்டால், அவர் யோகாருதா என்று அழைக்கப்படுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "lzB2D729",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Uddharedatmanatmanang natmanmavasadayet.\n5.",
+      "translation": "மனத்தால் ஆன்மாவை ஒருபோதும் இழிவுபடுத்தாமல், தனது மனத்தால் ஜட உலகத்தின் பிணைப்புகளிலிருந்து தன்னை விடுவிப்பது மனிதனின் கடமை. உயிரின் நிலையைப் பொறுத்து மனம் நண்பனாகவும் எதிரியாகவும் இருக்கிறது.",
+      "speaker": "உச்ச",
+      "id": "QClrrmOt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Friends atmanastya kenaatmaivatmana jitah.\n6.",
+      "translation": "மனதை வெல்பவனுக்கு மனமே உற்ற நண்பன் ஆனால் அதை செய்ய முடியாதவன் மனமே அவனுக்கு மிக மோசமான எதிரி.",
+      "speaker": "உச்ச",
+      "id": "iDWjYvRt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Jitatman: Prashantsya Paramatma Samahit:\n7.",
+      "translation": "ஜிதேந்திரியும் ப்ரஷஞ்சித்தாவும் பரமபிதாவை உணர்ந்திருக்கிறார்கள். குளிர் மற்றும் வெப்பம், மகிழ்ச்சி மற்றும் துக்கம், மானம் மற்றும் அவமானம் அனைத்தும் அவருக்கு சமம்.",
+      "speaker": "உச்ச",
+      "id": "R1KGu64v",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Jnana Vijnana Satraptatma Kutastho Bijitendriya:\n8.",
+      "translation": "வேதம் மற்றும் தத்துவ ஞானத்தில் திருப்தியடைந்து, சின்மயா தலத்தில் நிலைபெற்று, ஜிதேந்திரியமான, களிமண், கல், தங்கம் ஆகியவற்றில் தேர்ச்சி பெற்ற யோகியை யோகுருதன் என்று கூறுவார்கள்.",
+      "speaker": "உச்ச",
+      "id": "hCj87CkJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Suhrnmitaryudasinmadhyasthaveshyabandhushu.\nSadhushwapi f Papeshu Samabuddhirbishishit..9..",
+      "translation": "எவன் கருணை உள்ளவன், நண்பன், பகைவன், அலட்சியம் செய்பவன், நடுநிலையாளர், பொறாமை கொண்டவன், நண்பன், பக்தியுள்ளவன் மற்றும் துன்மார்க்கன் - அனைவருக்கும் சமமான எண்ணம் உடையவன், அவன் மேன்மையை அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "F8gETYCh",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Yogi Junjit satatmatmanang rahasi sthith:\nAlone Jatchittatma Nirashirparigraha:",
+      "translation": "ஒரு யோகியானவன் தன் உடல், மனம் மற்றும் சுயத்தை பரபிரம்மனுடன் எப்போதும் ஈடுபடுத்திக் கொள்வான், அவன் தனிமையில் வாழ்வான், எப்பொழுதும் தன் மனதை கவனமாக அடக்கிக் கொள்வான். அவர் ஆசைகள் மற்றும் ஆசைகளிலிருந்து விடுபடுவார்.",
+      "speaker": "உச்ச",
+      "id": "jQzJra7L",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Steadymasanamatman established in the land of Shuchou.\nNatyuchkritong Natinichong Chailajinkushottaram..11..",
+      "translation": "குஷாசனத்தின் மீது மான் தோல் ஆசனத்தின் மீது துணியை மிக உயரமாகவோ அல்லது மிகவும் தாழ்வாகவோ வைக்காமல் அமர்ந்து புனிதமான இடத்தில் இருக்கையை வைப்பது யோகப் பயிற்சியின் விதி.",
+      "speaker": "உச்ச",
+      "id": "14XGzJPL",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Tatraikagrang Manah Kritva Satchittendriyakriya:\n12.",
+      "translation": "மனம், புலன்கள் மற்றும் செயலைக் கட்டுப்படுத்தி மனதைத் தூய்மைப்படுத்த மனதை ஒருமுகப்படுத்தி யோகா பயிற்சி செய்யுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "kHAjqECU",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Samang Kayshirogribong Dharayannachalang fixed:.\n13.",
+      "translation": "உடல், தலை மற்றும் கழுத்தை நிலையாக வைத்து, வேறு எங்கும் பார்க்காமல், மூக்கின் நுனியில் கவனம் செலுத்தி, பிரஷாந்தாத்மா, அச்சமற்ற மற்றும் பிரம்மச்சரியம், அனைத்து பொருள்களிலிருந்தும் மனதை விலக்கி, வாழ்க்கையின் இறுதி இலக்காக என்னை நிலைநிறுத்தி, இதயத்தில் எனது தியான யோகத்தைப் பயிற்சி செய்யுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "4wEy3OOv",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Prashantma is situated in Bigadvir Brahmacharibrata.\nMind: Sanyamya Macchitto connected with Asit Matpara: ..14..",
+      "translation": "இவ்வாறு யோகியின் உடல், மனம் மற்றும் செயல்பாடு ஆகியவற்றைக் கட்டுப்படுத்தும் பயிற்சி அவரை ஜடப் பிணைப்பிலிருந்து விடுவித்து, அவர் எனது இருப்பிடத்தை அடைகிறார்.",
+      "speaker": "உச்ச",
+      "id": "DRGOoZ15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Junjannebong Sadatmanang Yogi Niyatmanas:\n15.",
+      "translation": "அதிகமாகச் சாப்பிட்டு, அதிகப் பசியுடன், தூக்கம் வராமல், உறங்காமல் இருப்பவர் யோகியாக மாறுவது சாத்தியமில்லை.",
+      "speaker": "உச்ச",
+      "id": "eB6qT5gk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Natyashnasta Yogohasti na Chaikantamanashnatah.\n16.",
+      "translation": "எவனொருவன் சிக்கனமாகச் சாப்பிட்டு, தியானம் செய்கிறானோ, எவனுடைய உறக்கமும் விழிப்பும் சீராக இருக்கிறதோ, அவனே யோகப் பயிற்சியால் சகல உலக துக்கங்களையும் போக்க முடியும்.",
+      "speaker": "உச்ச",
+      "id": "G9LdXbwT",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Yuktaharbiharasya Yuktachestasya Karmasu.\nYuksavapanabhodhasya yogo bhavati dukhaha..17..",
+      "translation": "யோகி பயிற்சியின் மூலம் மனதைக் கட்டுப்படுத்தி, அனைத்து ஜட ஆசைகளிலிருந்தும் விடுபட்டு ஆத்மாவில் வசிக்கும் போது, ​​அவர் யோகத்தை அடைந்ததாகக் கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "Res7wFQk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Jada Biniyatang ChittamatmanyeBavatishte.\nNispriha: Sarvakamevyo connected ityuchte tada..18..",
+      "translation": "காற்றில்லாத இடத்தில் சுடர் எப்படி அதிர்வதில்லையோ, அதே போல மனதைக் கட்டுப்படுத்தும் யோகியின் மனம் நிலையாக இருக்கும்.",
+      "speaker": "உச்ச",
+      "id": "tsqarLVU",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Namely Dipo Nivatastho Nengate Sopama Smrita.\nYogino Yatchittasya Yunjato Yogamatman: 19.",
+      "translation": "யோகப் பயிற்சியின் விளைவாக மனம் ஜடப் பொருட்களிலிருந்து முற்றிலும் விலகும் நிலை யோகசமாதி எனப்படும். இந்த நிலையில் தூய்மையான மனதின் மூலம் ஆத்மாவை உணர்ந்து, யோகி ஆத்மாவிலேயே உச்ச ஆனந்தத்தை அனுபவிக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "HjVaYJUj",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Jatroparamte Chittang Nirudhang Yogasevaya.\nJatra chaivatmanatmanang pashannatmani tusyati..20..",
+      "translation": "அந்த பரவச நிலையில், இயற்கைக்கு மாறான சுகம் இயற்கைக்கு மாறான உணர்வுகளால் உணரப்படுகிறது. இந்த ஆழ்நிலை உணர்வில் நிலைபெற்றுவிட்டால், யோகி இனி சுய-உணர்தலால் தொந்தரவு செய்யப்படுவதில்லை, வேறு எதுவும் பெரிய பலனைத் தருவதாகத் தெரியவில்லை.",
+      "speaker": "உச்ச",
+      "id": "f7U35Ors",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Sukhamatyantikong yattad buddhigrahyamatindriyam.\nBetti jatra na chaibayang static movement theory..21..",
+      "translation": "இந்த நிலையில் இருப்பதால், கடுமையான பேரிடர்களிலும் மனம் கலங்குவதில்லை. பௌதிக உலகத்தின் மீதான பற்றுதலின் அனைத்து துன்பங்களிலிருந்தும் இதுவே உண்மையான விடுதலை.",
+      "speaker": "உச்ச",
+      "id": "pgHOQz8R",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Jang Lobdha Chaprang Loveng Manyate Nadhikong Tatah.\nYasmin did not stay in Gurunapi's care.. 22..",
+      "translation": "இந்த யோகத்தை அசைக்க முடியாத விடாமுயற்சி மற்றும் நம்பிக்கையுடன் பயிற்சி செய்ய வேண்டும். அனைத்து உறுதியான ஆசைகளையும் முற்றிலுமாக கைவிட்டு, புலன்களை மனத்தால் எல்லா திசைகளிலும் கட்டுப்படுத்த வேண்டும்.",
+      "speaker": "உச்ச",
+      "id": "5Ysg6y5y",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Tang Vidyadukkhasangyogabeyogong Yogasangyanitam..23..",
+      "translation": "பொறுமையான புத்தியால் மனம் படிப்படியாக சுயத்தின் மீது நிலைநிறுத்தப்பட்டு வேறு எதையும் நினைக்காமல் சமாதியில் நிலைபெற வேண்டும்.",
+      "speaker": "உச்ச",
+      "id": "lpTiYEYf",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "He is surely Joktabyo Yogohanirbinnachetsa.\nSankalpaprabhavan kamanstyaktva sarvaneshethah.\n24.",
+      "translation": "அமைதியற்ற மற்றும் அமைதியற்ற மனம் இயங்கும் விஷயங்களிலிருந்து மனதைக் கட்டுப்படுத்தி ஆத்மாவின் கீழ் கொண்டு வர வேண்டும்.",
+      "speaker": "உச்ச",
+      "id": "xnzklj27",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Shanai: Shanairuparmed Buddha Dhritigrihitaya.\n25.",
+      "translation": "பிராமணன், அமைதியான மனம், ரஜோகுணம் தணிந்தவன், பாவமற்றவன், எவனுடைய மனதை என்மீது நிலைநிறுத்துகிறானோ, அவன் மேலான ஆனந்தத்தை அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "25verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "The more still the mind is still.\nNot so regularly. 26.",
+      "translation": "இவ்வாறே தன்னடக்கமுள்ள யோகி ஜட உலகின் அனைத்து அசுத்தங்களிலிருந்தும் விடுபட்டு, பிரம்மனுடனான தொடர்பின் உச்ச ஆனந்தத்தை அனுபவிக்கிறான்.",
+      "speaker": "உச்ச",
+      "id": "26verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Prashantmansong hyenong yoginong sukhmuttamam.\nUpaiti Shantarajasong Brahmabhutamakalmasam.",
+      "translation": "ஒரு உண்மையான யோகி எல்லா உயிர்களிலும் என்னைப் பார்க்கிறார், என்னில் அனைத்தையும் பார்க்கிறார். யோக ஆன்மா என்னை எங்கும் பார்க்கிறது.",
+      "speaker": "உச்ச",
+      "id": "27verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Junjannebong Sadatmanang Yogi Bigatkalmsh:\n28.",
+      "translation": "எங்கும் என்னைப் பார்க்கிறவனும், என்னில் எல்லாப் பொருட்களையும் காண்கிறானோ, அவனுக்கு நான் ஒருபோதும் கண்ணுக்குத் தெரியாதவனல்ல, அவன் எனக்குப் புலப்படாதவனுமல்ல.",
+      "speaker": "உச்ச",
+      "id": "28verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Sarvabhutasthamatmanang Sarvabhutani Chatmani.\nIkshte Yogayugatma Samdarshan everywhere:..29..",
+      "translation": "எல்லா உயிர்களிலும் வசிக்கும் பரமபிதாவாக என்னை வழிபடும் யோகி, எல்லா நிலைகளிலும் என்னில் நிலைத்திருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "29verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Yo mang pasyati everywhere sarbang cha moi pasyati.\nTsyahang na pranashyami sa ch me na pranashyati..30..",
+      "translation": "அர்ஜுனா! எல்லா உயிர்களின் இன்பத்தையும் துன்பத்தையும் தன் இன்பம் மற்றும் துக்கத்தை சமமாகப் பார்ப்பவன் மிகப் பெரிய யோகி என்பது என் கருத்து.",
+      "speaker": "உச்ச",
+      "id": "30verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Sarvabhutashitang yo mang bhajatyektvamasthitah.\n31.",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ மதுசூதனன்! மனதின் நிலையற்ற தன்மையால், நீங்கள் எல்லா இடங்களிலும் ஒரே யோகத்தைப் பிரசங்கிப்பதால் அதன் நிரந்தர நிலையை நான் காணவில்லை.",
+      "speaker": "உச்ச",
+      "id": "31verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Self-reliance is everywhere.\nSukhang or if or Dukhang Sa Yogi paramo like:..32..",
+      "translation": "ஓ கிருஷ்ணா! மனம் மிகவும் நிலையற்றது, உடலும் புலன்களும் முதன்மையான கவனச்சிதறல்கள், அடக்க முடியாதவை மற்றும் மிகவும் சக்திவாய்ந்தவை, வாயுவை அடக்குவதை விட அதை அடக்குவது மிகவும் கடினம் என்று நான் கருதுகிறேன்.",
+      "speaker": "உச்ச",
+      "id": "32verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Arjun Ubach\nYohyang Yogastva Prokhta: Samyen Madhusudan.\n33.",
+      "translation": "பகவான் கூறினார் - ஓ மஹாபாஹோ! மனம் தளர்வானது, சஞ்சலமானது என்பதில் சந்தேகமில்லை. ஆனால் ஓ கௌந்தேயா! படிப்படியான பழக்கவழக்கங்கள் மற்றும் விரக்தியின் மூலம் மனதை அடக்க முடியும்.",
+      "speaker": "அர்ஜுனா",
+      "id": "33verse",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Chanchalang hi mind: Krishna pramathi balbaddridham.\nTsyahang nigrahang monye biorib sudushkaram..34..",
+      "translation": "கட்டுப்பாடற்ற மனம் கொண்ட ஒருவருக்கு சுய-உணர்தல் அரிது. ஆனால் யாருடைய மனதைக் கட்டுப்படுத்தி, சரியான வழிமுறைகளைக் கையாள்வதன் மூலம் மனதைக் கட்டுப்படுத்த முயற்சிக்கிறார்களோ, அவர் நிச்சயமாக வெற்றியை அடைகிறார். அதுவே என் கருத்து.",
+      "speaker": "அர்ஜுனா",
+      "id": "34verse",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Shri Bhagwanubach\nUndoubtedly Mahabaho Mano Durnigrahang Chalam.\nAbhyasien tu kaunteya bairagyan f grhyate..35..",
+      "translation": "அர்ஜுனன் கேட்டான் - ஓ கிருஷ்ணா! முதலில் மரியாதையுடன் யோகத்தில் ஈடுபட்டு, பின்னர் மனத்தால் கெட்டுப் போனவன், யோகத்தில் வெற்றி பெற முடியாது, ஆனால் அந்தத் தோல்வியடைந்த யோகியின் வேகம் என்ன?",
+      "speaker": "உச்ச",
+      "id": "35verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Asanyatatmana yogo dushprap iti me motih.\nVasyatmana tu jata shakyohbaptumupayatah..36..",
+      "translation": "ஓ மஹாபாஹோ கிருஷ்ணா! கர்மத்தாலும், யோகத்தாலும் கெட்டுப் போனவன், பிரம்மத்தை அடையும் பாதையிலிருந்து திகைத்து, தங்குமிடமில்லாதவனானால், அவன் கிழிந்த மேகம் போல முற்றிலும் அழிந்து விடுவானா?",
+      "speaker": "உச்ச",
+      "id": "36verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Arjun Ubach\nAyati: Shraddyopeto Yogacchilitmanas:\nUnattainable yogasamsiddhing kang gating krishna gachhati..37..",
+      "translation": "ஓ கிருஷ்ணா! உங்களால் மட்டுமே என் சந்தேகங்களை தீர்த்து வைக்க முடியும். ஏனென்றால் என் சந்தேகத்தை உன்னைத் தவிர வேறு யாராலும் தீர்க்க முடியாது.",
+      "speaker": "அர்ஜுனா",
+      "id": "37verse",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Kachchinnobhayavibhrasthaschinnabhramiva nashyati.\nUnestablished Mahabaho Vimudo Brahman: Pathi..38..",
+      "translation": "ஓ பார்த்! மங்களகரமான சடங்குகளைச் செய்பவர்களுக்கு இம்மையிலும் மறுமையிலும் எந்தத் தீங்கும் இல்லை. ஓ பையன்! ஏனென்றால், அருளாளர் ஒருபோதும் தாழ்த்தப்படுவதில்லை.",
+      "speaker": "அர்ஜுனா",
+      "id": "38verse",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Etanme Sanshayang Krishna Chettumarhasyasheshatah.\n39.",
+      "translation": "யோகத்தில் குறைபாடு உள்ளவன், நல்லொழுக்கமுள்ள பிராமணர்களின் வீட்டிலோ அல்லது பணக்கார வணிகர்களின் வீட்டிலோ பிறந்து, நல்லொழுக்கமுள்ள பரலோக மக்களில் நீண்ட காலம் வாழ்கிறான்.",
+      "speaker": "அர்ஜுனா",
+      "id": "39verse",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Shri Bhagwanubach\nPartha Naiveh Namutra Binashantasya Vidyate.\nNa hi kalyankrt kaschid durgating tat gachti..40..",
+      "translation": "அல்லது கற்றறிந்த யோகிகளின் பரம்பரையில் ஒரு சீரழிந்த மனிதன் பிறக்கிறான். இவ்வுலகில் இவ்வகைப் பிறப்பு மிகவும் அரிது.",
+      "speaker": "உச்ச",
+      "id": "40verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Prapya Punyakritanga Lokanushitva Sasvati: Sama.\nshuchinang srimtang gehe yogabhrastohvijayate..41..",
+      "translation": "ஓ குருநந்தனே! அந்த பிறப்பின் விளைவாக, அவர் தனது முன் பிறந்த ஆழ்நிலை உணர்வின் புத்திசாலித்தனத்தை மீண்டும் பெறுகிறார், மீண்டும் சித்தியை அடைவதில் அக்கறை கொள்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "41verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Or Yoginameva kule bhavati dhimtamam.\n42.",
+      "translation": "முற்பிறவிகளின் பழக்கவழக்கங்களால் முடங்கிப்போனவர் போல் யோக-சாதனத்தில் ஈர்க்கப்படுகிறார். இந்த வகையான யோக சாஸ்திரத்தைப் பற்றி விசாரிக்கும் புருஷன் வேதோக்த சகாம கர்மார்க்கத்தைக் கடக்கிறார், அதாவது சகாம கர்மார்க்கத்தில் குறிப்பிடப்பட்ட பலன்களிலிருந்து சிறந்த பலன்களைப் பெறுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "42verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "Tatra tang buddhisanyogang lavte paurvadehikam.\nYate cha tato bhuya: Sansiddhau Kurunandan..43..",
+      "translation": "இந்த ஜென்மத்தில் உள்ள யோகி முந்தைய பிறவிகளின் கவலைகளை விட அதிகமாக கவனித்து, பாவங்களிலிருந்து விடுபட்டு, முந்தைய பிறவிகளின் திரட்டப்பட்ட சம்ஸ்காரங்களின் மூலம் முழுமையை அடைந்து, உச்ச வேகத்தை அடைகிறார்.",
+      "speaker": "உச்ச",
+      "id": "43verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "44",
+      "Language": "Purvabhayasen Tenaiva Hriyate Hyabsohapi Sah.\n44.",
+      "translation": "யோகிகள் துறவிகளை விடவும், முனிவர்களை விடவும், சாகம் தொழிலாளிகளை விடவும் உயர்ந்தவர்கள். எனவே, அர்ஜுனா! எல்லா நிலைகளிலும் யோகியாக இருங்கள்.",
+      "speaker": "உச்ச",
+      "id": "44verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "45",
+      "Language": "Prayatnad Jatmanastu Yogi Sanshuddhakilbisah.\n45.",
+      "translation": "பயபக்தியுடன் என்னை ஆராதிப்பவன் என்னுடன் மிகவும் நெருங்கிய தொடர்புள்ளவன் மற்றும் எல்லா யோகிகளிலும் சிறந்தவன். அதுவே என் கருத்து.",
+      "speaker": "உச்ச",
+      "id": "45verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "46",
+      "Language": "Tapasvivyohdhiko yogi jnanivyohpi kaithadhikah.\nKarmivyasachdiko Yogi Tasmadyogi Bhavarjuna..46..",
+      "translation": "யோகிகள் துறவிகளை விடவும், முனிவர்களை விடவும், சாகம் தொழிலாளிகளை விடவும் உயர்ந்தவர்கள். எனவே, அர்ஜுனா! எல்லா நிலைகளிலும் யோகியாக இருங்கள்.",
+      "speaker": "உச்ச",
+      "id": "46verse",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "47",
+      "Language": "Yoginampi Sarvesha Madagatenantaratmana.\nShraddhaban bhajate yo mang sa me yuktatmo mat:..47..",
+      "translation": "பயபக்தியுடன் என்னை ஆராதிப்பவன் என்னுடன் மிகவும் நெருங்கிய தொடர்புள்ளவன் மற்றும் எல்லா யோகிகளிலும் சிறந்தவன். அதுவே என் கருத்து.",
+      "speaker": "உச்ச",
+      "id": "47verse",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் ஆறு - தியானம்",
+    "description": "ஆறாவது அத்தியாயத்தில் தியானம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர் அர்ஜுனனுக்கு தியானத்தின் மூலம் சுய அறிவை அடைய அறிவுறுத்துகிறார் மற்றும் யோகா பயிற்சியை விவரிக்கிறார். யோகாவின் உண்மையான தன்மை, யோகியின் குணங்கள், யோகப் பயிற்சியின் முறைகள் மற்றும் யோகாவின் முடிவுகள் ஆகியவை விரிவாக விவாதிக்கப்படுகின்றன.",
+    "keyThemes": [
+      "தியானத்தின் முக்கியத்துவம்",
+      "யோகா பயிற்சி",
+      "சுய கட்டுப்பாடு",
+      "நினைவாற்றல்",
+      "யோகாவின் விளைவு",
+      "யோகியின் குணங்கள்",
+      "யோகாவின் வேகம்",
+      "யோகாவின் சிறப்பு"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/srimad-bhagavad-gita-in-Language-chapter.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 2000+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

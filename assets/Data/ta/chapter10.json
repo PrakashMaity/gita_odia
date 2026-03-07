@@ -1,0 +1,372 @@
+{
+  "chapter": {
+    "number": "10",
+    "title": "அத்தியாயம் பத்து",
+    "subtitle": "விபூதி-யோகம்",
+    "englishTitle": "Vibhuti Yoga",
+    "totalVerses": "42",
+    "description": "பத்தாவது அத்தியாயத்தில் விபூதியோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர் அர்ஜுனனிடம் அவரது பல்வேறு வெளிப்பாடுகள் மற்றும் மகிமைகளைப் பற்றி கூறுகிறார் மற்றும் உலகின் அனைத்து பொருட்களிலும் அவரது வடிவத்தின் வெளிப்பாட்டைக் காட்டுகிறார்.",
+    "id": "u6f4oOoR"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Bhui eb Mahabaho srinu me paramang bachah.\nJattehhong priyamanaya bakshyami hitakamya..1..",
+      "translation": "பகவான் கூறினார் - ஓ மஹாபாஹோ! மீண்டும் கேளுங்கள், நீங்கள் என் அன்பான பாத்திரம் என்பதால், உங்களுக்கு ஆதரவாக நான் முன்பு பேசியதை விட சிறந்த தத்துவத்தை பேசுகிறேன்.",
+      "speaker": "உச்ச",
+      "id": "ud5B10Z6",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Na May Viduh Surganah Prabhang Na Maharshayah.\nAhmadirhi Devanang Maharshinang f Sarbash..2..",
+      "translation": "தேவர்களோ, மகரிஷிகளோ என் பூர்வீகத்தை அறிய முடியாது, ஏன், எல்லா தேவர்களுக்கும், மகரிஷிகளுக்கும் நானே மூல காரணம்.",
+      "speaker": "உச்ச",
+      "id": "C6hvMfi3",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Yo mamjamnading cha betti lokamaheshwaram.\n3.",
+      "translation": "என்னைப் பிறப்பற்றவன், நித்தியமானவன், எல்லாக் கிரகங்களுக்கும் அதிபதி என்று அறிகிறானோ, அவனே மனிதர்களிடையே ஏமாற்றமடைந்து எல்லாப் பாவங்களிலிருந்தும் விடுபடுகிறான்.",
+      "speaker": "உச்ச",
+      "id": "0osyWwbD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Buddhirjnanamsammoha: Kshama Satyang Dum: Sham:\nSukhang dukhang bhabohbhabo vohng chabhoyemeb f..4..",
+      "translation": "நுண்ணறிவு, அறிவு, சந்தேகம் மற்றும் மாயையிலிருந்து விடுதலை, மன்னிப்பு, உண்மை, புலன்-கட்டுப்பாடு, மனக்கட்டுப்பாடு, மகிழ்ச்சி, துக்கம், பிறப்பு, இறப்பு, பயம், பயம், அகிம்சை, சமநிலை, மனநிறைவு, துறவு, தானம், யஷா மற்றும் ஆயாஷம் - இவை அனைத்தும் என்னிடமிருந்து பல்வேறு வகையான உயிரினங்கள் உருவாகின்றன.",
+      "speaker": "உச்ச",
+      "id": "n7e0zS0k",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Ahimsa Samata Tushistapo Danang Yasohyasah.\nBhavanti Bhava Bhutanang Matta and Prithagavidha: 5.",
+      "translation": "நுண்ணறிவு, அறிவு, சந்தேகம் மற்றும் மாயையிலிருந்து விடுதலை, மன்னிப்பு, உண்மை, புலன்-கட்டுப்பாடு, மனக்கட்டுப்பாடு, மகிழ்ச்சி, துக்கம், பிறப்பு, இறப்பு, பயம், பயம், அகிம்சை, சமநிலை, மனநிறைவு, துறவு, தானம், யஷா மற்றும் ஆயாஷம் - இவை அனைத்தும் என்னிடமிருந்து பல்வேறு வகையான உயிரினங்கள் உருவாகின்றன.",
+      "speaker": "உச்ச",
+      "id": "oDB0R7ZM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Maharshaya: Fourteen mind states before Sapta.\n6.",
+      "translation": "ஏழு மகரிஷிகளும், அவர்களின் முன்னோர்களான சங்கதி சார் குமாரரும், பதினான்காவது மனுவும், என் மனதில் இருந்து தோன்றி, என்னிடமிருந்து பிறந்தவர்கள், அவர்கள் இந்த உலகத்தின் அசையும் மற்றும் அசையாத அனைத்து மூலப் பொருள்களையும் உருவாக்கினர்.",
+      "speaker": "உச்ச",
+      "id": "jnvZZLiW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Etang bibhuting yogang cha mum yo betti tattvatah.\nSohvikalpen Yogen Yujyate Natra Samshay:",
+      "translation": "என்னுடைய இந்த விபூதியையும் யோகத்தையும் எவன் சரியாக அறிந்திருக்கிறானோ, அவன் பக்தி யோகத்தில் சீராக ஈடுபடுகிறான். அதில் எந்த சந்தேகமும் இல்லை.",
+      "speaker": "உச்ச",
+      "id": "9tHGTrtY",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Ahang sarvasya prabho matthah sarbang pravarte.\nIti matva bhajante mang budha bhavasamnavita:..8..",
+      "translation": "பொருள் மற்றும் உணர்வு உலகில் உள்ள அனைத்திற்கும் நானே ஆதாரம். எல்லாமே என்னிடமிருந்து பிறக்கிறது. அதை உணர்ந்த பண்டிதர்கள் என்னைத் தூய பக்தியுடன் வணங்குகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "V2HKBLIy",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Macchitta madagatprana bodhyanta: sarakam.\nKathyanthach mang nityang tushyanti ch ramanti ch..9..",
+      "translation": "யாருடைய மனமும் ஆன்மாவும் என்னிடம் முழுமையாகச் சரணடைந்ததோ, அவர்கள் எப்பொழுதும் என் வார்த்தைகளை தங்களுக்குள் விவாதித்து, என்னைப் பற்றி ஒருவரையொருவர் புரிந்துகொண்டு உயர்ந்த திருப்தியையும் இயற்கைக்கு அப்பாற்பட்ட மகிழ்ச்சியையும் பெறுகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "wE36Q9ZK",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Teshang satatyuktanang bhajtang preetipurvakam.\n10.",
+      "translation": "பக்தியின் மூலம் அன்புடன் எனக்கு சேவை செய்பவர்களுக்கு நான் தூய அறிவின் புத்தியை வழங்குகிறேன், அதன் மூலம் அவர்கள் என்னிடம் திரும்பலாம்.",
+      "speaker": "உச்ச",
+      "id": "UoDaG7k4",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Teshamebanukamparthamahjnjanjung tamah.\nNashyamyatmabhavastho jnandeepen bhasvata..11..",
+      "translation": "அவர்களுக்கு அருளும் பொருட்டு, அறிவின் ஒளி விளக்கினால் அறியாமை இருளை அழித்து, அவர்களின் இதயங்களில் நான் வசிக்கிறேன்.",
+      "speaker": "உச்ச",
+      "id": "Udx5FjFH",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Arjun Ubach.\nParang Brahma Parang Dham Pavitrang Paramang Bhavan.\n12.",
+      "translation": "அர்ஜுனன் சொன்னான் - நீயே உன்னத பிராமணன், உன்னதமான தாம், உன்னத தூய்மை மற்றும் உன்னத புருஷன். நீங்கள் நித்யா, திவ்யா, ஆதி தேவ், அஜா மற்றும் விபு.",
+      "speaker": "அர்ஜுனா",
+      "id": "0URmfTZC",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Ahustvamrishay: Sarve Devarshirnaradastatha.\nAsito Devalo Vyas: Self Chaiva Bravishi May..13..",
+      "translation": "தேவர்ஷி நாரதர், அசித், தேவல், வியாசர், மூல முனிவர்கள் உன்னை அப்படித்தான் வர்ணித்திருக்கிறாய், நீயே இப்போது என்னில் சொல்கிறாய்.",
+      "speaker": "அர்ஜுனா",
+      "id": "n430brC6",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "All the best\n14.",
+      "translation": "ஹே கேசவ்! நீங்கள் சொன்னது உண்மை என்று நான் நம்புகிறேன். கடவுளே! தேவர்களோ, அசுரர்களோ உங்கள் கோட்பாட்டை சரியாக அறியவில்லை.",
+      "speaker": "அர்ஜுனா",
+      "id": "J6Ml6NMS",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Swayamebatmanatmanang beth thong purushottam.\n15.",
+      "translation": "ஓ புருஷோத்தமா! பேயே! ஓ பூதேஷ்! கடவுளே! உலகமே! உங்கள் மனதின் மூலம் உங்கள் ஆளுமையை நீங்களே அறிவீர்கள்.",
+      "speaker": "அர்ஜுனா",
+      "id": "yearhAnR",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Baktummarhasyasena divya hatmavibhutaya:\n16.",
+      "translation": "இந்த மக்களில் நீ வியாபித்திருக்கும் உன்னுடைய தெய்வீக விபூதி அனைத்தையும் உன்னால் மட்டுமே விரிவாக விவரிக்க முடியும்.",
+      "speaker": "அர்ஜுனா",
+      "id": "WdgYtqTh",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Kathang Vidyamhang Yogaingstwang Sada Parichintayan.\nKeshu Keshu Ch Bhaveshu Chintyohasi Bhagavanmaya..17..",
+      "translation": "ஓ யோகேஸ்வரா! நான் எப்போதும் உன்னைப் பற்றி நினைத்தால் உன்னை எப்படி அறிவேன்? கடவுளே! நான் உன்னைப் பற்றி எந்த விதமான வடிவங்களில் நினைப்பேன்?",
+      "speaker": "அர்ஜுனா",
+      "id": "V62TGHek",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Vistarenatmano Yogang Vibhuting Ch Janardana.\nBhuy: Kathay trtiptirhi srinvato nasti mehmritam..18..",
+      "translation": "ஓ ஜனார்தன்! உங்கள் யோகம் மற்றும் விபூதி பற்றி விரிவாக மீண்டும் சொல்லுங்கள். ஏனெனில் உங்கள் அறிவுரையைக் கேட்டு நான் திருப்தி அடையவில்லை; நான் மேலும் கேட்க விரும்புகிறேன்.",
+      "speaker": "அர்ஜுனா",
+      "id": "KXMB7jY2",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Shri Bhagwanubach.\nHant te kathayishyami divya hatmavibhutaya:\nPrimarily Kurushreshta Nastyasto Vistarya May..19..",
+      "translation": "பகவான் கூறினார் - ஓ அர்ஜுனா, எனது தெய்வீக முக்கிய விபூதிகளை நான் உங்களுக்கு சொல்கிறேன், ஆனால் எனது விபூதிகளுக்கு முடிவே இல்லை.",
+      "speaker": "உச்ச",
+      "id": "2yF6pmjE",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Ahmatma Gurakesh is all-pervading.\nAhmadishch Madhyamcha Bhutanamant and f..20..",
+      "translation": "ஓ குராகேஷ்! எல்லா உயிர்களின் இதயங்களிலும் வசிக்கும் பரமாத்மா நான். எல்லாவற்றின் ஆரம்பமும், நடுவும், முடிவும் நானே.",
+      "speaker": "உச்ச",
+      "id": "KtBqXzeJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Adityanamhong Vishnurjyotishang Rabirangshuman.\nMarichirmarutamsmi Nakshatranamahang Sashi..21..",
+      "translation": "ஆதித்யர்களில் நான் விஷ்ணு, ஜோதிடர்களில் நான் கதிர் சூரியன், மருதுகளில் நான் கதிர், நட்சத்திரங்களில் நான் சந்திரன்.",
+      "speaker": "உச்ச",
+      "id": "OGL5Ljbb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Vedanang sambetohsmi devanamsmi basabh.\nIndrianang Manshasmi Bhutanamsmi Consciousness..22..",
+      "translation": "அனைத்து வேதங்களிலும் நான் சம்வேதம், அனைத்து கடவுள்களில் நான் இந்திரன், அனைத்து புலன்களில் நான் மனம் மற்றும் அனைத்து உயிரினங்களில் நான் உணர்வு.",
+      "speaker": "உச்ச",
+      "id": "OhiJ92Tn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Rudranang Shankarashasmi Vittesho Yaksharaksam.\nBasunang Pabkashasmi Meru: Shikharinamaham..23..",
+      "translation": "ருத்ரர்களில் நான் சிவன், யக்ஷர்கள் மற்றும் ராட்சசர்களில் நான் குபேரன், வசுக்களில் நான் அக்னி, மலைகளில் நான் சுமேரு.",
+      "speaker": "உச்ச",
+      "id": "v23_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Purodhasang Ch Mukhyong Mang Viddhi Partha Brihaspatim.\nSenaninamhong Skanda: Sarasamsmi Sagar: ..24..",
+      "translation": "ஓ பார்த்! அர்ச்சகர்களில் நான் முதன்மையான வியாழன், தளபதிகளில் நான் கார்த்திகை மற்றும் நீர்த்தேக்கங்களில் நான் கடல்.",
+      "speaker": "உச்ச",
+      "id": "v24_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Maharshinang Bhrigurhang Giramsmyekamaksharam.\nYajnanang Japyajnohasmi Sthavaranang Himalaya: ..25..",
+      "translation": "முனிவர்களில் நான் பிருகு, வார்த்தைகளில் நான் ஓங்காரம். யாகங்களில் நான் ஜபயக்ஞம், அசையாப் பொருட்களில் நான் இமயமலை.",
+      "speaker": "உச்ச",
+      "id": "v25_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Ashwattha Sarvavrikshanang Devshinang Ch Naradah.\nGandharbanang Chitrarath: Siddhanang Kapilo Muni:..26..",
+      "translation": "எல்லா மரங்களிலும் நான் அஸ்வத்தா, தேவர்ஷிகளில் நான் நாரதர். கந்தர்வர்களில் நான் சித்திரரதன், சித்தர்களில் நான் கபிலர் முனி.",
+      "speaker": "உச்ச",
+      "id": "v26_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "अक्षैश्रबसम्श्वनांग विद्धी ममम्रितोद्वावम\nAiravatang Gezendrananang Naranang Ch Naradhipam..27..",
+      "translation": "குதிரைகளில் நான் கடலைக் கலக்கும் உச்சஸ்ரவன் என்று அறியப்படுவேன். சிறந்த யானைகளில் நான் ஐராவத் மற்றும் முனுநியர்களில் நான் பேரரசன்.",
+      "speaker": "உச்ச",
+      "id": "v27_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Ayudhanamhang vajrang dhenunasammi kamdhuk.\nPrajanshasmi Kandarpa: Sarpanamasmi Vasuki: 28.",
+      "translation": "அனைத்து ஆயுதங்களிலும் நான் வஜ்ரம், பசுக்களில் நான் காமதேனு. நான் காமதேவன் மற்றும் பாம்புகளில் நான் வாசுகி, மகப்பேறுக்கு காரணமானவன்.",
+      "speaker": "உச்ச",
+      "id": "v28_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Anantashasmi naganang varuno yadasamham.\nPitrinamaryama Chasmi Yama: Sanyamtamham..29..",
+      "translation": "எல்லா நாகங்களிலும் நான் அனந்தன், நீர்நிலைகளில் நான் வருணன். தந்தைகளில் நான் ஆர்யமன் மற்றும் தண்டிப்பவர்களில் நான் யமன்.",
+      "speaker": "உச்ச",
+      "id": "v29_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Prahladaschasmi daityanang kala: kalaytamham.\nMriganang Ch Mrgendraohhang Vainteyascha Pakhinam..30..",
+      "translation": "பூதங்களில் நான் பிரஹலாதன், அடிபணிந்தவர்களில் நான் கலா, விலங்குகளில் நான் சிங்கம், பறவைகளில் நான் கருடன்.",
+      "speaker": "உச்ச",
+      "id": "v30_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Pavan: Pavatamsmi Ram: Sastrabhritamaham.\nRishanang Makarshasmi Srotsamsmi Janhvi..31..",
+      "translation": "புனிதமான பொருட்களில் நான் வாயு, ஆயுதம் ஏந்தியவர்களில் நான் பரசுராமன், மீன்களில் நான் மகரம், நதிகளில் நான் கங்கை.",
+      "speaker": "உச்ச",
+      "id": "v31_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Sarganamadirantashcha mid Chaibamarjuna.\n32.",
+      "translation": "அர்ஜுனா! படைக்கப்பட்ட அனைத்து பொருட்களிலும் நான் ஆரம்பம், முடிவு மற்றும் நடுத்தரம், அனைத்து விஞ்ஞானங்களுக்கு மத்தியில் நான் மெட்டாபிசிக்ஸ், மற்றும் தர்க்கவாதிகளில் நான் யூகங்கள் மற்றும் ஊகங்களுக்கு மத்தியில் நிர்ணயவாதம்.",
+      "speaker": "உச்ச",
+      "id": "v32_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Aksharanamkarehsmi conflict: Samasiksya f.\nAhmebakshay: black metal, Vishwatomukha: 33.",
+      "translation": "எல்லா எழுத்துக்களிலும் நான் அகாரம், சாமங்களில் நான் துண்டல்-சமஸ், அழிப்பவர்களில் நான் மஹாகால ருத்திரன் மற்றும் படைப்பாளர்களில் நான் பிரம்மா.",
+      "speaker": "உச்ச",
+      "id": "v33_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Death: Sarvaharshachamudbhavasha future.\nKirti: Srirbak cha narinang smritarmedha dhriti: forgiveness..34..",
+      "translation": "எல்லா அபகரிப்பாளர்களிலும், நான் அனைத்தையும் நுகரும் மரணம், எதிர்கால விஷயங்களில் நான் எழுகிறேன். பெண்களில் நான் கீர்த்தி, ஸ்ரீ, வாணி, ஸ்மிருதி, மேதா, த்ரிதி மற்றும் க்ஷமா.",
+      "speaker": "உச்ச",
+      "id": "v34_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Brihatsam and Samnang Gayatri Chandasamham.\n35.",
+      "translation": "சம்வேதங்களில் நான் பிருஹத்ஸம், சண்டங்களில் நான் காயத்ரி. மாதங்களில் நான் முன்னோடியாகவும், பருவங்களில் நான் வசந்தமாகவும் இருக்கிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v35_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "दुटंग चलायतामस्मी टेजस्टेजविनामहाम.\nJayohsmi Vajsyaohsmi Sattwang Sattvatamham..36..",
+      "translation": "எல்லா எதிர்ப்பாளர்களுக்கும் மத்தியில் நான் மின்னல் மற்றும் பிரகாசமானவர்களிடையே நான் பிரகாசம். நான் வெற்றி, நான் உத்யம் மற்றும் வலிமைமிக்கவர்களில் நான் பந்து.",
+      "speaker": "உச்ச",
+      "id": "v36_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Vrishninang Vasudebohsmi Pandabanang Dhananjaya:\nMuninampyahang Vyasa: Kabinamushana: Kavi:..37..",
+      "translation": "விருஷ்ணிகளில் நான் வாசுதேவனாகவும், பாண்டவர்களில் அர்ஜுனனாகவும் இருக்கிறேன். முனிவர்களில் நான் வியாசர், கவிகளில் நான் சுக்ராச்சாரியார்.",
+      "speaker": "உச்ச",
+      "id": "v37_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Dando Damayatamsmi Nitirasmi Jigishtam.\nMounang Chaivasmi Guhanang Gnanang Gnanavatamham..38..",
+      "translation": "அடக்குமுறையாளர்களுக்குள் நான் தண்டனை, வெற்றியாளர்களில் நானே கொள்கை. மாயவாதிகளில் நான் மௌனம், ஞானிகளில் நான் அறிவு.",
+      "speaker": "உச்ச",
+      "id": "v38_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Yachchapi sarvabhuthanang bijang tadahmarjun.\nNa Tadasti Bina Yat Sanmaya Bhutang Characharam..39..",
+      "translation": "அர்ஜுனா! நான் அனைத்து உயிரினங்களின் விதையாகவும் இருக்கிறேன், ஏனென்றால் நான் இல்லாமல் அசையாது அல்லது அசையாது எதுவும் இருக்க முடியாது.",
+      "speaker": "உச்ச",
+      "id": "v39_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Nastohasti mam divyanang vibhutinang parantap.\nEsh tuddeshtah prokto bibhutervistaro maya..40..",
+      "translation": "ஓ பரந்தாப்! என் தெய்வீக தரிசனங்களுக்கு முடிவே இல்லை. இந்த அனைத்து விபூதிகளின் பரவலையும் தொகுத்துள்ளேன்.",
+      "speaker": "உச்ச",
+      "id": "v40_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Yadavibhutimat Satwang Srimadurjitmeva or\nTattadevabgachcha tng mam tejohansasambhavam..41..",
+      "translation": "ஐசுவரியமும், ஸ்ரீநிறைவும், மிகுதியும் நிறைந்த அனைத்தும் என் தேஜாம்சசம்பூதம் எனப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v41_001",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Or Bahunaiten King knew Tabarjuna.\nBishtavhyamidang kritsnamekanshen sthito jagat..42..",
+      "translation": "அர்ஜுனா! அல்லது இவ்வளவு அறிவு தேவையா? முழு உலகிலும் என்னில் ஒரு பகுதியால் நான் வியாபித்திருக்கிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v42_001",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் பத்து - விபூதி-யோகம்",
+    "description": "பத்தாவது அத்தியாயத்தில் விபூதியோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர் அர்ஜுனனிடம் அவரது பல்வேறு வெளிப்பாடுகள் மற்றும் மகிமைகளைப் பற்றி கூறுகிறார் மற்றும் உலகின் அனைத்து பொருட்களிலும் அவரது வடிவத்தின் வெளிப்பாட்டைக் காட்டுகிறார்.",
+    "keyThemes": [
+      "கடவுளின் விபூதி",
+      "உலகில் கடவுள்",
+      "கம்பீரத்தின் வெளிப்பாடு",
+      "விபூதி விளக்கம்",
+      "கடவுள் எங்கும் நிறைந்திருப்பது"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/Bangla-Gita-chapter-10.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 1100+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

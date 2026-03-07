@@ -150,6 +150,27 @@ const neChapters = [
     require('./ne/chapter18.json'),
 ];
 
+
+const taChapters = [
+    require('./ta/chapter1.json'),
+    require('./ta/chapter2.json'),
+    require('./ta/chapter3.json'),
+    require('./ta/chapter4.json'),
+    require('./ta/chapter5.json'),
+    require('./ta/chapter6.json'),
+    require('./ta/chapter7.json'),
+    require('./ta/chapter8.json'),
+    require('./ta/chapter9.json'),
+    require('./ta/chapter10.json'),
+    require('./ta/chapter11.json'),
+    require('./ta/chapter12.json'),
+    require('./ta/chapter13.json'),
+    require('./ta/chapter14.json'),
+    require('./ta/chapter15.json'),
+    require('./ta/chapter16.json'),
+    require('./ta/chapter17.json'),
+    require('./ta/chapter18.json'),
+];
 const chaptersByLang: Record<string, any[]> = {
     bn: bnChapters,
     hi: hiChapters,
@@ -158,6 +179,7 @@ const chaptersByLang: Record<string, any[]> = {
     as: asChapters,
     gu: guChapters,
     ne: neChapters,
+    ta: taChapters,
 };
 
 // Resolve the current client's language from expo extra config

@@ -1,0 +1,316 @@
+{
+  "chapter": {
+    "number": "13",
+    "title": "அத்தியாயம் பதின்மூன்று",
+    "subtitle": "பிரகிருதி-புருஷ-மனசாட்சி",
+    "englishTitle": "Prakriti Purusha Viveka Yoga",
+    "totalVerses": "35",
+    "description": "பதின்மூன்றாவது அத்தியாயத்தில் பிரகிருதி-புருஷ-விவேகயோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் பிரகிருதி, புருஷன், க்ஷேத்திரம் மற்றும் க்ஷேத்ரக்ஞத்தின் தத்துவத்தை விளக்குகிறார்.",
+    "id": "PrakritiPurusha13"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Pratharing Pursang Chaiva Kshetrang Kshetrajnamev f.\nEtad Vedicumichchami Gnanang Gneyang Ch Keshav..1..",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ கேசவா! பிரகிருதி, புருஷன், க்ஷேத்திரம், க்ஷேத்ரஜ்ஞம், ஞானம் மற்றும் ஞானம் ஆகிய இந்த தத்துவங்கள் அனைத்தையும் அறிய விரும்புகிறேன்.",
+      "speaker": "அர்ஜுனா",
+      "id": "v1Prakriti13",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "This is in the field of the field.\nEtad yo betti tang prahu: Kshetragyna iti tadvidah..2..",
+      "translation": "பகவான் கூறினார் - ஓ கௌந்தேயா! இந்த உடலை க்ஷேத்ரா என்றும், இந்த உடலை அறிந்தவர் க்ஷேத்ரா என்றும் அழைக்கப்படுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v2Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Kshetrajnang Chapi Mang Viddhi Sarvakshetreshu Bharat.\n3.",
+      "translation": "ஓ இந்தியாவே! நான் அனைத்து துறைகளிலும் ஒரு துறை நிபுணராக அறியப்பட்டேன் மற்றும் துறைகள் மற்றும் துறை வல்லுநர்கள் பற்றிய அறிவு எனது கருத்து.",
+      "speaker": "உச்ச",
+      "id": "v3Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "That's the case with the highest fighting force.\nअध जो जतप्रभावश्चच्च थत शमासेन मे श्रिनु..4..",
+      "translation": "அந்த துறை என்ன, அதன் வகை என்ன, அதன் கோளாறு என்ன, அது யாரிடமிருந்து உருவாகிறது, அந்த துறையின் தன்மை என்ன, அதன் விளைவு என்ன, சுருக்கமாக கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v4Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Rishivirvabhudha Geetang Chandovirvividhai: separate.\nBrahmasutrapadaischaiva hetumadvirbinischitai..5..",
+      "translation": "இந்த க்ஷேத்திரமும், க்ஷேத்ரக்ஞ அறிவும் பல்வேறு வேதவாக்கியங்களில் முனிவர்களால் தனித்தனியாக விவரிக்கப்பட்டுள்ளன. வேதாந்த சூத்திரங்களில் இது குறிப்பாக தர்க்கரீதியான முடிவுகளுடன் விவரிக்கப்பட்டுள்ளது.",
+      "speaker": "உச்ச",
+      "id": "v5Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Mahabhutanyahankaro Budhirvyaktameva f.\nIndriani Dashaikang Ch Pancha Chendryagochara:..6..",
+      "translation": "பஞ்ச-மஹாபூதம், அஹங்கார, புத்தி, அபயக்தம், பத்து புலன்கள் மற்றும் மனம், ஐந்து புலன்கள்.",
+      "speaker": "உச்ச",
+      "id": "v6Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Ichha Dwesha: Sukhang Dukhang Sanghatshetna Dhritti:\n7.",
+      "translation": "ஆசை, வெறுப்பு, மகிழ்ச்சி, துக்கம், மோதல், அதாவது ஐந்து கூறுகளின் விளைவாக உடல், உணர்வு மற்றும் அணுகுமுறை ஆகியவை சுருக்கமாக விவரிக்கப்பட்டுள்ளன.",
+      "speaker": "உச்ச",
+      "id": "v7Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Amanitvamadambhittvamahinsa Khantirrajvam.\n8.",
+      "translation": "நேர்மை, பணிவு, அகிம்சை, சகிப்புத்தன்மை, எளிமை, சத்குருவுக்கு சேவை, தூய்மை, சைரியா, சுயக்கட்டுப்பாடு.",
+      "speaker": "உச்ச",
+      "id": "v8Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Indriyartheshu Vairagyamanhankar and f.\nBirth and Death",
+      "translation": "இந்திரிய விஷயங்களில் இருந்து விலகுதல், அகங்காரம் இல்லாமை, பிறப்பு-இறப்பு-வேர்கள்-நோய்-துன்பம் ஆகியவை ஆதி தோஷ தத்துவம்.",
+      "speaker": "உச்ச",
+      "id": "v9Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Asaktiranvishvanga: Putradargrihadishu.\n10.",
+      "translation": "மனைவி மற்றும் மகன்கள் மீது பற்று இல்லாதது, மனைவி மற்றும் மகன்களின் மகிழ்ச்சி மற்றும் துக்கங்களில் அலட்சியம், எப்போதும் சமநிலை.",
+      "speaker": "உச்ச",
+      "id": "v10Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Moi Chananya Yogen is the devotee of Bhakti.\n11.",
+      "translation": "என் மீதான தனித்துவமான மற்றும் கலப்படமற்ற பக்தி, ஒதுங்கிய இடங்கள் மீது காதல், நெரிசலான இடங்கள் மீது வெறுப்பு.",
+      "speaker": "உச்ச",
+      "id": "v11Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Adhyatmajnannityatwang tattvajnanarthadarshanam.\n12.",
+      "translation": "ஆன்மீக ஞானத்திற்கு நித்யத்வபுத்தி மற்றும் தத்வஞானம் தேவை - இவை அனைத்தும் ஞானம் என்றும் அதற்கு முரணானது ஞானம் என்றும் கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v12Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Gneyang yattat prabakshyami yajjnatvamritmashnute.\n13.",
+      "translation": "நான் இப்போது அறிவைப் பற்றி பேசுவேன், அதன் அறிவு அழியாமைக்கு வழிவகுக்கிறது. அந்த அறிவு நித்தியமானது, எனக்கு அடைக்கலம். இது பிரம்மம் என்று அழைக்கப்படுகிறது மற்றும் செயலுக்கும் காரணத்திற்கும் அப்பாற்பட்டது.",
+      "speaker": "உச்ச",
+      "id": "v13Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Sarvatah panipadang tat sarvatokkshishiromukham.\n14.",
+      "translation": "அவனுடைய கைகள், கால்கள், கண்கள், தலை, வாய் என எங்கும் நிறைந்து எங்கும் நிறைந்திருக்கிறான். உலகில் உள்ள எல்லாவற்றிலும் அவர் இருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v14Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Sarvendriyagunabhasang Sarvendriyavivarjitam.\n15.",
+      "translation": "அந்த பரமாத்மா எல்லா புலன்களையும் வெளிப்படுத்துபவராக இருக்கிறார், இருப்பினும் அவர் எல்லா புலன்களும் இல்லாதவர். அவர் அனைவருக்கும் பாதுகாவலராக இருந்தாலும், அவர் முற்றிலும் இணைக்கப்படவில்லை. அவர் இயற்கையின் குணங்களுக்கு அப்பாற்பட்டவர், இருப்பினும் அவர் எல்லா குணங்களுக்கும் கடவுள்.",
+      "speaker": "உச்ச",
+      "id": "v15Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Externally, Bhutanamcharang Chrameb f.\nअच्ञात्तादविज्यन्यों द्वरस्थांग चाट्यक च टत..16..",
+      "translation": "அந்த பரமத்வா எல்லா பேய்களுக்கும் உள்ளேயும் இல்லாமல் உள்ளது. அவனிடமிருந்தே எல்லா ஒழுக்கங்களும் உள்ளன; மிகுந்த நுணுக்கத்தின் காரணமாக அவர் கண்ணுக்கு தெரியாதவர். அவர் தொலைவில் இருந்தாலும், எல்லோருக்கும் மிக அருகில் இருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v16Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "आविभकतांग फ भुटेशु विज्ञामिव फ श्टित्म.\nBhutabhartri Ch Tajjneyang Prasishnu Prabhavishnu Ch..17..",
+      "translation": "பரமாத்மா அனைத்து பேய்களாலும் பிரிக்கப்பட்டதாக உணரப்பட்டாலும், அவர் பிரிக்கப்படாதவர். அவர் அனைத்து உயிரினங்களின் காவலராக இருந்தாலும், அவர் அழிப்பவர் மற்றும் படைப்பவர் என்று அறியப்படுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v17Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Jyotishampi tajjyotistams: paramuchyate.\nGnanam Gneyang Gnangamyang Hridi Sarvasya Visthitam..18..",
+      "translation": "அவர் அனைத்து ஜோதிடத்தின் உச்ச ஒளி. அவர் அனைத்து இருளின் வெளிப்படையான வடிவம் என்று அழைக்கப்படுகிறார். அவர் அறிவு, அவர் அறியக்கூடியவர் மற்றும் அவர் அறியக்கூடியவர். அனைவரின் இதயத்திலும் அவர் இருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v18Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Iti Kshetrang Tatha Gyanang Gneyang Choktang Samasatah.\n19.",
+      "translation": "இவ்வாறு க்ஷேத்திரம், ஞானம், க்னேயா ஆகிய மூன்று தத்துவங்களும் தொகுக்கப்பட்டுள்ளன. என் பக்தன் ஒருவனுக்கு மட்டுமே இந்த அறிவுகள் அனைத்தும் கிடைக்கும்.",
+      "speaker": "உச்ச",
+      "id": "v19Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Pratharing Purushang Chaiva Vidhyanadi Ubhabpi.\n20.",
+      "translation": "பிரகிருதி மற்றும் புருஷன் இருவரும் நித்தியமாக அறிவார்கள். அவர்களின் குணங்களும் குணங்களும் இயற்கையிலிருந்து தோன்றியவை என்று அறியப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v20Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Caused by nature.\nPurusha: Sukhdukhkhanang Bhoktritte Heturuchyate..21..",
+      "translation": "அனைத்து ஜடச் செயல்கள் மற்றும் காரணங்களின் அதிகாரத்தைப் பொறுத்தவரை பிரகிருதி ஹேது என்று அழைக்கப்படுகிறது, அதுபோலவே ஜட இன்பம் மற்றும் துக்கத்தை அனுபவிப்பதில் ஜீவா ஹேது என்று அழைக்கப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v21Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Purusha: prakrutistho hi bhunkte prakrutijan hunan.\nBecause gunasangohasya sadasadyonijnmasu.. 22..",
+      "translation": "ஜட இயற்கையில் அமைந்திருப்பதால், உயிர்கள் இயற்கையைப் போன்ற குணங்களை அனுபவிக்கின்றன. இயற்க்கையின் குணத்தின் சங்கமத்தினாலேயே அது நீதியும் அநீதியுமான யோனிகளில் பிறக்கிறது.",
+      "speaker": "உச்ச",
+      "id": "v22Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Upadrasthanumanta c Bharta Bhokta Maheshwar:\nParmatmeti chapyuto dehhasmin Purusha: Parah..23..",
+      "translation": "இந்த சரீரத்தில் உபத்ராஷ்டா, அனுமந்தா, பர்தா, போக்தா, மகேஸ்வரன் என்று மற்றொரு பரமாத்மாவும் இருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v23Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "And with betti purusha prakrting cha gunai.\n24.",
+      "translation": "இவ்வாறு புருஷனையும், குணங்களோடு கூடிய ஜட இயற்கையையும் உணர்ந்தவன், ஜடவுலகில் இருந்தபோதும் மறுபிறவி எடுப்பதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v24Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Dhyanenatmani Pashyanti Kechidatmanmatmana.\nOn the other Sankhyen Yogen Karma Yogen Chapare..25..",
+      "translation": "சிலர் தியானத்தின் மூலமாகவும், சிலர் சாங்கிய யோகத்தின் மூலமாகவும், மற்றவர்கள் கர்ம யோகத்தின் மூலமாகவும் பரமாத்மாவைக் காண்கிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v25Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "On the other hand Tevamjananta: Srutvanyebhya upasate.\nTehpi Chatitarantyeb Mritung Shrutiparayana:..26..",
+      "translation": "மற்றவர்கள் இதை அறியாமல் பிறரிடம் கேட்டு வழிபடுகிறார்கள். அவர்கள் செவியுற்றவர்களாக மாறுவதன் மூலம் மரண உலகத்தையும் கடந்து செல்கிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v26Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "A little bit of stability for everything.\n27.",
+      "translation": "ஓ பாரத ஸ்ரேஸ்தா! அசையாது, அசையாது என உள்ளவை அனைத்தும் க்ஷேத்திரம் மற்றும் க்ஷேத்திரத்தின் இணைப்பால் எழுந்தவை என்று அறியப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v27Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Samang sarveshu bhuteshu tisthantang parameswaram.\n28.",
+      "translation": "எல்லா உயிர்களிலும் சமமாக அமைந்துள்ள அழியாத உடலிலும் அழியாத உன்னதமானதைக் காண்பவனே சரியானவன்.",
+      "speaker": "உச்ச",
+      "id": "v28Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Samang pasyan hi everywhere samavasthitamiswaram.\nNa hinastyatmanatmanang tato jati parang gatim..29..",
+      "translation": "எங்கும் சமமாக அமைந்துள்ள பரமபிதாவைக் காண்பவர் மனத்தால் தன்னைத் தாழ்த்திக் கொள்வதில்லை. இப்படித்தான் அவர் முழுமையான வேகத்தைப் பெறுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v29Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "चर्थायव फ कर्मानी क्रियमानानानी सर्वशु\nYah pasyati tattmanamakartarang sa pasyati..30..",
+      "translation": "உடலால் செய்யப்படும் அனைத்து செயல்களும் இயற்கையால் செய்யப்படுகின்றன என்பதையும், ஆன்மா செய்யாதது என்பதையும் யார் காண்கிறார், அவர் சரியாகக் காண்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v30Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Jada bhutaprithagabhavamakesthamanupsyati.\n31.",
+      "translation": "ஒரே பிரகிருதியில் உள்ள உயிரினங்களின் தனித்தனி இருப்பையும், அதே பிரகிருதியிலிருந்து விரிவடைவதையும் ஞானி பார்க்கும்போது, ​​அவன் பிரம்மபாவத்தை அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v31Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Anaditvannirgunvatat Paramatmayamvyaya:\n32.",
+      "translation": "பிரம்மபாவ நிலையில், ஜீவன் இந்த ஆன்மா நித்தியமானது, அதீதமானது மற்றும் ஜட இயற்கைக்கு அப்பாற்பட்டது என்பதைக் காண்கிறான். ஓ கௌந்தேயா! ஜட சரீரத்தில் வசித்தாலும், ஆன்மா எதையும் செய்வதில்லை, எதிலும் ஈடுபடுவதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v32Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Namely Sarvagatam Saukshmyadakashang Nopalipya.\nTattama is in the body everywhere. 33.",
+      "translation": "ஆகாயம், எங்கும் நிறைந்திருப்பதால், சூட்சுமத்திற்காக மற்றவற்றில் ஈடுபடாதது போல, பிரம்ம தரிசனமான ஜீவாத்மா, உடலில் நிலைத்திருந்தாலும், சரீர தர்மத்தில் ஈடுபடுவதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v33Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Namely Prakashayatyak: Krishnang Lokmimang Ravi:\nKshetrang Kshetri and Krishna Prakashayati Bharat. 34.",
+      "translation": "ஓ இந்தியாவே! ஒரு சூரியன் உலகம் முழுவதையும் வெளிப்படுத்துவது போல, க்ஷேத்ரி ஆத்மா முழு புலத்தையும் வெளிப்படுத்துகிறது.",
+      "speaker": "உச்ச",
+      "id": "v34Prakriti13",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Kshetrakshetragyanorevamantrang Gnanakshusha.\n35.",
+      "translation": "க்ஷேத்திரத்திற்கும் க்ஷேத்திரத்திற்கும் உள்ள வேறுபாட்டை அறிவின் கண்களால் அறிந்து, ஜட இயற்கையின் பிணைப்பிலிருந்து உயிர்களை விடுவிக்கும் வழியை அறிந்தவர்கள், உச்ச வேகத்தை அடைகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v35Prakriti13",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "பதின்மூன்றாவது அத்தியாயம் - பிரகிருதி-புருஷ-விவேகயோகம்",
+    "description": "இந்த அத்தியாயத்தில் பிரகிருதி-புருஷ-விவேகயோகம் கற்பிக்கப்படுகிறது. பகவான் கிருஷ்ணர் பிரகிருதி, புருஷன், க்ஷேத்திரம் மற்றும் க்ஷேத்திரத்தின் தத்துவத்தை விளக்கினார். பிரகிருதிக்கும் புருஷனுக்கும் உள்ள வேறுபாட்டை உணர்ந்து முக்தி அடையலாம் என்று விளக்குகிறார்.",
+    "keyThemes": [
+      "இயற்கை மற்றும் மனிதனின் கோட்பாடு",
+      "வயல்களும் வயல்களும்",
+      "அறிவும் ஞானமும்",
+      "இயற்கையின் பண்புகள்",
+      "விடுவிக்க வழி"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita-chapter28.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 2000+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

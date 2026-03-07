@@ -1,0 +1,380 @@
+{
+  "chapter": {
+    "number": "3",
+    "title": "அத்தியாயம் மூன்று",
+    "subtitle": "கர்ம யோகம்",
+    "englishTitle": "Karma Yoga",
+    "totalVerses": "43",
+    "description": "மூன்றாவது அத்தியாயத்தில் கர்ம யோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் அர்ஜுனனுக்கு கர்மாவின் முக்கியத்துவத்தை விளக்கி, கர்மாவை விட்டுவிடாமல் கர்மா செய்ய அறிவுறுத்துகிறார்.",
+    "id": "ZyxsCQ8y"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Jayasi Chet Karmanaste Mata Buddhirnardhan.\nTat King Karmani Ghore Mang Niyojoysi Keshav..1..",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ ஜனார்தனா! ஹே கேசவ்! பக்தி ஞானம் உன்னைப் போன்ற செயலை விட உயர்ந்தது என்றால், இந்த பயங்கரமான போரில் ஈடுபட என்னை ஏன் தூண்டுகிறாய்?",
+      "speaker": "அர்ஜுனா",
+      "id": "LyOCD3HJ",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Bamishrenev Vakken Budding Mohayasib May.\nIt is certain that it is Shreyohmapnuam. 2.",
+      "translation": "என் புரிதலை தெளிவற்ற வாக்கியங்களால் குழப்புகிறீர்கள். எனவே, எனக்கு எது சிறந்தது என்பதை தயவுசெய்து சொல்லுங்கள்.",
+      "speaker": "அர்ஜுனா",
+      "id": "aBp5D9rR",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Lokehsmin Dwividha Nishta Pura Prokta Mayangh.\nGnanyogen Sankhyanang Karmayogen Yoginam. 3.",
+      "translation": "பகவான் கூறினார் - ஓ அப்பாவி அர்ஜுனா! இரண்டு வகையான மனிதர்கள் சுயமரியாதைக்காக பாடுபடுகிறார்கள் என்பதை நான் முன்பே விளக்கினேன். சிலர் பக்தியின் மூலம் அதை மீண்டும் அனுபவிக்க விரும்புகிறார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "KmYy8K9L",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Na Karmanamnarambhan Nishkarmyang Purushohashlute.\nSannyasanadev Siddhang Samadhigachti",
+      "translation": "கர்மத்தைச் செய்யாததால் கர்மாவின் பலனில் இருந்து விடுபட முடியாது, கர்மத்தைத் துறப்பதால் சித்தி அடைய முடியாது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "m85mLMtr",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Nahi kaschit kasnampi jatu tishtyakarmakrit.\n5.",
+      "translation": "அனைவரும் மாயையான குணங்களால் பாதிக்கப்படுகின்றனர் மற்றும் உதவியற்றவர்களாக செயல்பட வேண்டிய கட்டாயத்தில் உள்ளனர்; எனவே கர்மா செய்யாமல் ஒரு கணம் கூட வாழ முடியாது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "Eux6Dyfi",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Karmendriani Sanyamya slowly remembers the mind.\n6.",
+      "translation": "ஐந்து புலன்களைக் கட்டுப்படுத்தி, சப்தம், ரஸம் மற்றும் முதன்மையான இந்திரியத்தை மனதில் நினைத்துக் கொண்ட ஒருவன், நிச்சயமாக தன்னைத்தானே ஏமாற்றிக் கொள்கிறான், அவன் பொய் சொல்லும் பாசாங்குக்காரன் என்று அழைக்கப்படுகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "XetykJDP",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Yastvindriani Mansa Niyamayarbhateharjuna.\n7.",
+      "translation": "ஆனால், புலன்களை மனத்தால் அடக்கி, பற்றற்ற கர்ம யோகத்தைச் செய்பவன், மேற்கூறிய பொய்யரை விட உயர்ந்தவன்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "zx3Oq7so",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Niyatang Kuru Karma Twang Karma Jayo Hyakarmana:\n8.",
+      "translation": "நீங்கள் வேதப்பூர்வமான செயல்களைச் செய்கிறீர்கள், ஏன் செயலைச் செய்யாமல் இருப்பது செயலை நிறுத்துவதை விட சிறந்தது. கர்மா செய்யாமல் ஒருவரால் உடல் பயணம் கூட செய்ய முடியாது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "QFpsdySX",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Yajna means Karmanohanyatra Lokohyang Karmabandhan:\nNamely Karma Kaunteya Muktsanga: Samachar..9..",
+      "translation": "விஷ்ணுவின் அன்பை நிறைவேற்ற கர்மா செய்ய வேண்டும்; மற்றபடி கர்மா இந்த ஜடவுலகில் பற்றுதலுக்குக் காரணம். எனவே, ஓ கவுந்தேயா! கடவுளின் திருப்திக்காக உங்கள் கடமைகளைச் செய்யுங்கள், இதனால் நீங்கள் எப்போதும் அடிமைத்தனத்திலிருந்து விடுபடுவீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "vwMLeJC0",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Prajapati\n10",
+      "translation": "படைப்பின் தொடக்கத்தில், படைப்பாளி மக்களை தியாகங்களால் படைத்து, சொன்னார் - 'இந்த யாகத்தின் மூலம், நீங்கள் எதிர்காலத்தில் வளம் பெறுவீர்கள். இந்த யாகம் உங்கள் விருப்பங்கள் அனைத்தையும் நிறைவேற்றும்.'",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "DIFhIvTh",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Devan bhavayotanen te deva bhavayantu bah.\n11.",
+      "translation": "உங்கள் யாகத்தில் மகிழ்ச்சியடைந்து தேவர்கள் உங்களை மகிழ்விப்பார்கள். இப்படி ஒருவர் மற்றவரின் அன்பை நிறைவேற்றிக் கொள்வதன் மூலம் உயர்ந்த நல்வாழ்வை அடைவீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "SyRQ6COd",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Istan bhogan hi bo deva dasyante yajnabhavitah.\n12.",
+      "translation": "தேவர்கள் யாகத்தில் திருப்தியடைந்து உங்களுக்கு விரும்பிய உணவைத் தருவார்கள். ஆனால் கடவுளுக்குக் கொடுக்கப்பட்ட பொருட்களைப் பலிக்காமல் அனுபவித்து மகிழ்பவன் நிச்சயமாகத் திருடன்தான்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "daC3BH3B",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Yajnashistashin: Santo Muchante Sarvakilvishai:\n13.",
+      "translation": "பகவானின் பக்தர்கள் யாக உணவை உட்கொள்வதால், எல்லா பாவங்களிலிருந்தும் விடுபடுகிறார்கள். சுயநலம் மட்டுமே உள்ளவர்கள், புலன்களின் திருப்திக்காக உணவை உண்பவர்கள், பாவத்தையே உண்கிறார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "KZuqCqRx",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Annad Bhavanti Bhutani Parjanyadannasambhavah.\n14.",
+      "translation": "விலங்குகள் உணவை உண்டு வாழ்கின்றன. மழை உணவை உற்பத்தி செய்கிறது. யாகம் செய்வதால் மழையும், வேதச் செயல்கள் யக்ஞங்களையும் உண்டாக்கும்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "459DxFgT",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Karma brahmodhavbang vidhi brahmaksharasamudhavam.\nThus Brahman is established in Nityang Yajna. 15.",
+      "translation": "யக்ஞாதி கர்மா வேதங்களில் இருந்து உருவானது மற்றும் வேத அக்ஷரத்திலிருந்து அல்லது பரமாத்மாவிடமிருந்து வெளிப்படுகிறது. ஆதலால் எங்கும் நிறைந்த பிரம்மம் எப்பொழுதும் யக்ஞத்தில் நிலைபெற்றுள்ளது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "uy9bezrn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "And Pravartitang Chakrang Nanuvartayatih Jah.\nAghayurindriaramo Moghang Partha Sa Jivati..16..",
+      "translation": "அர்ஜுனா! வேதங்கள் ஸ்தாபித்த யாகங்களைச் செய்யும் முறையைப் பின்பற்றாத ஒருவன், இந்திரிய இன்பத்தைத் தேடும் பாவி வீணான வாழ்க்கையை நடத்துகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "XJZRu6R6",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Yastvatmaratireb syadatmtrptashcha Manavah.\n17.",
+      "translation": "ஆனால் ஆன்மாவில் திருப்தியடைந்து, ஆன்மாவில் திருப்தி அடைந்து, ஆத்மாவில் திருப்தி அடைபவருக்கு எந்த கடமையும் இல்லை.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "DMPKqkS7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Naiva Tasya Kritenartho Nakriteneh Kaschan.\nNo chasya sarvabhuteshu kaschidarthavyapashrayah..18..",
+      "translation": "ஆத்மானந்தத்தை அனுபவிக்கும் ஒருவருக்கு இவ்வுலகில் தர்மம் செய்ய வேண்டிய அவசியமில்லை, அத்தகைய செயல்களைச் செய்யாமல் இருப்பதற்கு எந்த காரணமும் இல்லை. அவன் வேறு எந்த மிருகத்தையும் சார்ந்திருக்க வேண்டியதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "2vOS7cEN",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tasmadsakta: Satatang Karangam Karma Samachar.\nAsakto Hatcheron Karma Paramapnoti Purush: 19",
+      "translation": "எனவே, முடிவுகளில் பற்று இல்லாமல் கடமையைச் செய்யுங்கள். பற்றற்ற செயல்களால் மட்டுமே ஒருவன் திருவுருவத்தை அடைய முடியும்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "R0Cqy0rL",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Karmanaiva hi Sansiddhimasthita Janakadaya:\nLoksangrahamebapi Sampsyan Kartumharsi",
+      "translation": "ஜனகரின் ஆரம்பகால அரசர்கள் கூட கர்மவினையின் மூலம் சம்சித்தி அடைந்தனர். எனவே, பொதுமக்களுக்கு கல்வி கற்பிக்க உழைக்க வேண்டும்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "TQZD4522",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Yadyacharati shreshstatattadevetra Jana:\n21.",
+      "translation": "பெரிய மனிதர் நடந்துகொள்வது போல, சாதாரண மனிதர் அவரைப் பின்பற்றுகிறார். அவர் எதை ஆதாரமாக ஏற்றுக்கொள்கிறாரோ, அதை உலகம் முழுவதும் பின்பற்றுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "Yj6fqHiR",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Na May Parthasti Davatang Trishu Lokeshu Kinchan.\nNanaptambaptabyang varta and f karmani.. 22..",
+      "translation": "ஓ பார்த்! இவ்வுலகில் எனக்கு எந்தக் கடமையும் இல்லை. என்னிடம் அடைய முடியாதது, அடைய முடியாதது எதுவுமில்லை. இன்னும் நான் பிஸியாக இருக்கிறேன்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "hx1hHZK7",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "If hyehang na barteyang jatu karmanyatandritah.\n23.",
+      "translation": "ஓ பார்த்! நான் விடாமுயற்சி மற்றும் கடமையில் ஈடுபடவில்லை என்றால், எல்லா மக்களும் என்னைப் பின்பற்றி வேலையை விட்டுவிடுவார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "WmzEIj8P",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Usideyurime loka na kuryong karma chedham.\n24.",
+      "translation": "நான் நடிக்கவில்லை என்றால் இவர்களெல்லாம் சோர்ந்துவிடுவார்கள். நான் வர்ணசங்கரத்தை உண்டாக்குவேன், அதன் மூலம் எல்லா மக்களும் என்னால் அழிக்கப்படுவார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "7PhfTls9",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Sakta: Karmanyavidvanso i.e. Kurbanti Bharat.\n25.",
+      "translation": "ஓ இந்தியாவே! அறிவில்லாதவர்கள் கர்மத்தின் மீது பற்று கொண்டு தங்கள் கடமைகளைச் செய்வது போல், அறிவுள்ளவர்கள் மக்களை நேர்வழியில் செலுத்துவதற்கு பற்றற்றவர்களாகச் செயல்படுவார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "cBorzteT",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Na buddhivedang janayedjnanang karmasanginam.\nJoshayetsarvakarmani Vidwan added: Samacharan..26..",
+      "translation": "புத்திசாலிகள் வேலையில்லாத அறிவற்ற மனிதர்களின் மனதைக் குழப்பக்கூடாது. மாறாக, அறிவில்லாதவர்களை பக்தி மனதுடன் அனைத்து செயல்களையும் செய்ய தூண்டுவார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "EJqsBNRo",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Actually: Kriyamanani Gunai: Karmani Sarbash.\nAhankarbimudhama kartahamiti manya.. 27..",
+      "translation": "அகங்காரத்தால் மயங்கிய ஜீவன், முப்பெரும் இயல்பின் செயல்கள் அனைத்தையும் தனக்குச் சொந்தமானதாகக் கருதி, 'நானே செய்பவன்' என்ற அகங்காரத்தை உண்டாக்குகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "qFxXgQNf",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Tattavittu Mahabaho Gunakarmavibhagayo:\nGuna guneshu varanta iti matva na sajjte.",
+      "translation": "ஓ மஹாபாஹோ! பகவத்-பக்தி-முகி கர்மாவிற்கும் சாகம்-கர்மாவிற்கும் உள்ள வித்தியாசத்தை நன்கு அறிந்த ஒரு நபர் ஒருபோதும் சிற்றின்ப திருப்தியில் ஈடுபடுவதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "90zmP9SI",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Prakturergunasammudha: Sajjante Gunakarmasu.\n29.",
+      "translation": "ஜட இயற்கையின் குணங்களால் மகிழ்ந்து, அறிவில்லாதவர்கள் உலகச் செயல்களில் ஈடுபடுகிறார்கள். ஆனால் அவர்களின் செயல்கள் தாழ்ந்ததாக இருந்தாலும், கோட்பாட்டின் ஆண்கள் பலவீனமான அறிவு மற்றும் அறிவு இல்லாதவர்களை தொந்தரவு செய்ய மாட்டார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "n4O8hEyD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Moi Sarvani Karmani Sannyasyadhyatmachetsa.\nNirashirnirmmo bhutva yudhyasva bigatajjar:..30..",
+      "translation": "எனவே, அர்ஜுனா! உனது செயல்கள் அனைத்தையும் தன்னுணர்வோடு என்னிடம் ஒப்படைத்து, இரக்கமின்றி, பேரார்வம் இல்லாமல், துக்கமின்றிப் போராடு.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "H68xmr8d",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "That May Matmidang Nityang Anutishthanti Manba:.\n31.",
+      "translation": "எனது அறிவுறுத்தல்களின்படி தங்கள் கடமையைச் செய்பவர்கள் மற்றும் இந்த அறிவுரையை மரியாதையுடனும், அக்கறையுடனும் பின்பற்றுபவர்கள் அனைவரும் கர்மபந்தனில் இருந்து விடுவிக்கப்படுகிறார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "yuPEr8fD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "That tvetdavyasuyanto nanutishthanti me matam.\n32.",
+      "translation": "ஆனால் என்னுடைய இந்த அறிவுரைக்குக் கீழ்ப்படியாதவர்கள், எல்லா அறிவையும் இழந்தவர்களாகவும், திகைப்பவர்களாகவும், பரமார்த்தத்தை அடைவதற்கான அனைத்து முயற்சிகளிலிருந்தும் கெட்டவர்களாகவும் அறியப்படுவார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "dZTqJovd",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Swasya in trying to be the same: Prakturerjnanabanpi.\nPratharing Janti Bhutani Nigraha: King Karishyati..33..",
+      "translation": "ஒரு புத்திசாலி மனிதனும் தன் இயல்பின்படி செயல்படுகிறான், ஏனென்றால் ஒவ்வொருவரும் அவரவர் மும்மடங்கு இயல்பைப் பின்பற்றுகிறார்கள். அதனால் என்ன பயன் இருக்கும்?",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "kRjdo9Wb",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Ragadvesau vyavashitau for senses.\n34.",
+      "translation": "அனைத்து உயிரினங்களும் புலன்களின் மீது பற்று அல்லது வெறுப்பை உணர்கிறார்கள், ஆனால் புலன்கள் மற்றும் புலன்களுக்கு அடிபணியக்கூடாது, ஏனெனில் அவை ஆழ்நிலை முன்னேற்றத்திற்கு தடையாக உள்ளன.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "yna71g2p",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Shreyan Swadharmao Viguna: Paradharmaat Swanusthitat.\nSwadharma Nidhnang Shreya: Paradharma is terrible: ..35..",
+      "translation": "ஸ்வதர்ம சடங்குகள், குறைபாடுகள் இருந்தாலும், சிறப்பாகச் செய்யப்படும் பரதர்மத்தை விட உயர்ந்தவை. சுயமதத்தை கடைப்பிடிப்பதில் மரணம் இருந்தால், அதுவும் சுபமே, ஆனால் பிறர் மதத்தை கடைப்பிடிப்பது ஆபத்தானது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "b5oe9OZz",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Why is it used for papong charati purusha?\n36.",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ பார்ஷ்னேயா! யாரால் மக்கள் தயக்கமின்றி பாவச் செயல்களில் ஈடுபடத் தூண்டப்படுகிறார்கள்?",
+      "speaker": "அர்ஜுனா",
+      "id": "esjiNYbH",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Kama esh krodh esh Rajogunasamudbhavah.\nMahashano Mahapappama Vidhyenamiha Bairinam..37..",
+      "translation": "பகவான் கூறினார் - ஓ அர்ஜுனா! ரஜோகுணத்தில் இருந்து வரும் காமம்தான் மக்களை இந்தப் பாவத்தைச் செய்ய வைக்கிறது, இந்தக் காமம்தான் கோபமாக மாறுகிறது. காமா அனைத்தையும் நுகரும் மற்றும் பாவம்; உயிருக்கு கர்மா முக்கிய எதிரி என்பதை அறிந்து கொள்ளுங்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "sei2JNcH",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Dhumenabriyate Bahniryayadarsho Malen f.\nYatholbenavrito Garbhastatha Tenedmavritam..38..",
+      "translation": "நெருப்பு புகையால் மூடப்படுவது போலவும், கண்ணாடி அழுக்குகளால் மூடப்படுவது போலவும் அல்லது கர்ப்பப்பை கருப்பையால் மூடுவது போலவும், ஜீவாத்மா இந்த காமத்தால் பல்வேறு அளவுகளில் மூடப்பட்டிருக்கும்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "XYXpDCPJ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Abritang Gnanameten Gnanino Nityavairaina.\nKamarupen Kaunteya Duspurenanalen Ch.",
+      "translation": "உயிரின் தூய உணர்வு காமரூபியின் நித்திய எதிரியால் மூடப்பட்டுள்ளது. எரியும் நெருப்பைப் போல இந்த ஆசை தீராதது.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "LspcwmNv",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Indriyani Mano Buddhirasadhisthanmuchya.\nEtairvimohaytyesh jnanamavrtya dehinam..40..",
+      "translation": "புலன்கள், மனம் மற்றும் புத்தி ஆகியவை இந்த வேலையின் தங்குமிடம். காமா இந்த உணர்வின் மூலம் ஜீவாவின் உண்மையான அறிவை மறைத்து அவரை குழப்புகிறார்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "1FEeBhRp",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Tasmattvamindriyanyadau Nimya Bharatarshava.\nPapmanang prajahi henong jnanavijnashanam. 41. .",
+      "translation": "எனவே, ஓ பாரதஷ்ரேஷ்டா! நீங்கள் முதலில் புலன்களைக் கட்டுப்படுத்தி, அறிவை அழிக்கும் பாவத்தின் அடையாளமான இந்த காமத்தை அழித்துவிடுங்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "C7mGYVec",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Indriyani Paranyahurindrievya: Parang Manah:\nManasastu Para Buddhiryo Buddha: Paratastu Sah..42..",
+      "translation": "புலன்கள் மொத்த உயிரற்ற பொருளை விட உயர்ந்தவை; புலன்களை விட மனம் சிறந்தது; மனதை விட ஞானம் சிறந்தது; மேலும் அந்த புத்தியை விட மூன்று (ஆன்மாக்கள்) சிறந்தவை.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "THTX5BqA",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "And the Buddha: Parang Buddha Sanstabhyatmanmatmana.\nJahi Shatrang Mahabaho Kamrupong Durasdam..43..",
+      "translation": "மஹாவீர் அர்ஜுனா! பௌதிக உணர்வுகள், மனம் மற்றும் புத்திக்கு அப்பாற்பட்ட உங்களை அறிந்து, அஷாமாத்மிக புத்தியால் மனதை நிலைநிறுத்தி, சித்-சக்தியால் பயங்கரமான எதிரியான காமரூபத்தை வெல்லுங்கள்.",
+      "speaker": "ஸ்ரீ பகவான்பாக்",
+      "id": "3Mfh24R7",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் III - கர்ம யோகம்",
+    "description": "மூன்றாவது அத்தியாயத்தில் கர்ம யோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் அர்ஜுனனுக்கு கர்மாவின் முக்கியத்துவத்தை விளக்கி, கர்மாவை விட்டுவிடாமல் கர்மா செய்ய அறிவுறுத்துகிறார்.",
+    "keyThemes": [
+      "செயலின் முக்கியத்துவம்",
+      "கர்மாவைத் துறத்தல்",
+      "பயனற்ற வேலை",
+      "மதத்தின்படி கர்மா",
+      "தரத்திற்கும் செயலுக்கும் உள்ள தொடர்பு"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/02/bangla-gita-chapter-3.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 2150+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

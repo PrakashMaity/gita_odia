@@ -1,0 +1,231 @@
+{
+  "chapter": {
+    "number": "16",
+    "title": "அத்தியாயம் பதினாறு",
+    "subtitle": "தைவாஸுர-ஸம்பத்-விபாகயோக",
+    "englishTitle": "Daivasura Sampad Vibhaga Yoga",
+    "totalVerses": "24",
+    "description": "பதினாறாவது அத்தியாயத்தில் தெய்வாசுர-சம்பத-விபாகயோகம் என்ற உபதேசம் கொடுக்கப்பட்டுள்ளது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் தெய்வீக மற்றும் அசுர செல்வத்தின் பண்புகளை விவரிக்கிறார்.",
+    "id": "Daivasura16"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Abhayanga Sattva Sanshudhirjnayogavyvasthiti:\nDanang Damshcha Yajnashcha Swadhyayastap Arjavam..1..",
+      "translation": "பரமாத்மா சொன்னார் - ஓ இந்தியாவே! அச்சமின்மை, இருப்பதில் தூய்மை, ஆழ்நிலை அறிவைப் பயிற்சி செய்தல், தானம், சுயக்கட்டுப்பாடு, யாகங்கள் செய்தல், வேத சாஸ்திரங்களைப் படித்தல், தவம், எளிமை.",
+      "speaker": "உச்ச",
+      "id": "v1Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Ahimsa Satyamkrodhastyaga: Shantirpaishunam.\nDaya Bhuteshbaloluptwang Mardbong Hreerchapalam..2..",
+      "translation": "அகிம்சை, உண்மை, கோபமின்மை, காழ்ப்புணர்ச்சி, அமைதி, பிறர் குறைகளைக் காணாமை, எல்லா உயிர்களிடத்தும் இரக்கம், பேராசை, மென்மை, கூச்சம், அகிம்சை.",
+      "speaker": "உச்ச",
+      "id": "v2Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Tej: Kshama Dhriti: Shouchamdroho Natimanita.\nBhavanti Sadhadang Daivimabhijatsya Bharat. 3.",
+      "translation": "பிரகாசம், மன்னிப்பு, பொறுமை, மதுவிலக்கு, மாசார்ய வெறுமை, அகங்காரம் - இந்த குணங்கள் அனைத்தும் திவ்யபாவா உள்ளவர்களிடம் காணப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v3Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Dambho darpohvimanashcha krodha: parushyameva f.\nUnknown Chavijatsya Partha Saadham Masurim. 4.",
+      "translation": "ஓ பார்த்! ஆணவம், ஆணவம், ஆணவம், கோபம், கடுமை மற்றும் கவனக்குறைவு - இந்த செல்வங்கள் அனைத்தும் பேய் மனப்பான்மை கொண்டவர்களால் பெறப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v4Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "According to the Asuri Mata, the registration of divine resources.\nMa Sucha: Sahadang Daibimvijatosi Pandava..5..",
+      "translation": "தெய்வீகச் செல்வம் விடுதலைக்கு உகந்ததாகக் கருதப்படுகிறது, அதே சமயம் அசுர செல்வம் பிணைப்பதாகக் கருதப்படுகிறது. பாண்டுவின் மகனே! துக்கப்பட வேண்டாம், ஏனென்றால் நீங்கள் தெய்வீக செல்வத்துடன் பிறந்தீர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v5Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Dau bhootsargau lokesamin daiva asur and f.\nDaibo vastarsh prokta asurang partha me srinu..6..",
+      "translation": "ஓ பார்த்! இவ்வுலகில் இரண்டு வகையான உயிர்கள் - தேவர்கள் மற்றும் அசுரர்கள் - படைக்கப்பட்டுள்ளனர். தெய்வம் பற்றி விரிவாக விளக்கப்பட்டுள்ளது. இப்போது பேய்களின் இயல்பு பற்றி என்னிடம் கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v6Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Prakrting f Nikrting f Jana na Vidurasura:\nNo Shauchong Napi Chacharo or Satyang Teshu Vidyate..7..",
+      "translation": "அசுரஸ்வபவ நபர்கள் மத விஷயங்களில் அர்ப்பணிப்புடன் இருப்பார்கள் மற்றும் மதம் அல்லாத விஷயங்களில் இருந்து விலகி இருப்பது எப்படி என்று தெரியாது. துறவு, ஒழுக்கம், சத்தியம் இவர்களிடையே இல்லை.",
+      "speaker": "உச்ச",
+      "id": "v7Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Jagdahuraniswaram at Astyamapratisthanga.\n8.",
+      "translation": "இந்த உலகம் பொய்யானது, நம்பிக்கையற்றது மற்றும் தெய்வீகமற்றது என்று பேய் இயல்புடையவர்கள் கூறுகிறார்கள். இந்த உலகம் கம்மத்தால் உருவானது, கம்மத்தைத் தவிர வேறு காரணம் இல்லை.",
+      "speaker": "உச்ச",
+      "id": "v8Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Etang Drishtimbashtabhya Nastatmanolipbuddhaya:\nPrabhavantyugrakarman: Kshaya Jagatohita: ..9..",
+      "translation": "இந்த மாதிரியான முடிவை ஏற்று, ஆத்மதத்வத்தை அறியாத அசுரர்கள், புத்திசாலித்தனம் இல்லாதவர்கள், கடுமையானவர்கள் மற்றும் குறும்புக்காரர்கள், உலகத்தை அழிக்கும் வேலையில் தங்கள் செல்வாக்கைச் செலுத்துகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v9Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Kammashritya Duspurang Dambhanamdanvita:\n10.",
+      "translation": "காம இச்சைகளைக் கொண்ட அந்த பேய் மனிதர்கள், பெருமை, பெருமை மற்றும் மது போதையில், தூய்மையற்ற செயல்களில் தங்களை ஈடுபடுத்திக் கொள்கிறார்கள் மற்றும் மோகம் மூலம் ஒழுக்கக்கேடான செயல்களில் ஈடுபடுகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v10Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Chintamparimeyang c Pralayantamupasrita:\n11.",
+      "translation": "அளவிட முடியாத கவலையில் தஞ்சம் புகுந்து, மரணம் வரை சிற்றின்பத்தையே தங்கள் வாழ்க்கையின் இறுதிக் குறிக்கோளாகக் கருதுகின்றனர்.",
+      "speaker": "உச்ச",
+      "id": "v11Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Ashapasashatairvadha: Kamakrodhaparayana:\n12.",
+      "translation": "இவ்வாறே, நூற்றுக்கணக்கான மக்கள், நம்பிக்கையால் கட்டுண்டு, காமம் மற்றும் கோபத்தால் உந்தப்பட்டு, இச்சையின் இன்பத்திற்காக நேர்மையற்ற வழிகளில் பணத்தைக் குவிக்க முயல்கின்றனர்.",
+      "speaker": "உச்ச",
+      "id": "v12Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Idamdya maya labdhamimang prapsye manoratham.\n13.",
+      "translation": "அசுரஸ்வபாவ நபர்கள் நினைக்கிறார்கள்- 'இன்று நான் இவ்வளவு லாபம் சம்பாதித்துவிட்டேன், என் திட்டத்தின்படி அதிக லாபம் வரும். இப்போது என்னிடம் இவ்வளவு செல்வம் உள்ளது, எதிர்காலத்தில் மேலும் செல்வத்தைப் பெறுவேன்.'",
+      "speaker": "உச்ச",
+      "id": "v13Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Asau Maya Hta: Shatruhnishye Chaparanpi.\nIshwarohhamhang Bhogi Siddhohhang Balban Sukhi..14..",
+      "translation": "'அந்த எதிரி என்னாலேயே கொல்லப்பட்டான், மற்ற எதிரிகளையும் நான் கொல்வேன். நான் கடவுள், நான் நுகர்வோர். நான் சரியானவன், வலிமையானவன், மகிழ்ச்சியாக இருக்கிறேன்.'",
+      "speaker": "உச்ச",
+      "id": "v14Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Adhyobhijnabansmi koᦽnya: Sadrisho maya.\n15.",
+      "translation": "'என்னை மிகவும் பணக்கார மற்றும் உயர்குடி உறவினர்கள் சூழ்ந்துள்ளனர். என்னைப் போல் வேறு யாரும் இல்லை. நான் யாகம் செய்து, அன்னதானம் செய்து மகிழ்வேன்.' இப்படித்தான் அசுரஸ்வபவ நபர்கள் அறியாமையால் ஏமாற்றப்படுகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v15Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "A lot of confusion\nPrasakta: Kambhogeshu Prakavati Narakeshuchou..16..",
+      "translation": "பல்வேறு கவலைகளால் திகைத்து, மாயைகளில் சிக்கி, இச்சைக்கு அடிமையானவர்கள் தூய்மையற்ற நரகத்தில் விழுகின்றனர்.",
+      "speaker": "உச்ச",
+      "id": "v16Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Atmasambhavita: Stavdha Dhanamanamdanvita:\n17.",
+      "translation": "சுய-பெருமை, அடக்கம் மற்றும் உயர்ந்த செல்வம் மற்றும் பொருள் உள்ளவர்கள் அளவற்ற ஆடம்பரத்துடன் பெயரளவிலான யாகங்களைச் செய்கிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v17Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Ahankarang balang darpong kamang krodhang cha samshrita.\n18.",
+      "translation": "அகங்காரம், சக்தி, காமம், காமம் மற்றும் கோபம் ஆகியவற்றைக் கொண்ட அசுரர்கள் தங்கள் உடலிலும் வெளி உடலிலும் கடவுளின் பரம புருஷனாக என்னை வெறுக்கிறார்கள் மற்றும் துறவிகளின் நற்பண்புகளைக் குற்றம் சாட்டுகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v18Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tanhong Dwishat: Kruran Samsareshu Naradhaman.\nKshipamyajasramshuvan Asurisbev Yonishu..19..",
+      "translation": "அந்த வெறுப்பாளர்கள், க்ரூரர்கள் மற்றும் நாரதர்களை நான் இந்த உலகில் தீய அரக்கனின் பிறப்புறுப்பில் தொடர்ந்து வீசுகிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v19Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Asuraing Yonimapanna Mudha was not born.\n20",
+      "translation": "ஓ கௌந்தேயா! பிறப்பிற்குப் பின் அசுரயோனியைப் பெற்றதால், அந்த மூடர்களால் என்னை அடைய முடியாது மேலும் மோசமான வேகத்தை அடைய முடியாது.",
+      "speaker": "உச்ச",
+      "id": "v20Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Trividhang Naraksyedang Dwarang Nashanmatman:\nKama: krodhasthatha lovastsmadetattrayang tyajet..21..",
+      "translation": "காமம், கோபம் மற்றும் பேராசை - இவை மூன்றும் நரகத்தின் வாயில்கள், எனவே அந்த மூன்றையும் கைவிடுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v21Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Etairvimukta: Kaunteya Tamodvaraistrivirnar:\nAcharatyatman: Shreyasto jati parang gatim..22..",
+      "translation": "ஓ கௌந்தேயா! இந்த மூன்று வகையான தமோத்வரங்களில் இருந்து விடுபட்டு, மனிதன் ஆன்மாவின் சிறந்த வழியில் நடந்து அதன் மூலம் முழுமையை அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v22Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Yah Shastravidhimutsrajya varte kamakaratah.\nNa sa siddhimbapnoti na sukhang na parang gatim..23..",
+      "translation": "சாஸ்திரவிதியை விட்டுவிட்டு காமச்சரத்தில் நிலைத்திருப்பவர், சித்தியையோ, மகிழ்ச்சியையோ, முழுமையையோ அடைய முடியாது.",
+      "speaker": "உச்ச",
+      "id": "v23Daivasura16",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Tasmachchastrang Pratunang te Karkyakaryavashitou.\nJnatva Shastrabidhanoktang Karma Kartumiharhasi..24..",
+      "translation": "எனவே, கடமையையும் கடமையில்லாததையும் தீர்மானிப்பதில் வேதங்களே உங்களின் சான்று. எனவே, சாஸ்திரங்களில் வினை சொல்லப்பட்டிருப்பதை அறிந்து, அந்தச் செயலைச் செய்யத் தகுதியானவர்.",
+      "speaker": "உச்ச",
+      "id": "v24Daivasura16",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "பதினாறாவது அத்தியாயம் - தைவாசுர-ஸம்பத்-விபாகயோகம்",
+    "description": "இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் தெய்வீக மற்றும் அசுர செல்வத்தின் பண்புகளை விரிவாக விவரிக்கிறார். தெய்வீகச் செல்வம் முக்திக்கு உகந்தது என்றும், அசுர செல்வம் அடிமைத்தனத்திற்குக் காரணம் என்றும் விளக்குகிறார். தெய்வீக குணங்களில் அச்சமின்மை, தூய்மை, அறிவு, தர்மம், சுயக்கட்டுப்பாடு, யக்ஞம், சுயக்கட்டுப்பாடு, துறவு, அகிம்சை, உண்மை, மன்னிப்பு, பொறுமை போன்றவை அடங்கும். அசுர குணங்களில் அகங்காரம், ஆணவம், ஆணவம், கோபம், கொடுமை, வன்மம், கடுமை ஆகிய மூன்றும் அடங்கும். நரகத்தின் வாயில்கள் மற்றும் அவற்றைக் கைவிடுவதன் மூலம் ஒருவர் ஆத்மாவில் நன்றாக நடந்துகொண்டு பரகதியை அடையலாம்.",
+    "keyThemes": [
+      "26 தெய்வீக செல்வத்தின் பண்புகள்",
+      "அசுர செல்வத்தின் 6 தோஷங்கள்",
+      "தெய்வீக மற்றும் பேய் இயல்புக்கு இடையிலான வேறுபாடு",
+      "காமம், கோபம் மற்றும் பேராசை ஆகியவற்றின் தீங்கு விளைவிக்கும் விளைவுகள்",
+      "சாஸ்திரவிதியின் முக்கியத்துவம் மற்றும் அதை பின்பற்ற வேண்டிய அவசியம்",
+      "வெளியீடு மற்றும் பிணைப்புக்கான காரணங்கள்",
+      "பேய் நபர்களின் எண்ணங்கள் மற்றும் செயல்கள்",
+      "தெய்வீக குணங்களை அடைவதற்கான வழிகள்"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_16.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 1900+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

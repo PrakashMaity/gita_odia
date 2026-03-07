@@ -1,0 +1,196 @@
+{
+  "chapter": {
+    "number": "15",
+    "title": "அத்தியாயம் பதினைந்து",
+    "subtitle": "புருஷோத்தம்-யோகம்",
+    "englishTitle": "Purushottama Yoga",
+    "totalVerses": "20",
+    "description": "புருஷோத்தம்-யோகம் பதினைந்தாவது அத்தியாயத்தில் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர் உலகத்தின் தன்மையையும், புருஷோத்தமரின் தத்துவத்தையும் அஸ்வத்த மரத்தின் உவமையுடன் விவரிக்கிறார்.",
+    "id": "Purushottama15"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Urdhvamulamadhshakhamasvatthang prahurvyam.\nChandansi Yasya Parnani Jastang Veda Sa Vedavit..1..",
+      "translation": "பகவான் கூறினார் - மேல் வேர் மற்றும் துணைக் கிளைகள் கொண்ட அவ்ய அஸ்வத்த மரம் குறிப்பிடப்பட்டுள்ளது. வேத மந்திரங்கள் அந்த மரத்தின் இலைகள். அந்த மரத்தை அறிபவன் வேதியன்.",
+      "speaker": "உச்ச",
+      "id": "v1Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Adhashchordbhanga prasrtasasya branch\nQuality promotion issues:\nOf course it's worth it\n2.",
+      "translation": "இம்மரத்தின் கிளைகள் கீழ்நோக்கியும், மேல்நோக்கியும் பரவி, பிறவி இயல்பு என்ற மூன்று குணங்களால் ஊட்டமளிக்கின்றன. புலன்களின் பொருள்கள் இந்த கிளைகளின் பல்லவர்கள். இந்த மரத்தின் வேர்கள் கீழ்நோக்கி நீண்டு அவை மனுஷ்யலோடு சகம் கர்மாவால் பிணைக்கப்பட்டுள்ளன.",
+      "speaker": "உச்ச",
+      "id": "v2Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "No forms are available\nNasto na chadirn f sanpraistha.\nAswatthamenong subirudhamulam\n3.",
+      "translation": "இந்த மரத்தின் வடிவம் இவ்வுலகில் இல்லை. அதன் தோற்றம், முடிவு, நிலையை யாராலும் புரிந்து கொள்ள முடியாது. வலுவான வேருடன் கூடிய இந்த மரத்தை வெட்டி, வைராக்கியரூபம் என்ற கூரிய ஆயுதத்தால் உண்மையான பொருளைத் தேட வேண்டும்.",
+      "speaker": "உச்ச",
+      "id": "v3Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Tatah Padang Tatparimargitbyang\nYasmin Gata Nonibranti Bhuya:\nTameb chadyang purushang prapadye\nJata: Pravrtti: Prasrita Purani..4.",
+      "translation": "உண்மைப் பொருளைத் தேடுவது கடமை, எங்கே போனாலும் திரும்ப வராது. ஆதிகாலத்திலிருந்தே எல்லாப் பொருட்களும் உருவாகி விரிவடையும் ஆதி புருஷனிடம் அடைக்கலம் புகுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v4Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Nirmanmoha Jitsang Dosha\nAdhyatmanitya Binivratkama:\nConflict\nRgachchantyamudha: Padambayong tat..5..",
+      "translation": "கர்வமும் ஏமாற்றமும் இல்லாதவர்களும், குற்ற உணர்ச்சியும் இல்லாதவர்களும், நித்திய நீதியுள்ளவர்களும், ஆசையும் ஆசையும் இல்லாதவர்களும், இன்பம், துன்பம் என்ற முதன்மையான மோதல்களிலிருந்து விடுபட்டு, ஏமாற்றம் இல்லாதவர்களும் அந்த நிலையை அடைகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v5Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Neither the Sun float nor the Shashanko nor the sun.\nYad gatva na nivrante taddham paramang mam.",
+      "translation": "சூரியன், சந்திரன், நெருப்பு அல்லது மின்சாரம் என்னுடைய அந்த உன்னதமான இருப்பிடத்தை ஒளிரச் செய்ய முடியாது. அங்கு சென்றதும், பொருள் உலகத்திற்குத் திரும்ப வேண்டிய அவசியமில்லை.",
+      "speaker": "உச்ச",
+      "id": "v6Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Mamaivansho Jivaloke Jivabhuta: Sanatana:\n7.",
+      "translation": "இந்த ஜடவுலகில் அடைபட்டிருக்கும் ஜீவராசிகள் என்னின் அசல் பாகங்கள். ஜட இயற்கைக்கு கட்டுப்பட்டு, மனம் உட்பட ஆறு புலன்கள் மூலம் இயற்கையின் உலகில் கடுமையாகப் போராடுகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v7Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "The body is Yadvapnoti Yachchapyutkramatisvara\n8.",
+      "translation": "காற்று மலர்களின் நறுமணத்தை எடுத்துச் செல்வது போல, இந்த ஜடவுலகில் உடலின் கடவுள்-ஜீவா தனது வாழ்க்கையின் பல்வேறு கருத்துக்களை ஒரு உடலில் இருந்து மற்றொரு உடலுக்கு எடுத்துச் செல்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v8Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Shrotrang Eye: Praspanang f Rasanang Ghranameb f.\n9.",
+      "translation": "இந்த ஜீவன் கண், காது, தோல், நாக்கு, மூக்கு, மனம் ஆகிய மூன்றையும் அடைக்கலமாக வைத்து புலன்களின் பொருள்களை அனுபவிக்கிறது.",
+      "speaker": "உச்ச",
+      "id": "v9Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Utkramantang sthitang bapi bhunjanang or gunanvitam.\n10.",
+      "translation": "இயற்கையின் குணங்களின் தாக்கத்தால் உயிர் எப்படி உடலை விட்டு வெளியேறுகிறது அல்லது அடுத்த உடலை எப்படி அனுபவிக்கிறது என்பதை முட்டாள் மக்கள் பார்ப்பதில்லை. ஆனால் ஞானக் கண் உள்ளவர்கள் எல்லாவற்றையும் பார்க்கிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v10Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Jatanto yoginschainong pashyantyatmanyavasthitam.\n11.",
+      "translation": "தன்னறிவு கொண்ட யோகிகளால் இந்தக் கோட்பாட்டைக் காட்சிப்படுத்த முடியும். ஆனால் தன்னறிவு இல்லாத அஞ்ஞான நிறை ஜாக்கிரதையாக இருந்தாலும் இந்தத் தத்துவம் தெரியாது.",
+      "speaker": "உச்ச",
+      "id": "v11Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Yadadityagatang tejo jagad vasayatehkhilam.\nYachchandramsi Yachchagnau Tattejo Viddhi Mamkam..12..",
+      "translation": "சூரியனின் ஒளியும் சந்திரனின் ஒளியும் உலகம் முழுவதும் ஒளிரும் நெருப்பும் என்னுடையது என்று அறியப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v12Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Gamavishya f Bhutani Dharamyahmojsa.\nPushnami Chaushadhi: Sarva: Somo Bhutva Rasatka:..13..",
+      "translation": "நான் பூமியில் நுழைந்து அனைத்து உயிர்களையும் என் ஆற்றலால் தாங்கி, நெல், பார்லி போன்ற ஆதி மூலிகைகளை ரசத்க சந்திரனாகப் போஷிக்கிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v13Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Ahang vaishwanaro bhutva praninang dehmashrit:\n14",
+      "translation": "நான் ஜத்ராகினியின் வடிவத்தை எடுத்து, பிராணன் மற்றும் அபான வாயுவின் சங்கமத்தில் நான்கு வகையான உணவையும் பிரணாகினியின் உடலை அடைக்கலமாக ஜீரணிக்கிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v14Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Everything is inside the heart\nMattah Smritirajnanampohanong f.\nBedaishch Sarvairahmeb Bedyo\nVedantakrid Vedavideva Chaham..15..",
+      "translation": "நான் எல்லா உயிர்களின் இதயத்திலும் இருக்கிறேன், என்னிடமிருந்து நினைவு, அறிவு மற்றும் அழிவு ஏற்படுகிறது. நான் எல்லா வேதங்களையும் அறிந்தவன் மற்றும் நான் வேதங்களை அறிந்தவன் மற்றும் வேதங்களை அறிந்தவன்.",
+      "speaker": "உச்ச",
+      "id": "v15Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Dwabimau Purushau Loke Kharashakshara and f.\nLetter: Sarbani Bhutani Kutasthohakshar Uchyate..16..",
+      "translation": "உயிரினங்களில் க்ஷர், அக்ஷரம் என இரண்டு வகை உண்டு. இந்த பௌதிக உலகில் உள்ள அனைத்து ஜீவராசிகளும் க்ஷரா என்றும், சித் உலகில் உள்ள அனைத்து ஜீவராசிகளும் அக்ஷர என்றும் அழைக்கப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v16Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Uttam: Purushastvanya: Paramatmetyudahrita:\n17.",
+      "translation": "இவ்விரண்டிலிருந்து வேறுபட்டு, நல்லவர் பரமாத்மா என்று அழைக்கப்படுகிறார், அவர் கடவுளுக்கும் அபய மற்றும் மூன்று உலகங்களுக்கும் இடையே வியாபித்திருக்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v17Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Yasmat ksramatitohahmaksharadpi chottam.\n18.",
+      "translation": "நான் எழுத்துகளுக்கு அப்பாற்பட்டவனாகவும், எழுத்துக்களை விட சிறந்தவனாகவும் இருப்பதால், உலகத்திலும் வேதங்களிலும் நான் புருஷோத்தமன் என்று அழைக்கப்படுகிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v18Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Yo mamevamsammudho janati purushottamam.\nSa sarvavid bhajati mang sarvabhaven Bharat..19..",
+      "translation": "ஓ இந்தியாவே! சந்தேகத்திற்கு இடமின்றி என்னை புருஷோத்தமன் என்று அறிந்தவன் எல்லாம் அறிந்தவன், அவன் என்னை முழுமையாக வணங்குகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v19Purushottama15",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Iti guhyatamang shastramidmuktang mayangh.\nIndia is so wise Buddha.. 20.",
+      "translation": "அப்பாவி அர்ஜுனா! ஓ இந்தியாவே! இவ்வாறே நான் உங்களுக்கு மிகவும் இரகசியமான வேதங்களை வெளிப்படுத்தினேன். இந்த கோட்பாட்டை அறிந்தவர் உண்மையான அறிவாளியாகவும், நல்லொழுக்கமுள்ளவராகவும் மாறுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v20Purushottama15",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் பதினைந்து - புருஷோத்தம்-யோகம்",
+    "description": "புருஷோத்தம்-யோகம் இந்த அத்தியாயத்தில் கற்பிக்கப்படுகிறது. பகவான் கிருஷ்ணர் அஸ்வத்த மரத்தின் உவமையில் உலகத்தின் தன்மையையும் புருஷோத்தமரின் தத்துவத்தையும் விவரித்துள்ளார். அவரே உயர்ந்த புருஷோத்தமர் என்று விளக்குகிறார்.",
+    "keyThemes": [
+      "அஸ்வத்த மரத்தின் உவமை",
+      "உலகின் இயல்பு",
+      "எழுத்தும் எழுத்தும் ஆண்பால்",
+      "புருஷோத்தமன் கோட்பாடு",
+      "கடவுள் எங்கும் நிறைந்திருப்பது"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_30.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 1600+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

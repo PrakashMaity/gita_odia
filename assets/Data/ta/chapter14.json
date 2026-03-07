@@ -1,0 +1,252 @@
+{
+  "chapter": {
+    "number": "14",
+    "title": "அத்தியாயம் பதினான்கு",
+    "subtitle": "குணத்ரய-விபாகயோக",
+    "englishTitle": "Gunatraya Vibhaga Yoga",
+    "totalVerses": "27",
+    "description": "பதினான்காவது அத்தியாயத்தில், குணத்ரய-விபாகயோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில், பகவான் கிருஷ்ணர், சத்வம், ரஜம் மற்றும் தாமம் ஆகிய மூன்று குணங்களின் தன்மை மற்றும் விளைவை விவரிக்கிறார்.",
+    "id": "Gunatraya14"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Shri Bhagwanubach\nParang Bhuy: Prabakshyami Gnananang Gnanamuttammam.\nYajjnatva munoy: sarbe parang siddhimito gata:..1..",
+      "translation": "பரமாத்மா சொன்னார் - இந்த ஜடவுலகிலிருந்து எந்த முனிவர்கள் பரம் சித்தியை அடைந்தார்கள் என்பதை அறிவதன் மூலம், எல்லா அறிவுகளிலும் சிறந்ததைப் பற்றி மீண்டும் சொல்கிறேன்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v1Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Idang jnanamupasritya mam sadharmyamagata:\n2.",
+      "translation": "இந்த அறிவை அடைவதால், உயிர் என் அணியும் தன்மையைப் பெறுகிறது. பிறகு அவன் சிருஷ்டி காலத்தில் பிறப்பதில்லை, அழிவின் போது துன்பப்படுவதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v2Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Mam yonirmahad brahma tasmin garbhang dadhamyaham.\nPossible: Sarbhuthanang tato Bhavati Bharat",
+      "translation": "ஓ இந்தியாவே! இயற்கையின் சாராம்சமான பிரம்மம் எனது யோனிஸ்வரூபமாகும், மேலும் அந்த பிரம்மத்தில் நான் கருவுறுகிறேன், இதன் விளைவாக அனைத்து உயிரினங்களும் பிறக்கின்றன.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v3Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Sarvajonishu Kaunteya Murtaya: Vishakanti Jah\nTasang Brahma Mahad Jonirhang Bijaprada: Father..4..",
+      "translation": "ஓ கௌந்தேயா! எல்லா யோனிகளிலும் வெளிப்படும் அனைத்து உருவங்களும், பிரம்மரூபி யோனியே அவற்றின் தாய் வடிவம் மற்றும் நான் விதை தரும் தந்தை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v4Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Sattwang Rajastam Iti Guna Prakritisambhava.\nNivdhnanti Mahabaho Dehe Dehinamvyam..5..",
+      "translation": "ஓ மஹாபாஹோ! ஜட சத்வம், ராஜா, தாமம் ஆகிய மூன்று குணங்களும் ஜட இயற்கையில் இருந்து இந்த உடலுக்குள் அமைந்துள்ள அவய ஜீவாவை பிணைக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v5Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Tatra Sattwang Nirmalvat Prakashmanamayam.\nSukhsangen Badhnati Gnansangen Changh..6..",
+      "translation": "ஓ அப்பாவி! இந்த மூன்று குணங்களுள், சத்வ குணம், தூய்மையாக இருப்பதால், உயிர்களை வெளிப்பாடு மற்றும் பாவமற்ற தன்மை மற்றும் மகிழ்ச்சி மற்றும் ஞானத்தின் சங்கத்துடன் பிணைக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v6Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Rajo ragattang vidhi trishnasangasamudhavvam.\n7.",
+      "translation": "ஓ கௌந்தேயா! ரஜோகுணம் உணர்ச்சியுடையது, அது ஏங்குதல் மற்றும் பற்றுதல் ஆகியவற்றிலிருந்து எழுகிறது என்பதை அறியும், அது ஜீவாவை சகம் கர்மாவின் அடிமைத்தனத்துடன் பிணைக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v7Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Tamastvajnjang vidhi mohanang sarvadehinam.\nPramadalsyanidravistannibadhnati India",
+      "translation": "ஓ இந்தியாவே! அறிவில்லாதவர்கள் தமோகுணத்தை எல்லா உயிர்களையும் கவர்வதாக அறிவார்கள். அந்த தமோகுணம் உயிர்களை பரவசம், சோம்பல் மற்றும் தூக்கத்தால் பிணைக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v8Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Satvang Sukhe Sanjayati Raj: Karmani Bharat.\nJnanamavrtya tu tamah pramade sanjayatyut..9..",
+      "translation": "ஓ இந்தியாவே! சத்வ குணம் ஜீவனை சந்தோஷத்துடனும், ரஜோ குணம் ஜீவனை சாகம் கர்மத்துடனும், தமோகுணம் ஜீவனை பிரமத்துடனும் பிணைக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v9Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "India is located east of Rajasthan.\n10.",
+      "translation": "ஓ இந்தியாவே! ரஜ, தமோகுணத்தை வெல்வதன் மூலம் சத்வம் வலுவடைகிறது, சத்வத்தையும் தமோகுணத்தையும் வெல்வதன் மூலம் ரஜோகுணம் பலமாகிறது, அதே போல் சத்வத்தையும் ரஜோகுணத்தையும் வெல்வதன் மூலம் தமோகுணம் பலமாகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v10Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Sarvadvareshu Dehhasmin Prakash Upajayat.\nGnanang yada tada vidyad vividdhang sattvamityut..11..",
+      "translation": "இந்த உடலின் அனைத்து வாயில்களிலும் அறிவு வெளிப்படும்போது, ​​சத்குணம் அதிகரித்திருப்பது அறியப்படும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v11Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Greed: Pravrttirarambha: Karnamamsam: Spriha.\nRajsetani Jayante Vivridde Bharatharshava..12..",
+      "translation": "ஓ பாரதஷ்ரேஷ்டா! ரஜோகுணம் அதிகரித்தால், பேராசை, உள்ளுணர்வு, செயலில் வைராக்கியம் மற்றும் அடக்க முடியாத மோகம் அதிகரிக்கும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v12Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Aprakashohpravrttich pramado moha et f.\nTamsyetani Jayante Vivridde Kurunandan.",
+      "translation": "ஓ குருநந்தனே! தமோகுணம் அதிகரிக்கும் போது அறியாமை-இருள், செயலற்ற தன்மை, பரவசம் மற்றும் மோகம் ஆகியவை எழுகின்றன.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v13Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "When sattvae provredde tu pralayang jati dehbhrut.\n14.",
+      "translation": "சத்குணத்தைப் பெருக்கும் நேரத்தில் சரீர ஜீவன் உடலை விட்டு வெளியேறும் போது, ​​அவன் மகரிஷியின் தூய்மையான உயர்ந்த மக்களை அடைகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v14Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Rajasi Pralayang Gatva Karmasangyeshu Zayate.\n15.",
+      "translation": "ரஜோகுணத்தில் இறந்தால், கர்மத்திற்கு அடிமையான மனித குடும்பத்தில் பிறப்பீர்கள், அதே போல் தமோகுணத்தில் இறந்தால், மிருகத்தின் வயிற்றில் பிறப்பீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v15Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Karman: Sukritsyahu: Satvikang Nirmalang Phalam.\n16.",
+      "translation": "சுக்ருதி-முழு சத்திக கர்மா நிர்மலத்தையும், ராஜஸ கர்மா துன்பத்தையும், தாமசிக் கர்மாவின் விளைவாக ஆக்ஞை அல்லது மயக்கத்தையும் உண்டாக்குகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v16Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Sattva Sanjayate Gnanang Rajaso Love and f.\n17",
+      "translation": "சத்துவத்திலிருந்து அறிவும், ரஜோகுணத்திலிருந்து பேராசையும், தமோகுணத்திலிருந்து அறியாமை, மாயை, மாயை ஆகியவையும் உண்டாகின்றன.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v17Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Tishthanti Rajasah in upper Gachchanti Satvastha.\n18.",
+      "translation": "சத்வ குணங்கள் உள்ளவர்கள் உயர்நிலைகளுக்குச் செல்கிறார்கள், இராஜ குணம் கொண்டவர்கள் இவ்வுலகில் வாழ்கிறார்கள், தாமஸ குணங்கள் கொண்டவர்கள் சீரழிந்து நரகத்தில் வாழ்கின்றனர்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v18Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Nanyang Gunevya: Kartarang Jada Drshtanaupsyati.\nGunevyashcha parang betti madbhabang sodhigachti..19..",
+      "translation": "எப்பொழுது இயற்கையின் குணங்களைத் தவிர வேறு செய்பவன் செயலில் இல்லை என்பதைக் கண்டு, இந்த எல்லா குணங்களுக்கும் அப்பாற்பட்டவன் பரமபிதா என்பதை அறியும் போது, ​​அவன் என் பிரகிருதியை அடைகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v19Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Gunanetanatitya Trin Dehi Dehsamudvavan.\nBorn and died in death. 20.",
+      "translation": "பிறப்பு, இறப்பு, சிதைவு, துன்பம் ஆகிய இந்த மூன்று குணங்களிலிருந்தும் விடுபட்டு, உடலை உடைய உயிர் அமிர்தத்தை அனுபவிக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v20Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Arjun Ubach\nCurling women gunanetanatito bhavati pravo.\nKimachara: Kathang Chaitangastrin gunanativarta..21..",
+      "translation": "அர்ஜுனன் கேட்டான் - இறைவா! இந்த மூன்று குணங்களைக் கடந்தவன், எந்த அடையாளங்களால் அறியப்படுகிறான்? அவருடைய நடத்தை என்ன? மேலும் அவர் இந்த மூன்றையும் எப்படிக் கடக்கிறார்?.",
+      "speaker": "அர்ஜுனா",
+      "id": "v21Gunatraya14",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Prakasang f Pravting f Mohameb f Pandav.\n22.",
+      "translation": "பகவான் கூறினார் - ஓ பாண்டவர்களே! வெளிப்பாடுகள், உணர்ச்சிகள் மற்றும் மாயைகள் எழும்போது வெறுக்காதவர், அவை கட்டுப்படுத்தப்பட்டாலும் விரும்பாதவர்;",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v22Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Udasinavadasino gunayiryo na vichalyate.\n23.",
+      "translation": "எவன், அலட்சியமாக அமைந்து, குணங்களால் கலங்காமல், குணங்கள் தன் செயலில் ஈடுபட்டு, இவ்வாறு அறிந்து நின்று அவைகளால் கலங்காமல் நிற்கிறான்;",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v23Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Samadukhsukh: Swastha: Samaloshtashamkanchan:\n24.",
+      "translation": "சுகத்திலும் துக்கத்திலும் தன்னை நிலைநிறுத்தி சமமாக இருப்பவன்; களிமண்ணிலும், கல்லிலும், பொன்னிலும் ஒத்த எண்ணம் கொண்டவர்; அன்பிலும் வெறுப்பிலும் சமமானவர்; கண்டனம், பாராட்டு, மரியாதை மற்றும் அவமதிப்பு ஆகியவற்றில் பொறுமையும் சம எண்ணமும் கொண்டவர்;",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v24Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Manapamanyostulyastulyo Mitraripaksyo:\n25.",
+      "translation": "எவனொருவன் பகைவர்களிடத்திலும் நண்பர்களிடத்திலும் சமமாக இருப்பவனும், எல்லா கர்மங்களையும் துறப்பவனும் - அவன் குணாதித் என்று கூறப்படுகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v25Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Mang cha yohvyavicharen bhaktiyogen sevate.\nSa Gunan Samatityaitan Brahmabhuaya Kalpte..26..",
+      "translation": "முழுமையான பக்தியுடன் எனக்கு சேவை செய்பவர் இயற்கையின் அனைத்து குணங்களையும் கடந்து பிரம்மபூத நிலைக்கு உயர்கிறார்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v26Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Brahmano hi Stahhamamritsyavyayasya f.\nSasvatsya f Dharmasya Suksyaikantikasya f..27..",
+      "translation": "நான் சுதந்திரமான பிரம்மத்தின் ஸ்தாபனம் அல்லது அடைக்கலம். நான் நித்திய அமிர்தம், நித்திய மதம் மற்றும் நித்திய ஆனந்தத்தின் தங்குமிடம்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "v27Gunatraya14",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் பதினான்கு - குணத்ரய-விபாகயோகம்",
+    "description": "இந்த அத்தியாயத்தில் குணத்ரயா-விபாகயோகம் கற்பிக்கப்படுகிறது. கிருஷ்ண பகவான் சத்வம், ரஜம் மற்றும் தாமம் ஆகிய மூன்று குணங்களின் தன்மை மற்றும் விளைவுகளை விவரித்துள்ளார். இந்தப் பண்புகளைக் கடந்தால் விடுதலை அடையலாம் என்று விளக்கினார்.",
+    "keyThemes": [
+      "மும்மடங்கு இயல்பு",
+      "சத்வம், ராஜா மற்றும் தமாவின் பண்புகள்",
+      "குணங்களின் விளைவு",
+      "புரிந்துகொள்ள முடியாத வழிகள்",
+      "பக்தி யோகத்தின் சிறப்பு"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_29.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 1800+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

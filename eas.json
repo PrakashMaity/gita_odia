@@ -158,6 +158,25 @@
         "APP_ENV": "production"
       },
       "channel": "en-production"
+    },
+    "ta-apk": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "ta",
+        "APP_ENV": "production"
+      },
+      "channel": "ta-production",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "ta-production": {
+      "extends": "production",
+      "env": {
+        "APP_LANG": "ta",
+        "APP_ENV": "production"
+      },
+      "channel": "ta-production"
     }
   },
   "submit": {

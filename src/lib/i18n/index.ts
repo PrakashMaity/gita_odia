@@ -9,6 +9,7 @@ import gu from './translations/gu.json';
 import hi from './translations/hi.json';
 import ne from './translations/ne.json';
 import or from './translations/or.json';
+import ta from './translations/ta.json';
 
 const translations: Record<string, any> = {
     bn,
@@ -18,6 +19,7 @@ const translations: Record<string, any> = {
     as: as_,
     gu,
     ne,
+    ta,
 };
 
 const lang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';

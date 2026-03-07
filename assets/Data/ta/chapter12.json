@@ -1,0 +1,196 @@
+{
+  "chapter": {
+    "number": "12",
+    "title": "அத்தியாயம் XII",
+    "subtitle": "பக்தி-யோகம்",
+    "englishTitle": "Bhakti Yoga",
+    "totalVerses": "20",
+    "description": "பக்தி-யோகம் பன்னிரண்டாவது அத்தியாயத்தில் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் பக்தியின் பல்வேறு நிலைகளையும் பக்தர்களின் பண்புகளையும் விவரிக்கிறார்.",
+    "id": "BhaktiYoga12"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "And satatyukta that bhaktastvang paryupaste.\nThat Chapyaksharamvyaktang Teshang Ke Yogavittama..1..",
+      "translation": "அர்ஜுனன் கேட்டான் - இடைவிடாத பக்தியுடன் உன்னை முறையாக வழிபடும் மற்றும் உள்ளார்ந்த பிரம்மத்தை வணங்கும் அனைத்து பக்தர்களிலும் சிறந்த யோகி யார்?",
+      "speaker": "அர்ஜுனா",
+      "id": "v1Bhakti12",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Mayabeshya mano that mang nityayukta upasate.\n2.",
+      "translation": "ஸ்ரீ பகவான் கூறினார் - என் விசேஷ ரூபத்தில் மனதை நிலைநிறுத்தி, இயற்கைக்கு மாறான பயபக்தியுடன் என்னைத் தொடர்ந்து வழிபடுபவர்கள், என் கருத்துப்படி, மிகப் பெரிய யோகிகள்.",
+      "speaker": "உச்ச",
+      "id": "v2Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "That taksharampadhyamvyaktang paryupaste.\n3.",
+      "translation": "புலன்கள் அனைத்தையும் அடக்கி, அனைவருக்கும் சமமாக, எல்லா உயிர்களிடத்தும் தயவாக இருந்து, என் தன்மையற்ற, தீர்மானிக்க முடியாத, விவரிக்க முடியாத, எங்கும் நிறைந்த, சிந்திக்க முடியாத, மாறாத, அசையாத, நிலையான மற்றும் வேறுபாடற்ற வடிவத்தை வணங்குபவர்கள், இறுதியில் என்னை அடைகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v3Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Sannyamyendriyagramang Sambuddhaya everywhere.\n4.",
+      "translation": "புலன்கள் அனைத்தையும் அடக்கி, அனைவருக்கும் சமமாக, எல்லா உயிர்களிடத்தும் தயவாக இருந்து, என் தன்மையற்ற, தீர்மானிக்க முடியாத, விவரிக்க முடியாத, எங்கும் நிறைந்த, சிந்திக்க முடியாத, மாறாத, அசையாத, நிலையான மற்றும் வேறுபாடற்ற வடிவத்தை வணங்குபவர்கள், இறுதியில் என்னை அடைகிறார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v4Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Kleshohadhiktarestheshampersonsakthachetsam.\nAvyakta hi gati: Dukhang dehvadvirabapyate..5..",
+      "translation": "யாருடைய மனங்கள் கடவுளின் வெளிப்படாத வடிவில் இணைந்திருக்கிறதோ, அவர்களின் துன்பம் அதிகம். ஏனென்றால், வெளிப்படாததை வழிபடுவது உடலுடன் கூடிய உயிர்களுக்குத் துன்பத்தையே தரும்.",
+      "speaker": "உச்ச",
+      "id": "v5Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Je tu sarvani karmani moi sannyasya matparah.\n6.",
+      "translation": "எல்லாச் செயல்களையும் என்னிடம் ஒப்படைத்து, தியானம் செய்து, பக்தியுடனும் பக்தியுடனும் என்னை வழிபடுபவர்களே, ஓ பார்த்தா! என் மீது பற்று கொண்ட அனைத்து பக்தர்களையும் நான் விரைவில் மரணக் கடலில் இருந்து மீட்பேன்.",
+      "speaker": "உச்ச",
+      "id": "v6Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Teshamhong Samuddharta Mrutya Samsarsagarat.\nBhabami na chirat partha mayabeshitachetsam..7..",
+      "translation": "எல்லாச் செயல்களையும் என்னிடம் ஒப்படைத்து, தியானம் செய்து, பக்தியுடனும் பக்தியுடனும் என்னை வழிபடுபவர்களே, ஓ பார்த்தா! என் மீது பற்று கொண்ட அனைத்து பக்தர்களையும் நான் விரைவில் மரணக் கடலில் இருந்து மீட்பேன்.",
+      "speaker": "உச்ச",
+      "id": "v7Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Mayyeva man adhatswa mzy buddhing niveshay.\n8.",
+      "translation": "ஆதலால் என்னில் நீ உன் மனதை புதைத்து, உன்னுடைய புத்தியை என்னிடத்தில் ஒப்படைக்கிறாய். இதன் விளைவாக, நீங்கள் எப்போதும் என் அருகிலேயே வசிப்பீர்கள், அதில் எந்த சந்தேகமும் இல்லை.",
+      "speaker": "உச்ச",
+      "id": "v8Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Or chittang samadhatung na shaknoshi mzhi stitam.\nअभियोगेजेगेन तथो मामिचापटुग द्णानजयो ..9..",
+      "translation": "ஓ தனஞ்சய்! உங்கள் மனதை என்னில் நிலைநிறுத்த முடியவில்லை என்றால், பயிற்சியின் மூலம் என்னைப் பெற ஆசைப்படுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v9Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Habyayehepyasamarthohasi matkarmaparamo bhava.\nMadarthampi Karmani Kurban Siddhimbapsiasi..10..",
+      "translation": "உங்களால் பயிற்சி கூட செய்ய முடியாவிட்டால், எனக்குக் கீழ்ப்படிந்து இருங்கள். எனக்காக உழைத்தாலும் நீ சித்தி அடைவாய்.",
+      "speaker": "உச்ச",
+      "id": "v10Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Athaitdapyashaktohsi kartung madyogamashritah.\n11.",
+      "translation": "உங்களால் அதைச் செய்ய முடியாவிட்டால், எல்லாச் செயல்களையும் என்னிடம் ஒப்படைத்துவிட்டு, செயல்களின் முடிவுகளைக் கட்டுப்பாட்டுடன் விட்டுவிடுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v11Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Shreyo hi Gnanamavyasajjnaadhyanang speciality.\n12.",
+      "translation": "உங்களால் இதைப் பயிற்சி செய்ய முடியாவிட்டால், அறிவைப் பயிற்சி செய்யுங்கள். அறிவை விட தியானம் சிறந்தது, தியானத்தை விட கர்மாவை கைவிடுவது சிறந்தது, ஏனென்றால் இந்த வகையான கர்மாவை கைவிடுவது அமைதியைத் தருகிறது.",
+      "speaker": "உச்ச",
+      "id": "v12Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Advesta sarvabhutanaang Maitra: Karuna and f.\n13.",
+      "translation": "எல்லா உயிர்களிடத்தும் பகைமை இல்லாதவர், நட்பு, கருணை இல்லாதவர், கருணை இல்லாதவர், சுக துக்கத்தில் சமமானவர், மன்னிப்பவர், எப்பொழுதும் மனநிறைவு கொண்டவர், பக்தியில் எப்போதும் பற்று கொண்டவர், இயல்பில் கட்டுப்பட்டவர், உறுதியில் உறுதியானவர், மனமும் புத்தியும் எப்பொழுதும் என்னிடம் அர்ப்பணிப்புடன் இருப்பவர்.",
+      "speaker": "உச்ச",
+      "id": "v13Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Satisfied: Sattang Yogi Jatatma is determined.\n14.",
+      "translation": "எவன் மனநிறைவோடு, உறுதியான யோகியோ, ஜடாத்மாவோ, உறுதியுடன் இருக்கிறானோ, எவன் தன் மனதையும் புத்தியையும் என்னிடத்தில் ஒப்படைப்பவனோ அவனே என் பக்தன், அவனே எனக்குப் பிரியமானவன்.",
+      "speaker": "உச்ச",
+      "id": "v14Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Jasmannodwijte loko lokannodwijte f Jah.\n15.",
+      "translation": "யாராலும் தொந்தரவு செய்யாதவர், யாராலும் தொந்தரவு செய்யாதவர், கோபம், கோபம், பயம், பதட்டம் இல்லாதவர் எனக்குப் பிரியமானவர்.",
+      "speaker": "உச்ச",
+      "id": "v15Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Anapeksha: Chichirdaksha Udasino Gatvyath:\n16.",
+      "translation": "பக்கச்சார்பற்ற, தூய்மையான, திறமையான, அக்கறையற்ற, அக்கறையற்ற மற்றும் அனைத்து செயல்களின் பலனைத் துறப்பவனும் என் அன்பான பக்தன்.",
+      "speaker": "உச்ச",
+      "id": "v16Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "No jealousy, no desire, no pity, no desire.\n17.",
+      "translation": "அன்பானவற்றை அடைவதில் வருத்தமடையாதவனும், விரும்பாதவற்றை அடைவதில் வெறுப்படையாதவனும், அன்பானவற்றை இழந்து வருந்தாதவனும், கிடைக்காத நன்மைகளை விரும்பாதவனும், நன்மை தீமைகளையெல்லாம் துறந்தவனும், பக்தியுடன் இருப்பவனும் எனக்குப் பிரியமான பக்தன்.",
+      "speaker": "உச்ச",
+      "id": "v17Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Samah Shatrau Ch Mitre Ch Tatha Manapamanyo:\n18.",
+      "translation": "நண்பனுக்கும் பகைவனுக்கும் சமமானவன், மானத்திலும் அவமரியாதையிலும் சமமானவனாக, குளிராகவும், வெட்கமாகவும், மகிழ்ச்சியாகவும், துக்கமாகவும், தண்டிக்கப்பட்டவனாகவும், புகழப்படுபவனாகவும், துவேஷம் இல்லாதவனாகவும், பேச்சில் நிதானமுள்ளவனாகவும், சிறிதளவு லாபத்தில் திருப்தியடைபவனாகவும், இல்லறத்தில் இருந்து விடுபட்டவனாகவும், நிலையான மனதுடன், என் அன்பான சேவையில் ஈடுபாடு உடையவனாகவும் இருப்பவனே, எனக்குப் பிரியமானவன்.",
+      "speaker": "உச்ச",
+      "id": "v18Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Tulyindastutirmauni is satisfied as if kenchit.\n19",
+      "translation": "நிந்தனைக்கும் துதிக்கும் சமமானவனே, மௌனியே, எப்பொழுதும் திருப்தியடைந்தவன் போல், அனிகேத், உறுதியும், பக்தியுமுள்ளவனே, என் அன்பிற்குரிய நாரா.",
+      "speaker": "உச்ச",
+      "id": "v19Bhakti12",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Je tu dharmamritamidang yathoktang paryupasate.\nShraddhana matparama bhaktastehatib me priya:..20..",
+      "translation": "நான் குறிப்பிடும் இந்த தியாகியை வணங்கும் வணக்கமும் நேர்மையும் கொண்ட பக்தர்கள் அனைவரும் எனக்கு மிகவும் பிரியமானவர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v20Bhakti12",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் XII - பக்தி-யோகா",
+    "description": "இந்த அத்தியாயத்தில் பக்தி-யோகம் கற்பிக்கப்படுகிறது. பகவான் கிருஷ்ணர் பக்தியின் பல்வேறு நிலைகளையும் பக்தர்களின் பண்புகளையும் விவரித்துள்ளார். பக்தி யோகத்தின் மூலம் ஒருவர் கடவுளை நெருங்க முடியும் என்று விளக்கினார்.",
+    "keyThemes": [
+      "பக்தி யோகத்தின் சிறப்பு",
+      "பக்தர்களின் பண்புகள்",
+      "பக்தியின் வெவ்வேறு நிலைகள்",
+      "அன்பிற்குரிய கடவுள் பக்தன்",
+      "பக்தி யோகத்தின் பலன்"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 1500+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

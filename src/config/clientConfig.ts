@@ -55,6 +55,12 @@ const CLIENTS: Record<string, ClientConfig> = {
         fontFamily: 'NotoSerifDevanagari', // Nepali uses Devanagari script
         scriptDirection: 'ltr',
     },
+    ta: {
+        lang: 'ta',
+        appName: 'Gita Tamil',
+        fontFamily: 'NotoSerifTamil',
+        scriptDirection: 'ltr',
+    },
 };
 
 /**

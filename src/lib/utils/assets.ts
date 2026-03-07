@@ -42,6 +42,11 @@ const LANGUAGE_FONTS: Record<string, FontMap> = {
     primary: require('../../../assets/fonts/ne/primary.ttf'),
     secondary: require('../../../assets/fonts/ne/secondary.ttf'),
   },
+  ta: {
+    english: require('../../../assets/fonts/ta/english.ttf'),
+    primary: require('../../../assets/fonts/ta/primary.ttf'),
+    secondary: require('../../../assets/fonts/ta/secondary.ttf'),
+  },
 };
 
 /**
@@ -111,6 +116,13 @@ const LANGUAGE_IMAGES: Record<string, BrandingImages> = {
     adaptiveIcon: require('../../../assets/images/ne/adaptive-icon.png'),
     favicon: require('../../../assets/images/ne/favicon.png'),
     logo: require('../../../assets/images/ne/logo.png'),
+  },
+  ta: {
+    icon: require('../../../assets/images/ta/icon.png'),
+    splash: require('../../../assets/images/ta/splash-icon.png'),
+    adaptiveIcon: require('../../../assets/images/ta/adaptive-icon.png'),
+    favicon: require('../../../assets/images/ta/favicon.png'),
+    logo: require('../../../assets/images/ta/logo.png'),
   },
 };
 

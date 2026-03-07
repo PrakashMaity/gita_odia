@@ -1,0 +1,613 @@
+{
+  "chapter": {
+    "number": "2",
+    "title": "அத்தியாயம் II",
+    "subtitle": "சாங்க்ய-யோகம்",
+    "englishTitle": "Sankhya Yoga",
+    "totalVerses": "72",
+    "description": "ஸ்ரீமத் பகவத் கீதையின் இரண்டாவது அத்தியாயம் சாங்கிய யோகம் என்று அழைக்கப்படுகிறது.",
+    "id": "CN4CamSP"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Sanjay Ubach\nTang tath Kripayavistamsrupurnakulekshanam.\nVishidantamidang vakamubach madhusudan:..1..",
+      "translation": "சஞ்சயன் சொன்னான் - அர்ஜுனன் இவ்வாறு வருந்தி, மனமுடைந்து, கண்ணீருடன் இருப்பதைக் கண்டு, மதுசூதனன் அல்லது ஸ்ரீ கிருஷ்ணர், அருளால் வெற்றியடைந்து, இந்த வார்த்தைகளைப் பேசினார்.",
+      "speaker": "சஞ்சய்",
+      "id": "IfQ7VjZO",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Shri Bhagwanubach\nKutstva kashmalmidang bishme samupasthitam.\nAnaryajustamsvargyamkirtikaramarjuna..2..",
+      "translation": "புருஷோத்தமர் கூறினார் - அன்பே அர்ஜுனா, இந்த பயங்கரமான போர்க்களத்தில் உயிரின் விலைமதிப்பற்ற மதிப்பை புரிந்து கொள்ளாதவர்கள் எப்படி, அனார்யரின் மானத்தை புரிந்து கொள்ளாதவர்களின் துயரம் உங்கள் இதயத்தில் எப்படி எரிந்தது? அத்தகைய மனப்பான்மை உங்களை சொர்க்கத்திற்கு உயர்த்தாது, ஆனால் உங்கள் செல்வம் அனைத்தையும் அழித்துவிடும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "q0WFy6nF",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Klaibyang ma sm gama: Partha naitattvayuppadya.\n3.",
+      "translation": "ஓ பார்த்! இந்த மரியாதை தீங்கானது. பற்றிக்கொள்ளாதே. இத்தகைய நடத்தை உங்களுக்கு பொருத்தமற்றது. ஓ பரந்தபா!இதயத்தின் சிறிய பலவீனத்தை கைவிட்டு எழுந்து நில்லுங்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "5NmNE4gB",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Kathang Bhishmahang Sankhye Dronang Ch Madhusudan.\nIshuvi: Pratiyotsyami Pujarhabarisudan..4..",
+      "translation": "அர்ஜுனன் சொன்னான் - அரிசுதனே! ஓ மதுசூதனன்! இந்தப் போர்க்களத்தில் பீஷ்மர், துரோணர் போன்ற பெருமதிப்பிற்குரியவர்களுடன் நான் எப்படி அம்புகளை வீசுவேன்?",
+      "speaker": "அர்ஜுனா",
+      "id": "AZ8Qu8B9",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "The Guru is the great\nShreyo bhoktung bhaikshyampeeh loke.\nHatvarthakamastu Gurunihaiva\nBhunjiya Bhagan Rudhir Pradigdhan",
+      "translation": "என் பெரிய ஆசான்களின் வாழ்க்கையை இழந்து இந்த உலகத்தை அனுபவிப்பதை விட பிச்சை எடுத்து வாழ்வதே மேல். அவர்கள் உலக விஷயங்களில் பேராசை கொண்டவர்களாக இருந்தாலும், அவர்கள் என் பெரியவர்கள். அவர்கள் கொல்லப்பட்டால், அனைத்து போர் பொருட்களும் அவர்களின் இரத்தத்தால் கறைபடும்.",
+      "speaker": "அர்ஜுனா",
+      "id": "jJ5I9IRs",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Na chaitad vidma: katarannno garyo\nYad or Jayem if or no Jayyu.\nGaneb hatva na jijibishams\nTehvasthita and Dhartarashtra. 6.",
+      "translation": "அவர்களை வெல்வது சிறந்ததா, அல்லது அவர்களால் தோற்கடிக்கப்படுவதே சிறந்ததா என்று எனக்குப் புரியவில்லை. திருதராஷ்டிரரின் மகன்களைக் கொன்றால் இனி நாம் வாழ விரும்ப மாட்டோம். ஆனாலும் இந்தப் போர்க்களத்தில் நம் முன் தோன்றுகிறார்கள்.",
+      "speaker": "அர்ஜுனா",
+      "id": "WcQ31bZ7",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Karpanyadosopahatsvabhava:\nPrichchami tang dharmasammudhcheta:\nYachareya: sannischitong bruhi tanme\nShishyastehhong Shadhi Mang Thang Prapannam.",
+      "translation": "நான் இப்போது கர்பண்யா பலவீனத்தின் தாக்கத்தில் என் கடமைகளைப் பற்றி குழப்பமடைந்து குழப்பமடைந்தேன். இந்த சூழ்நிலையில் நான் உங்களிடம் கேட்கிறேன், இப்போது நான் என்ன செய்வது சிறந்தது என்று சொல்லுங்கள். நான் இப்போது உங்கள் சீடன் மற்றும் உங்களை முழுமையாக சார்ந்து இருக்கிறேன். தயவுசெய்து எனக்கு வழிகாட்டுங்கள்.",
+      "speaker": "அர்ஜுனா",
+      "id": "9Pps1GIb",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Na hi propasyami mamapanudyad\nYachchokamuchchoshanmindriyanam.\nAbapya Bhumavaspatnamrdhang\nRajyang Suranampi Chadhipatyam..8..",
+      "translation": "என் புலன்களை வாடும் துக்கத்தை நீக்க வழியே இல்லை. நான் இவ்வுலகில் சொர்க்கத் தேவர்களைப் போல் செல்வச் செழிப்பான, எதிர்ப்பற்ற அரசாட்சியைப் பெற்றாலும், என்னுடைய இந்தத் துயரம் அழியாது.",
+      "speaker": "அர்ஜுனா",
+      "id": "4hfqj9au",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Abmuktba Hrishikeshang Gurakesh: Parantap.\nNa yotsya iti govindmuktba tushning babhuv ha..9..",
+      "translation": "சஞ்சயன் சொன்னான்-இவ்வாறு குராகேஷ் அர்ஜுனன் தன் மனோபாவத்தை வெளிப்படுத்தி ஹ்ரிஷிகேஷிடம், \"ஓ கோவிந்தா! நான் சண்டையிட மாட்டேன்\" என்று கூறி, அமைதியாக இருந்தான்.",
+      "speaker": "சஞ்சய்",
+      "id": "SAN3SPUH",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "Tamubach Hrishikesh: Parhasanniv Bharat.\n10.",
+      "translation": "ஓ பாரத வம்ச திருதராஷ்டிரா! அதைக் கண்டு சிரித்த கிருஷ்ணர், இருபுறமும் இருந்த வீரர்களுக்கு நடுவே மனமுடைந்த அர்ஜுனனிடம் இவ்வாறு பேசினார்.",
+      "speaker": "சஞ்சய்",
+      "id": "FqEVMlDh",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Shri Bhagwanubach\nAsochanyanabsochachstong prajnabadangscha bhasse.\n11.",
+      "translation": "உன்னத இறைவன் கூறினார் - நீங்கள் தீர்க்கதரிசியைப் போல பேசுகிறீர்கள், ஆனால் நீங்கள் துக்கப்படக்கூடாதவைகளுக்காக புலம்புகிறீர்கள். சரியாகக் கற்றவர்கள் உயிருடன் இருப்பவர்களுக்காகவோ இறந்தவர்களுக்காகவோ துக்கப்படுவதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "MMi53Hlt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Na twebahang jatu nasong na twang neme janadhipah.\nNeither Chaiva nor Bhavishyam: Sarbe Boymat: Param..12..",
+      "translation": "நான், நீங்கள் மற்றும் இந்த மன்னர்கள் அனைவரும் இல்லாத ஒரு காலமும் இல்லை, நாங்கள் ஒருபோதும் இருக்க மாட்டோம்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "0ep44d0w",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Dehinohsmin is the body's youthfulness.\nThat's why it's not necessary to transfer the body. 13.",
+      "translation": "இளமை, இளமை மற்றும் முதுமையில் உடல் தன் வடிவத்தை மாற்றுவது போல, மரணத்தின் போது உடல் (ஆன்மா) ஒரு உடலில் இருந்து மற்றொரு உடலுக்கு மாற்றப்படுகிறது. நிறுவப்பட்ட அறிஞர்கள் இந்த மாற்றத்தை கவனிக்கவே இல்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "jygg3ySz",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Maritasparshastu kaunteya shitoshanasukhduhkhada:\n14.",
+      "translation": "ஓ கௌந்தேயா! ஐம்புலன்களுடன் பொருளின் தொடர்பு நித்திய மகிழ்ச்சி மற்றும் துக்கத்தின் அனுபவத்தில் விளைகிறது. அவை குளிர்காலம் மற்றும் கோடை காலங்களைப் போலவே இருக்கும். ஓ பாரதகுல-பிரதீபா!அந்த புலன் உணர்வுகளால் பாதிக்கப்படாமல் பொறுத்துக்கொள்ள முயற்சி செய்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "WoNOjNYS",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Jang Hee is a manly man.\nSamadukhsukhang dhirang sohmrattvaye kalpate..15..",
+      "translation": "ஓ பெரிய மனிதனே (அர்ஜுனா)! இன்பத்தையும் துக்கத்தையும் சமமாக அறிந்து, குளிர் மற்றும் வெப்பம் என்ற ஆதி மோதலால் கலங்காமல் இருப்பவனே உண்மையான விடுதலைக்கு சொந்தக்காரன்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "b0ufUjWH",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Nasto Vidyate Bhabo Nabhabo Vidyate Satah\n16.",
+      "translation": "அந்த கோட்பாட்டாளர்கள் நித்திய பொருளுக்கு நிரந்தரம் இல்லை என்றும் நித்திய பொருளான ஆன்மா அழியாது என்றும் முடிவு செய்துள்ளனர். இரண்டு இயல்புகளின் உண்மை தன்மையை உணர்ந்து இந்த முடிவுக்கு வந்துள்ளனர்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "1Of0e73g",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Abinashi tu tadviddhi as sarvamidang tatam.\n17.",
+      "translation": "உடல் முழுவதும் வியாபித்திருப்பதை அழியாதது என்று அறிவீர்கள். அந்த முற்பிறவி ஆன்மாவை யாராலும் அழிக்க முடியாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "A088k8Bq",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Antavant ime deha nityasyokta: body\nAnashinohprameyasya Tasmad Yudhyasva Bharat..18..",
+      "translation": "அழியாத, அளவிட முடியாத மற்றும் நித்திய ஆன்மாவின் உடல் சந்தேகத்திற்கு இடமின்றி அழியாதது. எனவே இந்தியாவே! நீங்கள் உங்கள் வேதமான சுயமதத்தை கைவிடாமல் போராடுகிறீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "mpCg2cg9",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Ya and Betti Hantarang Yaschinang Monyate Hatam.\nUbhou tou na bijanito nayang hanti na hanyate..19..",
+      "translation": "ஆன்மா இறந்துவிட்டது என்று நினைப்பவன் அல்லது இறந்துவிட்டது என்று நினைப்பவன் இருவரும் ஆன்மாவின் உண்மையான தன்மையை அறிவதில்லை. ஏனென்றால் ஆத்மா யாரையும் கொல்லாது, யாராலும் கொல்லப்படுவதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "zieU6EKD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Never die or never die\nNayang bhutva bhabita or na bhuyah.\nAjo Nitya: Shasvatohyang Purano\nNo Hanyate Hanymane in the body.",
+      "translation": "ஆன்மா ஒருபோதும் பிறப்பதோ அல்லது இறப்பதோ இல்லை, மீண்டும் மீண்டும் எழுவதோ, வளர்வதோ இல்லை. அவர் நித்தியமாக பிறந்தவர், நித்தியமானவர் மற்றும் பழையவர், ஆனால் நித்தியமாக புதியவர். உடல் அழிந்தாலும் ஆன்மா அழியாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "6KrFkZAl",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Bedabinashinong nityang ya enmajambayam.\nKathang Sa Purush: Parth Kong Ghatayati Hanti Kom..21..",
+      "translation": "ஓ பார்த்! இந்த ஆன்மாவை அழியாதது, நித்தியமானது, பிறப்பற்றது மற்றும் அழியாதது என்று அறிந்தவன், யாரைக் கொல்கிறான் அல்லது யாரைக் கொல்லுகிறான்?",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "r1Rag4zp",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Basangsi Jirnani namely Biha\nNabani is a narcissist.\nAlso, the body tissues are worn out.\nNani Sanyati Nabani Dehi..22..",
+      "translation": "ஒருவன் பழைய ஆடைகளைக் களைந்து புதிய ஆடைகளை அணிவது போல, தேய்ந்து போன உடலைக் களைந்து புதிய உடலைப் பெறுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "pqYPlB6u",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Nainang Chindanti Shastrani Nainang Dahti Pubk:.\nNa chainang kledayantayapo na shoshayati marutah..23..",
+      "translation": "ஆன்மாக்களை ஆயுதங்களால் வெட்டவோ, நெருப்பால் எரிக்கவோ, தண்ணீரில் நனைக்கவோ, காற்றினால் உலர்த்தவோ முடியாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "qIfWdQRn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Achdyohayamdahyohayamkledyohsoshoshya and f.\nNitya: Sarvagata: Sthanurchaloyang Sanatan: ..24..",
+      "translation": "இந்த ஆன்மா அழியாதது, அழியாதது, அழியாதது மற்றும் அழியாதது. அவர் நித்தியமானவர், எங்கும் நிறைந்தவர், மாறாதவர், அசையாதவர் மற்றும் நித்தியமானவர்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "75AyuurM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Avyaktohayamchintyohayambikaryohayamuchyate.\n25.",
+      "translation": "இந்த ஆன்மா வேதங்களில் வெளிப்படுத்தப்படாதது, சிந்திக்க முடியாதது மற்றும் மாறாதது என்று விவரிக்கப்பட்டுள்ளது. ஆதலால், இந்த நித்திய ரூபத்தை அறிந்து, உடலை நினைத்து வருத்தப்படக்கூடாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "wdmFVQPg",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Atha chainang nityajatang nityang or manyase mrittam.\nYet Twang Mahabaho Naibong Sochitumarhsi..26..",
+      "translation": "ஓ மஹாபாஹோ! மேலும் ஆன்மா மீண்டும் மீண்டும் பிறந்து இறக்கிறது என்று நீங்கள் நினைத்தால், நீங்கள் துக்கப்படுவதற்கு எந்த காரணமும் இல்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "kQrri6EM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Jatasya hi dhrubo mrityudhruvang janma mritysya f.\n27.",
+      "translation": "பிறப்பவரின் இறப்பு தவிர்க்க முடியாதது, இறப்பவரின் பிறப்பு தவிர்க்க முடியாதது. எனவே அத்தியாவசியக் கடமைகளைச் செய்யும்போது புலம்பக் கூடாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "7dlaLTWG",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Abyaktadini Bhutani Vyaktmadhyani India.\nAbyaktnidhnanyeva tatra ka paridevana..28..",
+      "translation": "ஓ இந்தியாவே! படைக்கப்பட்ட அனைத்து உயிரினங்களும் அவை எழுவதற்கு முன்பு வெளிப்படுத்தப்படாமல் இருந்தன, அவற்றின் நிலைத்தன்மையின் போது வெளிப்படுத்தப்படாமல் இருந்தன, மேலும் அழிவுக்குப் பிறகு மீண்டும் வெளிப்படுத்தப்படவில்லை. அப்படியிருக்க, அதற்காக ஏன் புலம்ப வேண்டும்?",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "1YVrg07d",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "The amazing ending is Kashiden-\nMascharyavdvdati tathiva chanya:\nअश्वाबच्चाचिनम्या: Shranoti\nShrutapayenang Veda na Chaiva Kaschit..29..",
+      "translation": "சிலர் இந்த ஆன்மாவை ஆச்சரியத்துடன் பார்க்கிறார்கள், சிலர் அதை ஆச்சரியத்துடன் விவரிக்கிறார்கள், சிலர் ஆச்சரியத்துடன் கேட்கிறார்கள், சிலர் அதைக் கேட்டாலும் புரிந்து கொள்ள மாட்டார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "xWAyNCG6",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Dehi Nityamvadhyohayong Dehi Sarvasya Bharat.\nTasmat sarvani bhutani na twang sochitumarhsi..30..",
+      "translation": "ஓ இந்தியாவே! விலங்குகளின் உடலில் வாழும் ஆன்மா எப்போதும் உள்ளது. ஆதலால் எந்த உயிருக்காகவும் துக்கப்படக்கூடாது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "RPS2jXlx",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Swadharmapi chavekshya na bikompitumarhsi.\nDharmyaddhi Yudachchreyo ᦽnyat Kshatriyasya na Vidyate..31..",
+      "translation": "உங்கள் சொந்த தர்மத்தை கருத்தில் கொண்டு ஒரு க்ஷத்ரியனாக, தர்மத்திற்காக போராடுவதை விட ஒரு க்ஷத்ரியனுக்கு சிறந்தது எதுவுமில்லை என்பதை நீங்கள் அறிந்து கொள்ள வேண்டும். எனவே, நீங்கள் தயங்க வேண்டாம்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "vwG7BVnm",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Jadrichchaya Choppannang Swargadwarampavaritam.\nSukhin: Kshatriya: Partha Lavante Judhamidrisham..32..",
+      "translation": "ஓ பார்த்! இப்படிப்பட்ட சமயப் போரில் கலந்துகொள்ளும் வாய்ப்பை நாடாமல் சொர்க்கத்தின் திறப்புக்கு வரும் க்ஷத்திரியர்கள் மகிழ்ச்சியானவர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "F6HGSFEk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Ath chet tmimang dharmyang sangramang na karishyasi.\nTatah swadharmang kirtincha hitta papambapsyasi..33..",
+      "translation": "ஆனால், நீங்கள் இந்த மதப் போரைச் செய்யாவிட்டால், உங்கள் சொந்த மதமும் புகழும் கெட்டுப்போய் பாவத்திற்கு ஆளாகும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "Qml1eIVW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Akirtinchapi Bhutani Kathayishyanti Tehvyam.\n34.",
+      "translation": "எல்லா மனிதர்களும் உங்கள் மதிப்பற்ற தன்மையைப் பற்றி பேசுவார்கள், எந்த மரியாதைக்குரிய மனிதனுக்கும் இந்த அவமதிப்பு மரணத்தை விட மோசமானது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "VrCB3Zlt",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Vayadranaduparatang mangsyante tang maharatha.\nJeshang cha twang bahumto Gatirveda na Budhaya:..35..",
+      "translation": "மகாராட்டியர் அனைவரும் பயந்து போர்க்களத்தைக் கைவிட்டதாக எண்ணுவார்கள், யாரிடம் நீங்கள் மதிக்கப்பட்டீர்களோ அவர்கள் உங்களை இகழ்வார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "yuo1hC4I",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Unpronounceable multi-directionality.\nNindantastava samarthyang tato dukhatarang nu kim..36..",
+      "translation": "உங்கள் எதிரிகள் உங்கள் திறமைக்கு எதிராக பல சொல்ல முடியாத விஷயங்களைப் பேசுவார்கள். உங்களுக்கு என்ன வேதனையாக இருக்க முடியும்?",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "L3eUxYZC",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Hatta or prapsyasi swarang jitta or bhokshyase mahim.\n37.",
+      "translation": "ஓ குந்திபுத்ரா! இந்தப் போரில் நீங்கள் கொல்லப்பட்டால், நீங்கள் சொர்க்கத்தைப் பெறுவீர்கள், நீங்கள் வென்றால், நீங்கள் பூமியை அனுபவிப்பீர்கள். எனவே போருக்கு உறுதியுடன் எழுந்திரு.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "yPfD1rsx",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Sukhdukhe Same Kirtba Lavalavhou Jayajoyou.\nTato Yuddaya Yujyaswa Naibong Papambapsiasi..38..",
+      "translation": "சுகமும் துக்கமும், லாபமும், நஷ்டமும், வெற்றியும், தோல்வியும் சமமாக அறிந்து, சண்டைக்காகப் போரிட்டால், உனக்குப் பாவம் வராது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "1WgSqLBc",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Esha Tehvihita Sankhya is very intelligent.\nBuddhya Yukto Yaya Partha Karmabandhang Prahasyasi..39..",
+      "translation": "ஓ பார்த்! சாங்கிய யோகத்தைப் பற்றிச் சொன்னேன். இப்போது பக்தி யோகத்தின் ஞானத்தைக் கேளுங்கள், இதன் மூலம் நீங்கள் கர்ம பந்தங்களிலிருந்து விடுபடலாம்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "mVets2dY",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "Nehavikramanashohasti pratyabayo na vidyate.\n40.",
+      "translation": "பக்தி யோகாவின் பயிற்சி ஒருபோதும் தோல்வியடையாது மற்றும் சிதைவு இல்லை. அவரது குறுகிய விழாவும் பக்தரை சம்சாரரூபத்தின் பெரும் பயத்திலிருந்து விடுவிக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "iZdb0Z97",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Vayasayatmika Buddhirnakeh Kurunandan.\nBahushakha Hayanantascha Buddhayohvyabsayinam..41..",
+      "translation": "இந்த வழியைக் கடைப்பிடித்தவர்களின் உறுதி, அவர்களின் புத்தி நேர்மையானது. ஓ குருநந்தனா, அமைதியற்ற எண்ணம் கொண்டவர்களின் புத்தி பல கிளைகளை உடையதாகவும், வெளிப்புறமாகத் தோற்றமளிப்பதாகவும் இருக்கிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "D9ozIxwk",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Jamimang Pushpitang Bachong Pravadantya Vipaschit:\nVedabadrata: Partha Nanyandanti Badin: ..42..",
+      "translation": "வேதத்தின் மலர்ந்த வார்த்தைகளுக்கு அடிமையாகி, சொர்க்க சுகமே, மேல் குலத்தில் பிறந்து, அதிகாரம் பெறுவதே வாழ்க்கையின் இறுதிக் குறிக்கோளாகக் கருதும் நெறியற்ற மக்கள். சிற்றின்பங்கள் மற்றும் செல்வங்களால் ஈர்க்கப்பட்டு, அதற்கு மேல் எதுவும் இல்லை என்று அவர்கள் கூறுகிறார்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "O0qwPQBD",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "Kamatman: The result of heavenly birth karma.\nAdverbs, especially Bhogaishwaryagataing Prati. 43.",
+      "translation": "இன்பம் மற்றும் செல்வச் செழிப்புக்கு முற்றிலும் அடிமையானவர்கள், அந்த நேர்மையற்ற மற்றும் முட்டாள் மக்கள் புத்தி சமாதி அதாவது கடவுள் பக்தியை அடைவதில்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "tv6vZ16L",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "44",
+      "Language": "Traigunyasya Abiya Veda Nistraigunyo Bhavarjuna.\n44.",
+      "translation": "வேதங்கள் முக்கியமாக ஜட இயற்கையின் மூன்று குணங்களைப் பற்றி விவாதிக்கின்றன. அர்ஜுனா! நீங்கள் அந்த குணங்களைக் கடந்து நிர்குண நிலையை அடைகிறீர்கள். எல்லா மோதல்களில் இருந்தும் விடுபட்டு, லாப நஷ்ட கவலையில் இருந்து விடுபட்டு, தன்னைப் பாதுகாத்து ஆன்மிக உணர்வைப் பெறுங்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "JO6i0xva",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "45",
+      "Language": "Yabanartha Udpana Sarvat Samplutoke.\nTaban Sarveshu Vedeshu Brahmanasya Vijanat: 45.",
+      "translation": "சிறிய நீர்நிலைகளில் பூர்த்தியாகும் அனைத்து தேவைகளும் பெரிய நீர்நிலைகளால் தானாகவே பூர்த்தி செய்யப்படுகிறது. அவ்வாறே இறைவனை வழிபடுவதன் மூலம் எல்லாவற்றின் நோக்கத்தையும் உணர்ந்தவனுக்கு எல்லா வேதங்களின் நோக்கமும் கிடைத்து விடுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "CMRcWGHx",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "46",
+      "Language": "Karmanya sharikasara ma faleshhu kadachan.\nMa karmaphalheturbhurma te Sangohastvakarmani..46..",
+      "translation": "ஸ்வதர்மத்தால் பரிந்துரைக்கப்பட்டதைச் செய்ய உங்களுக்கு உரிமை உண்டு, ஆனால் எந்த கர்மாவிற்கும் உங்களுக்கு உரிமை இல்லை. கர்மவினைக்கு உங்களையே காரணம் என்று நினைக்காதீர்கள், சுயநீதியை கடைப்பிடிக்காமல் அடிமையாகிவிடாதீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "OBzDKAE9",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "47",
+      "Language": "Yogastha: Kuru Karmani Sangang Tyaktba Dhananjay.\nSiddhyasiddhyo: Samo Bhutva Samtong Yoga Uchyate..47..",
+      "translation": "அர்ஜுனா! பழத்தின் மீதுள்ள ஆசையை விட்டுவிட்டு, பக்தியில் ஈடுபட்டு, ஸ்வதர்மம் விதித்த செயல்களைச் செய்யுங்கள். செயலின் வெற்றி தோல்வியைப் புரிந்துகொள்வதே யோகா எனப்படும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "zZc4H3j1",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "48",
+      "Language": "Karma Buddhiyogadhananjaya is far away.\n48.",
+      "translation": "ஓ தனஞ்சய்! புத்தியோகத்தின் மூலம் பக்தி செய்வதன் மூலம் சாகம் கர்மாவிலிருந்து விலகி, அந்த உணர்வைப் பற்றிக் கொண்டு இறைவனிடம் அடைக்கலம் புகுங்கள். தங்கள் செயல்களின் பலனை அனுபவிக்க விரும்புபவர்கள் கஞ்சர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "HfPlvlEV",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "49",
+      "Language": "Intelligent Jahatih Uve Sukrta Duskrite.\nYujyasva Yoga in Tasmad Yoga: Karmasu Kausalam..49..",
+      "translation": "கடவுள் பக்தியை கடைபிடிப்பவன் இந்த ஜென்மத்தில் பாவம் மற்றும் புண்ணியத்தில் இருந்து விடுபடுகிறான். எனவே, நீங்கள் நிஸ்கம் கர்ம யோகத்தை நடத்துங்கள். அதுதான் ஒட்டுமொத்த உத்தி.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "cUDlu0mn",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "50",
+      "Language": "Karmajang Buddhiyukta Hi Falang Tyaktba Manishin:\nJanambandhavinirmukta: Padang Gachchantyachyutam..50..",
+      "translation": "இறைவனின் சேவையில் ஈடுபட்டு, ஞானிகள் வினையின் பலனைத் துறந்து, பிறப்பு இறப்பு பந்தங்களில் இருந்து விடுபடுகிறார்கள். இதனால் அவர்கள் அனைத்து துன்பங்களையும் கடந்த நிலையை அடைகின்றனர்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "SMehICw6",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "51",
+      "Language": "Jada te mohaklilong buddhirvyatiritrishyati.\nTada gantasi nirvedang shrotavyasya shrutasya f..51..",
+      "translation": "இவ்வாறு, உன்னுடைய புத்தியானது பரமாத்மாவின் முத்திரையின் ஆழமான காடுகளை முற்றிலுமாகத் தாண்டி, பரமாத்மாவுக்கு ஒதுக்கப்பட்ட வெற்று செயல்களைப் பயிற்சி செய்யும் போது, ​​நீங்கள் கேட்டவை மற்றும் கேட்கக்கூடியவை அனைத்திலும் முற்றிலும் நடுநிலை வகிக்க முடியும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "IjyQjWeF",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "52",
+      "Language": "Shrutivipratipanna te jada sthasyasi nichla.\n52",
+      "translation": "வேதங்களின் விசித்திரமான மொழிகளால் உங்கள் புத்தி இனி தொந்தரவு செய்யாமல், சுய-உணர்தல் என்ற சமாதியில் நிலைபெறும்போது, ​​நீங்கள் தெய்வீக அறிவை அடைந்து பக்தி அடைவீர்கள்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "kAOe1YRc",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "53",
+      "Language": "Arjun Ubach\nSthitprajnasya ka bhasha samadhisthasya Keshav.\n53.",
+      "translation": "அர்ஜுனன் கேட்டான் - கேசவா! நிலையான புத்திசாலித்தனம் உள்ளவர்களின் அறிகுறிகள் என்ன? அவர்கள் எப்படி பேசுகிறார்கள், எப்படி நிற்கிறார்கள், எப்படி நடக்கிறார்கள்?",
+      "speaker": "அர்ஜுனா",
+      "id": "ZIznlaOE",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "54",
+      "Language": "Prajahati jada kaman sarvan partha manogatan.\n54.",
+      "translation": "பகவான் கூறினார் - ஓ பார்த்தா! ஜீவன் மன ஊகங்களிலிருந்து எழும் அனைத்து மன செயல்பாடுகளையும் துறந்து, அவனது மனம் தூய்மையடைந்து, ஆன்மாவில் முழு திருப்தி அடையும் போது, ​​அவன் ஸ்திதப்ரஜ்ஞன் என்று அழைக்கப்படுகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "n2Q7f9uh",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "55",
+      "Language": "Dukheshvanudvignamana: Sukheshu Bigataspriha:\n55.",
+      "translation": "மூன்று தவம் எவனுடைய மனம் துக்கம் வந்தாலும் கலங்காமல் இருப்பவனும், சந்தோஷம் வந்தாலும் கலங்காமல் இருப்பவனும், கோபம், பயம், கோபம் அற்றவனும் எவனுடைய ஸ்திதாதி அதாவது உறுதியானவன்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "Ttn54JTI",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "56",
+      "Language": "Yah samsaraanvisnehastatta prapya subhashubham.\nNavinandati na dvesti tasya pragya established. 56.",
+      "translation": "எங்கும் அனவிஷ்னேஹமாக அதாவது எந்த ஒரு விஷயத்திலும் பற்று இல்லாதவனாகவும், புகழோ, வெறுக்கவோ அன்றி, மங்களகரமான பலன்களைப் பெறுபவனோ அவனது ஞானம் நிலைபெறுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "ZJpzBHth",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "57",
+      "Language": "Jada Sangang Chayati Karmani Ch Sarbash.\nIndriyaanindriyarthevya: wisdom established..57..",
+      "translation": "ஒரு உயிரின் புலன்கள் புலன்களிலிருந்து முற்றிலும் விலகினால், அவனுடைய ஞானம் நிலைபெறுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "pucoP9pR",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "58",
+      "Language": "Nirahasya dehin in the subject matter.\nRasobarjang Rasohapyasya Parang Drishta nivirta..58..",
+      "translation": "ஜடப்பொருளின் புலன்கள் பொருளிலிருந்து கட்டுப்படுத்தப்படும்போது, ​​அவனது ரச-பர்ஜாரி ரசமும் பரமாத்மாவைக் காண்பதன் மூலம் கட்டுப்படுத்தப்படுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "j3k6oIXe",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "59",
+      "Language": "As much as Happi Kaunteya Purushya Bipaschitah.\nIndriyani pravamayan haranti prasabhang mana:..59..",
+      "translation": "ஓ கௌந்தேயா! அறிவுள்ள மனிதன் புலன்களைக் கட்டுப்படுத்த முயன்றாலும், புலன்கள் அவனது மனதை வலிமையாக ஆக்கிரமித்துக் கொள்கின்றன.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "NFDXc0Yr",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "60",
+      "Language": "Tani sarvaani sanyamya yukta asit motpara:\n60.",
+      "translation": "அர்ஜுனா! எல்லா புலன்களையும் அடக்கிக்கொண்டு கடவுளோடு இணைந்திருங்கள். எவனுடைய புலன்கள் அடங்கி இருக்கிறதோ, அவனுடைய ஞானம் நிலைபெறுகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "RG3kdulE",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "61",
+      "Language": "Dhyaito Abhiyan Puns: Sangastesupajayate.\n61.",
+      "translation": "மனிதர்களின் விவகாரங்களில் தியானம் செய்வதிலிருந்து அவர் மீது பற்று ஏற்படுகிறது. பற்றுதலில் இருந்து ஆசையும் ஆசையில் இருந்து கோபமும் உண்டாகிறது.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "50OeQl8Z",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "62",
+      "Language": "Ragadveshavimuktaistu Abhyayanindriyaishcharan.\n62.",
+      "translation": "கோபம் மற்றும் வெறுப்பு இல்லாமல் புலன்களுடன் விஷயங்களைப் பற்றி அலைந்து திரிந்தபோது, ​​​​வித்தியாத்மா புலன்கள் அடக்கப்பட்டதன் மூலம் பிரசாதத்தைப் பெறுகிறார்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "gZeyUFG0",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "63",
+      "Language": "Prasad Sarvadukhkhanang Hanirsyopzayate.\nPrasannachetso hi Buddhi: pratishthita..63..",
+      "translation": "பிரசாத் ஸர்வদுখாநாங் ஹநிர்ஸ்யோப்ஜாயதே ।\nப்ரஸன்னச்சேத்ஸோ ஹி புத்தி: ப்ரதிஷ்டிதா..63..",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "nE7ypy68",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "64",
+      "Language": "Nasti buddhiroyuktsya na chayuktsya bhavana.\nNa chabhavayat: shantirshantasya kutah sukham..64..",
+      "translation": "தொடர்பில்லாத நபருக்கு புத்திசாலித்தனம் இல்லை, சிந்தனை இல்லை, அமைதி இல்லை. கஷ்டப்படுபவரின் மகிழ்ச்சி எங்கே?",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "FyKJH0z2",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "65",
+      "Language": "Indrianang hi chartang janmanohnuvidhyate.\nTadsya harti prajjang bayurnavamibambhsi..65..",
+      "translation": "எவனுடைய மனம் புலன்களைப் பின்பற்றுகிறதோ, அவனுடைய ஞானம் நீரிலிருந்து படகைக் காற்று பிடுங்குவது போல் பறித்துவிடும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "pjQY9dqZ",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "66",
+      "Language": "Tasmadyasya Mahabaho Nigrhitani Sarvasha.\n66.",
+      "translation": "ஓ மஹாபாஹோ! அவரது ஞானம் நிறுவப்பட்டது, யாருடைய புலன்கள் புலன்களின் பொருட்களிலிருந்து முற்றிலும் விலக்கப்படுகின்றன.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "YmOJIhJM",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "67",
+      "Language": "Which is Nisha Sarbhuthanang Tsyang Jagrati Samyami.\nYasyang jagrati bhutani sa nisha pashyato muneh..67..",
+      "translation": "எல்லா பேய்களுக்கும் இலக்கான அந்த இலக்கை நோக்கி சன்யாமி விழித்திருக்கிறாள். எல்லா பேய்களின் விழிப்பு நிலை எதுவோ, அதுவே முனியின் நிஷாவாகும்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "FAFLT0Ek",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "68",
+      "Language": "Apooryamanamachalapratisthang Samudramapa: Pravishanti Jadvat.\nThen Kama Jang Pravishanti Sarve Sa Shantimapnoti Na Kamakami..68..",
+      "translation": "கடலில் நீர் புகுந்து அதன் அசையாமையையும் அசைவின்மையையும் இழக்காமல் இருப்பது போல, எல்லா ஆசைகளிலும் பிரவேசிப்பவன் அமைதியை அடைகிறான், காமத்தை அடையவில்லை.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "AzbJf3kL",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "69",
+      "Language": "Bihay Kaman Jada Saravan Norm Paschim Asrit:.\nNirmamo Nirahankar: Sa Shantimdhigachti..69..",
+      "translation": "மனிதன் எல்லா ஆசைகளையும் துறந்து மேற்கத்திய மயமாக்கப்பட்டு இரக்கமற்றவனாகவும் மறைக்கப்படாதவனாகவும் மாறும்போது, ​​அவன் அமைதியை அடைகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "eSFwBYEv",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "70",
+      "Language": "Esha Brahmi Stiti: Partha nainang prapya bimuhyati.\n70.",
+      "translation": "ஓ பார்த்! இது பிராமி நிலை. அதைப் பெற்றுக்கொண்டு யாரும் ஏமாற்றமடையவில்லை. இந்த நிலையிலேயே தங்கி, தன் வாழ்நாளின் இறுதியில் பிரம்மநிர்தனை அடைந்தார்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "KnNbmjsO",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "71",
+      "Language": "Bihay Kaman Jada Saravan Norm Paschim Asrit:.\nNirmamo Nirahankar: Sa Shantimdhigachti..71..",
+      "translation": "மனிதன் எல்லா ஆசைகளையும் துறந்து மேற்கத்திய மயமாக்கப்பட்டு இரக்கமற்றவனாகவும் மறைக்கப்படாதவனாகவும் மாறும்போது, ​​அவன் அமைதியை அடைகிறான்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "Br8ICyuW",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "72",
+      "Language": "Esha Brahmi Stiti: Partha Nainang prapya bimuhyati.\n72.",
+      "translation": "ஓ பார்த்! இது பிராமி நிலை. அதைப் பெற்றுக்கொண்டு யாரும் ஏமாற்றமடையவில்லை. இந்த நிலையிலேயே தங்கி, தன் வாழ்நாளின் இறுதியில் பிரம்மநிர்தனை அடைந்தார்.",
+      "speaker": "ஸ்ரீ பகவான்",
+      "id": "gboXjRTc",
+      "speaker_english": "Shree Krishna"
+    }
+  ],
+  "summary": {
+    "title": "அத்தியாயம் II - சாங்கிய யோகா",
+    "description": "இந்த அத்தியாயத்தில் ஸ்ரீ கிருஷ்ணர் அர்ஜுனனுக்கு சாங்கிய யோகம் மற்றும் பக்தி யோகம் மூலம் கர்மபந்தனில் இருந்து விடுபடுவதற்கான வழிமுறைகளை விளக்குகிறார். அர்ஜுனனின் துக்கம் நீங்கி, மதப் போரை நடத்த தூண்டப்படுகிறான்.",
+    "keyThemes": [
+      "சாங்கிய யோகாவின் விளக்கம்",
+      "பக்தி யோகாவின் முக்கியத்துவம்",
+      "கர்மாவைத் துறத்தல்",
+      "நிலைத்தன்மையின் அடையாளம்",
+      "உணர்வு கட்டுப்பாடு",
+      "பிரம்மிஷ்டிதி"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/02/bangla-gita-capter-2.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 2500+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}

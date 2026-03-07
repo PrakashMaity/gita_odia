@@ -1,0 +1,660 @@
+{
+  "chapter": {
+    "number": "18",
+    "title": "அத்தியாயம் பதினெட்டு",
+    "subtitle": "மோக்ஷ-சம்நியாஸயோகம்",
+    "englishTitle": "Moksha Sannyasa Yoga",
+    "totalVerses": "78",
+    "description": "பதினெட்டாம் அத்தியாயத்தில் மோக்ஷ-சம்நியாஸயோகம் கற்பிக்கப்படுகிறது. இந்த அத்தியாயத்தில் பகவான் கிருஷ்ணர் சந்நியாசம் மற்றும் துறவு ஆகியவற்றின் உண்மையான அர்த்தத்தையும் செயலின் மும்மடங்கு குணத்தையும் விவரிக்கிறார்.",
+    "id": "MokshaSannyasa18"
+  },
+  "dedication": {
+    "Language": "அபயசரணரபிந்தா ভக்திவிদாநந்দ ஸேவாமி",
+    "meaning": "I serve the lotus feet of the fearless one, who gives joy to the devotees"
+  },
+  "verses": [
+    {
+      "verseNumber": "1",
+      "Language": "Arjun Ubach\nSannyasasya Mahabaho Tattamichchami Vedatum.\n1.",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ மஹாபாஹோ! ஓ ஹிருஷிகேஷ்! கேஷினிசூதனா! சந்நியாசம் மற்றும் துறவு தத்துவத்தை தனித்தனியாக அறிய விரும்புகிறேன்.",
+      "speaker": "அர்ஜுனா",
+      "id": "v1Moksha18",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "2",
+      "Language": "Shri Bhagwanubach\nKamanang Karmanang Nyasong Sannyasong Kabayo Viduh.\n2.",
+      "translation": "பகவான் கூறினார் - பண்டிதர்கள் விரும்பத்தக்க செயல்களைத் துறப்பதை சன்னங்கள் என்றும், ஞானிகள் எல்லா கர்மங்களையும் துறப்பதைத் துறவு என்றும் அறிவார்கள்.",
+      "speaker": "உச்ச",
+      "id": "v2Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "3",
+      "Language": "Thus the action of guilt is prahurmanishin.\n3.",
+      "translation": "ஒரு வகை சிந்தனையாளர்கள் செயல் பாவம் எனவே கைவிடப்பட வேண்டும் என்று கூறுகிறார்கள். தியாகம், தானம், தவம் முதலியவை தடைசெய்யப்பட்டவை என்று மற்றொரு அறிஞர் வகுப்பினர் முடிவு செய்துள்ளனர்.",
+      "speaker": "உச்ச",
+      "id": "v3Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "4",
+      "Language": "Surely Srinu Me Tatra is Bharatasattam.\nTyago hi Purushabyagra Trividh Samprakirtita..4..",
+      "translation": "ஓ பாரதசத்தமே! தியாகம் பற்றிய எனது உறுதியான முடிவைக் கேளுங்கள். ஆண்புலியே! சாஸ்திரங்களிலும் யாகம் மூன்று வகையாக விவரிக்கப்பட்டுள்ளது.",
+      "speaker": "உச்ச",
+      "id": "v4Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "5",
+      "Language": "Yajnadatapakarma na tyajyong karameva tat.\nYajno Danang Tapaschaiva Pabnani Manishinam..5..",
+      "translation": "யக்ஞம், தானம், தவம் ஆகியவை தடைகள் அல்ல, அவை செய்ய வேண்டும். யாகம், தானம் மற்றும் தவம் ஞானிகளையும் தூய்மையாக்கும்.",
+      "speaker": "உச்ச",
+      "id": "v5Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "6",
+      "Language": "Atanyapi Tu Karmani Sangang Tyaktba Falani f.\n6.",
+      "translation": "ஓ பார்த்! இந்த செயல்கள் அனைத்தும் கடமை உணர்வுடன், பற்றுதலைக் கைவிட்டு, முடிவுகளின் எதிர்பார்ப்புடன் செய்யப்பட வேண்டும். இது நிச்சயமாக எனது சிறந்த கருத்து.",
+      "speaker": "உச்ச",
+      "id": "v6Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "7",
+      "Language": "Niyamatsya tu Sannyasa: Karmano Noppadya.\nMohattasya Parityagastams: Parikirtit:..7..",
+      "translation": "ஆனால் வழக்கத்தை கைவிடக்கூடாது. மாயையால் அவன் துறந்தால் அது தாமசித் துறவு எனப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v7Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "8",
+      "Language": "Dukhamityeva yat karma kayaklesbhayatyajet.\nSa kirtba rajsong tyagang naiva tyagaphlong levet..8..",
+      "translation": "உடல் துன்பங்களுக்குப் பயந்து அன்றாடச் செயல்களைத் துறப்பவர், துன்பம் கண்டு, அந்த ராஜசிகத்தைத் துறப்பதால், துறந்த பலனை நிச்சயமாக அடைய முடியாது.",
+      "speaker": "உச்ச",
+      "id": "v8Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "9",
+      "Language": "Karmamityeva jat karma niytang kriyateharjuna.\n9.",
+      "translation": "அர்ஜுனா! என் கருத்துப்படி, அடிமைத்தனத்தையும் முடிவுகளையும் விட்டுவிட்டு கடமை உணர்வுடன் செய்யப்படும் அன்றாட செயல்பாடுகள் சாத்விக் ஆகும்.",
+      "speaker": "உச்ச",
+      "id": "v9Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "10",
+      "Language": "No Dvestyakuslang Karma Kushale Nanushajte.\nTyagi sattsamavishto meritorious fragmentation:..10..",
+      "translation": "சத்குணத்தால் நிரம்பிய, புத்திசாலி மற்றும் எல்லா சந்தேகங்களையும் துறப்பவர், தீய செயல்களை வெறுக்கவில்லை, நல்ல செயல்களுக்கு அடிமையாக இல்லை.",
+      "speaker": "உச்ச",
+      "id": "v10Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "11",
+      "Language": "Na hi deh bhrita shakyang tyaktung karmanyashatah.\n11.",
+      "translation": "எல்லா கர்மாக்களையும் துறப்பது ஒரு உடலமைப்பிற்கு சாத்தியமில்லை, ஆனால் எல்லா கர்மாவையும் துறப்பவர் உண்மையான துறவி என்று அழைக்கப்படுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v11Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "12",
+      "Language": "Anishtamishtang mishrang f trividhang karman: Falam.\nBhavatyatyaginang pretya na tu sannyasinang kakchit..12..",
+      "translation": "கர்மங்களை விட்டுவிடாதவர்கள் மறுமையில் தீமை, நன்மை, கலவையான கர்மாக்களை அனுபவிப்பார்கள். ஆனால் துறவிகள் ஒருபோதும் பழங்களை சாப்பிட வேண்டியதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v12Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "13",
+      "Language": "Panchaitani Mahabaho Karani Nibodh May.\nSankhya Kritante Proktani Siddhaye Sarvakarnamam..13..",
+      "translation": "ஓ மஹாபாஹோ! வேதாந்த சாஸ்திர சித்தாந்தத்தில் இந்த ஐந்து காரணிகளும் அனைத்து செயல்களையும் நிறைவேற்றுவதற்காகக் குறிப்பிடப்பட்டுள்ளன, அதை என்னிடமிருந்து அறிந்து கொள்ளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v13Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "14",
+      "Language": "Adhisthanang and Karta Karanang f Prithagvidham.\nVibidhashch separate effort Daibang Chaivatra panchammam..14..",
+      "translation": "அதிஸ்தன் என்றால் உடல், செய்பவர், பல்வேறு வகையான காரணங்கள் என்றால் புலன்கள், பல்வேறு முயற்சிகள் மற்றும் தெய்வம் என்றால் பரமாத்மா இந்த ஐந்து காரணங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v14Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "15",
+      "Language": "Karma prarabhate Narah.\n15.",
+      "translation": "மனிதன் உடலாலும், பேச்சாலும், மனதாலும் தொடங்கும் செயல்கள், நியாயமோ அநியாயமோ, ஐந்து காரணங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v15Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "16",
+      "Language": "Tatraibong sati kartarmatmanang kebelang tu yah.\n16.",
+      "translation": "எனவே, ஐந்து செயலின் காரணங்களைக் கருத்தில் கொள்ளாமல், தன்னை எஜமானன் என்று கருதும் ஒருவரால், புத்திசாலித்தனம் இல்லாததால், அந்தத் தீமையை சரியாகக் கவனிக்க முடியாது.",
+      "speaker": "உச்ச",
+      "id": "v16Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "17",
+      "Language": "Yasya Nahankrito Bhabo Budhiryasya Na Lipyate.\n17.",
+      "translation": "அகங்கார உணர்வு இல்லாதவனும், கர்மத்தில் மூழ்காத மனமும் உள்ளவன், இந்த உயிரினங்களையெல்லாம் கொன்ற பிறகும், அவன் கொல்லுவதில்லை, கொல்லும் கர்மத்திற்குக் கட்டுப்படுவதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v17Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "18",
+      "Language": "Gyanang Gneyang Parijnata Trividha Karmachodana.\n18.",
+      "translation": "ஞானம், ஞானம் மற்றும் பரிஜ்ஞாதா- இந்த மூன்று செயல்களின் தூண்டுதல், கரண, கர்மா மற்றும் கர்த்தா- இந்த மூன்று செயல்களின் அடைக்கலம்.",
+      "speaker": "உச்ச",
+      "id": "v18Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "19",
+      "Language": "Jnanang Karma f Karta f Tridhiva Gunabhedatah.\nProchya is as varied as the number of gunas. 19.",
+      "translation": "இயற்கையின் மூன்று குணங்களின்படி அறிவு, செயல், செயல் என மூன்று வகைப்படும். அதையெல்லாம் சரியாகக் கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v19Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "20",
+      "Language": "Sarvabhutesu is in the mood.\nAbibhaktang bhagateshu tajjnanang vidhi satvikam..20..",
+      "translation": "பல ஜீவராசிகள் ஒன்றுக்கொன்று வேறுபட்டிருந்தாலும் சாராம்சத்தில் ஒன்றாக இருந்தாலும், அனைத்து உயிரினங்களிலும் ஒரு பிரிக்கப்படாத சீன சாரம் காணப்படுகிற அறிவு, அந்த அறிவை சாத்வீகமாக அறியும்.",
+      "speaker": "உச்ச",
+      "id": "v20Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "21",
+      "Language": "Vaartten tu yajjnanang nanabhavan prithagvidhan.\nBetti Sarveshu Bhuteshu Tajjnanang Viddhi Rajasam..21..",
+      "translation": "எல்லா உயிர்களும் தனித்தனியாக வெவ்வேறு வகையான ஆன்மாக்களைக் கொண்டுள்ளன என்பதை ஒருவர் உணரும் அறிவு ராஜசிகா எனப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v21Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "22",
+      "Language": "Jattu krishnavadeksmin kaya saktamahitaukam.\nAtattvarthavadlpang ch tattamasmudhahritam..22..",
+      "translation": "உண்மையான கோட்பாட்டை அறியாமல், ஒரு குறிப்பிட்ட பணியில் செய்வது போல் பற்றுதல் எழும் அறிவு, அந்த அற்ப அறிவு தாமசி அறிவு என்று கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v22Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "23",
+      "Language": "Niytang Sangarhitmaragadveshat: Kritam.\n23.",
+      "translation": "சாத்வீக கர்மா, பழத்தின் மீது ஆசை இல்லாமல், பற்றுதல் இல்லாமல், கோபம் மற்றும் வெறுப்பு இல்லாமல் செய்யப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v23Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "24",
+      "Language": "Jattu Kamepsuna Karma Sahankaren or Re.\nKriyate Bahulayasong Tdrajasamudahritam..24..",
+      "translation": "ஆனால் பலனின் ஆசையில் மிகுந்த சிரத்தை எடுத்து கர்வம் கொள்ளும் கர்மா ராஜசிகம் எனப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v24Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "25",
+      "Language": "Anubandhang kasrang Hingsamanbekshya f Purusham.\n25.",
+      "translation": "வருங்கால உறவுகள், சமய அறிவு இழப்பு, பொறாமை மற்றும் தன்னம்பிக்கை ஆகியவற்றின் விளைவுகளை கருத்தில் கொள்ளாமல் காமத்தால் செய்யப்படும் செயல்கள் தாமச செயல்கள் என்று அழைக்கப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v25Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "26",
+      "Language": "Muktasangohanhongvadi dhrityutsahsambinita:\nSiddhyasiddhyornirbikar: Karta Sattvik Uchyate..26..",
+      "translation": "எல்லாப் பௌதிகப் பற்றுக்களிலிருந்தும் விடுபட்டவனாகவும், அகங்காரம் இல்லாதவனாகவும், த்ருத் மற்றும் உற்சாகம் கொண்டவனாகவும், சித்திகளாலும் சித்திகளாலும் தொந்தரவு இல்லாதவனாகவும் இருப்பவனே சாத்விக் எனப்படுகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v26Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "27",
+      "Language": "Rahi Karmaphalprepsurulubdho Hinsatkatohosuchi:\nHarshashokanvita: Karta Rajas: Parikirtita: ..27..",
+      "translation": "கர்மத்திற்கு அடிமையான, கர்மத்தை விரும்புகிற, பேராசை கொண்ட, வன்முறை, தூய்மையற்ற, கடுமையான மற்றும் துக்கமுள்ள ஒரு கர்த்தா ராஜசிக கர்த்தா என்று கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v27Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "28",
+      "Language": "Auyuga: Prakrit: Stabdha: Satho Naishkritikaholas:\nBishadee Lashsutri Ch Karta Tamas Uchyate..28..",
+      "translation": "தேவையற்ற சுறுசுறுப்பாகவும், செயலற்றவராகவும், பணிவாகவும், கடுமையானவராகவும், அவமதிப்பவராகவும், சோம்பேறியாகவும், மனச்சோர்வுடனும், நெடுங்காலமாகவும் செயல்படுபவர் தாமசி செய்பவர் என்று அழைக்கப்படுகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v28Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "29",
+      "Language": "Budvervedang dhriteschaiva gunatantrividhang srinu.\n29.",
+      "translation": "ஓ தனஞ்சய்! ஸ்தூல இயற்கையின் மும்மடங்கு தன்மைக்கு ஏற்ப புத்திக்கும் புலனுக்கும் உள்ள மூன்று மடங்கு வித்தியாசத்தை விரிவாகவும் தனித்தனியாகவும் சொல்கிறேன் கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v29Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "30",
+      "Language": "Encouraging f Inhibiting f Fear of action.\nBandhang Mokshang Ch Ja Betti Buddhi: Sa Partha Satviki..30..",
+      "translation": "ஓ பார்த்! ப்ரவ்ருத்திக்கும் நிவ்ருத்திக்கும், செயலுக்கும் செயலற்ற நிலைக்கும், அச்சத்துக்கும் அபயத்துக்கும், பற்றுக்கும் விடுதலைக்கும் உள்ள வேறுபாட்டை அறியக்கூடிய புத்தி சாத்விகி.",
+      "speaker": "உச்ச",
+      "id": "v30Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "31",
+      "Language": "Yaya dharmamadharmang chakarang chakaryameva f.\nInappropriate Prajanati Buddhi: Sa Partha Rajasi..31..",
+      "translation": "மதம் மற்றும் மதம் அல்லாதது, செயல் மற்றும் செயலின்மை ஆகியவற்றுக்கு இடையேயான வேறுபாட்டை ஒரு தெளிவான வடிவத்தில் உணரக்கூடிய புத்திசாலித்தனம், அந்த புத்திசாலித்தனம் ராஜசிகி.",
+      "speaker": "உச்ச",
+      "id": "v31Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "32",
+      "Language": "Adharmang dharmamiti which is tamasavrita in mind.\nSarvarthan Vratranscha Buddhi: Sa Partha Tamsi..32..",
+      "translation": "ஓ பார்த்! அதர்மத்தை அதர்மம் என்றும், அனைத்தையும் எதிர்மாறாகவும் கருதும் மனம் தாமசிகி.",
+      "speaker": "உச்ச",
+      "id": "v32Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "33",
+      "Language": "Dhritya yaya dharayat manahpranendriyakriya:\nYogenavyavicharinya Dhritti: Sa Partha Satviki..33..",
+      "translation": "ஓ பார்த்! யோகப் பயிற்சியின் மூலம் மனம், ஆன்மா மற்றும் புலன்களின் அனைத்து செயல்பாடுகளையும் வைத்திருக்கும் அபயவிச்சாரிணி திருத்தி, சாத்விகி.",
+      "speaker": "உச்ச",
+      "id": "v33Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "34",
+      "Language": "Yaya tu dharmakamarthan dhritya dharayateharjuna.\nContext: Falakangkshi Dhrithi: Sa Partha Rajasi..34..",
+      "translation": "அர்ஜுனா! ஓ பார்த்! தர்மமும், அர்த்தமும், காமமும், கனிகளின் மீதுள்ள ஆசையும் அடங்கிய பூமி ராஜஸி தேசம்.",
+      "speaker": "உச்ச",
+      "id": "v34Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "35",
+      "Language": "Yaya swapnang voyong shokong vishadang madameb f.\nNa Bimunchati Durmedha Dhriti: Sa Partha Tamsi..35..",
+      "translation": "ஓ பார்த்! கனவு, பயம், துக்கம், துக்கம், மது இவைகளை கைவிடாத மனமே தாமசி.",
+      "speaker": "உச்ச",
+      "id": "v35Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "36",
+      "Language": "Sukhang tvidanimtrividhang shrnu me bharatarshav.\n36.",
+      "translation": "ஓ பரதர்ஷவா! இப்போது மும்மடங்கு மகிழ்ச்சியைப் பற்றி நான் சொல்வதைக் கேளுங்கள். மூடிய ஜீவா மீண்டும் மீண்டும் பயிற்சி செய்வதன் மூலம் அந்த மகிழ்ச்சியை அனுபவிக்கிறது மற்றும் அதன் மூலம் அனைத்து துன்பங்களும் தவிர்க்கப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v36Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "37",
+      "Language": "Jattadgre bishamiva parinamehamritopamam.\n37.",
+      "translation": "முதலில் விஷம் போல இருந்தாலும், இறுதியில் அமிர்தமாகி, தன்னலமற்ற புத்தியின் தூய்மையிலிருந்து பிறக்கும் பேரின்பம் சாத்வீகமானது என்று கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v37Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "38",
+      "Language": "Subject matter\nFinally Bishamiva Tatsukhang Rajasong Smritam..38..",
+      "translation": "முதலில் அமிர்தம் போலவும், இறுதியில் நஞ்சாகவும் உணரும் பொருள் மற்றும் புலன்களின் சங்கமத்தால் ஏற்படும் மகிழ்ச்சி ராஜஸம் என்று கூறப்படுகிறது.",
+      "speaker": "உச்ச",
+      "id": "v38Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "39",
+      "Language": "Jadgre Chanubandhe Cha Sukhang Mohanmatman:\nNidralasyapramadotthang tattamsmudahritam.",
+      "translation": "உறக்கம், சோம்பேறித்தனம், சோம்பல் போன்றவற்றால் ஆன்மாவுக்கு முதலும் கடைசியுமாக ஆனந்தம் ஏற்படுவது தாமசி மகிழ்ச்சி எனப்படும்.",
+      "speaker": "உச்ச",
+      "id": "v39Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "40",
+      "Language": "No tadasti prithibang or dibi deveshu or re.\n40.",
+      "translation": "இந்த மும்மடங்கு இயல்பிலிருந்து விடுபட்ட எந்த ஒரு உயிரினமும் இந்த உலகத்திலோ, மனிதர்களிலோ, சொர்க்கத்தில் உள்ள தெய்வங்களிலோ இல்லை.",
+      "speaker": "உச்ச",
+      "id": "v40Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "41",
+      "Language": "Brahmin Kshatriya Bishang Shudranang Ch Parantap.\n41.",
+      "translation": "ஓ பரந்தாப்! பிராமணர்கள், க்ஷத்திரியர்கள், வைசியர்கள் மற்றும் சூத்திரர்களின் செயல்கள் அவர்களின் உள்ளார்ந்த குணத்தின்படி பிரிக்கப்படுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v41Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "42",
+      "Language": "Shamo Damstap: Shouchong Khantirjabmeb f.\nGnanang Vigyanmastikyong Brahmakarma Swabhavajam..42..",
+      "translation": "சாமம், தம், தபம், சௌச, க்ஷாந்தி, எளிமை, அறிவு, விஞ்ஞானம் மற்றும் அஸ்திக்யம் - இவை பிராமணர்களின் இயல்பான செயல்கள்.",
+      "speaker": "உச்ச",
+      "id": "v42Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "43",
+      "Language": "Shauryang Tejo Dhritirdakshyong was defeated in battle.\nDanmishvarabhavscha kshatrang karma svabhavajam..43..",
+      "translation": "வீரம், புத்திசாலித்தனம், சாமர்த்தியம், சாமர்த்தியம், போரில் பறத்தல், தர்மம் மற்றும் ஆட்சி - இவை ஒரு க்ஷத்திரியனின் இயல்பான செயல்கள்.",
+      "speaker": "உச்ச",
+      "id": "v43Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "44",
+      "Language": "Agriculture and cattle trade is the nature of business.\n44.",
+      "translation": "விவசாயம், கால்நடை வளர்ப்பு மற்றும் வணிகம் ஆகியவை வைசியர்களின் இயற்கையான செயல்பாடுகளில் சில மற்றும் கவனிப்பு நடவடிக்கைகள் சூத்திரர்களின் இயற்கையான செயல்பாடுகள்.",
+      "speaker": "உச்ச",
+      "id": "v44Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "45",
+      "Language": "Sway sway karmanyaviratah Samsiddhing lavte narah.\nSwakarmanirat: Siddhing ie Vindati Tacchrinu..45..",
+      "translation": "மக்கள் எப்போதும் தங்கள் சொந்த செயல்களில் வெற்றியை அடைகிறார்கள். தங்கள் சொந்த செயல்களில் ஈடுபடுபவர்கள் எவ்வாறு வெற்றியை அடைகிறார்கள் என்பதைக் கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v45Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "46",
+      "Language": "Yaya pravrtivirbhutanaang as if sarvamidang tatam.\nSwakarmana Tambhurchya Siddhing Bindati Manav:..46..",
+      "translation": "இந்த உலகம் முழுவதையும் வியாபித்திருக்கும், எவரிடமிருந்தே அனைத்து உயிரினங்களும் விரும்பத்தக்க உள்ளுணர்வைக் கொண்டிருக்கிறதோ, அவரையே மனிதன் தன் சொந்தச் செயல்களால் வழிபடுகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v46Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "47",
+      "Language": "Shreyan svadharmao viguna paradharmaat svanusthitat.\nSwabhavaniyatang Karma Kurbannapnoti Kilbisham..47..",
+      "translation": "முறையாகச் செய்யப்படும் பரதர்மத்தை விட முறையற்ற முறையில் செய்யப்படும் ஸ்வதர்மம் சிறந்தது. இயற்கை விதித்த செயல்களைச் செய்வதால் மனிதன் எந்தப் பாவத்தையும் அடைவதில்லை.",
+      "speaker": "உச்ச",
+      "id": "v47Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "48",
+      "Language": "Sahsang karma kaunteya sadoshampi na tyajet.\n48",
+      "translation": "ஓ கௌந்தேயா! உள்ளுணர்வான செயல்கள் குற்றமாக இருந்தாலும் விட்டுவிடக்கூடாது. நெருப்பு புகையால் மூடப்படுவது போல, அனைத்து செயல்களும் தோஷத்தால் மூடப்பட்டுள்ளன.",
+      "speaker": "உச்ச",
+      "id": "v48Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "49",
+      "Language": "Asaktabuddhi: everywhere jitatma pastripha:\nNaishkarmyasiddhing Paramang Sannyasenadhigachti..49..",
+      "translation": "பௌதிக விஷயங்களில் பற்று இல்லாத புத்தியும், அடக்கப்பட்ட மனமும், இன்பத்தில் ஆசையும் கொண்ட ஒருவர், செயல் வடிவத்தைக் கைவிட்டு நிஷ்கர்மா வடிவில் உயர்ந்த சித்தியை அடைகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v49Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "50",
+      "Language": "Attainment of siddhing is Brahman, Tathapanoti Nibodha Me.\nSamasenaiva kaunteya nishtha jnanasya which wears..50..",
+      "translation": "ஓ கௌந்தேயா! நிஷ்கர்ம சித்தியை அடைவதன் மூலம் ஜீவன் எப்படி ஞானத்தின் பக்தி வடிவமான பிரம்மத்தை அடைகிறான் என்பதை சுருக்கமாக கேளுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v50Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "51",
+      "Language": "Buddhya Visudhya Yukto Dhrityatmanang Nimya f.\nशबदादिन्विशांस्त्यक्ट्व रागद्वेशु व्युदस्य f..51..",
+      "translation": "தூய்மையான மனதுடன் இருப்பதால், மனம் திருத்தியால் கட்டுப்படுத்தப்படுகிறது, வார்த்தைகள் அசல் புலன்கள், கோபம் மற்றும் வெறுப்பு ஆகியவற்றைக் கைவிடுகின்றன.",
+      "speaker": "உச்ச",
+      "id": "v51Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "52",
+      "Language": "Viviktasevi Laghvashi Jatbakkayamanas:\nDhyanayogaparo nityang vairagyang samupasrit:..52..",
+      "translation": "தனிமையில் வாழ்கிறார், சிறிது உணவை உட்கொள்கிறார், உடல், மனம் மற்றும் பேச்சைக் கட்டுப்படுத்துகிறார், எப்போதும் தியானத்துடன் கூடிய வைராக்கியத்தில் தஞ்சம் அடைகிறார்.",
+      "speaker": "உச்ச",
+      "id": "v52Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "53",
+      "Language": "Ahankarang balang darpong kamang krodhang parigraham.\nVimuchya Nirmam: Shanto Brahmabhuaya Kalpate..53..",
+      "translation": "அகங்காரம், சக்தி, ஆசை, காமம், கோபம், பற்றுதல் ஆகியவற்றிலிருந்து முற்றிலும் விடுபட்டு, இரக்கமற்ற அமைதியான மனிதன் பிரம்மத்தை அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v53Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "54",
+      "Language": "Brahmabhuta: Prasannatma neither sorrow nor longing.\nSamah sarveshu bhuteshu madbhakting lavte param..54..",
+      "translation": "பிரம்மத்தில் திருப்தியடைந்தவன் எதற்காகவும் வருத்தப்படுவதில்லை அல்லது ஏங்குவதில்லை. எல்லா உயிர்களையும் அவதானித்து என் பக்தியைப் பெற்றார்.",
+      "speaker": "உச்ச",
+      "id": "v54Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "55",
+      "Language": "Bhaktya Mamvijanati Yavanyashasmi Tatvatah.\nThato mang tatto jnatva bishte tadnantaram..55..",
+      "translation": "பக்தியால் மட்டுமே ஒருவன் என்னை நான் என்று அறிய முடியும். இந்த வகையான பக்தியின் மூலம் என்னை அறிந்தால், அவர் என் இருப்பிடத்தில் நுழைய முடியும்.",
+      "speaker": "உச்ச",
+      "id": "v55Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "56",
+      "Language": "Sarvakarmanyapi Sada Kurbano Madvyapashray:\nMatprasadadvapnoti shasvatang padamvyam..56..",
+      "translation": "என் தூய பக்தன் எல்லா கர்மாக்களையும் செய்தாலும் என் பிரசாத்தில் நித்ய அபய தம் அடைகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v56Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "57",
+      "Language": "Chetsa sarvakarmani moi sannyasya matparah.\n57.",
+      "translation": "புத்தியின் மூலம் எல்லா செயல்களையும் என்னிடம் ஒப்படைத்து, நிதானமாக, புத்த-யோகத்தில் தஞ்சம் அடைந்து, எப்போதும் குடிபோதையில் இருங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v57Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "58",
+      "Language": "Macchitta: Sarvadurgani Matprasadattarishyasi.\nAtha Chettamahankaranna Sroshyasi Vinakshyasi..58..",
+      "translation": "நீங்கள் இவ்வாறு போதையில் இருந்தால், எனது பிரசாதத்திற்கான அனைத்து தடைகளையும் நீங்கள் கடந்து செல்வீர்கள். ஆனால், பெருமையினால் நான் சொல்வதைக் கேட்காவிட்டால் அழிந்து போவீர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v58Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "59",
+      "Language": "Yadahankara masritya na yotsya iti manyase.\n59. Nature-based employment in fake business.",
+      "translation": "'நான் சண்டையிட மாட்டேன்' என்று நீங்கள் பெருமையுடன் நினைத்தால், உங்கள் தீர்மானம் பொய்யாகிவிடும். ஏனென்றால், உங்கள் இயல்பு உங்களைப் போருக்குத் தூண்டும்.",
+      "speaker": "உச்ச",
+      "id": "v59Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "60",
+      "Language": "Svabhavajen kaunteya focused: sven karmana.\n60",
+      "translation": "ஓ கௌந்தேயா! நிச்சயமாக நீங்கள் இப்போது சண்டையிட விரும்பவில்லை, ஆனால் உங்கள் சொந்த இயல்பான செயல்களால் நீங்கள் இயல்பாகவே அவ்வாறு செய்ய விரும்புவீர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v60Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "61",
+      "Language": "Ishwar: Sarvabhuthanang Hriddesheharjun Tishti.\nVhramayan sarvabhutani yantrarudhani maya..61..",
+      "translation": "அர்ஜுனா! பரமாத்மாவானவர் எல்லா ஜீவராசிகளின் இதயத்திலும் குடியிருந்து, பௌதிக சரீரத்தில் ஏறி எல்லா உயிர்களையும் மாயாவால் பயணிக்கச் செய்கிறார்.",
+      "speaker": "உச்ச",
+      "id": "v61Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "62",
+      "Language": "Tameb Sharanang Gachch Sarvabhaben Bharat.\n62.",
+      "translation": "ஓ இந்தியாவே! அவனிடம் முழு அடைக்கலம் கொடு. அவருடைய பிரசாதத்தில் நீங்கள் அமைதியையும் நிரந்தரமான தங்குமிடத்தையும் அடைவீர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v62Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "63",
+      "Language": "Iti te Gnanamakhitang Guhyad Guhyatarang Maya.\n63.",
+      "translation": "மிக ஆழமான அறிவை நான் உங்களுக்கு இப்படித்தான் விளக்கினேன். நீங்கள் அதை முழுமையாக தீர்மானித்து நீங்கள் விரும்பியதைச் செய்யுங்கள்.",
+      "speaker": "உச்ச",
+      "id": "v63Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "64",
+      "Language": "Sarvaguhyatamang Bhuyah Shrnu May Paramang Bachah.\nIshtohsi me thammiti tato bakshyami te hitam..64..",
+      "translation": "நீங்கள் என்னிடமிருந்து மிக ரகசியமான உச்ச ஆலோசனையைக் கேட்கிறீர்கள். நீங்கள் எனக்கு மிகவும் பிரியமானவர் என்பதால், உங்களுக்காக நான் பேசுகிறேன்.",
+      "speaker": "உச்ச",
+      "id": "v64Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "65",
+      "Language": "Manmana bhava madbhakto madyaji mang namaskuru.\nMamevaishyasi satyang te pratijane priyohsi me..65..",
+      "translation": "நீங்கள் உங்கள் இதயத்தை என்னிடம் அர்ப்பணித்து, என் பக்தனாகி, என்னை வணங்கி, எனக்கு வணக்கம் செலுத்துங்கள். அப்போது நீங்கள் எனக்கு மிகவும் பிரியமாக இருப்பீர்கள்.",
+      "speaker": "உச்ச",
+      "id": "v65Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "66",
+      "Language": "Renunciation of all religions\nAhang thang sarvapapevyo mokshayyyami ma shuch:..66..",
+      "translation": "எல்லாவிதமான மதங்களையும் கைவிட்டு என்னிடமே அடைக்கலம் புகுங்கள். நான் உன்னை எல்லா பாவங்களிலிருந்தும் விடுவிப்பேன். நீ புலம்பாதே",
+      "speaker": "உச்ச",
+      "id": "v66Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "67",
+      "Language": "Idong te Natapskaya Nabhaktaye Kadachan.\nNo chashushrushbe bachyong no cha mang johavyasuati..67..",
+      "translation": "நிதானம் இல்லாதவர்களுக்கும், கீழ்ப்படியாதவர்களுக்கும், கவனக்குறைவானவர்களுக்கும், என்னை வெறுப்பவர்களுக்கும் இந்த ரகசிய அறிவை ஒருபோதும் கூறக்கூடாது.",
+      "speaker": "உச்ச",
+      "id": "v67Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "68",
+      "Language": "Ya idang paramang guhyang madbhaktesvabhidasati.\nBhakting moi parang kirtba mamevaishyatsamshay:..68..",
+      "translation": "இந்த உன்னதமான ரகசியப் பாடலை என் பக்தர்களிடையே உபதேசிப்பவன் சந்தேகமில்லாமல் பர பக்தியுடன் என்னிடம் திரும்புவான்.",
+      "speaker": "உச்ச",
+      "id": "v68Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "69",
+      "Language": "No Ch Tasmanmanusyeshu Kaschinme Priyakrittam:\nBhabita na cha me tasmadanya: Priyataro Bhubi..69..",
+      "translation": "இவ்வுலகில் மனிதர்களில் அவரைவிட எனக்குப் பிரியமானவர் எவரும் இல்லை, அவரைவிட எனக்குப் பிரியமானவர் எவருமில்லை.",
+      "speaker": "உச்ச",
+      "id": "v69Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "70",
+      "Language": "Presided over by Ch Ya Imang Dharmyang Sangambayo:\nGnanyajnen Tenahmishta: Samiti Me Mati:..70..",
+      "translation": "எவர் நம்மிடையே இந்த புனிதமான உரையாடலைப் படிக்கிறார்களோ, அந்த ஞான யாகத்தால் நான் வணங்கப்படுவேன். இது எனது கருத்து.",
+      "speaker": "உச்ச",
+      "id": "v70Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "71",
+      "Language": "Shraddhabanasuyasch shrinuadapi yo narah.\nSohpi mukta: shubhallokan prapnuatpunyakarmanam..71..",
+      "translation": "கீதையை மரியாதையுடனும் பொறாமையுடனும் கேட்கும் ஒருவன், பாவத்திலிருந்து விடுபட்டு, நல்லொழுக்கமுள்ள தொழிலாளர்களின் ஐஸ்வர்யங்களைப் பெறுகிறான்.",
+      "speaker": "உச்ச",
+      "id": "v71Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "72",
+      "Language": "Kacchidetat sratanga partha tvaikagrena chetsa.\nKacchidjnanasammoha: Pranastaste Dhananjaya..72..",
+      "translation": "ஓ பார்த்! ஓ தனஞ்சய்! இந்த கீதையை மனதை ஒருமுகப்படுத்திக் கேட்டீர்களா? உங்களின் மயக்கமான மோகம் நீங்கிவிட்டதா?",
+      "speaker": "உச்ச",
+      "id": "v72Moksha18",
+      "speaker_english": "Shree Krishna"
+    },
+    {
+      "verseNumber": "73",
+      "Language": "Arjun Ubach\nNasto moha: Smritirlabdha Tattprasadamanayachyuta.\n73.",
+      "translation": "அர்ஜுனன் சொன்னான் - ஓ அச்யுதா! என் சந்தேகங்கள் அனைத்தும் தீர்க்கப்பட்டு ஞானத்தில் தீர்க்கப்பட்டன. இப்போது நான் உங்கள் கட்டளைக்கு கீழ்ப்படிவேன்.",
+      "speaker": "அர்ஜுனா",
+      "id": "v73Moksha18",
+      "speaker_english": "Arjuna"
+    },
+    {
+      "verseNumber": "74",
+      "Language": "Sanjay Ubach\nItyahang Vasudevasya Parthasya c Mahatmanah.\nSangammimamshroumadbhutang romharshanam..74..",
+      "translation": "சஞ்சய் கூறினார் - கிருஷ்ணர் மற்றும் அர்ஜுனனின் இந்த விசித்திரமான மற்றும் சிலிர்ப்பான செய்தியை நான் இப்படித்தான் கேட்டேன்.",
+      "speaker": "சஞ்சய்",
+      "id": "v74Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "75",
+      "Language": "Vyasaprasadachrutbanetd guhyamhang param.\nYoga Yogeswarat Krishnatsakshatkathayat: Swayam..75..",
+      "translation": "வியாசதேவரின் அருளால், யோகேஸ்வர ஸ்ரீ கிருஷ்ணரிடமிருந்து இந்த மிக ரகசியமான யோக சந்திப்பின் விவரிப்பைக் கேட்டேன்.",
+      "speaker": "சஞ்சய்",
+      "id": "v75Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "76",
+      "Language": "Rajan Samsmritya Samsmritya Sangammimamadbhutam.\nKeshbarjunyo: Punyang Hrishyami Ch Muhurmuhu:..76..",
+      "translation": "அரசே! கிருஷ்ணர் மற்றும் அர்ஜுனனின் இந்த மங்களகரமான வினோதமான செய்தியை மீண்டும் மீண்டும் நினைவு கூர்வதில் நான் மகிழ்ச்சி அடைகிறேன்.",
+      "speaker": "சஞ்சய்",
+      "id": "v76Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "77",
+      "Language": "Tacha Samsmritya Samsmritya Rupamatyadbhutang Hare:\nBishmayo May Mahan Rajan Hrishyami Ch Repeat Repeat..77..",
+      "translation": "அரசே! பகவான் கிருஷ்ணரின் அந்த விசித்திரமான வடிவத்தை நினைத்து, நான் மிகவும் வியப்படைகிறேன், மீண்டும் மீண்டும் சிலிர்க்கிறேன்.",
+      "speaker": "சஞ்சய்",
+      "id": "v77Moksha18",
+      "speaker_english": "Sanjay"
+    },
+    {
+      "verseNumber": "78",
+      "Language": "Jatra Yogeswara: Krishna Jatra Partho Dhanurdhar:\nTatra Srirvijayo Bhutirdhruva Nitirmatirmam..78..",
+      "translation": "யோகேஸ்வரர் ஸ்ரீ கிருஷ்ணராகவும், தனுர்தர் பார்த்தாராகவும் இருக்கும் இடத்தில், ஸ்ரீ, வெற்றி, மகத்தான சக்தி மற்றும் கொள்கை நிச்சயமாக உள்ளது. அதுவே என் கருத்து.",
+      "speaker": "சஞ்சய்",
+      "id": "v78Moksha18",
+      "speaker_english": "Sanjay"
+    }
+  ],
+  "summary": {
+    "title": "பதினெட்டாம் அத்தியாயம் - மோக்ஷ-சம்யஸ்யோகம்",
+    "description": "இந்த அத்தியாயத்தில் மோக்ஷ-சம்நியாஸயோகம் கற்பிக்கப்படுகிறது. பகவான் கிருஷ்ணர் சந்நியாசம் மற்றும் துறத்தல் ஆகியவற்றின் உண்மையான அர்த்தத்தையும், செயலின் மும்மடங்கு குணத்தையும் விவரிக்கிறார். பக்தி யோகத்தின் மூலம் இறைவனிடம் அடைக்கலம் புகுந்து உச்ச முக்தி பெறலாம் என்று விளக்கினார்.",
+    "keyThemes": [
+      "துறவு மற்றும் துறவு கோட்பாடு",
+      "செயலின் மும்மடங்கு இயல்பு",
+      "சாத்விக, ராஜசிக் மற்றும் தாமசிக் கர்மா",
+      "பக்தி யோகத்தின் சிறப்பு",
+      "விடுவிக்க வழி"
+    ]
+  },
+  "metadata": {
+    "source": "https://krishnalela.blogspot.com/2019/03/bangla-gita_30.html",
+    "language": "தமிழ்",
+    "scripture": "ஸ்ரீமத் பகவத் கீதை",
+    "chapterType": "சேர்க்கப்பட்டது",
+    "totalWords": "சுமார் 3000+ வார்த்தைகள்",
+    "lastUpdated": "2024"
+  }
+}
