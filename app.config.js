@@ -42,6 +42,7 @@ const EXTRA_KEYS = {
   interstitialAdUnitId: 'INTERSTITIAL_AD_UNIT_ID',
   rewardedAdUnitId: 'REWARDED_AD_UNIT_ID',
   rewardedInterstitialAdUnitId: 'REWARDED_INTERSTITIAL_AD_UNIT_ID',
+  appOpenAdUnitId: 'APP_OPEN_AD_UNIT_ID',
 };
 
 // ----- Ad Unit IDs (from env) -----
@@ -50,6 +51,7 @@ const AD_UNIT_IDS = {
   interstitial: process.env.INTERSTITIAL_AD_UNIT_ID || 'ca-app-pub-3406043589920136/2823625684',
   rewarded: process.env.REWARDED_AD_UNIT_ID || 'ca-app-pub-3406043589920136/5062776214',
   rewardedInterstitial: process.env.REWARDED_INTERSTITIAL_AD_UNIT_ID || 'ca-app-pub-3406043589920136/3167278602',
+  appOpen: process.env.APP_OPEN_AD_UNIT_ID || '',
 };
 
 // ----- Mobile Ads Config (from env) -----
@@ -140,6 +142,7 @@ module.exports = function ({ config = {} }) {
     [EXTRA_KEYS.interstitialAdUnitId]: AD_UNIT_IDS.interstitial,
     [EXTRA_KEYS.rewardedAdUnitId]: AD_UNIT_IDS.rewarded,
     [EXTRA_KEYS.rewardedInterstitialAdUnitId]: AD_UNIT_IDS.rewardedInterstitial,
+    [EXTRA_KEYS.appOpenAdUnitId]: AD_UNIT_IDS.appOpen,
     // Supabase (read by services at runtime via Constants)
     SUPABASE_URL: process.env.SUPABASE_URL || 'https://bxcjjqyalflohwjyxdze.supabase.co',
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || '',
