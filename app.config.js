@@ -130,7 +130,7 @@ module.exports = function ({ config = {} }) {
     iosConfig.googleServicesFile = PATHS.googleServicesPlist;
   }
 
-  const easProjectId = process.env.EAS_PROJECT_ID || '4276c4fa-4062-4c56-9fb4-26fabacd8a23';
+  const easProjectId = process.env.EAS_PROJECT_ID;
 
   const extra = {
     [EXTRA_KEYS.language]: APP_LANG,
