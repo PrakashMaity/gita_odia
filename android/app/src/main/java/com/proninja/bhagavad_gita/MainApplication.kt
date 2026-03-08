@@ -1,4 +1,4 @@
-package com.proninja.bhagavad_gita_pa
+package com.proninja.bhagavad_gita
 
 import android.app.Application
 import android.content.res.Configuration

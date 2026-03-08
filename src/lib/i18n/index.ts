@@ -10,7 +10,6 @@ import hi from './translations/hi.json';
 import ne from './translations/ne.json';
 import or from './translations/or.json';
 import ta from './translations/ta.json';
-import pa from './translations/pa.json';
 
 const translations: Record<string, any> = {
     bn,
@@ -21,7 +20,6 @@ const translations: Record<string, any> = {
     gu,
     ne,
     ta,
-    pa,
 };
 
 const lang = Constants.expoConfig?.extra?.LANGUAGE || 'bn';

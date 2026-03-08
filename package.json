@@ -36,10 +36,7 @@
     "remove-client": "npx tsx scripts/remove-client.ts",
     "start:ta": "APP_LANG=ta APP_ENV=development expo start",
     "android:ta": "APP_LANG=ta APP_ENV=development expo run:android",
-    "prebuild:android:ta": "APP_LANG=ta APP_ENV=development expo prebuild --platform android --clean",
-    "start:pa": "APP_LANG=pa APP_ENV=development expo start",
-    "android:pa": "APP_LANG=pa APP_ENV=development expo run:android",
-    "prebuild:android:pa": "APP_LANG=pa APP_ENV=development expo prebuild --platform android --clean"
+    "prebuild:android:ta": "APP_LANG=ta APP_ENV=development expo prebuild --platform android --clean"
   },
   "dependencies": {
     "@expo/cli": "^54.0.10",

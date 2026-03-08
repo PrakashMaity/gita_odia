@@ -57,14 +57,8 @@ const CLIENTS: Record<string, ClientConfig> = {
     },
     ta: {
         lang: 'ta',
-        appName: 'Gita Tamil',
+        appName: 'gitatamil',
         fontFamily: 'NotoSerifTamil',
-        scriptDirection: 'ltr',
-    },
-    pa: {
-        lang: 'pa',
-        appName: 'Gita Pa',
-        fontFamily: 'NotoSerifGurmukhi',
         scriptDirection: 'ltr',
     },
 };

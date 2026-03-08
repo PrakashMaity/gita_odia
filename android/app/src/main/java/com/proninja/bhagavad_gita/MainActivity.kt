@@ -1,4 +1,4 @@
-package com.proninja.bhagavad_gita_pa
+package com.proninja.bhagavad_gita
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
