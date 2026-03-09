@@ -15,12 +15,12 @@ export default function IndexScreen() {
 
     const handleNavigation = async () => {
       try {
-        // Activate Pro for first-time users (1 day free Pro)
+        // Activate Pro for first-time users (15 min free Pro)
         await activateProForFirstTime();
-        
+
         // Small delay to ensure navigation is ready
         await new Promise(resolve => setTimeout(resolve, 50));
-        
+
         // Redirect based on onboarding status
         if (settings.onboardingCompleted) {
           router.replace('/(tabs)');

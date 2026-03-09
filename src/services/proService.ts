@@ -66,11 +66,11 @@ export async function activateProForFirstTime(): Promise<boolean> {
       return false; // Not first open
     }
 
-    // Activate Pro for 1 day
-    const proUntil = Date.now() + (PRO_DAYS_DURATION * 24 * 60 * 60 * 1000);
+    // Activate Pro for 15 minutes
+    const proUntil = Date.now() + (15 * 60 * 1000); // 15 minutes in milliseconds
     await AsyncStorage.setItem(PRO_UNTIL_KEY, proUntil.toString());
     await markFirstAppOpen();
-    
+
     return true;
   } catch (error) {
     console.error('Error activating Pro for first time:', error);
@@ -110,7 +110,7 @@ export async function getProStatus(): Promise<{
     const isActive = await isProActive();
     const proUntilData = await AsyncStorage.getItem(PRO_UNTIL_KEY);
     const proUntil = proUntilData ? parseInt(proUntilData, 10) : 0;
-    
+
     const remainingTime = isActive ? Math.max(0, proUntil - Date.now()) : 0;
     const remainingDays = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
     const remainingHours = Math.floor((remainingTime % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
@@ -160,7 +160,7 @@ async function markPointsAsRedeemed(pointsToRedeem: number): Promise<void> {
     const currentVerseShares = verseShares
       .filter(share => share.timestamp >= tenDaysAgo)
       .sort((a, b) => a.timestamp - b.timestamp);
-    
+
     const currentAppShares = appShares
       .filter(share => share.timestamp >= tenDaysAgo)
       .sort((a, b) => a.timestamp - b.timestamp);
@@ -207,7 +207,7 @@ export async function extendProWithPoints(): Promise<{ success: boolean; message
     // Import here to avoid circular dependency
     const { getPointsData } = await import('./shareAnalyticsService');
     const pointsData = await getPointsData();
-    
+
     if (pointsData.currentPoints < PRO_POINTS_THRESHOLD) {
       return {
         success: false,
@@ -227,9 +227,9 @@ export async function extendProWithPoints(): Promise<{ success: boolean; message
     // Get current Pro status
     const currentProUntil = await AsyncStorage.getItem(PRO_UNTIL_KEY);
     const currentProUntilTime = currentProUntil ? parseInt(currentProUntil, 10) : Date.now();
-    
+
     // Extend Pro for 1 day from current expiry (or from now if not active)
-    const newProUntil = currentProUntilTime > Date.now() 
+    const newProUntil = currentProUntilTime > Date.now()
       ? currentProUntilTime + (PRO_DAYS_DURATION * 24 * 60 * 60 * 1000)
       : Date.now() + (PRO_DAYS_DURATION * 24 * 60 * 60 * 1000);
 
@@ -266,7 +266,7 @@ export async function canExtendProWithPoints(): Promise<{
     const { getPointsData } = await import('./shareAnalyticsService');
     const pointsData = await getPointsData();
     const hasExtended = await AsyncStorage.getItem(PRO_POINTS_EXTENDED_KEY);
-    
+
     return {
       canExtend: pointsData.currentPoints >= PRO_POINTS_THRESHOLD && hasExtended !== 'true',
       hasEnoughPoints: pointsData.currentPoints >= PRO_POINTS_THRESHOLD,
@@ -304,15 +304,15 @@ export async function activateProMode(days: number = 30): Promise<{ success: boo
     // Get current Pro status
     const currentProUntil = await AsyncStorage.getItem(PRO_UNTIL_KEY);
     const currentProUntilTime = currentProUntil ? parseInt(currentProUntil, 10) : Date.now();
-    
+
     // Activate Pro for specified days from current expiry (or from now if not active)
-    const newProUntil = currentProUntilTime > Date.now() 
+    const newProUntil = currentProUntilTime > Date.now()
       ? currentProUntilTime + (days * 24 * 60 * 60 * 1000)
       : Date.now() + (days * 24 * 60 * 60 * 1000);
 
     // Save new Pro expiry
     await AsyncStorage.setItem(PRO_UNTIL_KEY, newProUntil.toString());
-    
+
     return {
       success: true,
       message: `Pro mode activated successfully for ${days} day(s).`,
@@ -334,13 +334,13 @@ export async function clearProMode(): Promise<{ success: boolean; message: strin
   try {
     // Remove Pro expiry
     await AsyncStorage.removeItem(PRO_UNTIL_KEY);
-    
+
     // Remove Pro points extension flag
     await AsyncStorage.removeItem(PRO_POINTS_EXTENDED_KEY);
-    
+
     // Note: We don't remove FIRST_APP_OPEN_KEY or PRO_POPUP_SHOWN_KEY
     // as those are for tracking first-time user experience
-    
+
     return {
       success: true,
       message: 'Pro mode cleared successfully.',

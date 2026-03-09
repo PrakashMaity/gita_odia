@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const TRANSLATIONS_DIR = path.join(__dirname, '../src/lib/i18n/translations');
 const SOURCE_LANG = 'bn';
-const TARGET_LANGS = ['as', 'en', 'gu', 'hi', 'ne', 'or'];
+const TARGET_LANGS = ['as', 'en', 'gu', 'hi', 'ne', 'or', 'ta'];
 
 // Language mapping for the translate package
 const LANG_MAP: Record<string, string> = {
@@ -21,6 +21,7 @@ const LANG_MAP: Record<string, string> = {
     hi: 'hi', // Hindi
     ne: 'ne', // Nepali
     or: 'or', // Odia
+    ta: 'ta', // Tamil
 };
 
 /**
@@ -52,32 +53,28 @@ function saveJson(filePath: string, data: any) {
  * Returns a tuple of [updatedTarget, missingPaths]
  */
 function findMissingAndMerge(source: any, target: any, currentPath = ''): [any, string[]] {
-    const result: any = { ...target };
+    const isSourceArray = Array.isArray(source);
+    const result: any = isSourceArray ? [...(target || [])] : { ...target };
     const missingPaths: string[] = [];
 
     for (const key of Object.keys(source)) {
         const newPath = currentPath ? `${currentPath}.${key}` : key;
+        const targetHasKey = result[key] !== undefined;
 
-        // Check if property is missing or is an empty string
-        if (result[key] === undefined || result[key] === '') {
-            if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
-                // It's a nested object entirely missing
-                result[key] = {};
+        if (!targetHasKey || result[key] === '') {
+            if (typeof source[key] === 'object' && source[key] !== null) {
+                // It's a nested object or array missing
+                result[key] = Array.isArray(source[key]) ? [] : {};
                 const [nestedResult, nestedMissing] = findMissingAndMerge(source[key], result[key], newPath);
                 result[key] = nestedResult;
                 missingPaths.push(...nestedMissing);
-            } else if (Array.isArray(source[key])) {
-                // For simplicity, we just copy arrays over and tag them for translation 
-                // (usually array contents need translation per item, but we'll collect the path)
-                result[key] = [...source[key]];
-                missingPaths.push(newPath);
             } else {
-                // It's a primitive missing value
+                // Primitive missing
                 result[key] = source[key];
                 missingPaths.push(newPath);
             }
-        } else if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
-            // Both have the object, deep search
+        } else if (typeof source[key] === 'object' && source[key] !== null) {
+            // Both have it, deep search
             const [nestedResult, nestedMissing] = findMissingAndMerge(source[key], result[key], newPath);
             result[key] = nestedResult;
             missingPaths.push(...nestedMissing);

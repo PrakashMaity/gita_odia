@@ -1,4 +1,3 @@
-import { useSemanticColors } from '@/hooks/useSemanticColors';
 import { LockedCardOverlay, PageHeader, ProUpgradeModal } from '@/components/shared';
 import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/heading';
@@ -7,7 +6,7 @@ import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { useProStatus } from '@/hooks/useProStatus';
-import { useThemeColors } from '@/hooks/useTheme';
+import { useSemanticColors } from '@/hooks/useSemanticColors';
 import i18n from '@/lib/i18n';
 import { WavePattern } from '@/lib/illustration/cardBackground';
 import { LayoutImages } from '@/lib/utils/assets';
@@ -20,7 +19,6 @@ import { Dimensions, ImageBackground, ScrollView } from 'react-native';
 type EkadashiItem = {
   name: string;
   englishDate?: string;
-  bengaliDate?: string;
   description?: string;
   benefits?: string[];
   dateTimestamp?: number;
@@ -29,12 +27,23 @@ type EkadashiItem = {
 export const AllEkadashiScreen: React.FC = () => {
   const { colors } = useSemanticColors();
   const { width, height } = Dimensions.get('window');
-  const theme = useThemeColors();
   const fonts = getLanguageFonts();
   const params = useLocalSearchParams();
-  const [selectedYear, setSelectedYear] = useState<string>(params.year as string || '1432');
   const { isPro } = useProStatus();
   const [showProModal, setShowProModal] = useState(false);
+
+  const currentYear = new Date().getFullYear().toString();
+  const [selectedYear, setSelectedYear] = useState<string>(params.year as string || currentYear);
+
+  const yearTabs = useMemo(() => {
+    const baseYear = parseInt(currentYear);
+    return [
+      baseYear.toString(),
+      (baseYear + 1).toString(),
+      (baseYear + 2).toString(),
+      (baseYear + 3).toString(),
+    ];
+  }, [currentYear]);
 
   // Get ekadashi data for the selected year
   const getEkadashiDataForYear = (year: string): EkadashiItem[] => {
@@ -58,9 +67,12 @@ export const AllEkadashiScreen: React.FC = () => {
     return getEkadashiDataForYear(selectedYear);
   }, [selectedYear]);
 
-  // Calculate upcoming Ekadashi
+  // Calculate upcoming Ekadashi based on start of day
   const { upcomingEkadashi, upcomingIndex } = useMemo(() => {
-    const now = Date.now();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset to midnight to cover the whole current day
+    const now = today.getTime();
+
     const upcoming = ekadashiList.find((ekadashi) => {
       if (!ekadashi.dateTimestamp) return false;
       return ekadashi.dateTimestamp >= now;
@@ -81,7 +93,7 @@ export const AllEkadashiScreen: React.FC = () => {
       resizeMode="cover"
       blurRadius={1.5}
     >
-      <Box className="flex-1" style={{ backgroundColor: theme.background.secondary + '80' }}>
+      <Box className="flex-1 bg-background-light/90 dark:bg-background-dark/90">
         <WavePattern width={width} height={height} />
 
         <PageHeader title={i18n.t('menu.allEkadashi')} />
@@ -91,15 +103,12 @@ export const AllEkadashiScreen: React.FC = () => {
           contentContainerStyle={{ paddingBottom: 64 }}
           showsVerticalScrollIndicator={false}
         >
-          <VStack className="px-4" space="lg">
+          <VStack className="px-5 pt-2" space="xl">
 
-            {/* Year Selection - Subtle & Professional */}
-            <Box
-              className="bg-white rounded-[28px] p-2 border border-primary-100 shadow-sm"
-              style={{ backgroundColor: theme.background.primary }}
-            >
+            {/* Year Selection - Sleek Segmented Control */}
+            <Box className="bg-background-0 dark:bg-secondary-900 rounded-full p-1.5 shadow-sm border border-primary-100 dark:border-secondary-800">
               <HStack space="xs">
-                {['1432', '1433', '1434', '1435'].map((year) => {
+                {yearTabs.map((year) => {
                   const isActive = selectedYear === year;
                   return (
                     <Pressable
@@ -108,11 +117,11 @@ export const AllEkadashiScreen: React.FC = () => {
                         setSelectedYear(year);
                         router.setParams({ year });
                       }}
-                      className={`flex-1 items-center justify-center py-2.5 rounded-[20px] ${isActive ? 'bg-primary-50' : 'bg-transparent'
+                      className={`flex-1 items-center justify-center py-3 rounded-full transition-all active:opacity-70 ${isActive ? 'bg-primary-500 shadow-sm' : 'bg-transparent'
                         }`}
                     >
                       <Text
-                        className={`text-[14px] font-bold ${isActive ? 'text-primary-800' : 'text-neutral-400'
+                        className={`text-[15px] font-bold tracking-wide ${isActive ? 'text-white' : 'text-typography-500 dark:text-typography-400'
                           }`}
                         style={{ fontFamily: fonts.regional_secondary }}
                       >
@@ -126,20 +135,17 @@ export const AllEkadashiScreen: React.FC = () => {
 
             {/* Premium Hero section for Upcoming Ekadashi */}
             {upcomingEkadashi && (
-              <Box
-                className="rounded-[32px] p-6 border border-primary-200/50 shadow-md relative overflow-hidden"
-                style={{ backgroundColor: theme.background.primary }}
-              >
-                <Box className="absolute -bottom-6 -right-6 opacity-[0.04]" pointerEvents="none">
-                  <MaterialIcons name="event-available" size={140} color="#000" />
+              <Box className="rounded-[32px] p-7 border border-primary-200 shadow-hard-2 relative overflow-hidden bg-primary-50 dark:bg-secondary-900">
+                <Box className="absolute -bottom-8 -right-8 opacity-10 dark:opacity-5" pointerEvents="none">
+                  <MaterialIcons name="event-available" size={160} color={colors.primary600} />
                 </Box>
 
-                <HStack className="items-center mb-4" space="sm">
-                  <Box className="w-10 h-10 bg-primary-50 rounded-[16px] items-center justify-center">
+                <HStack className="items-center mb-5" space="sm">
+                  <Box className="w-10 h-10 bg-primary-100 dark:bg-primary-900 rounded-2xl items-center justify-center shadow-soft-1">
                     <FontAwesome5 name="star" size={16} color={colors.primary600} />
                   </Box>
                   <Text
-                    className="text-primary-800 font-extrabold text-[12px] uppercase tracking-widest"
+                    className="text-primary-800 dark:text-primary-300 font-extrabold text-[13px] uppercase tracking-[0.2em]"
                     style={{ fontFamily: fonts.regional_secondary }}
                   >
                     {i18n.t('allEkadashi.upcomingTitle')}
@@ -147,29 +153,22 @@ export const AllEkadashiScreen: React.FC = () => {
                 </HStack>
 
                 <Heading
-                  className="text-neutral-900 text-3xl font-extrabold tracking-tight mb-4"
+                  className="text-primary-950 dark:text-white text-[32px] leading-[38px] font-extrablack tracking-tight mb-5"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {upcomingEkadashi.name}
                 </Heading>
 
                 <VStack space="sm" className="mb-2">
-                  <HStack className="items-center" space="xs">
-                    <Feather name="calendar" size={14} color={colors.primary600} />
+                  <HStack className="items-center" space="md">
+                    <Box className="w-8 h-8 rounded-full bg-white dark:bg-secondary-800 items-center justify-center shadow-sm">
+                      <Feather name="calendar" size={14} color={colors.primary600} />
+                    </Box>
                     <Text
-                      className="text-neutral-500 text-sm"
+                      className="text-typography-700 dark:text-typography-300 text-[15px] font-medium"
                       style={{ fontFamily: fonts.regional_secondary }}
                     >
                       {upcomingEkadashi.englishDate}
-                    </Text>
-                  </HStack>
-                  <HStack className="items-center" space="xs">
-                    <Feather name="clock" size={14} color={colors.primary600} />
-                    <Text
-                      className="text-neutral-500 text-sm"
-                      style={{ fontFamily: fonts.regional_secondary }}
-                    >
-                      {upcomingEkadashi.bengaliDate}
                     </Text>
                   </HStack>
                 </VStack>
@@ -177,31 +176,28 @@ export const AllEkadashiScreen: React.FC = () => {
             )}
 
             {/* Intro Text */}
-            <Box
-              className="rounded-[24px] p-5 border border-primary-100 shadow-sm"
-              style={{ backgroundColor: theme.background.primary }}
-            >
+            <Box className="rounded-3xl p-6 border border-outline-100 dark:border-outline-800 shadow-soft-1 bg-background-0 dark:bg-secondary-900">
               <Text
-                className="text-neutral-600 text-[15px] leading-6 italic text-center"
+                className="text-typography-600 dark:text-typography-400 text-[15.5px] leading-[26px] italic text-center"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
-                {i18n.t('allEkadashi.intro')}
+                &quot;{i18n.t('allEkadashi.intro')}&quot;
               </Text>
             </Box>
 
             {/* List Heading */}
-            <HStack className="items-center justify-between mt-4 px-1">
+            <HStack className="items-center justify-between mt-2 px-2">
               <Heading
-                className="text-neutral-800 text-[20px] font-extrabold tracking-tight"
+                className="text-typography-900 dark:text-white text-[22px] font-extrablack tracking-tight"
                 style={{ fontFamily: fonts.regional_secondary }}
               >
                 {i18n.t('allEkadashi.listTitle')}
               </Heading>
-              <Box className="flex-1 h-[1px] bg-primary-100 ml-4 opacity-50" />
+              <Box className="flex-1 h-[2px] bg-primary-100 dark:bg-secondary-800 ml-5 rounded-full" />
             </HStack>
 
             {/* Ekadashi List Cards */}
-            <VStack space="sm">
+            <VStack space="md">
               {ekadashiList.map((ekadashi, index) => {
                 const isUpcoming = index === upcomingIndex;
                 const isLocked = !isPro && index >= 3;
@@ -212,14 +208,16 @@ export const AllEkadashiScreen: React.FC = () => {
                     isLocked={isLocked}
                     onPress={() => setShowProModal(true)}
                   >
-                    <Box
-                      className={`rounded-[24px] p-4 border shadow-sm flex-row items-center relative overflow-hidden ${isUpcoming ? 'border-primary-400' : 'border-primary-100/50'
+                    <Pressable
+                      className={`rounded-3xl p-5 border shadow-soft-1 flex-row items-center relative overflow-hidden transition-all active:opacity-80 active:scale-[0.98] ${isUpcoming ? 'border-primary-400 bg-primary-50 dark:bg-secondary-800' : 'border-outline-100 dark:border-outline-800 bg-background-0 dark:bg-secondary-900'
                         }`}
-                      style={{ backgroundColor: theme.background.primary }}
+                      onPress={() => {
+                        if (isLocked) setShowProModal(true);
+                      }}
                     >
                       {isUpcoming && (
-                        <Box className="absolute top-0 right-0 px-3 py-1 bg-primary-500 rounded-bl-[12px]">
-                          <Text className="text-[10px] text-white font-black uppercase">
+                        <Box className="absolute top-0 right-0 px-4 py-1.5 bg-primary-500 rounded-bl-2xl shadow-sm">
+                          <Text className="text-[10px] text-white font-black uppercase tracking-wider">
                             {i18n.t('allEkadashi.upcomingSubtitle')}
                           </Text>
                         </Box>
@@ -227,11 +225,11 @@ export const AllEkadashiScreen: React.FC = () => {
 
                       {/* Index Badge */}
                       <Box
-                        className={`w-10 h-10 rounded-[14px] items-center justify-center mr-4 ${isUpcoming ? 'bg-primary-100' : 'bg-neutral-50'
+                        className={`w-12 h-12 rounded-2xl items-center justify-center mr-5 shadow-sm ${isUpcoming ? 'bg-primary-100 dark:bg-primary-900' : 'bg-background-50 dark:bg-secondary-800'
                           }`}
                       >
                         <Text
-                          className={`text-sm font-black ${isUpcoming ? 'text-primary-800' : 'text-neutral-400'
+                          className={`text-[16px] font-extrablack ${isUpcoming ? 'text-primary-800 dark:text-primary-300' : 'text-typography-500 dark:text-typography-400'
                             }`}
                         >
                           {index + 1}
@@ -239,75 +237,75 @@ export const AllEkadashiScreen: React.FC = () => {
                       </Box>
 
                       {/* Info */}
-                      <VStack className="flex-1 justify-center">
+                      <VStack className="flex-1 justify-center pr-2">
                         <Text
-                          className="text-neutral-800 font-extrabold text-[16px] tracking-tight mb-1"
+                          className="text-typography-900 dark:text-white font-extrablack text-[17px] tracking-tight mb-1.5"
                           style={{ fontFamily: fonts.regional_secondary }}
                           numberOfLines={1}
                         >
                           {ekadashi.name}
                         </Text>
-                        <Text
-                          className="text-neutral-500 text-[12px]"
-                          style={{ fontFamily: fonts.regional_secondary }}
-                        >
-                          {ekadashi.englishDate} • {ekadashi.bengaliDate}
-                        </Text>
+                        <HStack className="items-center" space="xs">
+                          <Feather name="calendar" size={12} color={isUpcoming ? colors.primary600 : "#9CA3AF"} />
+                          <Text
+                            className="text-typography-500 dark:text-typography-400 text-[13px] font-medium"
+                            style={{ fontFamily: fonts.regional_secondary }}
+                          >
+                            {ekadashi.englishDate}
+                          </Text>
+                        </HStack>
                       </VStack>
 
                       {/* Action Icon */}
-                      <Box className="w-8 h-8 rounded-full items-center justify-center bg-primary-50/50">
+                      <Box className={`w-9 h-9 rounded-full items-center justify-center ${isUpcoming ? 'bg-primary-100 dark:bg-primary-900' : 'bg-background-50 dark:bg-secondary-800'
+                        }`}>
                         <MaterialIcons
                           name="arrow-forward-ios"
                           size={12}
-                          color={isUpcoming ? colors.primary600 : "#D1D5DB"}
+                          color={isUpcoming ? colors.primary600 : "#9CA3AF"}
                         />
                       </Box>
-                    </Box>
+                    </Pressable>
                   </LockedCardOverlay>
                 );
               })}
             </VStack>
 
             {/* Significance & Instructions */}
-            <VStack space="md" className="mt-6">
-              <Box
-                className="rounded-[28px] p-6 border border-primary-100 shadow-sm relative overflow-hidden"
-                style={{ backgroundColor: theme.background.primary }}
-              >
-                <Box className="absolute -bottom-4 -right-4 opacity-[0.03]" pointerEvents="none">
-                  <FontAwesome5 name="info-circle" size={100} color="#000" />
+            <VStack space="lg" className="mt-8">
+              <Box className="rounded-3xl p-7 border border-primary-100 dark:border-secondary-800 shadow-soft-2 relative overflow-hidden bg-background-0 dark:bg-secondary-900">
+                <Box className="absolute -bottom-6 -right-6 opacity-5 dark:opacity-10" pointerEvents="none">
+                  <FontAwesome5 name="om" size={120} color={colors.primary600} />
                 </Box>
                 <Heading
-                  className="text-neutral-800 font-extrabold text-[18px] mb-3"
+                  className="text-primary-900 dark:text-primary-300 font-extrablack text-[20px] mb-4"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('allEkadashi.significanceTitle')}
                 </Heading>
                 <Text
-                  className="text-neutral-500 text-[14px] leading-6"
+                  className="text-typography-600 dark:text-typography-300 text-[15px] leading-[26px]"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('allEkadashi.significanceText')}
                 </Text>
               </Box>
 
-              <Box
-                className="rounded-[28px] p-6 border border-primary-100 shadow-sm relative overflow-hidden mb-8"
-                style={{ backgroundColor: theme.background.primary }}
-              >
+              <Box className="rounded-3xl p-7 border border-outline-100 dark:border-outline-800 shadow-soft-1 relative overflow-hidden mb-10 bg-background-0 dark:bg-secondary-900">
                 <Heading
-                  className="text-neutral-800 font-extrabold text-[18px] mb-4"
+                  className="text-typography-900 dark:text-white font-extrablack text-[20px] mb-6"
                   style={{ fontFamily: fonts.regional_secondary }}
                 >
                   {i18n.t('allEkadashi.instructionsTitle')}
                 </Heading>
-                <VStack space="md">
+                <VStack space="lg">
                   {(i18n.t('allEkadashi.instructions') as string[]).map((instruction, index) => (
-                    <HStack key={index} space="sm" className="items-start">
-                      <Text className="text-primary-600 font-black mt-1">•</Text>
+                    <HStack key={index} space="md" className="items-start">
+                      <Box className="w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900 items-center justify-center mt-0.5">
+                        <Text className="text-primary-700 dark:text-primary-300 font-black text-[10px]">{index + 1}</Text>
+                      </Box>
                       <Text
-                        className="flex-1 text-neutral-500 text-sm leading-6"
+                        className="flex-1 text-typography-600 dark:text-typography-300 text-[15px] leading-[26px]"
                         style={{ fontFamily: fonts.regional_secondary }}
                       >
                         {instruction}

@@ -1,6 +1,7 @@
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
 import { HomeImages } from '@/lib/utils/assets';
+import { useColorScheme } from 'nativewind';
 import React from 'react';
 import {
   ImageBackground,
@@ -39,7 +40,9 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   imageStyle,
   testID,
 }) => {
-  const headerOverlayColor = '#ffffff'; // White overlay for light theme
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === 'dark';
+  const headerOverlayColor = isDark ? '#1C1917' : '#ffffff';
 
   const renderDefaultText = () => {
     if (!title && !subtitle) {
@@ -50,7 +53,8 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
       <Box className="flex-shrink">
         {title ? (
           <Text
-            className="text-primary-950 text-lg font-bold font-regional_secondary mb-1"
+            className="text-typography-950 dark:text-white text-xl font-extrablack tracking-tight mb-1"
+            style={{ fontFamily: 'regional-secondary' }}
           >
             {title}
           </Text>
@@ -58,7 +62,8 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
 
         {subtitle ? (
           <Text
-            className="text-primary-600 text-sm font-regional_secondary"
+            className="text-typography-500 dark:text-typography-400 text-sm font-medium"
+            style={{ fontFamily: 'regional-secondary' }}
           >
             {subtitle}
           </Text>
@@ -79,9 +84,9 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = ({
         resizeMode="cover"
         blurRadius={blurRadius}
       >
-        <View pointerEvents="none" className="absolute inset-0 opacity-85" style={{ backgroundColor: headerOverlayColor }} />
+        <View pointerEvents="none" className="absolute inset-0 opacity-90 dark:opacity-95" style={{ backgroundColor: headerOverlayColor }} />
         <Box
-          className={`flex-row items-center justify-between py-2 px-4 w-full ${contentClassName}`}
+          className={`flex-row items-center justify-between pt-1 pb-4 px-5 w-full ${contentClassName}`}
         >
           <Box
             className={`flex-1 flex-row items-center ${leftSectionClassName}`}

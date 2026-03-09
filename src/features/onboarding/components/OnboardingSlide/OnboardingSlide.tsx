@@ -3,7 +3,7 @@ import { OnboardingSlide as OnboardingSlideType } from '@/types/screen.interface
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Animated, Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const fonts = getLanguageFonts();
@@ -155,71 +155,77 @@ export const OnboardingSlide: React.FC<OnboardingSlideProps> = ({ slide, slideIn
 
       {/* ─── Text Card with Glassmorphism ─── */}
       <View style={styles.textCard}>
-        {/* Animated icon badge */}
-        <Animated.View
-          style={[
-            styles.iconBadge,
-            { transform: [{ scale: badgeScale }] },
-          ]}
+        <ScrollView
+          contentContainerStyle={styles.textCardContent}
+          showsVerticalScrollIndicator={false}
+          bounces={true}
         >
-          <LinearGradient
-            colors={['#FBBF24', '#F59E0B', '#D97706']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.iconBadgeGradient}
+          {/* Animated icon badge */}
+          <Animated.View
+            style={[
+              styles.iconBadge,
+              { transform: [{ scale: badgeScale }] },
+            ]}
           >
-            <MaterialIcons name={iconConfig.name} size={20} color="#FFFFFF" />
-          </LinearGradient>
-        </Animated.View>
+            <LinearGradient
+              colors={['#FBBF24', '#F59E0B', '#D97706']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.iconBadgeGradient}
+            >
+              <MaterialIcons name={iconConfig.name} size={20} color="#FFFFFF" />
+            </LinearGradient>
+          </Animated.View>
 
-        {/* Title */}
-        <Animated.Text
-          style={[
-            styles.title,
-            {
-              opacity: titleOpacity,
-              transform: [{ translateY: titleSlide }],
-            },
-          ]}
-        >
-          {slide.title}
-        </Animated.Text>
+          {/* Title */}
+          <Animated.Text
+            style={[
+              styles.title,
+              {
+                opacity: titleOpacity,
+                transform: [{ translateY: titleSlide }],
+              },
+            ]}
+          >
+            {slide.title}
+          </Animated.Text>
 
-        {/* Subtitle */}
-        <Animated.Text
-          style={[
-            styles.subtitle,
-            {
-              opacity: subtitleOpacity,
-              transform: [{ translateY: subtitleSlide }],
-            },
-          ]}
-        >
-          {slide.subtitle}
-        </Animated.Text>
+          {/* Subtitle */}
+          <Animated.Text
+            style={[
+              styles.subtitle,
+              {
+                opacity: subtitleOpacity,
+                transform: [{ translateY: subtitleSlide }],
+              },
+            ]}
+          >
+            {slide.subtitle}
+          </Animated.Text>
 
-        {/* Golden divider */}
-        <View style={styles.dividerContainer}>
-          <LinearGradient
-            colors={['transparent', '#D97706', '#FBBF24', '#D97706', 'transparent']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.divider}
-          />
-        </View>
+          {/* Golden divider */}
+          <View style={styles.dividerContainer}>
+            <LinearGradient
+              colors={['transparent', '#D97706', '#FBBF24', '#D97706', 'transparent']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.divider}
+            />
+          </View>
 
-        {/* Description */}
-        <Animated.Text
-          style={[
-            styles.description,
-            {
-              opacity: descOpacity,
-              transform: [{ translateY: descSlide }],
-            },
-          ]}
-        >
-          {slide.description}
-        </Animated.Text>
+          {/* Description */}
+          <Animated.Text
+            style={[
+              styles.description,
+              {
+                opacity: descOpacity,
+                transform: [{ translateY: descSlide }],
+              },
+            ]}
+          >
+            {slide.description}
+          </Animated.Text>
+        </ScrollView>
       </View>
     </View>
   );
@@ -263,9 +269,6 @@ const styles = StyleSheet.create({
   textCard: {
     backgroundColor: COLORS.cardBg,
     borderRadius: 28,
-    paddingTop: 32,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
     borderWidth: 1,
     borderColor: COLORS.cardBorder,
     shadowColor: COLORS.imageShadow,
@@ -273,7 +276,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 16,
     elevation: 6,
+    width: '100%',
+    maxHeight: height * 0.42,
+    overflow: 'hidden',
+  },
+  textCardContent: {
+    paddingTop: 32,
+    paddingHorizontal: 24,
+    paddingBottom: 24,
     alignItems: 'center',
+    flexGrow: 1,
   },
   // ─── Icon Badge ───
   iconBadge: {

@@ -146,10 +146,7 @@ module.exports = function ({ config = {} }) {
       backgroundColor: COLORS.primary,
     },
     edgeToEdgeEnabled: true,
-    permissions: [
-      'android.permission.RECORD_AUDIO',
-      'android.permission.MODIFY_AUDIO_SETTINGS',
-    ],
+    permissions: [],
     googleServicesFile: PATHS.googleServicesJson,
   };
 
