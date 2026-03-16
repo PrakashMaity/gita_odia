@@ -36,7 +36,6 @@ const PATHS = {
     clientConfig: path.join(ROOT, 'src/config/clientConfig.ts'),
     easJson: path.join(ROOT, 'eas.json'),
     packageJson: path.join(ROOT, 'package.json'),
-    googleServices: path.join(ROOT, 'google-services.json'),
 };
 
 // ─── Protected languages that cannot be removed ──────────────
@@ -338,46 +337,6 @@ function unpatchPackageJson(lang: string) {
     }
 }
 
-function unpatchGoogleServices(lang: string) {
-    console.log('\n🔧 Unpatching google-services.json...');
-
-    if (!fs.existsSync(PATHS.googleServices)) {
-        console.log('  ⚠️  google-services.json not found. Skipping.');
-        return;
-    }
-
-    const gs = readJson(PATHS.googleServices);
-
-    // We need the package suffix. We can read it from env file if it exists,
-    // otherwise try to guess it.
-    let packageName = `com.proninja.bhagavad_gita_${lang}`;
-    const envFile = path.join(ROOT, `.env.${lang}.development`);
-
-    if (fs.existsSync(envFile)) {
-        const lines = readText(envFile).split('\n');
-        const pkgLine = lines.find(l => l.startsWith('APP_PACKAGE='));
-        if (pkgLine) {
-            packageName = pkgLine.split('=')[1].trim();
-        }
-    }
-
-    if (!gs.client) {
-        console.log('  ⚠️  No clients array found in google-services.json.');
-        return;
-    }
-
-    const originalLength = gs.client.length;
-    gs.client = gs.client.filter(
-        (c: any) => c.client_info?.android_client_info?.package_name !== packageName
-    );
-
-    if (gs.client.length < originalLength) {
-        writeJson(PATHS.googleServices, gs);
-        console.log(`  ✅ Removed client entry for "${packageName}"`);
-    } else {
-        console.log(`  ⚠️  Package "${packageName}" not found. Skipping.`);
-    }
-}
 
 // ─── Step 4: Print Summary ──────────────────────────────────
 
@@ -426,7 +385,6 @@ async function main() {
         unpatchClientConfig(lang);
         unpatchEasJson(lang);
         unpatchPackageJson(lang);
-        unpatchGoogleServices(lang);
 
         const elapsed = Math.round((Date.now() - startTime) / 1000);
         console.log(`\n⏱️  Total time: ${elapsed} seconds`);

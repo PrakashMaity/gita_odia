@@ -6,10 +6,6 @@ import { useRatingPrompter } from '@/hooks/useRatingPrompter';
 import { ThemeProvider, useThemeColors } from '@/hooks/useTheme';
 import { ClientFonts } from '@/lib/utils/assets';
 import { initializeAds } from '@/services/ads/initializeAds';
-import { initializeDeviceRegistration, syncDeviceDataWhenOnline } from '@/services/deviceRegistration';
-import { initializeFirebase } from '@/services/firebase/initializeFirebase';
-import { fetchNotificationsWithRetry } from '@/services/notificationService';
-import { registerDeviceForPushNotifications, setupFCMNotificationHandlers } from '@/services/pushNotifications';
 import { useChapterStore } from '@/store';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -54,12 +50,6 @@ export default function RootLayout() {
 
   // Initialize rating prompter - automatically shows rating after 5 minutes of usage
   useRatingPrompter();
-  // Initialize Firebase
-  useEffect(() => {
-    initializeFirebase();
-    // Set up FCM notification handlers
-    setupFCMNotificationHandlers();
-  }, []);
 
 
   // Initialize Google Mobile Ads
@@ -69,60 +59,15 @@ export default function RootLayout() {
     });
   }, []);
 
-  // Initialize device registration
-  useEffect(() => {
-    initializeDeviceRegistration();
-  }, []);
 
-  // Register device for push notifications via Firebase FCM
-  useEffect(() => {
-    // Android 13+ requires runtime permission; iOS permissions are handled by FCM
-    if (Platform.OS === 'android') {
-      PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
-      )
-        .then((granted) => {
-          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            registerDeviceForPushNotifications().catch((error) => {
-              console.error('Error registering push notifications:', error);
-            });
-          }
-        })
-        .catch((error) => {
-          console.error('Error requesting notification permission:', error);
-        });
-    } else {
-      registerDeviceForPushNotifications().catch((error) => {
-        console.error('Error registering push notifications:', error);
-      });
-    }
-  }, []);
 
-  // Sync device data periodically and when app comes to foreground
-  useEffect(() => {
-    // Initial sync attempt
-    const syncInterval = setInterval(() => {
-      syncDeviceDataWhenOnline();
-    }, 300000); // Sync every 5 minutes (reduced from 1 minute for better battery life)
-
-    // Also sync when app comes to foreground (handled by syncDeviceDataWhenOnline internally)
-
-    return () => {
-      clearInterval(syncInterval);
-    };
-  }, []);
 
   // Initialize app resources
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        // Load chapters and notifications in parallel
-        await Promise.all([
-          loadAllChapters(),
-          fetchNotificationsWithRetry().catch(() => {
-            // Silently fail for notifications - they'll be fetched when user visits the page
-          }),
-        ]);
+        // Load chapters
+        await loadAllChapters();
       } catch (error) {
         console.error('Error loading app resources:', error);
       } finally {

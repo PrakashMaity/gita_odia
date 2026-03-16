@@ -46,16 +46,20 @@ export const formatDate = (
 };
 
 /**
- * Formats a date to show last read date (short format)
+ * Formats a date to show last read date in simple English (MMM DD, YYYY)
+ * This ensures consistency across all clients regardless of their locale settings.
  * @param timestamp - Unix timestamp in milliseconds
- * @returns Formatted date string in short format
+ * @returns Formatted date string (e.g., "Jan 12, 2024")
  */
 export const formatLastReadDate = (timestamp: number): string => {
-  return formatDate(timestamp, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  const date = new Date(timestamp);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  
+  return `${month} ${day}, ${year}`;
 };
 
 /**

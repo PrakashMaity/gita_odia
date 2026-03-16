@@ -46,7 +46,6 @@ const PATHS = {
     clientConfig: path.join(ROOT, 'src/config/clientConfig.ts'),
     easJson: path.join(ROOT, 'eas.json'),
     packageJson: path.join(ROOT, 'package.json'),
-    googleServices: path.join(ROOT, 'google-services.json'),
 };
 
 // ─── Font Suggestions ────────────────────────────────────────
@@ -270,12 +269,10 @@ function createEnvFiles(input: ClientInput) {
 
     // Read shared keys from bn development env
     const bnEnv = parseEnvFile(PATHS.envBnDev);
-    const supabaseUrl = bnEnv['SUPABASE_URL'] || 'https://your-project.supabase.co';
-    const supabaseKey = bnEnv['SUPABASE_ANON_KEY'] || 'your-anon-key';
     const rcAndroid = bnEnv['REVENUECAT_ANDROID_API_KEY'] || 'your-android-key';
     const rcIos = bnEnv['REVENUECAT_IOS_API_KEY'] || 'your-ios-key';
 
-    console.log('  📋 Reusing Supabase & RevenueCat keys from bn client');
+    console.log('  📋 Reusing RevenueCat keys from bn client');
 
     const envContent = () => `# Client Identity
 APP_LANG=${input.lang}
@@ -292,10 +289,6 @@ INTERSTITIAL_AD_UNIT_ID=ca-app-pub-3940256099942544/1033173712
 REWARDED_AD_UNIT_ID=ca-app-pub-3940256099942544/5224354917
 REWARDED_INTERSTITIAL_AD_UNIT_ID=ca-app-pub-3940256099942544/5354046379
 APP_OPEN_AD_UNIT_ID=ca-app-pub-3940256099942544/9257395921
-
-# Supabase (shared across clients)
-SUPABASE_URL=${supabaseUrl}
-SUPABASE_ANON_KEY=${supabaseKey}
 
 # RevenueCat (shared across clients)
 REVENUECAT_ANDROID_API_KEY=${rcAndroid}
@@ -675,41 +668,6 @@ function patchPackageJson(input: ClientInput) {
     }
 }
 
-function patchGoogleServices(input: ClientInput) {
-    console.log('\n🔧 Patching google-services.json...');
-
-    if (!fs.existsSync(PATHS.googleServices)) {
-        console.log('  ⚠️  google-services.json not found. Skipping.');
-        return;
-    }
-
-    const gs = readJson(PATHS.googleServices);
-    const packageName = `com.proninja.${input.packageSuffix}`;
-
-    // Check if already exists
-    const exists = gs.client?.some(
-        (c: any) => c.client_info?.android_client_info?.package_name === packageName
-    );
-
-    if (exists) {
-        console.log(`  ⚠️  Package "${packageName}" already registered. Skipping.`);
-        return;
-    }
-
-    // Clone the first client entry and change the package name
-    if (!gs.client || gs.client.length === 0) {
-        console.error('  ❌ No existing client entries to clone from.');
-        return;
-    }
-
-    const template = JSON.parse(JSON.stringify(gs.client[0]));
-    template.client_info.android_client_info.package_name = packageName;
-
-    gs.client.push(template);
-    writeJson(PATHS.googleServices, gs);
-    console.log(`  ✅ Added client entry for "${packageName}"`);
-    console.log('  💡 Later, register this app properly in Firebase Console');
-}
 
 // ─── Step 7: Print Summary ───────────────────────────────────
 
@@ -784,7 +742,6 @@ async function main() {
         patchClientConfig(input);
         patchEasJson(input);
         patchPackageJson(input);
-        patchGoogleServices(input);
 
         const elapsed = Math.round((Date.now() - startTime) / 1000);
         console.log(`\n⏱️  Total time: ${elapsed} seconds`);

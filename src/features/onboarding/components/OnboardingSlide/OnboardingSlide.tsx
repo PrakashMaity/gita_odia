@@ -1,11 +1,14 @@
+import { Box } from '@/components/ui/box';
+import { Text } from '@/components/ui/text';
+import { VStack } from '@/components/ui/vstack';
 import { getLanguageFonts } from '@/types/font.interface';
 import { OnboardingSlide as OnboardingSlideType } from '@/types/screen.interface';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Dimensions, Image, ScrollView, StyleSheet, View } from 'react-native';
+import { Animated, Dimensions, Image, Platform, ScrollView } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const fonts = getLanguageFonts();
 
 // Slide-specific icon configs
@@ -17,14 +20,10 @@ const SLIDE_ICONS: { name: keyof typeof MaterialIcons.glyphMap; color: string }[
 
 // Premium color tokens
 const COLORS = {
-  cardBg: 'rgba(255,255,255,0.55)',
-  cardBorder: 'rgba(255,255,255,0.75)',
   title: '#1A0E0A',             // Very dark brown
   subtitle: '#92400E',          // Deep amber
   description: '#5D4037',       // Rich brown
   divider: '#D97706',           // Golden amber
-  iconBadgeBg: '#FBBF24',       // Golden yellow
-  iconBadgeBorder: '#F59E0B',
   imageShadow: '#B45309',
 };
 
@@ -59,68 +58,22 @@ export const OnboardingSlide: React.FC<OnboardingSlideProps> = ({ slide, slideIn
 
     // Staggered premium entrance
     Animated.stagger(100, [
-      // Image zoom-in
       Animated.parallel([
-        Animated.spring(imageScale, {
-          toValue: 1,
-          tension: 50,
-          friction: 7,
-          useNativeDriver: true,
-        }),
-        Animated.timing(imageOpacity, {
-          toValue: 1,
-          duration: 500,
-          useNativeDriver: true,
-        }),
+        Animated.spring(imageScale, { toValue: 1, tension: 50, friction: 7, useNativeDriver: true }),
+        Animated.timing(imageOpacity, { toValue: 1, duration: 500, useNativeDriver: true }),
       ]),
-      // Icon badge bounce
-      Animated.spring(badgeScale, {
-        toValue: 1,
-        tension: 100,
-        friction: 6,
-        useNativeDriver: true,
-      }),
-      // Title
+      Animated.spring(badgeScale, { toValue: 1, tension: 100, friction: 6, useNativeDriver: true }),
       Animated.parallel([
-        Animated.spring(titleSlide, {
-          toValue: 0,
-          tension: 50,
-          friction: 9,
-          useNativeDriver: true,
-        }),
-        Animated.timing(titleOpacity, {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true,
-        }),
+        Animated.spring(titleSlide, { toValue: 0, tension: 50, friction: 9, useNativeDriver: true }),
+        Animated.timing(titleOpacity, { toValue: 1, duration: 400, useNativeDriver: true }),
       ]),
-      // Subtitle
       Animated.parallel([
-        Animated.spring(subtitleSlide, {
-          toValue: 0,
-          tension: 50,
-          friction: 9,
-          useNativeDriver: true,
-        }),
-        Animated.timing(subtitleOpacity, {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true,
-        }),
+        Animated.spring(subtitleSlide, { toValue: 0, tension: 50, friction: 9, useNativeDriver: true }),
+        Animated.timing(subtitleOpacity, { toValue: 1, duration: 400, useNativeDriver: true }),
       ]),
-      // Description
       Animated.parallel([
-        Animated.spring(descSlide, {
-          toValue: 0,
-          tension: 50,
-          friction: 9,
-          useNativeDriver: true,
-        }),
-        Animated.timing(descOpacity, {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true,
-        }),
+        Animated.spring(descSlide, { toValue: 0, tension: 50, friction: 9, useNativeDriver: true }),
+        Animated.timing(descOpacity, { toValue: 1, duration: 400, useNativeDriver: true }),
       ]),
     ]).start();
   }, [slide.id]);
@@ -128,218 +81,121 @@ export const OnboardingSlide: React.FC<OnboardingSlideProps> = ({ slide, slideIn
   const iconConfig = SLIDE_ICONS[slideIndex] || SLIDE_ICONS[0];
 
   return (
-    <View style={styles.container}>
+    <Box className="flex-1 w-full px-6 py-2 pb-6 justify-center">
       {/* ─── Hero Image ─── */}
       <Animated.View
-        style={[
-          styles.imageWrapper,
-          {
-            opacity: imageOpacity,
-            transform: [{ scale: imageScale }],
-          },
-        ]}
+        className="flex-1 items-center justify-center min-h-[40%] w-full"
+        style={{
+          opacity: imageOpacity,
+          transform: [{ scale: imageScale }],
+          zIndex: 1,
+        }}
       >
-        <View style={styles.imageContainer}>
+        <Box
+          className="w-full aspect-[4/3] max-h-[340px] rounded-[28px] overflow-hidden bg-white/30 border-2 border-white/60"
+          style={{
+            shadowColor: COLORS.imageShadow,
+            shadowOffset: { width: 0, height: 10 },
+            shadowOpacity: 0.3,
+            shadowRadius: 20,
+            elevation: 12,
+          }}
+        >
           <Image
             source={slide.image}
-            style={styles.image}
+            className="w-full h-full"
             resizeMode="cover"
           />
-          {/* Bottom gradient overlay for depth */}
           <LinearGradient
             colors={['transparent', 'rgba(255,208,107,0.5)']}
-            style={styles.imageGradient}
+            className="absolute bottom-0 left-0 right-0 h-[45%]"
           />
-        </View>
+        </Box>
       </Animated.View>
 
       {/* ─── Text Card with Glassmorphism ─── */}
-      <View style={styles.textCard}>
+      <Box
+        className="w-full bg-white/55 rounded-[28px] border border-white/75 shrink mt-6 overflow-hidden max-h-[50%]"
+        style={{
+          shadowColor: COLORS.imageShadow,
+          shadowOffset: { width: 0, height: 6 },
+          shadowOpacity: Platform.OS === 'ios' ? 0.12 : 0.4,
+          shadowRadius: 16,
+          elevation: 6,
+          zIndex: 2,
+        }}
+      >
         <ScrollView
-          contentContainerStyle={styles.textCardContent}
+          contentContainerStyle={{ alignItems: 'center', paddingHorizontal: 24, paddingTop: 32, paddingBottom: 32, flexGrow: 1 }}
           showsVerticalScrollIndicator={false}
           bounces={true}
         >
           {/* Animated icon badge */}
-          <Animated.View
-            style={[
-              styles.iconBadge,
-              { transform: [{ scale: badgeScale }] },
-            ]}
+          {/* <Animated.View
+            className="mb-3.5 z-10"
+            style={{
+              transform: [{ scale: badgeScale }],
+              shadowColor: '#D97706',
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: Platform.OS === 'ios' ? 0.4 : 0.8,
+              shadowRadius: 8,
+              elevation: 6,
+            }}
           >
             <LinearGradient
               colors={['#FBBF24', '#F59E0B', '#D97706']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
-              style={styles.iconBadgeGradient}
+              className="w-12 h-12 rounded-full items-center justify-center border-2 border-white/50"
             >
               <MaterialIcons name={iconConfig.name} size={20} color="#FFFFFF" />
             </LinearGradient>
-          </Animated.View>
+          </Animated.View> */}
 
-          {/* Title */}
-          <Animated.Text
-            style={[
-              styles.title,
-              {
-                opacity: titleOpacity,
-                transform: [{ translateY: titleSlide }],
-              },
-            ]}
-          >
-            {slide.title}
-          </Animated.Text>
+          {/* Title and Content */}
+          <VStack space="md" className="w-full items-center">
+            {/* Title */}
+            <Animated.View style={{ opacity: titleOpacity, transform: [{ translateY: titleSlide }] }}>
+              <Text
+                className="text-[27px] font-extrabold text-center tracking-tight"
+                style={{ fontFamily: fonts.regional_secondary, color: COLORS.title }}
+              >
+                {slide.title}
+              </Text>
+            </Animated.View>
 
-          {/* Subtitle */}
-          <Animated.Text
-            style={[
-              styles.subtitle,
-              {
-                opacity: subtitleOpacity,
-                transform: [{ translateY: subtitleSlide }],
-              },
-            ]}
-          >
-            {slide.subtitle}
-          </Animated.Text>
+            {/* Subtitle */}
+            <Animated.View style={{ opacity: subtitleOpacity, transform: [{ translateY: subtitleSlide }] }}>
+              <Text
+                className="text-[16px] font-bold text-center mb-3.5"
+                style={{ fontFamily: fonts.regional_secondary, color: COLORS.subtitle }}
+              >
+                {slide.subtitle}
+              </Text>
+            </Animated.View>
 
-          {/* Golden divider */}
-          <View style={styles.dividerContainer}>
-            <LinearGradient
-              colors={['transparent', '#D97706', '#FBBF24', '#D97706', 'transparent']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.divider}
-            />
-          </View>
+            {/* Golden divider */}
+            <Box className="w-[60%] items-center mb-3.5">
+              <LinearGradient
+                colors={['transparent', COLORS.divider, '#FBBF24', COLORS.divider, 'transparent']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                className="w-full h-[2.5px] rounded-sm"
+              />
+            </Box>
 
-          {/* Description */}
-          <Animated.Text
-            style={[
-              styles.description,
-              {
-                opacity: descOpacity,
-                transform: [{ translateY: descSlide }],
-              },
-            ]}
-          >
-            {slide.description}
-          </Animated.Text>
+            {/* Description */}
+            <Animated.View style={{ opacity: descOpacity, transform: [{ translateY: descSlide }] }}>
+              <Text
+                className="text-[14px] text-center leading-6"
+                style={{ fontFamily: fonts.regional_secondary, color: COLORS.description }}
+              >
+                {slide.description}
+              </Text>
+            </Animated.View>
+          </VStack>
         </ScrollView>
-      </View>
-    </View>
+      </Box>
+    </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 24,
-  },
-  // ─── Image ───
-  imageWrapper: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  imageContainer: {
-    width: width - 48,
-    height: height * 0.36,
-    borderRadius: 28,
-    overflow: 'hidden',
-    backgroundColor: 'rgba(255,255,255,0.3)',
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.6)',
-    shadowColor: COLORS.imageShadow,
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 12,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  imageGradient: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: '45%',
-  },
-  // ─── Text Card ───
-  textCard: {
-    backgroundColor: COLORS.cardBg,
-    borderRadius: 28,
-    borderWidth: 1,
-    borderColor: COLORS.cardBorder,
-    shadowColor: COLORS.imageShadow,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.12,
-    shadowRadius: 16,
-    elevation: 6,
-    width: '100%',
-    maxHeight: height * 0.42,
-    overflow: 'hidden',
-  },
-  textCardContent: {
-    paddingTop: 32,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
-    alignItems: 'center',
-    flexGrow: 1,
-  },
-  // ─── Icon Badge ───
-  iconBadge: {
-    marginBottom: 14,
-    shadowColor: '#D97706',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 6,
-  },
-  iconBadgeGradient: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.5)',
-  },
-  // ─── Typography ───
-  title: {
-    fontSize: 27,
-    fontWeight: '800',
-    color: COLORS.title,
-    textAlign: 'center',
-    marginBottom: 6,
-    fontFamily: fonts.regional_secondary,
-    letterSpacing: -0.3,
-  },
-  subtitle: {
-    fontSize: 19,
-    fontWeight: '700',
-    color: COLORS.subtitle,
-    textAlign: 'center',
-    marginBottom: 14,
-    fontFamily: fonts.regional_secondary,
-    letterSpacing: 0.2,
-  },
-  dividerContainer: {
-    width: '60%',
-    alignItems: 'center',
-    marginBottom: 14,
-  },
-  divider: {
-    width: '100%',
-    height: 2.5,
-    borderRadius: 2,
-  },
-  description: {
-    fontSize: 14,
-    color: COLORS.description,
-    textAlign: 'center',
-    lineHeight: 23,
-    fontFamily: fonts.regional_secondary,
-    letterSpacing: 0.1,
-  },
-});

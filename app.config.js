@@ -14,15 +14,7 @@ if (existsSync(envPath)) {
   console.warn(`⚠️  Env file not found: ${envFile}. Using defaults or process.env.`);
 }
 
-// ----- Google Services -----
-const GOOGLE_SERVICE_FILES = {
-  json: 'google-services.json',
-  plist: 'GoogleService-Info.plist',
-};
-
 const PATHS = {
-  googleServicesJson: `./${GOOGLE_SERVICE_FILES.json}`,
-  googleServicesPlist: `./${GOOGLE_SERVICE_FILES.plist}`,
   icon: `./assets/images/${APP_LANG}/icon.png`,
   adaptiveIcon: `./assets/images/${APP_LANG}/adaptive-icon.png`,
   splash: `./assets/images/${APP_LANG}/splash-icon.png`,
@@ -105,8 +97,6 @@ module.exports = function ({ config = {} }) {
 
   // Generate the active client assets BEFORE metro runs
   generateActiveClientAssets(APP_LANG);
-  const googleServicesJsonExists = existsSync(join(projectRoot, GOOGLE_SERVICE_FILES.json));
-  const googleServicesPlistExists = existsSync(join(projectRoot, GOOGLE_SERVICE_FILES.plist));
 
   const plugins = [
     'expo-router',
@@ -126,17 +116,6 @@ module.exports = function ({ config = {} }) {
     ],
   ];
 
-  if (googleServicesJsonExists || googleServicesPlistExists) {
-    const firebaseConfig = {};
-    if (googleServicesJsonExists) {
-      firebaseConfig.android = { googleServicesFile: PATHS.googleServicesJson };
-    }
-    if (googleServicesPlistExists) {
-      firebaseConfig.ios = { googleServicesFile: PATHS.googleServicesPlist };
-    }
-    plugins.push(['@react-native-firebase/app', firebaseConfig]);
-  }
-
   plugins.push('expo-secure-store');
 
   const androidConfig = {
@@ -147,20 +126,12 @@ module.exports = function ({ config = {} }) {
     },
     edgeToEdgeEnabled: true,
     permissions: [],
-    googleServicesFile: PATHS.googleServicesJson,
   };
 
   const iosConfig = {
     supportsTablet: true,
     bundleIdentifier: APP_INFO.bundleIdentifier,
   };
-
-  if (googleServicesJsonExists) {
-    androidConfig.googleServicesFile = PATHS.googleServicesJson;
-  }
-  if (googleServicesPlistExists) {
-    iosConfig.googleServicesFile = PATHS.googleServicesPlist;
-  }
 
   const easProjectId = process.env.EAS_PROJECT_ID;
 
@@ -173,9 +144,6 @@ module.exports = function ({ config = {} }) {
     [EXTRA_KEYS.rewardedAdUnitId]: AD_UNIT_IDS.rewarded,
     [EXTRA_KEYS.rewardedInterstitialAdUnitId]: AD_UNIT_IDS.rewardedInterstitial,
     [EXTRA_KEYS.appOpenAdUnitId]: AD_UNIT_IDS.appOpen,
-    // Supabase (read by services at runtime via Constants)
-    SUPABASE_URL: process.env.SUPABASE_URL || 'https://bxcjjqyalflohwjyxdze.supabase.co',
-    SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || '',
     // RevenueCat
     REVENUECAT_ANDROID_API_KEY: process.env.REVENUECAT_ANDROID_API_KEY || '',
     REVENUECAT_IOS_API_KEY: process.env.REVENUECAT_IOS_API_KEY || '',

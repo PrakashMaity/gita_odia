@@ -104,7 +104,7 @@ export const OnboardingScreen: React.FC = () => {
           data={slides}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item, index }) => (
-            <View style={{ width }}>
+            <View style={{ width, height: '100%' }}>
               <OnboardingSlide slide={item} slideIndex={index} />
             </View>
           )}
